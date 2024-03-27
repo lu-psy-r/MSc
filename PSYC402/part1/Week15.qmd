@@ -1,0 +1,329 @@
+---
+title: 5. Poisson regression
+subtitle: Written by Margriet Groen (partly adapted from Winter (2020)
+order: 6
+---
+
+Previously, we looked at logistic regression in the context of a binomial outcome variable, that is, a two-level variable such as correct vs. incorrect, or looking to the left vs. the right. Poisson regression is another type of generalized linear model that is particularly useful for count data.
+ 
+## Lectures
+The lecture material for this week follows the recommended chapters in Winter (2020) -- see under 'Reading' below -- and is presented below:
+
+**Poisson regression (~28 min)**
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61614&amp;code=e0~6vwx9wNCiyzNhykSayGUxAACLB7L9e&amp;cc=1" frameborder="0" allowfullscreen></iframe>
+```
+[Slides](data/week15/stats_poissonRegression_theory_dis_1pp.pdf)
+[Transcript](data/week15/statsPoissonRegressiontheory.txt)
+
+## Reading
+
+### Winter (2020)
+[**Link**](https://eu.alma.exlibrisgroup.com/leganto/public/44LAN_INST/citation/83408786230001221?auth=SAML)
+
+**Chapter 13** provides a clear introduction to Poisson regression and its implementation in R.
+
+## Pre-lab activities
+After having watched the lectures and read the textbook chapters you’ll be in a good position to try these activities. Completing them before you attend your lab session will help you to consolidate your learning and help move through the lab activities more smoothly.
+
+### Pre-lab activity 1: Getting a feel for Poisson data
+To get a feel for Poisson data, we'll use the `rpois()` function to generate random data that is Poisson-distributed. `rpois()` needs two bits of information: lambda, and how many numbers you want to generate.
+
+As usual, before we get stuck in we need to set up a few things. 
+
+> **TASK**: Add code to clear the environment. **HINT**: `rm(list=ls())`
+
+Next we need to tell R which libraries to use. For this pre-lab activity, we just need the `tidyverse` library.
+
+> **TASK**: Add code to load relevant libraries. **HINT**: `library()`
+
+Ok, now let's play around with different lambdas to get a feel for the Poisson distribution.
+
+> **TASK**: Copy the code below to your script and run it. Then change the value of `lambda` in the `rpois()` function and see how the distribution changes.
+
+```{r eval=FALSE}
+lambda2 <- rpois(n = 1000, lambda = 2)
+
+lambda2 <- as.data.frame(lambda2)
+
+ggplot(data = lambda2, mapping = aes(x = lambda2)) +
+  geom_bar()
+```
+
+**QUESTION**: What do you notice about the Poisson distribution if you choose a high value for lambda?
+
+### Pre-lab activity 2: Getting ready
+#### Get your files ready
+Download the [402_week15_forStudents.zip](data/week15/402_week15_forStudents.zip) file and upload it into a new folder in RStudio Server.
+
+#### Remind yourself of how to access and work with the RStudio Server.
+
+* Sign in to the [**RStudio Server**](http://psy-rstudio.lancaster.ac.uk/). Note that when you are not on campus you need to log into the VPN first (look on [**the portal**](https://portal.lancaster.ac.uk/ask/vpn/) if you need more information about that).
+* Create a new folder for this week's work. 
+* Upload the zip-file to the folder you have created on the RStudio server. Note you can either upload a single file or a zip-file.
+
+::: {.callout-important}
+## If you have difficulty uploading files to the server
+If you get error messages when attempting to upload a file or a folder with files to the server, you can try the following steps:
+
+* Close the R Studio server, close your browser and start afresh.
+* Open the R Studio server in a **different** browser.
+* Follow a work around where you use code to directly download the file to the server. The code to do that will be available at the start of the lab activity where you need that particular file. The code to download the file you need to complete the quiz is below.
+:::
+
+## Lab activities
+In this lab, you’ll gain understanding of and practice with:
+
+* when and why to apply Poisson regression to answer questions in psychological science
+* conducting Poisson regression in R 
+* interpreting the R output of Poisson regression 
+* reporting results for Poisson regression following APA guidelines
+
+### Lab activity 1: Visual dominance
+
+[**Winter et al. (2018)**](https://www.sciencedirect.com/science/article/abs/pii/S0010027718301288) showed that, on average, English words that were rated as strongly associated with the visual modality are more frequent than words more strongly associated with other sensory modalities. In this week's lab activity we will retrace that analysis focusing on the subset of adjectives (the paper also included verbs and nouns). We'll use sensory modality ratings as reported by Lynott and Connell (2009; see [**here**](https://link.springer.com/article/10.3758/BRM.41.2.558) for more info; data file: `lynott_connell_2009_modality.csv`) and word frequencies as reported by the English Lexicon Project (data file: `ELP_full_length_frequency.csv`). The **research question** is: Do English speakers use 'visual' adjectives more frequently than adjectives more strongly associated with other sensory modalities?
+
+#### Step 1: Set up
+
+::: {.callout-warning}
+## Set your working directory
+The folder you were asked to download under 'Pre-lab activity 2: Getting ready for the lab class' contains the data files we'll need. Make sure you have set your working directory to this folder by right-clicking on it and selecting 'Set as working directory'.
+:::
+
+::: {.callout-warning}
+## Empty the R environment
+
+Before you do anything else, when starting a new analysis, it is a good idea to empty the R environment. This prevents objects and variables from previous analyses interfering with the current one. To do this, you can click on the little broom icon in the top right of the Environment pane, or you can use `rm(list=ls())`.
+:::
+
+Before we can get started we need to tell R which libraries to use. For this analysis we'll need `broom`, `tidyverse`, `MASS` and `pscl`.
+
+> **TASK**: Load the relevant libraries. If you are unsure how to do that, you can look at the 'Hint' below for a clue by expanding it. After that, if you are still unsure, you can view the code by expanding the 'Code' section below.
+
+::: {.callout-tip collapse="true"}
+
+## Hint
+Use the `library()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+The code to do this is below.
+```
+library(tidyverse)
+library(broom)
+library(MASS)
+library(pscl)
+```
+:::
+
+::: {.callout-important}
+## If you couldn't upload files to the server, do this:
+If you experienced difficulties with uploading a folder or a file to the server, you can use the code below to directly download the file you need in this lab activity to the server (instead of first downloading it to you computer and then uploading it to the server). Remember that you can copy the code to your clipboard by clicking on the 'clipboard' in the top right corner.
+:::
+
+```{r eval=FALSE}
+download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week15/402_week15_forStudents/ELP_full_length_frequency.csv?raw=true", destfile = "ELP_full_length_frequency.csv")
+```
+
+
+```{r eval=FALSE}
+download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week15/402_week15_forStudents/lynott_connell_2009_modality.csv?raw=true", destfile = "lynott_connell_2009_modality.csv")
+```
+
+> **TASK**: Finally, read in the two data files (`lynott_connell_2009_modality.csv` and `ELP_full_length_frequency.csv`) and have a look at them.
+
+::: {.callout-tip collapse="true"}
+## Hint
+Use the `read_csv()` function and the `head()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+The code to do this is below.
+```
+lyn <- read_csv('lynott_connell_2009_modality.csv')
+ELP <- read_csv('ELP_full_length_frequency.csv')
+head(lyn)
+head(ELP)
+```
+:::
+
+**QUESTION 1**: Which variables do you need to address the research question?
+
+#### Step 2: A bit of data wrangling
+
+We need to combine the information in the data files to be able to do any analyses. We can use a 'join' to do this. Have a look at the online book by Hadley Wickam and Gareth Grolemund ([**here**](https://r4ds.hadley.nz/joins.html)) to remind yourself what a 'join' is. In particular, have a look at the `inner_join()` and the `left_join()`.
+
+**QUESTION 2**: Which 'join' is most appropriate, the `inner_join()` or the `left_join()`? Also, does it matter which data file you specify as x and which one as y? If so, why does it matter?
+
+> **TASK**: Add code to join the two data files and store the resulting table in an object called `both`. Try out the different joins and use `head()` to inspect the result.
+
+::: {.callout-tip collapse="true"}
+## Hint
+You should end up with a table that has 423 observations of at least 8 variables.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+```
+both <- left_join(x = lyn, y = ELP, by = 'Word')
+```
+:::
+
+Next, we want to select only the variables we need. We want to use the `select()` function from `dplyr`. Because the MASS library is also loaded and that library also contains a `select()` function, we need to tell R specifically to use the one from `dplyr`. You can do this by using `dplyr::`, like this:
+
+```{r eval=FALSE}
+both <- both %>%
+  dplyr::select(Word, DominantModality:Smell, Log10Freq)
+```
+
+> **TASK**: Add the code above to your script and run it.
+
+Finally, to apply Poisson regression, we need the frequency variable as positive integers. 
+
+> **TASK**: Use the code below to transform the frequency variable to raw values. Don't forget to add it to your script and run it.
+
+```{r eval=FALSE}
+both <- mutate(both, Freq = 10 ^ Log10Freq)
+```
+
+**QUESTION 3**: What does this line of code do. Write a comment to summarise its function.
+
+#### Step 3: Visualise the data
+To get a better feel for the data, let's make some scatterplots. 
+
+> **TASK**: Add code to make scatterplots with Freq on the y axis and each of the sensory modality ratings on the respective x axis. To be able to see more easily what is going on, limit the y-axis to values between 0 and 20000. 
+
+::: {.callout-tip collapse="true"}
+## Hint
+Make 5 different scatterplots using `ggplot()` with`geom_point()` and `geom_smooth()`. You can use `ylim()` to limit the values on the y-axis.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+```
+ggplot(both, aes(x = Sight, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  ylim(c(0, 20000))
+
+ggplot(both, aes(x = Touch, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw()  +
+  ylim(c(0, 20000))  
+
+ggplot(both, aes(x = Sound, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  ylim(c(0, 20000))
+
+ggplot(both, aes(x = Taste, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  ylim(c(0, 20000))
+
+ggplot(both, aes(x = Smell, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  ylim(c(0, 20000))
+```
+:::
+
+**QUESTION 4**: What do you conclude from the scatterplots?
+
+#### Step 4: The regression model
+We are going to fit a Poisson regression model with `Taste`, `Smell`, `Touch`, `Sight` and `Sound` as predictors (all of these are continuous rating scales).
+
+> **TASK**: Fit a Poisson regression model for 'Freq' as a function of 'Taste', 'Smell', 'Touch', 'Sight' and 'Sound'. 
+
+::: {.callout-tip collapse="true"}
+## Hint
+Use the `glm()` function with `family = poisson`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+```
+freqMod <- glm(Freq ~ Sight + Taste + Smell + Sound + Touch,
+               data = both,
+               family = poisson)
+
+summary(freqMod)
+```
+:::
+
+**QUESTION 5**: How do you interpret the output of the Poisson regression?
+
+#### Step 5: Overdispersion
+In the lecture we saw that it is possible that the variance is larger than theoretically expected for a given lambda. If this happens, we are dealing with what's called 'overdispersion'. You can compensate for this by using a variant of Poisson regression that is called 'negative binomial regression'. In negative binomial regression the variance is uncouples from the mean.
+
+> **TASK**: Fit a negative binomial regression model for 'Freq' as a function of 'Taste', 'Smell', 'Touch', 'Sight' and 'Sound'.
+
+::: {.callout-tip collapse="true"}
+## Hint
+Use the `glm.nb()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+```
+freqMod_nb <- glm.nb(Freq ~ Sight + Taste + Smell + Sound + Touch,
+	data = both)
+summary(freqMod_nb)
+```
+:::
+
+Next, check whether there is significant overdispersion by performing a likelihood ratio test, comparing the likelihood of the negative binomial model against the likelihood of the corresponding Poisson model.
+
+> **TASK**: Use the `odTest()` function to perform an 'overdispersion' test.
+
+::: {.callout-tip collapse="true"}
+## Hint
+Use the `odTest()` function and pass object that identifies your model as the argument.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+```
+odTest(freqMod_nb)
+```
+:::
+
+
+**QUESTION 6**: What do you conclude from the results of the overdispersion test?
+
+**QUESTION 7**: How do you interpret the negative binomial regression output? Do English speakers use visual adjectives more frequently? What about smell adjectives in comparison?
+
+## Answers
+
+When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. **Remember**, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. **Actively engaging** with the material is the way to learn these analysis skills, not by looking at someone else's completed code...
+
+The answers to the questions and the script containing the code will be available after the lab session has taken place.
+
+<!-- You can download the R-script that includes the relevant code here: [402_wk15_labAct1_withAnswers.R](data/week15/402_wk15_labAct1_withAnswers.R). -->
+
+<!-- 1. Which variables do you need to address the research question? **Our dependent variable is word frequency, so we need a variable that tells us how frequent words are. This information is contained in the English Lexicon Project data file, variable Log10Freq. The sensory modality ratings as reported in the in the data file supplied by Lynott and Connell (2009) are our predictors. That means we need the variables 'Sight', 'Touch', 'Sound', 'Taste', and 'Smell'. You also need a variable that is common across the two files to help with merging them together (i.e., `by  =` ), this would be 'Word'.** -->
+
+<!-- 2. Which 'join' is most appropriate, the `inner_join()` or the `left_join()`? Also, does it matter which datafile you specify as x and which one as y? If so, why does it matter? **A `left_join()` keeps all observations in table x, adding the information from table y for those observations. That means that it does matter which table you specify as x and which one as y. ELP contains word frequencies for many more words than we have sensory modality ratings for (in lyn). When specifying ELP as x, you keep 33075 rows, adding a lot of NAs for words we do not have sensory modality ratings for. Therefore it makes more sense to specify lyn as x, and add the word frequency information for the words we have sensory modality ratings for. An `inner_join()` matches pairs of observations whenever their keys are equal, and unmatched rows are not included in the result. This means that generally inner joins are not appropriate because it is too easy to lose observations.** -->
+
+<!-- 3. What does this line of code do. Write a comment to summarise its function. -->
+
+<!-- ```{r eval=FALSE} -->
+<!-- both <- mutate(both, Freq = 10 ^ Log10Freq) -->
+<!-- ``` -->
+
+<!-- **Use the `mutate()` function to add a variable `Freq` to the table `both`. `Freq` is derived from the variable `Log10Freq` by taking it to the power of 10. We do this because that reverses the log transformation and will therefore give us the raw values, all positive integers that we need for Poisson regression.** -->
+
+<!-- 4. What do you conclude from the scatterplots? ***Sight*: moderate positive association - the visual rating is higher for more frequent words. *Smell*: weak negative association - when word frequency goes up, the smell rating goes down. There are a* lot of low smell ratings for adjectives (lots of dots clode to 0). *Sound*: weak positive association - when word frequency goes up, so does the sound rating. *Touch*: weak positive association - when word frequency goes up, so does the touch rating. *Taste*: no assocation - line is pretty much horizontal; similar to smell, there are a lot of low taste ratings (cluster of rating scores around 0).** -->
+
+<!-- 5. How do you interpret the output of the Poisson regression? **Estimate for Sight is indeed positive and largest (compared to the other predictors), while the estimate for Smell is negative and the estimate for Taste is very close to 0. All predictors are significant.** -->
+
+<!-- 6. What do you conclude from the results of the overdispersion test? **The result of the overdispersion test is significant (*p* < 2.2e-16), indicating that there is significant overdispersion. The negative binomial regression model is therefore more appropriate.** -->
+
+<!-- 7. How do you interpret the negative binomial regression output? Do English speakers use visual adjectives more frequently? What about smell adjectives in comparison? **The estimates for all predictors have now changed and not all of them are now significant. Also note that the standard errors of the estimates have increased substantially. Sight still shows a significant positive relationship with word frequency and has by far the largest estimate suggesting it contributes most. So, yes, English speakers use visual adjectives more frequently. For smell adjectives the estimate is negative and significant, suggesting that for more frequent words, the Smell ratings are smaller.** -->

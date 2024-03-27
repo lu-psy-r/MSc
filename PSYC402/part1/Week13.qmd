@@ -1,0 +1,523 @@
+---
+title: 3. More on interactions
+subtitle: Written by Margriet Groen (partly adapted from materials developed by the PsyTeachR team at the University of Glasgow)
+order: 4
+---
+
+Interactions are ubiquitous in psychological science, which is why we’ll spend some more time building models that include interaction terms. Last week we modelled well-being as a function of screen-time (a continuous predictor) and biological sex (a categorical predictor) and their interaction. This week we’ll look at interactions between continuous predictors. 
+
+## Lectures {#sec-wk13-lectures}
+The lecture material for this week follows the recommended chapters in Winter (2020) -- see under 'Reading' below -- and is presented below:
+
+**More on interactions (~18 min)**
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61170&amp;code=dR~mnPDLkRNfdH4fNKFVFq3Riz7BAozKp&amp;cc=1" frameborder="0" allowfullscreen></iframe>
+```
+[Slides](data/week13/stats_interactions2_theory_dis_1pp.pdf)
+[Transcript](data/week13/statsinteractions2theory.txt)
+
+If you need to remind yourself about the why's and how's of *centering* and *standardising*, please revisit this video. We'll be using this in the lab activity.
+
+**Centering and standardising (~5 min)**
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=60912&amp;code=dI~CfhyvNW0bIOcdZjcPG96jHxIrFFtuA&amp;cc=1" frameborder="0" allowfullscreen></iframe>
+```
+[Slides](data/week13/stats_centeringAndStandardizing_theory_1pp.pdf)
+[Transcript](data/week13/statscenteringAndStandardizingtheory.txt)
+
+## Reading {#sec-wk13-reading}
+
+### Winter (2020)
+[**Link**](https://eu.alma.exlibrisgroup.com/leganto/public/44LAN_INST/citation/83408786230001221?auth=SAML)
+
+**Chapter 8** explains what interactions are and how to model and interpret them.
+
+## Pre-lab activities {#sec-wk13-pre-lab-activities}
+After having watched the lectures and read the textbook chapters you’ll be in a good position to try these activities. Completing them before you attend your lab session will help you to consolidate your learning and help move through the lab activities more smoothly.
+
+### Pre-lab activity 1: Cheatsheets
+
+Last week, we had a look at some of the 'recipes' that Posit (the company behind RStudio) provides. If you need a reminder, an overview of all their 'recipes' can be found [**here**](https://posit.cloud/learn/recipes).
+
+Another great resource they provide are the 'cheatsheets': one-page overviews of the most important functions in a particular R package/library. There are many and some have been translated into differnt languages. You can access them online, or print them as a pdf to have on hand.
+
+> **TASK** Explore the cheatsheets linked to below. The ones for `RStudio IDE`, `dplyr`, and `ggplot2` are most relevant to the work we've been doing.
+
+* [**Overview of all cheatsheets**](https://posit.co/resources/cheatsheets/)
+* [**Cheatsheet for RStudio IDE**](https://rstudio.github.io/cheatsheets/html/rstudio-ide.html?_gl=1*clcfrv*_ga*MjEyNjQ2Nzk4MC4xNzA1NTg2MzI1*_ga_2C0WZ1JHG0*MTcwNjEyNjcxOS44LjEuMTcwNjEyNzI5OS4wLjAuMA..)
+* [**Cheatsheet for `dplyr`**](https://rstudio.github.io/cheatsheets/html/data-transformation.html?_gl=1*py61n2*_ga*MjEyNjQ2Nzk4MC4xNzA1NTg2MzI1*_ga_2C0WZ1JHG0*MTcwNjEyNjcxOS44LjEuMTcwNjEyNzI5OS4wLjAuMA..)
+* [**Cheatsheet for `ggplot2`**](https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*8x83jk*_ga*MjEyNjQ2Nzk4MC4xNzA1NTg2MzI1*_ga_2C0WZ1JHG0*MTcwNjEyNjcxOS44LjEuMTcwNjEyNzUwMS4wLjAuMA..)
+
+### Pre-lab activity 2: Getting ready for the lab class
+
+#### Get your files ready
+Download the [402_week13_forStudents.zip](data/week13/402_week13_forStudents.zip) file and upload it into a new folder in RStudio Server. 
+
+#### Remind yourself of how to access and work with the RStudio Server.
+
+* Sign in to the [**RStudio Server**](http://psy-rstudio.lancaster.ac.uk/). Note that when you are not on campus you need to log into the VPN first (look on [**the portal**](https://portal.lancaster.ac.uk/ask/vpn/) if you need more information about that).
+* Create a new folder for this week's work. 
+* Upload the zip-file to the folder you have created on the RStudio server. Note you can either upload a single file or a zip-file.
+
+::: {.callout-important}
+## If you have difficulty uploading files to the server
+If you get error messages when attempting to upload a file or a folder with files to the server, you can try the following steps:
+
+* Close the R Studio server, close your browser and start afresh.
+* Open the R Studio server in a **different** browser.
+* Follow a work around where you use code to directly download the file to the server. The code to do that will be available at the start of the lab activity where you need that particular file. The code to download the file you need to complete the quiz is below.
+:::
+
+## Lab activities {#sec-wk13-lab-activities}
+In this lab, you’ll gain understanding of and practice with:
+
+* when and why to apply multiple regression to answer questions in psychological science
+* conducting multiple regression in R including interaction between continuous predictors
+* interpreting the R output of multiple linear regression (when including an interaction between continuous predictors)
+* reporting results for multiple linear regression (when including an interaction between continuous predictors), following APA guidelines
+
+#### Background
+Today, we’ll be working with a dataset from the following paper:
+Hamermesh, D. S. and Parker, A. (2005). Beauty in the classroom: instructors’ pulchritude and putative pedagogical productivity. *Economics of Education Review, 24(4)*, 369 – 376.
+
+The abstract of their paper is below or see [**here**](https://www.sciencedirect.com/science/article/abs/pii/S0272775704001165?casa_token=DhfsUB6qNPYAAAAA:xXIG-UAD8vNlZCAzLCJLTFPuO8Zs_gNvOjSsxdHFC-R09q0CYzVogwovSVd8VeSG8XXXxOeV) for the paper itself.
+
+Abstract:
+Adjusted for many other determinants, beauty affects earnings; but does it lead directly to the differences in productivity that we believe generate earnings differences? We take a large sample of student instructional ratings for a group of university teachers and acquire six independent measures of their beauty, and a number of other descriptors of them and their classes. Instructors who are viewed as better looking receive higher instructional ratings, with the impact of a move from the 10th to the 90th percentile of beauty being substantial. This impact exists within university departments and even within particular courses, and is larger for male than for female instructors. Disentangling whether this outcome represents productivity or discrimination is, as with the issue generally, probably impossible. 
+
+Our **research question**: Do professors' beauty score and age predict how students evaluate their teaching?
+
+To complete this lab activity, you can use the R-script (`402_wk13_labAct1_template.R`) that you downloaded as part of the 'Pre-lab activities' as a template. Work through the activity below, adding relevant bits of code to your script as you go along.
+
+#### Step 1: Set up
+
+::: {.callout-warning} 
+## Set your working directory
+The folder you were asked to download under 'Pre-lab activity 3: Getting ready for the lab class' contains the data files we'll need. Make sure you have set your working directory to this folder by right-clicking on it and selecting 'Set as working directory'.
+:::
+
+::: {.callout-warning}
+## Empty the R environment
+
+Before you do anything else, when starting a new analysis, it is a good idea to empty the R environment. This prevents objects and variables from previous analyses interfering with the current one. To do this, you can click on the little broom icon in the top right of the Environment pane, or you can use `rm(list=ls())`.
+:::
+
+Before we can get started we need to tell R which libraries to use. For this analysis we'll need `broom`, `car`, `lsr` and `tidyverse`.
+
+> **TASK**: Load the relevant libraries. If you are unsure how to do that, you can look at the 'Hint' below for a clue by expanding it. After that, if you are still unsure, you can view the code by expanding the 'Code' section below. 
+
+::: {.callout-tip collapse="true"}
+
+## Hint
+Use the `library()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+The code to do this is below. 
+```
+library(broom)
+library(car)
+library(lsr)
+library(tidyverse)
+```
+:::
+
+::: {.callout-important}
+## If you couldn't upload files to the server, do this:
+If you experienced difficulties with uploading a folder or a file to the server, you can use the code below to directly download the file you need in this lab activity to the server (instead of first downloading it to you computer and then uploading it to the server). Remember that you can copy the code to your clipboard by clicking on the 'clipboard' in the top right corner.
+:::
+
+```{r eval=FALSE}
+download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week13/beauty.csv?raw=true", destfile = "beauty.csv")
+```
+
+> **TASK**: Finally, read in the data file (`beauty.csv`), and familiarise yourself with its structure.
+
+::: {.callout-tip collapse="true"}
+## Hint
+Use the `read_csv()` function and the `head()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+The code to do this is below. 
+```
+beauty <- read_csv("beauty.csv")    
+head(beauty)
+```
+:::
+
+**QUESTION 1**: Do you notice anything about the name of one of the variables and the name of the data table?
+
+The table contains, amongst other things, the following characteristics of the professors
+
+* 'beauty' - beauty score per professor
+* 'eval' - teaching evaluation score per professor
+* 'age' - age of the professor
+
+**QUESTION 2**: Go back to the research question (see under 'Background' above), which of these three variables is the outcome variable? Which ones are the predictors?
+
+#### Step 2: Descriptive statistics and distributions
+
+> **TASK**: Calculate some descriptive statistics for the variables of interest (eval, beauty and age).
+
+:::{.callout-tip collapse="true"}
+## Hint
+You can use `summarise()` to calculate the mean, sd, min and max values.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+descriptives <- beauty %>% 
+  summarise(mean_age = mean(age, na.rm = TRUE),
+            sd_age = sd(age, na.rm = TRUE),
+            min_age = min(age, na.rm = TRUE),
+            max_age = max(age, na.rm = TRUE),
+            mean_eval = mean(eval, na.rm = TRUE),
+            sd_eval = sd(eval, na.rm = TRUE),
+            min_eval = min(eval, na.rm = TRUE),
+            max_eval = max(eval, na.rm = TRUE),
+            mean_beauty = mean(beauty, na.rm = TRUE),
+            sd_beauty = sd(beauty, na.rm = TRUE),
+            min_beauty = min(beauty, na.rm = TRUE),
+            max_beauty = max(beauty, na.rm = TRUE))
+```
+:::
+
+Now that we have the descriptive statistics, let's get further information about the distribution of the variables by plotting histograms.
+
+> **TASK**: Visualise the distributions of the variables of interest in histograms.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use `ggplot()` and `geom_historgram()`
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ggplot(data = beauty, aes(beauty)) +
+  geom_histogram()
+
+ggplot(data = beauty, aes(eval)) +
+  geom_histogram()
+
+ggplot(data = beauty, aes(age)) +
+  geom_histogram()
+```
+:::
+
+#### Step 3: Center and standardise
+
+As mentioned before, it will make it easier to interpret regression models with multiple predictors if we center and standardise our predictors. Before we go any further, we'll do that.
+
+> **TASK**: Center and standardise the predictor variables.
+
+:::{.callout-tip collapse="true"}
+## Hint
+*Centering* involves subtracting the mean; *standardising* involves dividing by the standard deviation.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+beauty_z <- beauty %>%
+  mutate(age_z = (age - mean(age, na.rm = TRUE)) / sd(age),
+         beauty_z = (beauty - mean(beauty, na.rm = TRUE)) / sd(beauty))
+```
+:::
+
+#### Step 4: Scatterplots
+Now let's have a look at the relationships between variables using scatterplots. To remind yourself of what centering and standardising does, do this for both the raw data and the centered and standardised data.
+
+> **TASK**: Visualise the relationships between the variables of interest in scatterplots.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Create six different scatterplots using `ggplot()` with `geom_point()` and `geom_smooth()`.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ggplot(beauty, aes(x = beauty, y = age)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw()
+
+ggplot(beauty, aes(x = beauty, y = eval)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw()
+
+ggplot(beauty, aes(x = age, y = eval)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw()
+
+ggplot(beauty_z, aes(x = beauty_z, y = age_z)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw()
+
+ggplot(beauty_z, aes(x = beauty_z, y = eval)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw()
+
+ggplot(beauty_z, aes(x = age_z, y = eval)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw()
+```
+:::
+
+**QUESTION 3**: Can you write an interpretation of the above plots in plain English?
+
+**QUESTION 4**: What is the difference between the scatterplots plotting the raw data and the ones plotting the centered and standardised data?
+
+It is useful to have a quick look at the bivariate correlations between the variables of interest, before you run a regression model. We can easily generate a correlation matrix for these variables.
+
+> **TASK**: Add the code below to your script and check you understand what each line does.
+
+```{r eval=FALSE}
+beauty_matrix <- beauty_z %>%
+  select(eval, age_z, beauty_z) %>% # only keep relevant variables
+  as.data.frame() # tell R it is a specific type of data frame (needed for the correlate() function)
+
+pairs(beauty_matrix) # make multiple scatterplots in one go
+
+intercor_results <- correlate(x = beauty_matrix, # our data
+                              test = TRUE, # compute p-values
+                              corr.method = "pearson", # run a spearman test 
+                              p.adjust.method = "bonferroni") # use the bonferroni correction
+intercor_results
+```
+
+After you've run this code, look at the output in the console. It creates three tables, one with correlation coefficients, one with p-values for these coefficients and one with sample sizes.
+
+#### Step 5: The regression model
+
+We've looked at descriptive statistics and distributions of variables and also at relations between variables. This has given us a good idea of what the data look like. Now we'll construct the regression model to predict 'evaluation score' as a function of 'age' and 'beauty score'. We'll do this in two stages. First we'll construct a model without an interaction term. Then we'll construct a model that includes an interaction term betweeen the two predictor variables. Don't forget to use the standardised data for all this. 
+
+> **TASK**: Construct a regression model without an interaction term.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use the following formula, `lm(y ~ x1 + x2, data)`; go back to the research question for your outcome and predictor variables.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+mod <- lm(eval ~ age_z + beauty_z, data = beauty_z)
+```
+:::
+
+> **TASK**: Call and save the summary of your model; then have a look at it.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use the `summary()` function.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+mod_int_summary <- summary(mod_int)
+mod_int_summary
+```
+:::
+
+**QUESTION 5**: Is the overall model significant?
+
+**QUESTION 6**: Are the predictors significant? What does this mean?
+
+> **TASK**: Now create a model that includes an interaction term for the two predictors. Again, use the centered and standardised data.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use the following formula, lm(y ~ x1 + x2 + x1:x2, data); go back to the research question for your outcome and predictor variables.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+mod_int <- lm(eval ~ age_z + beauty_z + age_z:beauty_z, data = beauty_z)
+mod_int_summary <- summary(mod_int)
+mod_int_summary
+```
+:::
+
+**QUESTION 7**: Is the overall model significant?
+
+**QUESTION 8**: Have a good look at the coefficients. Can you interpret each one of them in turn and then formulate an overall interpretation?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Remember that after centering and standardising, the meaning of 0 has changed for both predictor variables.
+:::
+
+Interpretation of coefficients in a multiple regression can be facilitated by 'added variable' plots.
+
+> **TASK**: Use the function `avPlots()` to create 'added variable' plots.
+
+Creating a scatterplot with our outcome variable on the y-axis and the significant predictor on the x-axis and then plotting our third variable (age) using different colours gives some information. Do you see how high age scores (light blue + 2 SD) seem to be more frequent in the bottom left corner?
+
+> **TASK**: Use the code below to create the plot.
+
+```{r eval=FALSE}
+ggplot(data = beauty_z, aes(x = beauty_z, y = eval, colour = age_z)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE, colour = 'black') +
+  theme_bw() +
+  labs(x = "Beauty score", y = "Teaching evaluation score")
+```
+
+But it might be more useful to plot different regression lines for different values of age. We can do this be transforming age into a categorical variable for plotting purposes. We want to create three categories, based on eye-balling the histogram for age:
+
+* youngest (40 and younger)
+* average (between 41 and 53)
+* oldest (54 and older).
+
+We can do this by using the `mutate()` function, in combination with the `cut()` function. There is a 'recipe' for this on the Posit website:
+
+* `cut()` - group continuous variable into categories - [**recipe**](https://posit.cloud/learn/recipes/transform/TransformM)
+
+> **TASK**: Read through the recipe mentioned above. Working through the example will be particularly helpful. Write the code to create the categories mentioned above.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Fill in the relevant bits in the code template below:
+```
+  mutate(NEW VARIABLE = cut(
+    CONTINUOUS VARIABLE,
+    breaks = c(DEFINE BREAK POINTS),
+    labels = c(ADD LABELS FOR BREAK POINTS)
+    )
+  )
+```
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+beauty_z_ageCat <- beauty_z %>%
+  mutate(ageCat = cut(
+    age,
+    breaks = c(0, 40, 54, Inf),
+    labels = c("youngest","average","oldest")
+    )
+  )
+```
+:::
+
+Now let's create a single plot with three different lines, one for each of the age groups created above.
+
+> **TASK**: Copy the code below to your script and make sure you understand what it does.
+
+```{r eval=FALSE}
+ggplot(data = beauty_z_ageCat, aes(x = beauty_z, y = eval, colour = ageCat)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  labs(x = "Beauty score", y = "Teaching evaluation score")
+```
+
+The line for the oldest participants seems much steeper than for the other two groups, suggesting that the interaction between age and beauty is mostly driven by older participants who have received more extreme beauty scores. 
+
+#### Step 6: Checking assumptions
+Now that we've fitted a model, let's check whether it meets the assumptions of linearity, normality and homoscedasticity. 
+
+**Linearity**
+Unlike when we did simple regression we can’t use `crPlots()` to test for linearity when there is an interaction, but we know from looking at the grouped scatterplot that this assumption has been met.
+
+**Normality**
+Normally we would test for normality with a qq-plot and a Shapiro-Wilk test. However, because this dataset is so large, the Shapiro-Wilk is not appropriate (if you try to run the test it will produce a warning telling you that the sample size must be between 3 and 5000). This is because with extremely large sample sizes the Shapiro-Wilk test will find that any deviation from normality is significant. Therefore we should judge normality based upon the qq-plot.
+
+> **TASK**: Create a qq-plot to check the residuals are normally distributed.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use the `qqPlot()` function; mind the capital P.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+qqPlot(mod_int$residuals)
+```
+:::
+
+**QUESTION 9**: What do you conclude from the qq-plot?
+
+**Homoscedasticity**
+Here we have the same problem as with testing for normality: with such a large sample the `ncvTest()` will produce a significant result for any deviation from homoscedasticity. So we need to rely on plots again.
+
+To check for homoscedasticity we can use `plot()` from Base R that will produce a bunch of helpful plots (more information [**here**] (https://www.r-bloggers.com/2016/01/how-to-detect-heteroscedasticity-and-rectify-it/).
+
+> **TASK**: Copy the code below to your script and run it to create the plots
+
+```{r eval=FALSE}
+par(mfrow=c(2,2))                 # 4 charts in 1 panel
+plot(mod_int)                     # this may take a few seconds to run
+```
+
+**QUESTION 10**: What do you conclude from the residuals vs leverage plot?
+
+**Multi-collinearity**
+Now let's check for multi-collinearity using the `vif()` function. Essentially, this function estimates how much the variance of a coefficient is “inflated” because of linear dependence with other predictors, i.e., that a predictor isn’t actually adding any unique variance to the model, it’s just really strongly related to other predictors. Thankfully, the `vif()` function is not affected by large samples like the other tests. There are various rules of thumb, but most converge on a VIF of above 2 - 2.5 for any one predictor being problematic.
+
+> **TASK**: Use the `vif()` function to test for multi-collinearity.
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+vif(mod_int)   
+```
+:::
+
+**QUESTION 11**: Do any of the predictors show evidence of multi-collinearity?
+
+Finally, we need to write up the results.
+
+**QUESTION 12**: Can you write up the results of the regression analysis following APA guidelines?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Don't forget to mention and interpret the interaction effect.
+:::
+
+## Answers {#sec-wk13-answers}
+
+When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. **Remember**, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. **Actively engaging** with the material is the way to learn these analysis skills, not by looking at someone else's completed code...
+
+<!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
+
+You can download the R-script that includes the relevant code here: [402_wk13_labAct1_withAnswers.R](data/week13/402_wk13_labAct1_withAnswers.R).
+
+1. Do you notice anything about the name of one of the variables and the name of the data table? **Both the data table and one of the variables are called 'beauty'. Not a problem, as such as long as you don't get confused.**
+
+2. Go back to the research question (see under 'Background' above), which of these three variables is the outcome variable? Which ones are the predictors? **The research question is 'Do professors' beauty score and age predict how students evaluate their teaching?' From this we can deduct that the outcome variable is teaching evaluation score and that the predictors are age and beauty score.**
+
+3. Can you write an interpretation of the above plots in plain English? **A moderate negative association seems present between beauty score and age: with increasing age, beauty score decreases. A moderate positive association seems present between beauty score and teaching evaluation: professors with higher beauty scores also receive higher teaching evaluations. Not much of a association seems present between age and teaching evaluation (the line is pretty horizontal).**
+
+4. What is the difference between the scatterplots plotting the raw data and the ones plotting the centered and standardised data? **The units of the x-axis have changed from years (for age) and scores (for beauty) to standard units, with zero in the middle.**
+
+5. Is the overall model significant? **Yes, *F*(2, 460) = 8.53, *p* = .0002**
+
+6. Are the predictors significant? What does this mean? **The beauty score significantly predicts teaching evaluation score, but age does not. Professors with higher beauty scores, received better teaching evaluations.**
+
+7. Is the overall model significant? **Yes, *F*(3, 459) = 9.32, *p* = 5.451e-06**
+
+8. Have a good look at the coefficients. Can you interpret each one of them in turn and then formulate an overall interpretation? **HINT**: Remember that after centering and standardising, the meaning of 0 has changed for both predictor variables. **The intercept is predicted teaching evaluation score for a professor with average age and average beauty score. The slope of 'age' is positive; this means that for higher age, teaching evaluation scores were better. However the coefficient is not significant, therefore has little predictive power.The slope of 'beauty' is positive; this means that with higher beauty score, professors receive higher teaching evaluations. This predictor is significant. The slope for the interaction is also positive. This can be read as follows: When age and beauty both increase, teaching evaluation score also increases. The interaction is significant.**
+
+9. What do you conclude from the qq-plot? **The residuals are mostly normally distributed. At the top right (quantile + 3), there are some values that don't quite look normally distributed, this is probably due to fewer data points being available in the highest age bracket. Have a look at a histogram for age. There are a few individuals well above the retirement age, but clearly a lot fewer than in younger age brackets. This basically means that the model does not do a particularly good job for predicting evaluation score at high values of age. As retirement age is quite a natural point to limit the data, you could run the model again, only including people below retirement age, this should give you better behaving residuals. Ideally, you'd pre-register a decision such as this. If you didn't do this prior to data collection, you could still limit the age range included in the final model, but you would need to be transparent in your reporting.**
+
+10. What do you conclude from the residuals vs leverage plot? **The residuals vs leverage plot shows a flat red line so, whilst it isn’t perfect, we can assume that with regression is still an appropriate analysis.**
+
+11. Do any of the predictors show evidence of multi-collinearity? **No**
+
+12. Can you write up the results of the regression analysis following APA guidelines? **The results of the regression indicated that the model significantly predicted teaching evaluation scores (*F*(3, 459) = 9.316, *p* < .001, adjusted *R^2* = 0.05), accounting for 5% of the variance. A professor's beauty score was a significant positive predictor of teaching evaluation score ($\beta$ = 0.12, *p* < .001). This effect was moderated by a significant positive interaction between beauty score and age ($\beta$ = 0.08, *p* < .001), suggesting that when age and beauty score both increased, teaching evaluation score also increased.**

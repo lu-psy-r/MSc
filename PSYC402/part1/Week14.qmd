@@ -1,0 +1,285 @@
+---
+title: 4. Logistic regression
+subtitle: Written by Margriet Groen (partly adapted from materials developed by the PsyTeachR team at the University of Glasgow)
+order: 5
+---
+
+All of the models considered up to this point dealt with continuous response variables. Previously we looked at categorical predictors, but what if the response itself is categorical? For instance, whether the participant has made an accurate or inaccurate selection or whether a job candidate gets hired or not. Another common type of data is count data, where values are also discrete. Often with count data, the number of opportunities for something to occur is not well-defined. For instance, the number of speech error in a corpus, the number of turn shifts between speakers in a conversation or the number of visits to the doctor. Logistic regression allows us to model a categorical response variable.  
+
+## Lectures {#sec-wk14-lectures}
+The lecture material for this week follows the recommended chapters in Winter (2020) -- see under 'Reading' below -- and is presented below:
+
+**Logistic regression (~38 min)** 
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61351&amp;code=dY~VkSwFvqTnJNkn0kHODUR8p6LrBWPF6&amp;cc=1" frameborder="0" allowfullscreen></iframe>
+```
+[Slides](data/week14/stats_logisticRegression_theory_dis_1pp.pdf)
+[Transcript](data/week14/statslogisticRegressiontheory.txt)
+
+## Reading {#sec-wk14-reading}
+
+### Barr (2020)
+[**Link**](https://psyteachr.github.io/stat-models-v1/generalized-linear-mixed-effects-models.html)
+
+This online textbook provides a useful overview of logistic regression. It does talk about modelling multi-level data and random effects. Don't worry about that for now, those will be covered in the second half of 402. This week we'll focus on 'single-level' data.
+
+### Winter (2020)
+[**Link**](https://eu.alma.exlibrisgroup.com/leganto/public/44LAN_INST/citation/83408786230001221?auth=SAML)
+
+**Chapter 12** provides a comprehensive introduction to logistic regression and its implementation in R.
+
+## Pre-lab activities {#sec-wk14-pre-lab-activities}
+After having watched the lectures and read the textbook chapters you’ll be in a good position to try these activities. Completing them before you attend your lab session will help you to consolidate your learning and help move through the lab activities more smoothly.
+
+### Pre-lab activity 1: Getting ready
+#### Get your files ready
+Download the [402_week14_forStudents.zip](data/week14/402_week14_forStudents.zip) file and upload it into a new folder in RStudio Server.  
+
+#### Remind yourself of how to access and work with the RStudio Server.
+
+* Sign in to the [**RStudio Server**](http://psy-rstudio.lancaster.ac.uk/). Note that when you are not on campus you need to log into the VPN first (look on [**the portal**](https://portal.lancaster.ac.uk/ask/vpn/) if you need more information about that).
+* Create a new folder for this week's work. 
+* Upload the zip-file to the folder you have created on the RStudio server. Note you can either upload a single file or a zip-file.
+
+::: {.callout-important}
+## If you have difficulty uploading files to the server
+If you get error messages when attempting to upload a file or a folder with files to the server, you can try the following steps:
+
+* Close the R Studio server, close your browser and start afresh.
+* Open the R Studio server in a **different** browser.
+* Follow a work around where you use code to directly download the file to the server. The code to do that will be available at the start of the lab activity where you need that particular file. The code to download the file you need to complete the quiz is below.
+:::
+
+### Pre-lab activity 2: Rainy days
+Try running the code mentioned in the online textbook by Barr. If you find it easier, use the **`rainy_days.R` script** (in the '402_week14_forStudents folder you were asked to download in 'Pre-lab activity 1'). It illustrates the point that for discrete data, the variance is often not independent from the mean. In addition, it introduces some very useful R functions: What do the `rep()` function, the `c()` function and the `facet_wrap()` function do? Remember, you can type `?function name()` (e.g., `?rep()`) in the Console to get more information about a function.
+Finally, can you add a graph for rainy days in Lancaster?
+
+### Pre-lab activity 3: Gesture perception
+Please go through the example described in section 12.6 of the chapter on logistic regression in Bodo Winter’s book (link under ‘Reading’). Read the section and (simultaneously) work through the script (`chapter12_6.R`; in the '402_week14_forStudents folder you were asked to download in 'Pre-lab activity 1'). We’ll be working more with this dataset during the lab, so it is helpful if you get a feel for it now.
+
+## Lab activities  {#sec-wk14-lab-activities}
+In this lab, you’ll gain understanding of and practice with:
+
+* when and why to apply logistic regression to answer questions in psychological science
+* conducting logistic regression in R 
+* interpreting the R output of logistic regression 
+* reporting results for logistic regression following APA guidelines
+
+More info will be uploaded soon.
+
+### Lab activity 1: More work on gesture perception
+
+#### Background
+
+The dataset we’ll be working with is described in section 12.6 of the chapter on logistic regression in Bodo Winter’s book (link under ‘Reading’). In the pre-lab activity, we explored the dataset and fitted a first logistic regression model assessing whether participants’ perception of a gesture (expressed as a categorical decision between a ‘shape’ vs. a ‘height’ interpretation of the gesture) was affected by the extent of ‘pinkie curl’. In this lab activity, we’ll be building on that analysis by: 1) Repeating the analysis with a centered pinkie curl variable, and 2) by adding a second predictor: index_curve.
+
+Our research question: Is gesture perception associated with different aspects of hand shape?
+
+#### Step 1: Set up
+
+::: {.callout-warning}
+## Set your working directory
+The folder you were asked to download under 'Pre-lab activity 3: Getting ready for the lab class' contains the data files we'll need. Make sure you have set your working directory to this folder by right-clicking on it and selecting 'Set as working directory'.
+:::
+
+::: {.callout-warning}
+## Empty the R environment
+
+Before you do anything else, when starting a new analysis, it is a good idea to empty the R environment. This prevents objects and variables from previous analyses interfering with the current one. To do this, you can click on the little broom icon in the top right of the Environment pane, or you can use `rm(list=ls())`.
+:::
+
+Before we can get started we need to tell R which libraries to use. For this analysis we'll need `broom` and `tidyverse`.
+
+> **TASK**: Load the relevant libraries. If you are unsure how to do that, you can look at the 'Hint' below for a clue by expanding it. After that, if you are still unsure, you can view the code by expanding the 'Code' section below.
+
+::: {.callout-tip collapse="true"}
+
+## Hint
+Use the `library()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+The code to do this is below.
+```
+library(broom)
+library(tidyverse)
+```
+:::
+
+::: {.callout-important}
+## If you couldn't upload files to the server, do this:
+If you experienced difficulties with uploading a folder or a file to the server, you can use the code below to directly download the file you need in this lab activity to the server (instead of first downloading it to you computer and then uploading it to the server). Remember that you can copy the code to your clipboard by clicking on the 'clipboard' in the top right corner.
+:::
+
+```{r eval=FALSE}
+download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week14/hassemer_winter_2016_gesture.csv?raw=true", destfile = "hassemer_winter_2016_gesture.csv")
+```
+
+> **TASK**: Finally, read in the data file (`hassemer_winter_2016_gesture.csv`), and familiarise yourself with its structure.
+
+::: {.callout-tip collapse="true"}
+## Hint
+Use the `read_csv()` function and the `head()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+The code to do this is below.
+```
+ges <- read_csv("hassemer_winter_2016_gesture.csv")
+head(ges)
+```
+:::
+
+#### Step 2: Descriptive statistics and distributions
+
+As part of the pre-lab activities, you've already familiarised yourself with the dataset by looking at:
+
+* how participants were distributed across the pinkie curl conditions;
+* which response option was chosen more frequently in total and across pinkie curl conditions;
+* proportions of response options across pinkie curl conditions
+
+> **TASK:** Please remind yourself of these stages if necessary by revisiting the [**`chaper12_6.R` script**](data/week14/chapter12_6.R).
+
+#### Step 3: Data wrangling
+
+For logistic regression, the outcome variable needs to either be coded as 0 or 1, or it needs to be coded as a factor.
+
+> **TASK:** Write the code to convert the outcome variable to a factor.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use `mutate()` and `factor()`.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ges <- mutate(ges, choice = factor(choice))
+```
+:::
+
+As with linear regression, centering your predictor makes it easier to interpret the output of a logistic regression.
+
+> **TASK:** Write the code to center the pinkie curl predictor.
+
+:::{.callout-tip collapse="true"}
+## Hint
+*Centering* involves subtracting the mean.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ges <- mutate(ges,
+	pinkie_c = pinkie_curl - mean(pinkie_curl))
+```
+:::
+
+
+#### Step 5: Fit the regression model with the centered variable
+
+Now let's re-fit choice (height vs. shape) as a function of pinkie curl, but using the centered variable.
+
+> **TASK:** Write the code to fit the model and check the coefficients.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use the `glm()` function and remember you need to specify the 'family' argument. To check the coefficients, you can use the `tidy()` function.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ges_mdl_c <- glm(choice ~ pinkie_c,
+               data = ges, family = 'binomial')
+tidy(ges_mdl_c)
+```
+:::
+
+**QUESTION 1**:  How does the coefficient table differ from the model fitted earlier where you used the pinkie curl predictor before you centered it?
+
+**QUESTION 2**: How should you now (using the model with the centered pinkie curl predictor) interpret the intercept?
+
+The average pinkie curl is step 5 on the 9 step continuum. From our previous analysis (pre-lab activity), we know that the predicted log odds of 'shape' at that step was 0.38 and the probability was 0.59. So if we extract the intercept from the coefficient table of the model using the centered predictor, we should get those values. Use the code below to do so and compare the values to the ones from the pre-lab activity.
+
+```{r eval=FALSE}
+# Extracting the estimate for the intercept and storing it in an object called intercept:
+intercept_logOdds <- tidy(ges_mdl_c)$estimate[1]
+
+# Getting the predicted probability by applying the logistic:
+intercept_prob <- plogis(intercept_logOdds)
+
+intercept_logOdds
+intercept_prob
+```
+
+The values are roughly the same!
+
+#### Step 6:  Incorporating a second predictor
+
+In addition to the 'pinkie curl', the extent to which the index finger is curved may also affect gesture perception. This is quantified in the 'index_curve' variable. Before we fit the model, we need to center both predictors.
+
+>**TASK:** Write the code to center the second predictor.
+
+:::{.callout-tip collapse="true"}
+## Hint
+*Centering* involves subtracting the mean.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ges <- mutate(ges,
+              index_c = index_curve - mean(index_curve))
+```
+:::
+
+> **TASK:** Write the code to fit model with both pinkie curl and index curve and check the coefficients.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use the `glm()` function and remember you need to specify the 'family' argument. To check the coefficients, you can use the `tidy()` function.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+both_mdl <- glm(choice ~ pinkie_c + index_c,
+	data = ges, family = 'binomial')
+tidy(both_mdl)
+```
+
+**QUESTION 3:** How does the index_curve predictor affect the proportion of shape responses?
+
+We can see this more easily if we compare the descriptive proportions:
+
+```{r eval=FALSE}
+index_tab <- with(ges, table(index_curve, choice))
+index_tab
+
+prop.table(index_tab, 1)
+```
+
+The "1" in here stands for row-wise proportions."2" would compute column-wise proportions.
+
+
+## Answers  {#sec-wk14-answers}
+
+When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. **Remember**, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. **Actively engaging** with the material is the way to learn these analysis skills, not by looking at someone else's completed code...
+
+<!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
+
+You can download the R-script that includes the relevant code here: [402_wk14_labAct1_withAnswers.R](data/week14/402_wk14_labAct1_withAnswers.R).
+
+**QUESTION 1**:  How does the coefficient table differ from the model fitted earlier where you used the pinkie curl predictor before you centered it?
+# ANSWER: The intercept has changed from 1.065 to 0.397.
+
+**QUESTION 2**: How should you now (using the model with the centered pinkie curl predictor) interpret the intercept?
+# ANSWER: The intercept is now the predicted log odds of 'shape' for a gesture with
+# average pinkie curl.
+
+**QUESTION 3:** How does the index_curve predictor affect the proportion of shape responses?
+# ANSWER: The slope is positive, so more index-curved fingers results in more
+# shape responses.
