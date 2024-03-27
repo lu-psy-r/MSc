@@ -1,0 +1,2822 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics for Psychologists – visualization-intro</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../PSYC401/part2/what.html" rel="next">
+<link href="../../PSYC401/part2/visualization.html" rel="prev">
+<link href="../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../year1/index.html" rel="" target="">
+ <span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../year2/index.html" rel="" target="">
+ <span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../MSc/index.html" rel="" target="">
+ <span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../more/index.qmd" rel="" target="">
+ <span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC401/part2/ecosystem.html">PSYC401</a></li><li class="breadcrumb-item"><a href="../../PSYC401/part2/visualization-intro.html">Introduction to visualization</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">PSYC401</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R knowledge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How you can do it</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/hypotheses-associations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hypotheses and associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reasons why we do the research report assignment: What you will learn</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/knowledge-ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The R knowledge ecosystem and how to help yourself</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/lm-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Developing the linear model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/lm-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to the linear model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/report-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The research report assignment: Outline introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/visualization-intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Introduction to visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/what.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What you have to do</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">PSYC402</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Recap of the linear model and practising data-wrangling in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. More on interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Logistic regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Poisson regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/01-multilevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to multilevel data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/02-mixed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to linear mixed-effects models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/03-mixed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Developing linear mixed-effects models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/04-glmm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Generalized Linear Mixed-effects Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/05-ordinal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Ordinal Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: the why</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/knowledge-ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R knowledge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/LICENSE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LICENSE</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/what.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-vis-intro-intro" id="toc-sec-vis-intro-intro" class="nav-link active" data-scroll-target="#sec-vis-intro-intro">Introduction to visualization</a>
+  <ul class="collapse">
+  <li><a href="#sec-vis-intro-overview" id="toc-sec-vis-intro-overview" class="nav-link" data-scroll-target="#sec-vis-intro-overview">Overview</a></li>
+  <li><a href="#sec-vis-intro-goals" id="toc-sec-vis-intro-goals" class="nav-link" data-scroll-target="#sec-vis-intro-goals">Our learning goals</a></li>
+  <li><a href="#sec-vis-intro-resources" id="toc-sec-vis-intro-resources" class="nav-link" data-scroll-target="#sec-vis-intro-resources">Learning resources</a>
+  <ul class="collapse">
+  <li><a href="#sec-vis-intro-lectures" id="toc-sec-vis-intro-lectures" class="nav-link" data-scroll-target="#sec-vis-intro-lectures">Lectures</a></li>
+  <li><a href="#sec-vis-intro-practical" id="toc-sec-vis-intro-practical" class="nav-link" data-scroll-target="#sec-vis-intro-practical">Practical materials</a></li>
+  <li><a href="#sec-vis-intro-practical-workbook" id="toc-sec-vis-intro-practical-workbook" class="nav-link" data-scroll-target="#sec-vis-intro-practical-workbook">The workbook</a></li>
+  <li><a href="#the-data-files" id="toc-the-data-files" class="nav-link" data-scroll-target="#the-data-files">The data files</a></li>
+  <li><a href="#the-answers" id="toc-the-answers" class="nav-link" data-scroll-target="#the-answers">The answers</a></li>
+  </ul></li>
+  <li><a href="#sec-vis-intro-notes" id="toc-sec-vis-intro-notes" class="nav-link" data-scroll-target="#sec-vis-intro-notes">Lecture notes</a>
+  <ul class="collapse">
+  <li><a href="#our-lesson-plan" id="toc-our-lesson-plan" class="nav-link" data-scroll-target="#our-lesson-plan">Our lesson plan</a></li>
+  <li><a href="#our-learning-objectives-what-are-we-learning-about" id="toc-our-learning-objectives-what-are-we-learning-about" class="nav-link" data-scroll-target="#our-learning-objectives-what-are-we-learning-about">Our learning objectives: — what are we learning about?</a></li>
+  <li><a href="#our-assessment-targets-how-do-you-know-if-you-have-learned" id="toc-our-assessment-targets-how-do-you-know-if-you-have-learned" class="nav-link" data-scroll-target="#our-assessment-targets-how-do-you-know-if-you-have-learned">Our assessment targets: — how do you know if you have learned?</a></li>
+  <li><a href="#what-are-our-goals-questions-to-help-you-to-work-effectively" id="toc-what-are-our-goals-questions-to-help-you-to-work-effectively" class="nav-link" data-scroll-target="#what-are-our-goals-questions-to-help-you-to-work-effectively">What are our goals – Questions to help you to work effectively</a></li>
+  <li><a href="#what-are-our-goals" id="toc-what-are-our-goals" class="nav-link" data-scroll-target="#what-are-our-goals">What are our goals?</a></li>
+  <li><a href="#visualize-to-enable-comparison" id="toc-visualize-to-enable-comparison" class="nav-link" data-scroll-target="#visualize-to-enable-comparison">Visualize to enable comparison</a></li>
+  <li><a href="#what-are-our-goals-what-are-our-jobs" id="toc-what-are-our-goals-what-are-our-jobs" class="nav-link" data-scroll-target="#what-are-our-goals-what-are-our-jobs">What are our goals? — What are our jobs?</a></li>
+  <li><a href="#what-are-our-goals-where-or-when-are-we-in-our-process" id="toc-what-are-our-goals-where-or-when-are-we-in-our-process" class="nav-link" data-scroll-target="#what-are-our-goals-where-or-when-are-we-in-our-process">What are our goals? — Where or when are we in our process?</a></li>
+  <li><a href="#what-are-our-goals-discovery" id="toc-what-are-our-goals-discovery" class="nav-link" data-scroll-target="#what-are-our-goals-discovery">What are our goals? — Discovery</a></li>
+  <li><a href="#what-are-our-goals-communication" id="toc-what-are-our-goals-communication" class="nav-link" data-scroll-target="#what-are-our-goals-communication">What are our goals? — Communication</a></li>
+  <li><a href="#think-about-your-audience-an-evidence-based-account-of-what-works" id="toc-think-about-your-audience-an-evidence-based-account-of-what-works" class="nav-link" data-scroll-target="#think-about-your-audience-an-evidence-based-account-of-what-works">Think about your audience – An evidence based account of what works</a></li>
+  <li><a href="#the-human-visual-system-is-highly-developed" id="toc-the-human-visual-system-is-highly-developed" class="nav-link" data-scroll-target="#the-human-visual-system-is-highly-developed">The human visual system is highly developed</a></li>
+  <li><a href="#communicating-uncertainty-is-critical" id="toc-communicating-uncertainty-is-critical" class="nav-link" data-scroll-target="#communicating-uncertainty-is-critical">Communicating uncertainty is critical</a></li>
+  <li><a href="#consider-accessibility-from-the-start" id="toc-consider-accessibility-from-the-start" class="nav-link" data-scroll-target="#consider-accessibility-from-the-start">Consider accessibility from the start</a></li>
+  <li><a href="#development-work-reflectively-through-a-development-process" id="toc-development-work-reflectively-through-a-development-process" class="nav-link" data-scroll-target="#development-work-reflectively-through-a-development-process">Development – Work reflectively through a development process</a></li>
+  <li><a href="#the-benefits-of-investing-in-the-development-process" id="toc-the-benefits-of-investing-in-the-development-process" class="nav-link" data-scroll-target="#the-benefits-of-investing-in-the-development-process">The benefits of investing in the development process</a></li>
+  <li><a href="#the-benefits-of-investing-in-the-development-process-1" id="toc-the-benefits-of-investing-in-the-development-process-1" class="nav-link" data-scroll-target="#the-benefits-of-investing-in-the-development-process-1">The benefits of investing in the development process</a></li>
+  <li><a href="#scientific-thinking-and-data-visualisation" id="toc-scientific-thinking-and-data-visualisation" class="nav-link" data-scroll-target="#scientific-thinking-and-data-visualisation">Scientific thinking and data visualisation</a></li>
+  <li><a href="#anscombe1973-visualizations-show-data-features-quickly-and-vividly" id="toc-anscombe1973-visualizations-show-data-features-quickly-and-vividly" class="nav-link" data-scroll-target="#anscombe1973-visualizations-show-data-features-quickly-and-vividly"><span class="citation" data-cites="anscombe1973">@anscombe1973</span>: visualizations show data features quickly and vividly</a></li>
+  <li><a href="#anscombe1973-visualizations-show-data-features-quickly-and-vividly-1" id="toc-anscombe1973-visualizations-show-data-features-quickly-and-vividly-1" class="nav-link" data-scroll-target="#anscombe1973-visualizations-show-data-features-quickly-and-vividly-1"><span class="citation" data-cites="anscombe1973">@anscombe1973</span>: visualizations show data features quickly and vividly</a></li>
+  <li><a href="#matejka2017-give-us-the-datasaurus-dozen" id="toc-matejka2017-give-us-the-datasaurus-dozen" class="nav-link" data-scroll-target="#matejka2017-give-us-the-datasaurus-dozen"><span class="citation" data-cites="matejka2017">@matejka2017</span> give us the <code>Datasaurus dozen</code></a></li>
+  <li><a href="#develop-visualizations-to-discover-and-communicate-variability-in-outcomes" id="toc-develop-visualizations-to-discover-and-communicate-variability-in-outcomes" class="nav-link" data-scroll-target="#develop-visualizations-to-discover-and-communicate-variability-in-outcomes">Develop visualizations to discover and communicate variability in outcomes</a></li>
+  <li><a href="#reflect-on-kinds-of-uncertainty" id="toc-reflect-on-kinds-of-uncertainty" class="nav-link" data-scroll-target="#reflect-on-kinds-of-uncertainty">Reflect on kinds of uncertainty</a></li>
+  <li><a href="#as-we-work-reflect-on-the-challenges-of-visualizing-uncertainty" id="toc-as-we-work-reflect-on-the-challenges-of-visualizing-uncertainty" class="nav-link" data-scroll-target="#as-we-work-reflect-on-the-challenges-of-visualizing-uncertainty">As we work, reflect on the challenges of visualizing uncertainty</a></li>
+  <li><a href="#the-challenges-of-uncertainty" id="toc-the-challenges-of-uncertainty" class="nav-link" data-scroll-target="#the-challenges-of-uncertainty">The challenges of uncertainty</a></li>
+  <li><a href="#the-challenges-of-uncertainty-1" id="toc-the-challenges-of-uncertainty-1" class="nav-link" data-scroll-target="#the-challenges-of-uncertainty-1">The challenges of uncertainty</a></li>
+  <li><a href="#variation-and-uncertainty-the-importance-the-challenges" id="toc-variation-and-uncertainty-the-importance-the-challenges" class="nav-link" data-scroll-target="#variation-and-uncertainty-the-importance-the-challenges">Variation and uncertainty — the importance, the challenges</a></li>
+  <li><a href="#variation-and-uncertainty-the-importance-the-challenges-1" id="toc-variation-and-uncertainty-the-importance-the-challenges-1" class="nav-link" data-scroll-target="#variation-and-uncertainty-the-importance-the-challenges-1">Variation and uncertainty — the importance, the challenges</a></li>
+  <li><a href="#we-use-visualizations-to-help-us-to-see-and-understand-the-variation-and-the-uncertainty-in-our-data" id="toc-we-use-visualizations-to-help-us-to-see-and-understand-the-variation-and-the-uncertainty-in-our-data" class="nav-link" data-scroll-target="#we-use-visualizations-to-help-us-to-see-and-understand-the-variation-and-the-uncertainty-in-our-data">We use visualizations to help us to see and understand the variation and the uncertainty in our data</a></li>
+  <li><a href="#implement-produce-visualizations-in-line-with-best-practice" id="toc-implement-produce-visualizations-in-line-with-best-practice" class="nav-link" data-scroll-target="#implement-produce-visualizations-in-line-with-best-practice">Implement – Produce visualizations in line with best practice</a></li>
+  <li><a href="#ggplot2-means-the-grammar-of-graphics-plot-2" id="toc-ggplot2-means-the-grammar-of-graphics-plot-2" class="nav-link" data-scroll-target="#ggplot2-means-the-grammar-of-graphics-plot-2"><code>{ggplot2}</code> means: the <em>Grammar of Graphics</em> Plot 2</a></li>
+  <li><a href="#a-simple-plot-has-many-elements" id="toc-a-simple-plot-has-many-elements" class="nav-link" data-scroll-target="#a-simple-plot-has-many-elements">A simple plot has many elements</a></li>
+  <li><a href="#we-begin-with-data-here-from-the-health-comprehension-project" id="toc-we-begin-with-data-here-from-the-health-comprehension-project" class="nav-link" data-scroll-target="#we-begin-with-data-here-from-the-health-comprehension-project">We begin with data: here, from the Health Comprehension project</a></li>
+  <li><a href="#a-simple-plot-has-many-elements-1" id="toc-a-simple-plot-has-many-elements-1" class="nav-link" data-scroll-target="#a-simple-plot-has-many-elements-1">A simple plot has many elements</a></li>
+  <li><a href="#a-simple-plot-has-many-elements-2" id="toc-a-simple-plot-has-many-elements-2" class="nav-link" data-scroll-target="#a-simple-plot-has-many-elements-2">A simple plot has many elements</a></li>
+  <li><a href="#when-we-use-ggplot2-we-work-in-layers" id="toc-when-we-use-ggplot2-we-work-in-layers" class="nav-link" data-scroll-target="#when-we-use-ggplot2-we-work-in-layers">When we use <code>{ggplot2}</code> we work in <em>layers</em></a></li>
+  <li><a href="#when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative" id="toc-when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative" class="nav-link" data-scroll-target="#when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative">When we use <code>{ggplot2}</code> we are in control and we can be creative</a></li>
+  <li><a href="#plot-with-layers-add-a-smoother" id="toc-plot-with-layers-add-a-smoother" class="nav-link" data-scroll-target="#plot-with-layers-add-a-smoother">Plot with layers: add a smoother</a></li>
+  <li><a href="#defaults-and-arguments" id="toc-defaults-and-arguments" class="nav-link" data-scroll-target="#defaults-and-arguments">Defaults and arguments</a></li>
+  <li><a href="#defaults-and-arguments-1" id="toc-defaults-and-arguments-1" class="nav-link" data-scroll-target="#defaults-and-arguments-1">Defaults and arguments</a></li>
+  <li><a href="#when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative-1" id="toc-when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative-1" class="nav-link" data-scroll-target="#when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative-1">When we use <code>{ggplot2}</code> we are in control and we can be creative</a></li>
+  <li><a href="#we-can-use-colour" id="toc-we-can-use-colour" class="nav-link" data-scroll-target="#we-can-use-colour">We can use colour</a></li>
+  <li><a href="#method-size-transparency" id="toc-method-size-transparency" class="nav-link" data-scroll-target="#method-size-transparency">Method, size, transparency</a></li>
+  <li><a href="#we-facet-plots-to-enable-comparisons" id="toc-we-facet-plots-to-enable-comparisons" class="nav-link" data-scroll-target="#we-facet-plots-to-enable-comparisons">We <em>facet</em> plots to enable comparisons</a></li>
+  <li><a href="#we-can-guide-our-audience" id="toc-we-can-guide-our-audience" class="nav-link" data-scroll-target="#we-can-guide-our-audience">We can guide our audience</a></li>
+  <li><a href="#we-annotate-plots-to-direct-attention" id="toc-we-annotate-plots-to-direct-attention" class="nav-link" data-scroll-target="#we-annotate-plots-to-direct-attention">We annotate plots to direct attention</a></li>
+  <li><a href="#extensions-free-our-creativity" id="toc-extensions-free-our-creativity" class="nav-link" data-scroll-target="#extensions-free-our-creativity">Extensions free our creativity</a></li>
+  <li><a href="#choose-your-plot-theme" id="toc-choose-your-plot-theme" class="nav-link" data-scroll-target="#choose-your-plot-theme">Choose your plot theme</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="sec-vis-intro-intro" class="level1">
+<h1>Introduction to visualization</h1>
+<section id="sec-vis-intro-overview" class="level2">
+<h2 class="anchored" data-anchor-id="sec-vis-intro-overview">Overview</h2>
+<p>Welcome to our overview of the materials you will work with in our data visualization class in <em>PSYC401</em> Week 8. This week, we will focus on perspectives and practices in data visualization.</p>
+<p>Our materials are designed to help you to think about what you are doing, to understand the aims of the practical steps, as well as to learn about producing professional effective data visualizations.</p>
+<p>We will continue to work with data collected for the <em>Clearly understood</em> project because we think that working with these data in this research <strong>context</strong> will help you to make sense of the data, and to see why we ask you to practise the skills we are teaching.</p>
+<p>You can read a bit more about the project and the project data in <strong>?@sec-associations</strong>.</p>
+<p>As we work together, we will be revisiting some of the ideas and techniques you have seen in previous classes. This is to give you the opportunity to consolidate your learning. We will be extending your development with some new ideas to strengthen your skills.</p>
+</section>
+<section id="sec-vis-intro-goals" class="level2">
+<h2 class="anchored" data-anchor-id="sec-vis-intro-goals">Our learning goals</h2>
+<p>This week, we focus on both developing your critical thinking and strengthening your practical skills in data visualization.</p>
+<p><strong>Our learning objectives: — what are we learning about?</strong></p>
+<p>We are working together to help you:</p>
+<ol type="1">
+<li><em>Goals</em> — Formulate questions you can ask yourself to help you to work effectively</li>
+<li><em>Audience</em> — Understand the psychological factors that affect your impact</li>
+<li><em>Development</em> — Work reflectively through a development process</li>
+<li><em>Implement</em> — Produce visualizations in line with best practice</li>
+</ol>
+<p><strong>Our assessment targets: — how do you know if you have learned?</strong></p>
+<p>We are working together so you can:</p>
+<ol type="1">
+<li><em>Goals</em> — Identify a set of targets for a development process in your professional teams</li>
+<li><em>Audience</em> — Explain what you need to do to make a visualization effective</li>
+<li><em>Development</em> — Locate yourself within the stages of the development process</li>
+<li><em>Implement</em> — Produce visualizations that look good and are useful</li>
+</ol>
+</section>
+<section id="sec-vis-intro-resources" class="level2">
+<h2 class="anchored" data-anchor-id="sec-vis-intro-resources">Learning resources</h2>
+<p>You will see <em>next</em> links to the lectures we created to explain the concepts we want you to learn about and the practical visualization skills we want you to develop (<a href="#sec-vis-intro-lectures">Section&nbsp;1.3.1</a>), <em>then</em> information about the practical materials we have provided to help you to practise your skills (<a href="#sec-vis-intro-practical">Section&nbsp;1.3.2</a>).</p>
+<p>All the links to the lecture videos, the lecture slides, and everything you need for your practical work can <em>also</em> be found in the Week 8 files folder on Moodle <a href="https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse9" target="_blank">here</a></p>
+<p>In <a href="#sec-vis-intro-notes">Section&nbsp;1.4</a>, we present the lecture slide points. We do this here because we can share the code we used to generate the plots we use in some of the slides <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Linked resources</strong> include:</p>
+<ul>
+<li>In <strong>?@sec-visualization</strong>, we present a more extensive discussion of data visualization, elaborating on some ideas, incorporating additional example plots and enabling you to work with alternate data-sets. This is provided as <em>optional</em> reading and may support more advanced development for students interested in future professional roles involving data analysis or data visualization.</li>
+<li>In the <em>PSYC403</em> Week 8, I present a lecture that outlines some <em>perspectives</em> or useful ways of thinking about data visualization: the history; the context in professional work; and what research suggests are effective ways to produce visualizations. You can access the resources for that class <a href="https://modules.lancaster.ac.uk/course/view.php?id=40624#coursecontentcollapse9" target="_blank">here</a>.</li>
+</ul>
+</div>
+</div>
+<section id="sec-vis-intro-lectures" class="level3">
+<h3 class="anchored" data-anchor-id="sec-vis-intro-lectures">Lectures</h3>
+<p>The lecture material for this week is presented in four short parts. Click on a link and your browser should open a tab showing the <em>Panopto</em> video for the lecture part.</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b7324096-ad13-4ca1-b8ab-b0c000d85850" target="_blank">Part 1 of 4</a></p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8f42d056-6da6-4aba-b893-b0c000dc28d1" target="_blank">Part 2 of 4</a></p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=05e049cb-277d-4d76-888d-b0c000df3c6f" target="_blank">Part 3 of 4</a></p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5fccaa55-9d07-4e24-8995-b0c0010fe92b" target="_blank">Part 4 of 4</a></p>
+<p>You can download the slides we presented in the lecture in two different formats, depending on what you think will be most useful to you:</p>
+<ul>
+<li>Download the slides exactly as they appear in the lecture from <a href="files/401-data-visualisation-practices.html">this link</a>. The .html file can be opened and viewed in any web browser (e.g., Chrome, Firefox, Safari).</li>
+<li>Or you can download a printable Word .docx presentation of the slides from <a href="files/401-data-visualisation-practices-printable.docx">this link</a>. The .docx can be opened in Microsoft Word. The figures will not appear exactly as they do in the lecture recording because Word cannot cope with images so well but the trade-off is that you get a document you can print and edit to add notes.</li>
+</ul>
+</section>
+<section id="sec-vis-intro-practical" class="level3">
+<h3 class="anchored" data-anchor-id="sec-vis-intro-practical">Practical materials</h3>
+<p>We have collected the practical materials together into a folder.</p>
+<p>The folder includes the data files:</p>
+<ul>
+<li><code>study-one-general-participants.csv</code></li>
+<li><code>study-two-general-participants.csv</code></li>
+</ul>
+<p>and .R code files:</p>
+<ul>
+<li><code>401-visualization-how-to.R</code></li>
+<li><code>401-visualization-workbook.R</code></li>
+</ul>
+<p>You will use these files for your practical learning.</p>
+<p>You can download the .R files and the data .csv files in a single folder, using the link <a href="files/PSYC401_visualization_materials.zip">here</a>.</p>
+<p>Or you can download the files as individual files from the module <a href="https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse9" target="_blank">Moodle page for PSYC401</a>.</p>
+<p>Once you have downloaded the file folder, you will need to upload it to the R-Studio server to access and use the R files.</p>
+<section id="sec-vis-intro-practical-how-to" class="level4">
+<h4 class="anchored" data-anchor-id="sec-vis-intro-practical-how-to">The how-to guide</h4>
+<p>In the <code>how-to</code> guide:</p>
+<ul>
+<li><code>401-visualization-how-to.R</code></li>
+</ul>
+<p>we show you how to do everything you need to do in the practical workbook (see <a href="#sec-vis-intro-practical-workbook">Section&nbsp;1.3.3</a>). The guide comprises an .R file <code>401-visualization-how-to.R</code> with code and advice.</p>
+<p>The code in the .R file was written to work with the data file</p>
+<ul>
+<li><code>study-one-general-participants.csv</code>.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Work through the steps in the <code>how-to</code> guide first, this practice will help you to understand what you need to do for the <code>workbook</code> tasks.</p></li>
+<li><p>The <code>how-to</code> guide and the <code>workbook</code> have similar structures. This is intentional: so that you can copy and <em>adapt</em> code from the <code>how-to</code> guide to do the practical tasks in the <code>workbook</code>.</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-vis-intro-practical-workbook" class="level3">
+<h3 class="anchored" data-anchor-id="sec-vis-intro-practical-workbook">The workbook</h3>
+<p>In the <code>workbook</code>:</p>
+<ul>
+<li><code>401-visualization-workbook.R</code></li>
+</ul>
+<p>you will work with the data file</p>
+<ul>
+<li><code>study-two-general-participants.csv</code></li>
+</ul>
+<p>We split .R scripts into parts, tasks and questions.</p>
+<p>For this class on data visualization practices, our practical materials have two aims:</p>
+<ol type="1">
+<li>Helping you to learn about data visualization;</li>
+<li>Helping you to learn how to help yourself by accessing, evaluating and exploiting the rich R knowledge ecosystem.</li>
+</ol>
+<p>This means that in both the <code>how-to</code> and the <code>workbook</code> the different parts concern different sources of online information and how to access each.</p>
+<p>In the <code>how-to</code> and the <code>workbook</code> we look at methods to produce visualizations that display information about both summary statistics (e.g., the average outcome) and raw or individual outcome variability. We explain why we should visualize data like this in the lecture (as you can see in <a href="#sec-vis-intro-lectures">Section&nbsp;1.3.1</a> or <a href="#sec-vis-intro-notes">Section&nbsp;1.4</a>).</p>
+<p>Specifically, the materials are written to support learning how to work with visualizations called <em>boxplots</em> and <em>rain cloud</em> plots. These are popular data visualization techniques so it is important to learn how to build them and how to interpret them. If you have already been introduced to them, you will find that our materials here show how to edit or polish the visualizations to make them more effective.</p>
+<p>There are three main sources of information you can access for free online.</p>
+<ol type="1">
+<li><p>The people who write software like the <code>{tidyverse}</code> or <code>{ggplot2}</code> libraries provide manuals, reference guides and tutorials. This information is often written as free web books, or as hard copy books.</p></li>
+<li><p>These people, and often ther people, may write tutorials or guides or teaching materials designed to show learners (like us) how to use R functions or do certain things using R. They may present these tutorials or guides as web books, blog sites or video tutorials e.g.&nbsp;on Youtube or TikTok.</p></li>
+<li><p>Many post questions and answers to discussion forums like <em>Stackoverflow</em>.</p></li>
+</ol>
+<p>Learning how to find, understand and use this information teaches two lessons:</p>
+<ul>
+<li>A lot of scholarly and technical information is online and free.</li>
+<li>Learning how to access this information is a key way that most professionals work out what they want to do and how they can do it.</li>
+</ul>
+<p>In our practical materials, we look at how you can:</p>
+<ul>
+<li>search for and find relevant information;</li>
+<li>learn how to understand the tools using the information shared through online sources;</li>
+<li>work with example or demonstration code, adapting it for your own purposes.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This process of adapting demonstration code is a process critical to data literacy and to effective problem solving in working with data in psychological science.</p>
+</div>
+</div>
+<p><strong>Part 3</strong> in the <code>workbook</code> focuses on locating and using <code>{ggplot2}</code> reference information to learn how to build box plots.</p>
+<p><strong>Part 4</strong> in the <code>workbook</code> focuses on locating and using online tutorial information or how-to guides to build <em>rain cloud</em> plots. This kind of plot incorporates elements of the boxplot, the scatterplot and the density plot to give the viewer summary information about the distribution of scores on a variable while also giving information about the variability of outcomes.</p>
+<p><strong>Part 5</strong> in the <code>workbook</code> focuses on using information available in the public discussion <em>Stackoverflow</em> so that you can learn how to export the plots you make, in order to include them in reports.</p>
+<p>The activity <code>401-visualization-workbook.R</code> file takes you through the tasks, one by one.</p>
+<p>If you are unsure about what you need to do, check the advice in <code>401-visualization-how-to.R</code>.</p>
+<p>You will see that you can match a task in the <code>activity</code> to the same task in the <code>how-to</code>. The <code>how-to</code> shows you what function you need and how you should write the function code. You will need to change the names of the data-set or the variables to complete the tasks in the activity.</p>
+</section>
+<section id="the-data-files" class="level3">
+<h3 class="anchored" data-anchor-id="the-data-files">The data files</h3>
+<p>Each of the data files we will work with has a similar structure.</p>
+<p>Here are what the first few rows in the data file <code>study-two-general-participants.csv</code> looks like:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">participant_ID</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean.acc</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean.self</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">study</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">AGE</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">SHIPLEY</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">HLVA</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">FACTOR3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">QRITOTAL</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">GENDER</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">EDUCATION</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ETHNICITY</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">studytwo.1</td>
+<td style="text-align: right;">0.4107143</td>
+<td style="text-align: right;">6.071429</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">Asian</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">studytwo.10</td>
+<td style="text-align: right;">0.6071429</td>
+<td style="text-align: right;">8.500000</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Secondary</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">studytwo.100</td>
+<td style="text-align: right;">0.8750000</td>
+<td style="text-align: right;">8.928571</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">studytwo.101</td>
+<td style="text-align: right;">0.9642857</td>
+<td style="text-align: right;">8.500000</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">studytwo.102</td>
+<td style="text-align: right;">0.7142857</td>
+<td style="text-align: right;">7.071429</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">studytwo.103</td>
+<td style="text-align: right;">0.7678571</td>
+<td style="text-align: right;">5.071429</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">White</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>You can see the columns:</p>
+<ul>
+<li><code>participant_ID</code> participant code</li>
+<li><code>mean.acc</code> average accuracy of response to questions testing understanding of health guidance</li>
+<li><code>mean.self</code> average self-rated accuracy of understanding of health guidance</li>
+<li><code>study</code> variable coding for what study the data were collected in</li>
+<li><code>AGE</code> age in years</li>
+<li><code>HLVA</code> health literacy test score</li>
+<li><code>SHIPLEY</code> vocabulary knowledge test score</li>
+<li><code>FACTOR3</code> reading strategy survey score</li>
+<li><code>GENDER</code> gender code</li>
+<li><code>EDUCATION</code> education level code</li>
+<li><code>ETHNICITY</code> ethnicity (Office National Statistics categories) code</li>
+</ul>
+</section>
+<section id="the-answers" class="level3">
+<h3 class="anchored" data-anchor-id="the-answers">The answers</h3>
+<p>After the practical class, you will be able to download the answers version of the <code>workbook</code> here.</p>
+<!-- [401-visualization-workbook-answers.R](files/401-visualization-workbook-answers.R) -->
+<p>The answers version will present my answers for questions, and some extra information where that is helpful.</p>
+</section>
+</section>
+<section id="sec-vis-intro-notes" class="level2">
+<h2 class="anchored" data-anchor-id="sec-vis-intro-notes">Lecture notes</h2>
+<p>Some people find it easier to read notes than to watch video recordings. This is why we also include the lecture notes here.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In these notes, I provide notes on the code steps that result in plots.</p>
+<ul>
+<li>Click on the <code>Notes</code> tab to see them.</li>
+</ul>
+</div>
+</div>
+<section id="our-lesson-plan" class="level3">
+<h3 class="anchored" data-anchor-id="our-lesson-plan">Our lesson plan</h3>
+<ol type="1">
+<li>Identify your goals</li>
+<li>Think about your audience</li>
+<li>Develop reflectively</li>
+<li>Implement good practice</li>
+</ol>
+</section>
+<section id="our-learning-objectives-what-are-we-learning-about" class="level3">
+<h3 class="anchored" data-anchor-id="our-learning-objectives-what-are-we-learning-about">Our learning objectives: — what are we learning about?</h3>
+<p>We are working together to help you:</p>
+<ol type="1">
+<li><em>Goals</em> — Formulate questions you can ask yourself to help you to work effectively</li>
+<li><em>Audience</em> — Understand the psychological factors that affect your impact</li>
+<li><em>Development</em> — Work reflectively through a development process</li>
+<li><em>Implement</em> — Produce visualizations in line with best practice</li>
+</ol>
+</section>
+<section id="our-assessment-targets-how-do-you-know-if-you-have-learned" class="level3">
+<h3 class="anchored" data-anchor-id="our-assessment-targets-how-do-you-know-if-you-have-learned">Our assessment targets: — how do you know if you have learned?</h3>
+<p>We are working together so you can:</p>
+<ol type="1">
+<li><em>Goals</em> — Identify a set of targets for a development process in your professional teams</li>
+<li><em>Audience</em> — Explain what you need to do to make a visualization effective</li>
+<li><em>Development</em> — Locate yourself within the stages of the development process</li>
+<li><em>Implement</em> — Produce visualizations that look good and are useful</li>
+</ol>
+</section>
+<section id="what-are-our-goals-questions-to-help-you-to-work-effectively" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-our-goals-questions-to-help-you-to-work-effectively">What are our goals – Questions to help you to work effectively</h3>
+<!-- -- 3 -- briefly review goals in data visualization, after Gelman and Unwin -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>We begin by thinking about the questions you will ask yourself when you need to decide <em>what you will do</em></li>
+<li>We build, here, on the insights developed by <span class="citation" data-cites="gelman2013">@gelman2013</span>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="what-are-our-goals" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-our-goals">What are our goals?</h3>
+<ul>
+<li>Why don’t we just use the <em>good enough</em> easy to produce plots in Excel? <span class="math inline">\(\rightarrow\)</span> <em>Why bother?</em></li>
+<li>Why don’t we just produce a summary table? <span class="math inline">\(\rightarrow\)</span> <em>Why bother?</em></li>
+<li>Are we engaged in making beautiful graphics or informative displays or both? <span class="math inline">\(\rightarrow\)</span> <em>What are we doing?</em></li>
+<li>In <em>PSYC403</em>, we look at <span class="math inline">\(\rightarrow\)</span> <em>Perspectives: the context and history of thinking about visualization</em></li>
+</ul>
+</section>
+<section id="visualize-to-enable-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="visualize-to-enable-comparison">Visualize to enable comparison</h3>
+<!-- -- Quantifying uncertainty is critical for analysts and sci- entists who want to make informed decisions from data. Uncertainty is inherent in the generation of data and models, and it comes from multiple sources. -->
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-sleep-study-scatterplot-all" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-sleep-study-scatterplot-all-1.png" class="img-fluid figure-img" alt="Scatterplot showing the relation between reaction time and days in the `sleepstudy` data. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. The plot indicates that reaction time increases with increasing number of days." width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Scatterplot of the relation between reaction time and days in the <code>sleepstudy</code> data</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-sleep-study-scatterplot-by-subject-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-sleep-study-scatterplot-by-subject-1-1.png" class="img-fluid figure-img" alt="The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents." width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: The relation between reaction time and days: here, we plot the data for each participant separately</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-are-our-goals-what-are-our-jobs" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-our-goals-what-are-our-jobs">What are our goals? — What are our jobs?</h3>
+<ul>
+<li><em>Data visualization</em> workers: we may aim to get and keep the attention of our audience, to tell a story, to persuade our viewers</li>
+<li><em>Data analysis</em> workers: we may aim to enable our audience to understand our data, our findings, and to discover more for themselves</li>
+</ul>
+</section>
+<section id="what-are-our-goals-where-or-when-are-we-in-our-process" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-our-goals-where-or-when-are-we-in-our-process">What are our goals? — Where or when are we in our process?</h3>
+<ul>
+<li>Sometimes in a <em>workflow</em>, we are quickly sketching draft visualizations: exploring, for ourselves, or with others, what we can see in our data</li>
+<li>Sometimes, we are ready to present our visualization to a wider audience: we aim to share a polished visual object</li>
+</ul>
+</section>
+<section id="what-are-our-goals-discovery" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-our-goals-discovery">What are our goals? — Discovery</h3>
+<p><em>Discovery goals</em></p>
+<ol type="1">
+<li>Do we need an overview? – To get a sense of what is in the data, and to check our assumptions</li>
+<li>Are we looking for the unexpected? – Comparing groups to check for variability, exploring data open to surprises</li>
+</ol>
+</section>
+<section id="what-are-our-goals-communication" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-our-goals-communication">What are our goals? — Communication</h3>
+<p><em>Communication goals</em></p>
+<ol type="1">
+<li>What do we need our audience to understand?</li>
+<li>What story are we telling?</li>
+<li>Do we need to attract attention or stimulate interest?</li>
+</ol>
+</section>
+<section id="think-about-your-audience-an-evidence-based-account-of-what-works" class="level3">
+<h3 class="anchored" data-anchor-id="think-about-your-audience-an-evidence-based-account-of-what-works">Think about your audience – An evidence based account of what works</h3>
+<!-- -- 4 -- review evidenced psychological account of what may work well in visualization: -->
+<!-- -- audience cognition: visual perception; schemas; biases -->
+<!-- -- conventions within a research tradition -->
+<!-- -- use example plots from health comprehension data: -->
+
+<!-- -- tables or visualizations -- the utility of visualization -->
+<!-- -- precision ranking of different visual channels -->
+<!-- -- the risks of illusions and confusions -->
+<!-- -- work with your audience: the theory of mind problem; capacity limits -->
+<!-- -- use visual grouping cues -->
+<!-- -- use annotation -->
+<!-- -- consider conventions, explain new formats -->
+<!-- -- use salience and labelling -->
+<!-- -- communicate uncertainty but carefully -->
+<!-- -- account for audience individual differences -->
+<!-- -- work to be accessible -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>We will produce more effective visualizations if we think about how our audience <em>sees</em>, and what they <em>expect</em> <span class="citation" data-cites="franconeri2021">[@franconeri2021]</span></li>
+<li>Check out the <em>PSYC403 Perspectives</em> lecture for more in-depth explanation; here, I present a selective summary</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="the-human-visual-system-is-highly-developed" class="level3">
+<h3 class="anchored" data-anchor-id="the-human-visual-system-is-highly-developed">The human visual system is highly developed</h3>
+<ul>
+<li>Your audience can look at your visualization</li>
+<li>And quickly and easily extract statistical information from what you show</li>
+<li>You look at a scatterplot and see the minimum, maximum and mean heights of the points</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="franconeri_2021_fig2_global-statistics.png" class="img-fluid figure-img" style="width:50.0%" alt="We show a schematic grid of plots, from top to bottom: dot plot; stacked bar plot; area or bubblen plot; line plot; area plot, rectangles varying in intensity. Each plot schematic is marked to show what statistics can be extracted"></p>
+<figcaption class="figure-caption"><span class="citation" data-cites="franconeri2021">@franconeri2021</span> Fig. 2</figcaption>
+</figure>
+</div>
+</section>
+<section id="communicating-uncertainty-is-critical" class="level3">
+<h3 class="anchored" data-anchor-id="communicating-uncertainty-is-critical">Communicating uncertainty is critical</h3>
+<!-- -- Quantifying uncertainty is critical for analysts and sci- entists who want to make informed decisions from data. Uncertainty is inherent in the generation of data and models, and it comes from multiple sources. -->
+<ul>
+<li>As scientists, we think about uncertainty all the time</li>
+<li>We quantify and typically show uncertainty over estimates e.g.&nbsp;average differences</li>
+<li>We should also show <em>and think about</em> outcome variability</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="zhang_et_al_2023_An_illusion_of_predictability_in_scientific_results_--_Even_experts_confuse_inferential_uncertainty_and_outcome_variability.png" class="img-fluid figure-img" style="width:100.0%" alt="We show a grid of four plots. In a column of two plots on the left, there are error bars indicating average outcomes given smaller (top) and larger (bottom) samples. The error bars are more narrow for the larger sample. On the right, the same estimates are shown but with raw individual level outcomes. The variability in outcomes is very wide."></p>
+<figcaption class="figure-caption"><span class="citation" data-cites="zhang2023">@zhang2023</span>: The difference between uncertainty over estimates and uncertainty over the predictability of outcomes</figcaption>
+</figure>
+</div>
+</section>
+<section id="consider-accessibility-from-the-start" class="level3">
+<h3 class="anchored" data-anchor-id="consider-accessibility-from-the-start">Consider accessibility from the start</h3>
+<ul>
+<li>The first row shows a scatterplot encoded with two colors, green and orange</li>
+<li>People with typical vision can see that the green dots have a steep positive correlation and the orange dots make a flat line</li>
+<li>We use colour blindness friendly colour palettes</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="franconeri_2021_fig5-colour-blindness.png" class="img-fluid figure-img" style="width:70.0%" alt="We show a grid of six plots. The plots indicate how for some colour blindness the difference between points will not be apparent."></p>
+<figcaption class="figure-caption"><span class="citation" data-cites="franconeri2021">@franconeri2021</span> Fig.5</figcaption>
+</figure>
+</div>
+</section>
+<section id="development-work-reflectively-through-a-development-process" class="level3">
+<h3 class="anchored" data-anchor-id="development-work-reflectively-through-a-development-process">Development – Work reflectively through a development process</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Your first question is always going to be: (why) do we need to make a plot?</li>
+<li>Your answer will evolve through a development process that will gradually reveal the characteristics of your data</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="the-benefits-of-investing-in-the-development-process" class="level3">
+<h3 class="anchored" data-anchor-id="the-benefits-of-investing-in-the-development-process">The benefits of investing in the development process</h3>
+<ul>
+<li>Identifying your goals enables you to understand what you are doing and why</li>
+<li>Through the development process, you may create different versions — <em>iterations</em> — of a plot</li>
+<li>This iterative work benefits both you and your audience <span class="citation" data-cites="gelman2002 kastellec2007">[@gelman2002; @kastellec2007]</span></li>
+</ul>
+</section>
+<section id="the-benefits-of-investing-in-the-development-process-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-benefits-of-investing-in-the-development-process-1">The benefits of investing in the development process</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>As you iterate, <strong>reflect</strong> on what your <em>goals</em> are, what your <em>audience</em> needs and expects, and <em>how</em> each plot version moves you closer to effective discovery or communication</li>
+<li>This reflection uncovers what is interesting, useful and beautiful about your data</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="scientific-thinking-and-data-visualisation" class="level3">
+<h3 class="anchored" data-anchor-id="scientific-thinking-and-data-visualisation">Scientific thinking and data visualisation</h3>
+<p>We can use text and tables to communicate specific values but visualizations help us to:</p>
+<ul>
+<li>stimulate thinking</li>
+<li>discover what is unexpected</li>
+<li>communicate scale and complexity</li>
+<li>make comparisons to show how results <em>vary</em></li>
+<li>display uncertainty about estimates</li>
+</ul>
+</section>
+<section id="anscombe1973-visualizations-show-data-features-quickly-and-vividly" class="level3">
+<h3 class="anchored" data-anchor-id="anscombe1973-visualizations-show-data-features-quickly-and-vividly"><span class="citation" data-cites="anscombe1973">@anscombe1973</span>: visualizations show data features quickly and vividly</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">data columns</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">x-variables</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">y-variables</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div id="fig-anscombe-raw-data" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+
+<table class=" lightable-material lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+x1
+</th>
+<th style="text-align:right;">
+x2
+</th>
+<th style="text-align:right;">
+x3
+</th>
+<th style="text-align:right;">
+x4
+</th>
+<th style="text-align:right;">
+y1
+</th>
+<th style="text-align:right;">
+y2
+</th>
+<th style="text-align:right;">
+y3
+</th>
+<th style="text-align:right;">
+y4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8.04
+</td>
+<td style="text-align:right;">
+9.14
+</td>
+<td style="text-align:right;">
+7.46
+</td>
+<td style="text-align:right;">
+6.58
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+6.95
+</td>
+<td style="text-align:right;">
+8.14
+</td>
+<td style="text-align:right;">
+6.77
+</td>
+<td style="text-align:right;">
+5.76
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7.58
+</td>
+<td style="text-align:right;">
+8.74
+</td>
+<td style="text-align:right;">
+12.74
+</td>
+<td style="text-align:right;">
+7.71
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8.81
+</td>
+<td style="text-align:right;">
+8.77
+</td>
+<td style="text-align:right;">
+7.11
+</td>
+<td style="text-align:right;">
+8.84
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+8.33
+</td>
+<td style="text-align:right;">
+9.26
+</td>
+<td style="text-align:right;">
+7.81
+</td>
+<td style="text-align:right;">
+8.47
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+9.96
+</td>
+<td style="text-align:right;">
+8.10
+</td>
+<td style="text-align:right;">
+8.84
+</td>
+<td style="text-align:right;">
+7.04
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7.24
+</td>
+<td style="text-align:right;">
+6.13
+</td>
+<td style="text-align:right;">
+6.08
+</td>
+<td style="text-align:right;">
+5.25
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+4.26
+</td>
+<td style="text-align:right;">
+3.10
+</td>
+<td style="text-align:right;">
+5.39
+</td>
+<td style="text-align:right;">
+12.50
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+10.84
+</td>
+<td style="text-align:right;">
+9.13
+</td>
+<td style="text-align:right;">
+8.15
+</td>
+<td style="text-align:right;">
+5.56
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+4.82
+</td>
+<td style="text-align:right;">
+7.26
+</td>
+<td style="text-align:right;">
+6.42
+</td>
+<td style="text-align:right;">
+7.91
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+5.68
+</td>
+<td style="text-align:right;">
+4.74
+</td>
+<td style="text-align:right;">
+5.73
+</td>
+<td style="text-align:right;">
+6.89
+</td>
+</tr>
+</tbody>
+
+</table>
+<figcaption class="figure-caption">Figure&nbsp;3: Data table view of Anscombe’s Quartet dataset</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div id="fig-anscombe-summary-x" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+
+<table class=" lightable-material lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+x1
+</th>
+<th style="text-align:left;">
+x2
+</th>
+<th style="text-align:left;">
+x3
+</th>
+<th style="text-align:left;">
+x4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Min. : 4.0
+</td>
+<td style="text-align:left;">
+Min. : 4.0
+</td>
+<td style="text-align:left;">
+Min. : 4.0
+</td>
+<td style="text-align:left;">
+Min. : 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1st Qu.: 6.5
+</td>
+<td style="text-align:left;">
+1st Qu.: 6.5
+</td>
+<td style="text-align:left;">
+1st Qu.: 6.5
+</td>
+<td style="text-align:left;">
+1st Qu.: 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Median : 9.0
+</td>
+<td style="text-align:left;">
+Median : 9.0
+</td>
+<td style="text-align:left;">
+Median : 9.0
+</td>
+<td style="text-align:left;">
+Median : 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Mean : 9.0
+</td>
+<td style="text-align:left;">
+Mean : 9.0
+</td>
+<td style="text-align:left;">
+Mean : 9.0
+</td>
+<td style="text-align:left;">
+Mean : 9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+3rd Qu.:11.5
+</td>
+<td style="text-align:left;">
+3rd Qu.:11.5
+</td>
+<td style="text-align:left;">
+3rd Qu.:11.5
+</td>
+<td style="text-align:left;">
+3rd Qu.: 8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Max. :14.0
+</td>
+<td style="text-align:left;">
+Max. :14.0
+</td>
+<td style="text-align:left;">
+Max. :14.0
+</td>
+<td style="text-align:left;">
+Max. :19
+</td>
+</tr>
+</tbody>
+
+</table>
+<figcaption class="figure-caption">Figure&nbsp;4: Summary table view of descriptive statistics for x variables</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div id="fig-anscombe-summary-y" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+
+<table class=" lightable-material lightable-striped lightable-hover" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+y1
+</th>
+<th style="text-align:left;">
+y2
+</th>
+<th style="text-align:left;">
+y3
+</th>
+<th style="text-align:left;">
+y4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Min. : 4.260
+</td>
+<td style="text-align:left;">
+Min. :3.100
+</td>
+<td style="text-align:left;">
+Min. : 5.39
+</td>
+<td style="text-align:left;">
+Min. : 5.250
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1st Qu.: 6.315
+</td>
+<td style="text-align:left;">
+1st Qu.:6.695
+</td>
+<td style="text-align:left;">
+1st Qu.: 6.25
+</td>
+<td style="text-align:left;">
+1st Qu.: 6.170
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Median : 7.580
+</td>
+<td style="text-align:left;">
+Median :8.140
+</td>
+<td style="text-align:left;">
+Median : 7.11
+</td>
+<td style="text-align:left;">
+Median : 7.040
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Mean : 7.501
+</td>
+<td style="text-align:left;">
+Mean :7.501
+</td>
+<td style="text-align:left;">
+Mean : 7.50
+</td>
+<td style="text-align:left;">
+Mean : 7.501
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+3rd Qu.: 8.570
+</td>
+<td style="text-align:left;">
+3rd Qu.:8.950
+</td>
+<td style="text-align:left;">
+3rd Qu.: 7.98
+</td>
+<td style="text-align:left;">
+3rd Qu.: 8.190
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Max. :10.840
+</td>
+<td style="text-align:left;">
+Max. :9.260
+</td>
+<td style="text-align:left;">
+Max. :12.74
+</td>
+<td style="text-align:left;">
+Max. :12.500
+</td>
+</tr>
+</tbody>
+
+</table>
+<figcaption class="figure-caption">Figure&nbsp;5: Summary table view of descriptive statistics for y variables</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="anscombe1973-visualizations-show-data-features-quickly-and-vividly-1" class="level3">
+<h3 class="anchored" data-anchor-id="anscombe1973-visualizations-show-data-features-quickly-and-vividly-1"><span class="citation" data-cites="anscombe1973">@anscombe1973</span>: visualizations show data features quickly and vividly</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-anscombe-plots" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-anscombe-plots-1.png" class="img-fluid figure-img" alt="Grid of scatterplots showing the relation between x,y variables in the Anscombe 1973 dataset. The plots show: (top left) a typical scatterplot indicating a positive correlation; (top right) a curvilinear association; (bottom left) a more or less coherent positive trend with a marked outlier; and (bottom right) a scatter showing all data grouped at one value of x, with only one point at a second value of x" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;6: All 4 of the <span class="citation" data-cites="anscombe1973">@anscombe1973</span> <code>x,y</code> datasets are identical when examined using summary statistics but we see how they vary when we use scatterplots to visualize them</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="matejka2017-give-us-the-datasaurus-dozen" class="level3">
+<h3 class="anchored" data-anchor-id="matejka2017-give-us-the-datasaurus-dozen"><span class="citation" data-cites="matejka2017">@matejka2017</span> give us the <code>Datasaurus dozen</code></h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-datasaurus-plots" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-datasaurus-plots-1.png" class="img-fluid figure-img" alt="Grid of scatterplots showing the relation between x,y variables in the Datasaurus dozen datasets. The plots show different shapes, made by the points, even though the summary statistics for the underlying data are the same" width="768"></p>
+<figcaption class="figure-caption">Figure&nbsp;7: All 12 <span class="citation" data-cites="matejka2017">@matejka2017</span> <code>x,y</code> datasets (via <span class="citation" data-cites="jumpingrivers">@jumpingrivers</span>) have the same mean and standard deviation summary statistics but we only understand how the data are structured when we plot them and can <em>look at</em> the structure</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="develop-visualizations-to-discover-and-communicate-variability-in-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="develop-visualizations-to-discover-and-communicate-variability-in-outcomes">Develop visualizations to discover and communicate variability in outcomes</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-sleep-study-scatterplot-by-subject-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-sleep-study-scatterplot-by-subject-2-1.png" class="img-fluid figure-img" alt="The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents." width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;8: In this plot we show data on the impact of sleep deprivation on reaction time, from <span class="citation" data-cites="belenky2003 R-lme4">@belenky2003 [via @R-lme4]</span>. We can see how reaction time slows with increasing deprivation on average (grey line) but that the rate of slowing <em>varies</em> between individuals</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="reflect-on-kinds-of-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="reflect-on-kinds-of-uncertainty">Reflect on kinds of uncertainty</h3>
+<ul>
+<li>Scientists are often faced with the challenge of conveying uncertainty to their audiences <span class="citation" data-cites="hofman2020">[@hofman2020]</span>:</li>
+</ul>
+<ol type="1">
+<li><em>Inferential uncertainty</em> — the degree to which a particular summary statistic (e.g., a population mean) is known to the scientist</li>
+<li><em>Outcome uncertainty</em> — how much individual outcomes vary (e.g., around the mean, regardless of how well it has been estimated)</li>
+</ol>
+<ul>
+<li>Inferential uncertainty can be reduced by collecting and analyzing more data, whereas <em>outcome uncertainty cannot</em></li>
+</ul>
+<!-- hofman et al 2020 How Visualizing Inferential Uncertainty Can Mislead Readers About Treatment Effects in Scientific Results.pdf -->
+<!-- -- For instance, in a study of how heights vary by gender, infer- ential uncertainty captures how precisely one has estimated the average height of men and women based on the set of measurements that were made. With a large enough sample, one can very precisely estimate the average height within each group. But this does not change the fact that there is a good deal of outcome uncertainty, as individual heights within each group vary substantially around their respective averages. -->
+</section>
+<section id="as-we-work-reflect-on-the-challenges-of-visualizing-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="as-we-work-reflect-on-the-challenges-of-visualizing-uncertainty">As we work, reflect on the challenges of visualizing uncertainty</h3>
+<ul>
+<li>The process through which we understand the world is characterized by assumptions, limitations, extrapolations, and generalizations, and this brings uncertainty <span class="citation" data-cites="vanderbles2019">[@vanderbles2019]</span></li>
+<li>We often face the challenge of communicating this</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="zhang_et_al_2023_An_illusion_of_predictability_in_scientific_results_--_Even_experts_confuse_inferential_uncertainty_and_outcome_variability.png" class="img-fluid figure-img" style="width:100.0%" alt="We show a grid of four plots. In a column of two plots on the left, there are error bars indicating average outcomes given smaller (top) and larger (bottom) samples. The error bars are more narrow for the larger sample. On the right, the same estimates are shown but with raw individual level outcomes. The variability in outcomes is very wide."></p>
+<figcaption class="figure-caption"><span class="citation" data-cites="zhang2023">@zhang2023</span>: The difference between uncertainty over estimates and uncertainty over the predictability of outcomes</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-challenges-of-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="the-challenges-of-uncertainty">The challenges of uncertainty</h3>
+<ul>
+<li>Non-expert people will tend to overstate the impact of interventions and understate the variability of outcomes</li>
+<li>when they see visualizations like error bars that show</li>
+<li>mean and standard error values, that focus on inferential uncertainty <span class="citation" data-cites="hofman2020">[@hofman2020]</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="zhang_et_al_2023_An_illusion_of_predictability_in_scientific_results_--_Even_experts_confuse_inferential_uncertainty_and_outcome_variability.png" class="img-fluid figure-img" style="width:100.0%" alt="We show a grid of four plots. In a column of two plots on the left, there are error bars indicating average outcomes given smaller (top) and larger (bottom) samples. The error bars are more narrow for the larger sample. On the right, the same estimates are shown but with raw individual level outcomes. The variability in outcomes is very wide."></p>
+<figcaption class="figure-caption"><span class="citation" data-cites="zhang2023">@zhang2023</span>: The difference between uncertainty over estimates and uncertainty over the predictability of outcomes</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-challenges-of-uncertainty-1" class="level3">
+<h3 class="anchored" data-anchor-id="the-challenges-of-uncertainty-1">The challenges of uncertainty</h3>
+<ul>
+<li>Expert scientists also overestimate the impact of interventions when they see standard visualizations that focus on inferential uncertainty: <em>the illusion of predictability</em></li>
+<li>We can stimulate more accurate understanding if we show outcome variability <span class="citation" data-cites="zhang2023">[@zhang2023]</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="zhang_et_al_2023_An_illusion_of_predictability_in_scientific_results_--_Even_experts_confuse_inferential_uncertainty_and_outcome_variability.png" class="img-fluid figure-img" style="width:100.0%" alt="We show a grid of four plots. In a column of two plots on the left, there are error bars indicating average outcomes given smaller (top) and larger (bottom) samples. The error bars are more narrow for the larger sample. On the right, the same estimates are shown but with raw individual level outcomes. The variability in outcomes is very wide."></p>
+<figcaption class="figure-caption"><span class="citation" data-cites="zhang2023">@zhang2023</span>: The difference between uncertainty over estimates and uncertainty over the predictability of outcomes</figcaption>
+</figure>
+</div>
+</section>
+<section id="variation-and-uncertainty-the-importance-the-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="variation-and-uncertainty-the-importance-the-challenges">Variation and uncertainty — the importance, the challenges</h3>
+<p><span class="citation" data-cites="vasishth2021">@vasishth2021</span>:</p>
+<blockquote class="blockquote">
+<p>The most difficult idea to digest in data analysis is that conclusions based on data are almost always uncertain, regardless of whether the outcome of the statistical test is statistically significant or not</p>
+</blockquote>
+</section>
+<section id="variation-and-uncertainty-the-importance-the-challenges-1" class="level3">
+<h3 class="anchored" data-anchor-id="variation-and-uncertainty-the-importance-the-challenges-1">Variation and uncertainty — the importance, the challenges</h3>
+<p><span class="citation" data-cites="Gelman2015">@Gelman2015</span>:</p>
+<blockquote class="blockquote">
+<p>We must move beyond the idea that effects are ‘there’ or not and the idea that the goal of a study is to reject a null hypothesis. As many observers have noted, these attitudes lead to trouble because they deny the variation inherent in real social phenomena, and they deny the uncertainty inherent in statistical inference</p>
+</blockquote>
+</section>
+<section id="we-use-visualizations-to-help-us-to-see-and-understand-the-variation-and-the-uncertainty-in-our-data" class="level3">
+<h3 class="anchored" data-anchor-id="we-use-visualizations-to-help-us-to-see-and-understand-the-variation-and-the-uncertainty-in-our-data">We use visualizations to help us to see and understand the variation and the uncertainty in our data</h3>
+<ul>
+<li>Results will vary: we should expect changes over time, or differences between individuals or between groups</li>
+<li>Knowledge is uncertain: outcomes will vary even when the average effect is precisely estimated</li>
+<li>We have the responsibility to accept and to express this uncertainty</li>
+</ul>
+</section>
+<section id="implement-produce-visualizations-in-line-with-best-practice" class="level3">
+<h3 class="anchored" data-anchor-id="implement-produce-visualizations-in-line-with-best-practice">Implement – Produce visualizations in line with best practice</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>We combine our creative thinking with the flexibility of the Grammar of Graphics to produce effective plots</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="ggplot2-means-the-grammar-of-graphics-plot-2" class="level3">
+<h3 class="anchored" data-anchor-id="ggplot2-means-the-grammar-of-graphics-plot-2"><code>{ggplot2}</code> means: the <em>Grammar of Graphics</em> Plot 2</h3>
+<ul>
+<li>When we use the <code>{ggplot2}</code> to draw plots, we are using tools developed with a philosophy of visualization in mind <span class="citation" data-cites="wickham2010 wilkinson2013">[@wickham2010; @wilkinson2013]</span>: <em>The Grammar of Graphics</em></li>
+<li>A grammar is a system of rules that allows people to collaborate and individuals to create</li>
+<li>We do not need to think about the grammar when we produce visualizations</li>
+<li>But it will help you to know that when we puzzle over <em>how</em> we do things, there are always reasons <em>why</em> we do things</li>
+</ul>
+</section>
+<section id="a-simple-plot-has-many-elements" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-plot-has-many-elements">A simple plot has many elements</h3>
+<ul>
+<li>data and aesthetic mappings</li>
+<li>statistical transformations</li>
+<li>geometric objects</li>
+<li>scales</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-1-1.png" class="img-fluid figure-img" alt="A scatterplot: points are shown in grey, a smoother line is shown in red. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;9: A scatterplot showing the potential association between health literacy and vocabulary</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="we-begin-with-data-here-from-the-health-comprehension-project" class="level3">
+<h3 class="anchored" data-anchor-id="we-begin-with-data-here-from-the-health-comprehension-project">We begin with data: here, from the Health Comprehension project</h3>
+<div class="cell">
+<div id="fig-health-study-one-data" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+participant_ID
+</th>
+<th style="text-align:right;">
+mean.acc
+</th>
+<th style="text-align:right;">
+mean.self
+</th>
+<th style="text-align:left;">
+study
+</th>
+<th style="text-align:right;">
+AGE
+</th>
+<th style="text-align:right;">
+SHIPLEY
+</th>
+<th style="text-align:right;">
+HLVA
+</th>
+<th style="text-align:right;">
+FACTOR3
+</th>
+<th style="text-align:right;">
+QRITOTAL
+</th>
+<th style="text-align:left;">
+GENDER
+</th>
+<th style="text-align:left;">
+EDUCATION
+</th>
+<th style="text-align:left;">
+ETHNICITY
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+studyone.1
+</td>
+<td style="text-align:right;">
+0.49
+</td>
+<td style="text-align:right;">
+7.96
+</td>
+<td style="text-align:left;">
+studyone
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+Non-binary
+</td>
+<td style="text-align:left;">
+Higher
+</td>
+<td style="text-align:left;">
+White
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+studyone.10
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:right;">
+7.28
+</td>
+<td style="text-align:left;">
+studyone
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+Higher
+</td>
+<td style="text-align:left;">
+White
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+studyone.100
+</td>
+<td style="text-align:right;">
+0.82
+</td>
+<td style="text-align:right;">
+7.36
+</td>
+<td style="text-align:left;">
+studyone
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+Further
+</td>
+<td style="text-align:left;">
+White
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+studyone.101
+</td>
+<td style="text-align:right;">
+0.94
+</td>
+<td style="text-align:right;">
+7.88
+</td>
+<td style="text-align:left;">
+studyone
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+Higher
+</td>
+<td style="text-align:left;">
+White
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+studyone.102
+</td>
+<td style="text-align:right;">
+0.58
+</td>
+<td style="text-align:right;">
+6.96
+</td>
+<td style="text-align:left;">
+studyone
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:left;">
+Secondary
+</td>
+<td style="text-align:left;">
+Mixed
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+studyone.103
+</td>
+<td style="text-align:right;">
+0.84
+</td>
+<td style="text-align:right;">
+7.88
+</td>
+<td style="text-align:left;">
+studyone
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:left;">
+Further
+</td>
+<td style="text-align:left;">
+Asian
+</td>
+</tr>
+</tbody>
+
+</table>
+<figcaption class="figure-caption">Figure&nbsp;10: Data table view of Health Comprehension project Study One dataset</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="a-simple-plot-has-many-elements-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-plot-has-many-elements-1">A simple plot has many elements</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Plot with no objects</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Code for the plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ul>
+<li>When we code a plot, we tell R we want:</li>
+<li>to use <code>ggplot()</code> to create a plot</li>
+<li>using the data-set <code>clearly.one.subjects</code></li>
+<li>and the variables <code>SHIPLEY, HLVA</code></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-2-1.png" class="img-fluid figure-img" alt="An empty scatterplot: axes show that vocabulary scores are on the x-axis and health literacy scores are on the y-axis" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;11: Scatterplot showing association between health literacy and vocabulary</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> clearly.one.subjects, <span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We bring the data-set and the variables</li>
+<li>We declare the <em>aesthetic mappings</em>:</li>
+</ul>
+<ol type="1">
+<li><code>SHIPLEY</code> score <span class="math inline">\(\rightarrow\)</span> x-axis (horizontal: left-to-right position)</li>
+<li><code>HLVA</code> score <span class="math inline">\(\rightarrow\)</span> y-axis (vertical: bottom-to-top position)</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="a-simple-plot-has-many-elements-2" class="level3">
+<h3 class="anchored" data-anchor-id="a-simple-plot-has-many-elements-2">A simple plot has many elements</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Plot with only objects</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Code for the plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ul>
+<li>When we code a plot, we tell R we want:</li>
+<li>to use a geometric object, like <code>geom_point</code></li>
+<li>to display the data aesthetic mappings</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-4-1.png" class="img-fluid figure-img" alt="A scatterplot showing only points: vocabulary scores are on the x-axis and health literacy scores are on the y-axis; but only the points are shown" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;12: Scatterplot showing association between health literacy and vocabulary</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> clearly.one.subjects, <span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We add the <code>geom_point()</code> to tell R to draw the information about the <code>SHIPLEY</code> and <code>HLVA</code> scores as points</li>
+<li>Each point represents information about one participant in the <code>clearly.one.subjects</code> data-set</li>
+</ul>
+<ol type="1">
+<li><code>SHIPLEY</code> score <span class="math inline">\(\rightarrow\)</span> x-axis (horizontal: left-to-right position)</li>
+<li><code>HLVA</code> score <span class="math inline">\(\rightarrow\)</span> y-axis (vertical: bottom-to-top position)</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="when-we-use-ggplot2-we-work-in-layers" class="level3">
+<h3 class="anchored" data-anchor-id="when-we-use-ggplot2-we-work-in-layers">When we use <code>{ggplot2}</code> we work in <em>layers</em></h3>
+<ul>
+<li>The grammar of graphics define the components of a plot: the data, the mappings, and the geometric object</li>
+<li>Together, the data, mappings, and geometric object form a <em>layer</em></li>
+<li>A plot may have multiple layers</li>
+</ul>
+</section>
+<section id="when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative" class="level3">
+<h3 class="anchored" data-anchor-id="when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative">When we use <code>{ggplot2}</code> we are in control and we can be creative</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Having a system of graphics: with components, layers and rules</li>
+<li>Releases us to be <em>creative</em>: changing a single feature at a time</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="plot-with-layers-add-a-smoother" class="level3">
+<h3 class="anchored" data-anchor-id="plot-with-layers-add-a-smoother">Plot with layers: add a smoother</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Plot with smoother</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Code for the plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<ul>
+<li>Build a plot <em>layer by layer</em></li>
+<li>We can begin by using points to display the vocabulary and health literacy scores for each person</li>
+<li>We add a layer using a <em>smoother</em> to show the average association between vocabulary and literacy</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-6-1.png" class="img-fluid figure-img" alt="A scatterplot showing points and a smoother. Vocabulary scores are on the x-axis and health literacy scores are on the y-axis. Each point represents the pairing of vocabulary and health literacy scores for one person. A smoother is added indicating the average association between vocabulary and health literacy scores across all people in our sample. The points and the smoother suggest a trend so that higher vocabulary scores are associated with higher health literacy scores" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;13: Scatterplot showing association between health literacy and vocabulary</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> clearly.one.subjects, <span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We add the <code>geom_smooth()</code> to tell R to represent the average trend for the association between <code>SHIPLEY</code> and <code>HLVA</code> scores</li>
+<li>The line is drawn by <code>{ggplot2}</code> which calculates a statistical transformation</li>
+<li>Here, the transformation summarizes the association for different ranges of <code>SHIPLEY</code> vocabulary scores</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="defaults-and-arguments" class="level3">
+<h3 class="anchored" data-anchor-id="defaults-and-arguments">Defaults and arguments</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>clearly.one.subjects <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SHIPLEY, HLVA)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The <code>{ggplot2}</code> library supplies default values</li>
+<li>So we do not need to tell R how to do every thing</li>
+<li>We do not need to tell R that the points in a scatterplot:</li>
+<li>should represent the data aesthetic mappings in <em>Cartesian</em> (x-horizontal, y-vertical) 2-dimensional space</li>
+<li>and should be black in colour</li>
+</ul>
+</section>
+<section id="defaults-and-arguments-1" class="level3">
+<h3 class="anchored" data-anchor-id="defaults-and-arguments-1">Defaults and arguments</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>clearly.one.subjects <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(SHIPLEY, HLVA)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"darkgrey"</span>, <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We can over-ride the defaults by supplying arguments, entering values <em>inside the brackets</em> in the function calls</li>
+<li><code>geom_point(colour = "darkgrey", size = 3)</code> tells R we want:</li>
+</ul>
+<ol type="1">
+<li>dark grey points when the default is black</li>
+<li>points that are 3x larger than the default size</li>
+</ol>
+</section>
+<section id="when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative-1" class="level3">
+<h3 class="anchored" data-anchor-id="when-we-use-ggplot2-we-are-in-control-and-we-can-be-creative-1">When we use <code>{ggplot2}</code> we are in control and we can be creative</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>We can add layers, control the appearance of each component</li>
+<li>To construct more <em>effective</em> plots</li>
+<li>The plots can be more effective because we develop them in an iterative process</li>
+<li>in which we reflect on our <em>goals</em> and the <em>needs of our audience</em></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="we-can-use-colour" class="level3">
+<h3 class="anchored" data-anchor-id="we-can-use-colour">We can use colour</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Using colour</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Code for the plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<ul>
+<li>When we code a plot, we tell R we want:</li>
+<li>to display data about people with different education levels</li>
+<li>distinguishing education level by <span style="color:red;">colour</span></li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-10" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-10-1.png" class="img-fluid figure-img" alt="A scatterplot: points and smoothers are shown in red, green or blue. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. The trend appears to be steeper for people with secondary education" width="432"></p>
+<figcaption class="figure-caption">Figure&nbsp;14: Using colour</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>clearly.one.subjects <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> EDUCATION, <span class="at">colour =</span> EDUCATION)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">75</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>group = EDUCATION, colour = EDUCATION</code> tells R to:</li>
+</ul>
+<ol type="1">
+<li><code>group</code> the data by <code>EDUCATION</code> level</li>
+<li><code>colour</code> the points for people with different levels of education in different colours</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="method-size-transparency" class="level3">
+<h3 class="anchored" data-anchor-id="method-size-transparency">Method, size, transparency</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>clearly.one.subjects <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA, </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> EDUCATION, <span class="at">colour =</span> EDUCATION)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">75</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>method = "lm", se = FALSE</code> tells R what method to use to draw the smoother line</li>
+<li><code>linewidth = 2</code> makes the width of the smoother line 2 x larger than the default</li>
+<li><code>alpha = .75</code> makes the line .75 x the opacity of the default (i.e.&nbsp;a. bit more transparent)</li>
+<li>Learn to edit: shape, size, transparency and colour</li>
+</ul>
+</section>
+<section id="we-facet-plots-to-enable-comparisons" class="level3">
+<h3 class="anchored" data-anchor-id="we-facet-plots-to-enable-comparisons">We <em>facet</em> plots to enable comparisons</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Using facets</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Code for the plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<ul>
+<li>It is often easier to <em>compare</em> trends</li>
+<li>By presenting a separate plot for each condition or group</li>
+<li>Showing the separate plots in a grid side-by-side</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-12" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-12-1.png" class="img-fluid figure-img" alt="A grid of scatterplots: points and smoothers are shown in red, green or blue. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. The trend appears to be steeper for people with secondary education. Plots are split into separate facets by education" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;15: The association between health literacy and vocabulary <em>varies by education level</em></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>clearly.one.subjects <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> EDUCATION, <span class="at">colour =</span> EDUCATION)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">75</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> EDUCATION)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>facet_wrap(~ EDUCATION)</code> tells R to split the data by <code>EDUCATION</code> level</li>
+<li>And show a separate plot for each <code>EDUCATION</code> level group side-by-side for easy comparison</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="we-can-guide-our-audience" class="level3">
+<h3 class="anchored" data-anchor-id="we-can-guide-our-audience">We can guide our audience</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">Labelled plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">Code for the plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<ul>
+<li>We do not present visualizations in isolation</li>
+<li>We present plots embedded in the context of labels and titles</li>
+<li>We use the text to guide the viewer</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-14" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-14-1.png" class="img-fluid figure-img" alt="A scatterplot: points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. Plot labels for title, and each axis have been edited to be more informative" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;16: A labelled plot</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>clearly.one.subjects <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"darkgreen"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">75</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">colour =</span> <span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Vocabulary (Shipley)"</span>, <span class="at">y =</span> <span class="st">"Health literacy (HLVA)"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Scatterplot showing how higher vocabulary</span><span class="sc">\n</span><span class="st">predicts higher health literacy on average"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>We use the <code>labs()</code> function to add: the plot title and the labels for the x-axis and y-axis</li>
+<li>We edit the title so that the viewer can see what we want them to see</li>
+<li>We use <code>\n</code> to make the title fit on two lines</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="we-annotate-plots-to-direct-attention" class="level3">
+<h3 class="anchored" data-anchor-id="we-annotate-plots-to-direct-attention">We annotate plots to direct attention</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">Annotated plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">Code for the plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<ul>
+<li>We can direct the attention of our audience to key features of our data</li>
+<li>By adding annotations like text and lines</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-16" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-16-1.png" class="img-fluid figure-img" alt="A scatterplot: points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. We have added a horizontal grey line to indicate the average health literacy (HLVA) score for this sample" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;17: An annotated plot</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>clearly.one.subjects <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"darkgreen"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">75</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">colour =</span> <span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Vocabulary (Shipley)"</span>, <span class="at">y =</span> <span class="st">"Health literacy (HLVA)"</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">mean</span>(clearly.one.subjects<span class="sc">$</span>HLVA),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">linewidth =</span> <span class="dv">2</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">colour =</span> <span class="st">"grey"</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">85</span>) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">27</span>, <span class="at">y =</span> <span class="fl">9.3</span>, <span class="at">label =</span> <span class="st">"Mean HLVA"</span>, <span class="at">colour =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>geom_hline()</code> adds a line to show mean health literacy</li>
+<li><code>annotate("text" ...)</code> adds a text label</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="extensions-free-our-creativity" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-free-our-creativity">Extensions free our creativity</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">Complex plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">Code for the plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<ul>
+<li>The power of the <em>Grammar of Graphics</em> lies in the rules</li>
+<li>Developers can use the rules to expand our capacity to visualize data</li>
+<li>We add marginal histograms to our scatterplot to visualize associations <em>and</em> distributions</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-18" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-18-1.png" class="img-fluid figure-img" alt="A grid of scatterplots: points and smoothers are shown in red, green or blue. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. The trend appears to be steeper for people with secondary education. Plots are split into separate facets by education" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;18: A scatterplot showing the potential association between health literacy and vocabulary</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> clearly.one.subjects <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> HLVA)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">"darkgreen"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">alpha =</span> .<span class="dv">75</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">colour =</span> <span class="st">"lightgreen"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Vocabulary (Shipley)"</span>, <span class="at">y =</span> <span class="st">"Health literacy (HLVA)"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggMarginal</span>(plot, <span class="at">type =</span> <span class="st">"histogram"</span>, <span class="at">fill =</span> <span class="st">"lightgreen"</span>, </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">xparams =</span> <span class="fu">list</span>(<span class="at">binwidth=</span><span class="dv">2</span>), <span class="at">yparams =</span> <span class="fu">list</span>(<span class="at">binwidth=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>ggMarginal(plot, type = "histogram")</code> enables us to show the distribution of scores on each variable</li>
+<li>This helps our viewer to process the association <em>and</em> information about each variable <span class="citation" data-cites="franconeri2021">[@franconeri2021]</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="choose-your-plot-theme" class="level3">
+<h3 class="anchored" data-anchor-id="choose-your-plot-theme">Choose your plot theme</h3>
+<ul>
+<li>We can choose a theme to adapt the look of the whole plot to suit our needs or the needs of our audience</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-health-study-one-HLVA-SHIPLEY-1-themes" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="visualization-intro_files/figure-html/fig-health-study-one-HLVA-SHIPLEY-1-themes-1.png" class="img-fluid figure-img" alt="A grid of scatterplots: points are shown in grey, a smoother line is shown in red. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. The different plots illustrate different themes: (left) `theme_dark()`, background is shown in dark grey; (middle) `theme_bw()`, background is white with grey grid lines; and (right) `theme_classic()`, background is white with no grid lines." width="1152"></p>
+<figcaption class="figure-caption">Figure&nbsp;19: Different themes: (left) <code>theme_dark()</code>; (middle) <code>theme_bw()</code>; and (right) <code>theme_classic()</code></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<p>You start your work with these questions:</p>
+<ol type="1">
+<li>What are our goals?</li>
+<li>What does our audience need or expect?</li>
+</ol>
+<p>You develop your visualization in a reflective process:</p>
+<ol type="1">
+<li>Begin with a quick draft to show the distributions or make the comparisons you think about first</li>
+<li>Then reflect, and edit: does this enable me to discover sources of variability in my data?</li>
+<li>Then reflect, and edit: does this enable me to effectively communicate what I want to communicate?</li>
+<li>Then reflect, and edit: does this look good? – do my viewers tell me this works well?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I can only show you the potential for creative and effective visualization</p>
+<ul>
+<li>experiment and find what looks good and is useful to you</li>
+<li>seek out information – good places to start are:</li>
+</ul>
+<p><a href="https://ggplot2.tidyverse.org/index.html" class="uri">https://ggplot2.tidyverse.org/index.html</a></p>
+<p><a href="https://r-graph-gallery.com" class="uri">https://r-graph-gallery.com</a></p>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>We write the slides and this book in <a href="https://quarto.org" target="_blank">Quarto</a> in R-Studio. Quarto scripts can be rendered as .html to share web-books like this one, or to share slides like those we use in presenting the lecture. One advantage of using Quarto is that we can share a plot and the code we used to generate the plot in the same page.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../PSYC401/part2/visualization.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Data visualization</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../PSYC401/part2/what.html" class="pagination-link">
+        <span class="nav-page-text">What you have to do</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../previous-content/index.html">Previous Content</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

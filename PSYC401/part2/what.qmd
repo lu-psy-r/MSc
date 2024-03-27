@@ -1,0 +1,202 @@
+# What you have to do {#sec-what}
+
+We present the following guidelines to help you to complete the coursework assessment. 
+If you have any questions, you can contact:
+
+- Padraic Monaghan at `p.monaghan@lancaster.ac.uk`
+- Rob Davies at `r.davies1@lancaster.ac.uk`
+
+In this section, we explain **what you are expected to do**.
+
+If you want to understand **why** we think you will benefit from doing this, you can read the explanation in @sec-intro-why.
+
+If you want to know more about **how** to do this work, you can read about how in @sec-how.
+
+We provide information on assessment criteria and our approach to marking in @sec-marking.
+
+## The research report: what you are expected to do {#sec-what-expected}
+
+Note that the following information mirrors exactly the information provided on Moodle:
+
+<https://modules.lancaster.ac.uk/mod/page/view.php?id=2212445>
+
+### What data can I analyse? {#sec-what-data}
+
+Reports will concern, usually, findings from analyses of data-sets we have provided to you. 
+Some students may wish to analyse data collected in previous studies or data accessed from online sources: they should correspond with Padraic Monaghan or Rob Davies if they wish to do so. 
+
+The evaluation of reports will focus on clarity, read the following for discussion of what is required.
+
+We expect students to use one of the analysis methods taught in the module. 
+Marks will be awarded depending:
+
+- on how appropriate the method is to the context, to the study design, to answering the research question, and to the features of the data; the appropriateness of methods to contexts will be taught in class;
+
+- on how effectively the analysis is explained; students must explain the motivations for their decisions, explain their methods, and explain their findings effectively to gain points.
+
+### What structure should reports take? {#sec-what-structure}
+
+1. The reports should include abstract, introduction, methods, results, discussion and references sections, like a short research article in the journal *Psychological Science*. You can view examples of articles here
+
+<https://journals.sagepub.com/home/pss>
+
+2. Word count limit: no more than 1500 words are allowed for all materials.
+
+3. Unlike a published research article, for PSYC401, the Results and Discussion sections must be written in full, but the Introduction and Methods sections can be written in the form of notes.
+
+### What content should reports present? {#sec-what-content}
+
+#### Introduction and Method sections {#sec-what-content-intro-methods}
+
+The focus of marking will be on the quality of the Results and Discussion sections. This means you can write your notes in the Introduction and Methods sections as short answers to the following questions:-
+
+##### Introduction {#sec-what-content-intro}
+
+- What did the researchers do and why did the researchers do it?
+- What was the question addressed in the study and why is it interesting?
+- What were the hypotheses?
+- What results were expected and how would they relate to the hypotheses?
+
+How can you write this as a set of notes? 
+We require main points of information on the hypotheses concerning expected results. 
+We will ignore the absence of citations, or of explanations of critical previous experimental work, in the Introduction.
+
+##### Method {#sec-what-content-method}
+
+Note the origin of the data at the start of the method section. 
+As for the Introduction, your method section writing needs to furnish answers to questions like the following:-
+
+- What was done to collect the data?
+- Who were tested (Participants)?
+- What materials were used in testing (Materials)?
+- What was the design of the study?
+- What procedure was used?
+
+How can you write this as a set of notes? 
+We require main points of information, especially the main features of the data analyzed -- what were the variables, how many observations were recorded, what exclusions or other data treatment steps were applied?
+
+#### Results and Discussion sections {#sec-what-content-results-discussion}
+
+The focus of marking will be on the quality of the Results and Discussion sections. 
+This means you must write in complete sentences in full paragraphs in a style appropriate for a research article appearing in a journal like *Psychological Science*. 
+You must not use notes for these sections. 
+You must write text that explains to the reader the analysis you did, why you did it, the results you found, and the implications of those results. 
+You should write the text for the sections so that the questions listed following are answered fully.
+
+If you use a data set that is already published in a journal such as *Psychological Science*, then your presentation of the results must differ from that in the article in ways that highlight new features of the data.
+
+##### Results {#sec-what-content-results}
+
+Be clear on what the outcome measure or dependent variable for analysis was, and on what factors or predictor variables were brought into the analysis of that outcome. 
+You then need to ensure the Results section answers the following questions:-
+
+- What hypotheses were tested?
+- What methods were used to test the hypotheses?
+- Why are they appropriate?
+- What were the results? What were the direction and relative size of effects?
+
+Do what seems reasonable using one or more of the analysis methods practiced in class, or practiced in association with the workbooks, and explain your reasoning.
+
+##### Discussion {#sec-what-content-discussion}
+
+What the reader must be able to do, given your report, is understand the answer to the following questions:         
+
+- What are the theoretical implications of the study findings?
+- What are the practical implications? 
+
+Reports should present **enough information that the reader can understand**: the background and motivation for a study; the features of the data analyzed and the methods of data collection; the approach taken in analysis, the analysis steps, and the results; the relationship between the observed results and the expected results, and the interpretation of findings in relation to previous work.
+
+To be clear about clarity: explain, spell things out (decisions, reasoning, interpretations) as if you were explaining them to a reasonably intelligent reader, a Psychologist who is not a specialist in the area of study occupied by the study reported. 
+The main point is that you should keep in mind what the reader should get out of (what benefit) reading your report.
+
+### What format? {#sec-what-format}
+
+#### Statistics, tables and figures should follow APA guidelines {#sec-what-format-APA}
+
+See here for a free guide.
+
+For general APA formatting of reports: 
+<https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_style_introduction.html>
+
+And for APA formatting of statistics and numbers:
+
+<https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_numbers_statistics.html>
+
+Though the APA guidelines are the authoritative guide.
+
+#### Add a link to the data analysed for the report {#what-link}
+
+## The research report: assessment criteria {#sec-marking}
+
+Note that the following information mirrors exactly the information provided on Moodle on assessment criteria:
+
+<https://modules.lancaster.ac.uk/mod/page/view.php?id=2212446>
+
+These assessment criteria relate to the short research report:
+
+The marks for the report will be depend primarily on the quality of the Results and Discussion sections of the report. 
+This is because, in most cases, you will be using data for your analysis that were collected, previously, by other authors for an already published report. 
+We cannot give you much credit for writing about the background research literature in the Introduction or about the Method of data collection because the authors of the original report did that work if you are using published data, or because I [or others] did that work if you are using demonstration data. 
+We can give you credit for writing brief notes in the Introduction and Method sections, in your report, that present concise, clear, summaries of the background research literature and method of data collection.
+
+Marks will be awarded on the basis of the quality of the Results and Discussion sections.
+You can use whatever analysis approach you feel is justified. 
+We will award marks for:-
+
+- The clarity and sense of the reasoning you describe for the approach you take. Explain your decisions. Why did you use the analysis method you chose to use?
+
+- The clarity of the description of the analysis method and results. Follow the APA style guide on how you should present tables and how you should report statistics in the text of the report. You must say not just whether a difference between conditions or the effect of a variable is significant. You must also describe the nature of the difference or of the effect. What is the size and the direction of the difference or the effect?
+
+- How effectively you make sense of the results in the context of the background research, and the research question. Explain how the reader should interpret the results. What are the theoretical or practical implications of the results?
+
+### How will marks be awarded? {#sec-marking-how}
+
+Read the guide to postgraduate marking criteria, in the Masters handbook.
+
+Some things will be more important than others in determining your marks. 
+What will be especially important for this assessment are the following.
+
+A *distinction* requires ... Clear conceptual structure; a thorough understanding of the topic and its implications; a clearly expressed and convincing argument that is used to develop a coherent and logical answer to the question, and is effectively based in existing theory and research; 
+evidence of independent research; 
+an insightful argument showing evidence of original thinking; 
+and mastery of analytic techniques or methods.
+
+What is required is *mastery*.
+To evidence mastery, we will want to see: 
+
+- the ability to evaluate methodologies critically;
+- critical awareness of current problems or new insights from current research;
+- demonstration that you can handle complex issues systematically, making excellent judgements.
+
+Mastery is about choices. 
+Data analysis requires you to make choices. 
+Those choices require awareness of alternative approaches, an evaluation of the relative appropriateness of one method compared to others, and an explanation motivating the approach you choose to take. 
+To get to this level, you will need to work with our materials, and read more widely, perhaps even looking at primary and secondary literature on statistics in independent reading.
+
+Of course, you can get a distinction by doing what we teach you but you will evidence, in addition, some reflection on the relevant concerns, some creativity or original thinking or reading about the relevant issues.
+
+A *merit* requires ... Clear conceptual structure; a good understanding of the topic and its implications; an ability to select and organize material to provide a clear and logical line of argument; some (limited) evidence of independent thought or reading; general competence in analytic techniques or methods.
+
+What is required is a good level of competence overall. 
+To evidence good competence, we will want to see:
+
+- a clear correspondence between the research question, hypotheses or predictions, and the chosen analytic method, which must be applied in a clearly appropriate manner;
+- an awareness of the concerns relevant to the data analysis required to address the research question;
+- a comprehensive understanding of the techniques, and the skilful application of those techniques where appropriate.
+
+General competence is about skill and understanding. 
+We expect you to be able to identify the appropriate method to analyse data to address a research question. 
+To evidence a good level of competence, your explanation of why you use the method you use will need to show an understanding of the appropriateness of the method in the context of the research question. 
+We may see some critical evaluation, or reflection, on the appropriateness of the method, or its limits, but less than we might see in work of distinction standard. We expect to see a skillful use of the techniques we taught you. 
+We expect to see an effective communication of your explanation for why you use the method, and what the results show.
+
+A *pass* requires ... Basic competence in the application of research methods or analytic techniques. 
+It is distinguished from work in the Merit category by the level of analysis displayed and by the coherence with which the material is organized. 
+There may be some errors, misjudgments or omissions of important details.
+
+What is required is basic competence overall. 
+To evidence basic competence, we will want to see:
+
+- a clear correspondence between the research question, hypotheses or predictions, and the chosen analytic method, which must be applied in an appropriate manner;
+- reasonably well-structured account of the key information, concepts or findings;
+- evidence of understanding of and some skill in using the appropriate techniques, though there may be evidence of limitations in understanding, perhaps some minor errors or omissions in the use of techniques or in the reporting of results. 

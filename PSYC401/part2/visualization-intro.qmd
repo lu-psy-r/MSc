@@ -1,0 +1,1216 @@
+# Introduction to visualization {#sec-vis-intro-intro}
+
+```{r library}
+#| echo: false
+#| warning: false
+library(datasauRus)
+library(faux)
+library(ggExtra)
+library(kableExtra)
+library(knitr)
+library(lme4)
+library(patchwork)
+library(tidyverse)
+```
+
+```{r readin}
+#| echo: false
+#| warning: false
+
+# -- read in the datasaurus dataset:
+datasaurus <- read_csv("Datasaurus_data.csv")
+
+# -- code to read in the aggregated subject level data from the clearly-understood data set
+# -- study one
+clearly.one.subjects <- read_csv("study-one-general-participants.csv", 
+                                  col_types = cols(
+                                    participant_ID = col_factor(),
+                                    study = col_factor(),
+                                    EDUCATION = col_factor(),
+                                    GENDER = col_factor(),
+                                    ETHNICITY = col_factor()
+                                    )
+                                   )
+
+# -- code to read in the aggregated subject level data from the clearly-understood data set
+# -- study two -- general texts
+clearly.two.subjects <- read_csv("study-two-general-participants.csv", 
+                                 col_types = cols(
+                                   participant_ID = col_factor(),
+                                   study = col_factor(),
+                                   EDUCATION = col_factor(),
+                                   GENDER = col_factor(),
+                                   ETHNICITY = col_factor()
+                                   )
+                                  )
+
+```
+
+## Overview {#sec-vis-intro-overview}
+
+Welcome to our overview of the materials you will work with in our data visualization class in *PSYC401* Week 8. This week, we will focus on perspectives and practices in data visualization.
+
+Our materials are designed to help you to think about what you are doing, to understand the aims of the practical steps, as well as to learn about producing professional effective data visualizations.
+
+We will continue to work with data collected for the *Clearly understood* project because we think that working with these data in this research **context** will help you to make sense of the data, and to see why we ask you to practise the skills we are teaching.
+
+You can read a bit more about the project and the project data in @sec-associations.
+
+As we work together, we will be revisiting some of the ideas and techniques you have seen in previous classes. This is to give you the opportunity to consolidate your learning. We will be extending your development with some new ideas to strengthen your skills.
+
+## Our learning goals {#sec-vis-intro-goals}
+
+This week, we focus on both developing your critical thinking and strengthening your practical skills in data visualization.
+
+**Our learning objectives: --- what are we learning about?**
+
+We are working together to help you:
+
+1.  *Goals* --- Formulate questions you can ask yourself to help you to work effectively
+2.  *Audience* --- Understand the psychological factors that affect your impact
+3.  *Development* --- Work reflectively through a development process
+4.  *Implement* --- Produce visualizations in line with best practice
+
+**Our assessment targets: --- how do you know if you have learned?**
+
+We are working together so you can:
+
+1.  *Goals* --- Identify a set of targets for a development process in your professional teams
+2.  *Audience* --- Explain what you need to do to make a visualization effective
+3.  *Development* --- Locate yourself within the stages of the development process
+4.  *Implement* --- Produce visualizations that look good and are useful
+
+## Learning resources {#sec-vis-intro-resources}
+
+You will see *next* links to the lectures we created to explain the concepts we want you to learn about and the practical visualization skills we want you to develop (@sec-vis-intro-lectures), *then* information about the practical materials we have provided to help you to practise your skills (@sec-vis-intro-practical).
+
+All the links to the lecture videos, the lecture slides, and everything you need for your practical work can *also* be found in the Week 8 files folder on Moodle [here](https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse9){target="_blank"}
+
+In @sec-vis-intro-notes, we present the lecture slide points. We do this here because we can share the code we used to generate the plots we use in some of the slides [^visualization-intro-1]
+
+[^visualization-intro-1]: We write the slides and this book in [Quarto](https://quarto.org){target="_blank"} in R-Studio. Quarto scripts can be rendered as .html to share web-books like this one, or to share slides like those we use in presenting the lecture. One advantage of using Quarto is that we can share a plot and the code we used to generate the plot in the same page.
+
+::: callout-tip
+**Linked resources** include:
+
+-   In @sec-visualization, we present a more extensive discussion of data visualization, elaborating on some ideas, incorporating additional example plots and enabling you to work with alternate data-sets. This is provided as *optional* reading and may support more advanced development for students interested in future professional roles involving data analysis or data visualization.
+-   In the *PSYC403* Week 8, I present a lecture that outlines some *perspectives* or useful ways of thinking about data visualization: the history; the context in professional work; and what research suggests are effective ways to produce visualizations. You can access the resources for that class [here](https://modules.lancaster.ac.uk/course/view.php?id=40624#coursecontentcollapse9){target="_blank"}.
+:::
+
+### Lectures {#sec-vis-intro-lectures}
+
+The lecture material for this week is presented in four short parts. Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
+
+[Part 1 of 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b7324096-ad13-4ca1-b8ab-b0c000d85850){target="_blank"}
+
+[Part 2 of 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=8f42d056-6da6-4aba-b893-b0c000dc28d1){target="_blank"}
+
+[Part 3 of 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=05e049cb-277d-4d76-888d-b0c000df3c6f){target="_blank"}
+
+[Part 4 of 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5fccaa55-9d07-4e24-8995-b0c0010fe92b){target="_blank"}
+
+You can download the slides we presented in the lecture in two different formats, depending on what you think will be most useful to you:
+
+-   Download the slides exactly as they appear in the lecture from [this link](files/401-data-visualisation-practices.html). The .html file can be opened and viewed in any web browser (e.g., Chrome, Firefox, Safari).
+-   Or you can download a printable Word .docx presentation of the slides from [this link](files/401-data-visualisation-practices-printable.docx). The .docx can be opened in Microsoft Word. The figures will not appear exactly as they do in the lecture recording because Word cannot cope with images so well but the trade-off is that you get a document you can print and edit to add notes.
+
+### Practical materials {#sec-vis-intro-practical}
+
+We have collected the practical materials together into a folder.
+
+The folder includes the data files:
+
+-   `study-one-general-participants.csv`
+-   `study-two-general-participants.csv`
+
+and .R code files:
+
+-   `401-visualization-how-to.R`
+-   `401-visualization-workbook.R`
+
+You will use these files for your practical learning.
+
+You can download the .R files and the data .csv files in a single folder, using the link [here](files/PSYC401_visualization_materials.zip).
+
+Or you can download the files as individual files from the module [Moodle page for PSYC401](https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse9){target="_blank"}.
+
+Once you have downloaded the file folder, you will need to upload it to the R-Studio server to access and use the R files.
+
+#### The how-to guide {#sec-vis-intro-practical-how-to}
+
+In the `how-to` guide:
+
+-   `401-visualization-how-to.R`
+
+we show you how to do everything you need to do in the practical workbook (see @sec-vis-intro-practical-workbook). The guide comprises an .R file `401-visualization-how-to.R` with code and advice.
+
+The code in the .R file was written to work with the data file
+
+-   `study-one-general-participants.csv`.
+
+::: callout-tip
+-   Work through the steps in the `how-to` guide first, this practice will help you to understand what you need to do for the `workbook` tasks.
+
+-   The `how-to` guide and the `workbook` have similar structures. This is intentional: so that you can copy and *adapt* code from the `how-to` guide to do the practical tasks in the `workbook`.
+:::
+
+### The workbook {#sec-vis-intro-practical-workbook}
+
+In the `workbook`:
+
+-   `401-visualization-workbook.R`
+
+you will work with the data file
+
+-   `study-two-general-participants.csv`
+
+We split .R scripts into parts, tasks and questions.
+
+For this class on data visualization practices, our practical materials have two aims:
+
+1.  Helping you to learn about data visualization;
+2.  Helping you to learn how to help yourself by accessing, evaluating and exploiting the rich R knowledge ecosystem.
+
+This means that in both the `how-to` and the `workbook` the different parts concern different sources of online information and how to access each.
+
+In the `how-to` and the `workbook` we look at methods to produce visualizations that display information about both summary statistics (e.g., the average outcome) and raw or individual outcome variability. We explain why we should visualize data like this in the lecture (as you can see in @sec-vis-intro-lectures or @sec-vis-intro-notes).
+
+Specifically, the materials are written to support learning how to work with visualizations called *boxplots* and *rain cloud* plots. These are popular data visualization techniques so it is important to learn how to build them and how to interpret them. If you have already been introduced to them, you will find that our materials here show how to edit or polish the visualizations to make them more effective.
+
+There are three main sources of information you can access for free online.
+
+1.  The people who write software like the `{tidyverse}` or `{ggplot2}` libraries provide manuals, reference guides and tutorials. This information is often written as free web books, or as hard copy books.
+
+2.  These people, and often ther people, may write tutorials or guides or teaching materials designed to show learners (like us) how to use R functions or do certain things using R. They may present these tutorials or guides as web books, blog sites or video tutorials e.g. on Youtube or TikTok.
+
+3.  Many post questions and answers to discussion forums like *Stackoverflow*.
+
+Learning how to find, understand and use this information teaches two lessons:
+
+-   A lot of scholarly and technical information is online and free.
+-   Learning how to access this information is a key way that most professionals work out what they want to do and how they can do it.
+
+In our practical materials, we look at how you can:
+
+-   search for and find relevant information;
+-   learn how to understand the tools using the information shared through online sources;
+-   work with example or demonstration code, adapting it for your own purposes.
+
+::: callout-tip
+This process of adapting demonstration code is a process critical to data literacy and to effective problem solving in working with data in psychological science.
+:::
+
+**Part 3** in the `workbook` focuses on locating and using `{ggplot2}` reference information to learn how to build box plots.
+
+**Part 4** in the `workbook` focuses on locating and using online tutorial information or how-to guides to build *rain cloud* plots. This kind of plot incorporates elements of the boxplot, the scatterplot and the density plot to give the viewer summary information about the distribution of scores on a variable while also giving information about the variability of outcomes.
+
+**Part 5** in the `workbook` focuses on using information available in the public discussion *Stackoverflow* so that you can learn how to export the plots you make, in order to include them in reports.
+
+The activity `401-visualization-workbook.R` file takes you through the tasks, one by one.
+
+If you are unsure about what you need to do, check the advice in `401-visualization-how-to.R`.
+
+You will see that you can match a task in the `activity` to the same task in the `how-to`. The `how-to` shows you what function you need and how you should write the function code. You will need to change the names of the data-set or the variables to complete the tasks in the activity.
+
+### The data files
+
+Each of the data files we will work with has a similar structure.
+
+Here are what the first few rows in the data file `study-two-general-participants.csv` looks like:
+
+```{r head}
+#| warning: false
+#| echo: false
+kable(head(clearly.two.subjects))
+```
+
+You can see the columns:
+
+-   `participant_ID` participant code
+-   `mean.acc` average accuracy of response to questions testing understanding of health guidance
+-   `mean.self` average self-rated accuracy of understanding of health guidance
+-   `study` variable coding for what study the data were collected in
+-   `AGE` age in years
+-   `HLVA` health literacy test score
+-   `SHIPLEY` vocabulary knowledge test score
+-   `FACTOR3` reading strategy survey score
+-   `GENDER` gender code
+-   `EDUCATION` education level code
+-   `ETHNICITY` ethnicity (Office National Statistics categories) code
+
+### The answers
+
+After the practical class, you will be able to download the answers version of the `workbook` here.
+
+<!-- [401-visualization-workbook-answers.R](files/401-visualization-workbook-answers.R) -->
+
+The answers version will present my answers for questions, and some extra information where that is helpful.
+
+## Lecture notes {#sec-vis-intro-notes}
+
+Some people find it easier to read notes than to watch video recordings. This is why we also include the lecture notes here.
+
+::: callout-tip
+In these notes, I provide notes on the code steps that result in plots.
+
+-   Click on the `Notes` tab to see them.
+:::
+
+### Our lesson plan
+
+1.  Identify your goals
+2.  Think about your audience
+3.  Develop reflectively
+4.  Implement good practice
+
+### Our learning objectives: --- what are we learning about?
+
+We are working together to help you:
+
+1.  *Goals* --- Formulate questions you can ask yourself to help you to work effectively
+2.  *Audience* --- Understand the psychological factors that affect your impact
+3.  *Development* --- Work reflectively through a development process
+4.  *Implement* --- Produce visualizations in line with best practice
+
+### Our assessment targets: --- how do you know if you have learned?
+
+We are working together so you can:
+
+1.  *Goals* --- Identify a set of targets for a development process in your professional teams
+2.  *Audience* --- Explain what you need to do to make a visualization effective
+3.  *Development* --- Locate yourself within the stages of the development process
+4.  *Implement* --- Produce visualizations that look good and are useful
+
+### What are our goals -- Questions to help you to work effectively
+
+<!-- -- 3 -- briefly review goals in data visualization, after Gelman and Unwin -->
+
+::: callout-tip
+-   We begin by thinking about the questions you will ask yourself when you need to decide *what you will do*
+-   We build, here, on the insights developed by @gelman2013.
+:::
+
+### What are our goals?
+
+-   Why don't we just use the *good enough* easy to produce plots in Excel? $\rightarrow$ *Why bother?*
+-   Why don't we just produce a summary table? $\rightarrow$ *Why bother?*
+-   Are we engaged in making beautiful graphics or informative displays or both? $\rightarrow$ *What are we doing?*
+-   In *PSYC403*, we look at $\rightarrow$ *Perspectives: the context and history of thinking about visualization*
+
+### Visualize to enable comparison
+
+<!-- -- Quantifying uncertainty is critical for analysts and sci- entists who want to make informed decisions from data. Uncertainty is inherent in the generation of data and models, and it comes from multiple sources. -->
+
+```{r}
+#| label: fig-sleep-study-scatterplot-all
+#| echo: false
+#| warning: false
+#| fig-cap: "Scatterplot of the relation between reaction time and days in the `sleepstudy` data"
+#| fig-alt: "Scatterplot showing the relation between reaction time and days in the `sleepstudy` data. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. The plot indicates that reaction time increases with increasing number of days."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+sleepstudy %>%
+  ggplot(aes(x = Days, y = Reaction)) +
+  geom_point(size = 1.5) + 
+  geom_smooth(method = "lm", colour = "red", se = FALSE) +
+  scale_x_continuous(breaks = c(0, 3, 6, 9)) +
+  theme_bw()
+```
+
+```{r}
+#| label: fig-sleep-study-scatterplot-by-subject-1
+#| echo: false
+#| warning: false
+#| fig-cap: "The relation between reaction time and days: here, we plot the data for each participant separately"
+#| fig-alt: "The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+sleepstudy %>%
+  group_by(Subject) %>%
+  mutate(average = mean(Reaction)) %>%
+  ungroup() %>%
+  mutate(Subject = fct_reorder(Subject, average)) %>%
+  ggplot(aes(x = Days, y = Reaction)) +
+  geom_point() + 
+  geom_line() +
+  scale_x_continuous(breaks = c(0, 3, 6, 9)) +
+  facet_wrap(~ Subject) +
+  theme_bw()
+```
+
+### What are our goals? --- What are our jobs?
+
+-   *Data visualization* workers: we may aim to get and keep the attention of our audience, to tell a story, to persuade our viewers
+-   *Data analysis* workers: we may aim to enable our audience to understand our data, our findings, and to discover more for themselves
+
+### What are our goals? --- Where or when are we in our process?
+
+-   Sometimes in a *workflow*, we are quickly sketching draft visualizations: exploring, for ourselves, or with others, what we can see in our data
+-   Sometimes, we are ready to present our visualization to a wider audience: we aim to share a polished visual object
+
+### What are our goals? --- Discovery
+
+*Discovery goals*
+
+1.  Do we need an overview? -- To get a sense of what is in the data, and to check our assumptions
+2.  Are we looking for the unexpected? -- Comparing groups to check for variability, exploring data open to surprises
+
+### What are our goals? --- Communication
+
+*Communication goals*
+
+1.  What do we need our audience to understand?
+2.  What story are we telling?
+3.  Do we need to attract attention or stimulate interest?
+
+### Think about your audience -- An evidence based account of what works
+
+<!-- -- 4 -- review evidenced psychological account of what may work well in visualization: -->
+
+<!-- -- audience cognition: visual perception; schemas; biases -->
+
+<!-- -- conventions within a research tradition -->
+
+<!-- -- use example plots from health comprehension data: -->
+
+<!-- -- tables or visualizations -- the utility of visualization -->
+
+<!-- -- precision ranking of different visual channels -->
+
+<!-- -- the risks of illusions and confusions -->
+
+<!-- -- work with your audience: the theory of mind problem; capacity limits -->
+
+<!-- -- use visual grouping cues -->
+
+<!-- -- use annotation -->
+
+<!-- -- consider conventions, explain new formats -->
+
+<!-- -- use salience and labelling -->
+
+<!-- -- communicate uncertainty but carefully -->
+
+<!-- -- account for audience individual differences -->
+
+<!-- -- work to be accessible -->
+
+::: callout-tip
+-   We will produce more effective visualizations if we think about how our audience *sees*, and what they *expect* [@franconeri2021]
+-   Check out the *PSYC403 Perspectives* lecture for more in-depth explanation; here, I present a selective summary
+:::
+
+### The human visual system is highly developed
+
+-   Your audience can look at your visualization
+-   And quickly and easily extract statistical information from what you show
+-   You look at a scatterplot and see the minimum, maximum and mean heights of the points
+
+![@franconeri2021 Fig. 2](franconeri_2021_fig2_global-statistics.png){width="50%" fig-alt="We show a schematic grid of plots, from top to bottom: dot plot; stacked bar plot; area or bubblen plot; line plot; area plot, rectangles varying in intensity. Each plot schematic is marked to show what statistics can be extracted"}
+
+### Communicating uncertainty is critical
+
+<!-- -- Quantifying uncertainty is critical for analysts and sci- entists who want to make informed decisions from data. Uncertainty is inherent in the generation of data and models, and it comes from multiple sources. -->
+
+-   As scientists, we think about uncertainty all the time
+-   We quantify and typically show uncertainty over estimates e.g. average differences
+-   We should also show *and think about* outcome variability
+
+![@zhang2023: The difference between uncertainty over estimates and uncertainty over the predictability of outcomes](zhang_et_al_2023_An_illusion_of_predictability_in_scientific_results_--_Even_experts_confuse_inferential_uncertainty_and_outcome_variability.png){width="100%" fig-alt="We show a grid of four plots. In a column of two plots on the left, there are error bars indicating average outcomes given smaller (top) and larger (bottom) samples. The error bars are more narrow for the larger sample. On the right, the same estimates are shown but with raw individual level outcomes. The variability in outcomes is very wide."}
+
+### Consider accessibility from the start
+
+-   The first row shows a scatterplot encoded with two colors, green and orange
+-   People with typical vision can see that the green dots have a steep positive correlation and the orange dots make a flat line
+-   We use colour blindness friendly colour palettes
+
+![@franconeri2021 Fig.5](franconeri_2021_fig5-colour-blindness.png){width="70%" fig-alt="We show a grid of six plots. The plots indicate how for some colour blindness the difference between points will not be apparent."}
+
+### Development -- Work reflectively through a development process
+
+::: callout-tip
+-   Your first question is always going to be: (why) do we need to make a plot?
+-   Your answer will evolve through a development process that will gradually reveal the characteristics of your data
+:::
+
+### The benefits of investing in the development process
+
+-   Identifying your goals enables you to understand what you are doing and why
+-   Through the development process, you may create different versions --- *iterations* --- of a plot
+-   This iterative work benefits both you and your audience [@gelman2002; @kastellec2007]
+
+### The benefits of investing in the development process
+
+::: callout-tip
+-   As you iterate, **reflect** on what your *goals* are, what your *audience* needs and expects, and *how* each plot version moves you closer to effective discovery or communication
+-   This reflection uncovers what is interesting, useful and beautiful about your data
+:::
+
+### Scientific thinking and data visualisation
+
+We can use text and tables to communicate specific values but visualizations help us to:
+
+-   stimulate thinking
+-   discover what is unexpected
+-   communicate scale and complexity
+-   make comparisons to show how results *vary*
+-   display uncertainty about estimates
+
+### @anscombe1973: visualizations show data features quickly and vividly
+
+::: panel-tabset
+## data columns
+
+```{r}
+#| label: fig-anscombe-raw-data
+#| echo: false
+#| fig-cap: "Data table view of Anscombe's Quartet dataset"
+#| fig-alt: "Table showing x1, x2, x3 and x4, y1, y2, y3, y4 data columns from the Anscombe (1973) dataset."
+anscombe %>%
+  kbl() %>%
+  kable_material(c("striped", "hover"))
+```
+
+## x-variables
+
+```{r}
+#| label: fig-anscombe-summary-x
+#| echo: false
+#| fig-cap: "Summary table view of descriptive statistics for x variables"
+#| fig-alt: "Table showing statistical summaries of the x1, x2, x3 and x4 variables from the Anscombe (1973) dataset."
+anscombe.table <- anscombe %>%
+  select(starts_with("x")) %>%
+  summary()
+
+anscombe.table %>%
+  kbl() %>%
+  kable_material(c("striped", "hover"))
+```
+
+## y-variables
+
+```{r}
+#| label: fig-anscombe-summary-y
+#| echo: false
+#| fig-cap: "Summary table view of descriptive statistics for y variables"
+#| fig-alt: "Table showing statistical summaries of the y1, y2, y3 and y4 variables from the Anscombe (1973) dataset."
+anscombe.table <- anscombe %>%
+  select(starts_with("y")) %>%
+  summary()
+
+anscombe.table %>%
+  kbl() %>%
+  kable_material(c("striped", "hover"))
+```
+:::
+
+### @anscombe1973: visualizations show data features quickly and vividly
+
+```{r}
+#| label: fig-anscombe-plots
+#| echo: false
+#| warning: false
+#| fig-cap: "All 4 of the @anscombe1973 `x,y` datasets are identical when examined using summary statistics but we see how they vary when we use scatterplots to visualize them"
+#| fig-alt: "Grid of scatterplots showing the relation between x,y variables in the Anscombe 1973 dataset. The plots show: (top left) a typical scatterplot indicating a positive correlation; (top right) a curvilinear association; (bottom left) a more or less coherent positive trend with a marked outlier; and (bottom right) a scatter showing all data grouped at one value of x, with only one point at a second value of x"
+#| fig-width: 5
+#| fig-height: 5
+p.one <- anscombe %>%
+  ggplot(aes(x1, y1)) +
+  geom_smooth(method = "lm", se = FALSE, colour = "darkgrey", alpha = .75) +
+  geom_point(colour = "red", size = 2) +
+  xlim(0, 20) + ylim(0, 14) +
+  theme_bw()
+
+p.two <- anscombe %>%
+  ggplot(aes(x2, y2)) +
+  geom_smooth(method = "lm", se = FALSE, colour = "darkgrey", alpha = .75) +
+  geom_point(colour = "red", size = 2) +
+  xlim(0, 20) + ylim(0, 14) +
+  theme_bw()
+
+p.three <- anscombe %>%
+  ggplot(aes(x3, y3)) +
+  geom_smooth(method = "lm", se = FALSE, colour = "darkgrey", alpha = .75) +
+  geom_point(colour = "red", size = 2) +
+  xlim(0, 20) + ylim(0, 14) +
+  theme_bw()
+
+p.four <- anscombe %>%
+  ggplot(aes(x4, y4)) +
+  geom_smooth(method = "lm", se = FALSE, colour = "darkgrey", alpha = .75) +
+  geom_point(colour = "red", size = 2) +
+  xlim(0, 20) + ylim(0, 14) +
+  theme_bw()
+
+p.one + p.two + p.three + p.four + 
+  plot_layout(ncol = 2)
+```
+
+### @matejka2017 give us the `Datasaurus dozen`
+
+```{r}
+#| label: fig-datasaurus-plots
+#| echo: false
+#| fig-cap: "All 12 @matejka2017 `x,y` datasets (via @jumpingrivers) have the same mean and standard deviation summary statistics but we only understand how the data are structured when we plot them and can *look at* the structure"
+#| fig-alt: "Grid of scatterplots showing the relation between x,y variables in the Datasaurus dozen datasets. The plots show different shapes, made by the points, even though the summary statistics for the underlying data are the same"
+#| fig-width: 8
+#| fig-height: 8
+# -- see source information here:
+# https://jumpingrivers.github.io/datasauRus/
+ggplot(data = datasaurus_dozen, aes(x = x, y = y, colour = dataset)) +
+  geom_point() +
+  theme_void() +
+  theme(legend.position = "none") +
+  facet_wrap(~dataset, ncol = 3)
+```
+
+### Develop visualizations to discover and communicate variability in outcomes
+
+```{r}
+#| label: fig-sleep-study-scatterplot-by-subject-2
+#| echo: false
+#| warning: false
+#| fig-cap: "In this plot we show data on the impact of sleep deprivation on reaction time, from @belenky2003 [via @R-lme4]. We can see how reaction time slows with increasing deprivation on average (grey line) but that the rate of slowing *varies* between individuals"
+#| fig-alt: "The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+
+# -- see source information:
+# https://rdrr.io/cran/lme4/man/sleepstudy.html
+#   
+# In this plot we see data on the impact of sleep restriction on reaction time, from @belenky2003 [via @R-lme4]. These data are from the most sleep-deprived group (3 hours time-in-bed) and for the first 10 days of the study, up to the recovery period. The original study analyzed speed (1/(reaction time)) and treated day as a categorical rather than a continuous predictor.
+
+# Belenky et al 2003 Patterns of performance degradation and restoration during sleep restriction and subsequent recovery -- a sleep dose-response study
+# 
+# Beginning on the fourth day and continuing for a total of 7 days (E1–E7) subjects were in one of four sleep conditions [9 h required TIB (22:00–07:00 h), 7 h required TIB (24:00–07:00 h), 5 h required TIB (02:00–07:00 h), or 3 h required TIB (04:00– 07:00 h)], effectively one sleep augmentation condition, and three sleep restriction conditions.
+# 
+# Baseline testing commenced on the morning of the third day (B) and testing continued for the duration of the study (E1–E7, R1–R3). 
+# 
+# The PVT measures simple reaction time to a visual stimulus, presented approximately 10 times ⁄ minute (interstimulus inter- val varied from 2 to 10 s in 2-s increments) for 10 min and implemented in a thumb-operated, hand-held device (Dinges and Powell 1985).
+# 
+# The PVT and SSS were administered together as a battery four times per day (09:00, 12:00, 15:00, and 21:00 h); the battery included other tests not reported here (see Balkin et al. 2000).
+
+# -- fit a model on all the data pooled together
+m_sleepstudy_pooled <- lm(Reaction ~ Days, sleepstudy) 
+
+# -- extract the intercept and slope terms
+sleepstudy_pooled <- data_frame(
+  Intercept = coef(m_sleepstudy_pooled)[1], 
+  Slope_days = coef(m_sleepstudy_pooled)[2])
+
+# -- plot the data for each participant separately, but show in the background the average trend line
+sleepstudy %>%
+  group_by(Subject) %>%
+  mutate(average = mean(Reaction)) %>%
+  ungroup() %>%
+  mutate(Subject = fct_reorder(Subject, average)) %>%
+  ggplot(aes(x = Days, y = Reaction)) +
+  geom_abline(aes(intercept = Intercept, 
+              slope = Slope_days),
+              data = sleepstudy_pooled,
+              colour = "darkgrey", alpha = .75) +
+  geom_line(colour = "red", size = 1.25) +
+  geom_point() + 
+  scale_x_continuous(breaks = c(0, 3, 6, 9)) +
+  facet_wrap(~ Subject) +
+  theme_bw()
+```
+
+### Reflect on kinds of uncertainty
+
+-   Scientists are often faced with the challenge of conveying uncertainty to their audiences [@hofman2020]:
+
+1.  *Inferential uncertainty* --- the degree to which a particular summary statistic (e.g., a population mean) is known to the scientist
+2.  *Outcome uncertainty* --- how much individual outcomes vary (e.g., around the mean, regardless of how well it has been estimated)
+
+-   Inferential uncertainty can be reduced by collecting and analyzing more data, whereas *outcome uncertainty cannot*
+
+<!-- hofman et al 2020 How Visualizing Inferential Uncertainty Can Mislead Readers About Treatment Effects in Scientific Results.pdf -->
+
+<!-- -- For instance, in a study of how heights vary by gender, infer- ential uncertainty captures how precisely one has estimated the average height of men and women based on the set of measurements that were made. With a large enough sample, one can very precisely estimate the average height within each group. But this does not change the fact that there is a good deal of outcome uncertainty, as individual heights within each group vary substantially around their respective averages. -->
+
+### As we work, reflect on the challenges of visualizing uncertainty
+
+-   The process through which we understand the world is characterized by assumptions, limitations, extrapolations, and generalizations, and this brings uncertainty [@vanderbles2019]
+-   We often face the challenge of communicating this
+
+![@zhang2023: The difference between uncertainty over estimates and uncertainty over the predictability of outcomes](zhang_et_al_2023_An_illusion_of_predictability_in_scientific_results_--_Even_experts_confuse_inferential_uncertainty_and_outcome_variability.png){width="100%" fig-alt="We show a grid of four plots. In a column of two plots on the left, there are error bars indicating average outcomes given smaller (top) and larger (bottom) samples. The error bars are more narrow for the larger sample. On the right, the same estimates are shown but with raw individual level outcomes. The variability in outcomes is very wide."}
+
+### The challenges of uncertainty
+
+-   Non-expert people will tend to overstate the impact of interventions and understate the variability of outcomes
+-   when they see visualizations like error bars that show
+-   mean and standard error values, that focus on inferential uncertainty [@hofman2020]
+
+![@zhang2023: The difference between uncertainty over estimates and uncertainty over the predictability of outcomes](zhang_et_al_2023_An_illusion_of_predictability_in_scientific_results_--_Even_experts_confuse_inferential_uncertainty_and_outcome_variability.png){width="100%" fig-alt="We show a grid of four plots. In a column of two plots on the left, there are error bars indicating average outcomes given smaller (top) and larger (bottom) samples. The error bars are more narrow for the larger sample. On the right, the same estimates are shown but with raw individual level outcomes. The variability in outcomes is very wide."}
+
+### The challenges of uncertainty
+
+-   Expert scientists also overestimate the impact of interventions when they see standard visualizations that focus on inferential uncertainty: *the illusion of predictability*
+-   We can stimulate more accurate understanding if we show outcome variability [@zhang2023]
+
+![@zhang2023: The difference between uncertainty over estimates and uncertainty over the predictability of outcomes](zhang_et_al_2023_An_illusion_of_predictability_in_scientific_results_--_Even_experts_confuse_inferential_uncertainty_and_outcome_variability.png){width="100%" fig-alt="We show a grid of four plots. In a column of two plots on the left, there are error bars indicating average outcomes given smaller (top) and larger (bottom) samples. The error bars are more narrow for the larger sample. On the right, the same estimates are shown but with raw individual level outcomes. The variability in outcomes is very wide."}
+
+### Variation and uncertainty --- the importance, the challenges
+
+@vasishth2021:
+
+> The most difficult idea to digest in data analysis is that conclusions based on data are almost always uncertain, regardless of whether the outcome of the statistical test is statistically significant or not
+
+### Variation and uncertainty --- the importance, the challenges
+
+@Gelman2015:
+
+> We must move beyond the idea that effects are 'there' or not and the idea that the goal of a study is to reject a null hypothesis. As many observers have noted, these attitudes lead to trouble because they deny the variation inherent in real social phenomena, and they deny the uncertainty inherent in statistical inference
+
+### We use visualizations to help us to see and understand the variation and the uncertainty in our data
+
+-   Results will vary: we should expect changes over time, or differences between individuals or between groups
+-   Knowledge is uncertain: outcomes will vary even when the average effect is precisely estimated
+-   We have the responsibility to accept and to express this uncertainty
+
+### Implement -- Produce visualizations in line with best practice
+
+::: callout-tip
+-   We combine our creative thinking with the flexibility of the Grammar of Graphics to produce effective plots
+:::
+
+### `{ggplot2}` means: the *Grammar of Graphics* Plot 2
+
+-   When we use the `{ggplot2}` to draw plots, we are using tools developed with a philosophy of visualization in mind [@wickham2010; @wilkinson2013]: *The Grammar of Graphics*
+-   A grammar is a system of rules that allows people to collaborate and individuals to create
+-   We do not need to think about the grammar when we produce visualizations
+-   But it will help you to know that when we puzzle over *how* we do things, there are always reasons *why* we do things
+
+### A simple plot has many elements
+
+-   data and aesthetic mappings
+-   statistical transformations
+-   geometric objects
+-   scales
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-1
+#| echo: false
+#| warning: false
+#| fig-cap: "A scatterplot showing the potential association between health literacy and vocabulary "
+#| fig-alt: "A scatterplot: points are shown in grey, a smoother line is shown in red. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores"
+#| fig-width: 5
+#| fig-height: 5
+clearly.one.subjects %>%
+  ggplot(aes(SHIPLEY, HLVA)) +
+  geom_smooth(method = "lm", se = FALSE, colour = "red", 
+              linewidth = 2, alpha = .75) +
+  geom_point(colour = "darkgrey", size = 3) +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)") +
+  theme_bw()
+```
+
+### We begin with data: here, from the Health Comprehension project
+
+```{r}
+#| label: fig-health-study-one-data
+#| echo: false
+#| fig-cap: "Data table view of Health Comprehension project Study One dataset"
+#| fig-alt: "Table showing the first few rows of the Health Comprehension project Study One dataset. The extract shows the variables: participant_ID; mean.acc; mean.self; study; AGE; SHIPLEY; HLVA; FACTOR3; QRITOTAL; GENDER; EDUCATION; and ETHNICITY"
+kable(head(clearly.one.subjects))
+```
+
+### A simple plot has many elements
+
+::: panel-tabset
+## Plot with no objects
+
+-   When we code a plot, we tell R we want:
+-   to use `ggplot()` to create a plot
+-   using the data-set `clearly.one.subjects`
+-   and the variables `SHIPLEY, HLVA`
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-2
+#| echo: false
+#| warning: false
+#| fig-cap: "Scatterplot showing association between health literacy and vocabulary "
+#| fig-alt: "An empty scatterplot: axes show that vocabulary scores are on the x-axis and health literacy scores are on the y-axis"
+#| fig-width: 5
+#| fig-height: 5
+  ggplot(data = clearly.one.subjects, aes(x = SHIPLEY, y = HLVA))
+```
+
+## Code for the plot
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-3
+#| echo: true
+#| eval: false
+  ggplot(data = clearly.one.subjects, aes(x = SHIPLEY, y = HLVA))
+```
+
+-   We bring the data-set and the variables
+-   We declare the *aesthetic mappings*:
+
+1.  `SHIPLEY` score $\rightarrow$ x-axis (horizontal: left-to-right position)
+2.  `HLVA` score $\rightarrow$ y-axis (vertical: bottom-to-top position)
+:::
+
+### A simple plot has many elements
+
+::: panel-tabset
+## Plot with only objects
+
+-   When we code a plot, we tell R we want:
+-   to use a geometric object, like `geom_point`
+-   to display the data aesthetic mappings
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-4
+#| echo: false
+#| warning: false
+#| fig-cap: "Scatterplot showing association between health literacy and vocabulary"
+#| fig-alt: "A scatterplot showing only points: vocabulary scores are on the x-axis and health literacy scores are on the y-axis; but only the points are shown"
+#| fig-width: 5
+#| fig-height: 5
+  ggplot(data = clearly.one.subjects, aes(x = SHIPLEY, y = HLVA)) +
+  geom_point() +
+  theme_void()
+```
+
+## Code for the plot
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-5
+#| echo: true
+#| eval: false
+  ggplot(data = clearly.one.subjects, aes(x = SHIPLEY, y = HLVA)) +
+  geom_point()
+```
+
+-   We add the `geom_point()` to tell R to draw the information about the `SHIPLEY` and `HLVA` scores as points
+-   Each point represents information about one participant in the `clearly.one.subjects` data-set
+
+1.  `SHIPLEY` score $\rightarrow$ x-axis (horizontal: left-to-right position)
+2.  `HLVA` score $\rightarrow$ y-axis (vertical: bottom-to-top position)
+:::
+
+### When we use `{ggplot2}` we work in *layers*
+
+-   The grammar of graphics define the components of a plot: the data, the mappings, and the geometric object
+-   Together, the data, mappings, and geometric object form a *layer*
+-   A plot may have multiple layers
+
+### When we use `{ggplot2}` we are in control and we can be creative
+
+::: callout-tip
+-   Having a system of graphics: with components, layers and rules
+-   Releases us to be *creative*: changing a single feature at a time
+:::
+
+### Plot with layers: add a smoother
+
+::: panel-tabset
+## Plot with smoother
+
+-   Build a plot *layer by layer*
+-   We can begin by using points to display the vocabulary and health literacy scores for each person
+-   We add a layer using a *smoother* to show the average association between vocabulary and literacy
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-6
+#| echo: false
+#| warning: false
+#| fig-cap: "Scatterplot showing association between health literacy and vocabulary"
+#| fig-alt: "A scatterplot showing points and a smoother. Vocabulary scores are on the x-axis and health literacy scores are on the y-axis. Each point represents the pairing of vocabulary and health literacy scores for one person. A smoother is added indicating the average association between vocabulary and health literacy scores across all people in our sample. The points and the smoother suggest a trend so that higher vocabulary scores are associated with higher health literacy scores"
+#| fig-width: 5
+#| fig-height: 5
+  ggplot(data = clearly.one.subjects, aes(x = SHIPLEY, y = HLVA)) +
+  geom_point() +
+  geom_smooth()
+```
+
+## Code for the plot
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-7
+#| echo: true
+#| eval: false
+  ggplot(data = clearly.one.subjects, aes(x = SHIPLEY, y = HLVA)) +
+  geom_point() +
+  geom_smooth()
+```
+
+-   We add the `geom_smooth()` to tell R to represent the average trend for the association between `SHIPLEY` and `HLVA` scores
+-   The line is drawn by `{ggplot2}` which calculates a statistical transformation
+-   Here, the transformation summarizes the association for different ranges of `SHIPLEY` vocabulary scores
+:::
+
+### Defaults and arguments
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-8
+#| echo: true
+#| eval: false
+clearly.one.subjects %>%
+  ggplot(aes(SHIPLEY, HLVA)) +
+  geom_smooth() +
+  geom_point()
+```
+
+-   The `{ggplot2}` library supplies default values
+-   So we do not need to tell R how to do every thing
+-   We do not need to tell R that the points in a scatterplot:
+-   should represent the data aesthetic mappings in *Cartesian* (x-horizontal, y-vertical) 2-dimensional space
+-   and should be black in colour
+
+### Defaults and arguments
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-9
+#| echo: true
+#| eval: false
+clearly.one.subjects %>%
+  ggplot(aes(SHIPLEY, HLVA)) +
+  geom_smooth() +
+  geom_point(colour = "darkgrey", size = 3)
+```
+
+-   We can over-ride the defaults by supplying arguments, entering values *inside the brackets* in the function calls
+-   `geom_point(colour = "darkgrey", size = 3)` tells R we want:
+
+1.  dark grey points when the default is black
+2.  points that are 3x larger than the default size
+
+### When we use `{ggplot2}` we are in control and we can be creative
+
+::: callout-tip
+-   We can add layers, control the appearance of each component
+-   To construct more *effective* plots
+-   The plots can be more effective because we develop them in an iterative process
+-   in which we reflect on our *goals* and the *needs of our audience*
+:::
+
+### We can use colour
+
+::: panel-tabset
+## Using colour
+
+-   When we code a plot, we tell R we want:
+-   to display data about people with different education levels
+-   distinguishing education level by [colour]{style="color:red;"}
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-10
+#| echo: false
+#| warning: false
+#| fig-cap: "Using colour"
+#| fig-alt: "A scatterplot: points and smoothers are shown in red, green or blue. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. The trend appears to be steeper for people with secondary education"
+#| fig-width: 4.5
+#| fig-height: 4.5
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA, 
+             group = EDUCATION, colour = EDUCATION)) +
+  geom_smooth(method = "lm", se = FALSE, 
+              linewidth = 2, alpha = .75) +
+  geom_point(size = 3)
+```
+
+## Code for the plot
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-11
+#| echo: true
+#| eval: false
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA, 
+             group = EDUCATION, colour = EDUCATION)) +
+  geom_smooth(method = "lm", se = FALSE, 
+              linewidth = 2, alpha = .75) +
+  geom_point(size = 3)
+```
+
+-   `group = EDUCATION, colour = EDUCATION` tells R to:
+
+1.  `group` the data by `EDUCATION` level
+2.  `colour` the points for people with different levels of education in different colours
+:::
+
+### Method, size, transparency
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-11-a
+#| echo: true
+#| eval: false
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA, 
+             group = EDUCATION, colour = EDUCATION)) +
+  geom_smooth(method = "lm", se = FALSE, 
+              linewidth = 2, alpha = .75) +
+  geom_point(size = 3)
+```
+
+-   `method = "lm", se = FALSE` tells R what method to use to draw the smoother line
+-   `linewidth = 2` makes the width of the smoother line 2 x larger than the default
+-   `alpha = .75` makes the line .75 x the opacity of the default (i.e. a. bit more transparent)
+-   Learn to edit: shape, size, transparency and colour
+
+### We *facet* plots to enable comparisons
+
+::: panel-tabset
+## Using facets
+
+-   It is often easier to *compare* trends
+-   By presenting a separate plot for each condition or group
+-   Showing the separate plots in a grid side-by-side
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-12
+#| echo: false
+#| warning: false
+#| fig-cap: "The association between health literacy and vocabulary *varies by education level*"
+#| fig-alt: "A grid of scatterplots: points and smoothers are shown in red, green or blue. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. The trend appears to be steeper for people with secondary education. Plots are split into separate facets by education"
+#| fig-width: 7
+#| fig-height: 5
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA, 
+             group = EDUCATION, colour = EDUCATION)) +
+  geom_smooth(method = "lm", se = FALSE, 
+              linewidth = 2, alpha = .75) +
+  geom_point(size = 3) +
+  facet_wrap(~ EDUCATION)
+```
+
+## Code for the plot
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-13
+#| echo: true
+#| eval: false
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA, 
+             group = EDUCATION, colour = EDUCATION)) +
+  geom_smooth(method = "lm", se = FALSE, 
+              linewidth = 2, alpha = .75) +
+  geom_point(size = 3) +
+  facet_wrap(~ EDUCATION)
+```
+
+-   `facet_wrap(~ EDUCATION)` tells R to split the data by `EDUCATION` level
+-   And show a separate plot for each `EDUCATION` level group side-by-side for easy comparison
+:::
+
+### We can guide our audience
+
+::: panel-tabset
+## Labelled plot
+
+-   We do not present visualizations in isolation
+-   We present plots embedded in the context of labels and titles
+-   We use the text to guide the viewer
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-14
+#| echo: false
+#| warning: false
+#| fig-cap: "A labelled plot"
+#| fig-alt: "A scatterplot: points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. Plot labels for title, and each axis have been edited to be more informative"
+#| fig-width: 5
+#| fig-height: 5
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkgreen", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "lightgreen") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)",
+       title = "Scatterplot showing how higher vocabulary\npredicts higher health literacy on average")
+```
+
+## Code for the plot
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-15
+#| echo: true
+#| eval: false
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkgreen", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "lightgreen") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)",
+       title = "Scatterplot showing how higher vocabulary\npredicts higher health literacy on average")
+```
+
+-   We use the `labs()` function to add: the plot title and the labels for the x-axis and y-axis
+-   We edit the title so that the viewer can see what we want them to see
+-   We use `\n` to make the title fit on two lines
+:::
+
+### We annotate plots to direct attention
+
+::: panel-tabset
+## Annotated plot
+
+-   We can direct the attention of our audience to key features of our data
+-   By adding annotations like text and lines
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-16
+#| echo: false
+#| warning: false
+#| fig-cap: "An annotated plot"
+#| fig-alt: "A scatterplot: points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. We have added a horizontal grey line to indicate the average health literacy (HLVA) score for this sample"
+#| fig-width: 5
+#| fig-height: 5
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkgreen", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "lightgreen") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)") +
+  geom_hline(yintercept = mean(clearly.one.subjects$HLVA),
+             linetype = "dashed",
+             linewidth = 2,
+             colour = "grey",
+             alpha = .85) +
+  annotate("text", x = 27, y = 9.3, label = "Mean HLVA", colour = "grey") +
+  theme_bw()
+```
+
+## Code for the plot
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-17
+#| echo: true
+#| eval: false
+clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkgreen", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "lightgreen") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)") +
+  geom_hline(yintercept = mean(clearly.one.subjects$HLVA),
+             linetype = "dashed",
+             linewidth = 2,
+             colour = "grey",
+             alpha = .85) +
+  annotate("text", x = 27, y = 9.3, label = "Mean HLVA", colour = "grey") +
+  theme_bw()
+```
+
+-   `geom_hline()` adds a line to show mean health literacy
+-   `annotate("text" ...)` adds a text label
+:::
+
+### Extensions free our creativity
+
+::: panel-tabset
+## Complex plot
+
+-   The power of the *Grammar of Graphics* lies in the rules
+-   Developers can use the rules to expand our capacity to visualize data
+-   We add marginal histograms to our scatterplot to visualize associations *and* distributions
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-18
+#| echo: false
+#| warning: false
+#| fig-cap: "A scatterplot showing the potential association between health literacy and vocabulary "
+#| fig-alt: "A grid of scatterplots: points and smoothers are shown in red, green or blue. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. The trend appears to be steeper for people with secondary education. Plots are split into separate facets by education"
+#| fig-width: 5
+#| fig-height: 5
+plot <- clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkgreen", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "lightgreen") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)")
+
+ggMarginal(plot, type = "histogram", fill = "lightgreen", 
+           xparams = list(binwidth=2), yparams = list(binwidth=1))
+```
+
+## Code for the plot
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-19
+#| echo: true
+#| eval: false
+plot <- clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkgreen", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "lightgreen") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)")
+
+ggMarginal(plot, type = "histogram", fill = "lightgreen", 
+           xparams = list(binwidth=2), yparams = list(binwidth=1))
+```
+
+-   `ggMarginal(plot, type = "histogram")` enables us to show the distribution of scores on each variable
+-   This helps our viewer to process the association *and* information about each variable [@franconeri2021]
+:::
+
+### Choose your plot theme
+
+-   We can choose a theme to adapt the look of the whole plot to suit our needs or the needs of our audience
+
+```{r}
+#| label: fig-health-study-one-HLVA-SHIPLEY-1-themes
+#| echo: false
+#| warning: false
+#| fig-cap: "Different themes: (left) `theme_dark()`; (middle) `theme_bw()`; and (right) `theme_classic()`"
+#| fig-alt: "A grid of scatterplots: points are shown in grey, a smoother line is shown in red. Points represent the pairing of health literacy and vocabulary scores for each participant. An upward trend is apparent, such that higher vocabulary scores (on the x-axis) are associated with higher health literacy scores. The different plots illustrate different themes: (left) `theme_dark()`, background is shown in dark grey; (middle) `theme_bw()`, background is white with grey grid lines; and (right) `theme_classic()`, background is white with no grid lines."
+#| fig-width: 12
+#| fig-height: 4
+p.dark <- clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkred", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "orange") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)") +
+  theme_dark()
+
+p.bw <- clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkred", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "orange") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)") +
+  theme_bw()
+
+p.classic <- clearly.one.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = HLVA)) +
+  geom_smooth(method = "lm", se = FALSE,
+              colour = "darkred", linewidth = 2, alpha = .75) +
+  geom_point(size = 3, colour = "orange") +
+  labs(x = "Vocabulary (Shipley)", y = "Health literacy (HLVA)") +
+  theme_classic()
+
+p.dark + p.bw + p.classic
+```
+
+### Summary
+
+You start your work with these questions:
+
+1.  What are our goals?
+2.  What does our audience need or expect?
+
+You develop your visualization in a reflective process:
+
+1.  Begin with a quick draft to show the distributions or make the comparisons you think about first
+2.  Then reflect, and edit: does this enable me to discover sources of variability in my data?
+3.  Then reflect, and edit: does this enable me to effectively communicate what I want to communicate?
+4.  Then reflect, and edit: does this look good? -- do my viewers tell me this works well?
+
+::: callout-tip
+I can only show you the potential for creative and effective visualization
+
+-   experiment and find what looks good and is useful to you
+-   seek out information -- good places to start are:
+
+<https://ggplot2.tidyverse.org/index.html>
+
+<https://r-graph-gallery.com>
+:::
