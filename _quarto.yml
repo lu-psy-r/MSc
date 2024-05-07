@@ -13,3 +13,10 @@ website:
         contents: 
           - auto: PSYC402/part1/*
           - auto: PSYC402/part2/*
+  
+format:
+  html: 
+    include-in-header:
+      - text: |
+          <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
+  

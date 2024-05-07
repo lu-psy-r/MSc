@@ -14,6 +14,7 @@ website:
   #repo-actions: [edit, issue]
   
   navbar:
+    logo-href: "https://lu-psy-r.github.io/"
     #logo: "Images/icon.png"
     left:
       - text: Home
@@ -25,7 +26,7 @@ website:
       - text: MSc
         file: https://lu-psy-r.github.io/MSc/index.html
       - text: And More...
-        file: https://lu-psy-r.github.io/more/index.qmd
+        file: https://lu-psy-r.github.io/more/index.html
 
   page-footer:
     left: "Website developed by Matthew Ivory"
