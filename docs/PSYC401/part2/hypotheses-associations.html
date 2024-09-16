@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists – hypotheses-associations</title>
+<title>hypotheses-associations – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +82,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -100,8 +106,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
 </head>
@@ -110,71 +143,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://lu-psy-r.github.io/">
     <span class="navbar-title">Statistics for Psychologists</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
- <span class="menu-text">Year 1</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
- <span class="menu-text">Year 2</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../year3/index.html" rel="" target="">
- <span class="menu-text">Year 3</span></a>
+    <a class="nav-link" href="../../year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
- <span class="menu-text">MSc</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
- <span class="menu-text">And More…</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC401/part2/ecosystem.html">PSYC401</a></li><li class="breadcrumb-item"><a href="../../PSYC401/part2/hypotheses-associations.html">Hypotheses and associations</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC401/part2/ecosystem.html">PSYC401</a></li><li class="breadcrumb-item"><a href="../../PSYC401/part2/hypotheses-associations.html">Hypotheses and associations</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">PSYC401</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -261,9 +294,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">PSYC402</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -381,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -457,6 +490,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+
 <section id="sec-associations" class="level1">
 <h1>Hypotheses and associations</h1>
 <section id="sec-associations-overview" class="level2">
@@ -492,9 +526,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sec-associations-resources" class="level2">
 <h2 class="anchored" data-anchor-id="sec-associations-resources">Learning resources</h2>
-<p>You will see <em>next</em> links to the lectures we created to explain the concepts behind the critical thinking and analysis skills we want you to develop (<a href="#sec-associations-lectures">Section&nbsp;1.3.1</a>), <em>then</em> information about the practical materials we have provided to help you to practise your skills (<a href="#sec-associations-practical">Section&nbsp;1.3.2</a>).</p>
+<p>You will see <em>next</em> links to the lectures we created to explain the concepts behind the critical thinking and analysis skills we want you to develop (<a href="#sec-associations-lectures" class="quarto-xref">Section&nbsp;1.3.1</a>), <em>then</em> information about the practical materials we have provided to help you to practise your skills (<a href="#sec-associations-practical" class="quarto-xref">Section&nbsp;1.3.2</a>).</p>
 <p>All the links to the lecture videos, the lecture slides, and everything you need for your practical work can <em>also</em> be found in the Week 7 files folder on Moodle <a href="https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse8" target="_blank">here</a></p>
-<p>In <a href="#sec-associations-notes">Section&nbsp;1.4</a>, we present the lecture slide points. We do this here because we can share the code we used to generate the plots we use in some of the slides <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>In <a href="#sec-associations-notes" class="quarto-xref">Section&nbsp;1.4</a>, we present the lecture slide points. We do this here because we can share the code we used to generate the plots we use in some of the slides <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <section id="sec-associations-lectures" class="level3">
 <h3 class="anchored" data-anchor-id="sec-associations-lectures">Lectures</h3>
 <p>The lecture material for this week is presented in five short parts. Click on a link and your browser should open a tab showing the <em>Panopto</em> video for the lecture part.</p>
@@ -556,7 +590,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>401-associations-how-to.R</code></li>
 </ul>
-<p>we show you how to do everything you need to do in the practical workbook (see <a href="#sec-associations-practical-workbook">Section&nbsp;1.3.3</a>). The guide comprises an .R file <code>401-associations-how-to.R</code> with code and advice.</p>
+<p>we show you how to do everything you need to do in the practical workbook (see <a href="#sec-associations-practical-workbook" class="quarto-xref">Section&nbsp;1.3.3</a>). The guide comprises an .R file <code>401-associations-how-to.R</code> with code and advice.</p>
 <p>The code in the .R file was written to work with the data file</p>
 <ul>
 <li><code>study-one-general-participants.csv</code>.</li>
@@ -621,7 +655,7 @@ Tip
 <p>Here are what the first few rows in the data file <code>study.two.gen</code> looks like:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">participant_ID</th>
@@ -840,64 +874,87 @@ Tip
 </section>
 <section id="we-need-to-think-about-the-derivation-chain" class="level3">
 <h3 class="anchored" data-anchor-id="we-need-to-think-about-the-derivation-chain">We need to think about the derivation chain</h3>
-<div class="cell">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-derivation-chain" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-derivation-chain" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-derivation-chain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 291.19 280.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 276)">
-<title>
-Q
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-276 287.19,-276 287.19,4 -4,4"></polygon> <g id="clust1" class="cluster">
-<title>
-cluster_R
-</title>
-<polygon fill="none" stroke="black" points="8,-211 8,-264 256,-264 256,-211 8,-211"></polygon> </g> <!-- nd_1_l --> <g id="node1" class="node">
-<title>
-nd_1_l
-</title>
-<polygon fill="none" stroke="black" points="16.32,-219.5 16.32,-255.5 137.68,-255.5 137.68,-219.5 16.32,-219.5"></polygon> <text text-anchor="middle" x="77" y="-233.3" font-family="Times,serif" font-size="14.00">Concept formation</text> </g> <!-- nd_1_r --> <g id="node2" class="node">
-<title>
-nd_1_r
-</title>
-<polygon fill="none" stroke="black" points="155.7,-219.5 155.7,-255.5 248.3,-255.5 248.3,-219.5 155.7,-219.5"></polygon> <text text-anchor="middle" x="202" y="-233.3" font-family="Times,serif" font-size="14.00">Causal model</text> </g> <!-- nd_2_l --> <g id="node3" class="node">
-<title>
-nd_2_l
-</title>
-<polygon fill="none" stroke="black" points="30.9,-146.5 30.9,-182.5 123.1,-182.5 123.1,-146.5 30.9,-146.5"></polygon> <text text-anchor="middle" x="77" y="-160.3" font-family="Times,serif" font-size="14.00">Measurement</text> </g> <!-- nd_1_l&#45;&gt;nd_2_l --> <g id="edge1" class="edge">
-<title>
-nd_1_l-&gt;nd_2_l
-</title>
-<path fill="none" stroke="black" d="M77,-219.31C77,-211.29 77,-201.55 77,-192.57"></path> <polygon fill="black" stroke="black" points="80.5,-192.53 77,-182.53 73.5,-192.53 80.5,-192.53"></polygon> </g> <!-- nd_3 --> <g id="node5" class="node">
-<title>
-nd_3
-</title>
-<polygon fill="none" stroke="black" points="75.54,-73.5 75.54,-109.5 212.46,-109.5 212.46,-73.5 75.54,-73.5"></polygon> <text text-anchor="middle" x="144" y="-87.3" font-family="Times,serif" font-size="14.00">Statistical predictions</text> </g> <!-- nd_2_l&#45;&gt;nd_3 --> <g id="edge2" class="edge">
-<title>
-nd_2_l-&gt;nd_3
-</title>
-<path fill="none" stroke="black" d="M93.22,-146.31C101.53,-137.5 111.8,-126.63 120.92,-116.96"></path> <polygon fill="black" stroke="black" points="123.61,-119.2 127.93,-109.53 118.52,-114.4 123.61,-119.2"></polygon> </g> <!-- nd_2_r --> <g id="node4" class="node">
-<title>
-nd_2_r
-</title>
-<polygon fill="none" stroke="black" points="140.81,-146.5 140.81,-182.5 283.19,-182.5 283.19,-146.5 140.81,-146.5"></polygon> <text text-anchor="middle" x="212" y="-160.3" font-family="Times,serif" font-size="14.00">Auxiliary assumptions</text> </g> <!-- nd_2_r&#45;&gt;nd_3 --> <g id="edge4" class="edge">
-<title>
-nd_2_r-&gt;nd_3
-</title>
-<path fill="none" stroke="black" d="M195.54,-146.31C187.1,-137.5 176.68,-126.63 167.42,-116.96"></path> <polygon fill="black" stroke="black" points="169.75,-114.33 160.31,-109.53 164.7,-119.17 169.75,-114.33"></polygon> </g> <!-- nd_4 --> <g id="node6" class="node">
-<title>
-nd_4
-</title>
-<polygon fill="none" stroke="black" points="82.15,-0.5 82.15,-36.5 205.85,-36.5 205.85,-0.5 82.15,-0.5"></polygon> <text text-anchor="middle" x="144" y="-14.3" font-family="Times,serif" font-size="14.00">Testing hypotheses</text> </g> <!-- nd_3&#45;&gt;nd_4 --> <g id="edge3" class="edge">
-<title>
-nd_3-&gt;nd_4
-</title>
-<path fill="none" stroke="black" d="M144,-73.31C144,-65.29 144,-55.55 144,-46.57"></path> <polygon fill="black" stroke="black" points="147.5,-46.53 144,-36.53 140.5,-46.53 147.5,-46.53"></polygon> </g> </g>
+<title>Q</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-276 287.19,-276 287.19,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_R</title>
+<polygon fill="none" stroke="black" points="8,-211 8,-264 256,-264 256,-211 8,-211"></polygon>
+</g>
+<!-- nd_1_l -->
+<g id="node1" class="node">
+<title>nd_1_l</title>
+<polygon fill="none" stroke="black" points="16.32,-219.5 16.32,-255.5 137.68,-255.5 137.68,-219.5 16.32,-219.5"></polygon>
+<text text-anchor="middle" x="77" y="-233.3" font-family="Times,serif" font-size="14.00">Concept formation</text>
+</g>
+<!-- nd_1_r -->
+<g id="node2" class="node">
+<title>nd_1_r</title>
+<polygon fill="none" stroke="black" points="155.7,-219.5 155.7,-255.5 248.3,-255.5 248.3,-219.5 155.7,-219.5"></polygon>
+<text text-anchor="middle" x="202" y="-233.3" font-family="Times,serif" font-size="14.00">Causal model</text>
+</g>
+<!-- nd_2_l -->
+<g id="node3" class="node">
+<title>nd_2_l</title>
+<polygon fill="none" stroke="black" points="30.9,-146.5 30.9,-182.5 123.1,-182.5 123.1,-146.5 30.9,-146.5"></polygon>
+<text text-anchor="middle" x="77" y="-160.3" font-family="Times,serif" font-size="14.00">Measurement</text>
+</g>
+<!-- nd_1_l&#45;&gt;nd_2_l -->
+<g id="edge1" class="edge">
+<title>nd_1_l-&gt;nd_2_l</title>
+<path fill="none" stroke="black" d="M77,-219.31C77,-211.29 77,-201.55 77,-192.57"></path>
+<polygon fill="black" stroke="black" points="80.5,-192.53 77,-182.53 73.5,-192.53 80.5,-192.53"></polygon>
+</g>
+<!-- nd_3 -->
+<g id="node5" class="node">
+<title>nd_3</title>
+<polygon fill="none" stroke="black" points="75.54,-73.5 75.54,-109.5 212.46,-109.5 212.46,-73.5 75.54,-73.5"></polygon>
+<text text-anchor="middle" x="144" y="-87.3" font-family="Times,serif" font-size="14.00">Statistical predictions</text>
+</g>
+<!-- nd_2_l&#45;&gt;nd_3 -->
+<g id="edge2" class="edge">
+<title>nd_2_l-&gt;nd_3</title>
+<path fill="none" stroke="black" d="M93.22,-146.31C101.53,-137.5 111.8,-126.63 120.92,-116.96"></path>
+<polygon fill="black" stroke="black" points="123.61,-119.2 127.93,-109.53 118.52,-114.4 123.61,-119.2"></polygon>
+</g>
+<!-- nd_2_r -->
+<g id="node4" class="node">
+<title>nd_2_r</title>
+<polygon fill="none" stroke="black" points="140.81,-146.5 140.81,-182.5 283.19,-182.5 283.19,-146.5 140.81,-146.5"></polygon>
+<text text-anchor="middle" x="212" y="-160.3" font-family="Times,serif" font-size="14.00">Auxiliary assumptions</text>
+</g>
+<!-- nd_2_r&#45;&gt;nd_3 -->
+<g id="edge4" class="edge">
+<title>nd_2_r-&gt;nd_3</title>
+<path fill="none" stroke="black" d="M195.54,-146.31C187.1,-137.5 176.68,-126.63 167.42,-116.96"></path>
+<polygon fill="black" stroke="black" points="169.75,-114.33 160.31,-109.53 164.7,-119.17 169.75,-114.33"></polygon>
+</g>
+<!-- nd_4 -->
+<g id="node6" class="node">
+<title>nd_4</title>
+<polygon fill="none" stroke="black" points="82.15,-0.5 82.15,-36.5 205.85,-36.5 205.85,-0.5 82.15,-0.5"></polygon>
+<text text-anchor="middle" x="144" y="-14.3" font-family="Times,serif" font-size="14.00">Testing hypotheses</text>
+</g>
+<!-- nd_3&#45;&gt;nd_4 -->
+<g id="edge3" class="edge">
+<title>nd_3-&gt;nd_4</title>
+<path fill="none" stroke="black" d="M144,-73.31C144,-65.29 144,-55.55 144,-46.57"></path>
+<polygon fill="black" stroke="black" points="147.5,-46.53 144,-36.53 140.5,-46.53 147.5,-46.53"></polygon>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;1: The derivation chain</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-derivation-chain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The derivation chain
+</figcaption>
 </figure>
 </div>
 </div>
@@ -953,7 +1010,7 @@ nd_3-&gt;nd_4
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="nurse-patient-talk.png" class="img-fluid figure-img" alt="flickr: Sasin Tipchair 'Senior woman in wheelchair talking to a nurse in a hospital'"></p>
-<figcaption class="figure-caption">flickr: Sasin Tipchair ‘Senior woman in wheelchair talking to a nurse in a hospital’</figcaption>
+<figcaption>flickr: Sasin Tipchair ‘Senior woman in wheelchair talking to a nurse in a hospital’</figcaption>
 </figure>
 </div>
 <p>Why this? We don’t really know what makes it easy or difficult to understand advice about health</p>
@@ -1003,7 +1060,7 @@ nd_3-&gt;nd_4
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="qualtrics-covid-quest-58-aspirin.png" class="img-fluid figure-img" alt="Extract from Qualtrics survey showing a sample written health information text extract, a multiple choice question probing understanding of the information in the extract, and a rating scale allowing participants to self-evaluate their understanding"></p>
-<figcaption class="figure-caption">Extract from Qualtrics survey</figcaption>
+<figcaption>Extract from Qualtrics survey</figcaption>
 </figure>
 </div>
 <!-- - gelman -- p.23 -- Data analysis reaches a dead end if we have poor data. There are some measurement problems that no amount of fixing and adjusting can solve. -->
@@ -1022,40 +1079,53 @@ nd_3-&gt;nd_4
 <ul>
 <li>Successfully understanding text depends on (1.) language experience and (2.) reasoning ability <span class="citation" data-cites="freed2017">[@freed2017]</span></li>
 </ul>
-<div class="cell">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-comprehension-drivers" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-comprehension-drivers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comprehension-drivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 335.68 98.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94)">
-<title>
-Q
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-94 331.68,-94 331.68,4 -4,4"></polygon> <!-- nd_1_l --> <g id="node1" class="node">
-<title>
-nd_1_l
-</title>
-<path fill="none" stroke="black" d="M123.47,-90C123.47,-90 11.84,-90 11.84,-90 5.84,-90 -0.16,-84 -0.16,-78 -0.16,-78 -0.16,-66 -0.16,-66 -0.16,-60 5.84,-54 11.84,-54 11.84,-54 123.47,-54 123.47,-54 129.47,-54 135.47,-60 135.47,-66 135.47,-66 135.47,-78 135.47,-78 135.47,-84 129.47,-90 123.47,-90"></path> <text text-anchor="middle" x="67.66" y="-67.8" font-family="Times,serif" font-size="14.00">Language experience</text> </g> <!-- nd_2 --> <g id="node3" class="node">
-<title>
-nd_2
-</title>
-<path fill="none" stroke="black" d="M315.86,-63C315.86,-63 183.13,-63 183.13,-63 177.13,-63 171.13,-57 171.13,-51 171.13,-51 171.13,-39 171.13,-39 171.13,-33 177.13,-27 183.13,-27 183.13,-27 315.86,-27 315.86,-27 321.86,-27 327.86,-33 327.86,-39 327.86,-39 327.86,-51 327.86,-51 327.86,-57 321.86,-63 315.86,-63"></path> <text text-anchor="middle" x="249.5" y="-40.8" font-family="Times,serif" font-size="14.00">Comprehension outcome</text> </g> <!-- nd_1_l&#45;&gt;nd_2 --> <g id="edge1" class="edge">
-<title>
-nd_1_l-&gt;nd_2
-</title>
-<path fill="none" stroke="black" d="M135.37,-61.98C143.77,-60.72 152.47,-59.42 161.13,-58.12"></path> <polygon fill="black" stroke="black" points="161.9,-61.54 171.27,-56.59 160.86,-54.62 161.9,-61.54"></polygon> </g> <!-- nd_1_r --> <g id="node2" class="node">
-<title>
-nd_1_r
-</title>
-<path fill="none" stroke="black" d="M118.4,-36C118.4,-36 16.92,-36 16.92,-36 10.92,-36 4.92,-30 4.92,-24 4.92,-24 4.92,-12 4.92,-12 4.92,-6 10.92,0 16.92,0 16.92,0 118.4,0 118.4,0 124.4,0 130.4,-6 130.4,-12 130.4,-12 130.4,-24 130.4,-24 130.4,-30 124.4,-36 118.4,-36"></path> <text text-anchor="middle" x="67.66" y="-13.8" font-family="Times,serif" font-size="14.00">Reasoning capacity</text> </g> <!-- nd_1_r&#45;&gt;nd_2 --> <g id="edge2" class="edge">
-<title>
-nd_1_r-&gt;nd_2
-</title>
-<path fill="none" stroke="black" d="M130.3,-27.25C140.24,-28.75 150.69,-30.32 161.1,-31.88"></path> <polygon fill="black" stroke="black" points="160.64,-35.35 171.04,-33.37 161.67,-28.43 160.64,-35.35"></polygon> </g> </g>
+<title>Q</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-94 331.68,-94 331.68,4 -4,4"></polygon>
+<!-- nd_1_l -->
+<g id="node1" class="node">
+<title>nd_1_l</title>
+<path fill="none" stroke="black" d="M123.47,-90C123.47,-90 11.84,-90 11.84,-90 5.84,-90 -0.16,-84 -0.16,-78 -0.16,-78 -0.16,-66 -0.16,-66 -0.16,-60 5.84,-54 11.84,-54 11.84,-54 123.47,-54 123.47,-54 129.47,-54 135.47,-60 135.47,-66 135.47,-66 135.47,-78 135.47,-78 135.47,-84 129.47,-90 123.47,-90"></path>
+<text text-anchor="middle" x="67.66" y="-67.8" font-family="Times,serif" font-size="14.00">Language experience</text>
+</g>
+<!-- nd_2 -->
+<g id="node3" class="node">
+<title>nd_2</title>
+<path fill="none" stroke="black" d="M315.86,-63C315.86,-63 183.13,-63 183.13,-63 177.13,-63 171.13,-57 171.13,-51 171.13,-51 171.13,-39 171.13,-39 171.13,-33 177.13,-27 183.13,-27 183.13,-27 315.86,-27 315.86,-27 321.86,-27 327.86,-33 327.86,-39 327.86,-39 327.86,-51 327.86,-51 327.86,-57 321.86,-63 315.86,-63"></path>
+<text text-anchor="middle" x="249.5" y="-40.8" font-family="Times,serif" font-size="14.00">Comprehension outcome</text>
+</g>
+<!-- nd_1_l&#45;&gt;nd_2 -->
+<g id="edge1" class="edge">
+<title>nd_1_l-&gt;nd_2</title>
+<path fill="none" stroke="black" d="M135.37,-61.98C143.77,-60.72 152.47,-59.42 161.13,-58.12"></path>
+<polygon fill="black" stroke="black" points="161.9,-61.54 171.27,-56.59 160.86,-54.62 161.9,-61.54"></polygon>
+</g>
+<!-- nd_1_r -->
+<g id="node2" class="node">
+<title>nd_1_r</title>
+<path fill="none" stroke="black" d="M118.4,-36C118.4,-36 16.92,-36 16.92,-36 10.92,-36 4.92,-30 4.92,-24 4.92,-24 4.92,-12 4.92,-12 4.92,-6 10.92,0 16.92,0 16.92,0 118.4,0 118.4,0 124.4,0 130.4,-6 130.4,-12 130.4,-12 130.4,-24 130.4,-24 130.4,-30 124.4,-36 118.4,-36"></path>
+<text text-anchor="middle" x="67.66" y="-13.8" font-family="Times,serif" font-size="14.00">Reasoning capacity</text>
+</g>
+<!-- nd_1_r&#45;&gt;nd_2 -->
+<g id="edge2" class="edge">
+<title>nd_1_r-&gt;nd_2</title>
+<path fill="none" stroke="black" d="M130.3,-27.25C140.24,-28.75 150.69,-30.32 161.1,-31.88"></path>
+<polygon fill="black" stroke="black" points="160.64,-35.35 171.04,-33.37 161.67,-28.43 160.64,-35.35"></polygon>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;2: Factors influencing comprehension success</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comprehension-drivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Factors influencing comprehension success
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1189,10 +1259,14 @@ nd_1_r-&gt;nd_2
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-self-acc-histograms" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-self-acc-histograms-1.png" class="img-fluid figure-img" alt="There are two histograms, shown side by side: The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with a peak, indicated by a vertical red line, around .8; the 'mean self-rated accuracy' histogram shows how 'mean accuracy' scores vary between about 2.5 and 9.0, with a peak, indicated by a vertical red line, around 7." width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Histograms showing the distribution of mean accuracy and mean self-rated accuracy scores in the ‘study.one.gen’ data-set: means calculated for each participant over all their responses</figcaption>
+<div id="fig-study-one-gen-self-acc-histograms" class="quarto-float quarto-figure quarto-figure-center anchored" alt="There are two histograms, shown side by side: The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with a peak, indicated by a vertical red line, around .8; the 'mean self-rated accuracy' histogram shows how 'mean accuracy' scores vary between about 2.5 and 9.0, with a peak, indicated by a vertical red line, around 7.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-self-acc-histograms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-self-acc-histograms-1.png" class="img-fluid figure-img" alt="There are two histograms, shown side by side: The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with a peak, indicated by a vertical red line, around .8; the 'mean self-rated accuracy' histogram shows how 'mean accuracy' scores vary between about 2.5 and 9.0, with a peak, indicated by a vertical red line, around 7." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-self-acc-histograms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Histograms showing the distribution of mean accuracy and mean self-rated accuracy scores in the ‘study.one.gen’ data-set: means calculated for each participant over all their responses
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1301,10 +1375,14 @@ Tip
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-acc-histograms-case" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-acc-histograms-case-1.png" class="img-fluid figure-img" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with a peak, indicated by a vertical red line, around .8." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: Distribution of mean accuracy</figcaption>
+<div id="fig-study-one-gen-acc-histograms-case" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with a peak, indicated by a vertical red line, around .8.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-acc-histograms-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-acc-histograms-case-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with a peak, indicated by a vertical red line, around .8." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-acc-histograms-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Distribution of mean accuracy
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1359,10 +1437,14 @@ Tip
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-acc-histograms-one-case" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-acc-histograms-one-case-1.png" class="img-fluid figure-img" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with the average of mean accuracy scores, indicated by a vertical red line located near .8, and the score of the person in row 1 of the data-set, indicated by a blue line located at .49." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: Distribution of mean accuracy</figcaption>
+<div id="fig-study-one-gen-acc-histograms-one-case" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with the average of mean accuracy scores, indicated by a vertical red line located near .8, and the score of the person in row 1 of the data-set, indicated by a blue line located at .49.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-acc-histograms-one-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-acc-histograms-one-case-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with the average of mean accuracy scores, indicated by a vertical red line located near .8, and the score of the person in row 1 of the data-set, indicated by a blue line located at .49." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-acc-histograms-one-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Distribution of mean accuracy
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1375,10 +1457,14 @@ Tip
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-acc-histograms-another-case" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-acc-histograms-another-case-1.png" class="img-fluid figure-img" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with the average of mean accuracy scores, indicated by a vertical red line located near .8, and the score of the person in row 4 of the data-set, indicated by a blue line located at .94." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Distribution of mean accuracy</figcaption>
+<div id="fig-study-one-gen-acc-histograms-another-case" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with the average of mean accuracy scores, indicated by a vertical red line located near .8, and the score of the person in row 4 of the data-set, indicated by a blue line located at .94.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-acc-histograms-another-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-acc-histograms-another-case-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with the average of mean accuracy scores, indicated by a vertical red line located near .8, and the score of the person in row 4 of the data-set, indicated by a blue line located at .94." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-acc-histograms-another-case-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Distribution of mean accuracy
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1403,10 +1489,14 @@ Tip
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-scatter-acc-self-grid" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-grid-1.png" class="img-fluid figure-img" alt="The figure shows two scatterplots, side by side: both plots show points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot on the left orients the presentation with 'mean accuracy' on the y axis. The plot on the right orients the presentation with 'mean self-rated accuracy' on the y axis." width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: Scatterplots showing whether values on mean accuracy (<code>mean.acc</code>) vary together with values on mean self-rated accuracy (<code>mean.self</code>) for the participants in this sample</figcaption>
+<div id="fig-study-one-gen-scatter-acc-self-grid" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure shows two scatterplots, side by side: both plots show points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot on the left orients the presentation with 'mean accuracy' on the y axis. The plot on the right orients the presentation with 'mean self-rated accuracy' on the y axis.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-scatter-acc-self-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-grid-1.png" class="img-fluid figure-img" alt="The figure shows two scatterplots, side by side: both plots show points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot on the left orients the presentation with 'mean accuracy' on the y axis. The plot on the right orients the presentation with 'mean self-rated accuracy' on the y axis." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-scatter-acc-self-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Scatterplots showing whether values on mean accuracy (<code>mean.acc</code>) vary together with values on mean self-rated accuracy (<code>mean.self</code>) for the participants in this sample
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1478,10 +1568,14 @@ Tip
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-scatter-acc-self-single" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-single-1.png" class="img-fluid figure-img" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together</figcaption>
+<div id="fig-study-one-gen-scatter-acc-self-single" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-scatter-acc-self-single-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-single-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-scatter-acc-self-single-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1497,7 +1591,7 @@ Tip
 <span id="cb7-6"><a href="#cb7-6"></a>           <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">10</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">1.1</span>) <span class="sc">+</span></span>
 <span id="cb7-7"><a href="#cb7-7"></a>           <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We use mostly the same code to draw <a href="#fig-study-one-gen-scatter-acc-self-single">Figure&nbsp;8</a>, compared to the code we used to draw <a href="#fig-study-one-gen-scatter-acc-self-grid">Figure&nbsp;7</a>, but there is one difference. I do not walk through every line of code, here, but highlight the difference.</p>
+<p>We use mostly the same code to draw <a href="#fig-study-one-gen-scatter-acc-self-single" class="quarto-xref">Figure&nbsp;8</a>, compared to the code we used to draw <a href="#fig-study-one-gen-scatter-acc-self-grid" class="quarto-xref">Figure&nbsp;7</a>, but there is one difference. I do not walk through every line of code, here, but highlight the difference.</p>
 <ol type="1">
 <li>We construct one plot here. We do not give it a name. Run the code and R will show the plot in the plot window immediately.</li>
 <li><code>study.one.gen %&gt;%</code> tells R that we are working with the data-set <code>study.one.gen</code> that we read in earlier.</li>
@@ -1516,10 +1610,14 @@ Tip
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-scatter-acc-self-single-highlighted" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-single-highlighted-1.png" class="img-fluid figure-img" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;9: Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together</figcaption>
+<div id="fig-study-one-gen-scatter-acc-self-single-highlighted" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-scatter-acc-self-single-highlighted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-single-highlighted-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-scatter-acc-self-single-highlighted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1581,10 +1679,14 @@ sample estimates:
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-scatter-acc-self-single-repeat-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-single-repeat-1-1.png" class="img-fluid figure-img" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;10: Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together</figcaption>
+<div id="fig-study-one-gen-scatter-acc-self-single-repeat-1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-scatter-acc-self-single-repeat-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-single-repeat-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-scatter-acc-self-single-repeat-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1595,10 +1697,14 @@ sample estimates:
 <p>We can simulate data to demonstrate [what scatterplots look like if]: <strong>(left)</strong> the correlation is positive, <span class="math inline">\(r = .5\)</span>; <strong>(right)</strong> the correlation is negative, <span class="math inline">\(r = -.5\)</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-scatter-acc-self-grid-simulated-signs" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-grid-simulated-signs-1.png" class="img-fluid figure-img" alt="The figure shows two scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive or negative correlations. Each plot shows points, where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in a simulated data-set. The plot on the left shows the scatter of points when data are simulated assuming r = .5. The plot on the left shows the scatter of points when data are simulated assuming r = -.5." width="672"></p>
-<figcaption class="figure-caption">Figure&nbsp;11: Scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy <em>could</em> vary together given positive or negative correlations</figcaption>
+<div id="fig-study-one-gen-scatter-acc-self-grid-simulated-signs" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure shows two scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive or negative correlations. Each plot shows points, where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in a simulated data-set. The plot on the left shows the scatter of points when data are simulated assuming r = .5. The plot on the left shows the scatter of points when data are simulated assuming r = -.5.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-scatter-acc-self-grid-simulated-signs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-grid-simulated-signs-1.png" class="img-fluid figure-img" alt="The figure shows two scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive or negative correlations. Each plot shows points, where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in a simulated data-set. The plot on the left shows the scatter of points when data are simulated assuming r = .5. The plot on the left shows the scatter of points when data are simulated assuming r = -.5." width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-scatter-acc-self-grid-simulated-signs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy <em>could</em> vary together given positive or negative correlations
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1612,10 +1718,14 @@ sample estimates:
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-study-one-gen-scatter-acc-self-grid-simulated-sizes" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-grid-simulated-sizes-1.png" class="img-fluid figure-img" alt="The figure shows 4 scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive correlations of increasing size. Each plot shows points, where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in a simulated data-set. The plots show the scatter of points, from left to right, (1.) if r - .1; (2.) if r = .3; (3.) if r = .5; (4.) if r = .8" width="960"></p>
-<figcaption class="figure-caption">Figure&nbsp;12: Scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy <em>could</em> vary together given positive correlations of increasing size</figcaption>
+<div id="fig-study-one-gen-scatter-acc-self-grid-simulated-sizes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The figure shows 4 scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive correlations of increasing size. Each plot shows points, where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in a simulated data-set. The plots show the scatter of points, from left to right, (1.) if r - .1; (2.) if r = .3; (3.) if r = .5; (4.) if r = .8">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-study-one-gen-scatter-acc-self-grid-simulated-sizes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="hypotheses-associations_files/figure-html/fig-study-one-gen-scatter-acc-self-grid-simulated-sizes-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure shows 4 scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive correlations of increasing size. Each plot shows points, where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in a simulated data-set. The plots show the scatter of points, from left to right, (1.) if r - .1; (2.) if r = .3; (3.) if r = .5; (4.) if r = .8" width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-study-one-gen-scatter-acc-self-grid-simulated-sizes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy <em>could</em> vary together given positive correlations of increasing size
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1691,18 +1801,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1734,11 +1833,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1748,8 +1886,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1761,7 +1908,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1805,6 +2075,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1830,6 +2101,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1891,12 +2188,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../PSYC401/part2/how.html" class="pagination-link">
+      <a href="../../PSYC401/part2/how.html" class="pagination-link" aria-label="How you can do it">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">How you can do it</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../PSYC401/part2/intro.html" class="pagination-link">
+      <a href="../../PSYC401/part2/intro.html" class="pagination-link" aria-label="Reasons why we do the research report assignment: What you will learn">
         <span class="nav-page-text">Reasons why we do the research report assignment: What you will learn</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1904,19 +2201,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../previous-content/index.html">Previous Content</a>
+    <a class="nav-link" href="../../previous-content/index.html">
+<p>Previous Content</p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 

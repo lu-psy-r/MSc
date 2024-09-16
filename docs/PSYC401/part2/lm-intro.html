@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists – lm-intro</title>
+<title>lm-intro – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -82,7 +82,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -100,8 +106,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
 </head>
@@ -110,71 +143,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://lu-psy-r.github.io/">
     <span class="navbar-title">Statistics for Psychologists</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
- <span class="menu-text">Year 1</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
- <span class="menu-text">Year 2</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../year3/index.html" rel="" target="">
- <span class="menu-text">Year 3</span></a>
+    <a class="nav-link" href="../../year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
- <span class="menu-text">MSc</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
- <span class="menu-text">And More…</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC401/part2/ecosystem.html">PSYC401</a></li><li class="breadcrumb-item"><a href="../../PSYC401/part2/lm-intro.html">Introduction to the linear model</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC401/part2/ecosystem.html">PSYC401</a></li><li class="breadcrumb-item"><a href="../../PSYC401/part2/lm-intro.html">Introduction to the linear model</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">PSYC401</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -261,9 +294,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">PSYC402</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -381,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -469,6 +502,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+
 <section id="sec-lm-intro-intro" class="level1">
 <h1>Introduction to the linear model</h1>
 <section id="sec-lm-intro-overview" class="level2">
@@ -510,9 +544,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sec-lm-intro-resources" class="level2">
 <h2 class="anchored" data-anchor-id="sec-lm-intro-resources">Learning resources</h2>
-<p>You will see in the <em>next section</em> links to the lectures we created both to explain the concepts we want to help you to learn about, and to explain the practical data analysis skills we want to help you to develop (<a href="#sec-lm-intro-lectures">Section&nbsp;1.3.1</a>). We <em>then</em> share links to information about the practical materials we have provided to help you to practise those skills (<a href="#sec-lm-intro-practical">Section&nbsp;1.3.2</a>).</p>
+<p>You will see in the <em>next section</em> links to the lectures we created both to explain the concepts we want to help you to learn about, and to explain the practical data analysis skills we want to help you to develop (<a href="#sec-lm-intro-lectures" class="quarto-xref">Section&nbsp;1.3.1</a>). We <em>then</em> share links to information about the practical materials we have provided to help you to practise those skills (<a href="#sec-lm-intro-practical" class="quarto-xref">Section&nbsp;1.3.2</a>).</p>
 <p>All the links to the lecture videos, the lecture slides, and everything you need for your practical work can <em>also</em> be found in the Week 9 files folder on Moodle <a href="https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse10" target="_blank">here</a></p>
-<p>In <a href="#sec-lm-intro-notes">Section&nbsp;1.4</a>, we present the lecture slide points.</p>
+<p>In <a href="#sec-lm-intro-notes" class="quarto-xref">Section&nbsp;1.4</a>, we present the lecture slide points.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -566,7 +600,7 @@ Tip
 <ul>
 <li><code>401-lm-intro-how-to.R</code></li>
 </ul>
-<p>we show you how to do everything you need to do in the practical workbook (see <a href="#sec-lm-intro-practical-workbook">Section&nbsp;1.3.3</a>). The guide comprises an .R file <code>401-lm-intro-how-to.R</code> with code and advice.</p>
+<p>we show you how to do everything you need to do in the practical workbook (see <a href="#sec-lm-intro-practical-workbook" class="quarto-xref">Section&nbsp;1.3.3</a>). The guide comprises an .R file <code>401-lm-intro-how-to.R</code> with code and advice.</p>
 <p>The code in the .R file was written to work with the data file</p>
 <ul>
 <li><code>study-one-general-participants.csv</code>.</li>
@@ -625,7 +659,7 @@ Tip
 <p>Here are what the first few rows in the data file <code>study-two-general-participants.csv</code> looks like:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">participant_ID</th>
@@ -766,98 +800,138 @@ Tip
 <h3 class="anchored" data-anchor-id="week-9-focus-on-the-linear-model">Week 9: Focus on the linear model</h3>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lm-intro_files/figure-html/abline-predict-random-1-1.png" class="img-fluid" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. In the background, a fan of light pink lines indicate possible ways to capture the trend of the association." width="480"></p>
+<div>
+<figure class="figure">
+<p><img src="lm-intro_files/figure-html/abline-predict-random-1-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. In the background, a fan of light pink lines indicate possible ways to capture the trend of the association." width="480"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
 <section id="analyze-visualize-present" class="level3">
 <h3 class="anchored" data-anchor-id="analyze-visualize-present">Analyze + visualize + present</h3>
-<div class="cell">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-pipeline" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-pipeline" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 267.00 264.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 260)">
-<title>
-Q
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-260 263,-260 263,4 -4,4"></polygon> <g id="clust1" class="cluster">
-<title>
-cluster_R
-</title>
-<polygon fill="none" stroke="black" points="8,-65 8,-118 251,-118 251,-65 8,-65"></polygon> </g> <!-- nd_1 --> <g id="node1" class="node">
-<title>
-nd_1
-</title>
-<polygon fill="none" stroke="black" points="35.24,-219.5 35.24,-255.5 122.76,-255.5 122.76,-219.5 35.24,-219.5"></polygon> <text text-anchor="middle" x="79" y="-233.3" font-family="Times,serif" font-size="14.00">Get raw data</text> </g> <!-- nd_2 --> <g id="node2" class="node">
-<title>
-nd_2
-</title>
-<polygon fill="none" stroke="black" points="44.37,-146.5 44.37,-182.5 113.63,-182.5 113.63,-146.5 44.37,-146.5"></polygon> <text text-anchor="middle" x="79" y="-160.3" font-family="Times,serif" font-size="14.00">Tidy data</text> </g> <!-- nd_1&#45;&gt;nd_2 --> <g id="edge6" class="edge">
-<title>
-nd_1-&gt;nd_2
-</title>
-<path fill="none" stroke="grey" d="M79,-219.31C79,-211.29 79,-201.55 79,-192.57"></path> <polygon fill="grey" stroke="grey" points="82.5,-192.53 79,-182.53 75.5,-192.53 82.5,-192.53"></polygon> </g> <!-- nd_3_l --> <g id="node4" class="node">
-<title>
-nd_3_l
-</title>
-<polygon fill="none" stroke="red" points="174.57,-73.5 174.57,-109.5 243.43,-109.5 243.43,-73.5 174.57,-73.5"></polygon> <text text-anchor="middle" x="209" y="-87.3" font-family="Times,serif" font-size="14.00">Visualize</text> </g> <!-- nd_2&#45;&gt;nd_3_l --> <g id="edge5" class="edge">
-<title>
-nd_2-&gt;nd_3_l
-</title>
-<path fill="none" stroke="grey" d="M112.24,-146.3C128.26,-137.9 147.71,-127.58 165,-118 166.95,-116.92 168.93,-115.81 170.94,-114.68"></path> <polygon fill="grey" stroke="grey" points="172.78,-117.66 179.74,-109.67 169.32,-111.57 172.78,-117.66"></polygon> </g> <!-- nd_3 --> <g id="node5" class="node">
-<title>
-nd_3
-</title>
-<polygon fill="none" stroke="red" points="15.68,-73.5 15.68,-109.5 78.32,-109.5 78.32,-73.5 15.68,-73.5"></polygon> <text text-anchor="middle" x="47" y="-87.3" font-family="Times,serif" font-size="14.00">Analyze</text> </g> <!-- nd_2&#45;&gt;nd_3 --> <g id="edge7" class="edge">
-<title>
-nd_2-&gt;nd_3
-</title>
-<path fill="none" stroke="grey" d="M71.25,-146.31C67.52,-138.03 62.96,-127.91 58.81,-118.69"></path> <polygon fill="grey" stroke="grey" points="61.97,-117.21 54.67,-109.53 55.59,-120.08 61.97,-117.21"></polygon> </g> <!-- nd_3_r --> <g id="node6" class="node">
-<title>
-nd_3_r
-</title>
-<polygon fill="none" stroke="black" points="95.84,-73.5 95.84,-109.5 156.16,-109.5 156.16,-73.5 95.84,-73.5"></polygon> <text text-anchor="middle" x="126" y="-87.3" font-family="Times,serif" font-size="14.00">Explore</text> </g> <!-- nd_2&#45;&gt;nd_3_r --> <g id="edge4" class="edge">
-<title>
-nd_2-&gt;nd_3_r
-</title>
-<path fill="none" stroke="grey" d="M90.38,-146.31C95.98,-137.85 102.84,-127.48 109.05,-118.11"></path> <polygon fill="grey" stroke="grey" points="112.13,-119.8 114.73,-109.53 106.29,-115.94 112.13,-119.8"></polygon> </g> <!-- nd_3_a --> <g id="node3" class="node">
-<title>
-nd_3_a
-</title>
-<polygon fill="none" stroke="black" points="131.44,-146.5 131.44,-182.5 220.56,-182.5 220.56,-146.5 131.44,-146.5"></polygon> <text text-anchor="middle" x="176" y="-160.3" font-family="Times,serif" font-size="14.00">Assumptions</text> </g> <!-- nd_3_a&#45;&gt;nd_3_l --> <g id="edge3" class="edge">
-<title>
-nd_3_a-&gt;nd_3_l
-</title>
-<path fill="none" stroke="grey" d="M183.99,-146.31C187.84,-138.03 192.54,-127.91 196.83,-118.69"></path> <polygon fill="grey" stroke="grey" points="200.04,-120.07 201.09,-109.53 193.7,-117.12 200.04,-120.07"></polygon> </g> <!-- nd_3_a&#45;&gt;nd_3 --> <g id="edge1" class="edge">
-<title>
-nd_3_a-&gt;nd_3
-</title>
-<path fill="none" stroke="grey" d="M140.5,-146.32C124.04,-138.11 104.32,-127.92 87,-118 85.28,-117.02 83.54,-116 81.79,-114.95"></path> <polygon fill="grey" stroke="grey" points="83.39,-111.83 73.03,-109.6 79.74,-117.8 83.39,-111.83"></polygon> </g> <!-- nd_3_a&#45;&gt;nd_3_r --> <g id="edge2" class="edge">
-<title>
-nd_3_a-&gt;nd_3_r
-</title>
-<path fill="none" stroke="grey" d="M163.9,-146.31C157.88,-137.77 150.49,-127.27 143.83,-117.82"></path> <polygon fill="grey" stroke="grey" points="146.61,-115.69 137.99,-109.53 140.89,-119.72 146.61,-115.69"></polygon> </g> <!-- nd_3_l&#45;&gt;nd_3 --> <g id="edge10" class="edge">
-<title>
-nd_3_l-&gt;nd_3
-</title>
-<path fill="none" stroke="transparent" d="M191.16,-109.88C181.63,-118.37 169.16,-127.55 156,-132 130.74,-140.55 121.09,-141.03 96,-132 83.54,-127.52 71.99,-118.34 63.24,-109.85"></path> </g> <!-- nd_4 --> <g id="node7" class="node">
-<title>
-nd_4
-</title>
-<polygon fill="none" stroke="red" points="99.39,-0.5 99.39,-36.5 156.61,-36.5 156.61,-0.5 99.39,-0.5"></polygon> <text text-anchor="middle" x="128" y="-14.3" font-family="Times,serif" font-size="14.00">Present</text> </g> <!-- nd_3_l&#45;&gt;nd_4 --> <g id="edge9" class="edge">
-<title>
-nd_3_l-&gt;nd_4
-</title>
-<path fill="none" stroke="grey" d="M189.39,-73.31C179.14,-64.33 166.44,-53.19 155.25,-43.39"></path> <polygon fill="grey" stroke="grey" points="157.25,-40.49 147.43,-36.53 152.64,-45.75 157.25,-40.49"></polygon> </g> <!-- nd_3&#45;&gt;nd_4 --> <g id="edge8" class="edge">
-<title>
-nd_3-&gt;nd_4
-</title>
-<path fill="none" stroke="grey" d="M66.61,-73.31C76.86,-64.33 89.56,-53.19 100.75,-43.39"></path> <polygon fill="grey" stroke="grey" points="103.36,-45.75 108.57,-36.53 98.75,-40.49 103.36,-45.75"></polygon> </g> </g>
+<title>Q</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-260 263,-260 263,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_R</title>
+<polygon fill="none" stroke="black" points="8,-65 8,-118 251,-118 251,-65 8,-65"></polygon>
+</g>
+<!-- nd_1 -->
+<g id="node1" class="node">
+<title>nd_1</title>
+<polygon fill="none" stroke="black" points="35.24,-219.5 35.24,-255.5 122.76,-255.5 122.76,-219.5 35.24,-219.5"></polygon>
+<text text-anchor="middle" x="79" y="-233.3" font-family="Times,serif" font-size="14.00">Get raw data</text>
+</g>
+<!-- nd_2 -->
+<g id="node2" class="node">
+<title>nd_2</title>
+<polygon fill="none" stroke="black" points="44.37,-146.5 44.37,-182.5 113.63,-182.5 113.63,-146.5 44.37,-146.5"></polygon>
+<text text-anchor="middle" x="79" y="-160.3" font-family="Times,serif" font-size="14.00">Tidy data</text>
+</g>
+<!-- nd_1&#45;&gt;nd_2 -->
+<g id="edge6" class="edge">
+<title>nd_1-&gt;nd_2</title>
+<path fill="none" stroke="grey" d="M79,-219.31C79,-211.29 79,-201.55 79,-192.57"></path>
+<polygon fill="grey" stroke="grey" points="82.5,-192.53 79,-182.53 75.5,-192.53 82.5,-192.53"></polygon>
+</g>
+<!-- nd_3_l -->
+<g id="node4" class="node">
+<title>nd_3_l</title>
+<polygon fill="none" stroke="red" points="174.57,-73.5 174.57,-109.5 243.43,-109.5 243.43,-73.5 174.57,-73.5"></polygon>
+<text text-anchor="middle" x="209" y="-87.3" font-family="Times,serif" font-size="14.00">Visualize</text>
+</g>
+<!-- nd_2&#45;&gt;nd_3_l -->
+<g id="edge5" class="edge">
+<title>nd_2-&gt;nd_3_l</title>
+<path fill="none" stroke="grey" d="M112.24,-146.3C128.26,-137.9 147.71,-127.58 165,-118 166.95,-116.92 168.93,-115.81 170.94,-114.68"></path>
+<polygon fill="grey" stroke="grey" points="172.78,-117.66 179.74,-109.67 169.32,-111.57 172.78,-117.66"></polygon>
+</g>
+<!-- nd_3 -->
+<g id="node5" class="node">
+<title>nd_3</title>
+<polygon fill="none" stroke="red" points="15.68,-73.5 15.68,-109.5 78.32,-109.5 78.32,-73.5 15.68,-73.5"></polygon>
+<text text-anchor="middle" x="47" y="-87.3" font-family="Times,serif" font-size="14.00">Analyze</text>
+</g>
+<!-- nd_2&#45;&gt;nd_3 -->
+<g id="edge7" class="edge">
+<title>nd_2-&gt;nd_3</title>
+<path fill="none" stroke="grey" d="M71.25,-146.31C67.52,-138.03 62.96,-127.91 58.81,-118.69"></path>
+<polygon fill="grey" stroke="grey" points="61.97,-117.21 54.67,-109.53 55.59,-120.08 61.97,-117.21"></polygon>
+</g>
+<!-- nd_3_r -->
+<g id="node6" class="node">
+<title>nd_3_r</title>
+<polygon fill="none" stroke="black" points="95.84,-73.5 95.84,-109.5 156.16,-109.5 156.16,-73.5 95.84,-73.5"></polygon>
+<text text-anchor="middle" x="126" y="-87.3" font-family="Times,serif" font-size="14.00">Explore</text>
+</g>
+<!-- nd_2&#45;&gt;nd_3_r -->
+<g id="edge4" class="edge">
+<title>nd_2-&gt;nd_3_r</title>
+<path fill="none" stroke="grey" d="M90.38,-146.31C95.98,-137.85 102.84,-127.48 109.05,-118.11"></path>
+<polygon fill="grey" stroke="grey" points="112.13,-119.8 114.73,-109.53 106.29,-115.94 112.13,-119.8"></polygon>
+</g>
+<!-- nd_3_a -->
+<g id="node3" class="node">
+<title>nd_3_a</title>
+<polygon fill="none" stroke="black" points="131.44,-146.5 131.44,-182.5 220.56,-182.5 220.56,-146.5 131.44,-146.5"></polygon>
+<text text-anchor="middle" x="176" y="-160.3" font-family="Times,serif" font-size="14.00">Assumptions</text>
+</g>
+<!-- nd_3_a&#45;&gt;nd_3_l -->
+<g id="edge3" class="edge">
+<title>nd_3_a-&gt;nd_3_l</title>
+<path fill="none" stroke="grey" d="M183.99,-146.31C187.84,-138.03 192.54,-127.91 196.83,-118.69"></path>
+<polygon fill="grey" stroke="grey" points="200.04,-120.07 201.09,-109.53 193.7,-117.12 200.04,-120.07"></polygon>
+</g>
+<!-- nd_3_a&#45;&gt;nd_3 -->
+<g id="edge1" class="edge">
+<title>nd_3_a-&gt;nd_3</title>
+<path fill="none" stroke="grey" d="M140.5,-146.32C124.04,-138.11 104.32,-127.92 87,-118 85.28,-117.02 83.54,-116 81.79,-114.95"></path>
+<polygon fill="grey" stroke="grey" points="83.39,-111.83 73.03,-109.6 79.74,-117.8 83.39,-111.83"></polygon>
+</g>
+<!-- nd_3_a&#45;&gt;nd_3_r -->
+<g id="edge2" class="edge">
+<title>nd_3_a-&gt;nd_3_r</title>
+<path fill="none" stroke="grey" d="M163.9,-146.31C157.88,-137.77 150.49,-127.27 143.83,-117.82"></path>
+<polygon fill="grey" stroke="grey" points="146.61,-115.69 137.99,-109.53 140.89,-119.72 146.61,-115.69"></polygon>
+</g>
+<!-- nd_3_l&#45;&gt;nd_3 -->
+<g id="edge10" class="edge">
+<title>nd_3_l-&gt;nd_3</title>
+<path fill="none" stroke="transparent" d="M191.16,-109.88C181.63,-118.37 169.16,-127.55 156,-132 130.74,-140.55 121.09,-141.03 96,-132 83.54,-127.52 71.99,-118.34 63.24,-109.85"></path>
+</g>
+<!-- nd_4 -->
+<g id="node7" class="node">
+<title>nd_4</title>
+<polygon fill="none" stroke="red" points="99.39,-0.5 99.39,-36.5 156.61,-36.5 156.61,-0.5 99.39,-0.5"></polygon>
+<text text-anchor="middle" x="128" y="-14.3" font-family="Times,serif" font-size="14.00">Present</text>
+</g>
+<!-- nd_3_l&#45;&gt;nd_4 -->
+<g id="edge9" class="edge">
+<title>nd_3_l-&gt;nd_4</title>
+<path fill="none" stroke="grey" d="M189.39,-73.31C179.14,-64.33 166.44,-53.19 155.25,-43.39"></path>
+<polygon fill="grey" stroke="grey" points="157.25,-40.49 147.43,-36.53 152.64,-45.75 157.25,-40.49"></polygon>
+</g>
+<!-- nd_3&#45;&gt;nd_4 -->
+<g id="edge8" class="edge">
+<title>nd_3-&gt;nd_4</title>
+<path fill="none" stroke="grey" d="M66.61,-73.31C76.86,-64.33 89.56,-53.19 100.75,-43.39"></path>
+<polygon fill="grey" stroke="grey" points="103.36,-45.75 108.57,-36.53 98.75,-40.49 103.36,-45.75"></polygon>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;1: The data analysis pipeline or workflow: we focus on the linear model</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The data analysis pipeline or workflow: we focus on the linear model
+</figcaption>
 </figure>
 </div>
 </div>
@@ -871,10 +945,14 @@ nd_3-&gt;nd_4
 </ol>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-scatterplot-shipley-acc-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-scatterplot-shipley-acc-1-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Scatterplot showing the potential association between accuracy of comprehension and vocabulary scores</figcaption>
+<div id="fig-scatterplot-shipley-acc-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterplot-shipley-acc-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-scatterplot-shipley-acc-1-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot-shipley-acc-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Scatterplot showing the potential association between accuracy of comprehension and vocabulary scores
+</figcaption>
 </figure>
 </div>
 </div>
@@ -912,7 +990,7 @@ nd_3-&gt;nd_4
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="nurse-patient-talk.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">flickr: Sasin Tipchair ‘Senior woman in wheelchair talking to a nurse in a hospital’</figcaption>
+<figcaption>flickr: Sasin Tipchair ‘Senior woman in wheelchair talking to a nurse in a hospital’</figcaption>
 </figure>
 </div>
 </div>
@@ -937,40 +1015,53 @@ nd_3-&gt;nd_4
 <ul>
 <li>Understanding text depends on (1.) language experience and (2.) reasoning ability <span class="citation" data-cites="freed2017">[@freed2017]</span></li>
 </ul>
-<div class="cell">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-comprehension-drivers" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-comprehension-drivers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comprehension-drivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 335.68 98.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94)">
-<title>
-Q
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-94 331.68,-94 331.68,4 -4,4"></polygon> <!-- nd_1_l --> <g id="node1" class="node">
-<title>
-nd_1_l
-</title>
-<path fill="none" stroke="black" d="M123.47,-90C123.47,-90 11.84,-90 11.84,-90 5.84,-90 -0.16,-84 -0.16,-78 -0.16,-78 -0.16,-66 -0.16,-66 -0.16,-60 5.84,-54 11.84,-54 11.84,-54 123.47,-54 123.47,-54 129.47,-54 135.47,-60 135.47,-66 135.47,-66 135.47,-78 135.47,-78 135.47,-84 129.47,-90 123.47,-90"></path> <text text-anchor="middle" x="67.66" y="-67.8" font-family="Times,serif" font-size="14.00">Language experience</text> </g> <!-- nd_2 --> <g id="node3" class="node">
-<title>
-nd_2
-</title>
-<path fill="none" stroke="black" d="M315.86,-63C315.86,-63 183.13,-63 183.13,-63 177.13,-63 171.13,-57 171.13,-51 171.13,-51 171.13,-39 171.13,-39 171.13,-33 177.13,-27 183.13,-27 183.13,-27 315.86,-27 315.86,-27 321.86,-27 327.86,-33 327.86,-39 327.86,-39 327.86,-51 327.86,-51 327.86,-57 321.86,-63 315.86,-63"></path> <text text-anchor="middle" x="249.5" y="-40.8" font-family="Times,serif" font-size="14.00">Comprehension outcome</text> </g> <!-- nd_1_l&#45;&gt;nd_2 --> <g id="edge1" class="edge">
-<title>
-nd_1_l-&gt;nd_2
-</title>
-<path fill="none" stroke="black" d="M135.37,-61.98C143.77,-60.72 152.47,-59.42 161.13,-58.12"></path> <polygon fill="black" stroke="black" points="161.9,-61.54 171.27,-56.59 160.86,-54.62 161.9,-61.54"></polygon> </g> <!-- nd_1_r --> <g id="node2" class="node">
-<title>
-nd_1_r
-</title>
-<path fill="none" stroke="black" d="M118.4,-36C118.4,-36 16.92,-36 16.92,-36 10.92,-36 4.92,-30 4.92,-24 4.92,-24 4.92,-12 4.92,-12 4.92,-6 10.92,0 16.92,0 16.92,0 118.4,0 118.4,0 124.4,0 130.4,-6 130.4,-12 130.4,-12 130.4,-24 130.4,-24 130.4,-30 124.4,-36 118.4,-36"></path> <text text-anchor="middle" x="67.66" y="-13.8" font-family="Times,serif" font-size="14.00">Reasoning capacity</text> </g> <!-- nd_1_r&#45;&gt;nd_2 --> <g id="edge2" class="edge">
-<title>
-nd_1_r-&gt;nd_2
-</title>
-<path fill="none" stroke="black" d="M130.3,-27.25C140.24,-28.75 150.69,-30.32 161.1,-31.88"></path> <polygon fill="black" stroke="black" points="160.64,-35.35 171.04,-33.37 161.67,-28.43 160.64,-35.35"></polygon> </g> </g>
+<title>Q</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-94 331.68,-94 331.68,4 -4,4"></polygon>
+<!-- nd_1_l -->
+<g id="node1" class="node">
+<title>nd_1_l</title>
+<path fill="none" stroke="black" d="M123.47,-90C123.47,-90 11.84,-90 11.84,-90 5.84,-90 -0.16,-84 -0.16,-78 -0.16,-78 -0.16,-66 -0.16,-66 -0.16,-60 5.84,-54 11.84,-54 11.84,-54 123.47,-54 123.47,-54 129.47,-54 135.47,-60 135.47,-66 135.47,-66 135.47,-78 135.47,-78 135.47,-84 129.47,-90 123.47,-90"></path>
+<text text-anchor="middle" x="67.66" y="-67.8" font-family="Times,serif" font-size="14.00">Language experience</text>
+</g>
+<!-- nd_2 -->
+<g id="node3" class="node">
+<title>nd_2</title>
+<path fill="none" stroke="black" d="M315.86,-63C315.86,-63 183.13,-63 183.13,-63 177.13,-63 171.13,-57 171.13,-51 171.13,-51 171.13,-39 171.13,-39 171.13,-33 177.13,-27 183.13,-27 183.13,-27 315.86,-27 315.86,-27 321.86,-27 327.86,-33 327.86,-39 327.86,-39 327.86,-51 327.86,-51 327.86,-57 321.86,-63 315.86,-63"></path>
+<text text-anchor="middle" x="249.5" y="-40.8" font-family="Times,serif" font-size="14.00">Comprehension outcome</text>
+</g>
+<!-- nd_1_l&#45;&gt;nd_2 -->
+<g id="edge1" class="edge">
+<title>nd_1_l-&gt;nd_2</title>
+<path fill="none" stroke="black" d="M135.37,-61.98C143.77,-60.72 152.47,-59.42 161.13,-58.12"></path>
+<polygon fill="black" stroke="black" points="161.9,-61.54 171.27,-56.59 160.86,-54.62 161.9,-61.54"></polygon>
+</g>
+<!-- nd_1_r -->
+<g id="node2" class="node">
+<title>nd_1_r</title>
+<path fill="none" stroke="black" d="M118.4,-36C118.4,-36 16.92,-36 16.92,-36 10.92,-36 4.92,-30 4.92,-24 4.92,-24 4.92,-12 4.92,-12 4.92,-6 10.92,0 16.92,0 16.92,0 118.4,0 118.4,0 124.4,0 130.4,-6 130.4,-12 130.4,-12 130.4,-24 130.4,-24 130.4,-30 124.4,-36 118.4,-36"></path>
+<text text-anchor="middle" x="67.66" y="-13.8" font-family="Times,serif" font-size="14.00">Reasoning capacity</text>
+</g>
+<!-- nd_1_r&#45;&gt;nd_2 -->
+<g id="edge2" class="edge">
+<title>nd_1_r-&gt;nd_2</title>
+<path fill="none" stroke="black" d="M130.3,-27.25C140.24,-28.75 150.69,-30.32 161.1,-31.88"></path>
+<polygon fill="black" stroke="black" points="160.64,-35.35 171.04,-33.37 161.67,-28.43 160.64,-35.35"></polygon>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;3: The potential drivers of comprehension success</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comprehension-drivers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: The potential drivers of comprehension success
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1001,64 +1092,87 @@ nd_1_r-&gt;nd_2
 </section>
 <section id="we-need-to-think-about-the-derivation-chain" class="level3">
 <h3 class="anchored" data-anchor-id="we-need-to-think-about-the-derivation-chain">We need to think about the derivation chain</h3>
-<div class="cell">
+<div class="cell" data-layout-align="default">
 <div class="cell-output-display">
-<div id="fig-derivation-chain" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="fig-derivation-chain" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-derivation-chain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <svg width="672" height="480" viewbox="0.00 0.00 291.19 280.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 276)">
-<title>
-Q
-</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-276 287.19,-276 287.19,4 -4,4"></polygon> <g id="clust1" class="cluster">
-<title>
-cluster_R
-</title>
-<polygon fill="none" stroke="black" points="8,-211 8,-264 256,-264 256,-211 8,-211"></polygon> </g> <!-- nd_1_l --> <g id="node1" class="node">
-<title>
-nd_1_l
-</title>
-<polygon fill="none" stroke="black" points="16.32,-219.5 16.32,-255.5 137.68,-255.5 137.68,-219.5 16.32,-219.5"></polygon> <text text-anchor="middle" x="77" y="-233.3" font-family="Times,serif" font-size="14.00">Concept formation</text> </g> <!-- nd_1_r --> <g id="node2" class="node">
-<title>
-nd_1_r
-</title>
-<polygon fill="none" stroke="black" points="155.7,-219.5 155.7,-255.5 248.3,-255.5 248.3,-219.5 155.7,-219.5"></polygon> <text text-anchor="middle" x="202" y="-233.3" font-family="Times,serif" font-size="14.00">Causal model</text> </g> <!-- nd_2_l --> <g id="node3" class="node">
-<title>
-nd_2_l
-</title>
-<polygon fill="none" stroke="black" points="30.9,-146.5 30.9,-182.5 123.1,-182.5 123.1,-146.5 30.9,-146.5"></polygon> <text text-anchor="middle" x="77" y="-160.3" font-family="Times,serif" font-size="14.00">Measurement</text> </g> <!-- nd_1_l&#45;&gt;nd_2_l --> <g id="edge1" class="edge">
-<title>
-nd_1_l-&gt;nd_2_l
-</title>
-<path fill="none" stroke="black" d="M77,-219.31C77,-211.29 77,-201.55 77,-192.57"></path> <polygon fill="black" stroke="black" points="80.5,-192.53 77,-182.53 73.5,-192.53 80.5,-192.53"></polygon> </g> <!-- nd_3 --> <g id="node5" class="node">
-<title>
-nd_3
-</title>
-<polygon fill="none" stroke="black" points="75.54,-73.5 75.54,-109.5 212.46,-109.5 212.46,-73.5 75.54,-73.5"></polygon> <text text-anchor="middle" x="144" y="-87.3" font-family="Times,serif" font-size="14.00">Statistical predictions</text> </g> <!-- nd_2_l&#45;&gt;nd_3 --> <g id="edge2" class="edge">
-<title>
-nd_2_l-&gt;nd_3
-</title>
-<path fill="none" stroke="black" d="M93.22,-146.31C101.53,-137.5 111.8,-126.63 120.92,-116.96"></path> <polygon fill="black" stroke="black" points="123.61,-119.2 127.93,-109.53 118.52,-114.4 123.61,-119.2"></polygon> </g> <!-- nd_2_r --> <g id="node4" class="node">
-<title>
-nd_2_r
-</title>
-<polygon fill="none" stroke="black" points="140.81,-146.5 140.81,-182.5 283.19,-182.5 283.19,-146.5 140.81,-146.5"></polygon> <text text-anchor="middle" x="212" y="-160.3" font-family="Times,serif" font-size="14.00">Auxiliary assumptions</text> </g> <!-- nd_2_r&#45;&gt;nd_3 --> <g id="edge4" class="edge">
-<title>
-nd_2_r-&gt;nd_3
-</title>
-<path fill="none" stroke="black" d="M195.54,-146.31C187.1,-137.5 176.68,-126.63 167.42,-116.96"></path> <polygon fill="black" stroke="black" points="169.75,-114.33 160.31,-109.53 164.7,-119.17 169.75,-114.33"></polygon> </g> <!-- nd_4 --> <g id="node6" class="node">
-<title>
-nd_4
-</title>
-<polygon fill="none" stroke="black" points="82.15,-0.5 82.15,-36.5 205.85,-36.5 205.85,-0.5 82.15,-0.5"></polygon> <text text-anchor="middle" x="144" y="-14.3" font-family="Times,serif" font-size="14.00">Testing hypotheses</text> </g> <!-- nd_3&#45;&gt;nd_4 --> <g id="edge3" class="edge">
-<title>
-nd_3-&gt;nd_4
-</title>
-<path fill="none" stroke="black" d="M144,-73.31C144,-65.29 144,-55.55 144,-46.57"></path> <polygon fill="black" stroke="black" points="147.5,-46.53 144,-36.53 140.5,-46.53 147.5,-46.53"></polygon> </g> </g>
+<title>Q</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-276 287.19,-276 287.19,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_R</title>
+<polygon fill="none" stroke="black" points="8,-211 8,-264 256,-264 256,-211 8,-211"></polygon>
+</g>
+<!-- nd_1_l -->
+<g id="node1" class="node">
+<title>nd_1_l</title>
+<polygon fill="none" stroke="black" points="16.32,-219.5 16.32,-255.5 137.68,-255.5 137.68,-219.5 16.32,-219.5"></polygon>
+<text text-anchor="middle" x="77" y="-233.3" font-family="Times,serif" font-size="14.00">Concept formation</text>
+</g>
+<!-- nd_1_r -->
+<g id="node2" class="node">
+<title>nd_1_r</title>
+<polygon fill="none" stroke="black" points="155.7,-219.5 155.7,-255.5 248.3,-255.5 248.3,-219.5 155.7,-219.5"></polygon>
+<text text-anchor="middle" x="202" y="-233.3" font-family="Times,serif" font-size="14.00">Causal model</text>
+</g>
+<!-- nd_2_l -->
+<g id="node3" class="node">
+<title>nd_2_l</title>
+<polygon fill="none" stroke="black" points="30.9,-146.5 30.9,-182.5 123.1,-182.5 123.1,-146.5 30.9,-146.5"></polygon>
+<text text-anchor="middle" x="77" y="-160.3" font-family="Times,serif" font-size="14.00">Measurement</text>
+</g>
+<!-- nd_1_l&#45;&gt;nd_2_l -->
+<g id="edge1" class="edge">
+<title>nd_1_l-&gt;nd_2_l</title>
+<path fill="none" stroke="black" d="M77,-219.31C77,-211.29 77,-201.55 77,-192.57"></path>
+<polygon fill="black" stroke="black" points="80.5,-192.53 77,-182.53 73.5,-192.53 80.5,-192.53"></polygon>
+</g>
+<!-- nd_3 -->
+<g id="node5" class="node">
+<title>nd_3</title>
+<polygon fill="none" stroke="black" points="75.54,-73.5 75.54,-109.5 212.46,-109.5 212.46,-73.5 75.54,-73.5"></polygon>
+<text text-anchor="middle" x="144" y="-87.3" font-family="Times,serif" font-size="14.00">Statistical predictions</text>
+</g>
+<!-- nd_2_l&#45;&gt;nd_3 -->
+<g id="edge2" class="edge">
+<title>nd_2_l-&gt;nd_3</title>
+<path fill="none" stroke="black" d="M93.22,-146.31C101.53,-137.5 111.8,-126.63 120.92,-116.96"></path>
+<polygon fill="black" stroke="black" points="123.61,-119.2 127.93,-109.53 118.52,-114.4 123.61,-119.2"></polygon>
+</g>
+<!-- nd_2_r -->
+<g id="node4" class="node">
+<title>nd_2_r</title>
+<polygon fill="none" stroke="black" points="140.81,-146.5 140.81,-182.5 283.19,-182.5 283.19,-146.5 140.81,-146.5"></polygon>
+<text text-anchor="middle" x="212" y="-160.3" font-family="Times,serif" font-size="14.00">Auxiliary assumptions</text>
+</g>
+<!-- nd_2_r&#45;&gt;nd_3 -->
+<g id="edge4" class="edge">
+<title>nd_2_r-&gt;nd_3</title>
+<path fill="none" stroke="black" d="M195.54,-146.31C187.1,-137.5 176.68,-126.63 167.42,-116.96"></path>
+<polygon fill="black" stroke="black" points="169.75,-114.33 160.31,-109.53 164.7,-119.17 169.75,-114.33"></polygon>
+</g>
+<!-- nd_4 -->
+<g id="node6" class="node">
+<title>nd_4</title>
+<polygon fill="none" stroke="black" points="82.15,-0.5 82.15,-36.5 205.85,-36.5 205.85,-0.5 82.15,-0.5"></polygon>
+<text text-anchor="middle" x="144" y="-14.3" font-family="Times,serif" font-size="14.00">Testing hypotheses</text>
+</g>
+<!-- nd_3&#45;&gt;nd_4 -->
+<g id="edge3" class="edge">
+<title>nd_3-&gt;nd_4</title>
+<path fill="none" stroke="black" d="M144,-73.31C144,-65.29 144,-55.55 144,-46.57"></path>
+<polygon fill="black" stroke="black" points="147.5,-46.53 144,-36.53 140.5,-46.53 147.5,-46.53"></polygon>
+</g>
+</g>
 </svg>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;4: The derivation chain</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-derivation-chain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: The derivation chain
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1082,10 +1196,14 @@ nd_3-&gt;nd_4
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-scatterplot-shipley-acc-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-scatterplot-shipley-acc-2-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: The association between comprehension accuracy and vocabulary</figcaption>
+<div id="fig-scatterplot-shipley-acc-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterplot-shipley-acc-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-scatterplot-shipley-acc-2-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot-shipley-acc-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: The association between comprehension accuracy and vocabulary
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1101,16 +1219,20 @@ nd_3-&gt;nd_4
 <section id="predicted-association-as-expected-change-in-average-outcome" class="level3">
 <h3 class="anchored" data-anchor-id="predicted-association-as-expected-change-in-average-outcome">Predicted association as <em>expected</em> change in average outcome</h3>
 <ul>
-<li><a href="#fig-scatterplot-ridges-shipley-acc-1">Figure&nbsp;6</a> shows the distribution curve of mean (comprehension) accuracy scores observed at each value of vocabulary</li>
+<li><a href="#fig-scatterplot-ridges-shipley-acc-1" class="quarto-xref">Figure&nbsp;6</a> shows the distribution curve of mean (comprehension) accuracy scores observed at each value of vocabulary</li>
 <li>You can see that the middle – the average – of each distribution increases</li>
 <li>as we go from left (low scores) to right (high scores) on vocabulary</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-scatterplot-ridges-shipley-acc-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-scatterplot-ridges-shipley-acc-1-1.png" class="img-fluid figure-img" alt="The figure presents a indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. In the plot, the points are shown in dark red and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. Ridges are superimposed on the points, shown in dark grey and red. We show the distribution curve of mean (comprehension) accuracy scores observed at each value of vocabulary. You can see that the middle -- the average -- of each distribution increases as we go from left (low scores) to right (high scores)." width="576"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: Association between accuracy and vocabulary</figcaption>
+<div id="fig-scatterplot-ridges-shipley-acc-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. In the plot, the points are shown in dark red and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. Ridges are superimposed on the points, shown in dark grey and red. We show the distribution curve of mean (comprehension) accuracy scores observed at each value of vocabulary. You can see that the middle -- the average -- of each distribution increases as we go from left (low scores) to right (high scores).">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterplot-ridges-shipley-acc-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-scatterplot-ridges-shipley-acc-1-1.png" class="img-fluid figure-img" alt="The figure presents a indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. In the plot, the points are shown in dark red and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. Ridges are superimposed on the points, shown in dark grey and red. We show the distribution curve of mean (comprehension) accuracy scores observed at each value of vocabulary. You can see that the middle -- the average -- of each distribution increases as we go from left (low scores) to right (high scores)." width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot-ridges-shipley-acc-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Association between accuracy and vocabulary
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1210,10 +1332,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-prediction-shipley-acc-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-prediction-shipley-acc-1-1.png" class="img-fluid figure-img" alt="The figure presents a line indicating the predicted association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. In the plot, higher vocabulary scores are predicted to be associated with higher accuracy scores. Model prediction of change in outcome is shown with a red line." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: The <em>predicted</em> association between comprehension accuracy and vocabulary</figcaption>
+<div id="fig-prediction-shipley-acc-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a line indicating the predicted association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. In the plot, higher vocabulary scores are predicted to be associated with higher accuracy scores. Model prediction of change in outcome is shown with a red line.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prediction-shipley-acc-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-prediction-shipley-acc-1-1.png" class="img-fluid figure-img" alt="The figure presents a line indicating the predicted association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. In the plot, higher vocabulary scores are predicted to be associated with higher accuracy scores. Model prediction of change in outcome is shown with a red line." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prediction-shipley-acc-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: The <em>predicted</em> association between comprehension accuracy and vocabulary
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1230,10 +1356,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 <p><span class="math inline">\(\text{predicted y} = 0.449 + \text{0.011 } \times \text{ Shipley score of } 20\)</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-prediction-shipley-acc-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-prediction-shipley-acc-2-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given a Shipley vocabulary score of 20: the point is shown in red at about mean accuracy of 65." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;8: Predicted outcome in red</figcaption>
+<div id="fig-prediction-shipley-acc-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given a Shipley vocabulary score of 20: the point is shown in red at about mean accuracy of 65.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prediction-shipley-acc-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-prediction-shipley-acc-2-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given a Shipley vocabulary score of 20: the point is shown in red at about mean accuracy of 65." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prediction-shipley-acc-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Predicted outcome in red
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1260,10 +1390,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-prediction-shipley-acc-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-prediction-shipley-acc-3-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given Shipley vocabulary scoreS of 20 and 30." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;9: Predicted outcome in red</figcaption>
+<div id="fig-prediction-shipley-acc-3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given Shipley vocabulary scoreS of 20 and 30.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prediction-shipley-acc-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-prediction-shipley-acc-3-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given Shipley vocabulary scoreS of 20 and 30." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prediction-shipley-acc-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: Predicted outcome in red
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1272,10 +1406,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 <h3 class="anchored" data-anchor-id="the-linear-model-allows-us-to-predict-the-average-outcome-we-can-expect-given-any-value-of-the-predictor">The linear model allows us to predict the average outcome we can expect given <em>any</em> value of the predictor</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-prediction-shipley-acc-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-prediction-shipley-acc-4-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given Shipley vocabulary scoreS of 20 and 30. A blue line is drawn through the linear model predicted trend." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;10: The predicted change in mean comprehension accuracy, given variation in vocabulary scores</figcaption>
+<div id="fig-prediction-shipley-acc-4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given Shipley vocabulary scoreS of 20 and 30. A blue line is drawn through the linear model predicted trend.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-prediction-shipley-acc-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-prediction-shipley-acc-4-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. We predict the value of comprehension accuracy given Shipley vocabulary scoreS of 20 and 30. A blue line is drawn through the linear model predicted trend." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-prediction-shipley-acc-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: The predicted change in mean comprehension accuracy, given variation in vocabulary scores
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1287,7 +1425,7 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lm-intro_files/figure-html/abline-predict-random-2-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. In the background, a fan of light pink lines indicate possible ways to capture the trend of the association." width="480"></p>
+<p><img src="lm-intro_files/figure-html/abline-predict-random-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. In the background, a fan of light pink lines indicate possible ways to capture the trend of the association." width="480"></p>
 </figure>
 </div>
 </div>
@@ -1337,10 +1475,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 <h3 class="anchored" data-anchor-id="what-do-the-prediction-errors-the-residuals-look-like">What do the prediction errors – the residuals – look like?</h3>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-abline-predict-residuals-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-abline-predict-residuals-1-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;11: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue</figcaption>
+<div id="fig-abline-predict-residuals-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-abline-predict-residuals-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-abline-predict-residuals-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abline-predict-residuals-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1356,10 +1498,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-abline-predict-residuals-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-abline-predict-residuals-2-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;12: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue</figcaption>
+<div id="fig-abline-predict-residuals-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-abline-predict-residuals-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-abline-predict-residuals-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abline-predict-residuals-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1374,10 +1520,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-abline-predict-residuals-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-abline-predict-residuals-3-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;13: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue</figcaption>
+<div id="fig-abline-predict-residuals-3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-abline-predict-residuals-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-abline-predict-residuals-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abline-predict-residuals-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1391,10 +1541,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-abline-predict-residuals-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-abline-predict-residuals-4-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;14: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue</figcaption>
+<div id="fig-abline-predict-residuals-4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-abline-predict-residuals-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-abline-predict-residuals-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abline-predict-residuals-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;14: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1409,10 +1563,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-residuals-density-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-residuals-density-1-1.png" class="img-fluid figure-img" alt="The figure a histogram of the residuals, the prediction errors, for the linear model of the association between mean comprehension accuracy and vocabulary. The histogram is shown in grey, and the peak is centered at residuals = 0. A dashed red line is drawn at resdiduals = 0. A red density curve is superimposed on the histogram to indicate the theoretical normal distribution of residuals." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;15: Plot showing the distribution of prediction errors – residuals – for the linear model of comprehension accuracy</figcaption>
+<div id="fig-residuals-density-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure a histogram of the residuals, the prediction errors, for the linear model of the association between mean comprehension accuracy and vocabulary. The histogram is shown in grey, and the peak is centered at residuals = 0. A dashed red line is drawn at resdiduals = 0. A red density curve is superimposed on the histogram to indicate the theoretical normal distribution of residuals." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-residuals-density-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-residuals-density-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure a histogram of the residuals, the prediction errors, for the linear model of the association between mean comprehension accuracy and vocabulary. The histogram is shown in grey, and the peak is centered at residuals = 0. A dashed red line is drawn at resdiduals = 0. A red density curve is superimposed on the histogram to indicate the theoretical normal distribution of residuals." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-residuals-density-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;15: Plot showing the distribution of prediction errors – residuals – for the linear model of comprehension accuracy
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1424,7 +1582,7 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lm-intro_files/figure-html/abline-predict-random-3-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. In the background, a fan of light pink lines indicate possible ways to capture the trend of the association." width="480"></p>
+<p><img src="lm-intro_files/figure-html/abline-predict-random-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. In the background, a fan of light pink lines indicate possible ways to capture the trend of the association." width="480"></p>
 </figure>
 </div>
 </div>
@@ -1609,10 +1767,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-abline-predict-residuals-5" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-abline-predict-residuals-5-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;16: The difference between predicted and observed outcomes, given variation in vocabulary</figcaption>
+<div id="fig-abline-predict-residuals-5" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-abline-predict-residuals-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-abline-predict-residuals-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abline-predict-residuals-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16: The difference between predicted and observed outcomes, given variation in vocabulary
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1627,10 +1789,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-abline-predict-residuals-6" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-abline-predict-residuals-6-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;17: The difference between predicted and observed outcomes, given variation in vocabulary</figcaption>
+<div id="fig-abline-predict-residuals-6" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-abline-predict-residuals-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-abline-predict-residuals-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abline-predict-residuals-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17: The difference between predicted and observed outcomes, given variation in vocabulary
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1646,10 +1812,14 @@ F-statistic: 21.03 on 1 and 167 DF,  p-value: 8.846e-06</code></pre>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-abline-predict-residuals-7" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="lm-intro_files/figure-html/fig-abline-predict-residuals-7-1.png" class="img-fluid figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;18: The difference between predicted and observed outcomes, given variation in vocabulary</figcaption>
+<div id="fig-abline-predict-residuals-7" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-abline-predict-residuals-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-intro_files/figure-html/fig-abline-predict-residuals-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abline-predict-residuals-7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18: The difference between predicted and observed outcomes, given variation in vocabulary
+</figcaption>
 </figure>
 </div>
 </div>
@@ -1798,18 +1968,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1841,11 +2000,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1855,8 +2053,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1868,7 +2075,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1912,6 +2242,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1937,6 +2268,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1998,12 +2355,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../PSYC401/part2/lm-dev.html" class="pagination-link">
+      <a href="../../PSYC401/part2/lm-dev.html" class="pagination-link" aria-label="Developing the linear model">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Developing the linear model</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../PSYC401/part2/references.html" class="pagination-link">
+      <a href="../../PSYC401/part2/references.html" class="pagination-link" aria-label="References">
         <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -2011,19 +2368,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../previous-content/index.html">Previous Content</a>
+    <a class="nav-link" href="../../previous-content/index.html">
+<p>Previous Content</p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 

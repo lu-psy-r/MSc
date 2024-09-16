@@ -1,10 +1,3 @@
-base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
 ggdist
 ggeffects
 here
@@ -26,3 +19,4 @@ stringr
 forcats
 viridisLite
 viridis
+webexercises

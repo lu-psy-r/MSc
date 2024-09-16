@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Statistics for Psychologists – ordinal</title>
+<title>ordinal – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -101,7 +102,12 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -110,6 +116,7 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -119,8 +126,35 @@ div.csl-indent {
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
 </head>
@@ -129,71 +163,71 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="https://lu-psy-r.github.io/">
     <span class="navbar-title">Statistics for Psychologists</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html" rel="" target="">
- <span class="menu-text">Year 1</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html" rel="" target="">
- <span class="menu-text">Year 2</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../year3/index.html" rel="" target="">
- <span class="menu-text">Year 3</span></a>
+    <a class="nav-link" href="../../year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html" rel="" target="">
- <span class="menu-text">MSc</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html" rel="" target="">
- <span class="menu-text">And More…</span></a>
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC402/part1/Week11.html">PSYC402</a></li><li class="breadcrumb-item"><a href="../../PSYC402/part2/05-ordinal.html">Introduction to Ordinal Models</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC402/part1/Week11.html">PSYC402</a></li><li class="breadcrumb-item"><a href="../../PSYC402/part2/05-ordinal.html">Introduction to Ordinal Models</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">PSYC401</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -280,9 +314,9 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">PSYC402</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -400,7 +434,7 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -450,6 +484,7 @@ div.csl-indent {
 
 
 
+
 <section id="sec-ordinal-intro" class="level1">
 <h1>Introduction to Ordinal Models</h1>
 <section id="sec-ordinal-motivations" class="level2">
@@ -461,7 +496,7 @@ div.csl-indent {
 </ul>
 <p>We will be working with study data in which the outcome that is the target for our analyses comprise responses to questions designed to elicit ratings. Ordinal data may, however, also derive from situations in which ordered categorical responses do not derive from ratings items <span class="citation" data-cites="bürkner2019">(we will look briefly at sequential responses, <a href="#ref-bürkner2019" role="doc-biblioref">Bürkner and Vuorre 2019</a>)</span>.</p>
 <p>The challenge we face is that we will aim to develop skills in using <em>ordinal models</em> when, in contrast, most psychological research articles will report analyses of ordinal data using conventional methods like ANOVA or linear regression. We will work to understand why ordinal models are better. We will learn that applying conventional methods to ordinal data will, in principle, involve a poor account of the data and, in practice, will create the risk of producing misleading results. And we will learn how to work with and interpret the results from ordinal models with or without random effects.</p>
-<p>In our work in this chapter, we will rely extensively on the ideas set out by <span class="citation" data-cites="liddell2018">Liddell and Kruschke (<a href="#ref-liddell2018" role="doc-biblioref">2018</a>)</span>, see <a href="#sec-ordinal-recommended-reading">Section&nbsp;1.13</a>.</p>
+<p>In our work in this chapter, we will rely extensively on the ideas set out by <span class="citation" data-cites="liddell2018">Liddell and Kruschke (<a href="#ref-liddell2018" role="doc-biblioref">2018</a>)</span>, see <a href="#sec-ordinal-recommended-reading" class="quarto-xref">Section&nbsp;1.13</a>.</p>
 </section>
 <section id="sec-ordinal-ideas" class="level2">
 <h2 class="anchored" data-anchor-id="sec-ordinal-ideas">The key idea to get us started</h2>
@@ -480,13 +515,17 @@ Important
 </div>
 <p>Ordinal responses are coded with numeric labels. These number labels may indicate order but we do not know that the difference between e.g.&nbsp;response options <code>1</code> versus <code>2</code> is the same as the difference between <code>2</code> versus <code>3</code> or <code>3</code> versus <code>4</code>. Ordinal data contrast with <em>metric</em> data <span class="citation" data-cites="liddell2018">(<a href="#ref-liddell2018" role="doc-biblioref">Liddell and Kruschke 2018</a>)</span> which are recorded on scales for which we assume <em>both</em> order and equal intervals. When researchers apply metric models to ordinal data, they incorrectly assume that the response options e.g.&nbsp;in ratings are separated by equal intervals. Yet, in a review of the 68 recently articles that mentioned the term “Likert” in a sample of highly ranked Psychology journals, <span class="citation" data-cites="liddell2018">Liddell and Kruschke (<a href="#ref-liddell2018" role="doc-biblioref">2018</a>)</span> found that ordinal data were treated as metric and the articles presented results from metric models.</p>
 <p>One way to think about ordinal data is that often (but not always) ratings may be understood to come from psychological processes in which the participant, in response to the Likert question, divides some latent (unobserved) psychological continuum or scale into categories in order to select a response option.</p>
-<p>Imagine, for example, that you have been asked the question “How well do you understand this text? (on a scale from 1-5)”. Presumably, to answer this question, you will have to choose a response based on where you think you are on your unobserved measure of your understanding. You may be able to evaluate the cohesion, or some other internal measure, of your understanding of the text. Simplifying a bit, we might assume that your internal measure of understanding is associated with a normal probability distribution so that it peaks over some value (e.g., <code>3</code>) of the strength of understanding though other values are possible. As <a href="#fig-latent-normal-splits">Figure&nbsp;1</a> suggests, a participant in this common situation will have to map the internal measure (the latent scale, e.g., of understanding) to a number from the response options you are given (e.g., rating scale values ranging 1-5). But there is no reason to suppose that your internal measure of your understanding is divided into an ordered metric scale.</p>
+<p>Imagine, for example, that you have been asked the question “How well do you understand this text? (on a scale from 1-5)”. Presumably, to answer this question, you will have to choose a response based on where you think you are on your unobserved measure of your understanding. You may be able to evaluate the cohesion, or some other internal measure, of your understanding of the text. Simplifying a bit, we might assume that your internal measure of understanding is associated with a normal probability distribution so that it peaks over some value (e.g., <code>3</code>) of the strength of understanding though other values are possible. As <a href="#fig-latent-normal-splits" class="quarto-xref">Figure&nbsp;1</a> suggests, a participant in this common situation will have to map the internal measure (the latent scale, e.g., of understanding) to a number from the response options you are given (e.g., rating scale values ranging 1-5). But there is no reason to suppose that your internal measure of your understanding is divided into an ordered metric scale.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-latent-normal-splits" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-ordinal_files/figure-html/fig-latent-normal-splits-1.png" class="img-fluid figure-img" alt="The figure shows a normal curve, split by dotted lines shown at x-axis points labelled 1-5." width="576"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: A latent scale on the horizontal axis is divided into intervals or bins divided by thresholds marked by dotted lines. The cumulative normal probability in the intervals is the probability of the ordinal values.</figcaption>
+<div id="fig-latent-normal-splits" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure shows a normal curve, split by dotted lines shown at x-axis points labelled 1-5.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-latent-normal-splits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-ordinal_files/figure-html/fig-latent-normal-splits-1.png" class="img-fluid figure-img" alt="The figure shows a normal curve, split by dotted lines shown at x-axis points labelled 1-5." width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-latent-normal-splits-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A latent scale on the horizontal axis is divided into intervals or bins divided by thresholds marked by dotted lines. The cumulative normal probability in the intervals is the probability of the ordinal values.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -513,8 +552,8 @@ Important
 <li>Read in the example dataset.</li>
 <li>Experiment with the .R code used to work with the example data.</li>
 <li>Run ordinal models of demonstration data.</li>
-<li>Run ordinal models of alternate data sets (see links in <a href="#sec-ordinal-reporting-results">Section&nbsp;1.9</a>).</li>
-<li>Review the recommended readings (<a href="#sec-ordinal-recommended-reading">Section&nbsp;1.13</a>).</li>
+<li>Run ordinal models of alternate data sets (see links in <a href="#sec-ordinal-reporting-results" class="quarto-xref">Section&nbsp;1.9</a>).</li>
+<li>Review the recommended readings (<a href="#sec-ordinal-recommended-reading" class="quarto-xref">Section&nbsp;1.13</a>).</li>
 </ul>
 <p><strong>2. Practical materials</strong></p>
 <p>2.1 In the following sections, I describe the practical steps, and associated resources, you can use for your learning. I set out the data tidying, analysis and visualization steps you can follow, working with the example dataset, described next.</p>
@@ -551,13 +590,17 @@ Note
 </section>
 <section id="sec-ordinal-data-participants" class="level4">
 <h4 class="anchored" data-anchor-id="sec-ordinal-data-participants">Participants</h4>
-<p>We will work with a sample of participant data drawn from a series of Lancaster University undergraduate dissertation studies connected to the <strong>Clearly understood</strong> project. In these studies, we collected data from 202 participants on a series of measures (<a href="#sec-ordinal-data-materials-procedure">Section&nbsp;1.5.1.3</a>) of vocabulary knowledge, health literacy, reading strategy, as well as responses to health information texts. The distributions of participants’ scores on each of a range of attribute variables</p>
+<p>We will work with a sample of participant data drawn from a series of Lancaster University undergraduate dissertation studies connected to the <strong>Clearly understood</strong> project. In these studies, we collected data from 202 participants on a series of measures (<a href="#sec-ordinal-data-materials-procedure" class="quarto-xref">Section&nbsp;1.5.1.3</a>) of vocabulary knowledge, health literacy, reading strategy, as well as responses to health information texts. The distributions of participants’ scores on each of a range of attribute variables</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-histogram-grid-" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-ordinal_files/figure-html/fig-histogram-grid--1.png" class="img-fluid figure-img" alt="The figure presents a grid of histograms indicating the distribution of (x-axis) scores on a range of participant attribute variables. The grid includes histograms of the distributions of: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate: (1.) most self-rated accuracy scores are high (over 6); (2.) many participants with vocabulary scores greater than 30, a few present lower scores; (3.) health literacy scores centered on 8 or some, with lower and higher scores; (4.) a skewed distribution of reading strategy scores, with many around 20-40, and a tail of higher scores; (5.) most participants are 20-40 years of age, some older; (6.) many more female than male participants, very few non-binary reported; (7.) many more participants with higher education than further, very few with secondary; and (8.) many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants." width="1344"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Grid of plots showing the distribution of participant attributes. The grid includes histograms of the distributions of: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); and age (years). We also see dot plots presenting counts of numbers of participants of different self-reported gender, education, and ethnicity categories.</figcaption>
+<div id="fig-histogram-grid-" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of histograms indicating the distribution of (x-axis) scores on a range of participant attribute variables. The grid includes histograms of the distributions of: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate: (1.) most self-rated accuracy scores are high (over 6); (2.) many participants with vocabulary scores greater than 30, a few present lower scores; (3.) health literacy scores centered on 8 or some, with lower and higher scores; (4.) a skewed distribution of reading strategy scores, with many around 20-40, and a tail of higher scores; (5.) most participants are 20-40 years of age, some older; (6.) many more female than male participants, very few non-binary reported; (7.) many more participants with higher education than further, very few with secondary; and (8.) many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-histogram-grid--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-ordinal_files/figure-html/fig-histogram-grid--1.png" class="img-fluid figure-img" alt="The figure presents a grid of histograms indicating the distribution of (x-axis) scores on a range of participant attribute variables. The grid includes histograms of the distributions of: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate: (1.) most self-rated accuracy scores are high (over 6); (2.) many participants with vocabulary scores greater than 30, a few present lower scores; (3.) health literacy scores centered on 8 or some, with lower and higher scores; (4.) a skewed distribution of reading strategy scores, with many around 20-40, and a tail of higher scores; (5.) most participants are 20-40 years of age, some older; (6.) many more female than male participants, very few non-binary reported; (7.) many more participants with higher education than further, very few with secondary; and (8.) many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants." width="1344">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histogram-grid--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Grid of plots showing the distribution of participant attributes. The grid includes histograms of the distributions of: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); and age (years). We also see dot plots presenting counts of numbers of participants of different self-reported gender, education, and ethnicity categories.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -630,7 +673,7 @@ Tip
 </section>
 <section id="sec-ordinal-data-inspect" class="level3">
 <h3 class="anchored" data-anchor-id="sec-ordinal-data-inspect">Inspect the data</h3>
-<p>It is always a good to inspect what you have got when you read a data file in to R. Here, what may most concern us is the distribution of observed responses on the rating scale (responses to the “How well do you understand?” question). <a href="#fig-rating-dotplots">Figure&nbsp;3</a> is a dot plot showing the distribution of ratings responses. The Likert-style questions in the surveys asked participants to rate their level of understanding of the texts they saw on a scale from 1 (not well) to 9 (extremely well). The plot shows the number of responses recorded for each response option, over all participants and all texts.</p>
+<p>It is always a good to inspect what you have got when you read a data file in to R. Here, what may most concern us is the distribution of observed responses on the rating scale (responses to the “How well do you understand?” question). <a href="#fig-rating-dotplots" class="quarto-xref">Figure&nbsp;3</a> is a dot plot showing the distribution of ratings responses. The Likert-style questions in the surveys asked participants to rate their level of understanding of the texts they saw on a scale from 1 (not well) to 9 (extremely well). The plot shows the number of responses recorded for each response option, over all participants and all texts.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>health <span class="ot">&lt;-</span> health <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">rating =</span> <span class="fu">fct_relevel</span>(rating, sort))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -645,10 +688,14 @@ Tip
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-rating-dotplots" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-ordinal_files/figure-html/fig-rating-dotplots-1.png" class="img-fluid figure-img" alt="The figure presents a dot plot showing the distribution of ratings responses. The plot shows the number of responses recorded for each response option, over all participants and all texts. Points are coloured to distinguish different response options. The plot indicates that most participants rated their understanding very high to most texts, choosing ratings from 5-6 or above." width="624"></p>
-<figcaption class="figure-caption">Figure&nbsp;3: Dot plot showing the distribution of ratings responses. The Likert-style questions in the surveys asked participants to rate their level of understanding of the texts they saw on a scale from 1 (not well) to 9 (extremely well). The plot shows the number of responses recorded for each response option, over all participants and all texts.</figcaption>
+<div id="fig-rating-dotplots" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a dot plot showing the distribution of ratings responses. The plot shows the number of responses recorded for each response option, over all participants and all texts. Points are coloured to distinguish different response options. The plot indicates that most participants rated their understanding very high to most texts, choosing ratings from 5-6 or above.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rating-dotplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-ordinal_files/figure-html/fig-rating-dotplots-1.png" class="img-fluid figure-img" alt="The figure presents a dot plot showing the distribution of ratings responses. The plot shows the number of responses recorded for each response option, over all participants and all texts. Points are coloured to distinguish different response options. The plot indicates that most participants rated their understanding very high to most texts, choosing ratings from 5-6 or above." width="624">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rating-dotplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Dot plot showing the distribution of ratings responses. The Likert-style questions in the surveys asked participants to rate their level of understanding of the texts they saw on a scale from 1 (not well) to 9 (extremely well). The plot shows the number of responses recorded for each response option, over all participants and all texts.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -887,7 +934,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 <section id="sec-ordinal-working-models-clm" class="level2">
 <h2 class="anchored" data-anchor-id="sec-ordinal-working-models-clm">Working with Cumulative Link Models in R</h2>
 <p>In our first analysis, we can begin by assuming no random effects. We keep things simple at this point so that we can focus on the key changes in model coding.</p>
-<p>The model is conducted to examine what shapes the variation in <code>rating</code> responses that we see in <a href="#fig-rating-dotplots">Figure&nbsp;3</a>.</p>
+<p>The model is conducted to examine what shapes the variation in <code>rating</code> responses that we see in <a href="#fig-rating-dotplots" class="quarto-xref">Figure&nbsp;3</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1025,7 +1072,7 @@ Tip
 <section id="sec-ordinal-results-clmm" class="level3">
 <h3 class="anchored" data-anchor-id="sec-ordinal-results-clmm">Read the results</h3>
 <p>If you run the model code, you will see that the model may take several seconds, possibly a minute or two to complete. We will then get the results shown in the output.</p>
-<div class="cell" data-hash="05-ordinal_cache/html/unnamed-chunk-17_2f38adeaddb6cca055dac5f61543e105">
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>Cumulative Link Mixed Model fitted with the Laplace approximation
 
@@ -1063,7 +1110,7 @@ Threshold coefficients:
 8|9   3.0417     0.2347  12.959</code></pre>
 </div>
 </div>
-<p>You can see that the output summary presents the same structure. If you compare the output you see in <a href="#sec-ordinal-results-clm">Section&nbsp;1.7.1</a>, however, you will notice some similarities and some differences:</p>
+<p>You can see that the output summary presents the same structure. If you compare the output you see in <a href="#sec-ordinal-results-clm" class="quarto-xref">Section&nbsp;1.7.1</a>, however, you will notice some similarities and some differences:</p>
 <ul>
 <li>If you focus first on the estimates of the coefficients for the predictor variables, you will see that the estimates have the same sign (positive or negative) as they had before.</li>
 <li>However, you will see that the estimates have different magnitudes.</li>
@@ -1080,7 +1127,7 @@ Threshold coefficients:
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(health.clmm, <span class="at">terms=</span><span class="st">"z_FACTOR3 [all]"</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="#fig-rating-clmm-factor3-predictions">Figure&nbsp;4</a> shows you the marginal effect of variation in the reading strategy attribute, i.e., the effect of differences between individuals in how they score on the <code>FACTOR3</code> measure of reading strategy. Note that the variable is listed as <code>z_FACTOR3</code> because, as you will recall, we standardized numeric predictor variables before entering them in our model.</p>
+<p><a href="#fig-rating-clmm-factor3-predictions" class="quarto-xref">Figure&nbsp;4</a> shows you the marginal effect of variation in the reading strategy attribute, i.e., the effect of differences between individuals in how they score on the <code>FACTOR3</code> measure of reading strategy. Note that the variable is listed as <code>z_FACTOR3</code> because, as you will recall, we standardized numeric predictor variables before entering them in our model.</p>
 <p>These kinds of plots are understood to present what are variously called conditional effects, or adjusted predictions or marginal effects. You can find a discussion of marginal effects in the context of working with the <code>{ggeffects}</code> library <a href="https://strengejacke.github.io/ggeffects/articles/ggeffects.html">here</a> and <a href="https://strengejacke.github.io/ggeffects/articles/introduction_marginal_effects.html">here</a>. You can find an extensive, helpful (with examples) discussion of marginal effects by Andrew Heiss <a href="https://www.andrewheiss.com/blog/2022/05/20/marginalia/">here</a>.</p>
 <p>In short, what we want to do is to take the model coefficient estimates, and generate predictions with these estimates, given different values of the predictor variable, while holding the other predictor variables at some constant or some level (or some series of values).</p>
 <p>If you look at the code chunk, you can see that we first:</p>
@@ -1090,7 +1137,7 @@ Threshold coefficients:
 <ul>
 <li>In this line, we use <code>ggpredict()</code> to work with some model information, assuming we previously fitted a model and gave it a name (here, <code>health.clmm</code>).</li>
 </ul>
-<p>Note that if you fit the model and call it <code>health.clmm</code>, as we did in <a href="#sec-ordinal-working-models-clmm">Section&nbsp;1.8</a>, then an object of that name is created in the R workspace or environment. If you click on that object name in the environment window in R-Studio, you will see that there is a list of pieces of information about the model, including the coefficient estimates, the model formula etc. associated with that name.</p>
+<p>Note that if you fit the model and call it <code>health.clmm</code>, as we did in <a href="#sec-ordinal-working-models-clmm" class="quarto-xref">Section&nbsp;1.8</a>, then an object of that name is created in the R workspace or environment. If you click on that object name in the environment window in R-Studio, you will see that there is a list of pieces of information about the model, including the coefficient estimates, the model formula etc. associated with that name.</p>
 <ul>
 <li>So when we use <code>ggpredict()</code>, we ask R to take that model information and, for the term we specify, here, specify using <code>terms="z_FACTOR3 [all]"</code>, we ask R to generate some predictions.</li>
 <li><code>dat &lt;- ggpredict(...)</code> asks R to put those predictions in an object called <code>dat</code>.</li>
@@ -1100,23 +1147,27 @@ Threshold coefficients:
 <li><code>x</code> giving different values of the predictor variable. <code>ggpredict()</code> will choose some ‘representative’ values for you but you can construct a set of values of the predictor for which you want predictions.</li>
 <li><code>predicted</code> holds predicted values, given different predictor <code>x</code> values.</li>
 </ul>
-<p>If you then run the line <code>plot(dat)</code> you can see what this gets us for these kinds of models. <a href="#fig-rating-clmm-factor3-predictions">Figure&nbsp;4</a> presents a grid of plots showing the model-predicted probabilities that a rating response will have one value for each of the 1-9 rating response values that are possible given the Likert rating scale used in data collection. In the grid, a different plot is shown for each possible response value, indicating how the probability varies that the rating response will take that value.</p>
+<p>If you then run the line <code>plot(dat)</code> you can see what this gets us for these kinds of models. <a href="#fig-rating-clmm-factor3-predictions" class="quarto-xref">Figure&nbsp;4</a> presents a grid of plots showing the model-predicted probabilities that a rating response will have one value for each of the 1-9 rating response values that are possible given the Likert rating scale used in data collection. In the grid, a different plot is shown for each possible response value, indicating how the probability varies that the rating response will take that value.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(health.clmm, <span class="at">terms=</span><span class="st">"z_FACTOR3 [all]"</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-rating-clmm-factor3-predictions" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-ordinal_files/figure-html/fig-rating-clmm-factor3-predictions-1.png" class="img-fluid figure-img" alt="The figure presents a grid of plots showing marginal or conditional -- adjusted prediction values -- predicted ratings and how they vary given variation in values of the standardized reading strategy (FACTOR3) variable. We can see flat lines for plots corresponding to predictions concerning response options 1-4, suggesting little probability that a rating response will take one of these values. We see norml curves for plots corresponding to predictions concerning response options 5-9, suggesting how the probability that a response will take one of these values may rise and then fall, depending on the FACTOR3 score a person has. The plots suggest that for higher FACTOR3 scores the probability increases that a rating response will have a higher value." width="480"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: A grid of plots showing marginal or conditional predicted probabilities that a rating response will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable.</figcaption>
+<div id="fig-rating-clmm-factor3-predictions" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of plots showing marginal or conditional -- adjusted prediction values -- predicted ratings and how they vary given variation in values of the standardized reading strategy (FACTOR3) variable. We can see flat lines for plots corresponding to predictions concerning response options 1-4, suggesting little probability that a rating response will take one of these values. We see norml curves for plots corresponding to predictions concerning response options 5-9, suggesting how the probability that a response will take one of these values may rise and then fall, depending on the FACTOR3 score a person has. The plots suggest that for higher FACTOR3 scores the probability increases that a rating response will have a higher value.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rating-clmm-factor3-predictions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-ordinal_files/figure-html/fig-rating-clmm-factor3-predictions-1.png" class="img-fluid figure-img" alt="The figure presents a grid of plots showing marginal or conditional -- adjusted prediction values -- predicted ratings and how they vary given variation in values of the standardized reading strategy (FACTOR3) variable. We can see flat lines for plots corresponding to predictions concerning response options 1-4, suggesting little probability that a rating response will take one of these values. We see norml curves for plots corresponding to predictions concerning response options 5-9, suggesting how the probability that a response will take one of these values may rise and then fall, depending on the FACTOR3 score a person has. The plots suggest that for higher FACTOR3 scores the probability increases that a rating response will have a higher value." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rating-clmm-factor3-predictions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: A grid of plots showing marginal or conditional predicted probabilities that a rating response will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>If you examine <a href="#fig-rating-clmm-factor3-predictions">Figure&nbsp;4</a>, you can recognize that we have one plot for each different value of the response options available for the Likert-scale <code>rating</code> items: 1-9. You can also see that in each plot we get a curve. In some cases – for <code>rating</code> response values <code>1-4</code> – the curve is flat or flattens very quickly, for higher levels of the <code>z_FACTOR3</code> variable. In some cases – for <code>rating</code> response values <code>5-9</code> – the curve is more obvious, and resembles a normal distribution curve.</p>
+<p>If you examine <a href="#fig-rating-clmm-factor3-predictions" class="quarto-xref">Figure&nbsp;4</a>, you can recognize that we have one plot for each different value of the response options available for the Likert-scale <code>rating</code> items: 1-9. You can also see that in each plot we get a curve. In some cases – for <code>rating</code> response values <code>1-4</code> – the curve is flat or flattens very quickly, for higher levels of the <code>z_FACTOR3</code> variable. In some cases – for <code>rating</code> response values <code>5-9</code> – the curve is more obvious, and resembles a normal distribution curve.</p>
 <p>If you think about it, what these plots indicate are the ways in which the probability that a <code>rating</code> response is a low value (e.g., a rating of <code>1</code>) or a high value (e.g., a rating of <code>9</code>) rises or falls. Each possible <code>rating</code> response is associated with a probability distribution. For example, look at the plot labelled <code>6</code>: that shows you the probability distribution indicating how the probability varies that a response will take the value <code>6</code>. We can see that the distribution is normal in shape, a bell-shaped curve. We can see that the peak of the curve is over the <code>z_FACTOR3</code> score (shown on the x-axis) of about 1.5. We can see that the probability represented by the height of the line showing the curve is lower for <code>z_FACTOR3</code> scores lower than the score under the peak (e.g.&nbsp;scores less than <code>z_FACTOR3</code> <span class="math inline">\(=2\)</span>). The probability represented by the height of the line showing the curve is lower for <code>z_FACTOR3</code> scores higher than the score under the peak (e.g.&nbsp;scores greater than <code>z_FACTOR3</code> <span class="math inline">\(=1\)</span>).</p>
 <p>We can see that the peak of the normal curve, in the case of <code>rating</code> response values <code>5-9</code>, is located at different places on the horizontal axis. Look at each of the plots labelled <code>5-9</code>. Notice how the horizontal location of the curves <em>shifts</em> as <code>z_FACTOR3</code> scores increase. If you go from left to right, i.e.&nbsp;from low to high values of <code>z_FACTOR3</code>, on each plot then you will see that the peak of the curve is located in different places: going from plot <code>5</code> to plot <code>9</code> the peak of the curve moves <em>rightwards</em>. These curves show how the probability that a <code>rating</code> response takes a high value (e.g.&nbsp;<code>9</code> instead of <code>8</code> or <code>8</code> instead of <code>7</code> etc.) is <em>higher</em> for <em>higher</em> values of <code>z_FACTOR3</code>. This idea might be a bit clearer if we draw the plot in a different way.</p>
-<p><a href="#fig-rating-clmm-factor3-predictions-fancy">Figure&nbsp;5</a> shows the same model predictions but plots the predictions of the way that probability changes, for each <code>rating</code> response, by superimposing the plots for each response value, one on top of the other. I have drawn each probability curve in a different colour, and these colours match those used to present the counts of different response values shown in <a href="#fig-rating-dotplots">Figure&nbsp;3</a>.</p>
+<p><a href="#fig-rating-clmm-factor3-predictions-fancy" class="quarto-xref">Figure&nbsp;5</a> shows the same model predictions but plots the predictions of the way that probability changes, for each <code>rating</code> response, by superimposing the plots for each response value, one on top of the other. I have drawn each probability curve in a different colour, and these colours match those used to present the counts of different response values shown in <a href="#fig-rating-dotplots" class="quarto-xref">Figure&nbsp;3</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(health.clmm, <span class="at">terms=</span><span class="st">"z_FACTOR3 [all]"</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(x, predicted, </span>
@@ -1128,21 +1179,25 @@ Threshold coefficients:
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-rating-clmm-factor3-predictions-fancy" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="05-ordinal_files/figure-html/fig-rating-clmm-factor3-predictions-fancy-1.png" class="img-fluid figure-img" alt="The figure presents a plot showing marginal or conditional predicted probabilities that a rating rating will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable. We can see flat lines for plots corresponding to predictions concerning response options 1-4, suggesting little probability that a rating response will take one of these values. We see norml curves for plots corresponding to predictions concerning response options 5-9, suggesting how the probability that a response will take one of these values may rise and then fall, depending on the FACTOR3 score a person has. The plots suggest that for higher FACTOR3 scores the probability increases that a rating response will have a higher value." width="576"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: A plot showing marginal or conditional predicted probabilities that a rating response will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable</figcaption>
+<div id="fig-rating-clmm-factor3-predictions-fancy" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a plot showing marginal or conditional predicted probabilities that a rating rating will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable. We can see flat lines for plots corresponding to predictions concerning response options 1-4, suggesting little probability that a rating response will take one of these values. We see norml curves for plots corresponding to predictions concerning response options 5-9, suggesting how the probability that a response will take one of these values may rise and then fall, depending on the FACTOR3 score a person has. The plots suggest that for higher FACTOR3 scores the probability increases that a rating response will have a higher value.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rating-clmm-factor3-predictions-fancy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="05-ordinal_files/figure-html/fig-rating-clmm-factor3-predictions-fancy-1.png" class="img-fluid figure-img" alt="The figure presents a plot showing marginal or conditional predicted probabilities that a rating rating will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable. We can see flat lines for plots corresponding to predictions concerning response options 1-4, suggesting little probability that a rating response will take one of these values. We see norml curves for plots corresponding to predictions concerning response options 5-9, suggesting how the probability that a response will take one of these values may rise and then fall, depending on the FACTOR3 score a person has. The plots suggest that for higher FACTOR3 scores the probability increases that a rating response will have a higher value." width="576">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rating-clmm-factor3-predictions-fancy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: A plot showing marginal or conditional predicted probabilities that a rating response will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>You can read <a href="#fig-rating-clmm-factor3-predictions-fancy">Figure&nbsp;5</a> by observing that:</p>
+<p>You can read <a href="#fig-rating-clmm-factor3-predictions-fancy" class="quarto-xref">Figure&nbsp;5</a> by observing that:</p>
 <ul>
 <li>For low value ratings e.g.&nbsp;for <code>rating</code> responses from 1-4, there is not much predicted probability that a response with such a value will be made (flat lines) but if they are going to be made they are likely to be made by people with low scores on the <code>z_FACTOR3</code>.</li>
 </ul>
 <p>You can see this because you can see how the curves peak around low values of <code>z_FACTOR3</code>. This should make sense: people with low scores on reading strategy are maybe not doing reading effectively, are maybe as a result not doing well in understanding the texts they are given to read, and thus are not confident about their understanding. (This is a speculative causal theory but it will suffice for now.)</p>
-<p>Recall, also, that as <a href="#fig-rating-dotplots">Figure&nbsp;3</a> indicated, in the <strong>Clearly understood</strong> health comprehension dataset, we saw that few <code>rating</code> responses were recorded for low value ratings of understanding. Few people in our sample made rating responses by choosing ratings of <code>1</code> or <code>2</code> to indicate low levels of understanding.</p>
-<p><a href="#fig-rating-clmm-factor3-predictions-fancy">Figure&nbsp;5</a> also suggests that:</p>
+<p>Recall, also, that as <a href="#fig-rating-dotplots" class="quarto-xref">Figure&nbsp;3</a> indicated, in the <strong>Clearly understood</strong> health comprehension dataset, we saw that few <code>rating</code> responses were recorded for low value ratings of understanding. Few people in our sample made rating responses by choosing ratings of <code>1</code> or <code>2</code> to indicate low levels of understanding.</p>
+<p><a href="#fig-rating-clmm-factor3-predictions-fancy" class="quarto-xref">Figure&nbsp;5</a> also suggests that:</p>
 <ul>
 <li>For higher value <code>rating</code> responses – responses representing ratings from <code>5</code> to <code>9</code> – there is variation in the probability that responses with such values will be made.</li>
 <li>That variation in probability is shown by the probability distribution curves.</li>
@@ -1185,7 +1240,7 @@ Threshold coefficients:
 <h2 class="anchored" data-anchor-id="sec-ordinal-extensions">Extensions</h2>
 <section id="sec-ordinal-kinds" class="level3">
 <h3 class="anchored" data-anchor-id="sec-ordinal-kinds">Different kinds of ordinal data</h3>
-<p>As I hint, when we discuss the concept that ordinal responses may map somehow to a latent unobserved underlying continuum (see <a href="#fig-latent-normal-splits">Figure&nbsp;1</a>), there are other ways to think about ordinal data. Rather, there are other ways to think about the psychological mechanisms or the <em>data generating mechanisms</em> that give rise to the ordinal responses we analyse.</p>
+<p>As I hint, when we discuss the concept that ordinal responses may map somehow to a latent unobserved underlying continuum (see <a href="#fig-latent-normal-splits" class="quarto-xref">Figure&nbsp;1</a>), there are other ways to think about ordinal data. Rather, there are other ways to think about the psychological mechanisms or the <em>data generating mechanisms</em> that give rise to the ordinal responses we analyse.</p>
 <p>In <span class="citation" data-cites="ricketts2021">Ricketts, Dawson, and Davies (<a href="#ref-ricketts2021" role="doc-biblioref">2021</a>)</span>, we explain:</p>
 <blockquote class="blockquote">
 <p>In the semantic post-test, participants worked their way through three steps, only progressing from one step to the next step if they provided an incorrect response or no response. Given the sequential nature of this task, we analysed data using sequential ratio ordinal models (Bürkner &amp; Vuorre, 2019). In sequential models, we account for variation in the probability that a response falls into one response category (out of k ordered categories), equal to the probability that it did not fall into one of the foregoing categories, given the linear sum of predictors. We estimate the k-1 thresholds and the coefficients of the predictors.</p>
@@ -1199,7 +1254,7 @@ Threshold coefficients:
 </section>
 <section id="richly-parameterized-mixed-effects-models" class="level2">
 <h2 class="anchored" data-anchor-id="richly-parameterized-mixed-effects-models">Richly parameterized mixed-effects models</h2>
-<p>You will have noticed that the mixed-effects model coded in <a href="#sec-ordinal-working-models-clmm">Section&nbsp;1.8</a> incorporates a relatively simple random effect: a term specified to estimate the variance associated with the random effect of differences between participants in intercepts.</p>
+<p>You will have noticed that the mixed-effects model coded in <a href="#sec-ordinal-working-models-clmm" class="quarto-xref">Section&nbsp;1.8</a> incorporates a relatively simple random effect: a term specified to estimate the variance associated with the random effect of differences between participants in intercepts.</p>
 <p>As we we have seen, more complex random effects structures may be warranted <span class="citation" data-cites="Baayen2008">Matuschek et al. (<a href="#ref-matuschek2017" role="doc-biblioref">2017</a>)</span>. When we attempt to fit models with more complex structures, as we have discussed, for example, in <strong>?@sec-dev-mixed-convergence-problems</strong> and <strong>?@sec-glmm-bad-signs</strong>, we may run into <em>convergence</em> problems. (Such convergence problems are one reason why I tend to favour Bayesian methods; see, for exampe, the discussions in <span class="citation" data-cites="bürkner2019">Bürkner and Vuorre (<a href="#ref-bürkner2019" role="doc-biblioref">2019</a>)</span> and <span class="citation" data-cites="liddell2018">Liddell and Kruschke (<a href="#ref-liddell2018" role="doc-biblioref">2018</a>)</span>.) There are ways to resolve these problems by changing the control parameters of the <code>{ordinal}</code> functions (see e.g.&nbsp;<a href="https://stat.ethz.ch/pipermail/r-sig-mixed-models/2011q2/016165.html">this discussion</a> or see the information <a href="https://cran.r-project.org/web/packages/ordinal/ordinal.pdf">here</a>) or by simplfying the model.</p>
 </section>
 <section id="sec-ordinal-summary" class="level2">
@@ -1231,7 +1286,7 @@ Threshold coefficients:
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Baayen2008" class="csl-entry" role="listitem">
 Baayen, R. H., D. J. Davidson, and D. M. Bates. 2008. <span>“Mixed-Effects Modeling with Crossed Random Effects for Subjects and Items.”</span> <em>Journal of Memory and Language</em> 59 (4): 390–412. <a href="https://doi.org/10.1016/j.jml.2007.12.005">https://doi.org/10.1016/j.jml.2007.12.005</a>.
 </div>
@@ -1310,18 +1365,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1353,11 +1397,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1367,8 +1450,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1380,7 +1472,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1424,6 +1639,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1449,6 +1665,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1510,12 +1752,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../PSYC402/part2/04-glmm.html" class="pagination-link">
+      <a href="../../PSYC402/part2/04-glmm.html" class="pagination-link" aria-label="Introduction to Generalized Linear Mixed-effects Models">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to Generalized Linear Mixed-effects Models</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../PSYC402/part2/how.html" class="pagination-link">
+      <a href="../../PSYC402/part2/how.html" class="pagination-link" aria-label="How">
         <span class="nav-page-text">How</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -1523,19 +1765,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Website developed by Matthew Ivory</div>   
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../previous-content/index.html">Previous Content</a>
+    <a class="nav-link" href="../../previous-content/index.html">
+<p>Previous Content</p>
+</a>
   </li>  
 </ul>
     </div>
   </div>
 </footer>
+
 
 
 

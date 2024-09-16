@@ -1,0 +1,283 @@
+---
+title: 5. Testing differences between groups
+subtitle: Written by Padraic Monaghan
+order: 6
+
+---
+
+# Preparation
+
+- Watch Lecture [week5 part 1](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2007173), [slides here](ppt/wk5/PSYC401 Lecture week5 p1.pptx)
+
+- [Part 2](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2007174), [slides here](ppt/wk5/PSYC401 Lecture week5 p2.pptx). Please note I say week 6 in the lectures, but I mean week 5. Sorry about that! It is week 5, be assured.
+
+- Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921449) (not assessed) on the lecture materials.
+
+- Work through the materials below.
+
+- Attend the practical.
+
+- Pop into the drop in (optional). Please note this is in Levy Lab - do come along with any questions at all on the workbooks so far.
+
+- Optionally, if you can give us your (anonymised) [feedback](https://modules.lancaster.ac.uk/mod/feedback/view.php?id=1921451) on how the course is going from your perspective, that would be very welcome.
+
+- Also optionally, read the articles on the importance of statistical understanding and insights from good data visualisation.
+  - [How scientists can be better at statistics](https://modules.lancaster.ac.uk/mod/url/view.php?id=2007180)
+  - [Florence Nightingale and data visualisation](https://modules.lancaster.ac.uk/mod/url/view.php?id=2007186)
+
+# Part 1: Revision
+
+## Task 1: Checklist: What I can now do
+
+You should be able to answer yes to all the following. If you can't yet, go back to the previous workbooks and repeat your working until you can answer yes, being able to type in and run the commands without referring to your notes. 
+
+1. I can open R-studio
+
+2. I can open new libraries using `library()`
+
+3. I can make an R script file
+
+4. I can input a file into an object in R-studio using `read_csv()`
+
+5. I can join two files together using `inner_join()`
+
+6. I can select certain variables from an object using `select()`
+
+7. I can select subsets of data using `filter()` (e.g., I can select participants in two conditions from a data set containing participants in four conditions)  
+
+8. I can make new variables using `mutate()`
+
+9. I can arrange data according to subsets using `group_by()`
+
+10. I can change format of data from wide to long format using `pivot_longer`
+
+11. I can change format of data from long to wide format using `pivot_wider`
+
+12. I can produce summaries of means and standard deviations for subsets of data after applying `group_by()` using `summarise()` 
+
+13. I can draw histograms of single variables, point plots of two ratio/interval/ordinal variables, bar plots of counts, and box plots of one categorical and one ratio/interval/ordinal variable using `ggplot()`
+
+14. I can run a Chi-squared test and Cramer's V test using `chisq.test()` and `cramersV()`
+
+15. I can interpret the results of a Chi-squared test and Cramer's V test and write up a simple report of the results. 
+
+16. I can save an R script file.
+
+
+# Part 2: Running an independent t-test
+
+
+## Task 2: Load, prepare, and explore the data
+
+17. Clear out R using `rm(list=ls())`
+
+18. Load again the data set on the Shipley and Gent vocabulary scores. 
+
+19. Set the research question: do people who self-identify as male or female have different scores on the Gent vocabulary test? The research hypothesis is: "People who identify as male or female have different vocabulary scores". What is the null hypothesis?
+  
+20. To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a  subset of the data (note that the `|` stands for "or", and means Gender matches male or gender matches female:
+
+```{r eval=FALSE}
+
+dat2 <- filter(.data = dat, Gender == 'Male' | Gender == 'Female')
+
+```
+
+21. Draw a box plot of Gent vocabulary test 1 scores by gender. For a box plot, note that we need data in "long format", where each observation is on one line, and we have a column that indicates which condition (in this case Gender) the participant is in. Does it look like there might be a gender effect? What is the direction of the effect? 
+
+
+22. Note that unless we had filtered the data, the box plot would contain 'NA' as well, which stands for missing data.  In a data set it's always a good idea to call missing data 'NA' rather than just leaving them blank because this could be interpreted as a zero or as an error of filling in data.  Missing values make things untidy, so it's good practice to focus only on the variables we need for the t-test and remove all other missing values. Use `select()` to get just the Gender and Gent_1_score variables, and put this in a new object called 'dat3'. 
+
+
+23. Next, in order to run a t-test we have to remove any rows of data which contain a 'NA' - either in the Gender or the Gent_1_score variables. We do this using `drop_na(dat3)`, put the result in a new object called 'dat4'. Run this command:
+
+```{r eval=FALSE}
+
+dat4 <- drop_na(dat3)
+
+```
+
+
+24. Now, redraw the box plot from Step 21. Check there are just two groups.
+
+
+25. Compute mean and SDs for people who self-identify as male or female on Gent vocabulary test 1 scores.
+
+::: {.callout-warning icon="false" collapse="true"}
+## Hint
+
+Use `group_by()` and `summarise()`.
+:::
+
+## Task 3: Run the independent t-test and measure effect size
+
+26. Conduct an independent t-test using this command:
+
+```{r eval=FALSE}
+
+t.test(Gent_1_score ~ Gender, paired = FALSE, data = dat5 )
+
+```
+
+- 'Gent_1_score ~ Gender' : the ~ can be interpreted as 'by', i.e., compute Gent_1_score by Gender 
+- 'paired = FALSE' : this means we are doing an independent t-test (a paired t-test would have paired = TRUE) 
+
+27. The results should look like this, do yours?
+````
+Welch Two Sample t-test
+
+data:  Gent_1_score by Gender
+t = -1.7356, df = 62.409, p-value = 0.08756
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  -10.0862020   0.7105407
+sample estimates:
+  mean in group Female   mean in group Male 
+57.57407             62.26190 
+````
+
+28. The key part of the results to look at is the one that has t = -1.7356, df = 62.409, p-value = 0.08756. This is the result that you report: t(62.41) = -1.74, p = .088.
+
+The value is negative because the function includes Female before Male - and Female score is lower than Male score. What matters is how far away from zero the t-test is (either positively or negatively).  The df value is slightly odd because the t.test() function figures out degrees of freedom in a technical way which takes into account differences in variance in the data between the two groups. We can just use the value that the `t.test()` function gives us. 
+
+29. Is this a significant difference? 
+
+30. Now we need to compute the effect size, using Cohen's d. You need to load the library lsr then use this command:
+```{{r}}
+
+cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
+
+```
+
+
+- It's pretty much the same as the t-test() command except that we use 'method = 'unequal' instead of 'paired = FALSE'. For a paired t-test you would use 'method = 'paired' 
+
+31. What is the effect size? Make a brief report of the results - reporting means and SDs, the t-test, p-value, and Cohen's d. Discuss your brief report in your group.
+
+32. Make sure all commands are in the source window, save them as a new R script file.
+
+## Task 4: Practise running another independent t-test
+
+33. Next research question: do people who are native English speakers have different vocabulary scores than those who learned English as a second language? What is the research hypothesis and the null hypothesis?
+
+
+34. Repeat the Steps 22-30 in Tasks 2 and 3 except using english_status in place of Gender throughout.
+
+
+35. Write a brief report of the results, including means and SDs for native speakers and ESL speakers, t-test, p-value, and Cohen's d.  Discuss your report in your group.
+
+
+36. Save your R script file.
+
+
+Part 3: Conducting a paired t-test
+
+
+Task 5: Conducting a paired t-test 
+
+37. Clear out R-studio before we get started again using `rm(list=ls())`
+
+38. We are going to investigate again the data from this paper: Woodworth, R.J., O'Brien-Malone, A., Diamond, M.R. and Schuez, B., 2018. Data from, "Web-based Positive Psychology Interventions: A Reexamination of Effectiveness". Journal of Open Psychology Data, 6(1). 
+
+Our research question is whether happiness scores are affected by the interventions. We will look at the pre-test (occasion 0)  and the first test after the intervention (occasion 1).
+
+39. What is the research hypothesis and what is the null hypothesis?
+
+
+40. For a paired t-test we can only include data from people who have produced scores at both occasions of testing. So, we need a slightly different version of the data. Download the files [here](data/PSYC401_wk5.zip). Remind yourself what these data mean.  
+      
+
+41. Once again, join the ahicesd.csv and participantinfo2.csv data in R-studio by aligning the names for the participant bumbers in these two data sets (see week 2 workbook for reminders about this). 
+
+
+42. Let's select only the relevant variables. Use `select()` to select only id, ahiTotal, and occasion variables, and save this as a new object called 'summarydata' 
+
+
+43. Use filter to pull out only occasion == 0 or occasion == 1 scores
+
+::: {.callout-warning icon="false" collapse="true"}
+## Hint
+use `occasion == 0 | occasion == 1')`, save this as a new object
+called `summarydata2`
+:::
+
+44. Here is where we would usually remove all the NA values, but there aren't any in this file (so we don't need drop_na()). 
+
+45. Now, we need to make sure occasion is treated as a categorical variable, rather than a continuous variable, so we need to convert it to a factor:
+
+```{{r}}
+
+summarydata2$occasion <-as.factor(summarydata2$occasion)
+
+```
+
+46. Now, draw a box plot of ahiTotal scores by occasion (why do we use a box plot?)
+
+47. Compute mean and SD for each occasion
+
+48. Run the paired t-test: it's the same as for the independent t-test except that we use `paired = TRUE` in place of `paired = FALSE`:
+
+```{{r}}
+
+t.test(ahiTotal ~ occasion, paired = TRUE, data = summarydata2)
+
+```
+
+Is the result significant? 
+
+49. Before we run the Cohen's d command for these data, we have to make sure we have a list of the participants in one condition, followed by the list of participants in the other condition. We can do this using the command `arrange()`:
+
+```{{r}}
+
+summarydata3 <- arrange(.data = summarydata2, occasion)
+
+```
+
+50. Now run Cohen's d: it's the same as for the independent t-test
+except that we use 'method = 'paired':
+
+```{{r}}
+
+cohensD(ahiTotal ~ occasion, method = "paired", data = summarydata3)
+
+```
+
+What is the value for Cohen's d?
+
+51. Write up a brief report of the result and discuss in your group.
+
+52. Save your R script file.
+
+
+# Part 4: More practise running a paired t-test
+
+We are going to figure out whether people have different scores the first and second time they take the Gent vocabulary test.
+
+53. Go back to the vocabulary scores data. Load the data into dat, and make another object dat2 that contains only the subject_ID, Gent_1_score and Gent_2_score.
+
+54. Some people did not do all the tests - look at participant 46 for instance. To do a t-test we need data where the person does both tests. We can filter out the scores where there are no NAs by repeating the drop_na we did at step 23, above. Call the new data object dat3.
+
+55. Now to do a paired t-test we need to get the Gent_1_score and Gent_2_scores into the same column. We do this with `pivot_longer`, run this command:
+
+```{{r}}
+
+dat4 <- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gent_1_score", "Gent_2_score"))
+
+```
+
+56. As an extra benefit of having the data in "long format", it also means we can now also draw a box plot of the Gent vocabulary scores taken at the first and second occasion. Draw the box plot.
+
+57. Get mean and SD of the scores for the tests.
+
+58. Run the paired t-test.
+
+59. arrange the data as in step 49 so that the responses to the first test are listed first, then the responses to the second test.
+
+
+# Part 5: Extras
+
+60. In the vocabulary scores data, is there a significant difference between males and females for your academic year group? 
+
+61. Are there significant differences for the other vocabulary test measures between males and females, or between those with  English as first or second language?
+
+62. For more practice running and interpreting t-tests, look at the Glasgow psychology materials: [https://psyteachr.github.io/quant-fun-v2/t-tests.html](https://psyteachr.github.io/quant-fun-v2/t-tests.html) (ignore anything that says R markdown, you should be able to get to the data and follow the instructions for manipulating it and running t-tests.)
