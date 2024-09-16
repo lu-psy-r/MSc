@@ -1,0 +1,30 @@
+---
+title: Analysing and Interpreting Psychological Data I
+subtitle: "Course coordinators: Padraic Monaghan, Rob Davies"
+email-obfuscation: javascript
+
+#listing:
+#  id: links
+#  template: ../links.ejs
+#  contents: guide.yml
+---
+
+# Welcome
+
+Welcome to this module PSYC401!
+
+Please watch the [welcome video (part 1)](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1977256) to give you an outline of how this module works.
+
+Please then [watch the second video](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1977297) on how to access the software for this module. This second video shows you how to access the University (virtual) computers and software for this module - the software is called R studio. If you have any trouble following these instructions, please let us know via the Discussion Forum.
+
+The [third video](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1977300) shows you how you can change the accessibility and appearance settings for R studio - if you like.
+
+The [fourth video](https://modules.lancaster.ac.uk/mod/url/view.php?id=1979429) is a chat between Rob Davies and Padraic Monaghan giving you a bit of an insight into what we'd like you to take from this module and what our philosophy is for teaching.
+
+# Course Contacts
+
+|             | Email Address                                                  |
+|-------------|----------------------------------------------------------------|
+| Padraic Monaghan | [p.monaghan\@lancaster.ac.uk](mailto:p.monaghan@lancaster.ac.uk) |
+| Rob Davies  | [r.davies\@lancaster.ac.uk](mailto:r.davies@lancaster.ac.uk)     |
+|             |                                                                |
