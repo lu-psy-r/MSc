@@ -8,6 +8,7 @@ website:
     contents:
       - section: "PSYC401"
         contents: 
+          - auto: PSYC401/part1/*
           - auto: PSYC401/part2/*
       - section: "PSYC402"
         contents: 
