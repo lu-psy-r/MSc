@@ -1,5 +1,5 @@
 ---
-title: 6. Thinking about the research report
+title: 6.1. Thinking about the research report
 subtitle: Written by Rob Davies
 order: 7
 ---
