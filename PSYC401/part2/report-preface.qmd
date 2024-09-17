@@ -1,3 +1,9 @@
+---
+title: 6. Thinking about the research report
+subtitle: Written by Rob Davies
+order: 7
+---
+
 # The research report assignment: Outline introduction {#sec-report-intro}
 
 In the Department of Psychology at Lancaster University, in the MSc programme module *PSYC401*, we ask students to analyse a previously collected dataset and write a report about their findings.
@@ -8,7 +14,7 @@ Because you are here, in the book, I start by identifying the chapters, but see 
 
 ::: callout-tip
 Different people prefer to take different approaches to course materials.
-We ahev designed the materials to allow you to take the approach you prefer.
+We have designed the materials to allow you to take the approach you prefer.
 
 - You can begin by viewing the lecture recording then read some or all of the chapters. The lecture mostly focuses on an explanation of the context and motivations for the exercise --- explaining *why* you will benefit --- to help you understand *what* you should do.
 - Or you can jump right in, and get reading here for an in-depth explanation on what we want you to do, why and how we want you to do it.
