@@ -12,7 +12,7 @@ website:
           - auto: PSYC401/part2/*
       - section: "PSYC402"
         contents: 
-          - auto: PSYC402/part1/*
+          - auto: PSYC402/part1/Week1*
           - auto: PSYC402/part2/*
   
 format:
