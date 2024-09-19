@@ -11,7 +11,7 @@ email-obfuscation: javascript
 
 # Welcome
 
-Welcome to this module PSYC401!
+Welcome to this module PSYC401! Very glad to have you here!!
 
 Please watch the [welcome video (part 1)](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1977256) to give you an outline of how this module works.
 
