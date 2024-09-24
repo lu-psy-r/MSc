@@ -11,13 +11,13 @@ email-obfuscation: javascript
 
 # Welcome
 
-Welcome to this module PSYC401: Analysing and interpreting psychological data I! 
+Welcome to this module *PSYC401: Analysing and interpreting psychological data I*! 
 
 To get started with the module:
 
-* Click on PSYC411 at the top left of this window to access the menu. 
+* Click on *PSYC411* at the top left of this window to access the menu. 
 
-* Then go to Week 0: Welcome to get started with preparations.
+* Then go to *Week 0. Welcome to this module!* to get started with preparations.
 
 If you have any issues with finding or following the links, please get in touch with us.
 

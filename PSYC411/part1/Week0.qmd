@@ -1,5 +1,5 @@
 ---
-title: 0. Welcome to this module!
+title: Week 0. Welcome to this module!
 subtitle: Written by Padraic Monaghan
 order: 1
 ---
