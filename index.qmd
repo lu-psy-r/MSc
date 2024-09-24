@@ -15,7 +15,7 @@ back-to-top-navigation: false
 Welcome
 :::
 
-Welcome to MSc statistics!
+Welcome to MSc statistics! Click on the button below to access your module: Term 1: PSYC411, Term 2: PSYC412.
 
 ```{=html}
 
