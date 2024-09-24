@@ -213,8 +213,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">1.1 Overview</a></li>
   <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">1.2 Learning Goals</a></li>
   <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">1.3 Lectures</a></li>
-  <li><a href="#practical-materials" id="toc-practical-materials" class="nav-link" data-scroll-target="#practical-materials">1.4 Practical Materials</a></li>
+  <li><a href="#practical-materials" id="toc-practical-materials" class="nav-link" data-scroll-target="#practical-materials">1.4 Practical Materials</a>
+  <ul class="collapse">
   <li><a href="#workbook" id="toc-workbook" class="nav-link" data-scroll-target="#workbook">1.4.1 Workbook</a></li>
+  </ul></li>
   <li><a href="#part-one-repeat-the-steps-from-lecture-1-part-3" id="toc-part-one-repeat-the-steps-from-lecture-1-part-3" class="nav-link" data-scroll-target="#part-one-repeat-the-steps-from-lecture-1-part-3">Part One: repeat the steps from lecture 1 part 3</a>
   <ul class="collapse">
   <li><a href="#task-one-open-rstudio" id="toc-task-one-open-rstudio" class="nav-link" data-scroll-target="#task-one-open-rstudio">Task One: Open Rstudio</a>
@@ -232,11 +234,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#part-three-extras" id="toc-part-three-extras" class="nav-link" data-scroll-target="#part-three-extras">Part Three: Extras</a>
   <ul class="collapse">
-  <li><a href="#task-seven-exploring-operators." id="toc-task-seven-exploring-operators." class="nav-link" data-scroll-target="#task-seven-exploring-operators.">Task Seven: Exploring operators.</a></li>
-  </ul></li>
+  <li><a href="#task-seven-exploring-operators." id="toc-task-seven-exploring-operators." class="nav-link" data-scroll-target="#task-seven-exploring-operators.">Task Seven: Exploring operators.</a>
+  <ul class="collapse">
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">1.4.2 Data</a></li>
   <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">1.4.3 Answers</a></li>
+  </ul></li>
   <li><a href="#extras" id="toc-extras" class="nav-link" data-scroll-target="#extras">1.5 Extras</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -263,41 +267,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="overview" class="level1">
-<h1>1.1 Overview</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">1.1 Overview</h2>
 <p>There are three mini lectures, and then a practical workbook to get you going with R-studio.</p>
 <p>Before the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).</p>
 </section>
-<section id="learning-goals" class="level1">
-<h1>1.2 Learning Goals</h1>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">1.2 Learning Goals</h2>
 </section>
-<section id="lectures" class="level1">
-<h1>1.3 Lectures</h1>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">1.3 Lectures</h2>
 <p>Watch Lecture week1 part1.</p>
 <p>Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), go back and watch the end of Lecture week 1 part2.</p>
 <p>Watch Lecture week1 part3.</p>
 <p>Take the quiz on the lecture material (not assessed).</p>
 </section>
-<section id="practical-materials" class="level1">
-<h1>1.4 Practical Materials</h1>
-</section>
-<section id="workbook" class="level1">
-<h1>1.4.1 Workbook</h1>
+<section id="practical-materials" class="level2">
+<h2 class="anchored" data-anchor-id="practical-materials">1.4 Practical Materials</h2>
+<section id="workbook" class="level3">
+<h3 class="anchored" data-anchor-id="workbook">1.4.1 Workbook</h3>
 <ul>
 <li><p>The first part of this workbook reproduces what you saw in the week 1 part 3 lecture.</p></li>
 <li><p>The second part gives you some more exercises in using R studio for finding means, standard deviations, z scores, and drawing histograms.</p></li>
 <li><p>The third part explores some more tasks you can do to practise exploring what R studio can do.</p></li>
 </ul>
 </section>
+</section>
 <section id="part-one-repeat-the-steps-from-lecture-1-part-3" class="level1">
 <h1>Part One: repeat the steps from lecture 1 part 3</h1>
 <section id="task-one-open-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="task-one-open-rstudio">Task One: Open Rstudio</h2>
-<p>You will have received an email with your account information to log onto From a computer on the campus wifi, you can access R Studio at:</p>
+<p>From a computer on the campus wifi (or from home via the University VPN), you can access R Studio at:</p>
 <p><a href="http://psy-rstudio.lancaster.ac.uk" target="&quot;_blank">Lancaster Psychology R Studio Server</a></p>
-<p>At the login screen, use your university username (e.g., bloggsj)</p>
-<p>Your password for R Studio is: [password here]</p>
-<p>As it says in the subject line, please keep your account details safe!</p>
+<p>At the login screen, use your university username (e.g., bloggsj) and password.</p>
 <section id="what-does-rstudio-look-like" class="level3">
 <h3 class="anchored" data-anchor-id="what-does-rstudio-look-like">What does RStudio look like?</h3>
 <p>When RStudio starts, it will look something like this: <img src="images/RStudio_startup_screen.png" class="img-fluid" alt="Startup screen"></p>
@@ -316,7 +318,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Text that is highlighted with a grey background denotes code, rather than typiucal prose. Code is different to other forms of writing, such as essays, because the syntax, order and words need to be quite specific. For some longer chunks of code, as you will see below, they are formatted slightly differently.</p>
+<p>Text that is highlighted with a grey background denotes code, rather than typical prose. Code is different to other forms of writing, such as essays, because the syntax, order and words need to be quite specific. For some longer chunks of code, as you will see below, they are formatted slightly differently.</p>
 </div>
 </div>
 <ol type="1">
@@ -505,21 +507,21 @@ Stuck? Here’s the solution
 </div>
 </div>
 </div>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">1.4.2 Data</h3>
 </section>
-</section>
-<section id="data" class="level1">
-<h1>1.4.2 Data</h1>
-</section>
-<section id="answers" class="level1">
-<h1>1.4.3 Answers</h1>
-<p>The answers to the workbook will appear here after the practical on Tuesday, so you can check your answers.</p>
+<section id="answers" class="level3">
+<h3 class="anchored" data-anchor-id="answers">1.4.3 Answers</h3>
+<p>The answers to the workbook will appear below each question after the practical has finished, so you can check your answers.</p>
 <p>It’s really important for your learning that you have a go first of all at the workbook before looking at the answers.</p>
 </section>
-<section id="extras" class="level1">
-<h1>1.5 Extras</h1>
+</section>
+<section id="extras" class="level2">
+<h2 class="anchored" data-anchor-id="extras">1.5 Extras</h2>
 <p>Optionally, <a href="https://fb.watch/uN8oc-KF6u/">watch the lecture by Tim Harford on the importance of understanding statistics</a>. Note this video is hosted on facebook.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
