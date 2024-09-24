@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1. Introducing Data – Statistics for Psychologists</title>
+<title>Week 1. Introducing Data – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -161,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week0.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">1. Introducing Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week0.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">Week 1. Introducing Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../PSYC411/part1/Week1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">1. Introducing Data</span></a>
+ <span class="menu-text">Week 1. Introducing Data</span></a>
   </div>
 </li>
       </ul>
@@ -210,7 +210,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">1.1 Overview</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">1.2 Learning Goals</a></li>
+  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">1.3 Lectures</a></li>
+  <li><a href="#practical-materials" id="toc-practical-materials" class="nav-link" data-scroll-target="#practical-materials">1.4 Practical Materials</a></li>
+  <li><a href="#workbook" id="toc-workbook" class="nav-link" data-scroll-target="#workbook">1.4.1 Workbook</a></li>
   <li><a href="#part-one-repeat-the-steps-from-lecture-1-part-3" id="toc-part-one-repeat-the-steps-from-lecture-1-part-3" class="nav-link" data-scroll-target="#part-one-repeat-the-steps-from-lecture-1-part-3">Part One: repeat the steps from lecture 1 part 3</a>
   <ul class="collapse">
   <li><a href="#task-one-open-rstudio" id="toc-task-one-open-rstudio" class="nav-link" data-scroll-target="#task-one-open-rstudio">Task One: Open Rstudio</a>
@@ -230,15 +234,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#task-seven-exploring-operators." id="toc-task-seven-exploring-operators." class="nav-link" data-scroll-target="#task-seven-exploring-operators.">Task Seven: Exploring operators.</a></li>
   </ul></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">1.4.2 Data</a></li>
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">1.4.3 Answers</a></li>
+  <li><a href="#extras" id="toc-extras" class="nav-link" data-scroll-target="#extras">1.5 Extras</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week0.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">1. Introducing Data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week0.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">Week 1. Introducing Data</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">1. Introducing Data</h1>
+<h1 class="title">Week 1. Introducing Data</h1>
 <p class="subtitle lead">Written by Padraic Monaghan</p>
 </div>
 
@@ -256,26 +263,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="preparation" class="level1">
-<h1>Preparation</h1>
+<section id="overview" class="level1">
+<h1>1.1 Overview</h1>
+<p>There are three mini lectures, and then a practical workbook to get you going with R-studio.</p>
+<p>Before the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).</p>
+</section>
+<section id="learning-goals" class="level1">
+<h1>1.2 Learning Goals</h1>
+</section>
+<section id="lectures" class="level1">
+<h1>1.3 Lectures</h1>
 <p>Watch Lecture week1 part1.</p>
 <p>Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), go back and watch the end of Lecture week 1 part2.</p>
 <p>Watch Lecture week1 part3.</p>
 <p>Take the quiz on the lecture material (not assessed).</p>
-<p>Work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!)</p>
-<p>Attend the practical on Tuesday.</p>
-<p>Optionally, <a href="https://fb.watch/uN8oc-KF6u/">watch the lecture by Tim Harford on the importance of understanding statistics</a>. Note this video is hosted on facebook.</p>
-<ul>
-<li><p>Watch <a href="https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=1dc8e654-b996-4d2d-917c-adac00d6e6fd">Lecture week1 part1</a>. Slides <a href="ppt/wk1/PSYC401 Lecture week1 part1 handout.pptx">here</a></p></li>
-<li><p>Watch <a href="https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=2d1319ad-9f0b-4ec7-865f-ac4c00b40487">Lecture week1 part2</a>, stop halfway through and do the <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921414">Lecture week1 part2 quiz</a> (not assessed), go back and watch the end of Lecture week 1 part2. <a href="ppt/wk1/PSYC401 Lecture week1 part2 handout.pptx">slides here</a></p></li>
-<li><p>Watch <a href="https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=273c848e-9c9a-459e-9e61-ac45015f7929">Lecture week1 part3</a>.</p></li>
-<li><p>Take the <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921415">quiz on the lecture material</a> (not assessed).</p></li>
-<li><p>Work through the practical workbook in a group (…don’t worry about groups yet, we will form them at the first practical, for now you can work on the practical workbook individually, or with anyone else on the course you are in touch with!)</p></li>
-<li><p>Attend the practical on Wednesday.</p></li>
-<li><p>Pop into the drop in (optional) on Thursday, if you’d like extra support for the practical materials, or have questions about the lecture material.</p></li>
-<li><p>Optionally, watch the <a href="https://www.facebook.com/watch/live/?ref=watch_permalink&amp;v=827528201352006">lecture by Tim Harford</a> on the importance of understanding statistics.</p></li>
-</ul>
-<p>In your group, work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.</p>
+</section>
+<section id="practical-materials" class="level1">
+<h1>1.4 Practical Materials</h1>
+</section>
+<section id="workbook" class="level1">
+<h1>1.4.1 Workbook</h1>
 <ul>
 <li><p>The first part of this workbook reproduces what you saw in the week 1 part 3 lecture.</p></li>
 <li><p>The second part gives you some more exercises in using R studio for finding means, standard deviations, z scores, and drawing histograms.</p></li>
@@ -498,9 +505,21 @@ Stuck? Here’s the solution
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="data" class="level1">
+<h1>1.4.2 Data</h1>
+</section>
+<section id="answers" class="level1">
+<h1>1.4.3 Answers</h1>
+<p>The answers to the workbook will appear here after the practical on Tuesday, so you can check your answers.</p>
+<p>It’s really important for your learning that you have a go first of all at the workbook before looking at the answers.</p>
+</section>
+<section id="extras" class="level1">
+<h1>1.5 Extras</h1>
+<p>Optionally, <a href="https://fb.watch/uN8oc-KF6u/">watch the lecture by Tim Harford on the importance of understanding statistics</a>. Note this video is hosted on facebook.</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

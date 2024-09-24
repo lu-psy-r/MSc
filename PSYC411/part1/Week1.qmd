@@ -1,10 +1,18 @@
 ---
-title: 1. Introducing Data
+title: Week 1. Introducing Data
 subtitle: Written by Padraic Monaghan
 order: 2
 ---
 
-# Preparation
+# 1.1 Overview
+
+There are three mini lectures, and then a practical workbook to get you going with R-studio. 
+
+Before the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).
+
+# 1.2 Learning Goals
+
+# 1.3 Lectures
 
 Watch Lecture week1 part1.
 
@@ -14,31 +22,10 @@ Watch Lecture week1 part3.
 
 Take the quiz on the lecture material (not assessed).
 
-Work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!)
+# 1.4 Practical Materials
 
-Attend the practical on Tuesday.
+# 1.4.1 Workbook
 
-Optionally, [watch the lecture by Tim Harford on the importance of understanding statistics](https://fb.watch/uN8oc-KF6u/). Note this video is hosted on facebook.
-
-
-- Watch [Lecture week1 part1](https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=1dc8e654-b996-4d2d-917c-adac00d6e6fd). Slides [here](ppt/wk1/PSYC401 Lecture week1 part1 handout.pptx)
-
-- Watch [Lecture week1 part2](https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=2d1319ad-9f0b-4ec7-865f-ac4c00b40487), stop halfway through and do the [Lecture week1 part2 quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921414) (not assessed), go back and watch the end of Lecture week 1 part2. [slides here](ppt/wk1/PSYC401 Lecture week1 part2 handout.pptx)
-
-- Watch [Lecture week1 part3](https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=273c848e-9c9a-459e-9e61-ac45015f7929).
-
-- Take the [quiz on the lecture material](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921415) (not assessed).
-
-- Work through the practical workbook in a group (...don't worry about groups yet, we will form them at the first practical, for now you can work on the practical workbook individually, or with anyone else on the course you are in touch with!)
-
-- Attend the practical on Wednesday.
-
-- Pop into the drop in (optional) on Thursday, if you'd like extra support for the practical materials, or have questions about the lecture material.
-
-- Optionally, watch the [lecture by Tim Harford](https://www.facebook.com/watch/live/?ref=watch_permalink&v=827528201352006) on the importance of understanding statistics.
-
-
-In your group, work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.
 
 - The first part of this workbook reproduces what you saw in the week 1 part 3 lecture.
 
@@ -215,4 +202,17 @@ mean(sequence)
 
 ```
 :::
+
+
+# 1.4.2 Data
+
+# 1.4.3 Answers
+
+The answers to the workbook will appear here after the practical on Tuesday, so you can check your answers. 
+
+It's really important for your learning that you have a go first of all at the workbook before looking at the answers.
+
+# 1.5 Extras
+
+Optionally, [watch the lecture by Tim Harford on the importance of understanding statistics](https://fb.watch/uN8oc-KF6u/). Note this video is hosted on facebook.
 
