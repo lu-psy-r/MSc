@@ -56,7 +56,7 @@ Take the quiz on the lecture material (not assessed).
 
 - The third part explores some more tasks you can do to practise exploring what R studio can do.
 
-#### Part One: repeat the steps from lecture 1 part 3
+#### 1.4.1.1 Part One: repeat the steps from lecture 1 part 3
 
 ##### Task One: Open Rstudio
 
@@ -72,7 +72,7 @@ When RStudio starts, it will look something like this: ![Startup screen](images/
 
 RStudio has three panels or windows: there are tabs for Console (taking up the left hand side), Environment (and History top right), Current file (bottom right). You will also see a 4th window for a script or set of commands you develop, also (on the left hand side).
 
-#####Task Two: using the console
+##### Task Two: using the console
 
 ::: callout-tip
 Text that is highlighted with a grey background denotes code, rather than typical prose. Code is different to other forms of writing, such as essays, because the syntax, order and words need to be quite specific. For some longer chunks of code, as you will see below, they are formatted slightly differently.
@@ -132,7 +132,7 @@ b_z <- scale(b)
 
 13.	Draw a histogram of b_z by typing `hist(b_z)`.
 
-#### Part Two: extra practice
+#### 1.4.1.2 Part Two: extra practice
 
 ##### Task Five: investigating distributions
 
@@ -185,7 +185,7 @@ annie_z <- scale(annie)
 
 22.	Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: `pnorm(x)` where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?
 
-#### Part Three: Extras
+#### 1.4.1.3 Part Three: Extras
 
 If you’ve whizzed through the previous tasks, then you can move on to the following activities to explore further the functionality of R studio.
 
