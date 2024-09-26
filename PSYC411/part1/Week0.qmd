@@ -8,7 +8,7 @@ order: 1
 
 Welcome to this module PSYC401! Very glad to have you here!! 
 
-The lecturers on this module are Rob Davies ![](https://www.lancaster.ac.uk/images/people/3324.jpg){width="1.5in"} and Padraic Monaghan ![](https://www.lancaster.ac.uk/images/people/1290.jpg){width="1.5in"}. 
+Rob Davies ![](https://www.lancaster.ac.uk/images/people/3324.jpg){width="1in"} and Padraic Monaghan ![](https://www.lancaster.ac.uk/images/people/1290.jpg){width="1in"} are the lecturers on this module. 
 
 We are looking forward to meeting you!
 
