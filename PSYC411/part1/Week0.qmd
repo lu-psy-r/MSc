@@ -6,7 +6,7 @@ order: 1
 
 # Welcome
 
-Welcome to this module PSYC401! Very glad to have you here!! 
+Welcome to this module PSYC411! Very glad to have you here!! 
 
 Rob Davies ![](https://www.lancaster.ac.uk/images/people/3324.jpg){width="1in"} and Padraic Monaghan ![](https://www.lancaster.ac.uk/images/people/1290.jpg){width="1in"} are the lecturers on this module. 
 
