@@ -242,10 +242,10 @@ annie_z <- scale(annie)
 
 21.	You can have a look at the standardised scores of annie, by just typing `annie_z`. To what did annie’s highest initial score of 95 convert to?
 
-:: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 # Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
-```{r eval=FALSE}
+```{r}
 mean(annie_z); sd(annie_z)
 
 ```
@@ -254,20 +254,38 @@ mean(annie_z); sd(annie_z)
 
 22.	What is the mean and standard deviation of annie_z’s standardised scores?
 
-:: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 # Answer
 1.4142136
 You could find this by just eyeballing (searching through) the data, or by using the function `max`:
-```{r eval=FALSE}
+```{r}
 annie_z <- scale(annie)
 max(annie); max(annie_z)
 ```
 :::
 
 
-21.	Draw a histogram of annie’s standardised scores, in the console type `hist(annie_z)`. What is the peak frequency value?
+23.	Draw a histogram of annie’s standardised scores, in the console type `hist(annie_z)`. What is the peak frequency value?
 
-22.	Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: `pnorm(x)` where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+Between -1 and -0.5.
+```{r}
+hist(annie_z)
+```
+:::
+
+
+24.	Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: `pnorm(x)` where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?
+
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
+```{r}
+pnorm(1.4142136)
+```
+:::
 
 #### 1.4.1.3 Part Three: Extras
 
@@ -277,13 +295,25 @@ If you’ve whizzed through the previous tasks, then you can move on to the foll
 
 So far, we’ve just looked at `+` as an operator. Go to this page: https://www.statmethods.net/management/operators.html
 
-23.	 In the console, assign the object `d` to be 100 multiplied by 246.
+25.	 In the console, assign the object `d` to be 100 multiplied by 246.
 
-24.	In the console, assign the object `e` to be 84 divided by 32.1.
+26.	In the console, assign the object `e` to be 84 divided by 32.1.
 
-25.	Assign the variable `f` to 8 to the power of 4 (in R this is called exponentiation).
+27.	Assign the variable `f` to 8 to the power of 4 (in R this is called exponentiation).
 
-26.	What is the result of `d` added to `e` all divided by `f`
+28.	What is the result of `d` added to `e` all divided by `f`
+
+
+::: {.callout-warning icon=false collapse="true"}
+# Answers
+6.006498
+```{r}
+d <- 100 * 246; e <- 84/32.1; f <- 8^4;
+f <- 8**4 # this does the same thing as 8^4
+(d+e)/f 
+```
+:::
+
 
 ##### Task Eight: Exploring functions
 
