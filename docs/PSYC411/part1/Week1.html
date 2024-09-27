@@ -423,13 +423,13 @@ Answer
 </section>
 <section id="task-four-z-scores" class="level5">
 <h5 class="anchored" data-anchor-id="task-four-z-scores">Task Four: z scores</h5>
-<ol start="11" type="1">
+<ol start="13" type="1">
 <li>Make a new object b_z and assign to it the z scores of the values from b: ``</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>b_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="12" type="1">
+<ol start="14" type="1">
 <li><p>Check that it worked by typing <code>b_z</code>.</p></li>
 <li><p>Draw a histogram of b_z by typing <code>hist(b_z)</code>.</p></li>
 </ol>
@@ -439,7 +439,7 @@ Answer
 <h4 class="anchored" data-anchor-id="part-two-extra-practice">1.4.1.2 Part Two: extra practice</h4>
 <section id="task-five-investigating-distributions" class="level5">
 <h5 class="anchored" data-anchor-id="task-five-investigating-distributions">Task Five: investigating distributions</h5>
-<ol start="14" type="1">
+<ol start="16" type="1">
 <li>Let’s make three new objects, with the marks from three people’s university masters courses. They are called annie, saj, and carrie and they took 10 courses each. We use the special notation <code>c()</code> to indicate a list, each number in the list is separated by a comma. Type the following into the console:</li>
 </ol>
 <div class="cell">
@@ -447,7 +447,7 @@ Answer
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>saj <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">95</span>, <span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">55</span>, <span class="dv">55</span>, <span class="dv">75</span>, <span class="dv">95</span>, <span class="dv">85</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>carrie <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">95</span>, <span class="dv">95</span>, <span class="dv">55</span>, <span class="dv">85</span>, <span class="dv">75</span>, <span class="dv">55</span>, <span class="dv">95</span>, <span class="dv">55</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="15" type="1">
+<ol start="17" type="1">
 <li>Who has the highest average (mean) score for their course?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -466,27 +466,41 @@ Hint
 </div>
 </div>
 </div>
-<ol start="16" type="1">
-<li>Who has the most variable scores for their course?</li>
-</ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint
+Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>use the <code>sd()</code> function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>annie <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">65</span>, <span class="dv">95</span>, <span class="dv">65</span>, <span class="dv">75</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>saj <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">95</span>, <span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">55</span>, <span class="dv">55</span>, <span class="dv">75</span>, <span class="dv">95</span>, <span class="dv">85</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>carrie <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">95</span>, <span class="dv">95</span>, <span class="dv">55</span>, <span class="dv">85</span>, <span class="dv">75</span>, <span class="dv">55</span>, <span class="dv">95</span>, <span class="dv">55</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(annie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 75</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(saj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 75</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(carrie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 75</code></pre>
+</div>
+</div>
+<p>They all have the same mean.</p>
 </div>
 </div>
 </div>
-<ol start="17" type="1">
-<li>What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function <code>hist()</code> to draw the distributions to help you see.</li>
+<ol start="18" type="1">
+<li>Who has the most variable scores for their course?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -500,6 +514,25 @@ Hint
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>use the <code>sd()</code> function</p>
+</div>
+</div>
+</div>
+<ol start="19" type="1">
+<li>What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function <code>hist()</code> to draw the distributions to help you see.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>you can use the <code>summary()</code> function, or the <code>median()</code> function</p>
 </div>
 </div>
@@ -511,7 +544,7 @@ Hint
 <li>Make a new object called <code>annie_z</code> and use the function <code>scale</code> to convert annie’s scores to z-scores: in the console type:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>annie_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(annie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>annie_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(annie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="19" type="1">
 <li><p>You can have a look at the standardised scores of annie, by just typing <code>annie_z</code>. To what did annie’s highest initial score of 95 convert to?</p></li>
@@ -542,7 +575,7 @@ Hint
 <li><p>Assign the sequence generated in step 28 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).</p></li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -551,12 +584,12 @@ Stuck? Here’s the solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Try out the following code, pay special attention to how the sentences above “convert” into R code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sequence <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>, <span class="dv">3</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sequence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sequence <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>, <span class="dv">3</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sequence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

@@ -152,21 +152,21 @@ hist(b)
 
 ##### Task Four: z scores
 
-11.	Make a new object b_z and assign to it the z scores of the values from b:
+13.	Make a new object b_z and assign to it the z scores of the values from b:
 ``
 ```{r eval=FALSE}
 b_z <- scale(b)
 ```
 
-12.	Check that it worked by typing `b_z`.
+14.	Check that it worked by typing `b_z`.
 
-13.	Draw a histogram of b_z by typing `hist(b_z)`.
+15.	Draw a histogram of b_z by typing `hist(b_z)`.
 
 #### 1.4.1.2 Part Two: extra practice
 
 ##### Task Five: investigating distributions
 
-14.	Let’s make three new objects, with the marks from three people’s university masters courses. They are called annie, saj, and carrie and they took 10 courses each. We use the special notation `c()` to indicate a list, each number in the list is separated by a comma. Type the following into the console:
+16.	Let’s make three new objects, with the marks from three people’s university masters courses. They are called annie, saj, and carrie and they took 10 courses each. We use the special notation `c()` to indicate a list, each number in the list is separated by a comma. Type the following into the console:
 
 ```{r eval=FALSE}
 
@@ -176,27 +176,59 @@ carrie <- c(75, 65, 95, 95, 55, 85, 75, 55, 95, 55)
 
 ```
 
-15.	Who has the highest average (mean) score for their course? 
+17.	Who has the highest average (mean) score for their course? 
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Hint
 use the `mean()` function
 :::
 
-16.	Who has the most variable scores for their course?
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+They all have the same mean = 75.
+```{r}
+annie <- c(55, 95, 85, 65, 65, 85, 65, 95, 65, 75)
+saj <- c(65, 85, 95, 75, 65, 55, 55, 75, 95, 85)
+carrie <- c(75, 65, 95, 95, 55, 85, 75, 55, 95, 55)
+mean(annie)
+mean(saj)
+mean(carrie)
+```
+:::
+
+
+
+18.	Who has the most variable scores for their course?
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Hint
 use the `sd()` function
 :::
 
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
+```{r}
+sd(annie); sd(saj); sd(carrie)
+```
+:::
 
-17.	What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function `hist()` to draw the distributions to help you see.
+
+19.	What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function `hist()` to draw the distributions to help you see.
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Hint
 you can use the `summary()` function, or the `median()` function
 :::
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+ median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
+```{r}
+median(annie); median(saj); median(carrie)
+```
+:::
+
 
 ##### Task Six: standardised scores: Z scores
 
