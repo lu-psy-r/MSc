@@ -30,6 +30,9 @@ By the end of Week 1, you should be able to:
 
 Watch Lecture week1 part1.
 
+
+
+
 Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530047){target="_blank"}
 
 Then come back and watch the end of Lecture week 1 part2.
@@ -75,11 +78,11 @@ and 2 cover what you need to know, and Part 3 contains some more optional exerci
 
 ##### Task One: Open Rstudio
 
-1. From a computer on the campus wifi (or from home via the University VPN), you can access R Studio at:
+1. Startup Rstudio
 
-[Lancaster Psychology R Studio Server](http://psy-rstudio.lancaster.ac.uk){target="_blank}
+{{< include /Includes/_login.qmd >}}
 
-At the login screen, use your university username (e.g., bloggsj) and password.
+
 
 ###### What does RStudio look like?
 
