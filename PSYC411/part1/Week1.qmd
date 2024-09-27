@@ -30,7 +30,8 @@ By the end of Week 1, you should be able to:
 
 Watch Lecture week1 part1.
 
-Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), go back and watch the end of Lecture week 1 part2.
+Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530047)
+Then go back and watch the end of Lecture week 1 part2.
 
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=2d1319ad-9f0b-4ec7-865f-ac4c00b40487&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w1_p2" ></iframe>
@@ -43,7 +44,11 @@ Watch Lecture week1 part3.
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fb0627af-75d6-4f12-81f2-b091008d8793&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w1 p3" ></iframe>
 ```
 
-Take the quiz on the lecture material (not assessed).
+Take the quiz on the lecture material (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530078)
+
+
+Download the lecture slides for [part 1 here](ppt/wk1/PSYC411 Lecture week1 part1 handout.pptx) and [part 2 here](ppt/wk1/PSYC411 Lecture week1 part2 handout.pptx)
+
 
 ## 1.4 Practical Materials
 
