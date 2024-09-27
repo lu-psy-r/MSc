@@ -246,8 +246,9 @@ annie_z <- scale(annie)
 # Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
 ```{r}
-mean(annie_z); sd(annie_z)
-
+annie_z <- scale(annie)
+mean(annie_z)
+sd(annie_z)
 ```
 :::
 
@@ -305,7 +306,7 @@ So far, we’ve just looked at `+` as an operator. Go to this page: https://www.
 
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answers
+# Answer
 6.006498
 ```{r}
 d <- 100 * 246; e <- 84/32.1; f <- 8^4;
@@ -319,11 +320,21 @@ f <- 8**4 # this does the same thing as 8^4
 
 So far, we’ve just looked at the square root function `sqrt()`. Go to this page:
 https://www.statmethods.net/management/functions.html
-27.	What is the result of `abs(-5.3)`? What does the `abs` function do?
 
-28.	Using the `seq()` function, generate a sequence of numbers from 0 to 30 in intervals of 3.
+29.	What is the result of `abs(-5.3)`? What does the `abs` function do?
 
-29.	Assign the sequence generated in step 28 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+5.3. It takes the sign (negative) away from the number.
+```{r}
+abs(-5.3)
+```
+:::
+
+30.	Using the `seq()` function, generate a sequence of numbers from 0 to 30 in intervals of 3.
+
+31.	Assign the sequence generated in step 28 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Stuck? Here's the solution
@@ -336,8 +347,149 @@ mean(sequence)
 ```
 :::
 
+32. Assign the sequence generated in 31 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+mean = 15.
+```{r}
+g <- seq(0,30,3); mean(g)
+```
+:::
+
+
+##### Task Nine: Exploring others' data
+
+Have a look at this article: Scullin, M. K., Gao, C., & Fillmore, P. (2021). Bedtime music, 
+involuntary musical imagery, and sleep. *Psychological Science, 32(7)*, 985-997. 
+https://journals.sagepub.com/doi/10.1177/0956797621989724
+
+*Abstract*
+Many people listen to music for hours every day, often near bedtime. 
+We investigated whether music listening affects sleep, focusing on a 
+rarely explored mechanism: involuntary musical imagery (earworms). In 
+Study 1 (N = 199, mean age = 35.9 years), individuals who frequently 
+listen to music reported persistent nighttime earworms, which were 
+associated with worse sleep quality. In Study 2 (N = 50, mean age = 21.2 years), 
+we randomly assigned each participant to listen to lyrical or instrumental-only 
+versions of popular songs before bed in a laboratory, discovering that 
+instrumental music increased the incidence of nighttime earworms and worsened 
+polysomnography-measured sleep quality. In both studies, earworms were 
+experienced during awakenings, suggesting that the sleeping brain continues 
+to process musical melodies. Study 3 substantiated this possibility by showing 
+a significant increase in frontal slow oscillation activity, a marker of 
+sleep-dependent memory consolidation. Thus, some types of music can disrupt 
+nighttime sleep by inducing long-lasting earworms that are perpetuated by spontaneous 
+memory-reactivation processes.
+
+The data from the study is available on this website: https://osf.io/7tfqz/
+The data we will look at is from the first study, the data set called 
+"Earworm_MTurk_OSF.sav" on the osf site. These data are saved in spss format, 
+which is not great for R-studio. We can still read it in, though, using a function called spss.get()
+
+33.	Browse the paper to see what it is about. Focus on Study 1. 
+
+34.	From the website https://osf.io/7tfqz/ download the data file: *Earworm_MTurk_OSF.sav*, 
+and also download the codebook file: *Earworm_MTurk_Codebook.xlsx*. 
+The codebook tells you what each of the measures are in the data file.
+
+35.	Load the data into R-studio: in the bottom right panel of R-studio, click on Upload, 
+and browse to the Earworm_MTurk_OSF.sav file. It should then appear in the list of files 
+in that bottom right panel.
+
+36.	That step means we can access the data, but it isn’t yet loaded into R-studio. 
+
+So, next load the data file into R-studio so we can work on it. You might have noticed 
+that the data file is in SPSS format (that’s what the .sav ending to the file means). 
+But, we can still load that in to R-studio. 
+
+To do that first, load the library *Hmisc*: `library(Hmisc)`
+
+```{r eval=FALSE}
+library(Hmisc)
+```
+
+37.	Then, use the function spss.get(): 
+
+```{r eval=FALSE}
+dat <- spss.get("Earworm_MTurk_OSF.sav")
+```
+
+38.	That should have made you a new object in R-studio called "dat" which contains the data from the study.
+
+39.	Next, we can have a look at the data. Here are a few questions to get you going:
+  
+a)	How many male, how many female participants?
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+ 112 male, 87 female
+```{r}
+library(Hmisc)
+dat <- spss.get("data/PSYC411_wk1/EArworm_MTurk_OSF.sav")
+# note that my use of the spss.get function here looks in the folder data and the subfolder PSYC411_wk1 because that's where I've put my EArworm_MTurk_OSF.sav data file.
+summary(dat$Gender)
+```
+:::
+
+b)	How many people never have earworms in the middle of the night?
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+97
+```{r}
+summary(dat$Earworms.MiddleOfTheNight)
+```
+:::
+
+c)	For the Stanford Sleepiness Scale, how many participants felt “Somewhat foggy, let down”?
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+17
+```{r}
+summary(dat$StanfordSleepinessScale)
+```
+:::
+
+
+d)	What was the mean, SD and range of age of the participants? Does your calculation of mean age correspond to that given in the paper?
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+mean = 35.9, sd = 10.9, range 20-73.
+```{r}
+library(tidyverse)
+summarise(dat, mean(Age), sd(Age), min(Age), max(Age))
+# summarise does lots of things at the same time, you could also just do them one by one:
+mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
+```
+:::
+
+ e)	Can you work out the mean age of the male and female participants separately?
+ 
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+```{r}
+dat %>% group_by(Gender) %>% summarise(mean(Age))
+```
+:::
+
+
+f)	Explore the data, see if you can remember tasks for separating different subgroups, graphing relations, comparing groups.
+
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+```{r}
+# this is just one example, other commands and ways are also legitimate:
+dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
+```
+:::
+
 
 ### 1.4.2 Data
+
+(There are no data that you need for today's practical, other than the link to the data for the earworm study, but when there are data sets you need, you will find them in this data section.)
 
 ### 1.4.3 Answers
 
