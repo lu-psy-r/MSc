@@ -226,22 +226,44 @@ you can use the `summary()` function, or the `median()` function
  median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
 ```{r}
 median(annie); median(saj); median(carrie)
+hist(annie); hist(saj); hist(carrie)
 ```
 :::
 
 
 ##### Task Six: standardised scores: Z scores
 
-18.	Make a new object called `annie_z` and use the function `scale` to convert annie’s scores to z-scores: in the console type:
+20.	Make a new object called `annie_z` and use the function `scale` to convert annie’s scores to z-scores: in the console type:
 
 ```{r eval=FALSE}
 annie_z <- scale(annie)
 ```
 
 
-19.	You can have a look at the standardised scores of annie, by just typing `annie_z`. To what did annie’s highest initial score of 95 convert to?
+21.	You can have a look at the standardised scores of annie, by just typing `annie_z`. To what did annie’s highest initial score of 95 convert to?
 
-20.	What is the mean and standard deviation of annie_z’s standardised scores?
+:: {.callout-warning icon=false collapse="true"}
+# Answer
+mean = 0, sd = 1. So that’s good, the z-score conversion worked.
+```{r eval=FALSE}
+mean(annie_z); sd(annie_z)
+
+```
+:::
+
+
+22.	What is the mean and standard deviation of annie_z’s standardised scores?
+
+:: {.callout-warning icon=false collapse="true"}
+# Answer
+1.4142136
+You could find this by just eyeballing (searching through) the data, or by using the function `max`:
+```{r eval=FALSE}
+annie_z <- scale(annie)
+max(annie); max(annie_z)
+```
+:::
+
 
 21.	Draw a histogram of annie’s standardised scores, in the console type `hist(annie_z)`. What is the peak frequency value?
 
