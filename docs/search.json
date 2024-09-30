@@ -1018,7 +1018,7 @@
     "href": "PSYC411/part1/Week2.html",
     "title": "2. Manipulating data",
     "section": "",
-    "text": "Watch Lecture week2 part 1, slides here\npart 2, slides here\npart 3, slides here\nTake the quiz on the lecture material (not assessed).\nWork through the practical workbook with your group, in the practical folder. You can find our answers to the practical 1 week1 in there as well - but it’s probably better to access that after watching the lectures for this week.\nAttend the practical on Wednesday.\nPop into the drop in (optional) on Thursday.\nComplete and submit Assignment 1 by Friday (8pm) of week 2. Data file here\nOptionally, watch Brian Nosek’s keynote at the 2018 British Psychological Society conference on the replicability crisis.",
+    "text": "This week, there are three mini lectures, and then a practical workbook to get you going with R-studio. Before the practical on Tuesday, please try to work through the practical workbook in your group.\nBring your questions (and/or answers) to the practical.",
     "crumbs": [
       "Home",
       "PSYC411",
@@ -1253,7 +1253,7 @@
     "href": "PSYC411/part1/Week1.html#learning-goals",
     "title": "Statistics for Psychologists",
     "section": "1.2 Learning Goals",
-    "text": "1.2 Learning Goals\nBy the end of Week 1, you should be able to:\n\nUnderstand the importance of data analysis and statistics\nIdentify types of data in psychology (nominal, ordinal, interval, ratio)\nUnderstand means and standard deviations\n\n*Understand standardized scores (Z-scores)\n\nUse R-studio to begin to manipulate data, investigate means and standard deviations, and convert scores into Z-scores",
+    "text": "1.2 Learning Goals\nBy the end of Week 1, you should be able to:\n\nUnderstand the importance of data analysis and statistics\nIdentify types of data in psychology (nominal, ordinal, interval, ratio)\nUnderstand means and standard deviations\nUnderstand standardized scores (Z-scores)\nUse R-studio to begin to manipulate data, investigate means and standard deviations, and convert scores into Z-scores",
     "crumbs": [
       "Home",
       "PSYC411",
@@ -1294,6 +1294,54 @@
       "Home",
       "PSYC411",
       "Statistics for Psychologists"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week2.html#overview",
+    "href": "PSYC411/part1/Week2.html#overview",
+    "title": "2. Manipulating data",
+    "section": "",
+    "text": "This week, there are three mini lectures, and then a practical workbook to get you going with R-studio. Before the practical on Tuesday, please try to work through the practical workbook in your group.\nBring your questions (and/or answers) to the practical.",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "2. Manipulating data"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week2.html#learning-goals",
+    "href": "PSYC411/part1/Week2.html#learning-goals",
+    "title": "2. Manipulating data",
+    "section": "2.2 Learning Goals",
+    "text": "2.2 Learning Goals\nBy the end of Week 2, you should be able to:\n\nUnderstand the importance of open data in psychology\nUnderstand different types of data and how best to represent them\nUnderstand bar graphs, scatter plots, and interpret patterns in these graphs\nOpen data sets in R-studio and manipulate those data\nUse R-studio to make simple graphs",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "2. Manipulating data"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week2.html#lectures",
+    "href": "PSYC411/part1/Week2.html#lectures",
+    "title": "2. Manipulating data",
+    "section": "2.3 Lectures",
+    "text": "2.3 Lectures\nWatch Lecture week2 part1.\n\nWatch Lecture week2 part2\n\nWatch Lecture week2 part3\n\nTake the quiz on the lecture material (not assessed).\nDownload the lecture slides for part 1 here, part 2 here, and part 3 here.",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "2. Manipulating data"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week2.html#practical-materials",
+    "href": "PSYC411/part1/Week2.html#practical-materials",
+    "title": "2. Manipulating data",
+    "section": "2.4 Practical Materials",
+    "text": "2.4 Practical Materials\n\n2.4.1 Workbook\nIn your group (or on your own until you’ve formed a group), work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.\nIf you’ve done statistics using R-studio before then Parts 1 and 2 will be again largely revision for you. In this case, Part 3 is where you can focus your work.\nPart 1 of this workbook reproduces what you saw in the week 2 part 3 lecture.\nPart 2 gives you some more exercises in using R studio for **.\nPart 3 provides some more extended tasks you can do to practise exploring what R -studio can do and develop your skills further. If you are new to R-studio then parts 1 and 2 cover the essentials of what you need to know, and Part 3 contains some more optional, extending material.\n\n2.4.1.1 Part One: repeat the steps from lecture 2 part 3\n******UP TO HERE********\n\nTask Zero: making and opening an R script file\n\nOpen up the R server at psy-rstudio.lancaster.ac.uk\nIn R studio, at the File menu, select New File, then R script. Now, we can put in our favourite sum to check it’s working. At the top of the R script window type 10.5 + 7. With the cursor on the same line as the sum click on the Run button (or press Ctrl+Enter on Windows, Cmd+Enter on Mac). In the console, you should see the sum being run, and the answer produced.\nSave the R source. Click on the Save icon, call the R script “psyc401_week2.r”. The .r subscript indicates to R studio that this is an R script file.\nClose the R script, by clicking on the little x next to the R script filename just above the R script window.\nNow open it again. In the R studio window File menu, select Open File, and browse to where you saved your R script file and open it.\nTo make it easier to save and open files we can set what is called the “working directory” for R studio. Click “Session” in the menu at the top of the R studio screen, select “Working directory”, then select “Choose directory”. Browse to the Folder where you are going to save your PSYC401 R studio files (for me this is Documents/PSYC401), and click Open. Over on the right lower panel, you should now see all the files that are in this Folder - including psyc401_week2.r",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "2. Manipulating data"
     ]
   }
 ]
