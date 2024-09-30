@@ -1,7 +1,7 @@
 ---
 title: Week 1. Introducing Data
 subtitle: Written by Padraic Monaghan
-order: 2
+order: 3
 ---
 
 ## 1.1 Overview
@@ -120,7 +120,7 @@ a <- 40
 6.	Now find the square root of the object `a` by typing `sqrt(a)`. Press return.
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 ```{r}
 a<- 40
 sqrt(a)
@@ -147,7 +147,7 @@ b <- c( 4, 1, 5, 3, 8, 2, 2, 6, 8, 5, 4, 1, 6, 5, 4, 5, 7, 9, 10, 1, 1, 3, 5, 4,
 12.	Draw a histogram of these numbers by typing `hist(b)`.
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 ```{r}
 b <- c( 4, 1, 5, 3, 8, 2, 2, 6, 8, 5, 4, 1, 6, 5, 4, 5, 7, 9, 10, 1, 1, 3, 5, 4, 6, 4, 8, 6, 5, 5, 7, 8, 9, 8, 8, 2, 1, 4, 3, 2, 5, 1, 5, 6, 8, 6, 7, 2, 7)
 mean(b)
@@ -192,7 +192,7 @@ use the `mean()` function
 :::
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 They all have the same mean = 75.
 ```{r}
 annie <- c(55, 95, 85, 65, 65, 85, 65, 95, 65, 75)
@@ -214,7 +214,7 @@ use the `sd()` function
 :::
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
 ```{r}
 sd(annie); sd(saj); sd(carrie)
@@ -230,7 +230,7 @@ you can use the `summary()` function, or the `median()` function
 :::
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
  median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
 ```{r}
 median(annie); median(saj); median(carrie)
@@ -251,7 +251,7 @@ annie_z <- scale(annie)
 21.	You can have a look at the standardised scores of annie, by just typing `annie_z`. To what did annie’s highest initial score of 95 convert to?
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
 ```{r}
 annie_z <- scale(annie)
@@ -264,7 +264,7 @@ sd(annie_z)
 22.	What is the mean and standard deviation of annie_z’s standardised scores?
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 1.4142136
 You could find this by just eyeballing (searching through) the data, or by using the function `max`:
 ```{r}
@@ -277,7 +277,7 @@ max(annie); max(annie_z)
 23.	Draw a histogram of annie’s standardised scores, in the console type `hist(annie_z)`. What is the peak frequency value?
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 Between -1 and -0.5.
 ```{r}
 hist(annie_z)
@@ -289,7 +289,7 @@ hist(annie_z)
 
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
 ```{r}
 pnorm(1.4142136)
@@ -314,7 +314,7 @@ So far, we’ve just looked at `+` as an operator. Go to this page: https://www.
 
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 6.006498
 ```{r}
 d <- 100 * 246; e <- 84/32.1; f <- 8^4;
@@ -333,7 +333,7 @@ https://www.statmethods.net/management/functions.html
 
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 5.3. It takes the sign (negative) away from the number.
 ```{r}
 abs(-5.3)
@@ -358,7 +358,7 @@ mean(sequence)
 32. Assign the sequence generated in 31 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 mean = 15.
 ```{r}
 g <- seq(0,30,3); mean(g)
@@ -430,7 +430,7 @@ dat <- spss.get("Earworm_MTurk_OSF.sav")
 a)	How many male, how many female participants?
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
  112 male, 87 female
 ```{r}
 library(Hmisc)
@@ -443,7 +443,7 @@ summary(dat$Gender)
 b)	How many people never have earworms in the middle of the night?
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 97
 ```{r}
 summary(dat$Earworms.MiddleOfTheNight)
@@ -453,7 +453,7 @@ summary(dat$Earworms.MiddleOfTheNight)
 c)	For the Stanford Sleepiness Scale, how many participants felt “Somewhat foggy, let down”?
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 17
 ```{r}
 summary(dat$StanfordSleepinessScale)
@@ -464,7 +464,7 @@ summary(dat$StanfordSleepinessScale)
 d)	What was the mean, SD and range of age of the participants? Does your calculation of mean age correspond to that given in the paper?
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 mean = 35.9, sd = 10.9, range 20-73.
 ```{r}
 library(tidyverse)
@@ -477,7 +477,7 @@ mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
  e)	Can you work out the mean age of the male and female participants separately?
  
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 ```{r}
 dat %>% group_by(Gender) %>% summarise(mean(Age))
 ```
@@ -487,7 +487,7 @@ dat %>% group_by(Gender) %>% summarise(mean(Age))
 f)	Explore the data, see if you can remember tasks for separating different subgroups, graphing relations, comparing groups.
 
 ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 ```{r}
 # this is just one example, other commands and ways are also legitimate:
 dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()

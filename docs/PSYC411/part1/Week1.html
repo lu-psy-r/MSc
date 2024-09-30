@@ -366,6 +366,7 @@ Tip
 # Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -382,6 +383,7 @@ sqrt(a)
 
 :::
 :::
+
 
 
 :::
@@ -404,6 +406,7 @@ sqrt(a)
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
+
 
 
 ::: {.cell}
@@ -458,6 +461,7 @@ hist(b)
 :::
 
 
+
 ::: --->
 </section>
 <section id="task-four-z-scores" class="level5">
@@ -510,6 +514,7 @@ Hint
 They all have the same mean = 75.
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -556,6 +561,7 @@ mean(carrie)
 :::
 
 
+
 ::: --->
 <ol start="18" type="1">
 <li>Who has the most variable scores for their course?</li>
@@ -579,6 +585,7 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
+
 
 
 ::: {.cell}
@@ -616,6 +623,7 @@ sd(annie); sd(saj); sd(carrie)
 :::
 
 
+
 ::: --->
 <ol start="19" type="1">
 <li>What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function <code>hist()</code> to draw the distributions to help you see.</li>
@@ -639,6 +647,7 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
  median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
+
 
 
 ::: {.cell}
@@ -692,6 +701,7 @@ hist(annie); hist(saj); hist(carrie)
 :::
 
 
+
 ::: --->
 </section>
 <section id="task-six-standardised-scores-z-scores" class="level5">
@@ -708,6 +718,7 @@ hist(annie); hist(saj); hist(carrie)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
+
 
 
 ::: {.cell}
@@ -741,6 +752,7 @@ sd(annie_z)
 :::
 
 
+
 ::: --->
 <ol start="22" type="1">
 <li>What is the mean and standard deviation of annie_z’s standardised scores?</li>
@@ -749,6 +761,7 @@ sd(annie_z)
 # Answer
 1.4142136
 You could find this by just eyeballing (searching through) the data, or by using the function `max`:
+
 
 
 ::: {.cell}
@@ -778,6 +791,7 @@ max(annie); max(annie_z)
 :::
 
 
+
 ::: --->
 <ol start="23" type="1">
 <li>Draw a histogram of annie’s standardised scores, in the console type <code>hist(annie_z)</code>. What is the peak frequency value?</li>
@@ -785,6 +799,7 @@ max(annie); max(annie_z)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 Between -1 and -0.5.
+
 
 
 ::: {.cell}
@@ -799,6 +814,7 @@ hist(annie_z)
 :::
 
 
+
 ::: --->
 <ol start="24" type="1">
 <li>Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: <code>pnorm(x)</code> where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?</li>
@@ -806,6 +822,7 @@ hist(annie_z)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
+
 
 
 ::: {.cell}
@@ -823,6 +840,7 @@ pnorm(1.4142136)
 
 :::
 :::
+
 
 
 ::: --->
@@ -845,6 +863,7 @@ pnorm(1.4142136)
 6.006498
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -864,6 +883,7 @@ f <- 8**4 # this does the same thing as 8^4
 :::
 
 
+
 ::: --->
 </section>
 <section id="task-eight-exploring-functions" class="level5">
@@ -875,6 +895,7 @@ f <- 8**4 # this does the same thing as 8^4
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 5.3. It takes the sign (negative) away from the number.
+
 
 
 ::: {.cell}
@@ -892,6 +913,7 @@ abs(-5.3)
 
 :::
 :::
+
 
 
 ::: --->
@@ -927,6 +949,7 @@ Stuck? Here’s the solution
 mean = 15.
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -942,6 +965,7 @@ g <- seq(0,30,3); mean(g)
 
 :::
 :::
+
 
 
 ::: --->
@@ -980,49 +1004,17 @@ g <- seq(0,30,3); mean(g)
  112 male, 87 female
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 library(Hmisc)
-```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-
-Attaching package: 'Hmisc'
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stderr}
-
-```
-The following objects are masked from 'package:base':
-
-    format.pval, units
-```
-
-
-:::
-
-```{.r .cell-code}
 dat <- spss.get("data/PSYC411_wk1/EArworm_MTurk_OSF.sav")
 # note that my use of the spss.get function here looks in the folder data and the subfolder PSYC411_wk1 because that's where I've put my EArworm_MTurk_OSF.sav data file.
 summary(dat$Gender)
 ```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-  M   F 
-112  87 
-```
-
-
 :::
-:::
+
 
 
 ::: --->
@@ -1034,28 +1026,14 @@ summary(dat$Gender)
 97
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 summary(dat$Earworms.MiddleOfTheNight)
 ```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-                          Never Rarely (less than once a month) 
-                             97                              41 
-                   Once a month               2-3 times a month 
-                             18                              17 
-               1-2 times a week                3-6 times a week 
-                             16                               8 
-                       everyday 
-                              2 
-```
-
-
 :::
-:::
+
 
 
 ::: --->
@@ -1067,34 +1045,14 @@ summary(dat$Earworms.MiddleOfTheNight)
 17
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 summary(dat$StanfordSleepinessScale)
 ```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-                           Feeling active, vital, alert, or wide awake 
-                                                                    92 
-      Functioning at high levels, but not at peak; able to concentrate 
-                                                                    35 
-                    Awake, but relaxed; responsive but not fully alert 
-                                                                    34 
-                                              Somewhat foggy, let down 
-                                                                    17 
-                Foggy; losing interest in remaining awake; slowed down 
-                                                                    10 
-                     Sleepy, woozy, fighting sleep; prefer to lie down 
-                                                                     9 
-No longer fighting sleep, sleep onset soon; having dream-like thoughts 
-                                                                     2 
-```
-
-
 :::
-:::
+
 
 
 ::: --->
@@ -1106,87 +1064,17 @@ No longer fighting sleep, sleep onset soon; having dream-like thoughts
 mean = 35.9, sd = 10.9, range 20-73.
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 library(tidyverse)
-```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter()    masks stats::filter()
-✖ dplyr::lag()       masks stats::lag()
-✖ dplyr::src()       masks Hmisc::src()
-✖ dplyr::summarize() masks Hmisc::summarize()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-```
-
-
-:::
-
-```{.r .cell-code}
 summarise(dat, mean(Age), sd(Age), min(Age), max(Age))
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-  mean(Age) sd(Age) min(Age) max(Age)
-1  35.92965 10.8867       20       73
-```
-
-
-:::
-
-```{.r .cell-code}
 # summarise does lots of things at the same time, you could also just do them one by one:
 mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
 ```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-[1] 35.92965
-```
-
-
 :::
 
-::: {.cell-output .cell-output-stdout}
-
-```
-[1] 10.8867
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stdout}
-
-```
-[1] 20
-```
-
-
-:::
-
-::: {.cell-output .cell-output-stdout}
-
-```
-[1] 73
-```
-
-
-:::
-:::
 
 
 ::: --->
@@ -1197,25 +1085,14 @@ mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
 # Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 dat %>% group_by(Gender) %>% summarise(mean(Age))
 ```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-# A tibble: 2 × 2
-  Gender `mean(Age)`
-  <fct>        <dbl>
-1 M             34.3
-2 F             38.1
-```
-
-
 :::
-:::
+
 
 
 ::: --->
@@ -1226,27 +1103,15 @@ dat %>% group_by(Gender) %>% summarise(mean(Age))
 # Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 # this is just one example, other commands and ways are also legitimate:
 dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
 ```
-
-::: {.cell-output .cell-output-stderr}
-
-```
-Warning: Removed 8 rows containing missing values or values outside the scale range
-(`geom_point()`).
-```
-
-
 :::
 
-::: {.cell-output-display}
-![](Week1_files/figure-html/unnamed-chunk-27-1.png){width=672}
-:::
-:::
 
 
 ::: --->

@@ -1,7 +1,7 @@
 ---
 title: Week 1. Introducing Data
 subtitle: Written by Padraic Monaghan
-order: 2
+order: 3
 ---
 
 ## 1.1 Overview
@@ -433,7 +433,7 @@ a)	How many male, how many female participants?
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
  112 male, 87 female
-```{r}
+```{r eval=FALSE}
 library(Hmisc)
 dat <- spss.get("data/PSYC411_wk1/EArworm_MTurk_OSF.sav")
 # note that my use of the spss.get function here looks in the folder data and the subfolder PSYC411_wk1 because that's where I've put my EArworm_MTurk_OSF.sav data file.
@@ -446,7 +446,7 @@ b)	How many people never have earworms in the middle of the night?
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 97
-```{r}
+```{r eval=FALSE}
 summary(dat$Earworms.MiddleOfTheNight)
 ```
 ::: --->
@@ -456,7 +456,7 @@ c)	For the Stanford Sleepiness Scale, how many participants felt “Somewhat fog
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 17
-```{r}
+```{r eval=FALSE}
 summary(dat$StanfordSleepinessScale)
 ```
 ::: --->
@@ -467,7 +467,7 @@ d)	What was the mean, SD and range of age of the participants? Does your calcula
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 mean = 35.9, sd = 10.9, range 20-73.
-```{r}
+```{r eval=FALSE}
 library(tidyverse)
 summarise(dat, mean(Age), sd(Age), min(Age), max(Age))
 # summarise does lots of things at the same time, you could also just do them one by one:
@@ -479,7 +479,7 @@ mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
  
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
-```{r}
+```{r eval=FALSE}
 dat %>% group_by(Gender) %>% summarise(mean(Age))
 ```
 ::: --->
@@ -489,7 +489,7 @@ f)	Explore the data, see if you can remember tasks for separating different subg
 
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
-```{r}
+```{r eval=FALSE}
 # this is just one example, other commands and ways are also legitimate:
 dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
 ```

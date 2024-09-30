@@ -1,8 +1,10 @@
 ---
 title: 2. Manipulating data
 subtitle: Written by Padraic Monaghan
-order: 3
+order: 4
 ---
+
+**** STILL NEED TO FIX LINKS TO DATA FILES ****
 
 ## 2.1 Overview
 
@@ -48,8 +50,10 @@ Watch Lecture week2 part3
 
 Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049) on the lecture material (not assessed).
 
-Download the lecture slides for [part 1 here](ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx), [part 2 here](ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx), and [part 3 here](ppt/wk3/PSYC411 Lecture week2 part3 handout.pptx).
-
+Download the lecture slides for:
+[part 1](ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx)
+[part 2](ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx)
+[part 3](ppt/wk3/PSYC411 Lecture week2 part3 handout.pptx)
 
 
 ## 2.4 Practical Materials
@@ -63,105 +67,177 @@ revision for you. In this case, Part 3 is where you can focus your work.
 
 Part 1 of this workbook reproduces what you saw in the week 2 part 3 lecture.
 
-Part 2 gives you some more exercises in using R studio for **.
-                                        
-Part 3 provides some more extended tasks you can do to practise exploring what R
--studio can do and develop your skills further. If you are new to R-studio then parts 1
-and 2 cover the essentials of what you need to know, and Part 3 contains some more optional, extending material.
+Part 2 gives you some more exercises in using R studio to revise last week's material see [this article](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00962/full) for the psychology behind learning and memory effects of "spacing".
+                        
+Part 3 provides you with more practise at looking at others' data and manipulating it.
+                             
+Part 4 provides some more advanced methods for data manipulation.
 
+Part 5 looks at different ways that data is stored, and how to adjust that.
+
+Part 6 provides some extended extra practise in finding and investigating datasets.
+
+If you have used R-studio before, then Part 6 will be where you will be developing some new advanced skills.
 
 #### 2.4.1.1 Part One: repeat the steps from lecture 2 part 3
-
-******UP TO HERE********
 
 ##### Task Zero: making and opening an R script file
 
 1.  Open up the R server at psy-rstudio.lancaster.ac.uk
 
 2.  In R studio, at the File menu, select New File, then R script.
+
     Now, we can put in our favourite sum to check it's working.
-    At the top of the R script window type `10.5 + 7`.
-    With the cursor on the same line as the sum click on the Run button (or press Ctrl+Enter on Windows, Cmd+Enter on Mac).
+
+    At the top of the R script window type:
+
+```{r eval=FALSE}
+10.5 + 7                        
+```
+
+    With the cursor on the same line as the sum click on the Run button.
+
     In the console, you should see the sum being run, and the answer produced.
 
-3.  Save the R source.
-    Click on the Save icon, call the R script "psyc401_week2.r".
-    The .r subscript indicates to R studio that this is an R script file.
+3.  Save the R script. 
 
-4.  Close the R script, by clicking on the little x next to the R script filename just above the R script window.
+First of all, you can make a Directory/Folder to save the R scripts in to.
 
-5.  Now open it again.
+Your file structure can be anything you like, but here's how I organised it: At the bottom right panel of the R-studio window, click on Folder. Add a new Folder, call it, say PSYC411. 
+
+Click on the PSYC411 Folder, and then make another new Folder, called, say "Week2".
+
+4.  Then, you can save this week's workbook into the Week2 folder:
+
+Click on the Save icon just above the R script window, browse to the Folder where you want to save the script (e.g., PSYC411/Week2), then name the R script file (e.g., workbook_week2.r)
+and Save.
+
+The .r subscript indicates to R studio that this is an R script file.
+
+5. Close the R script, by clicking on the little x next to the R script filename just above the R script window.
+
+6.  Now open it again.
     In the R studio window File menu, select Open File, and browse to where you saved your R script file and open it.
 
-6.  To make it easier to save and open files we can set what is called the "working directory" for R studio.
+7.  To make it easier to save and open files we can set what is called the "working directory" for R studio.
     Click "Session" in the menu at the top of the R studio screen, select "Working directory", then select "Choose directory".
-    Browse to the Folder where you are going to save your PSYC401 R studio files (for me this is Documents/PSYC401), and click Open.
-    Over on the right lower panel, you should now see all the files that are in this Folder - including psyc401_week2.r
+    
+    Browse to the Folder where you are going to save your PSYC411 R studio files (for me this is Documents/PSYC411), and click Open.
+    
+    Over on the right lower panel, you should now see all the files that are in this Folder - including psyc411_week2.r
 
-## Task One: open and check Practical week1 workbook answers script file
 
-7.  Download the answers file by right-clicking the link and saving it.
-    [psyc401_week1_workbook_answers.r](answers/psyc401_week1_workbook_answers.r)
+##### Task One: open and check Practical week1 workbook script file
 
-8.  Open psyc401_week1_workbook_answers.r in R studio (File \> Open File).
-    You can now look through this document, check your commands and answers to the tasks from last week.
+8.  Last week, we didn't save a script (as we were just using the console for R studio). But here's one I prepared earlier... Download the [week 1 script file here](answers/psyc411_week1_workbook_answers.r). This also has the answers (but you can check last week's answers via the main Week 1 page already too).
 
-9.  Close the file psyc401_week1_workbook_answers.r
+This has now downloaded the file on to your local computer. You now need to make it available in the psy-rstudio system. To do this, we have to "Upload" the file.
 
-## Task Two: Opening a data file
+In the bottom right panel of R studio, click "Upload".
 
-10. Reopen your script file psyc401_week2.r in R studio.
+For the Target directory, select the Folder in R-studio that you'd like to upload the 
+file to (e.g., PSYC411/Week1 - maybe first of all you'll need to make the Folder).
 
-11. It's always a good idea to refresh and clear out R studio when you start a new session, so add this line to the beginning of your R studio file, `rm(list=ls())`
+Then Browse to the file that is on your local computer, and click OK.
 
-12. Now we are going to open a new data file.
-    Download the file "PSYC401-shipley-scores-anonymous-17_18.csv" from moodle PSYC401 site, from the Practical Week2 folder.
-    Note: DO NOT OPEN THIS FILE IN EXCEL -- IF YOU DO, DELETE IT THEN DOWNLOAD IT AGAIN. Each row is one person's data, and each column is a measure taken from the person.
-    Columns are separated by commas, which is what the "csv" refers to" comma-separated values.
+You should see it in the Files in the bottom right panel on R-studio.
 
-13. In R studio, we open csv files using a function called `read_csv()` which comes from a set of functions called "tidyverse", we can install these functions by putting `library(tidyverse)` at the very top of our R file.
-    Type this command in the script file and then run it:
+9.  Now you can open psyc411_week1_workbook_answers.r in R-studio (either 
+through File > Open File, at the top left panel, or just by double-clicking 
+it in the Files in the bottom right panel). You can now look through this R script, 
+check your commands and answers to the tasks from last week.
+
+
+##### Task Two: Opening a data file
+
+10. Make sure your script file psyc411_week2.r in R studio.
+
+11. It's generally a good idea to refresh and clear out R studio when you start a new session, so add this line to the beginning of your R studio file:
+
+```{r eval=FALSE}
+rm(list=ls())                    
+```
+
+12. Next we are going to open a new data file.
+
+Download the file [PSYC411-shipley-scores-anonymous-17_18.csv]("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
+
+::: callout-tip
+DO NOT OPEN THIS FILE ON YOUR COMPUTER -- IF YOU DO, DELETE IT THEN DOWNLOAD IT AGAIN - THE REASON FOR THIS IS THAT IT CHANGES THE FILE FORMAT AND THEN WON'T OPEN PROPERLY IN R STUDIO.
+:::
+Then, Upload the data file into R-Studio, and put it in PSYC411/Week2 Folder for instance.
+
+Each row is one person's data, and each column is a measure taken from the person. Columns are separated by commas, which is what the "csv" refers to" comma-separated values.
+
+13. In R studio, we open csv files using a function called `read_csv()` which comes from a set of functions that are stored in a library called "tidyverse", we can install these functions by putting `library(tidyverse)` at the very top of our R script.
+
+Type this command in the script file and then run it:
+
+```{r eval=FALSE}
+library(tidyverse)
+```
 
 ::: {.callout-note icon="false" collapse="true"}
 ## Want to know more about library()?
-
 R comes with certain functions pre-installed, such as `mean()`, but part of the charm of R is that we can install different functions that give us the opportunity to do *almost* anything!
 Collections of functions are called packages, and collections of packages are called libraries, but for the purpose of practicality, we typically refer to them interchangably.
 We install libraries using `library()` and enter the name of the library in the brackets.
 :::
 
-```{r eval=FALSE}
-library(tidyverse)
+14. Then type this command in the script file and run it:
 
-dat <- read_csv("PSYC401-shipley-scores-anonymous-17_18.csv")
+```{r eval=FALSE}
+dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
 ```
 
 Remember the `dat <-` notation, which means we put the data into an object called "dat"
 
-14. If all went well, we can then look at the data, using the function `View`: In the script file type `View(dat)` and run it.
-    It should open a spreadsheet where we can see the data.
+15. If all went well, we can then look at the data, using the function `View`: In the script file type:
 
-15. Next, we just focus on two variables from the data: subject_ID which is the participants' anonymised number, and Gent_1\_score, which is the participants' score on the Gent vocabulary test, the first time they had a go (that's what the 1 stands for).
-    We do this using the command select.
-    The command select is in the library "tidyverse".
-    In the script file type and run:
-
-```{r eval=FALSE}
-
-summarydat <- select(.data = dat, subject_ID, Gent_1_score)
-
+``` {r eval=FALSE}
+View(dat)
 ```
 
-16. Finally, let's just have a quick look at these data.
-    In the script file type `hist(summarydat$Gent_1_score)` and run it.
+and run it. It should open a spreadsheet where we can see the data.
 
-17. This will draw a histogram of the Gent vocabulary scores.
-    `summarydat$Gent_1_score` means that we look at the Gent_1\_score values from the summarydat data -- the `$` indicates that this is one of the measures from the data.
+16. Have a good look around the data to see if you can make sense of it.
+For now, we will just focus on two variables from the data: *subject_ID* which
+is the participants' anonymised number, and *Gent_1_score*, which is the participants'
+score on the Gent vocabulary test, the first time they had a go (that's what the
+1 stands for). We can just pick out the columns of data that we want using the `select` function.
+
+`select` is in the library called "tidyverse", so we don't need to load this in again because we already have. 
+``` {r eval=FALSE}
+summarydat <- select(dat, subject_ID, Gent_1_score)
+```
+
+17. Finally, let's just have a quick look at these data.
+    In the script file type: 
+
+``` {r eval=FALSE}
+hist(summarydat$Gent_1_score)
+```
+
+and run it.
+
+18. This will draw a histogram of the Gent vocabulary scores.
+    `summarydat$Gent_1_score` means that we look at the Gent_1_score values from the summarydat data -- the `$` indicates that this is one of the measures from the data.
     What kind of pattern does the histogram show?
 
-# Part Two: Revision from last week
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+``` {r}
+library(tidyverse)
+dat <- read_csv("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
+summarydat <- select(dat, subject_ID, Gent_1_score)
+hist(summarydat$Gent_1_score)
+```
+Looks close to a normal distribution, slight negative skew possibly.
+:::
 
-18. Save your R script. Now, without looking at your notes, make a new object called "iknow", and assign this list of numbers to it: 126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92, 92, 87, 135, 115
+#### 2.4.1.2 Part Two: Revision from last week
+
+19. Save your R script. Now, without looking at your notes, make a new object called "iknow", and assign this list of numbers to it: 126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92, 92, 87, 135, 115
 
 ::: {.callout-warning icon="false" collapse="true"}
 ## Hint
@@ -169,16 +245,31 @@ summarydat <- select(.data = dat, subject_ID, Gent_1_score)
 use the `iknow <- c(number1, number2, …)` notation
 :::
 
-19. Remember to type these commands in the R script window.
+
+20. Remember to type these commands in the R script window.
     Next, get R-studio to give you the mean and standard deviation of this list of numbers.
 
-20. Draw a histogram of the iknow data.
+21. Draw a histogram of the iknow data.
 
-# Part Three: More practice at opening files and manipulating data
+::: {.callout-warning icon=false collapse="true"}
+# Answers to 19-21
+``` {r}
+library(tidyverse)
+iknow <- c(126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92, 92, 87, 135, 115)
+mean(iknow); sd(iknow)
+hist(iknow)
+```
+:::
 
-Loading data into R-studio
 
-21. Go to moodle PSYC401 week2, and download the data file called "ahicesd.csv" to your directory "PSYC401/week2". Now do the same for "participantinfo.csv". These data come from this study: Woodworth, R.J., O'Brien-Malone, A., Diamond, M.R. and Schüz, B., 2018. Data from, Web-based Positive Psychology Interventions: A Reexamination of Effectiveness. Journal of Open Psychology Data, 6(1).
+
+#### 2.4.1.3 Part Three: More practise at opening files and manipulating data
+
+##### Task Three: Loading data into R-studio
+
+22. Download the data file called [ahicesd.csv](data/wk2/ahicesd.csv) and Upload them into your directory in R studio: "PSYC411/week2". Now do the same for [participantinfo.csv](data/wk2/participantinfo.csv). 
+
+These data come from this study: Woodworth, R.J., O'Brien-Malone, A., Diamond, M.R. and Schüz, B., 2018. Data from, Web-based Positive Psychology Interventions: A Reexamination of Effectiveness. Journal of Open Psychology Data, 6(1).
 
 A brief description of the study is as follows: In our study we attempted a partial replication of the study of Seligman, Steen, Park, and Peterson (2005) which had suggested that the web-based delivery of positive psychology exercises could, as the consequence of containing specific, powerful therapeutic ingredients, effect greater increases in happiness and greater reductions in depression than could a placebo control.
 Participants (n=295) were randomly allocated to one of four intervention groups referred to, in accordance with the terminology in Seligman et al. (2005) as 1: Using Signature Strengths; 2: Three Good Things; 3: Gratitude Visit; 4: Early Memories (placebo control).
@@ -188,66 +279,102 @@ Futher measurements were then made on the AHI and CESD immediately after the int
 Participants were not able to to complete a follow-up questionnaire prior to the time that it was due but might have completed at either at the time that it was due, or later.
 We recorded the date and time at which follow-up questionnaires were completed.
 
-22. Next, load the data into R-studio. The first file is data from participants' self-ratings of happiness and depression. The second contains demographic information about the participants. Type `dat <- read_csv("ahicesd.csv")`, run this command (type Ctrl-Enter), then type `pinfo <- read_csv("participantinfo.csv")`, and run that. This has made two new objects -- one called "dat" which contains the experimental data, and one called "pinfo" which contains the demographic information.
+23. Next, load the data into R-studio. 
 
-## Task Four: Examining and manipulating data
+The first file is data from participants' self-ratings of happiness and depression. 
 
-23. Let's have a look at the data now.
-    Type `View(dat)` in the source and Run it in the console, and you should see the data appear above the console window.
-    Have a good long hard look at it.
+The second contains demographic information about the participants. Type this in your R script: 
 
-24. The data shows id which is the participant number, occasion which is whether this is the first (0), second (1), up to sixth (5) time they filled in the questionnaires, intervention is which intervention they took part in with respect to attempting to promote their mood, ahi01-ahi24 are the 24 items on the AHI happiness scale, cesd01-cesd20 are the 20 items on the CESD depression scale.
-    Way over on the right are the total scores on the AHI and the CESD questionnaires.
+``` {r eval=FALSE}
+dat <- read_csv("ahicesd.csv")
+pinfo <- read_csv("participantinfo.csv")
+`, run this command (type Ctrl-Enter), then type `pinfo <- read_csv("participantinfo.csv")`, and run that. 
+```
+This has made two new objects -- one called "dat" which contains the experimental data, and one called "pinfo" which contains the demographic information.
 
-25. Now, view the pinfo data.
+##### Task Four: Examining and manipulating data
+
+24. Let's have a look at the data now.
+
+``` {r eval=FALSE}
+View(dat)
+`in the source and Run it in the console, and you should see the data appear above the console window.
+```
+Have a good long hard look at it.
+
+25. The data contains:
+*id* which is the participant number;
+*occasion* which is whether this is the first (0), second (1), up to sixth (5) time they filled in the questionnaires;
+*intervention* is which intervention they took part in with respect to attempting to promote their mood;
+*ahi01*-*ahi24* are the 24 items on the AHI happiness scale;
+*cesd01*-*cesd20* are the 20 items on the CESD depression scale.
+Way over on the right are the total scores on the AHI and the CESD questionnaires.
+
+26. Now, view the pinfo data.
     How can you look at it?
 
-26. Looking at the data replaced the source window, but the source is still there.
-    Just above the View panel you should see a tab named "psyc401_week2.r", click on that to get your source panel back.
+
+**** STILL NEED TO FIX THIS - REMOVE EVAL=FALSE BIT ****
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+``` {r eval=FALSE}
+library(tidyverse)
+dat <- read_csv("data/wk2/ahicesd.csv")
+pinfo <- read_csv("data/wk2/participantinfo.csv")
+View(pinfo)
+```
+:::
+
+27. Looking at the data replaced the source window, but the source is still there.
+    Just above the View panel you should see a tab named *psyc411_week2.r*, click on that to get your source panel back.
     It will have a star/asterisk after the file name if it is unsaved.
     Remember it's a good idea to regularly save your source file so you don't lose work.
 
-27. Now, we are going to join together the two files.
+28. Now, we are going to join together the two files.
     Type this:
 
 ```{r eval=FALSE}
-
 all_dat <- inner_join(x = dat, y = pinfo, by = c('id', 'intervention'))
 
 ```
 
-28. Question: what does the c("id", "intervention") bit mean?
+Question: what does the c("id", "intervention") bit mean?
 
 ::: {.callout-warning icon=false collapse="true"} \## Answer this means we match by two variables -- id and intervention.
 We use the `c()` notation to indicate that this is a list of things.
+:::
 
 We've now made a new data set called "all_dat".
 The "x = dat" bit is the name of the first datafile we want to join, the "y = pinfo" is the name of the second datafile we want to join, the "by = 'id', 'intervention'" bit is the names of variables that the two datasets have in common.
-:::
 
-29. How would you join two data sets one called "datamad" the other called "datasane" together if they both have the variable "participantname" in common?
+29. How would you join two data sets one called "data1" the other called "data2" together if they both have the variable "participantname" in common?
 
 ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
-
 ```{r eval=FALSE}
-data_full <- inner_join(x = datamad, y = datasane, by = c("participantname"))
+data_full <- inner_join(x = data1, y = data2, by = c("participantname"))
 ```
 :::
 
 30. Now we just want to keep a few of the variables -- we're not interested in the individual questionnaire items. So, let's select the variables we want to keep:
 
 ```{r eval=FALSE}
-
-summarydata <- select(.data = all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention)
-
+summarydata <- select(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention)
 ```
 
 Where "all_dat" is the name of the object to take data from, and "ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention" are all the variables we want to keep.
 
 31. Have a look at the summarydata in the View. How do you do that?
 
-## Task Five: Investigate data
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+```{r eval=FALSE}
+View(summarydata)
+```
+:::
+
+
+##### Task Five: Investigate data
 
 32. The next task is to have a closer look at the distributions of the data.
     Let's focus on the age of participants.
@@ -255,25 +382,50 @@ Where "all_dat" is the name of the object to take data from, and "ahiTotal, cesd
     So, to investigate the "age" column from the "summarydata" dataset, you would look at summarydata\$age.
     Draw a histogram (bar graph) of the distribution of age in the participant sample.
 
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+```{r eval=FALSE}
+hist(summarydata$age)
+```
+:::
+
 33. Now, let's look at how the AHI and the CESD scores relate.
     To gain an impression of how two variables relate we can draw a scatter graph.
-    In the console, type `plot(summarydata$ahiTotal, summarydata$cesdTotal)`, press Return.
-    What does the "\$" do in this command?
-    What relationship do you find between these two variables?
 
-34. Now make sure you save psyc401_week2.r that contains all these commands that you ran.
-    Close Rstudio, and Open Rstudio and make sure its saved all your work.
+``` {r eval=FALSE}
+plot(summarydata$ahiTotal, summarydata$cesdTotal)
+```
+
+What does the "\$" do in this command?
+What relationship do you find between these two variables?
+
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+\$ refers to one column in the data – either \$ahiTotal or \$cesdTotal columns.
+
+Relation is negative – higher happiness indicates lower depression.
+:::
+
+
+34. Now make sure you save psyc411_week2.r that contains all these commands that you ran.
+    Close R studio, and Open R studio and make sure it's saved all your work.
+    
     The list of commands is extremely useful for making science open and accessible to other researchers.
     It's more and more common for psychology articles to make the R source files available so other researchers can reproduce the data manipulations and analyses used in the paper precisely.
 
-# Part Four: More (advanced) data manipulation
+#### 4.2.1.4 Part Four: More (advanced) data manipulation
 
-35. For reading in more types of data, you can use commands other than `read_csv()`. Have a look at https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio and have a go at loading in excel files or text files with various formats into R-studio.
+35. For reading in more types of data, you can use commands other than `read_csv()`. Have a look at https://support.rstudio.com/hc/en-us/articles/218611977-Importing-Data-with-RStudio and have a go at loading in excel files or text files with various formats into R studio, remember last week, we also loaded in spss .sav files using the `spss.get()` function in the `Hmisc` library.
+
+ Another way to load in spss .sav files is to use the library called haven and the function read_sav which then works quite similarly to the read_csv file.
 
 Note that using lots of different resources online is one of the points of using R-studio -- everything is open and shared.
 It isn't cheating - it's what everyone who uses R-studio does, it's what I did when I was checking some of the commands in this module - so do use google (or baidu, or any search engine) to explore other commands, and to get hints if you ever get stuck.
 
-36. What if the datafiles you wanted to combine together had different names for participants -- in datafile "dataone" it's called "id" and in datatwo" it's called "participant". You can do this by specifying how variables in different datasets relate to each other. Take a look at the help information for inner_join by typing `?inner_join`, then in the help pane on the right, scroll down to find the section titled "Arguments", and read what it has to say about the argument "by". See if you can understand how to join these files together. The examples at the bottom of the help section may be useful too.
+36. What if the datafiles you wanted to combine together had different names for participants -- maybe, for instance, in datafile "dataone" it's called "id" and in "datatwo" it's called "participant". You can do this by specifying how variables in different datasets relate to each other. 
+
+Take a look at the help information for inner_join by typing `?inner_join`
+then in the help pane on the right, scroll down to find the section titled "Arguments", and read what it has to say about the argument "by". See if you can understand how to join these files together. The examples at the bottom of the help section may be useful too.
 
 ::: {.callout-warning icon="false" collapse="true"}
 ## Hint
@@ -287,30 +439,74 @@ data_full <- inner_join(x = dataone, y = datatwo, by = c("id" = "participant"))
 
 37. In the data set from Woodworth et al., we might want to just look at the pretests.
     We can use a function called `filter` to pull out just some of the rows.
-    Type `summarydata_occasion0 <- filter(.data = summarydata, occasion == 0)` this just pulls out the first occasion of testing (the pretest).
-    How would you pull out the second occasion of testing?
+  
+  ``` {r eval=FALSE}
+  summarydata_occasion0 <- filter(summarydata, occasion == 0)
+  ```
+This pulls out just the first occasion of testing (the pretest).
+
+How would you pull out the second occasion of testing?
+
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+``` {r eval=FALSE}
+filter(summarydata, occasion == 1)
+```
+:::
+
 
 38. How would you pull out just those participants who had the first intervention from the summarydata data?
+
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+``` {r eval=FALSE}
+filter(summarydata, intervention == 1)
+```
+:::
 
 39. Back to the data set with just occasion == 0 selected.
     Now plot the relationship between the AHI and CESD scores at this pretest.
     What is the pattern now?
 
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+still the same
+``` {r eval=FALSE}
+plot(summarydata_occasion0$ahiTotal, summarydata_occasion0$cesdTotal)
+```
+:::
+
 40. How about just the participants who had intervention 1.
     What is the relationship between their scores on the AHI and CESD in the first test?
 
-# Part Five: Different ways in which data are stored: long and wide data format
+::: {.callout-warning icon="false" collapse="true"}
+## Answer
+can do this in two ways:
+``` {r eval=FALSE}
+summarydata_occasion0_intervention1 <- filter(summarydata, occasion == 0 & intervention == 1)
+plot(summarydata_occasion0_intervention1$ahiTotal, summarydata_occasion0_intervention1$cesdTotal)
+```
+or 
+``` {r eval=FALSE}
+summarydata_occasion0_intervention1 <- filter(summarydata_occasion0, intervention == 1)
+plot(summarydata_occasion0$ahiTotal, summarydata_occasion0$cesdTotal)
+```
+The relationship is still similar.
+:::
+
+
+#### 4.1.3.5 Part Five: Different ways in which data are stored: long and wide data format
 
 When we look at other people's data sets there are two generic ways in which they can be presented.
 The first is called "wide format", and this is when several measures are presented on a single row in the data.
-This is the format of the data in the vocabulary scores: psyc401-shipley-scores-anonymous-17_18.csv, where there are three vocabulary tests each in different columns.
+This is the format of the data in the vocabulary scores: *psyc411-shipley-scores-anonymous-17_18.csv*, where there are three vocabulary tests each in different columns.
 The other format is called "long format", and this is where each observation is on a different line -- and if there is more than one observation from the same subject then that subject has multiple lines in the data.
 There are some functions in the tidyverse library that helps us convert from wide to long and long to wide.
 This part practises these conversions.
 
-## Task Six: Wide to long format conversion
+##### Task Six: Wide to long format conversion
 
-41. Let's go back to the psyc401-shipley-scores-anonymous-17_18.csv data.
+41. Let's go back to the *psyc411-shipley-scores-anonymous-17_18.csv* data.
     This should still be in the object called "dat".
     If it's not, then load the data again into dat, using the `read_csv()` function.
 
@@ -332,23 +528,32 @@ datlong <- pivot_longer(dat, names_to = "test", values_to = "vocab", cols = c("G
     It also includes all the other variables, but unconverted.
     How many rows of data are there now corresponding to data from subject_ID number 1?
 
+::: {.callout-warning icon=false collapse="true"}
+# Answer
+2
+:::
+
+
 45. Let's tidy things up so we only have subject_ID, and the Gent vocabulary scores by using select:
 
 ```{r eval=FALSE}
-
 datlongsummary <- select(datlong, subject_ID, test, vocab)
-
 ```
 
-## Task Seven: Long to wide format conversion
+##### Task Seven: Long to wide format conversion
 
-46. Now, we will have a go at converting from long to wide format. Let's start with the datlongsummary object. We will convert this so that Gent_1\_score and Gent_2\_score are listed alongside each other -- one row per person. The command for this is the reverse of `pivot_longer`, called `pivot_wider.` Run this command: `datwide <- pivot_wider(datlongsummary, names_from = "test", values_from = "vocab")`. This command takes the data from datlongsummary and puts the different measures reported in the variable test into different columns again, filling in the values from the variable vocab.
+46. Now, we will have a go at converting from long to wide format. Let's start with the datlongsummary object. We will convert this so that Gent_1\_score and Gent_2\_score are listed alongside each other -- one row per person. The command for this is the reverse of `pivot_longer`, called `pivot_wider.` Run this command:
+``` {r eval=FALSE}
+datwide <- pivot_wider(datlongsummary, names_from = "test", values_from = "vocab")
+```
 
-# Part Six: Getting ready for finding data sets (preparation for research report)
+This command takes the data from datlongsummary and puts the different measures reported in the variable test into different columns again, filling in the values from the variable vocab.
+
+#### 4.1.3.6 Part Six: Extra practise finding and interpreting data sets
 
 This part involves you exploring online psychology articles and finding an article which has made its data set available.
 More and more journals require data to be available when articles are published, an influential journal that has supported open science practices is Psychological Science.
-Go to the webpage of Psychological Science: https://journals.sagepub.com/home/pss .
+Go to the webpage of Psychological Science: [https://journals.sagepub.com/home/pss](https://journals.sagepub.com/home/pss).
 Browse the journal (you can view it on campus, off campus might be more difficult).
 Articles which have a dataset available have a "badge" indicating open data.
 
@@ -368,31 +573,53 @@ von Hippel, W., Ronay, R., Baker, E., Kjelsaas, K., & Murphy, S. C.
 (2016).
 Quick thinkers are smooth talkers: Mental speed facilitates charisma.
 Psychological Science, 27(1), 119-122.
-https://journals.sagepub.com/doi/full/10.1177/0956797615616255
+[https://journals.sagepub.com/doi/full/10.1177/0956797615616255](https://journals.sagepub.com/doi/full/10.1177/0956797615616255)
 
 data is available on osf.io (open science foundation) have a look in the Archive of OSF Storage for this article, under "Clean Data", "Study 1 data long format.csv".
 See if you can figure that one out.
-
-Another possibility is: Watson-Jones, R. E., Whitehouse, H., & Legare, C. H.
-(2016).
-In-group ostracism increases high-fidelity imitation in early childhood.
-Psychological Science, 27(1), 34-42.
-https://journals.sagepub.com/doi/full/10.1177/0956797615607205 data is available on researchgate: https://www.researchgate.net/publication/281283239_OstracismInGroups_Cyberball_DataFile_Deidentified
 
 There are two things to be aware of with data.
 
 -   First, real life data is usually not complete -- it contains missing values.
     The usual way to indicate missing values is "NA" in R.
     But if the data set contains missing values indicated in a different way, then you have to specify this when you input the data.
-    So, if missing values are indicated by "999", you have to do it like this: `read_csv("file.csv", na.strings="999")` where file.csv is the file you are inputting.
-    If missing values are indicated by "na", you have to do this: `read_csv("file.csv", na.strings="na")`, if missing values are ".", then like this: `read_csv("file.csv", na.strings=".")`
+    So, if missing values are indicated by "999", you have to do it like this:
+    ``` {r eval=FALSE}
+    read_csv("file.csv", na.strings="999")
+    ```
+    where file.csv is the file you are inputting.
+    If missing values are indicated by "na", you have to do this: 
+    ``` {r eval=FALSE}
+    read_csv("file.csv", na.strings="na")
+    ```
+    if missing values are ".", then like this:
+    ``` {r eval=FALSE}
+    read_csv("file.csv", na.strings=".")
+    ```
 
 -   The second thing you might need to know is how to input files other than comma separated files.
-    For excel files, you need to do this: `install.packages("readxl")` then `library(readxl)`, then you can use the command `read_excel("file.xls")`, this should work for xls and xlsx files.
+    For excel files, you need to do this: `library(readxl)`, then you can use the command `read_excel("file.xls")`, this should work for xls and xlsx files.
     For inputting data that is in text, but not separated by commas, have a look at the help for the `read_csv()` function: `?read_csv`.
-    Hint -- you'll be looking to change the sep option for the read_csv command.
+    Hint -- you'll be looking to change the *sep* option for the read_csv command.
 
+47. See if you can find and load the data from one or both of these studies. 
+Then have a go at exploring the data - can you recreate the numbers in the paper
+(e.g., age and number of participants, mean and sd of the main dependent variable?)
 
+### 2.4.2 Data
+
+Here are links to all the data referred to in this practical:
+[PSYC411-shipley-scores-anonymous-17_18.csv]("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
+
+[ahicesd.csv](part1/data/wk2/ahicesd.csv)
+
+[participantinfo.csv](part1/data/wk2/participantinfo.csv)
+
+### 2.4.3 Answers
+
+The answers to the workbook will appear below each question in the workbook, above, after the practical has finished, so you can check your answers.
+
+It's really important for your learning that you have a go first of all at the workbook before looking at the answers.
 
 ### 2.5 Extras
 
