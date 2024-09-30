@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you’ve done statistics using R-studio before then Parts 1 and 2 will be just revision for you. In which case, Part 3 is where you can focus your work.</p>
 <p>Part 1 of this workbook reproduces what you saw in the week 1 part 3 lecture.</p>
 <p>Part 2 gives you some more exercises in using R studio for finding means, standard deviations, z scores, and drawing histograms.</p>
-<p>Part 3 provides some more extended tasks you can do to practise exploring what R -studio can do and develop your skills further. If you are new to R-studio then parts 1 and 2 cover what you need to know, and Part 3 contains some more optional exercises.</p>
+<p>Part 3 provides some more extended tasks you can do to practise exploring what R -studio can do and develop your skills further. If you are new to R-studio then parts 1 and 2 cover what you need to know, and Part 3 contains some more extending, optional exercises.</p>
 <section id="part-one-repeat-the-steps-from-lecture-1-part-3" class="level4">
 <h4 class="anchored" data-anchor-id="part-one-repeat-the-steps-from-lecture-1-part-3">1.4.1.1 Part One: repeat the steps from lecture 1 part 3</h4>
 <section id="task-one-open-rstudio" class="level5">
@@ -366,7 +366,6 @@ Tip
 # Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -383,7 +382,6 @@ sqrt(a)
 
 :::
 :::
-
 
 
 :::
@@ -406,7 +404,6 @@ sqrt(a)
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
-
 
 
 ::: {.cell}
@@ -461,13 +458,12 @@ hist(b)
 :::
 
 
-
 ::: --->
 </section>
 <section id="task-four-z-scores" class="level5">
 <h5 class="anchored" data-anchor-id="task-four-z-scores">Task Four: z scores</h5>
 <ol start="13" type="1">
-<li>Make a new object b_z and assign to it the z scores of the values from b: ``</li>
+<li>Make a new object b_z and assign to it the z scores of the values from b:</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>b_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -512,7 +508,6 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 They all have the same mean = 75.
-
 
 
 ::: {.cell}
@@ -561,7 +556,6 @@ mean(carrie)
 :::
 
 
-
 ::: --->
 <ol start="18" type="1">
 <li>Who has the most variable scores for their course?</li>
@@ -585,7 +579,6 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
-
 
 
 ::: {.cell}
@@ -623,7 +616,6 @@ sd(annie); sd(saj); sd(carrie)
 :::
 
 
-
 ::: --->
 <ol start="19" type="1">
 <li>What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function <code>hist()</code> to draw the distributions to help you see.</li>
@@ -647,7 +639,6 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
  median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
-
 
 
 ::: {.cell}
@@ -701,7 +692,6 @@ hist(annie); hist(saj); hist(carrie)
 :::
 
 
-
 ::: --->
 </section>
 <section id="task-six-standardised-scores-z-scores" class="level5">
@@ -718,7 +708,6 @@ hist(annie); hist(saj); hist(carrie)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
-
 
 
 ::: {.cell}
@@ -752,7 +741,6 @@ sd(annie_z)
 :::
 
 
-
 ::: --->
 <ol start="22" type="1">
 <li>What is the mean and standard deviation of annie_z’s standardised scores?</li>
@@ -761,7 +749,6 @@ sd(annie_z)
 # Answer
 1.4142136
 You could find this by just eyeballing (searching through) the data, or by using the function `max`:
-
 
 
 ::: {.cell}
@@ -791,7 +778,6 @@ max(annie); max(annie_z)
 :::
 
 
-
 ::: --->
 <ol start="23" type="1">
 <li>Draw a histogram of annie’s standardised scores, in the console type <code>hist(annie_z)</code>. What is the peak frequency value?</li>
@@ -799,7 +785,6 @@ max(annie); max(annie_z)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 Between -1 and -0.5.
-
 
 
 ::: {.cell}
@@ -814,7 +799,6 @@ hist(annie_z)
 :::
 
 
-
 ::: --->
 <ol start="24" type="1">
 <li>Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: <code>pnorm(x)</code> where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?</li>
@@ -822,7 +806,6 @@ hist(annie_z)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
-
 
 
 ::: {.cell}
@@ -840,7 +823,6 @@ pnorm(1.4142136)
 
 :::
 :::
-
 
 
 ::: --->
@@ -863,7 +845,6 @@ pnorm(1.4142136)
 6.006498
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -883,7 +864,6 @@ f <- 8**4 # this does the same thing as 8^4
 :::
 
 
-
 ::: --->
 </section>
 <section id="task-eight-exploring-functions" class="level5">
@@ -895,7 +875,6 @@ f <- 8**4 # this does the same thing as 8^4
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 5.3. It takes the sign (negative) away from the number.
-
 
 
 ::: {.cell}
@@ -913,7 +892,6 @@ abs(-5.3)
 
 :::
 :::
-
 
 
 ::: --->
@@ -949,7 +927,6 @@ Stuck? Here’s the solution
 mean = 15.
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -967,17 +944,16 @@ g <- seq(0,30,3); mean(g)
 :::
 
 
-
 ::: --->
 </section>
 <section id="task-nine-exploring-others-data" class="level5">
 <h5 class="anchored" data-anchor-id="task-nine-exploring-others-data">Task Nine: Exploring others’ data</h5>
 <p>Have a look at this article: Scullin, M. K., Gao, C., &amp; Fillmore, P. (2021). Bedtime music, involuntary musical imagery, and sleep. <em>Psychological Science, 32(7)</em>, 985-997. https://journals.sagepub.com/doi/10.1177/0956797621989724</p>
 <p><em>Abstract</em> Many people listen to music for hours every day, often near bedtime. We investigated whether music listening affects sleep, focusing on a rarely explored mechanism: involuntary musical imagery (earworms). In Study 1 (N = 199, mean age = 35.9 years), individuals who frequently listen to music reported persistent nighttime earworms, which were associated with worse sleep quality. In Study 2 (N = 50, mean age = 21.2 years), we randomly assigned each participant to listen to lyrical or instrumental-only versions of popular songs before bed in a laboratory, discovering that instrumental music increased the incidence of nighttime earworms and worsened polysomnography-measured sleep quality. In both studies, earworms were experienced during awakenings, suggesting that the sleeping brain continues to process musical melodies. Study 3 substantiated this possibility by showing a significant increase in frontal slow oscillation activity, a marker of sleep-dependent memory consolidation. Thus, some types of music can disrupt nighttime sleep by inducing long-lasting earworms that are perpetuated by spontaneous memory-reactivation processes.</p>
-<p>The data from the study is available on this website: https://osf.io/7tfqz/ The data we will look at is from the first study, the data set called “Earworm_MTurk_OSF.sav” on the osf site. These data are saved in spss format, which is not great for R-studio. We can still read it in, though, using a function called spss.get()</p>
+<p>The data from the study is available on <a href="https://osf.io/7tfqz/">this osf website</a>. The data we will look at is from the first study, the data set called “Earworm_MTurk_OSF.sav” on the osf site. These data are saved in spss format, which is not great for R-studio. We can still read it in, though, using a function called spss.get()</p>
 <ol start="33" type="1">
 <li><p>Browse the paper to see what it is about. Focus on Study 1.</p></li>
-<li><p>From the website https://osf.io/7tfqz/ download the data file: <em>Earworm_MTurk_OSF.sav</em>, and also download the codebook file: <em>Earworm_MTurk_Codebook.xlsx</em>. The codebook tells you what each of the measures are in the data file.</p></li>
+<li><p>From <a href="https://osf.io/7tfqz/">the osf website</a> download the data file: <em>Earworm_MTurk_OSF.sav</em>, and also download the codebook file: <em>Earworm_MTurk_Codebook.xlsx</em>. The codebook tells you what each of the measures are in the data file.</p></li>
 <li><p>Load the data into R-studio: in the bottom right panel of R-studio, click on Upload, and browse to the Earworm_MTurk_OSF.sav file. It should then appear in the list of files in that bottom right panel.</p></li>
 <li><p>That step means we can access the data, but it isn’t yet loaded into R-studio.</p></li>
 </ol>
@@ -1002,7 +978,6 @@ g <- seq(0,30,3); mean(g)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
  112 male, 87 female
-
 
 
 ::: {.cell}
@@ -1050,7 +1025,6 @@ summary(dat$Gender)
 :::
 
 
-
 ::: --->
 <ol start="2" type="a">
 <li>How many people never have earworms in the middle of the night?</li>
@@ -1058,7 +1032,6 @@ summary(dat$Gender)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 97
-
 
 
 ::: {.cell}
@@ -1085,7 +1058,6 @@ summary(dat$Earworms.MiddleOfTheNight)
 :::
 
 
-
 ::: --->
 <ol start="3" type="a">
 <li>For the Stanford Sleepiness Scale, how many participants felt “Somewhat foggy, let down”?</li>
@@ -1093,7 +1065,6 @@ summary(dat$Earworms.MiddleOfTheNight)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 17
-
 
 
 ::: {.cell}
@@ -1126,7 +1097,6 @@ No longer fighting sleep, sleep onset soon; having dream-like thoughts
 :::
 
 
-
 ::: --->
 <ol start="4" type="a">
 <li>What was the mean, SD and range of age of the participants? Does your calculation of mean age correspond to that given in the paper?</li>
@@ -1134,7 +1104,6 @@ No longer fighting sleep, sleep onset soon; having dream-like thoughts
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 mean = 35.9, sd = 10.9, range 20-73.
-
 
 
 ::: {.cell}
@@ -1220,14 +1189,12 @@ mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
 :::
 
 
-
 ::: --->
 <ol start="5" type="a">
 <li>Can you work out the mean age of the male and female participants separately?</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
-
 
 
 ::: {.cell}
@@ -1251,14 +1218,12 @@ dat %>% group_by(Gender) %>% summarise(mean(Age))
 :::
 
 
-
 ::: --->
 <ol start="6" type="a">
 <li>Explore the data, see if you can remember tasks for separating different subgroups, graphing relations, comparing groups.</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
-
 
 
 ::: {.cell}
@@ -1282,7 +1247,6 @@ Warning: Removed 8 rows containing missing values or values outside the scale ra
 ![](Week1_files/figure-html/unnamed-chunk-27-1.png){width=672}
 :::
 :::
-
 
 
 ::: --->

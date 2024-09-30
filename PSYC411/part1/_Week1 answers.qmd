@@ -70,7 +70,7 @@ standard deviations, z scores, and drawing histograms.
                                         
 Part 3 provides some more extended tasks you can do to practise exploring what R
 -studio can do and develop your skills further. If you are new to R-studio then parts 1
-and 2 cover what you need to know, and Part 3 contains some more optional exercises.
+and 2 cover what you need to know, and Part 3 contains some more extending optional exercises.
 
 
 #### 1.4.1.1 Part One: repeat the steps from lecture 1 part 3
@@ -79,7 +79,7 @@ and 2 cover what you need to know, and Part 3 contains some more optional exerci
 
 1. Startup Rstudio
 
-{{< include /Includes/_login.qmd >}}
+<!--- {{< include /Includes/_login.qmd >}} --->
 
 
 
@@ -161,7 +161,7 @@ hist(b)
 ##### Task Four: z scores
 
 13.	Make a new object b_z and assign to it the z scores of the values from b:
-``
+
 ```{r eval=FALSE}
 b_z <- scale(b)
 ```
@@ -390,14 +390,14 @@ sleep-dependent memory consolidation. Thus, some types of music can disrupt
 nighttime sleep by inducing long-lasting earworms that are perpetuated by spontaneous 
 memory-reactivation processes.
 
-The data from the study is available on this website: https://osf.io/7tfqz/
+The data from the study is available on [this osf website](https://osf.io/7tfqz/)
 The data we will look at is from the first study, the data set called 
 "Earworm_MTurk_OSF.sav" on the osf site. These data are saved in spss format, 
 which is not great for R-studio. We can still read it in, though, using a function called spss.get()
 
 33.	Browse the paper to see what it is about. Focus on Study 1. 
 
-34.	From the website https://osf.io/7tfqz/ download the data file: *Earworm_MTurk_OSF.sav*, 
+34.	From [the osf website](https://osf.io/7tfqz/) download the data file: *Earworm_MTurk_OSF.sav*, 
 and also download the codebook file: *Earworm_MTurk_Codebook.xlsx*. 
 The codebook tells you what each of the measures are in the data file.
 
