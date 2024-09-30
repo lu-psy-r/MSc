@@ -22,7 +22,7 @@ By the end of Week 1, you should be able to:
 
 * Understand means and standard deviations
 
-*Understand standardized scores (Z-scores)
+* Understand standardized scores (Z-scores)
 
 * Use R-studio to begin to manipulate data, investigate means and standard deviations, and convert scores into Z-scores
 

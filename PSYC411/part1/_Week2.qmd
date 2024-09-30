@@ -4,31 +4,77 @@ subtitle: Written by Padraic Monaghan
 order: 3
 ---
 
-# Preparation
+## 2.1 Overview
 
-- Watch Lecture week2 [part 1](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1990483), [slides here](ppt/wk2/PSYC401 Lecture week2 part1 handout.pptx)
+This week, there are three mini lectures, and then a practical workbook to get you going with R-studio. 
+Before the practical on Tuesday, please try to work through the practical workbook in your group.
 
-- [part 2](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1990544), [slides here](ppt/wk2/PSYC401 Lecture week2 part2 handout.pptx) 
+Bring your questions (and/or answers) to the practical.
 
-- [part 3](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=1990550), [slides here](ppt/wk2/PSYC401 Lecture week2 part3 handout.pptx)
 
-- Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921422) on the lecture material (not assessed).
+## 2.2 Learning Goals
 
-- Work through the practical workbook with your group, in the practical folder. You can find our answers to the practical 1 week1 in there as well - but it's probably better to access that after watching the lectures for this week.
+By the end of Week 2, you should be able to:
 
-- Attend the practical on Wednesday.
+* Understand the importance of open data in psychology
 
-- Pop into the drop in (optional) on Thursday.
+* Understand different types of data and how best to represent them
 
-- Complete and submit [Assignment 1](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921424) by Friday (8pm) of week 2. [Data file here](data/Wk2 assignment.zip)
+* Understand bar graphs, scatter plots, and interpret patterns in these graphs
 
-- Optionally, watch [Brian Nosek's keynote](https://modules.lancaster.ac.uk/mod/url/view.php?id=1921426) at the 2018 British Psychological Society conference on the replicability crisis.
+* Open data sets in R-studio and manipulate those data
 
-{{< video https://www.youtube.com/watch?v=q1JoKB7luPU&ab_channel=TheBritishPsychologicalSociety >}}
+* Use R-studio to make simple graphs
 
-# Part One: Reproduce the week 2 p3 lecture material
 
-## Task Zero: making and opening an R script file
+
+## 2.3 Lectures
+
+Watch Lecture week2 part1.
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c7713b87-a9c3-4301-81ea-adad00bb5872&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w2_p1" ></iframe>
+```
+
+
+Watch Lecture week2 part2
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8354694a-0c7b-4caf-9fc9-ac3e00d8a2ca&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w2_p2" ></iframe>
+```
+
+Watch Lecture week2 part3
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec6c6ac3-833e-4d83-b0cb-b09100dd75db&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w2 p3" ></iframe>
+```
+
+Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049) on the lecture material (not assessed).
+
+Download the lecture slides for [part 1 here](ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx), [part 2 here](ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx), and [part 3 here](ppt/wk3/PSYC411 Lecture week2 part3 handout.pptx).
+
+
+
+## 2.4 Practical Materials
+
+### 2.4.1 Workbook
+
+In your group (or on your own until you've formed a group), work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.
+
+If you've done statistics using R-studio before then Parts 1 and 2 will be again largely
+revision for you. In this case, Part 3 is where you can focus your work.
+
+Part 1 of this workbook reproduces what you saw in the week 2 part 3 lecture.
+
+Part 2 gives you some more exercises in using R studio for **.
+                                        
+Part 3 provides some more extended tasks you can do to practise exploring what R
+-studio can do and develop your skills further. If you are new to R-studio then parts 1
+and 2 cover the essentials of what you need to know, and Part 3 contains some more optional, extending material.
+
+
+#### 2.4.1.1 Part One: repeat the steps from lecture 2 part 3
+
+******UP TO HERE********
+
+##### Task Zero: making and opening an R script file
 
 1.  Open up the R server at psy-rstudio.lancaster.ac.uk
 
@@ -345,3 +391,11 @@ There are two things to be aware of with data.
     For excel files, you need to do this: `install.packages("readxl")` then `library(readxl)`, then you can use the command `read_excel("file.xls")`, this should work for xls and xlsx files.
     For inputting data that is in text, but not separated by commas, have a look at the help for the `read_csv()` function: `?read_csv`.
     Hint -- you'll be looking to change the sep option for the read_csv command.
+
+
+
+### 2.5 Extras
+
+- Optionally, watch [Brian Nosek's keynote](https://modules.lancaster.ac.uk/mod/url/view.php?id=1921426) at the 2018 British Psychological Society conference on the replicability crisis.
+
+{{< video https://www.youtube.com/watch?v=q1JoKB7luPU&ab_channel=TheBritishPsychologicalSociety >}}
