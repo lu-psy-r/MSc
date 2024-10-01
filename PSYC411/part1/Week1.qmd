@@ -1,5 +1,5 @@
 ---
-title: 1. Introducing Data
+title: Week 1. Introducing Data
 subtitle: Written by Padraic Monaghan
 order: 2
 ---

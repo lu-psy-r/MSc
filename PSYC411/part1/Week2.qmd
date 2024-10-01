@@ -1,5 +1,5 @@
 ---
-title: 2. Manipulating data
+title: Week 2. Manipulating data
 subtitle: Written by Padraic Monaghan
 order: 3
 ---
