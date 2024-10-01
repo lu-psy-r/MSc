@@ -1,0 +1,36 @@
+---
+title: "Statistics for Psychologists"
+page-layout: full
+anchor-sections: false
+image: "Images/icon.png"
+filters: [_core/remove_title.lua]
+sidebar: true
+back-to-top-navigation: false
+---
+
+
+![](Images/LUPsychology.svg){fig-alt="University Logo" fig-align="center"}
+
+::: {.div style="font-size:2em;"}
+Welcome
+:::
+
+Here we have some filler text that explains the psyc401, psyc402 structure or whatever - maybe highlight who is the PG director or something. Honestly though, right now this is filler text for an example. We don't even need it. Well we will add to it later.
+
+```{=html}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+    <a href="PSYC401/">
+      <button type="button" class="btn btn-landing btn-lg year-msc">PSYC401</button>
+    </a>
+    <a href="PSYC402/">
+      <button type="button" class="btn btn-landing btn-lg year-msc">PSYC402</button>
+    </a>
+    
+    </div>
+  </div>
+</div>
+```
