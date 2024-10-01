@@ -85,7 +85,7 @@ and 2 cover what you need to know, and Part 3 contains some more extending, opti
 
 To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS [instructions here](https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/) or connecting to Eduroam [here](https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/).
 
-When you are connected, navigate to [https://psy-rstudio.lancaster.ac.uk](https://psy-rstudio.lancaster.ac.uk), where you will be shown a login screen that looks like the below. Click the option that says "Sign in with SAML".
+When you are connected, navigate to [https://psy-rstudio.lancaster.ac.uk](https://psy-rstudio.lancaster.ac.uk){target="_blank"}, where you will be shown a login screen that looks like the below. Click the option that says "Sign in with SAML".
 
 ![](images/1LoginSAML.png)
 
@@ -99,3 +99,10 @@ This will take you through to the University login screen, where you should ente
 If you have already logged in through the university login, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.
 :::
 
+
+
+###### What does RStudio look like?
+
+When RStudio starts, it will look something like this: ![Startup screen](images/RStudio_startup_screen.png)
+
+RStudio has three panels or windows: there are tabs for Console (taking up the left hand side), Environment (and History top right), Current file (bottom right). You will also see a 4th window for a script or set of commands you develop, also (on the left hand side).
