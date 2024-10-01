@@ -1,7 +1,7 @@
 ---
 title: 5. Testing differences between groups
 subtitle: Written by Padraic Monaghan
-order: 6
+order: 7
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 4. Testing nominal data
 subtitle: Written by Padraic Monaghan
-order: 5
+order: 6
 
 ---
 
