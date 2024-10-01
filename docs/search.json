@@ -4,7 +4,7 @@
     "href": "PSYC411/part1/Week1.html",
     "title": "1. Introducing Data",
     "section": "",
-    "text": "Watch Lecture week1 part1. Slides here\nWatch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), go back and watch the end of Lecture week 1 part2. slides here\nWatch Lecture week1 part3.\nTake the quiz on the lecture material (not assessed).\nWork through the practical workbook in a group (…don’t worry about groups yet, we will form them at the first practical, for now you can work on the practical workbook individually, or with anyone else on the course you are in touch with!)\nAttend the practical on Wednesday.\nPop into the drop in (optional) on Thursday, if you’d like extra support for the practical materials, or have questions about the lecture material.\nOptionally, watch the lecture by Tim Harford on the importance of understanding statistics.\n\nIn your group, work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.\n\nThe first part of this workbook reproduces what you saw in the week 1 part 3 lecture.\nThe second part gives you some more exercises in using R studio for finding means, standard deviations, z scores, and drawing histograms.\nThe third part explores some more tasks you can do to practise exploring what R studio can do.",
+    "text": "This week, there are three mini lectures, and then a practical workbook to get you going with R-studio.\nBefore the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).\nBring your questions (and/or answers) to the practical.",
     "crumbs": [
       "Home",
       "PSYC411",
@@ -108,5 +108,53 @@
     "title": "Analysing and Interpreting Psychological Data I",
     "section": "",
     "text": "Welcome\nWelcome to this module PSYC411! Very glad to have you here!!\nRob Davies  and Padraic Monaghan  are the lecturers on this module.\nWe are looking forward to meeting you!\nThis module is designed for students who have never done data analysis or statistics before, as well as those who have background in this.\nWe have set up the module so that there are different exercises depending on your background.\n\nFor those who are new to data analysis and statistics, there is a week-by-week step-by-step guide to all you need to know to become a masters-level expert in interpreting and analysing psychological data.\nFor those of you who have already used our software (R-studio) for analysis before, after revising the foundations of what you need to know you can move on quickly to the extra explorative exercises where you can hone and broaden your skills.\n\n\n\nSteps to get ready\nHere are the steps to go through before the module begins, to help you prepare for the course:\nFirst: Watch this first video which is a chat between Rob Davies and Padraic Monaghan giving you a bit of an insight into what we’d like you to take from this module and what our philosophy is for teaching.\n\nSecond: Watch this welcome video (part 1) to give you an outline of how this module works:\n\nThird: Then watch this welcome video (part 2) on how to access the software for this module. Basically, what you need to do is in a web browser go to: http://psy-rstudio.lancaster.ac.uk and login with your university account name, and your university account password:\n\nNote that you can only access this website from on campus, or via the University’s VPN. For information on connecting to the VPN, see here: ISS help for VPN\n\n\nNext steps\nNext step is to go to the Week 1 materials, once they are released. We aim to release materials for the following week by Thursday of the previous week. You can navigate to the relevant week via the top left corner of the webpage.\n\n\nCourse Contacts\n\n\n\n\nEmail Address\n\n\n\n\nPadraic Monaghan\np.monaghan at lancaster dot ac dot uk\n\n\nRob Davies\nr.davies at lancaster dot ac dot uk\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "PSYC411/part1/Week1.html#overview",
+    "href": "PSYC411/part1/Week1.html#overview",
+    "title": "1. Introducing Data",
+    "section": "",
+    "text": "This week, there are three mini lectures, and then a practical workbook to get you going with R-studio.\nBefore the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).\nBring your questions (and/or answers) to the practical.",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "1. Introducing Data"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week1.html#learning-goals",
+    "href": "PSYC411/part1/Week1.html#learning-goals",
+    "title": "1. Introducing Data",
+    "section": "1.2 Learning Goals",
+    "text": "1.2 Learning Goals\nBy the end of Week 1, you should be able to:\n\nUnderstand the importance of data analysis and statistics\nIdentify types of data in psychology (nominal, ordinal, interval, ratio)\nUnderstand means and standard deviations\nUnderstand standardized scores (Z-scores)\nUse R-studio to begin to manipulate data, investigate means and standard deviations, and convert scores into Z-scores",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "1. Introducing Data"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week1.html#lectures",
+    "href": "PSYC411/part1/Week1.html#lectures",
+    "title": "1. Introducing Data",
+    "section": "1.3 Lectures",
+    "text": "1.3 Lectures\nWatch Lecture week1 part1:\n\n\nWatch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking here\nThen come back and watch the end of Lecture week 1 part2:\n\nWatch Lecture week1 part3:\n\nTake the quiz on the lecture material (not assessed), by clicking here\nDownload the lecture slides for part 1 here and part 2 here",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "1. Introducing Data"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week1.html#practical-materials",
+    "href": "PSYC411/part1/Week1.html#practical-materials",
+    "title": "1. Introducing Data",
+    "section": "1.4 Practical Materials",
+    "text": "1.4 Practical Materials\n\n1.4.1 Workbook\nIn your group (or on your own until you’ve formed a group), work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.\nIf you’ve done statistics using R-studio before then Parts 1 and 2 will be just revision for you. In which case, Part 3 is where you can focus your work.\nPart 1 of this workbook reproduces what you saw in the week 1 part 3 lecture.\nPart 2 gives you some more exercises in using R studio for finding means, standard deviations, z scores, and drawing histograms.\nPart 3 provides some more extended tasks you can do to practise exploring what R -studio can do and develop your skills further. If you are new to R-studio then parts 1 and 2 cover what you need to know, and Part 3 contains some more extending, optional exercises.\n\n1.4.1.1 Part One: repeat the steps from lecture 1 part 3\n\nTask One: Open Rstudio\n\nStartup Rstudio",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "1. Introducing Data"
+    ]
   }
 ]

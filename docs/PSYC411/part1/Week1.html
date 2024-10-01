@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -199,25 +165,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a></li>
-  <li><a href="#part-one-repeat-the-steps-from-lecture-1-part-3" id="toc-part-one-repeat-the-steps-from-lecture-1-part-3" class="nav-link" data-scroll-target="#part-one-repeat-the-steps-from-lecture-1-part-3">Part One: repeat the steps from lecture 1 part 3</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">1.1 Overview</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">1.2 Learning Goals</a></li>
+  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">1.3 Lectures</a></li>
+  <li><a href="#practical-materials" id="toc-practical-materials" class="nav-link" data-scroll-target="#practical-materials">1.4 Practical Materials</a>
   <ul class="collapse">
-  <li><a href="#task-one-open-rstudio" id="toc-task-one-open-rstudio" class="nav-link" data-scroll-target="#task-one-open-rstudio">Task One: Open Rstudio</a>
-  <ul class="collapse">
-  <li><a href="#what-does-rstudio-look-like" id="toc-what-does-rstudio-look-like" class="nav-link" data-scroll-target="#what-does-rstudio-look-like">What does RStudio look like?</a></li>
-  </ul></li>
-  <li><a href="#task-two-using-the-console" id="toc-task-two-using-the-console" class="nav-link" data-scroll-target="#task-two-using-the-console">Task Two: using the console</a></li>
-  <li><a href="#task-three-finding-distributions" id="toc-task-three-finding-distributions" class="nav-link" data-scroll-target="#task-three-finding-distributions">Task Three: finding distributions</a></li>
-  <li><a href="#task-four-z-scores" id="toc-task-four-z-scores" class="nav-link" data-scroll-target="#task-four-z-scores">Task Four: z scores</a></li>
-  </ul></li>
-  <li><a href="#part-two-extra-practice" id="toc-part-two-extra-practice" class="nav-link" data-scroll-target="#part-two-extra-practice">Part Two: extra practice</a>
-  <ul class="collapse">
-  <li><a href="#task-five-investigating-distributions" id="toc-task-five-investigating-distributions" class="nav-link" data-scroll-target="#task-five-investigating-distributions">Task Five: investigating distributions</a></li>
-  <li><a href="#task-six-standardised-scores-z-scores" id="toc-task-six-standardised-scores-z-scores" class="nav-link" data-scroll-target="#task-six-standardised-scores-z-scores">Task Six: standardised scores: Z scores</a></li>
-  </ul></li>
-  <li><a href="#part-three-extras" id="toc-part-three-extras" class="nav-link" data-scroll-target="#part-three-extras">Part Three: Extras</a>
-  <ul class="collapse">
-  <li><a href="#task-seven-exploring-operators." id="toc-task-seven-exploring-operators." class="nav-link" data-scroll-target="#task-seven-exploring-operators.">Task Seven: Exploring operators.</a></li>
+  <li><a href="#workbook" id="toc-workbook" class="nav-link" data-scroll-target="#workbook">1.4.1 Workbook</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -245,243 +198,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="preparation" class="level1">
-<h1>Preparation</h1>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">1.1 Overview</h2>
+<p>This week, there are three mini lectures, and then a practical workbook to get you going with R-studio.</p>
+<p>Before the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).</p>
+<p>Bring your questions (and/or answers) to the practical.</p>
+</section>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">1.2 Learning Goals</h2>
+<p>By the end of Week 1, you should be able to:</p>
 <ul>
-<li><p>Watch <a href="https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=1dc8e654-b996-4d2d-917c-adac00d6e6fd">Lecture week1 part1</a>. Slides <a href="ppt/wk1/PSYC401 Lecture week1 part1 handout.pptx">here</a></p></li>
-<li><p>Watch <a href="https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=2d1319ad-9f0b-4ec7-865f-ac4c00b40487">Lecture week1 part2</a>, stop halfway through and do the <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921414">Lecture week1 part2 quiz</a> (not assessed), go back and watch the end of Lecture week 1 part2. <a href="ppt/wk1/PSYC401 Lecture week1 part2 handout.pptx">slides here</a></p></li>
-<li><p>Watch <a href="https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=273c848e-9c9a-459e-9e61-ac45015f7929">Lecture week1 part3</a>.</p></li>
-<li><p>Take the <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921415">quiz on the lecture material</a> (not assessed).</p></li>
-<li><p>Work through the practical workbook in a group (…don’t worry about groups yet, we will form them at the first practical, for now you can work on the practical workbook individually, or with anyone else on the course you are in touch with!)</p></li>
-<li><p>Attend the practical on Wednesday.</p></li>
-<li><p>Pop into the drop in (optional) on Thursday, if you’d like extra support for the practical materials, or have questions about the lecture material.</p></li>
-<li><p>Optionally, watch the <a href="https://www.facebook.com/watch/live/?ref=watch_permalink&amp;v=827528201352006">lecture by Tim Harford</a> on the importance of understanding statistics.</p></li>
-</ul>
-<p>In your group, work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.</p>
-<ul>
-<li><p>The first part of this workbook reproduces what you saw in the week 1 part 3 lecture.</p></li>
-<li><p>The second part gives you some more exercises in using R studio for finding means, standard deviations, z scores, and drawing histograms.</p></li>
-<li><p>The third part explores some more tasks you can do to practise exploring what R studio can do.</p></li>
+<li><p>Understand the importance of data analysis and statistics</p></li>
+<li><p>Identify types of data in psychology (nominal, ordinal, interval, ratio)</p></li>
+<li><p>Understand means and standard deviations</p></li>
+<li><p>Understand standardized scores (Z-scores)</p></li>
+<li><p>Use R-studio to begin to manipulate data, investigate means and standard deviations, and convert scores into Z-scores</p></li>
 </ul>
 </section>
-<section id="part-one-repeat-the-steps-from-lecture-1-part-3" class="level1">
-<h1>Part One: repeat the steps from lecture 1 part 3</h1>
-<section id="task-one-open-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="task-one-open-rstudio">Task One: Open Rstudio</h2>
-<p>You will have received an email with your account information to log onto From a computer on the campus wifi, you can access R Studio at:</p>
-<p><a href="http://psy-rstudio.lancaster.ac.uk" target="&quot;_blank">Lancaster Psychology R Studio Server</a></p>
-<p>At the login screen, use your university username (e.g., bloggsj)</p>
-<p>Your password for R Studio is: [password here]</p>
-<p>As it says in the subject line, please keep your account details safe!</p>
-<section id="what-does-rstudio-look-like" class="level3">
-<h3 class="anchored" data-anchor-id="what-does-rstudio-look-like">What does RStudio look like?</h3>
-<p>When RStudio starts, it will look something like this: <img src="images/RStudio_startup_screen.png" class="img-fluid" alt="Startup screen"></p>
-<p>RStudio has three panels or windows: there are tabs for Console (taking up the left hand side), Environment (and History top right), Current file (bottom right). You will also see a 4th window for a script or set of commands you develop, also (on the left hand side).</p>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">1.3 Lectures</h2>
+<p>Watch Lecture week1 part1:</p>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7b94cdef-6407-4369-9423-b1fc0087f221&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w1 p1"></iframe>
+
+<p>Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530047" target="_blank">here</a></p>
+<p>Then come back and watch the end of Lecture week 1 part2:</p>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=2d1319ad-9f0b-4ec7-865f-ac4c00b40487&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w1_p2"></iframe>
+<p>Watch Lecture week1 part3:</p>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fb0627af-75d6-4f12-81f2-b091008d8793&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w1 p3"></iframe>
+<p>Take the quiz on the lecture material (not assessed), by clicking <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530078" target="_blank">here</a></p>
+<p>Download the lecture slides for <a href="ppt/wk1/PSYC411 Lecture week1 part1 handout.pptx">part 1 here</a> and <a href="ppt/wk1/PSYC411 Lecture week1 part2 handout.pptx">part 2 here</a></p>
 </section>
-</section>
-<section id="task-two-using-the-console" class="level2">
-<h2 class="anchored" data-anchor-id="task-two-using-the-console">Task Two: using the console</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Text that is highlighted with a grey background denotes code, rather than typiucal prose. Code is different to other forms of writing, such as essays, because the syntax, order and words need to be quite specific. For some longer chunks of code, as you will see below, they are formatted slightly differently.</p>
-</div>
-</div>
+<section id="practical-materials" class="level2">
+<h2 class="anchored" data-anchor-id="practical-materials">1.4 Practical Materials</h2>
+<section id="workbook" class="level3">
+<h3 class="anchored" data-anchor-id="workbook">1.4.1 Workbook</h3>
+<p>In your group (or on your own until you’ve formed a group), work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.</p>
+<p>If you’ve done statistics using R-studio before then Parts 1 and 2 will be just revision for you. In which case, Part 3 is where you can focus your work.</p>
+<p>Part 1 of this workbook reproduces what you saw in the week 1 part 3 lecture.</p>
+<p>Part 2 gives you some more exercises in using R studio for finding means, standard deviations, z scores, and drawing histograms.</p>
+<p>Part 3 provides some more extended tasks you can do to practise exploring what R -studio can do and develop your skills further. If you are new to R-studio then parts 1 and 2 cover what you need to know, and Part 3 contains some more extending, optional exercises.</p>
+<section id="part-one-repeat-the-steps-from-lecture-1-part-3" class="level4">
+<h4 class="anchored" data-anchor-id="part-one-repeat-the-steps-from-lecture-1-part-3">1.4.1.1 Part One: repeat the steps from lecture 1 part 3</h4>
+<section id="task-one-open-rstudio" class="level5">
+<h5 class="anchored" data-anchor-id="task-one-open-rstudio">Task One: Open Rstudio</h5>
 <ol type="1">
-<li>In the “console” part of the R window, next to the &gt;, type <code>10 + 30</code>. Press return.</li>
+<li>Startup Rstudio</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">40</span>                        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you hover your mouse over the box that includes the code snippet, a ‘copy to clipboard’ icon will appear in the top right corner of the box. Click that to copy the code. Now you can easily paste it into your script.</p>
-</div>
-</div>
-<p>It should give you the answer 40.</p>
-<ol start="2" type="1">
-<li>In the console, type <code>a &lt;- 40</code> and press Return.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">40</span>                      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now type <code>a</code> and press return. It should give you the answer 40. <code>a</code> is called an object, think of it like a bucket that you can keep a number, or some numbers, or actually all kinds of stuff in.</p>
-<ol start="3" type="1">
-<li><p>Now let’s look at a function, <code>sqrt</code>. <code>sqrt</code> is a function that takes the square root of whatever is inside the brackets. In the console, type <code>sqrt(13)</code>. Press Return.</p></li>
-<li><p>Now find the square root of the object <code>a</code> by typing <code>sqrt(a)</code>. Press return.</p></li>
-</ol>
-</section>
-<section id="task-three-finding-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="task-three-finding-distributions">Task Three: finding distributions</h2>
-<ol start="5" type="1">
-<li>Make a new object <code>b</code>, and put the following list of children’s attachment scores into it</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="6" type="1">
-<li><p>Check it works by typing <code>b</code>, press return.</p></li>
-<li><p>Find the mean of these numbers by typing <code>mean(b)</code>.</p></li>
-<li><p>Find the median of these numbers by typing <code>median(b)</code>.</p></li>
-<li><p>Find the standard deviation of these numbers by typing <code>sd(b)</code>.</p></li>
-<li><p>Draw a histogram of these numbers by typing <code>hist(b)</code>.</p></li>
-</ol>
-</section>
-<section id="task-four-z-scores" class="level2">
-<h2 class="anchored" data-anchor-id="task-four-z-scores">Task Four: z scores</h2>
-<ol start="11" type="1">
-<li>Make a new object b_z and assign to it the z scores of the values from b: ``</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>b_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="12" type="1">
-<li><p>Check that it worked by typing <code>b_z</code>.</p></li>
-<li><p>Draw a histogram of b_z by typing <code>hist(b_z)</code>.</p></li>
-</ol>
-</section>
-</section>
-<section id="part-two-extra-practice" class="level1">
-<h1>Part Two: extra practice</h1>
-<section id="task-five-investigating-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="task-five-investigating-distributions">Task Five: investigating distributions</h2>
-<ol start="14" type="1">
-<li>Let’s make three new objects, with the marks from three people’s university masters courses. They are called annie, saj, and carrie and they took 10 courses each. We use the special notation <code>c()</code> to indicate a list, each number in the list is separated by a comma. Type the following into the console:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>annie <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">65</span>, <span class="dv">95</span>, <span class="dv">65</span>, <span class="dv">75</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>saj <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">95</span>, <span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">55</span>, <span class="dv">55</span>, <span class="dv">75</span>, <span class="dv">95</span>, <span class="dv">85</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>carrie <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">95</span>, <span class="dv">95</span>, <span class="dv">55</span>, <span class="dv">85</span>, <span class="dv">75</span>, <span class="dv">55</span>, <span class="dv">95</span>, <span class="dv">55</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="15" type="1">
-<li>Who has the highest average (mean) score for their course?</li>
-</ol>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>use the <code>mean()</code> function</p>
-</div>
-</div>
-</div>
-<ol start="16" type="1">
-<li>Who has the most variable scores for their course?</li>
-</ol>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>use the <code>sd()</code> function</p>
-</div>
-</div>
-</div>
-<ol start="17" type="1">
-<li>What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function <code>hist()</code> to draw the distributions to help you see.</li>
-</ol>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>you can use the <code>summary()</code> function, or the <code>median()</code> function</p>
-</div>
-</div>
-</div>
-</section>
-<section id="task-six-standardised-scores-z-scores" class="level2">
-<h2 class="anchored" data-anchor-id="task-six-standardised-scores-z-scores">Task Six: standardised scores: Z scores</h2>
-<ol start="18" type="1">
-<li>Make a new object called <code>annie_z</code> and use the function <code>scale</code> to convert annie’s scores to z-scores: in the console type:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>annie_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(annie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="19" type="1">
-<li><p>You can have a look at the standardised scores of annie, by just typing <code>annie_z</code>. To what did annie’s highest initial score of 95 convert to?</p></li>
-<li><p>What is the mean and standard deviation of annie_z’s standardised scores?</p></li>
-<li><p>Draw a histogram of annie’s standardised scores, in the console type <code>hist(annie_z)</code>. What is the peak frequency value?</p></li>
-<li><p>Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: <code>pnorm(x)</code> where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?</p></li>
-</ol>
-</section>
-</section>
-<section id="part-three-extras" class="level1">
-<h1>Part Three: Extras</h1>
-<p>If you’ve whizzed through the previous tasks, then you can move on to the following activities to explore further the functionality of R studio.</p>
-<section id="task-seven-exploring-operators." class="level2">
-<h2 class="anchored" data-anchor-id="task-seven-exploring-operators.">Task Seven: Exploring operators.</h2>
-<p>So far, we’ve just looked at <code>+</code> as an operator. Go to this page: https://www.statmethods.net/management/operators.html</p>
-<ol start="23" type="1">
-<li><p>In the console, assign the object <code>d</code> to be 100 multiplied by 246.</p></li>
-<li><p>In the console, assign the object <code>e</code> to be 84 divided by 32.1.</p></li>
-<li><p>Assign the variable <code>f</code> to 8 to the power of 4 (in R this is called exponentiation).</p></li>
-<li><p>What is the result of <code>d</code> added to <code>e</code> all divided by <code>f</code></p></li>
-</ol>
-<p>Task 9: Exploring functions</p>
-<p>So far, we’ve just looked at the square root function <code>sqrt()</code>. Go to this page: https://www.statmethods.net/management/functions.html 27. What is the result of <code>abs(-5.3)</code>? What does the <code>abs</code> function do?</p>
-<ol start="28" type="1">
-<li><p>Using the <code>seq()</code> function, generate a sequence of numbers from 0 to 30 in intervals of 3.</p></li>
-<li><p>Assign the sequence generated in step 28 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).</p></li>
-</ol>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Stuck? Here’s the solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Try out the following code, pay special attention to how the sentences above “convert” into R code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sequence <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>, <span class="dv">3</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sequence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
 
 
+</section>
+</section>
 </section>
 </section>
 
