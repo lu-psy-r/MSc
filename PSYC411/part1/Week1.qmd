@@ -31,7 +31,8 @@ By the end of Week 1, you should be able to:
 Watch Lecture week1 part1:
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7b94cdef-6407-4369-9423-b1fc0087f221&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411 2024 w1 p1" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7b94cdef-6407-4369-9423-b1fc0087f221&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w1 p1" ></iframe>
+
 ```
 
 Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530047){target="_blank"}
