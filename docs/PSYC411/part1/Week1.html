@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -178,7 +212,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#practical-materials" id="toc-practical-materials" class="nav-link" data-scroll-target="#practical-materials">1.4 Practical Materials</a>
   <ul class="collapse">
   <li><a href="#workbook" id="toc-workbook" class="nav-link" data-scroll-target="#workbook">1.4.1 Workbook</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">1.4.2 Data</a></li>
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">1.4.3 Answers</a></li>
   </ul></li>
+  <li><a href="#extras" id="toc-extras" class="nav-link" data-scroll-target="#extras">1.5 Extras</a></li>
   </ul>
 </nav>
     </div>
@@ -274,12 +311,825 @@ Note
 <h6 class="anchored" data-anchor-id="what-does-rstudio-look-like">What does RStudio look like?</h6>
 <p>When RStudio starts, it will look something like this: <img src="images/RStudio_startup_screen.png" class="img-fluid" alt="Startup screen"></p>
 <p>RStudio has three panels or windows: there are tabs for Console (taking up the left hand side), Environment (and History top right), Current file (bottom right). You will also see a 4th window for a script or set of commands you develop, also (on the left hand side).</p>
+</section>
+</section>
+<section id="task-two-using-the-console" class="level5">
+<h5 class="anchored" data-anchor-id="task-two-using-the-console">Task Two: using the console</h5>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Text that is highlighted with a grey background denotes code, rather than typical prose. Code is different to other forms of writing, such as essays, because the syntax, order and words need to be quite specific. For some longer chunks of code, as you will see below, they are formatted slightly differently.</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>In the “console” part of the R window, next to the &gt;, type <code>10 + 30</code>. Press return.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">30</span>                        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you hover your mouse over the box that includes the code snippet, a ‘copy to clipboard’ icon will appear in the top right corner of the box. Click that to copy the code. Now you can easily paste it into your script.</p>
+</div>
+</div>
+<p>It should give you the answer 40.</p>
+<ol start="3" type="1">
+<li>In the console, type <code>a &lt;- 40</code> and press Return.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">40</span>                      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li><p>Now type <code>a</code> and press return. It should give you the answer 40. <code>a</code> is called an object, think of it like a bucket that you can keep a number, or some numbers, or actually all kinds of stuff in.</p></li>
+<li><p>Now let’s look at a function, <code>sqrt</code>. <code>sqrt</code> is a function that takes the square root of whatever is inside the brackets. In the console, type <code>sqrt(13)</code>. Press Return.</p></li>
+<li><p>Now find the square root of the object <code>a</code> by typing <code>sqrt(a)</code>. Press return.</p></li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
 
 
+
+::: {.cell}
+
+```{.r .cell-code}
+a<- 40
+sqrt(a)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 6.324555
+```
+
+
+:::
+:::
+
+
+
+:::
+--->
+</section>
+<section id="task-three-finding-distributions" class="level5">
+<h5 class="anchored" data-anchor-id="task-three-finding-distributions">Task Three: finding distributions</h5>
+<ol start="7" type="1">
+<li>Make a new object <code>b</code>, and put the following list of children’s attachment scores into it</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="8" type="1">
+<li><p>Check it works by typing <code>b</code>, press return.</p></li>
+<li><p>Find the mean of these numbers by typing <code>mean(b)</code>.</p></li>
+<li><p>Find the median of these numbers by typing <code>median(b)</code>.</p></li>
+<li><p>Find the standard deviation of these numbers by typing <code>sd(b)</code>.</p></li>
+<li><p>Draw a histogram of these numbers by typing <code>hist(b)</code>.</p></li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+b <- c( 4, 1, 5, 3, 8, 2, 2, 6, 8, 5, 4, 1, 6, 5, 4, 5, 7, 9, 10, 1, 1, 3, 5, 4, 6, 4, 8, 6, 5, 5, 7, 8, 9, 8, 8, 2, 1, 4, 3, 2, 5, 1, 5, 6, 8, 6, 7, 2, 7)
+mean(b)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 4.938776
+```
+
+
+:::
+
+```{.r .cell-code}
+median(b)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 5
+```
+
+
+:::
+
+```{.r .cell-code}
+sd(b)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 2.503399
+```
+
+
+:::
+
+```{.r .cell-code}
+hist(b)
+```
+
+::: {.cell-output-display}
+![](Week1_files/figure-html/unnamed-chunk-5-1.png){width=672}
+:::
+:::
+
+
+
+::: --->
+</section>
+<section id="task-four-z-scores" class="level5">
+<h5 class="anchored" data-anchor-id="task-four-z-scores">Task Four: z scores</h5>
+<ol start="13" type="1">
+<li>Make a new object b_z and assign to it the z scores of the values from b:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>b_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="14" type="1">
+<li><p>Check that it worked by typing <code>b_z</code>.</p></li>
+<li><p>Draw a histogram of b_z by typing <code>hist(b_z)</code>.</p></li>
+</ol>
+</section>
+</section>
+<section id="part-two-extra-practice" class="level4">
+<h4 class="anchored" data-anchor-id="part-two-extra-practice">1.4.1.2 Part Two: extra practice</h4>
+<section id="task-five-investigating-distributions" class="level5">
+<h5 class="anchored" data-anchor-id="task-five-investigating-distributions">Task Five: investigating distributions</h5>
+<ol start="16" type="1">
+<li>Let’s make three new objects, with the marks from three people’s university masters courses. They are called annie, saj, and carrie and they took 10 courses each. We use the special notation <code>c()</code> to indicate a list, each number in the list is separated by a comma. Type the following into the console:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>annie <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">95</span>, <span class="dv">85</span>, <span class="dv">65</span>, <span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">65</span>, <span class="dv">95</span>, <span class="dv">65</span>, <span class="dv">75</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>saj <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">85</span>, <span class="dv">95</span>, <span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">55</span>, <span class="dv">55</span>, <span class="dv">75</span>, <span class="dv">95</span>, <span class="dv">85</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>carrie <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">75</span>, <span class="dv">65</span>, <span class="dv">95</span>, <span class="dv">95</span>, <span class="dv">55</span>, <span class="dv">85</span>, <span class="dv">75</span>, <span class="dv">55</span>, <span class="dv">95</span>, <span class="dv">55</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="17" type="1">
+<li>Who has the highest average (mean) score for their course?</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>use the <code>mean()</code> function</p>
+</div>
+</div>
+</div>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+They all have the same mean = 75.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+annie <- c(55, 95, 85, 65, 65, 85, 65, 95, 65, 75)
+saj <- c(65, 85, 95, 75, 65, 55, 55, 75, 95, 85)
+carrie <- c(75, 65, 95, 95, 55, 85, 75, 55, 95, 55)
+mean(annie)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 75
+```
+
+
+:::
+
+```{.r .cell-code}
+mean(saj)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 75
+```
+
+
+:::
+
+```{.r .cell-code}
+mean(carrie)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 75
+```
+
+
+:::
+:::
+
+
+
+::: --->
+<ol start="18" type="1">
+<li>Who has the most variable scores for their course?</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>use the <code>sd()</code> function</p>
+</div>
+</div>
+</div>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+sd(annie); sd(saj); sd(carrie)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 14.14214
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 14.90712
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 16.99673
+```
+
+
+:::
+:::
+
+
+
+::: --->
+<ol start="19" type="1">
+<li>What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function <code>hist()</code> to draw the distributions to help you see.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>you can use the <code>summary()</code> function, or the <code>median()</code> function</p>
+</div>
+</div>
+</div>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+ median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+median(annie); median(saj); median(carrie)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 70
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 75
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 75
+```
+
+
+:::
+
+```{.r .cell-code}
+hist(annie); hist(saj); hist(carrie)
+```
+
+::: {.cell-output-display}
+![](Week1_files/figure-html/unnamed-chunk-10-1.png){width=672}
+:::
+
+::: {.cell-output-display}
+![](Week1_files/figure-html/unnamed-chunk-10-2.png){width=672}
+:::
+
+::: {.cell-output-display}
+![](Week1_files/figure-html/unnamed-chunk-10-3.png){width=672}
+:::
+:::
+
+
+
+::: --->
+</section>
+<section id="task-six-standardised-scores-z-scores" class="level5">
+<h5 class="anchored" data-anchor-id="task-six-standardised-scores-z-scores">Task Six: standardised scores: Z scores</h5>
+<ol start="20" type="1">
+<li>Make a new object called <code>annie_z</code> and use the function <code>scale</code> to convert annie’s scores to z-scores: in the console type:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>annie_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(annie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="21" type="1">
+<li>You can have a look at the standardised scores of annie, by just typing <code>annie_z</code>. To what did annie’s highest initial score of 95 convert to?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+mean = 0, sd = 1. So that’s good, the z-score conversion worked.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+annie_z <- scale(annie)
+mean(annie_z)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 0
+```
+
+
+:::
+
+```{.r .cell-code}
+sd(annie_z)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 1
+```
+
+
+:::
+:::
+
+
+
+::: --->
+<ol start="22" type="1">
+<li>What is the mean and standard deviation of annie_z’s standardised scores?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+1.4142136
+You could find this by just eyeballing (searching through) the data, or by using the function `max`:
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+annie_z <- scale(annie)
+max(annie); max(annie_z)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 95
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 1.414214
+```
+
+
+:::
+:::
+
+
+
+::: --->
+<ol start="23" type="1">
+<li>Draw a histogram of annie’s standardised scores, in the console type <code>hist(annie_z)</code>. What is the peak frequency value?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+Between -1 and -0.5.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+hist(annie_z)
+```
+
+::: {.cell-output-display}
+![](Week1_files/figure-html/unnamed-chunk-14-1.png){width=672}
+:::
+:::
+
+
+
+::: --->
+<ol start="24" type="1">
+<li>Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: <code>pnorm(x)</code> where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+pnorm(1.4142136)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 0.9213504
+```
+
+
+:::
+:::
+
+
+
+::: --->
+</section>
+</section>
+<section id="part-three-extras" class="level4">
+<h4 class="anchored" data-anchor-id="part-three-extras">1.4.1.3 Part Three: Extras</h4>
+<p>If you’ve whizzed through the previous tasks, then you can move on to the following activities to explore further the functionality of R studio.</p>
+<section id="task-seven-exploring-operators." class="level5">
+<h5 class="anchored" data-anchor-id="task-seven-exploring-operators.">Task Seven: Exploring operators.</h5>
+<p>So far, we’ve just looked at <code>+</code> as an operator. Go to this page: https://www.statmethods.net/management/operators.html</p>
+<ol start="25" type="1">
+<li><p>In the console, assign the object <code>d</code> to be 100 multiplied by 246.</p></li>
+<li><p>In the console, assign the object <code>e</code> to be 84 divided by 32.1.</p></li>
+<li><p>Assign the variable <code>f</code> to 8 to the power of 4 (in R this is called exponentiation).</p></li>
+<li><p>What is the result of <code>d</code> added to <code>e</code> all divided by <code>f</code></p></li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+6.006498
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+d <- 100 * 246; e <- 84/32.1; f <- 8^4;
+f <- 8**4 # this does the same thing as 8^4
+(d+e)/f 
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 6.006498
+```
+
+
+:::
+:::
+
+
+
+::: --->
+</section>
+<section id="task-eight-exploring-functions" class="level5">
+<h5 class="anchored" data-anchor-id="task-eight-exploring-functions">Task Eight: Exploring functions</h5>
+<p>So far, we’ve just looked at the square root function <code>sqrt()</code>. Go to this page: https://www.statmethods.net/management/functions.html</p>
+<ol start="29" type="1">
+<li>What is the result of <code>abs(-5.3)</code>? What does the <code>abs</code> function do?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+5.3. It takes the sign (negative) away from the number.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+abs(-5.3)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 5.3
+```
+
+
+:::
+:::
+
+
+
+::: --->
+<ol start="30" type="1">
+<li><p>Using the <code>seq()</code> function, generate a sequence of numbers from 0 to 30 in intervals of 3.</p></li>
+<li><p>Assign the sequence generated in step 28 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Stuck? Here’s the solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Try out the following code, pay special attention to how the sentences above “convert” into R code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sequence <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>, <span class="dv">3</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sequence)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="32" type="1">
+<li>Assign the sequence generated in 31 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+mean = 15.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+g <- seq(0,30,3); mean(g)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 15
+```
+
+
+:::
+:::
+
+
+
+::: --->
+</section>
+<section id="task-nine-exploring-others-data" class="level5">
+<h5 class="anchored" data-anchor-id="task-nine-exploring-others-data">Task Nine: Exploring others’ data</h5>
+<p>Have a look at this article: Scullin, M. K., Gao, C., &amp; Fillmore, P. (2021). Bedtime music, involuntary musical imagery, and sleep. <em>Psychological Science, 32(7)</em>, 985-997. <a href="https://journals.sagepub.com/doi/10.1177/0956797621989724">https://journals.sagepub.com/doi/10.1177/0956797621989724</a></p>
+<p><em>Abstract</em> Many people listen to music for hours every day, often near bedtime. We investigated whether music listening affects sleep, focusing on a rarely explored mechanism: involuntary musical imagery (earworms). In Study 1 (N = 199, mean age = 35.9 years), individuals who frequently listen to music reported persistent nighttime earworms, which were associated with worse sleep quality. In Study 2 (N = 50, mean age = 21.2 years), we randomly assigned each participant to listen to lyrical or instrumental-only versions of popular songs before bed in a laboratory, discovering that instrumental music increased the incidence of nighttime earworms and worsened polysomnography-measured sleep quality. In both studies, earworms were experienced during awakenings, suggesting that the sleeping brain continues to process musical melodies. Study 3 substantiated this possibility by showing a significant increase in frontal slow oscillation activity, a marker of sleep-dependent memory consolidation. Thus, some types of music can disrupt nighttime sleep by inducing long-lasting earworms that are perpetuated by spontaneous memory-reactivation processes.</p>
+<p>The data from the study is available on <a href="https://osf.io/7tfqz/">this osf website</a>. The data we will look at is from the first study, the data set called “Earworm_MTurk_OSF.sav” on the osf site. These data are saved in spss format, which is not great for R-studio. We can still read it in, though, using a function called spss.get()</p>
+<ol start="33" type="1">
+<li><p>Browse the paper to see what it is about. Focus on Study 1.</p></li>
+<li><p>From <a href="https://osf.io/7tfqz/">the osf website</a> download the data file: <em>Earworm_MTurk_OSF.sav</em>, and also download the codebook file: <em>Earworm_MTurk_Codebook.xlsx</em>. The codebook tells you what each of the measures are in the data file.</p></li>
+<li><p>Load the data into R-studio: in the bottom right panel of R-studio, click on Upload, and browse to the Earworm_MTurk_OSF.sav file. It should then appear in the list of files in that bottom right panel.</p></li>
+<li><p>That step means we can access the data, but it isn’t yet loaded into R-studio.</p></li>
+</ol>
+<p>So, next load the data file into R-studio so we can work on it. You might have noticed that the data file is in SPSS format (that’s what the .sav ending to the file means). But, we can still load that in to R-studio.</p>
+<p>To do that first, load the library <em>Hmisc</em>: <code>library(Hmisc)</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="37" type="1">
+<li>Then, use the function spss.get():</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">spss.get</span>(<span class="st">"Earworm_MTurk_OSF.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="38" type="1">
+<li><p>That should have made you a new object in R-studio called “dat” which contains the data from the study.</p></li>
+<li><p>Next, we can have a look at the data. Here are a few questions to get you going:</p></li>
+</ol>
+<ol type="a">
+<li>How many male, how many female participants?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+ 112 male, 87 female
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(Hmisc)
+dat <- spss.get("data/PSYC411_wk1/EArworm_MTurk_OSF.sav")
+# note that my use of the spss.get function here looks in the folder data and the subfolder PSYC411_wk1 because that's where I've put my EArworm_MTurk_OSF.sav data file.
+summary(dat$Gender)
+```
+:::
+
+
+
+::: --->
+<ol start="2" type="a">
+<li>How many people never have earworms in the middle of the night?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+97
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+summary(dat$Earworms.MiddleOfTheNight)
+```
+:::
+
+
+
+::: --->
+<ol start="3" type="a">
+<li>For the Stanford Sleepiness Scale, how many participants felt “Somewhat foggy, let down”?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+17
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+summary(dat$StanfordSleepinessScale)
+```
+:::
+
+
+
+::: --->
+<ol start="4" type="a">
+<li>What was the mean, SD and range of age of the participants? Does your calculation of mean age correspond to that given in the paper?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+mean = 35.9, sd = 10.9, range 20-73.
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(tidyverse)
+summarise(dat, mean(Age), sd(Age), min(Age), max(Age))
+# summarise does lots of things at the same time, you could also just do them one by one:
+mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
+```
+:::
+
+
+
+::: --->
+<ol start="5" type="a">
+<li>Can you work out the mean age of the male and female participants separately?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+dat %>% group_by(Gender) %>% summarise(mean(Age))
+```
+:::
+
+
+
+::: --->
+<ol start="6" type="a">
+<li>Explore the data, see if you can remember tasks for separating different subgroups, graphing relations, comparing groups.</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+# this is just one example, other commands and ways are also legitimate:
+dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
+```
+:::
+
+
+
+::: --->
 </section>
 </section>
 </section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">1.4.2 Data</h3>
+<p>(There are no data that you need for today’s practical, other than the link to the data for the earworm study, but when there are data sets you need, you will find them in this data section.)</p>
 </section>
+<section id="answers" class="level3">
+<h3 class="anchored" data-anchor-id="answers">1.4.3 Answers</h3>
+<p>The answers to the workbook will appear below each question in the workbook, above, after the practical has finished, so you can check your answers.</p>
+<p>It’s really important for your learning that you have a go first of all at the workbook before looking at the answers.</p>
+</section>
+</section>
+<section id="extras" class="level2">
+<h2 class="anchored" data-anchor-id="extras">1.5 Extras</h2>
+<p>Optionally, <a href="https://fb.watch/uN8oc-KF6u/" target="_blank">watch the lecture by Tim Harford on the importance of understanding statistics</a>. Note this video is hosted on facebook.</p>
+
+
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
