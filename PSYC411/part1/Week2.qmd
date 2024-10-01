@@ -51,7 +51,7 @@ Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049){ta
 
 Download the lecture slides for:
 [part 1](ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx), [part 2](ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx), and
-[part 3](ppt/wk3/PSYC411 Lecture week2 part3 handout.pptx)
+[part 3](ppt/wk2/PSYC411 Lecture week2 part3 handout.pptx)
 
 
 ## 2.4 Practical Materials
@@ -65,15 +65,15 @@ revision for you. In this case, Part 3 is where you can focus your work.
 
 Part 1 of this workbook reproduces what you saw in the week 2 part 3 lecture.
 
-Part 2 gives you some more exercises in using R studio to revise last week's material see [this article](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00962/full) for the psychology behind learning and memory effects of "spacing".
+Part 2 gives you some more exercises in using R studio to revise last week's material see [this article](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00962/full){target="_blank"} for the psychology behind learning and memory effects of "spacing".
                         
-Part 3 provides you with more practise at looking at others' data and manipulating it.
+Part 3 provides you with more practice at looking at others' data and manipulating it.
                              
 Part 4 provides some more advanced methods for data manipulation.
 
 Part 5 looks at different ways that data is stored, and how to adjust that.
 
-Part 6 provides some extended extra practise in finding and investigating datasets.
+Part 6 provides some extended extra practice in finding and investigating datasets.
 
 If you have used R-studio before, then Part 6 will be where you will be developing some new advanced skills.
 
@@ -81,7 +81,7 @@ If you have used R-studio before, then Part 6 will be where you will be developi
 
 ##### Task Zero: making and opening an R script file
 
-1.  Open up the R server at psy-rstudio.lancaster.ac.uk
+1.  Open up the R server at [https://psy-rstudio.lancaster.ac.uk](https://psy-rstudio.lancaster.ac.uk){target="_blank"}
 
 2.  In R studio, at the File menu, select New File, then R script.
 
@@ -93,9 +93,10 @@ If you have used R-studio before, then Part 6 will be where you will be developi
 10.5 + 7                        
 ```
 
-    With the cursor on the same line as the sum click on the Run button.
 
-    In the console, you should see the sum being run, and the answer produced.
+With the cursor on the same line as the sum click on the Run button.
+
+In the console, you should see the sum being run, and the answer produced.
 
 3.  Save the R script. 
 
@@ -312,10 +313,9 @@ Way over on the right are the total scores on the AHI and the CESD questionnaire
     How can you look at it?
 
 
-**** STILL NEED TO FIX THIS - REMOVE EVAL=FALSE BIT ****
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
-``` {r eval=FALSE}
+``` {r}
 library(tidyverse)
 dat <- read_csv("data/wk2/ahicesd.csv")
 pinfo <- read_csv("data/wk2/participantinfo.csv")
@@ -429,9 +429,7 @@ then in the help pane on the right, scroll down to find the section titled "Argu
 
 ::: {.callout-warning icon="false" collapse="true"}
 ## Hint
-
 The important help information is: "To join by different variables on x and y, use a named vector. For example, by = c("a" = "b") will match x\$a to y\$b."
-
 ```{r eval=FALSE}
 data_full <- inner_join(x = dataone, y = datatwo, by = c("id" = "participant"))
 ```
@@ -440,9 +438,10 @@ data_full <- inner_join(x = dataone, y = datatwo, by = c("id" = "participant"))
 37. In the data set from Woodworth et al., we might want to just look at the pretests.
     We can use a function called `filter` to pull out just some of the rows.
   
-  ``` {r eval=FALSE}
-  summarydata_occasion0 <- filter(summarydata, occasion == 0)
-  ```
+``` {r eval=FALSE}
+summarydata_occasion0 <- filter(summarydata, occasion == 0)
+```
+
 This pulls out just the first occasion of testing (the pretest).
 
 How would you pull out the second occasion of testing?
@@ -553,7 +552,7 @@ This command takes the data from datlongsummary and puts the different measures 
 
 This part involves you exploring online psychology articles and finding an article which has made its data set available.
 More and more journals require data to be available when articles are published, an influential journal that has supported open science practices is Psychological Science.
-Go to the webpage of Psychological Science: [https://journals.sagepub.com/home/pss](https://journals.sagepub.com/home/pss).
+Go to the webpage of Psychological Science: [https://journals.sagepub.com/home/pss](https://journals.sagepub.com/home/pss){target="_blank"}.
 Browse the journal (you can view it on campus, off campus might be more difficult).
 Articles which have a dataset available have a "badge" indicating open data.
 
@@ -573,7 +572,7 @@ von Hippel, W., Ronay, R., Baker, E., Kjelsaas, K., & Murphy, S. C.
 (2016).
 Quick thinkers are smooth talkers: Mental speed facilitates charisma.
 Psychological Science, 27(1), 119-122.
-[https://journals.sagepub.com/doi/full/10.1177/0956797615616255](https://journals.sagepub.com/doi/full/10.1177/0956797615616255)
+[https://journals.sagepub.com/doi/full/10.1177/0956797615616255](https://journals.sagepub.com/doi/full/10.1177/0956797615616255){target="_blank"}
 
 data is available on osf.io (open science foundation) have a look in the Archive of OSF Storage for this article, under "Clean Data", "Study 1 data long format.csv".
 See if you can figure that one out.
@@ -609,7 +608,7 @@ Then have a go at exploring the data - can you recreate the numbers in the paper
 ### 2.4.2 Data
 
 Here are links to all the data referred to in this practical:
-[PSYC411-shipley-scores-anonymous-17_18.csv]("wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
+[PSYC411-shipley-scores-anonymous-17_18.csv]("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
 
 [ahicesd.csv](data/wk2/ahicesd.csv)
 
