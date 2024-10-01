@@ -9,3 +9,18 @@ order: 3
 This week, there are three mini lectures, and then a practical workbook to get you going with R-studio. 
 
 Before the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).
+
+## 1.2 Learning Goals
+
+By the end of Week 1, you should be able to:
+
+* Understand the importance of data analysis and statistics
+
+* Identify types of data in psychology (nominal, ordinal, interval, ratio)
+
+* Understand means and standard deviations
+
+* Understand standardized scores (Z-scores)
+
+* Use R-studio to begin to manipulate data, investigate means and standard deviations, and convert scores into Z-scores
+

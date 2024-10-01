@@ -41,5 +41,17 @@
       "PSYC411",
       "Week 1. Introducing Data"
     ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week1.html#learning-goals",
+    "href": "PSYC411/part1/Week1.html#learning-goals",
+    "title": "Week 1. Introducing Data",
+    "section": "1.2 Learning Goals",
+    "text": "1.2 Learning Goals\nBy the end of Week 1, you should be able to:\n\nUnderstand the importance of data analysis and statistics\nIdentify types of data in psychology (nominal, ordinal, interval, ratio)\nUnderstand means and standard deviations\nUnderstand standardized scores (Z-scores)\nUse R-studio to begin to manipulate data, investigate means and standard deviations, and convert scores into Z-scores",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Week 1. Introducing Data"
+    ]
   }
 ]
