@@ -81,3 +81,4 @@ and 2 cover what you need to know, and Part 3 contains some more extending, opti
 ##### Task One: Open Rstudio
 
 1. Startup Rstudio
+
