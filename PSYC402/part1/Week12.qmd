@@ -1,0 +1,771 @@
+---
+title: 2. Categorical predictors
+subtitle: Written by Margriet Groen (partly adapted from materials developed by the PsyTeachR team at the University of Glasgow)
+order: 3
+---
+
+So far, all the predictors in the models we’ve looked at were continuous variables. What if you wanted to know whether a response differed between two or more discrete groups? Hang on, you might say, that sounds like doing an ANOVA. True, you might have used ANOVA to assess whether group means differed in previous stats courses. ANOVAs—to some degree—are just a special type of regression where you have categorical predictors. This week we’ll look at how to model responses as a function of categorical predictors and we’ll combine categorical predictors to model how a predictor might affect the outcome variable differently across two different groups. For example, we might be interested in whether the amount of time adolescents use digital devices (screen-time) predicts their well-being. Additionally, we might want to know whether well-being is different for adolescent boys and girls and whether the relationship between screen-time and well-being differs for these two groups. By fitting a regression model in which we combine a continuous (screen-time) and a categorical (sex) predictor, we can do exactly that. We’ll be working on that in the lab.
+
+## Lectures {#sec-wk12-lectures}
+The lecture material for this week follows the recommended chapters in Winter (2020) -- see under 'Reading' below -- and is presented in two parts. The videos have captions, in case you find that helpful. You can download the slides and the transcripts by clicking on the links below the videos.
+
+* **Categorical predictors (~17 min)**
+
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61042&amp;code=dP~jYkqq9v0kgUllhKvIyDTs9WyhEmwpg&amp;cc=1" frameborder="0" allowfullscreen></iframe>
+```
+[Slides](data/week12/stats_categoricalPredictors_theory_dis_1pp.pdf)
+[Transcript](data/week12/statscategoricalPredictorstheory.txt)
+
+* **Interactions (~18 min)**
+
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61043&amp;code=dQ~LMA2a8GnIiNFJ3jRPd6oe7KUSdOe9i&amp;cc=1" frameborder="0" allowfullscreen></iframe>
+```
+[Slides](data/week12/stats_interactions_theory_dis_1pp.pdf)
+[Transcript](data/week12/statsinteractionstheory.txt)
+
+If you are (relatively) new to using R and RStudio and not yet confident in using various functions from the `dplyr` package, the video below will be useful:
+
+* **Data wrangling with dplyr (~10 minutes)**
+Watch this part before you complete the pre-lab activities and before you attend the lab session.
+
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61014&amp;code=ea~HQdqp3JqlWsGjiMcgx6Ge4C2VAI4pa&amp;cc=1" frameborder="0" allowfullscreen></iframe>
+```
+[Slides](data/week12/dataWrangling_dplyrPipes_slides_1pp.pdf)
+[Transcript](data/week12/05dwdplyrPipes.txt)
+
+## Reading {#sec-wk12-reading}
+
+### Blogpost by Professor Dorothy Bishop
+In this [**very short blogpost**](https://deevybee.blogspot.com/2017/11/anova-t-tests-and-regression-different.html?m=1) Professor Dorothy Bishop explains the links between ANOVA and Regression.
+
+### Winter (2020)
+[**Link**](https://eu.alma.exlibrisgroup.com/leganto/public/44LAN_INST/citation/83408786230001221?auth=SAML)
+
+**Chapter 7** provides an excellent overview of using categorical predictors in regression models and explains how this is implemented in R.
+
+**Chapter 8** explains what interactions are and how to model and interpret them.
+
+## Pre-lab activities {#sec-wk12-pre-labactivities}
+After having watched the lectures and read the textbook chapters you’ll be in a good position to try these activities. Completing them before you attend your lab session will help you to consolidate your learning and help move through the lab activities more smoothly.
+
+### Pre-lab activity 1: Data-wrangling in R
+
+Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate observation (e.g. a participant), and each column stands for a different variable (e.g. a response, category, or group). A key benefit of tabular data is that it allows you to store different types of data-numerical measurements, alphanumeric labels, categorical descriptors-all in one place.
+
+It may surprise you to learn that scientists actually spend far more of time cleaning and preparing their data than they spend actually analysing it. This means completing tasks such as cleaning up bad values, changing the structure of tables, merging information stored in separate tables, reducing the data down to a subset of observations, and producing data summaries. Some have estimated that up to 80% of time spent on data analysis involves such data preparation tasks (Dasu & Johnson, 2003)!
+
+Many people seem to operate under the assumption that the only option for data cleaning is the painstaking and time-consuming cutting and pasting of data within a spreadsheet program like Excel. We have witnessed students and colleagues waste days, weeks, and even months manually transforming their data in Excel, cutting, copying, and pasting data. Fixing up your data by hand is not only a terrible use of your time, but it is error-prone and not reproducible. Additionally, in this age where we can easily collect massive datasets online, you will not be able to organise, clean, and prepare these by hand.
+
+**In short, you will not thrive as a psychologist if you do not learn some key data wrangling skills.** Although every dataset presents unique challenges, there are some systematic principles you should follow that will make your analyses easier, less error-prone, more efficient, and more reproducible.
+
+Some of the functions you'll need in this week's lab activity are listed below. You've used these functions before, but the following 'recipes' summarise what each one does and how to use it.
+
+> **TASK** Have a look at each 'recipe' and read through it. Try to understand each step.
+
+::: {.callout-tip}
+## Recipes - How to use them
+Each 'recipe' has the same structure.
+
+1. First, it summarises what it is that you want to achieve when using that specific function. *In the case of `select()` it says "You want to extract specific columns from a data frame and return them as a new, smaller data frame."*
+2. Then, it outlines a number of steps that you need to carry out when using this function. *For `select()` it outlines 2 steps: 1. Pass the dataframe to the function. 2. List the column(s) to return.*
+3. Finally, there is an example talks you through using the function with some data. *For `select()` it uses an example with data on the weather.*
+4. Additional information appears in extra boxes with a light-bulb icon. If you find those confusing, don't worry about them at this stage.
+
+:::
+
+Data wrangling:
+
+* `filter()` - extract observations (rows) - [**recipe**](https://posit.cloud/learn/recipes/transform/TransformL)
+* `mutate()` - create a new variable (column) - [**recipe**](https://posit.cloud/learn/recipes/transform/TransformF)
+* `group_by()` - organise the observations into groups - [**recipe**](https://posit.cloud/learn/recipes/transform/TransformI)
+* `summarise()` - compute summary statistics - [**recipe**](https://posit.cloud/learn/recipes/transform/TransformH)
+
+
+Visualisation:
+
+* `geom_histogram()` - draw a histogram - [**recipe**](https://posit.cloud/learn/recipes/visualize/VisualizeA5)
+* `geom_line()` - draw a line chart - [**recipe**](https://posit.cloud/learn/recipes/visualize/VisualizeA6)
+
+The more you practise coding in R, the easier it will become. 
+
+::: {.callout-tip}
+## The many 'dialects' of the R programming language
+Please note that there are often different ways to do the same or similar things in R. This means you might encounter slightly different functions or styles of coding in different materials. This is not something to worry about. Just make sure you're clear on what a bit of code achieves and choose the function/style that you feel most comfortable with.
+:::
+
+### Pre-lab activity 2: Getting ready for the lab class
+
+#### Get your files ready
+Download the [402_week12_forStudents.zip](data/week12/402_week12_forStudents.zip) file. 
+
+#### Remind yourself of how to access and work with the RStudio Server.
+
+* Sign in to the [**RStudio Server**](http://psy-rstudio.lancaster.ac.uk/). Note that when you are not on campus you need to log into the VPN first (look on [**the portal**](https://portal.lancaster.ac.uk/ask/vpn/) if you need more information about that).
+* Create a new folder for this week's work. 
+* Upload the zip-file to the folder you have created on the RStudio server. Note you can either upload a single file or a zip-file.
+
+::: {.callout-important}
+## If you have difficulty uploading files to the server
+If you get error messages when attempting to upload a file or a folder with files to the server, you can try the following steps:
+
+* Close the R Studio server, close your browser and start afresh.
+* Open the R Studio server in a **different** browser.
+* Follow a work around where you use code to directly download the file to the server. The code to do that will be available at the start of the lab activity where you need that particular file. The code to download the file you need to complete the quiz is below.
+:::
+
+## Lab activities {#sec-wk12-labactivities}
+In this lab, you’ll gain understanding of and practice with:
+
+* when and why to apply multiple regression to answer questions in psychological science
+* conducting multiple regression in R when combining continuous and categorical predictors
+* interpreting the R output of multiple linear regression (when combining continuous and categorical predictors)
+* reporting results for multiple linear regression (when combining continuous and categorical predictors), following APA guidelines
+
+### Lab activity 1: Combining a continuous and a categorical predictor in a regression model
+
+#### Background: Smartphone screen-time and well-being
+There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We’ll be looking at data from this recent study of English adolescents: Przybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. *Psychological Science, 28*, 204–215.
+
+This was a large-scale study that found support for the “Goldilocks” hypothesis among adolescents: that there is a “just right” amount of screen-time, such that any amount more or less than this amount is associated with lower well-being. This was a huge survey study with data containing responses from over 120,000 participants! Fortunately, the authors made the data from this study openly available, which allows us to dig deeper into their results. And the question we want to expand on in this lab is whether the relationship between screen-time and well-being depends on the partcipant’s (self-reported) sex. In other words, our research question is: **Does screen-time have a bigger impact on boys or girls, or is it the same for both?**
+
+The dependent measure used in the study was the [**Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)**](https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs). This is a 14-item scale with 5 response categories, summed together to form a single score ranging from 14-70.
+
+On [**Przybylski & Weinstein’s page for this study on the Open Science Framework**](https://osf.io/82ybd/), you can find the participant survey, which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen-time). Within the same page you can also find the [**raw data**](https://osf.io/82ybd/), which some of you might want to consider using for your research report.
+
+However, for the purpose of this lab, you will be using local pre-processed copies of the data (`participant_info.csv`, `screen_time.csv` and `wellbeing.csv, which you downloaded as part of the 'Pre-lab activities'.
+
+Przybylski and Weinstein looked at multiple measures of screen-time, but again for the interests of this lab we will be focusing on smartphone use, but do feel free to expand your skills after by looking at different definitions of screen-time. Overall, Przybylski and Weinstein suggested that decrements in well-being started to appear when respondents reported more than one hour of daily smartphone use. So, bringing it back to our additional variable of sex, **our research question is now: Does the negative association between hours of smartphone use and well-being (beyond the one-hour point) differ for boys and girls?**
+
+Let’s think about this in terms of the variables. We have:
+
+*	a continuous outcome variable: well-being;
+*	a continuous∗ predictor variable: screen-time;
+*	a categorical predictor variable: sex.
+
+Please note that well-being and screen-time are technically only **quasi-continuous** inasmuch as that only discrete values are possible. However, there are a sufficient number of discrete categories in our data that we can treat the data as effectively continuous.
+
+Now, in terms of analysis, what we are effectively trying to do is to estimate **two slopes** relating screen-time to well-being, one for adolescent girls and one for adolescent boys, and then statistically compare these slopes. Sort of like running a correlation for boys, a correlation for girls, and comparing the two. Or alternatively, where you would run a regression (to estimate the slopes) but also one where you would need a t-test (to compare two groups). But the expressive power of regression allows us to do this all within a single model. Again, as we have seen building up to this lab, an independent groups t-test is just a special case of ordinary regression with a single categorical predictor; ANOVA is just a special case of regression where all predictors are categorical. But remember, although we can express any ANOVA design using regression, the converse is not true: we cannot express every regression design in ANOVA. As such people like regression, and the general linear model, as it allows us to have any combination of continuous and categorical predictors in the model. The only inconvenience with running ANOVA models as regression models is that you have to take care in how you numerically code the categorical predictors. We will use an approach called **deviation coding** which we will look at today later in this lab.
+
+To complete this lab activity, you can use the R-script (`402_wk12_labAct1_template.R`) that you downloaded as part of the 'Pre-lab activities' as a template. Work through the activity below, adding relevant bits of code to your script as you go along.
+
+#### Step 1: Background and set up
+
+::: {.callout-warning} 
+## Set your working directory
+The folder you were asked to download under 'Pre-lab activity 3: Getting ready for the lab class' contains the data files we'll need. Make sure you have set your working directory to this folder by right-clicking on it and selecting 'Set as working directory'.
+:::
+
+::: {.callout-warning}
+## Empty the R environment
+
+Before you do anything else, when starting a new analysis, it is a good idea to empty the R environment. This prevents objects and variables from previous analyses interfering with the current one. To do this, you can click on the little broom icon in the top right of the Environment pane, or you can use `rm(list=ls())`.
+:::
+
+Before we can get started we need to tell R which libraries to use. For this analysis we'll need `broom`, `car` and `tidyverse`.
+
+> **TASK**: Load the relevant libraries. If you are unsure how to do that, you can look at the 'Hint' below for a clue by expanding it. After that, if you are still unsure, you can view the code by expanding the 'Code' section below. 
+
+::: {.callout-tip collapse="true"}
+
+## Hint
+Use the `library()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+The code to do this is below. 
+```
+library(broom)
+library(car)
+library(tidyverse)
+```
+:::
+
+::: {.callout-important}
+## If you couldn't upload files to the server, do this:
+If you experienced difficulties with uploading a folder or a file to the server, you can use the code below to directly download the file you need in this lab activity to the server (instead of first downloading it to you computer and then uploading it to the server). Remember that you can copy the code to your clipboard by clicking on the 'clipboard' in the top right corner.
+:::
+
+```{r eval=FALSE}
+download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week12/participant_info.csv?raw=true", destfile = "participant_info.csv")
+```
+
+```{r eval=FALSE}
+download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week12/screen_time.csv?raw=true", destfile = "screen_time.csv")
+```
+
+```{r eval=FALSE}
+download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week12/wellbeing.csv?raw=true", destfile = "wellbeing.csv")
+```
+
+
+> **TASK**: Finally, read in the three data files; call the participant info `pinfo`; call the screen_time data `screen` and the well-being data `wellbeing`.
+
+::: {.callout-tip collapse="true"}
+## Hint
+Use the `read_csv()` function.
+:::
+
+::: {.callout-tip collapse="true"}
+## Code
+The code to do this is below. 
+```
+pinfo <- read_csv("participant_info.csv")                                   
+screen <- read_csv("screen_time.csv")
+wellbeing <- read_csv("wellbeing.csv")
+```
+:::
+
+#### Step 2: Checking the formatting
+
+Given our research question and the information you have about the scores,
+provided above under 'Background' and from the OSF-webpage, is the data ready for use?
+
+> **TASK**: Add code to look at the first few lines of each data frame.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use the `head()` function (or `tail()` function).
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+The code to do this is below:
+```
+head(pinfo)                                  # Look at the data frames
+head(screen)
+head(wellbeing)
+```
+:::
+
+>**QUESTION 2a**: In which table is the variable corresponding to sex located and what is this variable called?
+
+The 'source and analysis code.sps' file in the 'Data and Code' section on the [**OSF-webpage**](https://osf.io/82ybd/) tells us how they coded the sex variable:  0 = female indicator and 1 = male indicator. It is worth exploring the OSF-webpage, to get used to foraging other files for these kinds of information, as they are not always clearly explained in a codebook or README. file.
+
+>**TASK**: For ease, lets recode the sex variable to reflect word labels of 'female' and 'male'. This doesn't change the order: R will still see female as 0, and male as 1 because female occurs before male in the alphabet. Add the code below to your script to do this. Don't forget to run it as well.
+
+```{r eval=FALSE}
+pinfo$sex <- ifelse(pinfo$sex == 1, "male", "female")
+head(pinfo)
+```
+
+>**QUESTION 2b**: In what format is the well-being data (long or wide)? On how many participants does it include observations? And on how many items for each participant?
+
+>**QUESTION 2c**: What is the name of the variable that identifies individual participants in this dataset? It is important to work this out as this variable will allow us to link information across the three data files.
+
+#### Step 3: Data preparation - Aggregating the total well-being scores
+We need to sum the 14 items of the well-being scale for each participant to create one well-being score per participant.
+
+> **TASK**: To create one well-being score per participant, add code to the script to do the following: first, transform the `well-being` data frame from wide to long (using `pivot_longer()`); then, use `group_by()` to get scores for each participant and finally use `summarise()` to calculate a total well-being score, calling the new variable `tot_wellbeing`. Save all of this to an object called `wb_tot`.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Below is a code template. Make sure to add the relevant sections.
+```
+wb_tot <- DATA %>%
+  pivot_longer(-Serial, names_to = "", values_to = "") %>%
+  group_by(?) %>%
+  summarise(tot_wellbeing = sum(?))
+```
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+wb_tot <- wellbeing %>%
+  pivot_longer(-Serial, names_to = "question", values_to = "score") %>%
+  group_by(Serial) %>%
+  summarise(tot_wellbeing = sum(score))
+```
+:::
+
+It is useful to calculate some descriptive statistics for the new variable `tot_wellbeing`.
+
+> **TASK**: Calculate some descriptive statistics for `tot_wellbeing`.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use `summarise()` to calculate the mean, standard deviation, minimum and maximum values.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+wb_tot %>% summarise(mean = mean(tot_wellbeing),
+                     sd = sd(tot_wellbeing),
+                     min = min(tot_wellbeing), 
+                     max = max(tot_wellbeing))
+```
+:::
+
+Finally, let's get an idea of the distribution of the new variable `tot_wellbeing`.
+
+> **TASK**: Visualise the distribution in a histogram.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use `ggplot()` and `geom_historgram()`.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ggplot(wb_tot, aes(tot_wellbeing)) +
+  geom_histogram() 
+```
+:::
+
+>**QUESTION 3a**: Is the distribution of well-being scores symmetrical, negatively skewed or positively skewed?
+
+#### Step 4: Data preparation - Transforming screen time data
+Great, so we have the well-being scores sorted out, we now need to think about the screen-time usage data and
+whether it is being used on a weekday or a weekend. As always, to get an idea of the data, it is often very
+useful to visualise the variables before proceeding with the analysis.
+
+Before we can do this, we'll need to tidy these data up. Have another look at the `screen` data by using the `head()` function. You'll see that we have `Serial` in the first column (this is good), but in the following eight columns, we have columns for each type of activity (Comph, Comp, Smart, Watch) and the part of the week it took place (we and wk) combined. Instead, to be able to work with the data, we need two columns: one for the type of activity (we'll call it `variable`) and one for the part of the week (we'll call it `day`).
+
+A second issue is that we need to alter the abbreviations Comph, Comp, Smart and Watch to reflect more descriptive text for each in plots.
+
+Below are two chunks of code that represent these steps. In the next tasks you'll practise with taking a set of piped commands apart. The purpose of this is to get you used to "parsing" the code at the right places so that when you see piped commands in other people's code, you know how to break it down and find the relevant parts that you can use.
+
+> **TASK**: In the code chunk below we use the `separate()` function to split the character strings already in the dataset. You know that with piped commands, there are chunks of code. Run the code first in its entirety and then pull each line apart to see how each function works on the data. Write a descriptive sentence for each function's role in the command. Don't forget to copy the chunk to your script and run it.
+
+```{r eval=FALSE}
+screen_long <- screen %>%
+  pivot_longer(-Serial, names_to = "var", values_to = "hours") %>%
+  separate(var, c("variable", "day"), "_")
+```
+
+> **TASK**: In the next code chunk we use the `dplyr::recode()` function with `mutate()` to relabel the separated names into understandable names that will be clear in plots. Again, run the code first in its entirety and then pull each line apart to see how each function works on the data. Write a descriptive sentence for each function's role in the command. Don't forget to copy the chunk to your script and run it.
+
+```{r eval=FALSE}
+screen2 <- screen_long %>%
+  mutate(variable = dplyr::recode(variable,
+                                  "Watch" = "Watching TV",
+                                  "Comp" = "Playing Video Games",
+                                  "Comph" = "Using Computers",
+                                  "Smart" = "Using Smartphone"),
+         day = dplyr::recode(day,
+                             "wk" = "Weekday",
+                             "we" = "Weekend"))
+```
+
+:::{.callout-tip}
+
+The code above has a new feature: the `dplyr::recode` part. This syntax -- using the double colon -- happens when there are many versions of a function with the same name. You can imagine that a function called 'recode' is immensely useful at the data wrangling stage of analysis. By using the name of the package, a double set of colons, followed by a function name, you are ensuring that R uses a particular version of the function, at that point only. This avoids having two or more packages loaded in your environment that sometimes do not play nicely together!
+:::
+
+To be able to monitor that your code is performing as you want it to, you need to have in your mind an idea of how the data should look at the end of a code chunk. So stop a moment and be clear, discuss with your lab-mates if you feel like it and answer the following question.
+
+>**QUESTION 4a**: What are the variables and the levels or conditions within each variable of screen2?
+
+>**TASK**:Now join `wb_tot` and `screen_2` by participant and then group by the variables 'variable', 'day' and 'hours' and then calculate a 'mean_wellbeing' variable for each of the grouped levels. Save it in an object called 'dat_means'.
+
+:::{.callout-tip collapse="true"}
+## Hint 1
+Write separate lines of code for each action and then, when you know each of them works, reformat them as a piped command. You'll need `inner_join()`, `group_by()` and `summarise()`.
+:::
+
+:::{.callout-tip collapse="true"}
+## Hint 2
+Below templates for separate lines of code for each action. You'll need to replace the names of relevant data frames and variables.
+```
+joined <- inner_join(data1, data2, by=)
+grouped <- group_by(data, var1, var2, var3)
+means <- summarise(data, mean = mean(variable))
+```
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+Below the code for a piped command.
+```
+dat_means <- inner_join(wb_tot, screen2, "Serial") %>%
+  group_by(variable, day, hours) %>%
+  summarise(mean_wellbeing = mean(tot_wellbeing))
+```
+:::
+
+> **TASK**: Now check that you have an object that is 72 observations of 4 variables. You should have a mean wellbeing score for every level of the hours, over weekdays and weekends for each level of the four types of screen time (4 x 2 x 9)
+
+Next, it is a good idea to visualise the mean well-being data as function of hours of screen-time for the different days (weekday vs. weekend) and types of screen (playing video games, using computers, using smartphone and watching tv). This is quite a complex graph. We'll go through creating it step-by-step, but let's first look at the end result:
+
+![](data/week12/wellbeingByScreentime.png)
+
+Ok, that's what we are working towards.
+
+> **TASK**: Below, a chunk of code is presented. It is your task to fill in the x and y variables.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Go back to the research question - which variable is for the x axis and for the y axis?
+:::
+
+```{r eval=FALSE}
+ggplot(dat_means, aes(x = , y = )) +
+  geom_line() +
+  geom_point() +
+  theme_bw()
+```
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ggplot(dat_means, aes(x = hours, y = mean_wellbeing,)) +
+  geom_line() +
+  geom_point() +
+  theme_bw()
+```
+:::
+
+**QUESTION 4b**: What research question does this plot describe? Is it appropriate for the levels within the data?
+
+> **TASK**: Now, let's add a different linetype for each day (weekday vs. weekend). Fill in the blanks in the code below.
+
+```{r eval=FALSE}
+ggplot(dat_means, aes(x = , y = , linetype = )) +
+  geom_line() +
+  geom_point() +
+  theme_bw()
+```
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ggplot(dat_means, aes(x = hours, y = mean_wellbeing, linetype = day)) +
+  geom_line() +
+  geom_point() +
+  theme_bw()
+```
+:::
+
+**QUESTION 4c**: What research question does this plot describe? Is it appropriate for the levels within the data?
+
+Still not quite there.
+
+>**TASK**: Fill in the blanks (for x, y and linetype) as before. Now have a good look at the code below. What has changed? Copy the code to your script and run it. Then, for each line write a sentence as a comment to describe its effect on the plot.
+
+```{r eval=FALSE}
+ggplot(dat_means, aes(x = , y = , linetype = )) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~variable, nrow = 2) +
+  theme_bw()
+```
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+ggplot(dat_means, aes(hours, mean_wellbeing, linetype = day)) + # plot 'hours' on the x-axis, 'mean_wellbeing' on the y-axis and use a different type of line for the levels of 'day'
+  geom_line() + # add a line
+  geom_point() + # add point data
+  facet_wrap(~variable, nrow = 2) + # plot separate plots for each level of 'variable'
+  theme_bw() # use the 'black and white' theme
+```
+:::
+
+We add the `facet_wrap()` function here. You can check the `?facet_wrap()` help page for more information.
+
+**QUESTION 4d**: c. What does the `facet_wrap()` function do? Is this plot appropriate for the levels in the data?
+
+#### Step 5: Calculating mean hours per day for smartphone use, for each participant
+As mentioned at the beginning, in today's lab we'll focus on smartphone use. So looking at the bottom left of the figure we could suggest that smartphone use of more than 1 hour per day is associated with increasingly negative well-being the longer screen time people have. This looks to be a similar effect for Weekdays and Weekends, though perhaps overall well-being in Weekdays is marginally lower than in Weekends (the line for Weekday is lower on the y-axis than Weekends). This makes some sense as people tend to be happier on Weekends!
+
+> **TASK**: Below is a set of comments that describe what the chunk of code that you need to write next does:
+
+> 1) #use 'screen2'
+> 2) #and then filter out the observations for 'Using Smartphone',
+> 3) #and then group together each participant,
+> 4) #and then summarise the mean hours calling it 'hours_per_day',
+> 5) #save it in an object called 'smarttot'
+
+:::{.callout-tip collapse="true"}
+## Hint
+Below is a template for the code you need. Try to fill in the relevant bits:
+
+```
+NEW_OBJECT <- DATA %>%
+  filter(variable == "?") %>%
+  group_by(VARIABLE) %>%
+  summarise(new_measure = mean(VARIABLE))
+```
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+The code to do this is below:
+
+```
+smarttot <- screen2 %>% # use 'screen2'
+  filter(variable == "Using Smartphone") %>% # filter out the observations for 'Using Smartphone'
+  group_by(Serial) %>% # group together each participant
+  summarise(hours_per_day = mean(hours)) #summarise the mean hours calling it 'hours_per_day'
+```
+:::
+
+
+> **TASK**: Now let's do it the other way around. Run the code below. Have a look at the structure of 'smart_wb'.
+
+:::{.callout-tip collapse="true"}
+## Hint
+You can use the `str()` function.
+:::
+
+```{r eval=FALSE}
+smart_wb <- smarttot %>%
+  filter(hours_per_day > 1) %>%
+  inner_join(wb_tot, "Serial") %>%
+  inner_join(pinfo, "Serial") %>%
+  mutate(sex = as.factor(sex))
+```
+
+>**QUESTION 5a**: What does the code do? Write a short paragraph, using the phrase "and then" to represent the pipes.
+
+#### Step 6: More visualisation
+We are now using only one small part of the data - smartphone use and its relationship with well-being over different durations of time. Before formally testing our research question, we can visualise the data and enquire about sex differences on the same plot - run each chunk of code below:
+
+> **TASK** To further group the data, copy the code below to your script and run it. Look at the 'smart_wb_gen' dataframe. What has the code above done? Write a couple of sentences of description.
+
+```{r eval=FALSE}
+smart_wb_gen <- smart_wb %>%
+  group_by(hours_per_day, sex) %>%
+  summarise(mean_wellbeing = mean(tot_wellbeing))
+```
+
+> **TASK**: Let's visualise these data.
+
+```{r eval=FALSE}
+ggplot(smart_wb_gen, aes(hours_per_day, mean_wellbeing, color = sex)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_color_discrete(name = "Sex", labels = c("Girls", "Boys"))+
+  scale_x_continuous(name = "Total hours smartphone use") +
+  scale_y_continuous(name = "Mean well-being score") +
+  theme_bw()
+```
+
+>**QUESTION 6a**: Write an interpretation of the above plot in plain English.
+
+#### Step 7: The regression model
+
+In the steps 2 to 6 we've covered some pretty heavy-lifting data-wrangling. As it is so often the case that something like this is needed when working with real data, ti is really important to practise this. However, to ensure you also spend time on fitting the regression model and interpreting the output, you can choose to use the data-file [smart_wb.csv](files/week12/smart_wb.csv) to get started with that. It contains the data in a format that is the result of all the data-wrangling we did in steps 2 to 6. So, download the `smart_sb.csv` data-file, put it in the folder that is your working directory and you're all set for running the regression model.
+
+::: {.callout-important}
+## If you couldn't upload files to the server, do this:
+If you experienced difficulties with uploading a folder or a file to the server, you can use the code below to directly download the file you need in this lab activity to the server (instead of first downloading it to you computer and then uploading it to the server). Remember that you can copy the code to your clipboard by clicking on the 'clipboard' in the top right corner.
+:::
+
+```{r eval=FALSE}
+download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week12/smart_wb.csv?raw=true", destfile = "smart_wb.csv")
+```
+
+
+> **TASK**: Let's run the regression. Write code in your script in which you call your output 'mod', and use the data 'smart_wb' using the following formula, `lm(y ~ x1 + x2 + x1:x2, data)` to construct your regression model. Go back to the research question for your outcome and two predictor variables.
+
+:::{.callout-tip collapse="true"}
+## Hint
+Use the following template:
+```
+mod <- lm(y ~ x1 + x2 + x1:x2, data)
+```
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+mod <- lm(tot_wellbeing ~ hours_per_day + sex + hours_per_day:sex, smart_wb)
+```
+:::
+
+> **TASK**: Call and save the summary of your model as 'mod_summary'; then have a look at it.
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+mod_summary <- summary(mod)
+mod_summary
+```
+:::
+
+Let's first look at the model as a whole:
+
+>**QUESTION 7a**: What is the p-value for the overall model? Is it significant? What does this mean?
+
+>**QUESTION 7b**: To two decimal places, what percentage of the variance in well-being scores does the overall model explain?
+
+Now, lets look at the coefficients of our predictors:
+
+>**QUESTION 7c**: Are the main effects of smartphone use and sex significant?
+
+>**QUESTION 7d**: Which variable indicates the interaction between smartphone use and sex?
+
+>**QUESTION 7e**: And is the interaction significant?
+
+>**QUESTION 7f**: What is the most reasonable interpretation of these results?
+
+The above model uses **treatment coding** (sometimes called dummy coding), for the sex variable. In a categorical variable with only two levels this means that one level is coded as 0 and the other level is coded as 1. In categorical variables with more than two levels, it works slightly differently.
+
+> **TASK**: We can check that the sex variable is treatment with the following code:
+
+```{r eval=FALSE}
+contrasts(smart_wb$sex)
+```
+
+Because we have not explicitly told R about the labels for the sex variable, it has used level 0 as the reference level, hidden within the intercept term and level sex1 describes the difference (or slope) between level 0 and 1 or in this dataset from female to male.
+
+>**QUESTION 7g**: Is being Male better for a person's well-being in the context of smartphone use than being Female?
+
+Now let's look at **deviation coding**. There are other ways to code your categorical variables. One of them is deviation coding (also sometimes called sum coding). This effectively divides the difference of the values between your categorical levels by the number of levels so that each level can be compared to one intercept that is central to them all rather than comparing levels to one reference level. It is like centering for a categorical level.
+
+> **TASK** Use the code chunk below to:
+>1) Add a variable to the smart_wb data that is a deviation coding of sex;
+>2) Set the deviation coding (we'll label it 'Sum' here for easy variable naming); and
+>3) Look at the output for the sum-coded sex variable.
+
+```{r eval=FALSE}
+smart_wb <- mutate(smart_wb, sexSum = sex) # add a variable to the smart_wb data that is a deviation coding of sex
+contrasts(smart_wb$sexSum) <- contr.sum(2) # wet the deviation coding
+contrasts(smart_wb$sexSum) # look at the output for the sum coded sex variable
+```
+
+Next, we'll run the regression again, using the sum-coded sex variable and we'll compare the outputs.
+
+```{r eval=FALSE}
+# Run the regression model again, using the sumcoded sex model and compare outputs
+mod_S <- lm(tot_wellbeing ~ hours_per_day + sexSum + hours_per_day:sexSum, smart_wb)
+mod_S_summary <- summary(mod_S)
+
+# Compare the two model summary outputs
+mod_summary
+mod_S_summary
+```
+
+'sexSum1' is now the coefficient for sex and represents the change from the intercept value which now lies between the values for being Female and Male. Note how this coefficient is negative.
+
+The earlier model had a positive coefficient because the intercept described the reference group of the Girls, who on average begin at a lower well-being level than Boys (refer back to the scatterplot to verify this). Because the sum-coding has moved the intercept to a point that is the center of the difference between Boys and Girls, sexSum1 now describes the distance between the centre and a level of Sex.
+
+Values for well-being in Girls are thus:
+$$ Intercept + sexSum*+1 = 49.74 + (-1.61)*(+1) $$
+
+Values for well-being in Boys are thus:
+$$Intercept + sexSum*-1 = 49.74 + (-1.61)*(-1)$$
+
+with the Boys being higher in well-being...(remember a negative number multiplied by a negative number produces a positive number and a negative number multiplied by a positive number produces a negative number).
+
+The interpretation of both model effects is the same, and if you look at the summary statistics, they are identical. Deviation coding effectively centers your categorical variables and helps with interpretation of interaction terms.
+
+#### Step 8: Checking assumptions
+Now that we've fit a model, let's check whether it meets the assumptions of linearity, normality and homoscedasticity. With regression models, you do this after you've actually fit the model.
+
+**Linearity**
+Unlike when we did simple regression we can’t use `crPlots()` to test for linearity when there is an interaction, but we know from looking at the grouped scatterplot that this assumption has been met.
+
+**Normality**
+Normally we would test for normality with a QQ-plot and a Shapiro-Wilk test. However, because this dataset is so large, the Shapiro-Wilk is not appropriate (if you try to run the test it will produce a warning telling you that the sample size must be between 3 and 5000). This is because with extremely large sample sizes the Shapiro-Wilk test will find that any deviation from normality is significant. Therefore we should judge normality based upon the QQ-plot.
+
+> **TASK**: Create a QQ-plot to check the residuals are normally distributed.
+
+:::{.callout-tip collapse="true"}
+## Hint
+You can use the `qqPlot()` function. The residuals are stored in the 'mod' object you created earlier.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```
+qqPlot(mod$residuals)
+```
+:::
+
+>**QUESTION 8a**: What do you conclude from the QQ-plot?
+
+**Homoscedasticity**
+Here we have the same problem as with testing for normality: with such a large sample the `ncvTest()` will produce a significant result for any deviation from homoscedasticity. So we need to rely on plots again. To check for homoscedasticity we can use `plot()` from Base R that will produce a bunch of helpful plots (more information [**here**:](https://www.r-bloggers.com/2016/01/how-to-detect-heteroscedasticity-and-rectify-it/).
+
+> **TASK**: Copy the code chunk below to your script and run it.
+
+```{r eval=FALSE}
+par(mfrow=c(2,2))             # 4 charts in 1 panel
+plot(mod)                     # this may take a few seconds to run
+```
+
+The residuals vs leverage plot shows a flat red line so, whilst it isn’t perfect, we can assume that with such a large sample size regression is still an appropriate analysis.
+
+**Multi-collinearity**
+Finally, lets check for multicollinearity using the `vif()` function. Essentially, this function estimates how much the variance of a coefficient is “inflated” because of linear dependence with other predictors, i.e., that a predictor isn’t actually adding any unique variance to the model, it’s just really strongly related to other predictors. Thankfully, vif is not affected by large samples like the other tests. There are various rules of thumb, but most converge on a VIF of above 2 to 2.5 for any one predictor being problematic.
+
+> **TASK**: Copy the code chunk below to your script and run it.
+
+```{r eval=FALSE}
+vif(mod)                      # Check for multi-collinearity
+```
+
+>**QUESTION 8b**: Do any of the predictors show evidence of multicollinearity?
+
+#### Step 9: Write up
+
+>**QUESTION 9a**: How would you write up the results following APA guidance? You can choose whether you do so for the model using treatment coding or for the model using deviation coding.
+
+## Answers {#sec-wk12-answers}
+
+When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. **Remember**, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. **Actively engaging** with the material is the way to learn these analysis skills, not by looking at someone else's completed code...
+
+<!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
+
+You can download the R-script that includes the relevant code here: [402_wk12_labAct1_withAnswers.R](data/week12/402_wk12_labAct1_withAnswers.R).
+
+### Lab activity 1: Combining a continuous and a categorical predictor in a regression model
+
+2a. In which table is the variable corresponding to sex located and what is this variable called? **In `pinfo`; the variable is called `sex`.**
+
+2b. In what format is the well-being data (long or wide)? On how many participants does it include observations? And on how many items for each participant? **The well-being data are in 'wide' format. It contains observations on 102580 participants, on 14 items.**
+
+2c. What is the name of the variable that identifies individual participants in this dataset? It is important to work this out as this variable will allow us to link information across the three data files. **`Serial`**
+
+3a. Is the distribution of well-being scores symmetrical, negatively skewed or positively skewed? **Negatively skewed**
+
+4a. What are the variables and the levels or conditions within each variable of screen2?
+
+**Participants plus:**
+**Levels:  variables = 4:  watching tv, playing video games, using computers, using smartphone**
+         **day = 2 = weekdays, weekends**
+         **hours = 9 = 0, 0.5, 1 - 7**
+
+4b.  What research question does this plot describe? Is it appropriate for the levels within the data? **The plot describes how hours of use impact upon well-being? No, it is too broad a research question.**
+
+4c.  What research question would fit this visualisation?Is it appropriate for the levels in the data? **The hours are now displayed by weekdays and weekends. How do hours of screen time impact on well-being on weekdays and at the weekend? No, it is still too broad.**
+
+4d.  What does the `facet_wrap()` function do? Is this plot appropriate for the levels in the data? **The `facet_wrap()` function has split the types of screen time and shown how hours of use across weekdays and weekends impact upon well-being. This captures the levels of information within the dataset.**
+
+5a. *See the script*
+
+6a. Write an interpretation of the above plot in plain English. **Something along the lines of: Adolescent girls show lower overall well-being compared to adolescent boys. In addition, the slope for girls appears more negative than that for boys; the one for boys appears relatively flat. This suggests that the negative association between well-being and smartphone use is stronger for girls.**
+
+7a.   What is the p-value for the overall model? Is it significant? What does this mean? **The p-value for the overall model fit is < 2.2e-16. This significant. It means that together the predictors describe the variance in well-being better than a model without the predictors (the null model). So knowing something about smartphone use and sex of participants will allow us to predict their well-being to a degree.**
+
+7b.  To two decimal places, what percentage of the variance in well-being scores does the overall model explain? **9.38%**
+
+7c.   Are the main effects of smartphone use and sex significant? **Yes.**
+
+7d.   Which variable indicates the interaction between smartphone use and sex? **The interaction is indicated by the variable hours_per_day:sex.**
+
+7e.   And is the interaction significant? **Yes.**
+
+7f.   What is the most reasonable interpretation of these results? **Smartphone use was more negatively associated with well-being for girls than for boys.**
+
+7g.   Is being Male better for a person's well-being in the context of smartphone use than being Female? **Yes.**
+
+8a. What do you conclude from the QQ-plot? **The residuals are normally distributed.**
+
+8b. Do any of the predictors show evidence of multicollinearity? **Yes, Boys and the interaction do. We'll talk about that more, later in the module.**
+
+9. Write up
+
+**Treatment / dummy coded model**
+Treatment coding was used for categorical predictors with the Girls level acting as the reference group. The results of the regression indicated that the model significantly predicted well-being (*F*(3, 71029) = 2450.89, *p* < .001, Adjusted R2 = 0.09), accounting for 9% of the variance.Total hours of smart phone use was a significant negative predictor of well-being scores (*β* = -0.77, *p* < .001, as was sex (*β* = 3.22, *p* < .001), with girls having lower well-being scores than boys. Importantly, there was a significant interaction between screen time and sex (*β* = 0.45, *p* < .001): smartphone use was more negatively associated with well-being for girls than for boys.
+
+**Deviation / sum coded model**
+Deviation coding was used for categorical predictors. The results of the regression indicated that the model significantly predicted well-being (*F*(3, 71029) = 2450.89, *p* < .001, Adjusted R2 = 0.09), accounting for 9% of the variance. Total hours of smart phone use was a significant negative predictor of well-being scores (*β* = -0.55, *p* < .001, as was sex (*β* = -1.61, *p* < .001), with girls having lower well-being scores than boys. Importantly, there was a significant interaction between screen time and sex (*β* = -0.22, *p* < .001), indicating that smartphone use was more negatively associated with well-being for girls than for boys.

@@ -1,0 +1,810 @@
+---
+bibliography: references.bib
+---
+
+# Introduction to Ordinal Models {#sec-ordinal-intro}
+
+```{r libraries-hide}
+#| warning: false
+#| echo: false
+library(ggdist)
+library(ggeffects)
+library(here)
+library(lme4)
+library(memisc)
+library(ordinal)
+library(patchwork)
+library(tidyverse)
+library(viridis)
+```
+
+```{r}
+#| label: readin
+#| message: false
+#| echo: false
+# -- Health comprehension (2021-22 student project data):
+health <- read_csv("2021-22_PSYC304-health-comprehension.csv", 
+                                 na = "-999",
+                                 col_types = cols(
+                                   ResponseId = col_factor(),
+                                   rating = col_factor(),
+                                   GENDER = col_factor(),
+                                   EDUCATION = col_factor(),
+                                   ETHNICITY = col_factor(),
+                                   NATIVE.LANGUAGE = col_factor(),
+                                   OTHER.LANGUAGE = col_factor(),
+                                   text.id = col_factor(),
+                                   text.question.id = col_factor(),
+                                   study = col_factor()
+                                 )
+                               )
+
+health.subjects <- health %>% 
+  group_by(ResponseId) %>%
+  mutate(mean.self = mean(as.numeric(rating))) %>%
+  ungroup() %>%
+  distinct(ResponseId, .keep_all = TRUE) %>%
+  select(-c(rating:text.question.id))
+```
+
+## Motivations: working with ordinal outcomes {#sec-ordinal-motivations}
+
+Ordinal data are very common in psychological science. Often, we will encounter ordinal data recorded as responses to Likert-style items in which the participant is asked to indicate a response on an ordered scale ranging between two end points [@bürkner2019; @liddell2018]. An example of a Likert question item might be: *How well do you think you have understood this text? (Please check one response)* where the participant must respond by checking an option, given 5 options ranging from 1 (not well at all) to 5 (very well). The critical characteristics of such responses are that:
+
+-   The responses are ordered, as indicated by the number labels;
+-   Response types are categorical or qualitative, not numeric.
+
+We will be working with study data in which the outcome that is the target for our analyses comprise responses to questions designed to elicit ratings. Ordinal data may, however, also derive from situations in which ordered categorical responses do not derive from ratings items [we will look briefly at sequential responses, @bürkner2019].
+
+The challenge we face is that we will aim to develop skills in using *ordinal models* when, in contrast, most psychological research articles will report analyses of ordinal data using conventional methods like ANOVA or linear regression. We will work to understand why ordinal models are better. We will learn that applying conventional methods to ordinal data will, in principle, involve a poor account of the data and, in practice, will create the risk of producing misleading results. And we will learn how to work with and interpret the results from ordinal models with or without random effects.
+
+In our work in this chapter, we will rely extensively on the ideas set out by @liddell2018, see @sec-ordinal-recommended-reading.
+
+## The key idea to get us started {#sec-ordinal-ideas}
+
+::: callout-important
+Ordinal responses are labelled with numbers but ordinal data are *not* numeric.
+:::
+
+Ordinal responses are coded with numeric labels. These number labels may indicate order but we do not know that the difference between e.g. response options `1` versus `2` is the same as the difference between `2` versus `3` or `3` versus `4`. Ordinal data contrast with *metric* data [@liddell2018] which are recorded on scales for which we assume *both* order and equal intervals. When researchers apply metric models to ordinal data, they incorrectly assume that the response options e.g. in ratings are separated by equal intervals. Yet, in a review of the 68 recently articles that mentioned the term "Likert" in a sample of highly ranked Psychology journals, @liddell2018 found that ordinal data were treated as metric and the articles presented results from metric models.
+
+One way to think about ordinal data is that often (but not always) ratings may be understood to come from psychological processes in which the participant, in response to the Likert question, divides some latent (unobserved) psychological continuum or scale into categories in order to select a response option. 
+
+Imagine, for example, that you have been asked the question "How well do you understand this text? (on a scale from 1-5)". Presumably, to answer this question, you will have to choose a response based on where you think you are on your unobserved measure of your understanding.
+You may be able to evaluate the cohesion, or some other internal measure, of your understanding of the text. Simplifying a bit, we might assume that your internal measure of understanding is associated with a normal probability distribution so that it peaks over some value (e.g., `3`) of the strength of understanding though other values are possible. As @fig-latent-normal-splits suggests, a participant in this common situation will have to map the internal measure (the latent scale, e.g., of understanding) to a number from the response options you are given (e.g., rating scale values ranging 1-5). But there is no reason to suppose that your internal measure of your understanding is divided into an ordered metric scale.
+
+```{r}
+#| label: fig-latent-normal-splits
+#| fig-cap: "A latent scale on the horizontal axis is divided into intervals or bins divided by thresholds marked by dotted lines. The cumulative normal probability in the intervals is the probability of the ordinal values."
+#| fig-alt: "The figure shows a normal curve, split by dotted lines shown at x-axis points labelled 1-5."
+#| warning: false
+#| message: false
+#| echo: false
+#| fig-height: 3.5
+#| fig-width: 6
+ggplot(data = data.frame(x = c(-6, 6)), aes(x)) +
+  stat_function(fun = dnorm, n = 100, 
+                args = list(mean = 0, sd = 1)) + 
+  ylab("") +
+  xlab("Rating scale") +
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(breaks = c(-2, -1.5, 0, 1.5, 2), 
+                     labels = c("1", "2", "3", "4", "5")) +
+  geom_vline(xintercept = c(-2, -1.5, 0, 1.5, 2),
+             linetype = "dotted", 
+             colour = "red") +
+  theme_bw() +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+```
+
+In conducting analyses of ordinal data with ordinal models, we often fit models that describe the cumulative probability that a rating response is located at some value (typically, understood in terms of threshold) on an underlying latent continuum. In ordinal models, we do not assume that the ordinal responses map to equally spaced intervals on the latent scale: the values or thresholds at which the continuum are split are to be estimated.
+
+In applying metric models to ordinal data, we *do* assume that intervals are equal though this assumption is unlikely to be true or, at least, is unlikely to be verifiable. This faulty assumption has consequences because the mis-application of metric models (e.g. ANOVA, linear models) to ordinal data is both commonplace and *risky*. As @liddell2018 demonstrate, mis-applying metric models to ordinal data can result in false positives (detecting a difference when none is present), false negatives (missing a difference that is present) and inversions (swapping the difference so that it appears to be positive instead of negative or vice versa).
+These kinds of misrepresentions cannot be avoided and are not fixed by, for example, averaging ratings scales data together.
+
+## Targets {#sec-ordinal-targets}
+
+1.  Understand practically the reasons for using ordinal models when we analyze ordinal outcome variables, @sec-ordinal-practical-understanding.
+2.  Practice running ordinal models with varying random effects structures.
+3.  Practice reporting the results of ordinal models, including through the use of prediction plots.
+
+## Study guide {#sec-ordinal-study-guide}
+
+I have provided a collection of materials you can use. Here, I explain what they are and how I suggest you use them.
+
+**1. Chapter: 05-ordinal**
+
+1.1. I have written this chapter to discuss the main ideas and set out the practical steps you can follow to start to develop the skills required to work with ordered categorical outcomes i.e. *ordinal data* using ordinal models.
+
+1.2. The practical elements include data tidying, visualization and analysis steps.
+
+1.3. You can read the chapter and run the code to gain experience and encounter code you can adapt for your own purposes.
+
+-   Read in the example dataset.
+-   Experiment with the .R code used to work with the example data.
+-   Run ordinal models of demonstration data.
+-   Run ordinal models of alternate data sets (see links in @sec-ordinal-reporting-results).
+-   Review the recommended readings (@sec-ordinal-recommended-reading).
+
+**2. Practical materials**
+
+2.1 In the following sections, I describe the practical steps, and associated resources, you can use for your learning.
+I set out the data tidying, analysis and visualization steps you can follow, working with the example dataset, described next.
+
+## The data we will work with: {#sec-ordinal-data}
+
+We will be working, at first, with a sample of data collected as part of the **Clearly understood: health comprehension** project (Davies, Ratajczak, Gillings, Chadwick & Gold). These data are unpublished.
+
+### Study information {#sec-ordinal-data-study}
+
+#### Introduction: the background for the study {#sec-ordinal-data-background}
+
+Our interest, in conducting the project, lies in identifying what factors make it easy or difficult to understand written health information. In part, we are concerned about the processes that health providers or clinicians apply to assure the effectiveness of the text they produce to guide patients or carers, for example, in taking medication, in making treatment decisions, or in order to follow therapeutic programmes.
+
+It is common, in the quality assurance process in the production of health information texts, that text producers ask participants in patient review panels to evaluate draft texts. In such reviews, a participant may be asked a question like "How well do you understand this text?" This kind of question presents a metacognitive task: we are asking a participant *to think about their thinking*. But it is unclear that people can do this well or, indeed, what factors determine the responses to such questions [@dunlosky2007].
+
+For these reasons, we conducted studies in which we presented adult participants with sampled health information texts (taken from health service webpages) and, critically, asked them to respond to the question:
+
+-   `How well do you think you have understood this text? (Please check one response)`
+
+For each text, in response to this question, participants were asked to click on one option from an array of response options ranging from (1) `Not well at all` to (9) `Extremely well`. The data we collected in this element of our studies comprise, clearly, *ordinal responses*. Thus, we may use these data to address the following research question.
+
+::: callout-note
+-   What factors predict self-evaluated *rated* understanding of health information.
+:::
+
+#### Participants {#sec-ordinal-data-participants}
+
+We will work with a sample of participant data drawn from a series of Lancaster University undergraduate dissertation studies connected to the **Clearly understood** project. In these studies, we collected data from `r length(health.subjects$ResponseId)` participants on a series of measures (@sec-ordinal-data-materials-procedure) of vocabulary knowledge, health literacy, reading strategy, as well as responses to health information texts. The distributions of participants' scores on each of a range of attribute variables
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-histogram-grid-
+#| fig-cap: "Grid of plots showing the distribution of participant attributes. The grid includes histograms of the distributions of: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); and age (years). We also see dot plots presenting counts of numbers of participants of different self-reported gender, education, and ethnicity categories."
+#| fig-alt: "The figure presents a grid of histograms indicating the distribution of (x-axis) scores on a range of participant attribute variables. The grid includes histograms of the distributions of: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate: (1.) most self-rated accuracy scores are high (over 6); (2.) many participants with vocabulary scores greater than 30, a few present lower scores; (3.) health literacy scores centered on 8 or some, with lower and higher scores; (4.) a skewed distribution of reading strategy scores, with many around 20-40, and a tail of higher scores; (5.) most participants are 20-40 years of age, some older; (6.) many more female than male participants, very few non-binary reported; (7.) many more participants with higher education than further, very few with secondary; and (8.) many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants."
+#| fig-width: 14
+#| fig-height: 10
+
+p.self <- ggplot(data = health.subjects, aes(x = mean.self)) + 
+  geom_histogram(binwidth = 1) +
+  theme_bw() +
+  labs(x = "Self-rated accuracy", y = "frequency count")   
+
+p.shipley <- ggplot(data = health.subjects, aes(x = SHIPLEY)) + 
+  geom_histogram(binwidth = 2) +
+  theme_bw() +
+  labs(x = "Vocabulary (SHIPLEY)", y = "frequency count")   
+
+p.HLVA <- ggplot(data = health.subjects, aes(x = HLVA)) + 
+  geom_histogram(binwidth = 2) +
+  theme_bw() +
+  labs(x = "HLVA", y = "frequency count") 
+
+p.FACTOR3 <- ggplot(data = health.subjects, aes(x = AGE)) + 
+  geom_histogram(binwidth = 5) +
+  theme_bw() +
+  labs(x = "Reading strategy (FACTOR3)", y = "frequency count") 
+
+p.age <- ggplot(data = health.subjects, aes(x = AGE)) + 
+  geom_histogram(binwidth = 5) +
+  theme_bw() +
+  labs(x = "Age (years)", y = "frequency count") 
+
+p.GENDER <- health.subjects %>%
+  mutate(GENDER = fct_recode(GENDER, 
+                             
+            "Prefer-not-to-say" = "prefer-not-to-say"                 
+                             
+                             )) %>%
+  group_by(GENDER) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(GENDER = fct_reorder(GENDER, count)) %>%
+  ggplot(aes(y = GENDER, x = count)) +
+  geom_point(size = 3, aes(colour = GENDER)) +
+  theme_bw() + 
+  labs(y = "Gender", x = "frequency count") 
+
+p.EDUCATION <- health.subjects %>%
+  group_by(EDUCATION) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(EDUCATION = fct_reorder(EDUCATION, count)) %>%
+  ggplot(aes(y = EDUCATION, x = count)) +
+  geom_point(size = 3, aes(colour = EDUCATION)) +
+  theme_bw() + 
+  labs(y = "Education", x = "frequency count") 
+
+p.ETHNICITY <- health.subjects %>%
+  group_by(ETHNICITY) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(ETHNICITY = fct_reorder(ETHNICITY, count)) %>%
+  ggplot(aes(y = ETHNICITY, x = count)) +
+  geom_point(size = 3, aes(colour = ETHNICITY)) +
+  theme_bw() + 
+  labs(y = "Education", x = "frequency count")
+
+p.self + p.shipley + p.HLVA + p.FACTOR3 + p.age + p.GENDER + p.EDUCATION + p.ETHNICITY + 
+  plot_layout(ncol = 3)
+```
+
+The plots indicate:
+
+1.  most self-rated accuracy scores are high (over 6);
+2.  many participants with vocabulary scores greater than 30, a few present lower scores;
+3.  health literacy scores centered on 8 or some, with lower and higher scores;
+4.  a skewed distribution of reading strategy scores, with many around 20-40, and a tail of higher scores;
+5.  most participants are 20-40 years of age, some older;
+6.  many more female than male participants, very few non-binary reported;
+7.  many more participants with higher education than further, very few with secondary;
+8.  and many White participants (*Office of National Statistics* categories), far fewer Asian or Mixed or Black ethnicity participants.
+
+#### Stimulus materials and data collection procedure {#sec-ordinal-data-materials-procedure}
+
+We collected data through an online survey administered through Qualtrics.
+
+We used the Shipley vocabulary sub-test [@shipley2009shipley] to estimate vocabulary knowledge.
+
+We used the Health Literacy Vocabulary Assessment (HLVA, Ratajczak, 2020; adapted for online presentation, Chadwick, 2020) to estimate health literacy.
+
+We used an instrument drawn from unpublished work by Calloway (2019) to assess the approach participants took to reading and understanding written information.
+
+We presented participants with a sample of 20 health information texts. In the data collection process for this dataset, participants were recruited in multiple different studies. In each study, any one participant was presented with a randomly selected subset of the total of 20 texts.
+
+We asked participants to rate their level of understanding of the health-related texts that we presented in the study. We used a nine-point judgment scales because they have been found to outperform alternative scales with fewer categories in terms of criterion validity, internal consistency, test-retest reliability, and discriminating power [@preston2000].
+
+We recorded participants' demographic characteristics: gender (coded: Male, Female, non-binary, prefer not to say); education (coded: Secondary, Further, Higher); and ethnicity (coded: White, Black, Asian, Mixed, Other).
+
+### Locate and download the data file {#sec-ordinal-data-download}
+
+You can download the [2021-22_PSYC304-health-comprehension.csv](files/2021-22_PSYC304-health-comprehension.csv) file holding the data we analyse in this chapter by clicking on the link.
+
+### Read-in the data file using read_csv {#sec-ordinal-data-import}
+
+I am going to assume you have downloaded the data file, and that you know where it is. We use `read_csv` to read the data file into R.
+
+```{r}
+#| label: readin-false
+#| echo: true
+#| eval: false
+health <- read_csv("2021-22_PSYC304-health-comprehension.csv", 
+                                 na = "-999",
+                                 col_types = cols(
+                                   ResponseId = col_factor(),
+                                   rating = col_factor(),
+                                   GENDER = col_factor(),
+                                   EDUCATION = col_factor(),
+                                   ETHNICITY = col_factor(),
+                                   NATIVE.LANGUAGE = col_factor(),
+                                   OTHER.LANGUAGE = col_factor(),
+                                   text.id = col_factor(),
+                                   text.question.id = col_factor(),
+                                   study = col_factor()
+                                 )
+                               )
+```
+
+Notice that we use `col_types = cols(...)` to require `read_csv()` to class some columns as factors.
+
+Importantly, we ask R to treat the `rating` variable as a *factor* with `rating = col_factor()`.
+
+:::callout-tip
+In the practical work we do, we will be using functions from the `{ordinal}` library to model ordinal data.
+
+- In using these functions, we need ask R to treat the ordinal outcome variable as a *factor*.
+:::
+
+### Inspect the data {#sec-ordinal-data-inspect}
+
+It is always a good to inspect what you have got when you read a data file in to R.
+Here, what may most concern us is the distribution of observed responses on the rating scale (responses to the "How well do you understand?" question).
+@fig-rating-dotplots is a dot plot showing the distribution of ratings responses. The Likert-style questions in the surveys asked participants to rate their level of understanding of the texts they saw on a scale from 1 (not well) to 9 (extremely well). The plot shows the number of responses recorded for each response option, over all participants and all texts. 
+
+```{r}
+#| label: fig-rating-dotplots
+#| fig-cap: "Dot plot showing the distribution of ratings responses. The Likert-style questions in the surveys asked participants to rate their level of understanding of the texts they saw on a scale from 1 (not well) to 9 (extremely well). The plot shows the number of responses recorded for each response option, over all participants and all texts."
+#| fig-alt: "The figure presents a dot plot showing the distribution of ratings responses. The plot shows the number of responses recorded for each response option, over all participants and all texts. Points are coloured to distinguish different response options. The plot indicates that most participants rated their understanding very high to most texts, choosing ratings from 5-6 or above."
+#| warning: false
+#| fig-width: 6.5
+#| fig-height: 4.5
+health <- health %>% mutate(rating = fct_relevel(rating, sort))
+
+health %>%
+  group_by(rating) %>%
+  summarise(count = n()) %>%
+  ggplot(aes(x = rating, y = count, colour = rating)) + 
+  geom_point(size = 3) +
+  scale_color_viridis(discrete=TRUE, option = "mako") + theme_bw() +
+  theme(
+    panel.grid.major.y = element_blank()  # No horizontal grid lines
+  ) +
+  coord_flip()
+```
+
+The plot indicates that most participants chose response options 5-9, while very few rated their understanding at the lowest levels (options 1-4).
+Interestingly, many ratings responses around 7-8 were recorded: many more than responses at 5-6.
+
+In analyzing these data, we will seek to estimate what information available to us can be used to predict whether a participant's rating of their understanding is more likely to be, say, `1` or `2`, `2` or `3` ... `7` or `8`, `8` or `9`. 
+
+::: calllout-tip
+One practical way to think about the estimation problem when working with ratings-style ordinal data is this:
+
+- What factors move or how do influential factors move the probability that the ordinal response is a relatively low or relatively high order response option?
+- In doing this, we do not have to assume that rating scale points map to equal sized intervals on the underlying latent scale where the scale may be an unobserved psychological continuum (like understanding).
+:::
+
+Here, we mostly have information on participant attributes and some information on text properties to do our prediction analyses.
+In other studies, we may be using information about experimental conditions, or selected groups of participants to estimate effects on variation in ratings responses.
+
+## Tidy the data {#sec-ordinal-data-tidy}
+
+The **Clearly understood** health comprehension project dataset is tidy (@sec-intro-mixed-data-tidy):
+
+1.  Each variable has its own column.
+2.  Each observation has its own row.
+3.  Each value has its own cell.
+
+However, there are aspects of the data structure or properties of the dataset variables that will cause inefficiencies or problems in later data analysis if we do not fix them first.
+
+You can see what we have if you look at the results we get from using `summary()` and `str()` to inspect the dataset.
+
+```{r}
+summary(health)
+```
+
+You should be used to seeing the `summary()` of a dataset, showing summary statistics of numeric variables and counts of the numbers of observations of data coded at different levels for each categorical or nominal variable classed as a factor.
+
+Using the `str()` function may be new to you and, as you can see, the output from the function call gives you a bit more information on how R interprets the data in the variable columns. 
+You can see that each variable is listed alongside information about how the data in the column are interpreted (as `Factor` or `num` numeric).
+Where we have columns holding information on factors there we see information about the levels.
+
+Recall that for a categorical or nominal variable e.g. `ETHNICITY`, provided R interprets the variable as a factor, each data value in the column is coded as corresponding to one `level` i.e. group or class or category (e.g., we have `ETHNICITY` classes `"Asian"` etc.)
+Recall, also, that at the data read-in stage, we instructed R how we wanted it to interpret each column using `col_types = cols()`.
+
+```{r}
+str(health)
+```
+
+Our specific concern, here, is that the `rating` response variable is treated as a factor because the `{ordinal}` library we are going to use to do the modeling *must* find the outcome variable is a factor.
+
+We can focus `str()` on the `rating` variable.
+We see that it *is* being treated as a factor.
+
+```{r}
+str(health$rating)
+```
+
+However, we also need to make sure that the `rating` outcome variable is being treated as an *ordered* factor.
+
+We can perform a check as follows.
+(I found how to do this [here](https://bookdown.org/Tazinho/Tidyverse-Cookbook/factors.html))
+
+```{r}
+is.ordered(factor(health$rating))
+```
+
+We can see that the variable is not being treated as an ordered factor.
+We need to fix that.
+
+The ordinal model estimates the locations (thresholds) for where to split the latent scale (the continuum underlying the ratings) corresponding to different ratings values.
+If we do not make sure that the outcome factor variable is split as it should be then there is no guarantee that `{ordinal}` functions will estimate the thresholds in the right order (i.e., `1,2,3 ...` rather than `3,2,1...`).
+
+We can make sure that the confidence rating factor is ordered precisely as we wish using the `ordered()` function.
+
+```{r}
+health$rating <- ordered(health$rating,
+                         levels = c("1", "2", "3", "4", "5", "6", "7", "8", "9"))
+
+```
+
+We can then do a check to see that we have got what we want.
+We *do not* want`rating` to be treated as numeric, we *do* want it to be treated as an ordered factor.
+
+```{r}
+is.numeric(health$rating)
+is.factor(health$rating)
+str(health$rating)
+is.ordered(health$rating)
+```
+
+It is.
+
+Next, before doing any modelling, it will be sensible to standardize potential predictors
+
+```{r}
+health <- health %>% 
+  mutate(across(c(AGE, SHIPLEY, HLVA, FACTOR3, RDFKGL), 
+                scale, center = TRUE, scale = TRUE,
+                .names = "z_{.col}"))
+```
+
+You can see that in this chunk of code, we are doing a number of things:
+
+1. `health <- health %>% ` recreates the `health` dataset from the following steps.
+2. `mutate(...)` do an operation which retains the existing variables in the dataset, to change the variables as further detailed.
+3. `across(...)` work with the multple column variables that are named in the `c(AGE, SHIPLEY, HLVA, FACTOR3, RDFKGL)` set.
+4. `...scale, center = TRUE, scale = TRUE...` here is where we do the standardization work.
+
+What we are asking for is that R takes the variables we name and standardizes each of them.
+
+5. `.names = "z_{.col}")` creates the standardized variables under adapted names, adding `z_` to the original column name so that we can distinguish between the standardized and original raw versions of the data columns.
+
+Note that the `across()` function is a useful function for applying a function across multiple column variables [see information here](https://dplyr.tidyverse.org/reference/across.html)
+There is a helpful discussion on how we can do this task [here](https://stackoverflow.com/questions/62714796/standardize-variables-using-dplyr-r)
+
+We can then check that we have produced the standardized variables as required.
+
+```{r}
+summary(health)
+```
+
+## Working with Cumulative Link Models in R {#sec-ordinal-working-models-clm}
+
+In our first analysis, we can begin by assuming no random effects.
+We keep things simple at this point so that we can focus on the key changes in model coding.
+
+The model is conducted to examine what shapes the variation in `rating` responses that we see in @fig-rating-dotplots.
+
+::: callout-note
+-   What factors predict self-evaluated *rated* understanding of health information.
+:::
+
+In our analysis, the outcome variable is the ordinal response variable `rating`.
+The predictors consist of the variables we standardized earlier.
+We use the `clm()` function from the `{ordinal}` library to do the analysis.
+I will give information in outline here, the interested reader can see more detailed information in @christensen2022 and @christensen2015.
+You can also find the manual for the `{ordinal}` library functions [here](https://cran.r-project.org/web/packages/ordinal/index.html)
+
+We code the model as follows.
+
+```{r}
+#| eval: false
+health.clm <- clm(rating ~
+                    
+                    z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL,
+                  
+                  Hess = TRUE, link = "logit",
+                  data = health)
+
+summary(health.clm)
+```
+
+The code works as follows.
+
+First, we have a chunk of code mostly similar to what we have done before, but changing the function.
+
+-   `clm()` the function name changes because now we want a *cumulative link* model of the ordinal responses.
+
+The model specification includes information about the fixed effects, the predictors: `z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL`.
+
+Second, we have the bit that is specific to *cumulative link* models fitted using the `clm()` function.
+
+-   `Hess = TRUE` is required if we want to get a summary of the model fit; the default is `TRUE` but it is worth being explicit about it.
+- `link = "logit"` specifies that we want to model the ordinal responses in terms of the log odds (hence, the probability) that a response is a low or a high rating value (compare @sec-glmm-practical-understanding).
+
+### Read the results {#sec-ordinal-results-clm}
+
+If you run the model code, it may take a few seconds to run.
+Then you will get the results shown in the output.
+
+```{r}
+#| echo: false
+health.clm <- clm(rating ~
+                    
+                    z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL,
+                  
+                  Hess = TRUE, link = "logit",
+                  data = health)
+
+summary(health.clm)
+```
+
+The `summary()` output for the model is similar to the outputs you have seen for other model types.
+
+1. We first get `formula:` information about the model you have specified.
+2. R will tell us what `data:` we are working with.
+3. We then get `Coefficients:` estimates.
+
+The table summary of coefficients arranges information in ways that will be familiar you:
+
+- For each predictor variable, we see 'Estimate, Std. Error, z value, and Pr(>|z|)` statistics.
+- The `Pr(>|z|)` p-values are based on Wald tests of the null hypothesis that a predictor has null impact.
+- The coefficient estimates can be interpreted based on whether they are positive or negative.
+
+A positive coefficient estimate indicates that higher values of the predictor variable are associated with greater probability of higher rating values.
+A negative coefficient estimate indicates that higher values of the predictor variable are associated with greater probability of lower rating values.
+
+4. We then get `Threshold coefficients:` indicating where the model fitted estimates the threshold locations: where the latent scale is cut, corresponding to different rating values.
+
+::: callout-tip
+In reporting ordinal (e.g., cumulative link) models, we typically focus on the coefficient estimates for the predictor variables.
+:::
+
+## Working with Cumulative Link Mixed-effects Models in R {#sec-ordinal-working-models-clmm}
+
+In our analysis, we begn by assuming no random effects.
+However, this is unlikely to be appropriate given the data collection process deployed in the **Clearly understood** projects, where:
+
+- a sample of participants were asked to respond to a sample of texts;
+- we have multiple observations of responses for each participant;
+- we have multiple observations of responses for each stimulus text;
+- participants were assigned to groups, and within a group all participants were asked to respond to the same stimulus texts.
+
+These features ensure that the data have a *multilevel* structure and this structure requires us to fit a *Cumulative Link Mixed-effects Model* (CLMM).
+
+We keep things simple at this point so that we can focus on the key changes in model coding.
+We can code a Cumulative Link Mixed-effects Model as follows.
+
+```{r}
+#| eval: false
+health.clmm <- clmm(rating ~
+                      
+                      z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
+                      
+                      (1|ResponseId),
+                    
+                    Hess = TRUE, link = "logit",
+                    data = health)
+
+summary(health.clmm)
+```
+
+If you inspect the code chunk, you can see that we have made two changes.
+
+First, we have changed the function.
+
+-   `clmm()` the function name changes because now we want a Cumulative Linear *Mixed-effects Model*.
+
+Secondly, the model specification includes information about fixed effects and *now about random effects*.
+
+-   With `(1 | Participant)` we include random effects of participants on on intercepts.
+
+### Read the results {#sec-ordinal-results-clmm}
+
+If you run the model code, you will see that the model may take several seconds, possibly a minute or two to complete.
+We will then get the results shown in the output.
+
+```{r}
+#| echo: false
+#| cache: true
+health.clmm <- clmm(rating ~
+                      
+                      z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
+                      
+                      (1|ResponseId),
+                    
+                    Hess = TRUE, link = "logit",
+                    data = health)
+
+summary(health.clmm)
+```
+
+You can see that the output summary presents the same structure.
+If you compare the output you see in @sec-ordinal-results-clm, however, you will notice some similarities and some differences:
+
+- If you focus first on the estimates of the coefficients for the predictor variables, you will see that the estimates have the same sign (positive or negative) as they had before.
+- However, you will see that the estimates have different magnitudes.
+- You will also see that the p-values are different.
+
+Students often focus on p-values in reading model summaries. This is mistaken for multiple reasons. 
+The p-values correspond to the probabilities associated with the null hypothesis significance test: the test of the hypothesis that the effect of the predictor is *null* (i.e. the predictor has no impact).
+This null assumption is made whichever model we are looking at. The p-values *do not* indicate whether an effect is more or less probable. 
+But you *do* get such posterior probabilities in Bayesian analyses. 
+So it does not really mean much, though it is common, to talk about effects being *highly* significant.
+Thus it should not worry us too much if the p-values are significant in one analysis but not significant in another.
+
+That said, it *is* interesting, perhaps, that once we include random effects of participants on intercepts in our analysis then the effects of `z_AGE` and `z_HLVA` are no longer significant.
+I would be tempted to ask if the previously significant effects of these variables owed their impact to random differences between participants in their average or overall level of rating response.
+
+### Presenting and visualizing the effects {#sec-ordinal-visualizing}
+
+It will be helpful for the interpretation of the estimates of the coefficients of these predictor variables if we visualize the predictions we can make, about how `rating` values vary, given differences in predictor variable values, given our model estimates.
+We can do this using functions from the `{ggeffects}` library.
+You can read more about the `{ggeffects}` library [here](https://strengejacke.github.io/ggeffects/index.html) where you will see a collection of articles explaining what you can do, and why, as well as technical information including some helpful tutorials.
+
+The basic model prediction coding looks like this.
+
+```{r}
+#| eval: false
+dat <- ggpredict(health.clmm, terms="z_FACTOR3 [all]")
+plot(dat)
+```
+
+@fig-rating-clmm-factor3-predictions shows you the marginal effect of variation in the reading strategy attribute, i.e., the effect of differences between individuals in how they score on the `FACTOR3` measure of reading strategy.
+Note that the variable is listed as `z_FACTOR3` because, as you will recall, we standardized numeric predictor variables before entering them in our model.
+
+These kinds of plots are understood to present what are variously called conditional effects, or adjusted predictions or marginal effects.
+You can find a discussion of marginal effects in the context of working with the `{ggeffects}` library [here](https://strengejacke.github.io/ggeffects/articles/ggeffects.html) and [here](https://strengejacke.github.io/ggeffects/articles/introduction_marginal_effects.html).
+You can find an extensive, helpful (with examples) discussion of marginal effects by Andrew Heiss [here](https://www.andrewheiss.com/blog/2022/05/20/marginalia/).
+
+In short, what we want to do is to take the model coefficient estimates, and generate predictions with these estimates, given different values of the predictor variable, while holding the other predictor variables at some constant or some level (or some series of values).
+
+If you look at the code chunk, you can see that we first:
+
+```{r}
+#| eval: false
+dat <- ggpredict(health.clmm, terms="z_FACTOR3 [all]")
+```
+
+- In this line, we use `ggpredict()` to work with some model information, assuming we previously fitted a model and gave it a name (here, `health.clmm`).
+
+Note that if you fit the model and call it `health.clmm`, as we did in @sec-ordinal-working-models-clmm, then an object of that name is created in the R workspace or environment.
+If you click on that object name in the environment window in R-Studio, you will see that there is a list of pieces of information about the model, including the coefficient estimates, the model formula etc. associated with that name.
+
+- So when we use `ggpredict()`, we ask R to take that model information and, for the term we specify, here, specify using `terms="z_FACTOR3 [all]"`, we ask R to generate some predictions.
+- `dat <- ggpredict(...)` asks R to put those predictions in an object called `dat`.
+
+If you click on that object name in the environment window in R-Studio, you will see that it comprises a dataset.
+The dataset includes the columns:
+
+- `x` giving different values of the predictor variable. `ggpredict()` will choose some 'representative' values for you but you can construct a set of values of the predictor for which you want predictions.
+- `predicted` holds predicted values, given different predictor `x` values.
+
+If you then run the line `plot(dat)` you can see what this gets us for these kinds of models.
+@fig-rating-clmm-factor3-predictions presents a grid of plots showing the model-predicted probabilities that a rating response will have one value for each of the 1-9 rating response values that are possible given the Likert rating scale used in data collection.
+In the grid, a different plot is shown for each possible response value, indicating how the probability varies that the rating response will take that value.
+
+```{r}
+#| label: fig-rating-clmm-factor3-predictions
+#| fig-cap: "A grid of plots showing marginal or conditional predicted probabilities that a rating response will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable."
+#| fig-alt: "The figure presents a grid of plots showing marginal or conditional -- adjusted prediction values -- predicted ratings and how they vary given variation in values of the standardized reading strategy (FACTOR3) variable. We can see flat lines for plots corresponding to predictions concerning response options 1-4, suggesting little probability that a rating response will take one of these values. We see norml curves for plots corresponding to predictions concerning response options 5-9, suggesting how the probability that a response will take one of these values may rise and then fall, depending on the FACTOR3 score a person has. The plots suggest that for higher FACTOR3 scores the probability increases that a rating response will have a higher value."
+#| warning: false
+#| fig-width: 5
+#| fig-height: 5
+dat <- ggpredict(health.clmm, terms="z_FACTOR3 [all]")
+plot(dat)
+```
+
+If you examine @fig-rating-clmm-factor3-predictions, you can recognize that we have one plot for each different value of the response options available for the Likert-scale `rating` items: 1-9.
+You can also see that in each plot we get a curve.
+In some cases -- for `rating` response values `1-4` -- the curve is flat or flattens very quickly, for higher levels of the `z_FACTOR3` variable.
+In some cases -- for `rating` response values `5-9` -- the curve is more obvious, and resembles a normal distribution curve.
+
+If you think about it, what these plots indicate are the ways in which the probability that a `rating` response is a low value (e.g., a  rating of `1`) or a high value (e.g., a  rating of `9`) rises or falls.
+Each possible `rating` response is associated with a probability distribution.
+For example, look at the plot labelled `6`: that shows you the probability distribution indicating how the probability varies that a response will take the value `6`.
+We can see that the distribution is normal in shape, a bell-shaped curve.
+We can see that the peak of the curve is over the `z_FACTOR3` score (shown on the x-axis) of about 1.5.
+We can see that the probability represented by the height of the line showing the curve is lower for `z_FACTOR3` scores lower than the score under the peak (e.g. scores less than `z_FACTOR3` $=2$).
+The probability represented by the height of the line showing the curve is lower for `z_FACTOR3` scores higher than the score under the peak (e.g. scores greater than `z_FACTOR3` $=1$).
+
+We can see that the peak of the normal curve, in the case of `rating` response values `5-9`, is located at different places on the horizontal axis.
+Look at each of the plots labelled `5-9`.
+Notice how the horizontal location of the curves *shifts* as `z_FACTOR3` scores increase.
+If you go from left to right, i.e. from low to high values of `z_FACTOR3`, on each plot then you will see that the peak of the curve is located in different places: going from plot `5` to plot `9` the peak of the curve moves *rightwards*.
+These curves show how the probability that a `rating` response takes a high value (e.g. `9` instead of `8` or `8` instead of `7` etc.) is *higher* for *higher* values of `z_FACTOR3`.
+This idea might be a bit clearer if we draw the plot in a different way.
+
+@fig-rating-clmm-factor3-predictions-fancy shows the same model predictions but plots the predictions of the way that probability changes, for each `rating` response, by superimposing the plots for each response value, one on top of the other.
+I have drawn each probability curve in a different colour, and these colours match those used to present the counts of different response values shown in @fig-rating-dotplots.
+
+```{r}
+#| label: fig-rating-clmm-factor3-predictions-fancy
+#| fig-cap: "A plot showing marginal or conditional predicted probabilities that a rating response will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable"
+#| fig-alt: "The figure presents a plot showing marginal or conditional predicted probabilities that a rating rating will have one value (among the 1-9 rating values possible), indicating how these predicted probabilities vary given variation in values of the standardized reading strategy (FACTOR3) variable. We can see flat lines for plots corresponding to predictions concerning response options 1-4, suggesting little probability that a rating response will take one of these values. We see norml curves for plots corresponding to predictions concerning response options 5-9, suggesting how the probability that a response will take one of these values may rise and then fall, depending on the FACTOR3 score a person has. The plots suggest that for higher FACTOR3 scores the probability increases that a rating response will have a higher value."
+#| warning: false
+#| fig-width: 6
+#| fig-height: 5
+dat <- ggpredict(health.clmm, terms="z_FACTOR3 [all]")
+ggplot(dat, aes(x, predicted, 
+                colour = response.level)) + 
+  geom_line(size = 1.5) +
+  scale_color_viridis(discrete=TRUE, option = "mako") + 
+  labs(x = "Reading strategy (z_FACTOR3)", y = "Predicted probability of a rating") +
+  guides(colour = guide_legend(title = "Rating")) +
+  ylim(0, 1) +
+  theme_bw()
+```
+
+You can read @fig-rating-clmm-factor3-predictions-fancy by observing that:
+
+- For low value ratings e.g. for `rating` responses from 1-4, there is not much predicted probability that a response with such a value will be made (flat lines) but if they are going to be made they are likely to be made by people with low scores on the `z_FACTOR3`.
+
+You can see this because you can see how the curves peak around low values of `z_FACTOR3`.
+This should make sense: people with low scores on reading strategy are maybe not doing reading effectively, are maybe as a result not doing well in understanding the texts they are given to read, and thus are not confident about their understanding.
+(This is a speculative causal theory but it will suffice for now.)
+
+Recall, also, that as @fig-rating-dotplots indicated, in the **Clearly understood** health comprehension dataset, we saw that few `rating` responses were recorded for low value ratings of understanding.
+Few people in our sample made rating responses by choosing ratings of `1` or `2` to indicate low levels of understanding.
+
+@fig-rating-clmm-factor3-predictions-fancy also suggests that:
+
+- For higher value `rating` responses -- responses representing ratings from `5` to `9` -- there is variation in the probability that responses with such values will be made.
+- That variation in probability is shown by the probability distribution curves.
+- For these data, and this model, we can see that the probability shifts suggesting that participants in our sample were more likely to choose a higher value rating if they were also presenting high scores on the `z_FACTOR3` measure of reading strategy.
+
+## Reporting model results {#sec-ordinal-reporting-results}
+
+As the review reported by @liddell2018 suggests, we may have many many studies in which ordinal outcome data are analysed but very few published research reports that present analyses of *ordinal data* using *ordinal models*.
+
+You can see two examples in the papers published by @ricketts2021 and by @rodríguez-ferreiro2020a.
+These papers are both published open accessible, so that they are freely available, and they are both associated with accessible data repositories.
+
+- You can find the repository for @ricketts2021 [here](https://osf.io/76ev2/).
+- You can find the repository for @rodríguez-ferreiro2020a [here](https://osf.io/e5gzk/?view_only=038118528c7c426c9729983f54138c88).
+
+The @rodríguez-ferreiro2020a shares a data .csv only.
+
+The @ricketts2021 repository shares data and analysis code as well as a fairly detailed guide to the analysis methods.
+Note that the core analysis approach taken in @ricketts2021 is based on Bayesian methods but that we also conduct `clmm()` models using the `{ordinal}` library functions discussed here; these models are labelled *frequentist* models and can be found under *sensitivity analyses*.
+
+For what it's worth, the @ricketts2021 is much more representative of the analysis approach I would recommend now.
+
+Whatever the specifics of your research question, dataset, analysis approach or model choices, I would recommend the following for your results report.
+
+1. Explain the model -- the advice extended by @meteyard2020a still apply: the reader will need to know:
+
+- The identity of the outcome and predictor variables;
+- The reason why you are using an ordinal approach, explaining the *ordinal* (ordered, categorical) nature of the outcome;
+- The structure of the fixed effects part of the model, i.e. the effects, in what form (main effects, interactions) you are seeking to estimate;
+- And the structure of the random effects part of the model, i.e. what grouping variable (participants? items?), whether they encompass random intercepts or random slopes or covariances.
+
+You can report or indicate some of this information by presenting a table summary of the effects estimated in your model [e.g., see Table 5, @rodríguez-ferreiro2020a; see tables 2 and 3, @ricketts2021].
+Journal formatting restrictions or other conventions may limit what information you can present.
+
+Notice that I do not present information on threshold estimates.
+
+2. Explain the results -- I prefer to *show and tell*. 
+
+- Present conditional or marginal effects plots [see figures 2 and 3, @ricketts2021] to indicate the predictions you can make given your model estimates.
+- And explain what the estimates or what the prediction plots appear to show.
+
+## Extensions {#sec-ordinal-extensions}
+
+### Different kinds of ordinal data {#sec-ordinal-kinds}
+
+As I hint, when we discuss the concept that ordinal responses may map somehow to a latent unobserved underlying continuum (see @fig-latent-normal-splits), there are other ways to think about ordinal data.
+Rather, there are other ways to think about the psychological mechanisms or the *data generating mechanisms* that give rise to the ordinal responses we analyse.
+
+In @ricketts2021, we explain:
+
+> In the semantic post-test, participants worked their way through three steps, only progressing from one step to the next step if they provided an incorrect response or no response. Given the sequential nature of this task, we analysed data using sequential ratio ordinal models (Bürkner & Vuorre, 2019). In sequential models, we account for variation in the probability that a response falls into one response category (out of k ordered categories), equal to the probability that it did not fall into one of the foregoing categories, given the linear sum of predictors. We estimate the k-1 thresholds and the coefficients of the predictors. 
+
+What this explanation refers to is the fact that, in our study:
+
+> The semantic post-test assessed knowledge for the meanings of newly trained words. We took a dynamic assessment or cuing hierarchy approach (Hasson & Joffe, 2007), providing children with increasing support to capture partial knowledge and the incremental nature of acquiring such knowledge (Dale, 1965). Each word was taken one at a time and children were given the op- portunity to demonstrate knowledge in three steps: definition, cued definition, recognition.
+
+We follow advice set out by @bürkner2019 in modeling the ordered categorical (i.e. ordinal) responses using a sequential ratio approach.
+
+## Richly parameterized mixed-effects models
+
+You will have noticed that the mixed-effects model coded in @sec-ordinal-working-models-clmm incorporates a relatively simple random effect: a term specified to estimate the variance associated with the random effect of differences between participants in intercepts.
+
+As we we have seen, more complex random effects structures may be warranted [@Baayen2008, @bates2015parsimonious, @Barr2013a and @matuschek2017].
+When we attempt to fit models with more complex structures, as we have discussed, for example, in @sec-dev-mixed-convergence-problems and @sec-glmm-bad-signs, we may run into *convergence* problems.
+(Such convergence problems are one reason why I tend to favour Bayesian methods; see, for exampe, the discussions in @bürkner2019 and @liddell2018.)
+There are ways to resolve these problems by changing the control parameters of the `{ordinal}` functions (see e.g. [this discussion](https://stat.ethz.ch/pipermail/r-sig-mixed-models/2011q2/016165.html) or see the information [here](https://cran.r-project.org/web/packages/ordinal/ordinal.pdf)) or by simplfying the model.
+
+## Summary {#sec-ordinal-summary}
+
+We discussed ordinal data and the reasons why we are motivated to analyze ordinal data using ordinal models.
+
+We examine the coding required to fit ordinal models.
+
+We look at the results outputs from ordinal models, and visualizations representing the predictions that can be generated given ordinal model estimates.
+
+We consider the kinds of information that results reports should include.
+
+We examine possible extensions to ordinal models.
+
+### Glossary: useful functions {#sec-ordinal-glossary-useful-functions}
+
+We used two functions from the `{ordinal}` library to fit and evaluate ordinal models.
+
+-   We used `clm()` to fit an ordinal model without random effects.
+-   We used `clmm()` to fit an ordinal mixed-effects model with fixed effects and random effects.
+
+## Recommended reading {#sec-ordinal-recommended-reading}
+
+The published example studies referred to in this chapter are published in [@ricketts2021; @rodríguez-ferreiro2020a].
+
+@liddell2018 present a clear account of the problems associated with treating ordinal data as metric, and explain how we can better account for ordinal data.
+
+@bürkner2019 present a clear tutorial on cumulative and sequential ratio models.
+
+Both @liddell2018 and @bürkner2019 work from a Bayesian perspective but the insights are generally applicable.
+
+Guides to the `{ordinal}` model functions `clm()` and `clmm()` are presented in [@christensen2022; @christensen2015].

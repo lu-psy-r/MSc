@@ -15,7 +15,7 @@ back-to-top-navigation: false
 Welcome
 :::
 
-Here we have some filler text that explains the psyc401, psyc402 structure or whatever - maybe highlight who is the PG director or something. Honestly though, right now this is filler text for an example. We don't even need it. Well we will add to it later.
+Here we have some filler text that explains the psyc401, psyc402 structure or whatever - maybe highlight who is the PG director or something. Honestly though, right now this is filler text for an example. We don't even need it.
 
 ```{=html}
 

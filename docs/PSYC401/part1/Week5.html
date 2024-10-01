@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5. Testing differences between groups – Statistics for Psychologists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../PSYC401/part2/ecosystem.html" rel="next">
+<link href="../../PSYC401/part1/Week4.html" rel="prev">
+<link href="../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="https://lu-psy-r.github.io/">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC401/part1/Week1.html">PSYC401</a></li><li class="breadcrumb-item"><a href="../../PSYC401/part1/Week5.html">5. Testing differences between groups</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">PSYC401</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Introducing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Manipulating data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Drawing graphs from data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Testing nominal data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5. Testing differences between groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R knowledge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How you can do it</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/hypotheses-associations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hypotheses and associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reasons why we do the research report assignment: What you will learn</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/knowledge-ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The R knowledge ecosystem and how to help yourself</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/lm-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Developing the linear model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/lm-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to the linear model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/report-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The research report assignment: Outline introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/visualization-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/what.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What you have to do</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">PSYC402</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Recap of the linear model and practising data-wrangling in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. More on interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Logistic regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Poisson regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/01-multilevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to multilevel data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/02-mixed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to linear mixed-effects models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/03-mixed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Developing linear mixed-effects models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/04-glmm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Generalized Linear Mixed-effects Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/05-ordinal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Ordinal Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: the why</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/knowledge-ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R knowledge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/LICENSE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LICENSE</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/what.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#part-1-revision" id="toc-part-1-revision" class="nav-link" data-scroll-target="#part-1-revision">Part 1: Revision</a>
+  <ul class="collapse">
+  <li><a href="#task-1-checklist-what-i-can-now-do" id="toc-task-1-checklist-what-i-can-now-do" class="nav-link" data-scroll-target="#task-1-checklist-what-i-can-now-do">Task 1: Checklist: What I can now do</a></li>
+  </ul></li>
+  <li><a href="#part-2-running-an-independent-t-test" id="toc-part-2-running-an-independent-t-test" class="nav-link" data-scroll-target="#part-2-running-an-independent-t-test">Part 2: Running an independent t-test</a>
+  <ul class="collapse">
+  <li><a href="#task-2-load-prepare-and-explore-the-data" id="toc-task-2-load-prepare-and-explore-the-data" class="nav-link" data-scroll-target="#task-2-load-prepare-and-explore-the-data">Task 2: Load, prepare, and explore the data</a></li>
+  <li><a href="#task-3-run-the-independent-t-test-and-measure-effect-size" id="toc-task-3-run-the-independent-t-test-and-measure-effect-size" class="nav-link" data-scroll-target="#task-3-run-the-independent-t-test-and-measure-effect-size">Task 3: Run the independent t-test and measure effect size</a></li>
+  <li><a href="#task-4-practise-running-another-independent-t-test" id="toc-task-4-practise-running-another-independent-t-test" class="nav-link" data-scroll-target="#task-4-practise-running-another-independent-t-test">Task 4: Practise running another independent t-test</a></li>
+  </ul></li>
+  <li><a href="#part-4-more-practise-running-a-paired-t-test" id="toc-part-4-more-practise-running-a-paired-t-test" class="nav-link" data-scroll-target="#part-4-more-practise-running-a-paired-t-test">Part 4: More practise running a paired t-test</a></li>
+  <li><a href="#part-5-extras" id="toc-part-5-extras" class="nav-link" data-scroll-target="#part-5-extras">Part 5: Extras</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC401/part1/Week1.html">PSYC401</a></li><li class="breadcrumb-item"><a href="../../PSYC401/part1/Week5.html">5. Testing differences between groups</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">5. Testing differences between groups</h1>
+<p class="subtitle lead">Written by Padraic Monaghan</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="preparation" class="level1">
+<h1>Preparation</h1>
+<ul>
+<li><p>Watch Lecture <a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2007173">week5 part 1</a>, <a href="ppt/wk5/PSYC401 Lecture week5 p1.pptx">slides here</a></p></li>
+<li><p><a href="https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2007174">Part 2</a>, <a href="ppt/wk5/PSYC401 Lecture week5 p2.pptx">slides here</a>. Please note I say week 6 in the lectures, but I mean week 5. Sorry about that! It is week 5, be assured.</p></li>
+<li><p>Take <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921449">the quiz</a> (not assessed) on the lecture materials.</p></li>
+<li><p>Work through the materials below.</p></li>
+<li><p>Attend the practical.</p></li>
+<li><p>Pop into the drop in (optional). Please note this is in Levy Lab - do come along with any questions at all on the workbooks so far.</p></li>
+<li><p>Optionally, if you can give us your (anonymised) <a href="https://modules.lancaster.ac.uk/mod/feedback/view.php?id=1921451">feedback</a> on how the course is going from your perspective, that would be very welcome.</p></li>
+<li><p>Also optionally, read the articles on the importance of statistical understanding and insights from good data visualisation.</p>
+<ul>
+<li><a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=2007180">How scientists can be better at statistics</a></li>
+<li><a href="https://modules.lancaster.ac.uk/mod/url/view.php?id=2007186">Florence Nightingale and data visualisation</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="part-1-revision" class="level1">
+<h1>Part 1: Revision</h1>
+<section id="task-1-checklist-what-i-can-now-do" class="level2">
+<h2 class="anchored" data-anchor-id="task-1-checklist-what-i-can-now-do">Task 1: Checklist: What I can now do</h2>
+<p>You should be able to answer yes to all the following. If you can’t yet, go back to the previous workbooks and repeat your working until you can answer yes, being able to type in and run the commands without referring to your notes.</p>
+<ol type="1">
+<li><p>I can open R-studio</p></li>
+<li><p>I can open new libraries using <code>library()</code></p></li>
+<li><p>I can make an R script file</p></li>
+<li><p>I can input a file into an object in R-studio using <code>read_csv()</code></p></li>
+<li><p>I can join two files together using <code>inner_join()</code></p></li>
+<li><p>I can select certain variables from an object using <code>select()</code></p></li>
+<li><p>I can select subsets of data using <code>filter()</code> (e.g., I can select participants in two conditions from a data set containing participants in four conditions)</p></li>
+<li><p>I can make new variables using <code>mutate()</code></p></li>
+<li><p>I can arrange data according to subsets using <code>group_by()</code></p></li>
+<li><p>I can change format of data from wide to long format using <code>pivot_longer</code></p></li>
+<li><p>I can change format of data from long to wide format using <code>pivot_wider</code></p></li>
+<li><p>I can produce summaries of means and standard deviations for subsets of data after applying <code>group_by()</code> using <code>summarise()</code></p></li>
+<li><p>I can draw histograms of single variables, point plots of two ratio/interval/ordinal variables, bar plots of counts, and box plots of one categorical and one ratio/interval/ordinal variable using <code>ggplot()</code></p></li>
+<li><p>I can run a Chi-squared test and Cramer’s V test using <code>chisq.test()</code> and <code>cramersV()</code></p></li>
+<li><p>I can interpret the results of a Chi-squared test and Cramer’s V test and write up a simple report of the results.</p></li>
+<li><p>I can save an R script file.</p></li>
+</ol>
+</section>
+</section>
+<section id="part-2-running-an-independent-t-test" class="level1">
+<h1>Part 2: Running an independent t-test</h1>
+<section id="task-2-load-prepare-and-explore-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="task-2-load-prepare-and-explore-the-data">Task 2: Load, prepare, and explore the data</h2>
+<ol start="17" type="1">
+<li><p>Clear out R using <code>rm(list=ls())</code></p></li>
+<li><p>Load again the data set on the Shipley and Gent vocabulary scores.</p></li>
+<li><p>Set the research question: do people who self-identify as male or female have different scores on the Gent vocabulary test? The research hypothesis is: “People who identify as male or female have different vocabulary scores”. What is the null hypothesis?</p></li>
+<li><p>To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a subset of the data (note that the <code>|</code> stands for “or”, and means Gender matches male or gender matches female:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(<span class="at">.data =</span> dat, Gender <span class="sc">==</span> <span class="st">'Male'</span> <span class="sc">|</span> Gender <span class="sc">==</span> <span class="st">'Female'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="21" type="1">
+<li><p>Draw a box plot of Gent vocabulary test 1 scores by gender. For a box plot, note that we need data in “long format”, where each observation is on one line, and we have a column that indicates which condition (in this case Gender) the participant is in. Does it look like there might be a gender effect? What is the direction of the effect?</p></li>
+<li><p>Note that unless we had filtered the data, the box plot would contain ‘NA’ as well, which stands for missing data. In a data set it’s always a good idea to call missing data ‘NA’ rather than just leaving them blank because this could be interpreted as a zero or as an error of filling in data. Missing values make things untidy, so it’s good practice to focus only on the variables we need for the t-test and remove all other missing values. Use <code>select()</code> to get just the Gender and Gent_1_score variables, and put this in a new object called ‘dat3’.</p></li>
+<li><p>Next, in order to run a t-test we have to remove any rows of data which contain a ‘NA’ - either in the Gender or the Gent_1_score variables. We do this using <code>drop_na(dat3)</code>, put the result in a new object called ‘dat4’. Run this command:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="24" type="1">
+<li><p>Now, redraw the box plot from Step 21. Check there are just two groups.</p></li>
+<li><p>Compute mean and SDs for people who self-identify as male or female on Gent vocabulary test 1 scores.</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use <code>group_by()</code> and <code>summarise()</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="task-3-run-the-independent-t-test-and-measure-effect-size" class="level2">
+<h2 class="anchored" data-anchor-id="task-3-run-the-independent-t-test-and-measure-effect-size">Task 3: Run the independent t-test and measure effect size</h2>
+<ol start="26" type="1">
+<li>Conduct an independent t-test using this command:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">data =</span> dat5 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>‘Gent_1_score ~ Gender’ : the ~ can be interpreted as ‘by’, i.e., compute Gent_1_score by Gender</li>
+<li>‘paired = FALSE’ : this means we are doing an independent t-test (a paired t-test would have paired = TRUE)</li>
+</ul>
+<ol start="27" type="1">
+<li>The results should look like this, do yours?</li>
+</ol>
+<pre><code>Welch Two Sample t-test
+
+data:  Gent_1_score by Gender
+t = -1.7356, df = 62.409, p-value = 0.08756
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  -10.0862020   0.7105407
+sample estimates:
+  mean in group Female   mean in group Male 
+57.57407             62.26190 </code></pre>
+<ol start="28" type="1">
+<li>The key part of the results to look at is the one that has t = -1.7356, df = 62.409, p-value = 0.08756. This is the result that you report: t(62.41) = -1.74, p = .088.</li>
+</ol>
+<p>The value is negative because the function includes Female before Male - and Female score is lower than Male score. What matters is how far away from zero the t-test is (either positively or negatively). The df value is slightly odd because the t.test() function figures out degrees of freedom in a technical way which takes into account differences in variance in the data between the two groups. We can just use the value that the <code>t.test()</code> function gives us.</p>
+<ol start="29" type="1">
+<li><p>Is this a significant difference?</p></li>
+<li><p>Now we need to compute the effect size, using Cohen’s d.&nbsp;You need to load the library lsr then use this command:</p></li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>It’s pretty much the same as the t-test() command except that we use ‘method = ’unequal’ instead of ‘paired = FALSE’. For a paired t-test you would use ‘method = ’paired’</li>
+</ul>
+<ol start="31" type="1">
+<li><p>What is the effect size? Make a brief report of the results - reporting means and SDs, the t-test, p-value, and Cohen’s d.&nbsp;Discuss your brief report in your group.</p></li>
+<li><p>Make sure all commands are in the source window, save them as a new R script file.</p></li>
+</ol>
+</section>
+<section id="task-4-practise-running-another-independent-t-test" class="level2">
+<h2 class="anchored" data-anchor-id="task-4-practise-running-another-independent-t-test">Task 4: Practise running another independent t-test</h2>
+<ol start="33" type="1">
+<li><p>Next research question: do people who are native English speakers have different vocabulary scores than those who learned English as a second language? What is the research hypothesis and the null hypothesis?</p></li>
+<li><p>Repeat the Steps 22-30 in Tasks 2 and 3 except using english_status in place of Gender throughout.</p></li>
+<li><p>Write a brief report of the results, including means and SDs for native speakers and ESL speakers, t-test, p-value, and Cohen’s d.&nbsp;Discuss your report in your group.</p></li>
+<li><p>Save your R script file.</p></li>
+</ol>
+<p>Part 3: Conducting a paired t-test</p>
+<p>Task 5: Conducting a paired t-test</p>
+<ol start="37" type="1">
+<li><p>Clear out R-studio before we get started again using <code>rm(list=ls())</code></p></li>
+<li><p>We are going to investigate again the data from this paper: Woodworth, R.J., O’Brien-Malone, A., Diamond, M.R. and Schuez, B., 2018. Data from, “Web-based Positive Psychology Interventions: A Reexamination of Effectiveness”. Journal of Open Psychology Data, 6(1).</p></li>
+</ol>
+<p>Our research question is whether happiness scores are affected by the interventions. We will look at the pre-test (occasion 0) and the first test after the intervention (occasion 1).</p>
+<ol start="39" type="1">
+<li><p>What is the research hypothesis and what is the null hypothesis?</p></li>
+<li><p>For a paired t-test we can only include data from people who have produced scores at both occasions of testing. So, we need a slightly different version of the data. Download the files <a href="data/PSYC401_wk5.zip">here</a>. Remind yourself what these data mean.</p></li>
+<li><p>Once again, join the ahicesd.csv and participantinfo2.csv data in R-studio by aligning the names for the participant bumbers in these two data sets (see week 2 workbook for reminders about this).</p></li>
+<li><p>Let’s select only the relevant variables. Use <code>select()</code> to select only id, ahiTotal, and occasion variables, and save this as a new object called ‘summarydata’</p></li>
+<li><p>Use filter to pull out only occasion == 0 or occasion == 1 scores</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>use <code>occasion == 0 | occasion == 1')</code>, save this as a new object called <code>summarydata2</code></p>
+</div>
+</div>
+</div>
+<ol start="44" type="1">
+<li><p>Here is where we would usually remove all the NA values, but there aren’t any in this file (so we don’t need drop_na()).</p></li>
+<li><p>Now, we need to make sure occasion is treated as a categorical variable, rather than a continuous variable, so we need to convert it to a factor:</p></li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="in">summarydata2$occasion &lt;-as.factor(summarydata2$occasion)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="46" type="1">
+<li><p>Now, draw a box plot of ahiTotal scores by occasion (why do we use a box plot?)</p></li>
+<li><p>Compute mean and SD for each occasion</p></li>
+<li><p>Run the paired t-test: it’s the same as for the independent t-test except that we use <code>paired = TRUE</code> in place of <code>paired = FALSE</code>:</p></li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">t.test(ahiTotal ~ occasion, paired = TRUE, data = summarydata2)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Is the result significant?</p>
+<ol start="49" type="1">
+<li>Before we run the Cohen’s d command for these data, we have to make sure we have a list of the participants in one condition, followed by the list of participants in the other condition. We can do this using the command <code>arrange()</code>:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">summarydata3 &lt;- arrange(.data = summarydata2, occasion)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="50" type="1">
+<li>Now run Cohen’s d: it’s the same as for the independent t-test except that we use ‘method = ’paired’:</li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">cohensD(ahiTotal ~ occasion, method = "paired", data = summarydata3)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What is the value for Cohen’s d?</p>
+<ol start="51" type="1">
+<li><p>Write up a brief report of the result and discuss in your group.</p></li>
+<li><p>Save your R script file.</p></li>
+</ol>
+</section>
+</section>
+<section id="part-4-more-practise-running-a-paired-t-test" class="level1">
+<h1>Part 4: More practise running a paired t-test</h1>
+<p>We are going to figure out whether people have different scores the first and second time they take the Gent vocabulary test.</p>
+<ol start="53" type="1">
+<li><p>Go back to the vocabulary scores data. Load the data into dat, and make another object dat2 that contains only the subject_ID, Gent_1_score and Gent_2_score.</p></li>
+<li><p>Some people did not do all the tests - look at participant 46 for instance. To do a t-test we need data where the person does both tests. We can filter out the scores where there are no NAs by repeating the drop_na we did at step 23, above. Call the new data object dat3.</p></li>
+<li><p>Now to do a paired t-test we need to get the Gent_1_score and Gent_2_scores into the same column. We do this with <code>pivot_longer</code>, run this command:</p></li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="in">dat4 &lt;- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gent_1_score", "Gent_2_score"))</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="56" type="1">
+<li><p>As an extra benefit of having the data in “long format”, it also means we can now also draw a box plot of the Gent vocabulary scores taken at the first and second occasion. Draw the box plot.</p></li>
+<li><p>Get mean and SD of the scores for the tests.</p></li>
+<li><p>Run the paired t-test.</p></li>
+<li><p>arrange the data as in step 49 so that the responses to the first test are listed first, then the responses to the second test.</p></li>
+</ol>
+</section>
+<section id="part-5-extras" class="level1">
+<h1>Part 5: Extras</h1>
+<ol start="60" type="1">
+<li><p>In the vocabulary scores data, is there a significant difference between males and females for your academic year group?</p></li>
+<li><p>Are there significant differences for the other vocabulary test measures between males and females, or between those with English as first or second language?</p></li>
+<li><p>For more practice running and interpreting t-tests, look at the Glasgow psychology materials: <a href="https://psyteachr.github.io/quant-fun-v2/t-tests.html">https://psyteachr.github.io/quant-fun-v2/t-tests.html</a> (ignore anything that says R markdown, you should be able to get to the data and follow the instructions for manipulating it and running t-tests.)</p></li>
+</ol>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../PSYC401/part1/Week4.html" class="pagination-link" aria-label="4. Testing nominal data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4. Testing nominal data</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../PSYC401/part2/ecosystem.html" class="pagination-link" aria-label="R knowledge">
+        <span class="nav-page-text">R knowledge</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../previous-content/index.html">
+<p>Previous Content</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

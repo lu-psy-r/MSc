@@ -1,0 +1,2450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>lm-dev – Statistics for Psychologists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../PSYC401/part2/lm-intro.html" rel="next">
+<link href="../../PSYC401/part2/knowledge-ecosystem.html" rel="prev">
+<link href="../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="https://lu-psy-r.github.io/">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC401/part1/Week1.html">PSYC401</a></li><li class="breadcrumb-item"><a href="../../PSYC401/part2/lm-dev.html">Developing the linear model</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">PSYC401</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Introducing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Manipulating data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Drawing graphs from data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Testing nominal data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part1/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Testing differences between groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R knowledge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How you can do it</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/hypotheses-associations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hypotheses and associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reasons why we do the research report assignment: What you will learn</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/knowledge-ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The R knowledge ecosystem and how to help yourself</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/lm-dev.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Developing the linear model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/lm-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to the linear model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/report-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The research report assignment: Outline introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/visualization-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC401/part2/what.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What you have to do</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">PSYC402</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Recap of the linear model and practising data-wrangling in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. More on interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Logistic regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part1/Week15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Poisson regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/01-multilevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to multilevel data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/02-mixed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to linear mixed-effects models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/03-mixed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Developing linear mixed-effects models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/04-glmm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Generalized Linear Mixed-effects Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/05-ordinal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Ordinal Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: the why</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/knowledge-ecosystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R knowledge</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/LICENSE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LICENSE</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC402/part2/what.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-lm-dev-intro" id="toc-sec-lm-dev-intro" class="nav-link active" data-scroll-target="#sec-lm-dev-intro">Developing the linear model</a>
+  <ul class="collapse">
+  <li><a href="#sec-lm-dev-overview" id="toc-sec-lm-dev-overview" class="nav-link" data-scroll-target="#sec-lm-dev-overview">Overview</a></li>
+  <li><a href="#sec-lm-dev-goals" id="toc-sec-lm-dev-goals" class="nav-link" data-scroll-target="#sec-lm-dev-goals">Our learning goals</a>
+  <ul class="collapse">
+  <li><a href="#develop-the-linear-model-our-aims" id="toc-develop-the-linear-model-our-aims" class="nav-link" data-scroll-target="#develop-the-linear-model-our-aims">Develop the linear model: our aims</a></li>
+  </ul></li>
+  <li><a href="#sec-lm-dev-resources" id="toc-sec-lm-dev-resources" class="nav-link" data-scroll-target="#sec-lm-dev-resources">Learning resources</a>
+  <ul class="collapse">
+  <li><a href="#sec-lm-dev-lectures" id="toc-sec-lm-dev-lectures" class="nav-link" data-scroll-target="#sec-lm-dev-lectures">Lectures</a></li>
+  <li><a href="#sec-lm-dev-practical" id="toc-sec-lm-dev-practical" class="nav-link" data-scroll-target="#sec-lm-dev-practical">Practical materials</a></li>
+  <li><a href="#sec-lm-dev-practical-workbook" id="toc-sec-lm-dev-practical-workbook" class="nav-link" data-scroll-target="#sec-lm-dev-practical-workbook">The workbook</a></li>
+  <li><a href="#the-data-files" id="toc-the-data-files" class="nav-link" data-scroll-target="#the-data-files">The data files</a></li>
+  <li><a href="#the-answers" id="toc-the-answers" class="nav-link" data-scroll-target="#the-answers">The answers</a></li>
+  </ul></li>
+  <li><a href="#sec-lm-dev-notes" id="toc-sec-lm-dev-notes" class="nav-link" data-scroll-target="#sec-lm-dev-notes">Lecture notes</a>
+  <ul class="collapse">
+  <li><a href="#analyze-visualize-present" id="toc-analyze-visualize-present" class="nav-link" data-scroll-target="#analyze-visualize-present">Analyze + visualize + present</a></li>
+  <li><a href="#develop-the-linear-model-our-aims-1" id="toc-develop-the-linear-model-our-aims-1" class="nav-link" data-scroll-target="#develop-the-linear-model-our-aims-1">Develop the linear model: our aims</a></li>
+  <li><a href="#develop-the-linear-model-our-aims-2" id="toc-develop-the-linear-model-our-aims-2" class="nav-link" data-scroll-target="#develop-the-linear-model-our-aims-2">Develop the linear model: our aims</a></li>
+  <li><a href="#we-close-the-loop-our-context-the-health-comprehension-project" id="toc-we-close-the-loop-our-context-the-health-comprehension-project" class="nav-link" data-scroll-target="#we-close-the-loop-our-context-the-health-comprehension-project">We close the loop: Our <em>context</em>, the health comprehension project</a></li>
+  <li><a href="#we-close-the-loop-health-comprehension-project-questions-and-analyses" id="toc-we-close-the-loop-health-comprehension-project-questions-and-analyses" class="nav-link" data-scroll-target="#we-close-the-loop-health-comprehension-project-questions-and-analyses">We close the loop: Health comprehension project, questions and analyses</a></li>
+  <li><a href="#extensions-to-the-linear-model-multiple-predictors" id="toc-extensions-to-the-linear-model-multiple-predictors" class="nav-link" data-scroll-target="#extensions-to-the-linear-model-multiple-predictors">Extensions to the linear model: Multiple predictors</a></li>
+  <li><a href="#how-we-estimate-the-association-between-two-variables-one-outcome-and-one-predictor" id="toc-how-we-estimate-the-association-between-two-variables-one-outcome-and-one-predictor" class="nav-link" data-scroll-target="#how-we-estimate-the-association-between-two-variables-one-outcome-and-one-predictor">How we <em>estimate</em> the association between two variables: One outcome and one predictor</a></li>
+  <li><a href="#how-we-estimate-the-association-between-multiple-variables-one-outcome-and-multiple-predictors" id="toc-how-we-estimate-the-association-between-multiple-variables-one-outcome-and-multiple-predictors" class="nav-link" data-scroll-target="#how-we-estimate-the-association-between-multiple-variables-one-outcome-and-multiple-predictors">How we <em>estimate</em> the association between multiple variables: One outcome and <em>multiple</em> predictors</a></li>
+  <li><a href="#the-sentence-structure-of-model-code-in-r" id="toc-the-sentence-structure-of-model-code-in-r" class="nav-link" data-scroll-target="#the-sentence-structure-of-model-code-in-r">The sentence structure of model code in R</a></li>
+  <li><a href="#extensions-to-the-linear-model-multiple-predictors-1" id="toc-extensions-to-the-linear-model-multiple-predictors-1" class="nav-link" data-scroll-target="#extensions-to-the-linear-model-multiple-predictors-1">Extensions to the linear model: Multiple predictors</a></li>
+  <li><a href="#revision-what-differences-between-observed-and-predicted-outcome-values-look-like" id="toc-revision-what-differences-between-observed-and-predicted-outcome-values-look-like" class="nav-link" data-scroll-target="#revision-what-differences-between-observed-and-predicted-outcome-values-look-like">Revision: What differences between observed and predicted outcome values look like</a></li>
+  <li><a href="#revision-we-typically-assume-that-the-residuals-are-normally-distributed" id="toc-revision-we-typically-assume-that-the-residuals-are-normally-distributed" class="nav-link" data-scroll-target="#revision-we-typically-assume-that-the-residuals-are-normally-distributed">Revision: We typically assume that the residuals are normally distributed</a></li>
+  <li><a href="#multiple-candidate-predictor-variables" id="toc-multiple-candidate-predictor-variables" class="nav-link" data-scroll-target="#multiple-candidate-predictor-variables">Multiple candidate predictor variables</a></li>
+  <li><a href="#we-do-not-assume-normal-predictors" id="toc-we-do-not-assume-normal-predictors" class="nav-link" data-scroll-target="#we-do-not-assume-normal-predictors">We do not assume normal <em>predictors</em></a></li>
+  <li><a href="#extensions-to-the-linear-model-multiple-predictors-2" id="toc-extensions-to-the-linear-model-multiple-predictors-2" class="nav-link" data-scroll-target="#extensions-to-the-linear-model-multiple-predictors-2">Extensions to the linear model: Multiple predictors</a></li>
+  <li><a href="#analyses-are-done-in-context-so-when-we-conduct-analyses-we-must-use-contextual-information" id="toc-analyses-are-done-in-context-so-when-we-conduct-analyses-we-must-use-contextual-information" class="nav-link" data-scroll-target="#analyses-are-done-in-context-so-when-we-conduct-analyses-we-must-use-contextual-information">Analyses are done in context so when we conduct analyses we <em>must</em> use contextual information</a></li>
+  <li><a href="#we-must-use-contextual-information-theory-of-comprehension" id="toc-we-must-use-contextual-information-theory-of-comprehension" class="nav-link" data-scroll-target="#we-must-use-contextual-information-theory-of-comprehension">We <em>must</em> use contextual information: theory of comprehension</a></li>
+  <li><a href="#given-theory-model-of-comprehension-accuracy-should-include-measures-of" id="toc-given-theory-model-of-comprehension-accuracy-should-include-measures-of" class="nav-link" data-scroll-target="#given-theory-model-of-comprehension-accuracy-should-include-measures-of">Given theory, model of comprehension accuracy <em>should</em> include measures of</a></li>
+  <li><a href="#the-flexibility-and-power-of-linear-models-requires-us-to-be-aware-of-the-garden-of-forking-paths" id="toc-the-flexibility-and-power-of-linear-models-requires-us-to-be-aware-of-the-garden-of-forking-paths" class="nav-link" data-scroll-target="#the-flexibility-and-power-of-linear-models-requires-us-to-be-aware-of-the-garden-of-forking-paths">The flexibility and power of linear models requires us to be aware of the <em>garden of forking paths</em></a></li>
+  <li><a href="#different-researchers-can-reasonably-make-different-choices" id="toc-different-researchers-can-reasonably-make-different-choices" class="nav-link" data-scroll-target="#different-researchers-can-reasonably-make-different-choices">Different researchers can reasonably make different choices</a></li>
+  <li><a href="#coding-thinking-about-and-reporting-linear-models-with-multiple-predictors" id="toc-coding-thinking-about-and-reporting-linear-models-with-multiple-predictors" class="nav-link" data-scroll-target="#coding-thinking-about-and-reporting-linear-models-with-multiple-predictors">Coding, thinking about, and reporting linear models with multiple predictors</a></li>
+  <li><a href="#coding-the-linear-model-with-multiple-predictors" id="toc-coding-the-linear-model-with-multiple-predictors" class="nav-link" data-scroll-target="#coding-the-linear-model-with-multiple-predictors">Coding the linear model with multiple predictors</a></li>
+  <li><a href="#thinking-about-the-linear-model-with-multiple-predictors" id="toc-thinking-about-the-linear-model-with-multiple-predictors" class="nav-link" data-scroll-target="#thinking-about-the-linear-model-with-multiple-predictors">Thinking about the linear model with multiple predictors</a></li>
+  <li><a href="#identifying-key-information-in-results" id="toc-identifying-key-information-in-results" class="nav-link" data-scroll-target="#identifying-key-information-in-results">Identifying key information in results</a></li>
+  <li><a href="#identifying-key-information-in-results-1" id="toc-identifying-key-information-in-results-1" class="nav-link" data-scroll-target="#identifying-key-information-in-results-1">Identifying key information in results</a></li>
+  <li><a href="#for-each-predictor-e.g.-hlva-we-see" id="toc-for-each-predictor-e.g.-hlva-we-see" class="nav-link" data-scroll-target="#for-each-predictor-e.g.-hlva-we-see">For each predictor, e.g.&nbsp;HLVA, we see</a></li>
+  <li><a href="#identifying-the-key-information-in-the-linear-model-results-coefficients" id="toc-identifying-the-key-information-in-the-linear-model-results-coefficients" class="nav-link" data-scroll-target="#identifying-the-key-information-in-the-linear-model-results-coefficients">Identifying the key information in the linear model results: Coefficients</a></li>
+  <li><a href="#identifying-the-key-information-in-the-linear-model-results-r-squared" id="toc-identifying-the-key-information-in-the-linear-model-results-r-squared" class="nav-link" data-scroll-target="#identifying-the-key-information-in-the-linear-model-results-r-squared">Identifying the key information in the linear model results: R-squared</a></li>
+  <li><a href="#identifying-the-key-information-in-the-linear-model-results-f" id="toc-identifying-the-key-information-in-the-linear-model-results-f" class="nav-link" data-scroll-target="#identifying-the-key-information-in-the-linear-model-results-f">Identifying the key information in the linear model results: F</a></li>
+  <li><a href="#plot-predictions-to-interpret-effects" id="toc-plot-predictions-to-interpret-effects" class="nav-link" data-scroll-target="#plot-predictions-to-interpret-effects">Plot predictions to interpret effects</a></li>
+  <li><a href="#compare-estimates-with-effects-plots" id="toc-compare-estimates-with-effects-plots" class="nav-link" data-scroll-target="#compare-estimates-with-effects-plots">Compare estimates with effects plots</a></li>
+  <li><a href="#the-language-and-style-of-reporting-linear-model-results" id="toc-the-language-and-style-of-reporting-linear-model-results" class="nav-link" data-scroll-target="#the-language-and-style-of-reporting-linear-model-results">The language and style of reporting linear model results</a></li>
+  <li><a href="#look-at-what-we-do-with-the-text" id="toc-look-at-what-we-do-with-the-text" class="nav-link" data-scroll-target="#look-at-what-we-do-with-the-text">Look at what we do with the text</a></li>
+  <li><a href="#critically-evaluating-the-results-of-analyses-involving-linear-models" id="toc-critically-evaluating-the-results-of-analyses-involving-linear-models" class="nav-link" data-scroll-target="#critically-evaluating-the-results-of-analyses-involving-linear-models">Critically evaluating the results of analyses involving linear models</a></li>
+  <li><a href="#critically-evaluating-the-results-of-analyses-involving-linear-models-1" id="toc-critically-evaluating-the-results-of-analyses-involving-linear-models-1" class="nav-link" data-scroll-target="#critically-evaluating-the-results-of-analyses-involving-linear-models-1">Critically evaluating the results of analyses involving linear models</a></li>
+  <li><a href="#revision-as-we-move-into-thinking-about-the-data-analysis-we-need-to-identify-our-assumptions" id="toc-revision-as-we-move-into-thinking-about-the-data-analysis-we-need-to-identify-our-assumptions" class="nav-link" data-scroll-target="#revision-as-we-move-into-thinking-about-the-data-analysis-we-need-to-identify-our-assumptions">Revision: As we move into thinking about the data analysis, we need to identify our assumptions</a></li>
+  <li><a href="#how-do-you-do-this-work" id="toc-how-do-you-do-this-work" class="nav-link" data-scroll-target="#how-do-you-do-this-work">How do <em>you</em> do this work?</a></li>
+  <li><a href="#how-do-you-do-this-work-1" id="toc-how-do-you-do-this-work-1" class="nav-link" data-scroll-target="#how-do-you-do-this-work-1">How do <em>you</em> do this work?</a></li>
+  <li><a href="#why-we-need-replication-studies" id="toc-why-we-need-replication-studies" class="nav-link" data-scroll-target="#why-we-need-replication-studies">Why we need replication studies</a></li>
+  <li><a href="#why-we-need-replication-studies-1" id="toc-why-we-need-replication-studies-1" class="nav-link" data-scroll-target="#why-we-need-replication-studies-1">Why we need replication studies</a></li>
+  <li><a href="#why-we-need-to-consider-the-generalizability-of-sample-data" id="toc-why-we-need-to-consider-the-generalizability-of-sample-data" class="nav-link" data-scroll-target="#why-we-need-to-consider-the-generalizability-of-sample-data">Why we need to consider the generalizability of sample data</a></li>
+  <li><a href="#convenience-samples-are-common-in-psychology" id="toc-convenience-samples-are-common-in-psychology" class="nav-link" data-scroll-target="#convenience-samples-are-common-in-psychology">Convenience samples are common in Psychology</a></li>
+  <li><a href="#the-linear-model-is-very-flexible-powerful-and-general" id="toc-the-linear-model-is-very-flexible-powerful-and-general" class="nav-link" data-scroll-target="#the-linear-model-is-very-flexible-powerful-and-general">The linear model is very flexible, powerful and general</a></li>
+  <li><a href="#the-t-test-as-linear-model" id="toc-the-t-test-as-linear-model" class="nav-link" data-scroll-target="#the-t-test-as-linear-model">The t-test as linear model</a></li>
+  <li><a href="#anova-as-linear-model" id="toc-anova-as-linear-model" class="nav-link" data-scroll-target="#anova-as-linear-model">ANOVA as linear model</a></li>
+  <li><a href="#anova-as-linear-model-1" id="toc-anova-as-linear-model-1" class="nav-link" data-scroll-target="#anova-as-linear-model-1">ANOVA as linear model</a></li>
+  <li><a href="#extensions-to-the-linear-model" id="toc-extensions-to-the-linear-model" class="nav-link" data-scroll-target="#extensions-to-the-linear-model">Extensions to the linear model</a></li>
+  <li><a href="#look-ahead-extensions-to-the-linear-model" id="toc-look-ahead-extensions-to-the-linear-model" class="nav-link" data-scroll-target="#look-ahead-extensions-to-the-linear-model">Look ahead: extensions to the linear model</a></li>
+  <li><a href="#extensions-to-the-linear-model-binary-or-dichotomous-outcomes" id="toc-extensions-to-the-linear-model-binary-or-dichotomous-outcomes" class="nav-link" data-scroll-target="#extensions-to-the-linear-model-binary-or-dichotomous-outcomes">Extensions to the linear model – binary or dichotomous outcomes</a></li>
+  <li><a href="#extensions-to-the-linear-model-ordinal-outcomes" id="toc-extensions-to-the-linear-model-ordinal-outcomes" class="nav-link" data-scroll-target="#extensions-to-the-linear-model-ordinal-outcomes">Extensions to the linear model – ordinal outcomes</a></li>
+  <li><a href="#extensions-to-the-linear-model-non-independence-of-observations" id="toc-extensions-to-the-linear-model-non-independence-of-observations" class="nav-link" data-scroll-target="#extensions-to-the-linear-model-non-independence-of-observations">Extensions to the linear model – non-independence of observations</a></li>
+  <li><a href="#general-advice" id="toc-general-advice" class="nav-link" data-scroll-target="#general-advice">General advice</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="sec-lm-dev-intro" class="level1">
+<h1>Developing the linear model</h1>
+<section id="sec-lm-dev-overview" class="level2">
+<h2 class="anchored" data-anchor-id="sec-lm-dev-overview">Overview</h2>
+<p>Welcome to our overview of the materials for our class on developing the <strong>linear model</strong> in <em>PSYC401</em> Week 10.</p>
+<p>We will continue to locate our learning in the context of the <em>Clearly understood</em> project. We present our PSYC401 lessons in the context of this research project because we think that this context will help you to make sense of the data (as we explain in <strong>?@sec-preface</strong>).</p>
+<p>In this chapter, we focus on extending your understanding and skills so that you can apply the linear model analysis approach to a wider range of research questions.</p>
+<p>In the context of the <em>Clearly understood</em> project, we frame our analysis concerns and methods in relation to two example research questions:</p>
+<ol type="1">
+<li>What person attributes predict success in understanding?</li>
+<li>Can people accurately evaluate whether they correctly understand written health information?</li>
+</ol>
+<p>It will be seen that to answer these research questions, we need to think about how we analyze data when <em>multiple</em> different predictor variables could be included in our model of outcome data, and when these variables may consist of <em>different kinds</em> of observations.</p>
+<p>You can read a bit more about the project and the project data in <strong>?@sec-associations</strong>.</p>
+</section>
+<section id="sec-lm-dev-goals" class="level2">
+<h2 class="anchored" data-anchor-id="sec-lm-dev-goals">Our learning goals</h2>
+<p>This week, we build on what we have learnt so far about how we can analyze data to <em>predict</em> data about people (e.g., our attributes) or about the things we make or do. To do this, we will learn to think about and work with <em>linear models</em>.</p>
+<p><strong>Our learning objectives: — what are we learning about?</strong></p>
+<section id="develop-the-linear-model-our-aims" class="level3">
+<h3 class="anchored" data-anchor-id="develop-the-linear-model-our-aims">Develop the linear model: our aims</h3>
+<ul>
+<li>We will learn how to:</li>
+</ul>
+<ol type="1">
+<li>Extend our capacity to code models so that we can incorporate <strong>multiple predictors</strong></li>
+<li>Develop the thought processes required to make <strong>decisions about what predictors to include</strong></li>
+<li>Develop the skills required to <strong>critically evaluate results</strong></li>
+</ol>
+<p>Especially considering potential variation across samples</p>
+<ul>
+<li>We will revise how to:</li>
+</ul>
+<ol start="4" type="1">
+<li>Identify and interpret model statistics</li>
+<li>Critically evaluate the results</li>
+<li>Communicate the results</li>
+</ol>
+<ul>
+<li>We will learn how to: explore <strong>extensions</strong> or <strong>generalisations</strong> of the linear model</li>
+</ul>
+</section>
+</section>
+<section id="sec-lm-dev-resources" class="level2">
+<h2 class="anchored" data-anchor-id="sec-lm-dev-resources">Learning resources</h2>
+<p>You will see in the <em>next section</em> links to the lectures we created both to explain the concepts we want to help you to learn about, and to explain the practical data analysis skills we want to help you to develop (<a href="#sec-lm-dev-lectures" class="quarto-xref">Section&nbsp;1.3.1</a>). We <em>then</em> share links to information about the practical materials we have provided to help you to practise those skills (<a href="#sec-lm-dev-practical" class="quarto-xref">Section&nbsp;1.3.2</a>).</p>
+<p>All the links to the lecture videos, the lecture slides, and everything you need for your practical work can <em>also</em> be found in the Week 10 files folder on Moodle <a href="https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse11" target="_blank">here</a></p>
+<p>In <a href="#sec-lm-dev-notes" class="quarto-xref">Section&nbsp;1.4</a>, we present the lecture slide points.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Linked resources</strong> include:</p>
+<ul>
+<li>In <strong>?@sec-associations</strong>, we present an overview of our materials in relation to thinking about associations, and working with correlation-based analyses of associations.</li>
+<li>In <strong>?@sec-lm-intro-intro</strong>, we introduce you to the main ideas and practical steps involved in conducting linear model analyses.</li>
+</ul>
+</div>
+</div>
+<section id="sec-lm-dev-lectures" class="level3">
+<h3 class="anchored" data-anchor-id="sec-lm-dev-lectures">Lectures</h3>
+<p>The lecture material for this week is presented in four short parts. Click on a link and your browser should open a tab showing the <em>Panopto</em> video for the lecture part.</p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6bc16beb-f7f1-4fb7-ab5c-af630105f8eb" target="_blank">Part 1 of 4</a></p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cce303a1-392c-4607-aecd-af63010c4070" target="_blank">Part 2 of 4</a></p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5f02f90d-5a7f-4742-9638-af63011046b8" target="_blank">Part 3 of 4</a></p>
+<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b559ac42-6752-4eaa-b3a9-af630116c7e8" target="_blank">Part 4 of 4</a></p>
+<p>You can download the slides we presented in the lecture in two different formats, depending on what you think will be most useful to you:</p>
+<ul>
+<li>Download the slides exactly as they appear in the lecture from <a href="files/401-linear-model-develop.html">this link</a>. The .html file can be opened and viewed in any web browser (e.g., Chrome, Firefox, Safari).</li>
+<li>Or you can download a printable Word .docx presentation of the slides from <a href="files/401-linear-model-develop-printable-edit.docx">this link</a>. The .docx can be opened in Microsoft Word. The figures will not appear exactly as they do in the lecture recording because Word cannot cope with images so well but the trade-off is that you get a document you can print and edit to add notes.</li>
+</ul>
+</section>
+<section id="sec-lm-dev-practical" class="level3">
+<h3 class="anchored" data-anchor-id="sec-lm-dev-practical">Practical materials</h3>
+<p>We have collected the practical materials together into a folder.</p>
+<p>The folder includes the data file:</p>
+<ul>
+<li><code>2022-12-08_all-studies-subject-scores.csv</code></li>
+</ul>
+<p>and .R code files:</p>
+<ul>
+<li><code>401-lm-dev-how-to.R</code></li>
+<li><code>401-lm-dev-workbook.R</code></li>
+</ul>
+<p>You will use these files for your practical learning.</p>
+<p>You can download the .R files and the data .csv files in a single folder, using the link <a href="files/PSYC401_lm-dev_materials.zip">here</a>.</p>
+<p>Or you can download the files as individual files from the module <a href="https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse11" target="_blank">Moodle page for PSYC401</a>.</p>
+<p>Once you have downloaded the file folder, you will need to upload it to the R-Studio server to access and use the R files.</p>
+<section id="sec-lm-dev-practical-how-to" class="level4">
+<h4 class="anchored" data-anchor-id="sec-lm-dev-practical-how-to">The how-to guide</h4>
+<p>In the <code>how-to</code> guide:</p>
+<ul>
+<li><code>401-lm-dev-how-to.R</code></li>
+</ul>
+<p>we show you how to do everything you need to do in the practical workbook (see <a href="#sec-lm-dev-practical-workbook" class="quarto-xref">Section&nbsp;1.3.3</a>). The guide comprises an .R file <code>401-lm-dev-how-to.R</code> with code and advice.</p>
+<p>The code in the .R file was written to work with the data file</p>
+<ul>
+<li><code>2022-12-08_all-studies-subject-scores.csv</code>.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Work through the steps in the <code>how-to</code> guide first, this practice will help you to understand what you need to do for the <code>workbook</code> tasks.</li>
+<li>The <code>how-to</code> guide and the <code>workbook</code> have similar structures.</li>
+<li>This is intentional: so that you can copy and <em>adapt</em> code from the <code>how-to</code> guide to do the practical tasks in the <code>workbook</code>.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-lm-dev-practical-workbook" class="level3">
+<h3 class="anchored" data-anchor-id="sec-lm-dev-practical-workbook">The workbook</h3>
+<p>In the <code>workbook</code>:</p>
+<ul>
+<li><code>401-lm-dev-workbook.R</code></li>
+</ul>
+<p>you will work with the data file</p>
+<ul>
+<li><code>2022-12-08_all-studies-subject-scores.csv</code></li>
+</ul>
+<p>We split .R scripts into parts, tasks and questions.</p>
+<p>For this class on developing the linear model, our practical materials have two aims:</p>
+<ol type="1">
+<li>Helping you to consolidate your learning on how to use linear models to estimate and to visualize the hypothetical association between outcome and predictor variables.</li>
+</ol>
+<ul>
+<li>You will work to code linear models, to identify key statistical information in model outputs, and to interpret and report the results of the models.</li>
+<li>We refresh your learning by working with a data-set you have not encountered before</li>
+<li>We extend your skills by using a new function to generate predictions from fitted models.</li>
+</ul>
+<ol start="2" type="1">
+<li>Helping you to learn how to extend your capacity to work with data to answer research questions by developing linear models that include multiple predictor variables.</li>
+</ol>
+<ul>
+<li>We extend your skills by looking at how you work with categorical predictor variables: <em>factors</em>.</li>
+<li>Because factors are so important to research in Psychology, we examine how to code or recode factor levels, and how to visualize the effects on outcomes of differences between factor levels.</li>
+</ul>
+<p>To meet these aims, we progress through a series of parts:</p>
+<ul>
+<li><strong>Part 2</strong> shows you how you can read in data <em>and</em> at the same time ensure that different kinds of variables (e.g., factors versus numeric variables) are handled differently by R.</li>
+<li><strong>Part 3</strong> consolidates your learning on how to work with linear models when there is one outcome variable and just one predictor variable. Learning to work with linear models involves not just coding models but also being able to identify and interpret the results of the models you fit.</li>
+<li><strong>Part 5</strong> extends your capacities by helping you to learn how to code linear models that include multiple predictor variables.</li>
+<li><strong>Part 6</strong> builds your understanding of what linear models do, and what model estimates mean, by demonstrating a key point: linear models are coded to fit sample outcome data. When you look at model results, your interpretation is based on how the outcome is predicted to change, on average, given differences in values of one or more predictor variables.</li>
+<li><strong>Part 7</strong> builds your skills by helping you to learn how to code, visualize and interpret the impact on outcomes of the differences between factor levels.</li>
+</ul>
+<p>Throughout, we help you to develop skills in calculating and presenting model predictions.</p>
+<ul>
+<li><strong>Parts optional</strong> are designed to help you to examine the ways in which the association between variables may, itself, differ between different samples, and to help you to consolidate skills on exporting plots for use in reports.</li>
+</ul>
+<p>The activity <code>401-lm-dev-workbook.R</code> file takes you through the tasks, one by one.</p>
+<p>If you are unsure about what you need to do, check the advice in <code>401-lm-dev-how-to.R</code>.</p>
+<p>You will see that you can match a task in the <code>activity</code> to the same task in the <code>how-to</code>. The <code>how-to</code> shows you what function you need and how you should write the function code. You will need to change the names of the data-set or the variables to complete the tasks in the activity.</p>
+</section>
+<section id="the-data-files" class="level3">
+<h3 class="anchored" data-anchor-id="the-data-files">The data files</h3>
+<p>The data file we will work with has a similar structure to the structure you have seen before.</p>
+<p>Here are what the first few rows in the data file <code>2022-12-08_all-studies-subject-scores.csv</code> looks like:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 14%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ResponseId</th>
+<th style="text-align: right;">mean.acc</th>
+<th style="text-align: right;">mean.self</th>
+<th style="text-align: right;">AGE</th>
+<th style="text-align: left;">GENDER</th>
+<th style="text-align: left;">EDUCATION</th>
+<th style="text-align: left;">ETHNICITY</th>
+<th style="text-align: right;">SHIPLEY</th>
+<th style="text-align: right;">HLVA</th>
+<th style="text-align: right;">FACTOR3</th>
+<th style="text-align: left;">NATIVE.LANGUAGE</th>
+<th style="text-align: left;">study</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">R_1lcaBAGJNNI2kju</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">White</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: left;">English</td>
+<td style="text-align: left;">PSYC122</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R_AG4jiTm8oxmuOOZ</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">7.6</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">White</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">English</td>
+<td style="text-align: left;">PSYC122</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R_2Ckb6YXLPGwYSvg</td>
+<td style="text-align: right;">0.95</td>
+<td style="text-align: right;">7.2</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">Asian</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: left;">PSYC122</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R_27JY5xHHcMs7jGi</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">6.8</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">White</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: left;">English</td>
+<td style="text-align: left;">PSYC122</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R_1DtJ4mrOXmxre01</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">White</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: left;">English</td>
+<td style="text-align: left;">PSYC122</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R_PRFQFInzSS6T8e5</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">6.2</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">Mixed</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: left;">English</td>
+<td style="text-align: left;">PSYC122</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>There are two new columns:</p>
+<ul>
+<li><code>NATIVE.LANGUAGE</code> self reported language status, whether the participant reports whether they are or are not a <code>native speaker</code> of English</li>
+<li><code>study</code> codes for which study participant data were collected in</li>
+</ul>
+<p>You can also see the columns you have seen before:</p>
+<ul>
+<li><code>ResponseId</code> participant code</li>
+<li><code>mean.acc</code> average accuracy of response to questions testing understanding of health guidance</li>
+<li><code>mean.self</code> average self-rated accuracy of understanding of health guidance</li>
+<li><code>study</code> variable coding for what study the data were collected in</li>
+<li><code>AGE</code> age in years</li>
+<li><code>GENDER</code> gender code</li>
+<li><code>EDUCATION</code> education level code</li>
+<li><code>ETHNICITY</code> ethnicity (Office National Statistics categories) code</li>
+<li><code>SHIPLEY</code> vocabulary knowledge test score</li>
+<li><code>HLVA</code> health literacy test score</li>
+<li><code>FACTOR3</code> reading strategy survey score</li>
+</ul>
+</section>
+<section id="the-answers" class="level3">
+<h3 class="anchored" data-anchor-id="the-answers">The answers</h3>
+<p>After the practical class, you will be able to download the answers version of the <code>workbook</code> here.</p>
+<!-- [401-visualization-workbook-answers.R](files/401-visualization-workbook-answers.R) -->
+<p>The answers version will present my answers for questions, and some extra information where that is helpful.</p>
+</section>
+</section>
+<section id="sec-lm-dev-notes" class="level2">
+<h2 class="anchored" data-anchor-id="sec-lm-dev-notes">Lecture notes</h2>
+<p>Some people find it easier to read notes than to watch video recordings. This is why we also include the lecture notes here.</p>
+<!-- ::: callout-tip -->
+<!-- In these notes, I provide notes on the code steps that result in plots. -->
+<!-- -   Click on the `Notes` tab to see them. -->
+<!-- ::: -->
+<section id="analyze-visualize-present" class="level3">
+<h3 class="anchored" data-anchor-id="analyze-visualize-present">Analyze + visualize + present</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-pipeline" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 267.00 264.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 260)">
+<title>Q</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-260 263,-260 263,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_R</title>
+<polygon fill="none" stroke="black" points="8,-65 8,-118 251,-118 251,-65 8,-65"></polygon>
+</g>
+<!-- nd_1 -->
+<g id="node1" class="node">
+<title>nd_1</title>
+<polygon fill="none" stroke="black" points="35.24,-219.5 35.24,-255.5 122.76,-255.5 122.76,-219.5 35.24,-219.5"></polygon>
+<text text-anchor="middle" x="79" y="-233.3" font-family="Times,serif" font-size="14.00">Get raw data</text>
+</g>
+<!-- nd_2 -->
+<g id="node2" class="node">
+<title>nd_2</title>
+<polygon fill="none" stroke="black" points="44.37,-146.5 44.37,-182.5 113.63,-182.5 113.63,-146.5 44.37,-146.5"></polygon>
+<text text-anchor="middle" x="79" y="-160.3" font-family="Times,serif" font-size="14.00">Tidy data</text>
+</g>
+<!-- nd_1&#45;&gt;nd_2 -->
+<g id="edge6" class="edge">
+<title>nd_1-&gt;nd_2</title>
+<path fill="none" stroke="grey" d="M79,-219.31C79,-211.29 79,-201.55 79,-192.57"></path>
+<polygon fill="grey" stroke="grey" points="82.5,-192.53 79,-182.53 75.5,-192.53 82.5,-192.53"></polygon>
+</g>
+<!-- nd_3_l -->
+<g id="node4" class="node">
+<title>nd_3_l</title>
+<polygon fill="none" stroke="red" points="174.57,-73.5 174.57,-109.5 243.43,-109.5 243.43,-73.5 174.57,-73.5"></polygon>
+<text text-anchor="middle" x="209" y="-87.3" font-family="Times,serif" font-size="14.00">Visualize</text>
+</g>
+<!-- nd_2&#45;&gt;nd_3_l -->
+<g id="edge5" class="edge">
+<title>nd_2-&gt;nd_3_l</title>
+<path fill="none" stroke="grey" d="M112.24,-146.3C128.26,-137.9 147.71,-127.58 165,-118 166.95,-116.92 168.93,-115.81 170.94,-114.68"></path>
+<polygon fill="grey" stroke="grey" points="172.78,-117.66 179.74,-109.67 169.32,-111.57 172.78,-117.66"></polygon>
+</g>
+<!-- nd_3 -->
+<g id="node5" class="node">
+<title>nd_3</title>
+<polygon fill="none" stroke="red" points="15.68,-73.5 15.68,-109.5 78.32,-109.5 78.32,-73.5 15.68,-73.5"></polygon>
+<text text-anchor="middle" x="47" y="-87.3" font-family="Times,serif" font-size="14.00">Analyze</text>
+</g>
+<!-- nd_2&#45;&gt;nd_3 -->
+<g id="edge7" class="edge">
+<title>nd_2-&gt;nd_3</title>
+<path fill="none" stroke="grey" d="M71.25,-146.31C67.52,-138.03 62.96,-127.91 58.81,-118.69"></path>
+<polygon fill="grey" stroke="grey" points="61.97,-117.21 54.67,-109.53 55.59,-120.08 61.97,-117.21"></polygon>
+</g>
+<!-- nd_3_r -->
+<g id="node6" class="node">
+<title>nd_3_r</title>
+<polygon fill="none" stroke="black" points="95.84,-73.5 95.84,-109.5 156.16,-109.5 156.16,-73.5 95.84,-73.5"></polygon>
+<text text-anchor="middle" x="126" y="-87.3" font-family="Times,serif" font-size="14.00">Explore</text>
+</g>
+<!-- nd_2&#45;&gt;nd_3_r -->
+<g id="edge4" class="edge">
+<title>nd_2-&gt;nd_3_r</title>
+<path fill="none" stroke="grey" d="M90.38,-146.31C95.98,-137.85 102.84,-127.48 109.05,-118.11"></path>
+<polygon fill="grey" stroke="grey" points="112.13,-119.8 114.73,-109.53 106.29,-115.94 112.13,-119.8"></polygon>
+</g>
+<!-- nd_3_a -->
+<g id="node3" class="node">
+<title>nd_3_a</title>
+<polygon fill="none" stroke="black" points="131.44,-146.5 131.44,-182.5 220.56,-182.5 220.56,-146.5 131.44,-146.5"></polygon>
+<text text-anchor="middle" x="176" y="-160.3" font-family="Times,serif" font-size="14.00">Assumptions</text>
+</g>
+<!-- nd_3_a&#45;&gt;nd_3_l -->
+<g id="edge3" class="edge">
+<title>nd_3_a-&gt;nd_3_l</title>
+<path fill="none" stroke="grey" d="M183.99,-146.31C187.84,-138.03 192.54,-127.91 196.83,-118.69"></path>
+<polygon fill="grey" stroke="grey" points="200.04,-120.07 201.09,-109.53 193.7,-117.12 200.04,-120.07"></polygon>
+</g>
+<!-- nd_3_a&#45;&gt;nd_3 -->
+<g id="edge1" class="edge">
+<title>nd_3_a-&gt;nd_3</title>
+<path fill="none" stroke="grey" d="M140.5,-146.32C124.04,-138.11 104.32,-127.92 87,-118 85.28,-117.02 83.54,-116 81.79,-114.95"></path>
+<polygon fill="grey" stroke="grey" points="83.39,-111.83 73.03,-109.6 79.74,-117.8 83.39,-111.83"></polygon>
+</g>
+<!-- nd_3_a&#45;&gt;nd_3_r -->
+<g id="edge2" class="edge">
+<title>nd_3_a-&gt;nd_3_r</title>
+<path fill="none" stroke="grey" d="M163.9,-146.31C157.88,-137.77 150.49,-127.27 143.83,-117.82"></path>
+<polygon fill="grey" stroke="grey" points="146.61,-115.69 137.99,-109.53 140.89,-119.72 146.61,-115.69"></polygon>
+</g>
+<!-- nd_3_l&#45;&gt;nd_3 -->
+<g id="edge10" class="edge">
+<title>nd_3_l-&gt;nd_3</title>
+<path fill="none" stroke="transparent" d="M191.16,-109.88C181.63,-118.37 169.16,-127.55 156,-132 130.74,-140.55 121.09,-141.03 96,-132 83.54,-127.52 71.99,-118.34 63.24,-109.85"></path>
+</g>
+<!-- nd_4 -->
+<g id="node7" class="node">
+<title>nd_4</title>
+<polygon fill="none" stroke="red" points="99.39,-0.5 99.39,-36.5 156.61,-36.5 156.61,-0.5 99.39,-0.5"></polygon>
+<text text-anchor="middle" x="128" y="-14.3" font-family="Times,serif" font-size="14.00">Present</text>
+</g>
+<!-- nd_3_l&#45;&gt;nd_4 -->
+<g id="edge9" class="edge">
+<title>nd_3_l-&gt;nd_4</title>
+<path fill="none" stroke="grey" d="M189.39,-73.31C179.14,-64.33 166.44,-53.19 155.25,-43.39"></path>
+<polygon fill="grey" stroke="grey" points="157.25,-40.49 147.43,-36.53 152.64,-45.75 157.25,-40.49"></polygon>
+</g>
+<!-- nd_3&#45;&gt;nd_4 -->
+<g id="edge8" class="edge">
+<title>nd_3-&gt;nd_4</title>
+<path fill="none" stroke="grey" d="M66.61,-73.31C76.86,-64.33 89.56,-53.19 100.75,-43.39"></path>
+<polygon fill="grey" stroke="grey" points="103.36,-45.75 108.57,-36.53 98.75,-40.49 103.36,-45.75"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pipeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The data analysis pipeline or workflow: we focus on the linear model
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="develop-the-linear-model-our-aims-1" class="level3">
+<h3 class="anchored" data-anchor-id="develop-the-linear-model-our-aims-1">Develop the linear model: our aims</h3>
+<ul>
+<li>We will learn how to:</li>
+</ul>
+<ol type="1">
+<li>Extend our capacity to code models so that we can incorporate <strong>multiple predictors</strong></li>
+<li>Develop the thought processes required to make <strong>decisions about what predictors to include</strong></li>
+<li>Develop the skills required to <strong>critically evaluate results</strong></li>
+</ol>
+<ul>
+<li>Especially considering potential variation across samples</li>
+</ul>
+</section>
+<section id="develop-the-linear-model-our-aims-2" class="level3">
+<h3 class="anchored" data-anchor-id="develop-the-linear-model-our-aims-2">Develop the linear model: our aims</h3>
+<ul>
+<li>We will revise how to:</li>
+</ul>
+<ol start="5" type="1">
+<li>Identify and interpret model statistics</li>
+<li>Critically evaluate the results</li>
+<li>Communicate the results</li>
+</ol>
+<ul>
+<li>We will learn how to: explore <strong>extensions</strong> of the linear model</li>
+</ul>
+</section>
+<section id="we-close-the-loop-our-context-the-health-comprehension-project" class="level3">
+<h3 class="anchored" data-anchor-id="we-close-the-loop-our-context-the-health-comprehension-project">We close the loop: Our <em>context</em>, the health comprehension project</h3>
+<ol type="1">
+<li>Because public health impacts depend on giving people information they can understand</li>
+<li>We want to know: <strong>What makes it easy or difficult to understand written health information?</strong></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nurse-patient-talk.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>flickr: Sasin Tipchair ‘Senior woman in wheelchair talking to a nurse in a hospital’</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="we-close-the-loop-health-comprehension-project-questions-and-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="we-close-the-loop-health-comprehension-project-questions-and-analyses">We close the loop: Health comprehension project, questions and analyses</h3>
+<ol type="1">
+<li>We want to know: <strong>What makes it easy or difficult to understand written health information?</strong></li>
+<li>So our research questions are:</li>
+</ol>
+<ul>
+<li>What person attributes predict success in understanding?</li>
+<li>Can people accurately evaluate whether they correctly understand written health information?</li>
+</ul>
+</section>
+<section id="extensions-to-the-linear-model-multiple-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-to-the-linear-model-multiple-predictors">Extensions to the linear model: Multiple predictors</h3>
+<ul>
+<li>We need only a <strong>limited change to R code</strong></li>
+<li>To specify a model with <strong>multiple predictors</strong></li>
+</ul>
+</section>
+<section id="how-we-estimate-the-association-between-two-variables-one-outcome-and-one-predictor" class="level3">
+<h3 class="anchored" data-anchor-id="how-we-estimate-the-association-between-two-variables-one-outcome-and-one-predictor">How we <em>estimate</em> the association between two variables: One outcome and one predictor</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean.acc <span class="sc">~</span> SHIPLEY,</span>
+<span id="cb1-2"><a href="#cb1-2"></a>            <span class="at">data =</span> all.studies.subjects)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>Specify the <code>lm</code> function and the model <code>mean.acc ~ ...</code></li>
+<li>Specify what data we use <code>data = all.studies.subjects</code></li>
+<li>Get the results <code>summary(model)</code></li>
+</ol>
+</section>
+<section id="how-we-estimate-the-association-between-multiple-variables-one-outcome-and-multiple-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="how-we-estimate-the-association-between-multiple-variables-one-outcome-and-multiple-predictors">How we <em>estimate</em> the association between multiple variables: One outcome and <em>multiple</em> predictors</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean.acc <span class="sc">~</span> SHIPLEY <span class="sc">+</span> HLVA <span class="sc">+</span> FACTOR3 <span class="sc">+</span> AGE <span class="sc">+</span> NATIVE.LANGUAGE,</span>
+<span id="cb2-2"><a href="#cb2-2"></a>            <span class="at">data =</span> all.studies.subjects)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Specify the <code>lm</code> function and the model:</li>
+</ol>
+<ul>
+<li><code>mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE</code></li>
+</ul>
+</section>
+<section id="the-sentence-structure-of-model-code-in-r" class="level3" data-background-color="lightblue">
+<h3 data-background-color="lightblue" class="anchored" data-anchor-id="the-sentence-structure-of-model-code-in-r">The sentence structure of model code in R</h3>
+<p>Take a good look:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(mean.acc <span class="sc">~</span> SHIPLEY <span class="sc">+</span> HLVA <span class="sc">+</span> FACTOR3 <span class="sc">+</span> AGE <span class="sc">+</span> NATIVE.LANGUAGE, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You will see this sentence structure in coding for <em>many</em> different analysis types</p>
+<ul>
+<li><code>method(outcome ~ predictors)</code></li>
+<li><code>predictors</code> could be <code>SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE ...</code></li>
+</ul>
+</section>
+<section id="extensions-to-the-linear-model-multiple-predictors-1" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-to-the-linear-model-multiple-predictors-1">Extensions to the linear model: Multiple predictors</h3>
+<ul>
+<li>We assume that the outcome prediction errors <em>residuals</em> are normally distributed</li>
+<li>We do not assume that the distributions of <em>predictor variables</em> are normal</li>
+</ul>
+</section>
+<section id="revision-what-differences-between-observed-and-predicted-outcome-values-look-like" class="level3 smaller">
+<h3 class="smaller anchored" data-anchor-id="revision-what-differences-between-observed-and-predicted-outcome-values-look-like">Revision: What differences between observed and predicted outcome values look like</h3>
+<ul>
+<li>Differences between observed and predicted outcomes are shown by the vertical lines – outcome prediction errors: <strong>residuals</strong></li>
+<li>Better models should show smaller differences between observed and predicted outcome values</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-abline-predict-residuals-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-abline-predict-residuals-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-dev_files/figure-html/fig-abline-predict-residuals-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-abline-predict-residuals-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="revision-we-typically-assume-that-the-residuals-are-normally-distributed" class="level3">
+<h3 class="anchored" data-anchor-id="revision-we-typically-assume-that-the-residuals-are-normally-distributed">Revision: We typically assume that the residuals are normally distributed</h3>
+<ul>
+<li>Some outcome prediction errors – <strong>residuals</strong> – are positive</li>
+<li>Some residuals are negative</li>
+<li>The average of the residuals will be zero overall</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="fig-residuals-density-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure a histogram of the residuals, the prediction errors, for the linear model of the association between mean comprehension accuracy and vocabulary. The histogram is shown in grey, and the peak is centered at residuals = 0. A dashed red line is drawn at resdiduals = 0. A red density curve is superimposed on the histogram to indicate the theoretical normal distribution of residuals." data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-residuals-density-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-dev_files/figure-html/fig-residuals-density-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure a histogram of the residuals, the prediction errors, for the linear model of the association between mean comprehension accuracy and vocabulary. The histogram is shown in grey, and the peak is centered at residuals = 0. A dashed red line is drawn at resdiduals = 0. A red density curve is superimposed on the histogram to indicate the theoretical normal distribution of residuals." width="480">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-residuals-density-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Plot showing the distribution of prediction errors – residuals – for the linear model of comprehension accuracy
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="multiple-candidate-predictor-variables" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-candidate-predictor-variables">Multiple candidate predictor variables</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-scatterplot-grid" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of scatterplots indicating the association between outcome mean accuracy (on y-axis) and (x-axis) scores on a range of predictor variables. The points are shown in grey, and higher points are associated with higher accuracy scores. The grid includes as predictors: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate that mean accuracy increases with increasing self-rated accuracy, vocabulary, health literacy, and reading strategy scores. Trends are indicated by red lines.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterplot-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-dev_files/figure-html/fig-scatterplot-grid-1.png" class="img-fluid figure-img" alt="The figure presents a grid of scatterplots indicating the association between outcome mean accuracy (on y-axis) and (x-axis) scores on a range of predictor variables. The points are shown in grey, and higher points are associated with higher accuracy scores. The grid includes as predictors: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate that mean accuracy increases with increasing self-rated accuracy, vocabulary, health literacy, and reading strategy scores. Trends are indicated by red lines." width="1920">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Scatterplot showing the potential association between accuracy of comprehension and variation on each of a series of potential predictor variables. Data from 8 studies
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="we-do-not-assume-normal-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="we-do-not-assume-normal-predictors">We do not assume normal <em>predictors</em></h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-histogram-grid-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of histograms indicating the distribution of (x-axis) scores on a range of predictor variables. The grid includes as predictors: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate: (1.) most self-rated accuracy scores are high (over 6); (2.) many participants with vocabulary scores greater than 30, a few with lower scores; (3.) health literacy scores centered on 8 or some, with lower and higher scores; (4.) a skewed distribution of reading strategy scores, with many around 20-40, and a tail of higher scores; (5.) most participants are 20-40 years of age, some older; (6.) many more female than male participants, very few non-binary reported; (7.) many more participants with higher education than further, very few with secondary; and (8.) many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-histogram-grid-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-dev_files/figure-html/fig-histogram-grid-1-1.png" class="img-fluid figure-img" alt="The figure presents a grid of histograms indicating the distribution of (x-axis) scores on a range of predictor variables. The grid includes as predictors: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate: (1.) most self-rated accuracy scores are high (over 6); (2.) many participants with vocabulary scores greater than 30, a few with lower scores; (3.) health literacy scores centered on 8 or some, with lower and higher scores; (4.) a skewed distribution of reading strategy scores, with many around 20-40, and a tail of higher scores; (5.) most participants are 20-40 years of age, some older; (6.) many more female than male participants, very few non-binary reported; (7.) many more participants with higher education than further, very few with secondary; and (8.) many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants." width="1344">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histogram-grid-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Grid of plots showing the distribution of potential predictor variables. Data from 8 studies
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="extensions-to-the-linear-model-multiple-predictors-2" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-to-the-linear-model-multiple-predictors-2">Extensions to the linear model: Multiple predictors</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can try to model <em>anything</em> using linear models: that is the <strong>real challenge we face</strong></p>
+<ul>
+<li>Any analysis you have learned can instead be done using a linear model: ANOVA, t-test, correlation, <span class="math inline">\(\chi^2\)</span> test, …</li>
+<li>We can work with any kind of dependent or independent variable you can think of</li>
+</ul>
+<p><strong>This is why we need to be careful</strong></p>
+</div>
+</div>
+</section>
+<section id="analyses-are-done-in-context-so-when-we-conduct-analyses-we-must-use-contextual-information" class="level3">
+<h3 class="anchored" data-anchor-id="analyses-are-done-in-context-so-when-we-conduct-analyses-we-must-use-contextual-information">Analyses are done in context so when we conduct analyses we <em>must</em> use contextual information</h3>
+<p><strong>Closing the loop: The health comprehension project questions</strong></p>
+<ol type="1">
+<li>We want to know: <em>What makes it easy or difficult to understand written health information?</em></li>
+<li>So our research questions include:</li>
+</ol>
+<ul>
+<li>What person attributes predict success in understanding?</li>
+</ul>
+</section>
+<section id="we-must-use-contextual-information-theory-of-comprehension" class="level3">
+<h3 class="anchored" data-anchor-id="we-must-use-contextual-information-theory-of-comprehension">We <em>must</em> use contextual information: theory of comprehension</h3>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-comprehension-drivers-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comprehension-drivers-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 335.68 98.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94)">
+<title>Q</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-94 331.68,-94 331.68,4 -4,4"></polygon>
+<!-- nd_1_l -->
+<g id="node1" class="node">
+<title>nd_1_l</title>
+<path fill="none" stroke="black" d="M123.47,-90C123.47,-90 11.84,-90 11.84,-90 5.84,-90 -0.16,-84 -0.16,-78 -0.16,-78 -0.16,-66 -0.16,-66 -0.16,-60 5.84,-54 11.84,-54 11.84,-54 123.47,-54 123.47,-54 129.47,-54 135.47,-60 135.47,-66 135.47,-66 135.47,-78 135.47,-78 135.47,-84 129.47,-90 123.47,-90"></path>
+<text text-anchor="middle" x="67.66" y="-67.8" font-family="Times,serif" font-size="14.00">Language experience</text>
+</g>
+<!-- nd_2 -->
+<g id="node3" class="node">
+<title>nd_2</title>
+<path fill="none" stroke="black" d="M315.86,-63C315.86,-63 183.13,-63 183.13,-63 177.13,-63 171.13,-57 171.13,-51 171.13,-51 171.13,-39 171.13,-39 171.13,-33 177.13,-27 183.13,-27 183.13,-27 315.86,-27 315.86,-27 321.86,-27 327.86,-33 327.86,-39 327.86,-39 327.86,-51 327.86,-51 327.86,-57 321.86,-63 315.86,-63"></path>
+<text text-anchor="middle" x="249.5" y="-40.8" font-family="Times,serif" font-size="14.00">Comprehension outcome</text>
+</g>
+<!-- nd_1_l&#45;&gt;nd_2 -->
+<g id="edge1" class="edge">
+<title>nd_1_l-&gt;nd_2</title>
+<path fill="none" stroke="black" d="M135.37,-61.98C143.77,-60.72 152.47,-59.42 161.13,-58.12"></path>
+<polygon fill="black" stroke="black" points="161.9,-61.54 171.27,-56.59 160.86,-54.62 161.9,-61.54"></polygon>
+</g>
+<!-- nd_1_r -->
+<g id="node2" class="node">
+<title>nd_1_r</title>
+<path fill="none" stroke="black" d="M118.4,-36C118.4,-36 16.92,-36 16.92,-36 10.92,-36 4.92,-30 4.92,-24 4.92,-24 4.92,-12 4.92,-12 4.92,-6 10.92,0 16.92,0 16.92,0 118.4,0 118.4,0 124.4,0 130.4,-6 130.4,-12 130.4,-12 130.4,-24 130.4,-24 130.4,-30 124.4,-36 118.4,-36"></path>
+<text text-anchor="middle" x="67.66" y="-13.8" font-family="Times,serif" font-size="14.00">Reasoning capacity</text>
+</g>
+<!-- nd_1_r&#45;&gt;nd_2 -->
+<g id="edge2" class="edge">
+<title>nd_1_r-&gt;nd_2</title>
+<path fill="none" stroke="black" d="M130.3,-27.25C140.24,-28.75 150.69,-30.32 161.1,-31.88"></path>
+<polygon fill="black" stroke="black" points="160.64,-35.35 171.04,-33.37 161.67,-28.43 160.64,-35.35"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comprehension-drivers-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Understanding text depends on (1.) language experience and (2.) reasoning ability <span class="citation" data-cites="freed2017">[@freed2017]</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="given-theory-model-of-comprehension-accuracy-should-include-measures-of" class="level3">
+<h3 class="anchored" data-anchor-id="given-theory-model-of-comprehension-accuracy-should-include-measures-of">Given theory, model of comprehension accuracy <em>should</em> include measures of</h3>
+<p>(1.) experience (HLVA, SHIPLEY) and (2.) reasoning ability (reading strategy)</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-comprehension-drivers-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-comprehension-drivers-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 335.68 98.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 94)">
+<title>Q</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-94 331.68,-94 331.68,4 -4,4"></polygon>
+<!-- nd_1_l -->
+<g id="node1" class="node">
+<title>nd_1_l</title>
+<path fill="none" stroke="black" d="M123.47,-90C123.47,-90 11.84,-90 11.84,-90 5.84,-90 -0.16,-84 -0.16,-78 -0.16,-78 -0.16,-66 -0.16,-66 -0.16,-60 5.84,-54 11.84,-54 11.84,-54 123.47,-54 123.47,-54 129.47,-54 135.47,-60 135.47,-66 135.47,-66 135.47,-78 135.47,-78 135.47,-84 129.47,-90 123.47,-90"></path>
+<text text-anchor="middle" x="67.66" y="-67.8" font-family="Times,serif" font-size="14.00">Language experience</text>
+</g>
+<!-- nd_2 -->
+<g id="node3" class="node">
+<title>nd_2</title>
+<path fill="none" stroke="black" d="M315.86,-63C315.86,-63 183.13,-63 183.13,-63 177.13,-63 171.13,-57 171.13,-51 171.13,-51 171.13,-39 171.13,-39 171.13,-33 177.13,-27 183.13,-27 183.13,-27 315.86,-27 315.86,-27 321.86,-27 327.86,-33 327.86,-39 327.86,-39 327.86,-51 327.86,-51 327.86,-57 321.86,-63 315.86,-63"></path>
+<text text-anchor="middle" x="249.5" y="-40.8" font-family="Times,serif" font-size="14.00">Comprehension outcome</text>
+</g>
+<!-- nd_1_l&#45;&gt;nd_2 -->
+<g id="edge1" class="edge">
+<title>nd_1_l-&gt;nd_2</title>
+<path fill="none" stroke="black" d="M135.37,-61.98C143.77,-60.72 152.47,-59.42 161.13,-58.12"></path>
+<polygon fill="black" stroke="black" points="161.9,-61.54 171.27,-56.59 160.86,-54.62 161.9,-61.54"></polygon>
+</g>
+<!-- nd_1_r -->
+<g id="node2" class="node">
+<title>nd_1_r</title>
+<path fill="none" stroke="black" d="M118.4,-36C118.4,-36 16.92,-36 16.92,-36 10.92,-36 4.92,-30 4.92,-24 4.92,-24 4.92,-12 4.92,-12 4.92,-6 10.92,0 16.92,0 16.92,0 118.4,0 118.4,0 124.4,0 130.4,-6 130.4,-12 130.4,-12 130.4,-24 130.4,-24 130.4,-30 124.4,-36 118.4,-36"></path>
+<text text-anchor="middle" x="67.66" y="-13.8" font-family="Times,serif" font-size="14.00">Reasoning capacity</text>
+</g>
+<!-- nd_1_r&#45;&gt;nd_2 -->
+<g id="edge2" class="edge">
+<title>nd_1_r-&gt;nd_2</title>
+<path fill="none" stroke="black" d="M130.3,-27.25C140.24,-28.75 150.69,-30.32 161.1,-31.88"></path>
+<polygon fill="black" stroke="black" points="160.64,-35.35 171.04,-33.37 161.67,-28.43 160.64,-35.35"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comprehension-drivers-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Understanding text depends on (1.) language experience and (2.) reasoning ability <span class="citation" data-cites="freed2017">[@freed2017]</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="the-flexibility-and-power-of-linear-models-requires-us-to-be-aware-of-the-garden-of-forking-paths" class="level3">
+<h3 class="anchored" data-anchor-id="the-flexibility-and-power-of-linear-models-requires-us-to-be-aware-of-the-garden-of-forking-paths">The flexibility and power of linear models requires us to be aware of the <em>garden of forking paths</em></h3>
+<ul>
+<li>Which variables <em>should be included</em> in an analysis?</li>
+<li>All of them; some of them; why?</li>
+<li>Will others disagree with reason?</li>
+</ul>
+<div class="cell" data-fig-width="5" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-forking" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-forking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<svg width="480" height="480" viewbox="0.00 0.00 422.00 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>D</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 418,-184 418,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="none" stroke="black" cx="207" cy="-162" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="207" y="-157.8" font-family="Times,serif" font-size="14.00">A</text>
+</g>
+<!-- B1 -->
+<g id="node2" class="node">
+<title>B1</title>
+<ellipse fill="none" stroke="black" cx="135" cy="-90" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="135" y="-85.8" font-family="Times,serif" font-size="14.00">B1</text>
+</g>
+<!-- A&#45;&gt;B1 -->
+<g id="edge1" class="edge">
+<title>A-&gt;B1</title>
+<path fill="none" stroke="black" d="M192.43,-146.83C182.25,-136.94 168.48,-123.55 156.97,-112.36"></path>
+<polygon fill="black" stroke="black" points="159.41,-109.85 149.8,-105.38 154.53,-114.87 159.41,-109.85"></polygon>
+</g>
+<!-- B2 -->
+<g id="node3" class="node">
+<title>B2</title>
+<ellipse fill="none" stroke="black" cx="279" cy="-90" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="279" y="-85.8" font-family="Times,serif" font-size="14.00">B2</text>
+</g>
+<!-- A&#45;&gt;B2 -->
+<g id="edge2" class="edge">
+<title>A-&gt;B2</title>
+<path fill="none" stroke="black" d="M221.57,-146.83C231.75,-136.94 245.52,-123.55 257.03,-112.36"></path>
+<polygon fill="black" stroke="black" points="259.47,-114.87 264.2,-105.38 254.59,-109.85 259.47,-114.87"></polygon>
+</g>
+<!-- C1 -->
+<g id="node4" class="node">
+<title>C1</title>
+<ellipse fill="none" stroke="black" cx="27" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00">C1</text>
+</g>
+<!-- B1&#45;&gt;C1 -->
+<g id="edge3" class="edge">
+<title>B1-&gt;C1</title>
+<path fill="none" stroke="black" d="M116.19,-76.81C99,-65.67 73.38,-49.06 54.01,-36.5"></path>
+<polygon fill="black" stroke="black" points="55.89,-33.56 45.6,-31.05 52.08,-39.43 55.89,-33.56"></polygon>
+</g>
+<!-- C2 -->
+<g id="node5" class="node">
+<title>C2</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00">C2</text>
+</g>
+<!-- B1&#45;&gt;C2 -->
+<g id="edge4" class="edge">
+<title>B1-&gt;C2</title>
+<path fill="none" stroke="black" d="M126.65,-72.76C122.29,-64.28 116.85,-53.71 111.96,-44.2"></path>
+<polygon fill="black" stroke="black" points="114.99,-42.44 107.3,-35.15 108.77,-45.64 114.99,-42.44"></polygon>
+</g>
+<!-- C3 -->
+<g id="node6" class="node">
+<title>C3</title>
+<ellipse fill="none" stroke="black" cx="171" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00">C3</text>
+</g>
+<!-- B1&#45;&gt;C3 -->
+<g id="edge5" class="edge">
+<title>B1-&gt;C3</title>
+<path fill="none" stroke="black" d="M143.35,-72.76C147.71,-64.28 153.15,-53.71 158.04,-44.2"></path>
+<polygon fill="black" stroke="black" points="161.23,-45.64 162.7,-35.15 155.01,-42.44 161.23,-45.64"></polygon>
+</g>
+<!-- C4 -->
+<g id="node7" class="node">
+<title>C4</title>
+<ellipse fill="none" stroke="black" cx="243" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="243" y="-13.8" font-family="Times,serif" font-size="14.00">C4</text>
+</g>
+<!-- B2&#45;&gt;C4 -->
+<g id="edge6" class="edge">
+<title>B2-&gt;C4</title>
+<path fill="none" stroke="black" d="M270.65,-72.76C266.29,-64.28 260.85,-53.71 255.96,-44.2"></path>
+<polygon fill="black" stroke="black" points="258.99,-42.44 251.3,-35.15 252.77,-45.64 258.99,-42.44"></polygon>
+</g>
+<!-- C5 -->
+<g id="node8" class="node">
+<title>C5</title>
+<ellipse fill="none" stroke="black" cx="315" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="315" y="-13.8" font-family="Times,serif" font-size="14.00">C5</text>
+</g>
+<!-- B2&#45;&gt;C5 -->
+<g id="edge7" class="edge">
+<title>B2-&gt;C5</title>
+<path fill="none" stroke="black" d="M287.35,-72.76C291.71,-64.28 297.15,-53.71 302.04,-44.2"></path>
+<polygon fill="black" stroke="black" points="305.23,-45.64 306.7,-35.15 299.01,-42.44 305.23,-45.64"></polygon>
+</g>
+<!-- C6 -->
+<g id="node9" class="node">
+<title>C6</title>
+<ellipse fill="none" stroke="black" cx="387" cy="-18" rx="27" ry="18"></ellipse>
+<text text-anchor="middle" x="387" y="-13.8" font-family="Times,serif" font-size="14.00">C6</text>
+</g>
+<!-- B2&#45;&gt;C6 -->
+<g id="edge8" class="edge">
+<title>B2-&gt;C6</title>
+<path fill="none" stroke="black" d="M297.81,-76.81C315,-65.67 340.62,-49.06 359.99,-36.5"></path>
+<polygon fill="black" stroke="black" points="361.92,-39.43 368.4,-31.05 358.11,-33.56 361.92,-39.43"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-forking-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8: Forking paths in data analysis
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="different-researchers-can-reasonably-make-different-choices" class="level3">
+<h3 class="anchored" data-anchor-id="different-researchers-can-reasonably-make-different-choices">Different researchers can reasonably make different choices</h3>
+<p>This is why we care about open science</p>
+<ul>
+<li>Theory- and evidence-based selection of critical variables for analysis <span class="math inline">\(\rightarrow\)</span> <em>literature review</em></li>
+<li>Share usable data and analysis code in open repositories <span class="math inline">\(\rightarrow\)</span> <em>research report exercise</em>, PSYC403 data archiving</li>
+</ul>
+</section>
+<section id="coding-thinking-about-and-reporting-linear-models-with-multiple-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="coding-thinking-about-and-reporting-linear-models-with-multiple-predictors">Coding, thinking about, and reporting linear models with multiple predictors</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(mean.acc <span class="sc">~</span> SHIPLEY <span class="sc">+</span> HLVA <span class="sc">+</span> FACTOR3 <span class="sc">+</span> AGE <span class="sc">+</span> NATIVE.LANGUAGE, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="coding-the-linear-model-with-multiple-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="coding-the-linear-model-with-multiple-predictors">Coding the linear model with multiple predictors</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(mean.acc <span class="sc">~</span> SHIPLEY <span class="sc">+</span> HLVA <span class="sc">+</span> FACTOR3 <span class="sc">+</span> AGE <span class="sc">+</span> NATIVE.LANGUAGE, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The code represents a linear model with multiple predictors:</li>
+<li><span class="math inline">\(y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \dots + \epsilon\)</span></li>
+</ul>
+</section>
+<section id="thinking-about-the-linear-model-with-multiple-predictors" class="level3">
+<h3 class="anchored" data-anchor-id="thinking-about-the-linear-model-with-multiple-predictors">Thinking about the linear model with multiple predictors</h3>
+<p><span class="math inline">\(y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \dots + \epsilon\)</span></p>
+<p>Outcome <span class="math inline">\(y\)</span> is calculated as the sum of:</p>
+<ul>
+<li>The intercept <span class="math inline">\(\beta_0\)</span> plus</li>
+<li>The product of the coefficient of the effect of e.g.&nbsp;<code>AGE</code> <span class="math inline">\(\beta_1\)</span> multiplied by <span class="math inline">\(x_1\)</span> a person’s age <code>+</code></li>
+<li><code>+</code> any number of other variables <code>+</code></li>
+<li>The error <span class="math inline">\(\epsilon\)</span>: mismatches between observed and predicted outcomes</li>
+</ul>
+</section>
+<section id="identifying-key-information-in-results" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-key-information-in-results">Identifying key information in results</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE, 
+    data = all.studies.subjects)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.55939 -0.08115  0.02056  0.10633  0.41598 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)           0.1873086  0.0472991   3.960 8.47e-05 ***
+SHIPLEY               0.0073947  0.0011144   6.635 7.70e-11 ***
+HLVA                  0.0242787  0.0031769   7.642 9.44e-14 ***
+FACTOR3               0.0053455  0.0008947   5.975 4.12e-09 ***
+AGE                  -0.0026434  0.0004905  -5.390 1.05e-07 ***
+NATIVE.LANGUAGEOther -0.0900035  0.0141356  -6.367 4.04e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1612 on 555 degrees of freedom
+  (54 observations deleted due to missingness)
+Multiple R-squared:  0.4221,    Adjusted R-squared:  0.4169 
+F-statistic: 81.09 on 5 and 555 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="identifying-key-information-in-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-key-information-in-results-1">Identifying key information in results</h3>
+<ol type="1">
+<li>The <code>summary()</code> of the linear model shows:</li>
+<li>Estimates of the coefficients of the effects of the predictors we included, with null hypothesis significance tests of those estimates</li>
+<li>Model fit statistics including <code>R-squared</code> and <code>F-statistic</code> estimates</li>
+</ol>
+</section>
+<section id="for-each-predictor-e.g.-hlva-we-see" class="level3">
+<h3 class="anchored" data-anchor-id="for-each-predictor-e.g.-hlva-we-see">For each predictor, e.g.&nbsp;HLVA, we see</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE, 
+    data = all.studies.subjects)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.55939 -0.08115  0.02056  0.10633  0.41598 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)           0.1873086  0.0472991   3.960 8.47e-05 ***
+SHIPLEY               0.0073947  0.0011144   6.635 7.70e-11 ***
+HLVA                  0.0242787  0.0031769   7.642 9.44e-14 ***
+FACTOR3               0.0053455  0.0008947   5.975 4.12e-09 ***
+AGE                  -0.0026434  0.0004905  -5.390 1.05e-07 ***
+NATIVE.LANGUAGEOther -0.0900035  0.0141356  -6.367 4.04e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1612 on 555 degrees of freedom
+  (54 observations deleted due to missingness)
+Multiple R-squared:  0.4221,    Adjusted R-squared:  0.4169 
+F-statistic: 81.09 on 5 and 555 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ol type="1">
+<li>The Coefficient <code>Estimate</code>: <code>0.0242787</code> for the slope of the effect of variation in HLVA scores</li>
+<li>The <code>Std. Error</code> (standard error) <code>0.0031769</code> for the estimate</li>
+<li>The <code>t value</code> of <code>7.642</code> and associated <code>Pr(&gt;|t|)</code> p-value <code>9.44e-14</code> for the null hypothesis test of the coefficient</li>
+</ol>
+</section>
+<section id="identifying-the-key-information-in-the-linear-model-results-coefficients" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-the-key-information-in-the-linear-model-results-coefficients">Identifying the key information in the linear model results: Coefficients</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE, 
+    data = all.studies.subjects)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.55939 -0.08115  0.02056  0.10633  0.41598 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)           0.1873086  0.0472991   3.960 8.47e-05 ***
+SHIPLEY               0.0073947  0.0011144   6.635 7.70e-11 ***
+HLVA                  0.0242787  0.0031769   7.642 9.44e-14 ***
+FACTOR3               0.0053455  0.0008947   5.975 4.12e-09 ***
+AGE                  -0.0026434  0.0004905  -5.390 1.05e-07 ***
+NATIVE.LANGUAGEOther -0.0900035  0.0141356  -6.367 4.04e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1612 on 555 degrees of freedom
+  (54 observations deleted due to missingness)
+Multiple R-squared:  0.4221,    Adjusted R-squared:  0.4169 
+F-statistic: 81.09 on 5 and 555 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>Pay attention to <strong>sign and the size</strong> of coefficient estimate:</li>
+<li>Is the coefficient (e.g., HLVA <code>0.0242787</code>) a positive or a negative number? is it relatively large or small?</li>
+</ul>
+</section>
+<section id="identifying-the-key-information-in-the-linear-model-results-r-squared" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-the-key-information-in-the-linear-model-results-r-squared">Identifying the key information in the linear model results: R-squared</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE, 
+    data = all.studies.subjects)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.55939 -0.08115  0.02056  0.10633  0.41598 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)           0.1873086  0.0472991   3.960 8.47e-05 ***
+SHIPLEY               0.0073947  0.0011144   6.635 7.70e-11 ***
+HLVA                  0.0242787  0.0031769   7.642 9.44e-14 ***
+FACTOR3               0.0053455  0.0008947   5.975 4.12e-09 ***
+AGE                  -0.0026434  0.0004905  -5.390 1.05e-07 ***
+NATIVE.LANGUAGEOther -0.0900035  0.0141356  -6.367 4.04e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1612 on 555 degrees of freedom
+  (54 observations deleted due to missingness)
+Multiple R-squared:  0.4221,    Adjusted R-squared:  0.4169 
+F-statistic: 81.09 on 5 and 555 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>Revision: Pay attention to R-squared</li>
+<li>R-squared indicates how much outcome variation we can predict, given our model</li>
+<li>Revision: we report <code>Adjusted R-squared</code> because it tends to be more accurate</li>
+</ul>
+</section>
+<section id="identifying-the-key-information-in-the-linear-model-results-f" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-the-key-information-in-the-linear-model-results-f">Identifying the key information in the linear model results: F</h3>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE, 
+    data = all.studies.subjects)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.55939 -0.08115  0.02056  0.10633  0.41598 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)           0.1873086  0.0472991   3.960 8.47e-05 ***
+SHIPLEY               0.0073947  0.0011144   6.635 7.70e-11 ***
+HLVA                  0.0242787  0.0031769   7.642 9.44e-14 ***
+FACTOR3               0.0053455  0.0008947   5.975 4.12e-09 ***
+AGE                  -0.0026434  0.0004905  -5.390 1.05e-07 ***
+NATIVE.LANGUAGEOther -0.0900035  0.0141356  -6.367 4.04e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1612 on 555 degrees of freedom
+  (54 observations deleted due to missingness)
+Multiple R-squared:  0.4221,    Adjusted R-squared:  0.4169 
+F-statistic: 81.09 on 5 and 555 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>The model summary gives us the F-statistic:</li>
+<li>Revision: the F-test of the null hypothesis that the model <em>does not</em> predict the outcome</li>
+</ul>
+</section>
+<section id="plot-predictions-to-interpret-effects" class="level3">
+<h3 class="anchored" data-anchor-id="plot-predictions-to-interpret-effects">Plot predictions to interpret effects</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-marginal-effects-plots-1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents grid of plots showing model predictions, for outcome accuracy, given variation in (a.) age, (b.) vocabulary, (c.) health literacy, (d) reading strategy and (e.) native language. The plots are a series of scatterplots: raw data points are shown in grey; predicted outcome change, given variation on predictors, are indicated by a red line. The plots indicate that accuracy of comprehension is predicted to increase given increase in voccabulary, health literacy, and reading  strategy. Native speakers of English are predicted to show greater accuracy than speakers of English as another language. Older participants are predicted to show lower levels of accuracy.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-marginal-effects-plots-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-dev_files/figure-html/fig-marginal-effects-plots-1-1.png" class="img-fluid figure-img" alt="The figure presents grid of plots showing model predictions, for outcome accuracy, given variation in (a.) age, (b.) vocabulary, (c.) health literacy, (d) reading strategy and (e.) native language. The plots are a series of scatterplots: raw data points are shown in grey; predicted outcome change, given variation on predictors, are indicated by a red line. The plots indicate that accuracy of comprehension is predicted to increase given increase in voccabulary, health literacy, and reading  strategy. Native speakers of English are predicted to show greater accuracy than speakers of English as another language. Older participants are predicted to show lower levels of accuracy." width="960">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-marginal-effects-plots-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9: A grid of plots showing model predictions, for outcome accuracy, given variation in (a.) age, (b.) vocabulary, (c.) health literacy, (d) reading strategy and (e.) native language. Data from eight studies
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="compare-estimates-with-effects-plots" class="level3">
+<h3 class="anchored" data-anchor-id="compare-estimates-with-effects-plots">Compare estimates with effects plots</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lm-dev_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents grid of plots showing model predictions, for outcome accuracy, given variation in (a.) age, (b.) vocabulary, (c.) health literacy, (d) reading strategy and (e.) native language. The plots are a series of scatterplots: raw data points are shown in grey; predicted outcome change, given variation on predictors, are indicated by a red line. The plots indicate that accuracy of comprehension is predicted to increase given increase in voccabulary, health literacy, and reading  strategy. Native speakers of English are predicted to show greater accuracy than speakers of English as another language. Older participants are predicted to show lower levels of accuracy." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Coefficients estimates in the summary match what we see</li>
+<li>Positive coefficients show upward slopes</li>
+<li>Larger coefficients show steeper slopes</li>
+</ul>
+</section>
+<section id="the-language-and-style-of-reporting-linear-model-results" class="level3">
+<h3 class="anchored" data-anchor-id="the-language-and-style-of-reporting-linear-model-results">The language and style of reporting linear model results</h3>
+<blockquote class="blockquote">
+<p>We fitted a linear model with mean comprehension accuracy as the outcome and, as predictors: vocabulary knowledge (Shipley), health literacy (HLVA), reading strategy (FACTOR3), age (years) and native language status. Our analysis indicated significant effects of all predictor variables. The model is significant overall, with <span class="math inline">\(F(5, 555) = 81.09, p &lt; .001\)</span>, and explains 42% of variance (<span class="math inline">\(\text{adjusted } R^2 = 0.42\)</span>). The model estimates showed that the accuracy of comprehension increased with higher levels of participant vocabulary knowledge (<span class="math inline">\(\beta = .007, t = 6.64, p &lt;.001\)</span>), health literacy (<span class="math inline">\(\beta = .024, t = 7.64, p &lt;.001\)</span>), and reading strategy (<span class="math inline">\(\beta = .005, t = 5.98, p = &lt; .001\)</span>). Younger participants (<span class="math inline">\(\beta = -0.003, t = -5.39, p &lt;.001\)</span>) and native speakers of English as another language (<span class="math inline">\(\beta = -.090, t = -6.37, p &lt;.001\)</span>) tended to show lower levels of accuracy.</p>
+</blockquote>
+</section>
+<section id="look-at-what-we-do-with-the-text" class="level3">
+<h3 class="anchored" data-anchor-id="look-at-what-we-do-with-the-text">Look at what we do with the text</h3>
+<blockquote class="blockquote">
+<p>We fitted a linear model with mean comprehension accuracy as the outcome and, as predictors: vocabulary knowledge (Shipley), health literacy (HLVA), reading strategy (FACTOR3), age (years) and native language status. Our analysis indicated significant effects of all predictor variables. The model is significant overall, with <span class="math inline">\(F(5, 555) = 81.09, p &lt; .001\)</span>, and explains 42% of variance (<span class="math inline">\(\text{adjusted } R^2 = 0.42\)</span>). The model estimates showed that the accuracy of comprehension increased with higher levels of participant vocabulary knowledge (<span class="math inline">\(\beta = .007, t = 6.64, p &lt;.001\)</span>), health literacy (<span class="math inline">\(\beta = .024, t = 7.64, p &lt;.001\)</span>), and reading strategy (<span class="math inline">\(\beta = .005, t = 5.98, p = &lt; .001\)</span>). Younger participants (<span class="math inline">\(\beta = -0.003, t = -5.39, p &lt;.001\)</span>) and native speakers of English as another language (<span class="math inline">\(\beta = -.090, t = -6.37, p &lt;.001\)</span>) tended to show lower levels of accuracy.</p>
+</blockquote>
+<ol type="1">
+<li>Explain: the method (linear model); the outcome (accuracy) and the predictors</li>
+<li>Report the model fit statistics overall (<span class="math inline">\(F, R^2\)</span>)</li>
+<li>Report the significant effects (<span class="math inline">\(\beta, t, p\)</span>) and describe the nature of the effects</li>
+</ol>
+</section>
+<section id="critically-evaluating-the-results-of-analyses-involving-linear-models" class="level3">
+<h3 class="anchored" data-anchor-id="critically-evaluating-the-results-of-analyses-involving-linear-models">Critically evaluating the results of analyses involving linear models</h3>
+<p>There are three levels of <strong>uncertainty</strong> when we look at sample data <span class="citation" data-cites="mcelreath2020">[@mcelreath2020]</span> – uncertainty over:</p>
+<ol type="1">
+<li>The nature of the expected change in outcome</li>
+<li>The ways that expected changes might vary between individual participants or between groups of participants</li>
+<li>The random ways that specific responses can be produced</li>
+</ol>
+</section>
+<section id="critically-evaluating-the-results-of-analyses-involving-linear-models-1" class="level3">
+<h3 class="anchored" data-anchor-id="critically-evaluating-the-results-of-analyses-involving-linear-models-1">Critically evaluating the results of analyses involving linear models</h3>
+<ul>
+<li>These uncertainties require us to carefully qualify the conclusions we draw from data analyses</li>
+<li>This does not mean we should avoid <em>causal language</em> when we think that psychological processes cause the behaviours we examine <span class="citation" data-cites="Grosz2020">[@Grosz2020]</span></li>
+<li>But it <em>does mean</em> we can be careful to identify the limits in the evidence we analyse</li>
+</ul>
+</section>
+<section id="revision-as-we-move-into-thinking-about-the-data-analysis-we-need-to-identify-our-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="revision-as-we-move-into-thinking-about-the-data-analysis-we-need-to-identify-our-assumptions">Revision: As we move into thinking about the data analysis, we need to identify our assumptions</h3>
+<ol type="1">
+<li><strong>validity</strong>: that differences in knowledge or ability cause differences in test scores</li>
+<li><strong>measurement</strong>: that this is equally true across the different kinds of people we tested</li>
+<li><strong>generalizability</strong>: that the sample of people we recruited resembles the population</li>
+</ol>
+</section>
+<section id="how-do-you-do-this-work" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-you-do-this-work">How do <em>you</em> do this work?</h3>
+<ol type="1">
+<li><strong>validity</strong></li>
+</ol>
+<ul>
+<li>We want to work with valid measures but <em>validity</em> requires explaining <span class="citation" data-cites="borsboom2004">[@borsboom2004]</span>:</li>
+</ul>
+<ol type="a">
+<li>Does the thing exist in the world?</li>
+<li>Is variation in that thing be reflected in variation in our measurement?</li>
+</ol>
+<ul>
+<li>What you can do: literature review <span class="math inline">\(\rightarrow\)</span> to identify your reasoning in answer to these questions</li>
+</ul>
+</section>
+<section id="how-do-you-do-this-work-1" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-you-do-this-work-1">How do <em>you</em> do this work?</h3>
+<ol start="2" type="1">
+<li><strong>measurement</strong></li>
+<li><strong>generalizability</strong></li>
+</ol>
+<ul>
+<li>It is most helpful to assume from the start that effects estimates will vary <span class="citation" data-cites="Gelman2015 vasishth2021">[@Gelman2015; @vasishth2021]</span></li>
+<li>So then we ask ourselves: will this test work in the same way in different groups?</li>
+<li>And we ask: how will these effects estimates vary across different groups</li>
+</ul>
+</section>
+<section id="why-we-need-replication-studies" class="level3">
+<h3 class="anchored" data-anchor-id="why-we-need-replication-studies">Why we need replication studies</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-scatterplot-facet-2" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Each plot in the grid represents the pattern for data from one of eight studies. The scatter of points and the steepness if not the direction of the trend clearly varies between studies.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterplot-facet-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-dev_files/figure-html/fig-scatterplot-facet-2-1.png" class="img-fluid figure-img" alt="The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Each plot in the grid represents the pattern for data from one of eight studies. The scatter of points and the steepness if not the direction of the trend clearly varies between studies." width="720">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot-facet-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10: Scatterplot showing the potential association between accuracy of comprehension and vocabulary scores: Data from eight studies. Effects <em>will</em> vary between different samples so: expect the variation <span class="citation" data-cites="Gelman2015 vasishth2021">[@Gelman2015; @vasishth2021]</span> &gt;&gt;&gt; important to evaluating claims in the literature, and to evaluation of your own results
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="why-we-need-replication-studies-1" class="level3">
+<h3 class="anchored" data-anchor-id="why-we-need-replication-studies-1">Why we need replication studies</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-scatterplot-facet-3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Each plot in the grid represents the pattern for data from one of eight studies. The scatter of points and the steepness if not the direction of the trend clearly varies between studies.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-scatterplot-facet-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-dev_files/figure-html/fig-scatterplot-facet-3-1.png" class="img-fluid figure-img" alt="The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Each plot in the grid represents the pattern for data from one of eight studies. The scatter of points and the steepness if not the direction of the trend clearly varies between studies." width="720">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scatterplot-facet-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11: Effects will vary between samples <em>so</em> expect the variation <span class="citation" data-cites="Gelman2015 vasishth2021">[@Gelman2015; @vasishth2021]</span> &gt;&gt;&gt; ask what variation may result from <em>systematic differences between groups</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="why-we-need-to-consider-the-generalizability-of-sample-data" class="level3">
+<h3 class="anchored" data-anchor-id="why-we-need-to-consider-the-generalizability-of-sample-data">Why we need to consider the generalizability of sample data</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-factor-counts-grid" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of plots indicating the distribution of (x-axis) scores on a range of predictor variables. The grid includes as predictors: age (years); gender; education, and ethnicity. The plots indicate: most participants are 20-40 years of age, some older; many more female than male participants, very few non-binary reported; many more participants with higher education than further, very few with secondary; and many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-factor-counts-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="lm-dev_files/figure-html/fig-factor-counts-grid-1.png" class="img-fluid figure-img" alt="The figure presents a grid of plots indicating the distribution of (x-axis) scores on a range of predictor variables. The grid includes as predictors: age (years); gender; education, and ethnicity. The plots indicate: most participants are 20-40 years of age, some older; many more female than male participants, very few non-binary reported; many more participants with higher education than further, very few with secondary; and many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants." width="1152">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-factor-counts-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12: Grid of plots showing the distribution of potential predictor variables
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="convenience-samples-are-common-in-psychology" class="level3">
+<h3 class="anchored" data-anchor-id="convenience-samples-are-common-in-psychology">Convenience samples are common in Psychology</h3>
+<ul>
+<li>We test who we can – convenience sampling – and who we can test has an impact on the quality of evidence <span class="citation" data-cites="bornstein2013">[@bornstein2013]</span></li>
+<li>If age, ethnicity or gender are not balanced <span class="math inline">\(\rightarrow\)</span> does this matter to your research question?</li>
+<li>If samples are limited in size <span class="math inline">\(\rightarrow\)</span> how does that affect our uncertainty over effects estimates?</li>
+</ul>
+</section>
+<section id="the-linear-model-is-very-flexible-powerful-and-general" class="level3">
+<h3 class="anchored" data-anchor-id="the-linear-model-is-very-flexible-powerful-and-general">The linear model is very flexible, powerful and general</h3>
+<ul>
+<li>Most introductory statistics classes teach each statistical test <em>as if</em> they are independent</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most common statistical tests are special cases of linear models, or are close approximations</p>
+</div>
+</div>
+</section>
+<section id="the-t-test-as-linear-model" class="level3">
+<h3 class="anchored" data-anchor-id="the-t-test-as-linear-model">The t-test as linear model</h3>
+<p><span class="math inline">\(y_i = \beta_0 + \beta_1X\)</span></p>
+<ul>
+<li>If you have two groups, with a variable <code>X</code> coding for group membership</li>
+<li>Then the mean outcome for one group <span class="math inline">\(= \beta_0\)</span></li>
+<li>The estimate of the slope <span class="math inline">\(\beta_1\)</span> tells about the average difference between groups</li>
+<li>And we can code the model like this: <code>lm(y ~ group)</code></li>
+</ul>
+</section>
+<section id="anova-as-linear-model" class="level3">
+<h3 class="anchored" data-anchor-id="anova-as-linear-model">ANOVA as linear model</h3>
+<p><span class="math inline">\(y_i = \beta_0 + \beta_1X + \beta_2Z + \beta_3XZ\)</span></p>
+<ul>
+<li>If you have a 2 x 2 factorial design, with two factors <code>factor.1, factor.2</code>, and a dataset with variables <code>X, Z</code> coding for group membership</li>
+<li>Then the mean outcome for baseline conditions <span class="math inline">\(= \beta_0\)</span></li>
+<li>The estimates of the slopes <span class="math inline">\(\beta_1, \beta_2\)</span> tells about the average difference between groups</li>
+<li>The estimate of the slope <span class="math inline">\(\beta_3\)</span> tells us about the interaction</li>
+<li>And we can code the model like this: <code>lm(y ~ factor.1*factor.2)</code></li>
+<li>Or this <code>Anova(aov(y ~ factor.1*factor.2, data), type='II')</code></li>
+</ul>
+</section>
+<section id="anova-as-linear-model-1" class="level3">
+<h3 class="anchored" data-anchor-id="anova-as-linear-model-1">ANOVA as linear model</h3>
+<ul>
+<li>In general, the psychological literature is full of ANOVA</li>
+<li>But the field is moving away from ANOVA towards mixed-effects models</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have to make choices in teaching and, here, we are choosing to focus on a powerful, flexible, and generally applicable method we can explain <em>in depth</em>: linear models</p>
+<ul>
+<li>Our aim is for students to better understand how to use a general approach</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="extensions-to-the-linear-model" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-to-the-linear-model">Extensions to the linear model</h3>
+<p><span class="math inline">\(outcome ~ predictors + error\)</span></p>
+<ul>
+<li><code>outcome</code> can generalize to analyse data that are not metric, do not come from normal distributions</li>
+<li><code>predictors</code> can be curvilinear, categorical, involve interactions</li>
+<li><code>error</code> can be independent; can be non-independent</li>
+</ul>
+</section>
+<section id="look-ahead-extensions-to-the-linear-model" class="level3">
+<h3 class="anchored" data-anchor-id="look-ahead-extensions-to-the-linear-model">Look ahead: extensions to the linear model</h3>
+<ul>
+<li>What if the outcome measurement data cannot be understood to be metric or to come from a normal probability distribution?</li>
+</ul>
+</section>
+<section id="extensions-to-the-linear-model-binary-or-dichotomous-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-to-the-linear-model-binary-or-dichotomous-outcomes">Extensions to the linear model – binary or dichotomous outcomes</h3>
+<ol type="1">
+<li>Binary outcomes are very common in Psychology: yes or no; correct or incorrect; left or right visual field etc.</li>
+<li>The change in coding is e.g.&nbsp;<code>glm(ratings ~ predictors, family = "binomial")</code></li>
+</ol>
+</section>
+<section id="extensions-to-the-linear-model-ordinal-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-to-the-linear-model-ordinal-outcomes">Extensions to the linear model – ordinal outcomes</h3>
+<ol type="1">
+<li>Likert scale or ratings data are best analysed using ordinal models <span class="citation" data-cites="liddell2018">[@liddell2018]</span></li>
+<li>The change in coding [<span class="citation" data-cites="christensen">@christensen</span>] is e.g.&nbsp;<code>clm(ratings ~ predictors)</code></li>
+</ol>
+</section>
+<section id="extensions-to-the-linear-model-non-independence-of-observations" class="level3">
+<h3 class="anchored" data-anchor-id="extensions-to-the-linear-model-non-independence-of-observations">Extensions to the linear model – non-independence of observations</h3>
+<ol type="1">
+<li>Much – maybe most – psychological data are collected in ways that guarantee the non-independence of observations</li>
+</ol>
+<ul>
+<li>We test children in classes, patients in clinics, individuals in regions</li>
+<li>We test participants in multiple trials in an experiment, recording responses to multiple stimuli</li>
+</ul>
+<ol start="2" type="1">
+<li>These data should be analysed using <strong>linear mixed-effects models <span class="citation" data-cites="meteyard2020">[@meteyard2020]</span></strong></li>
+</ol>
+</section>
+<section id="general-advice" class="level3">
+<h3 class="anchored" data-anchor-id="general-advice">General advice</h3>
+<p>An old saying goes:</p>
+<blockquote class="blockquote">
+<p>All models are wrong but some are useful</p>
+</blockquote>
+<p>(attributed to George Box).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Sometimes, it can be useful to adopt a simpler approach as a way to approximate <em>get closer to</em> better methods</li>
+<li>Box also advises “Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad.”</li>
+<li>Here, we focus on validity, measurement, generalizability and <em>critical thinking</em></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="summary" class="level3">
+<h3 class="anchored" data-anchor-id="summary">Summary</h3>
+<ol type="1">
+<li>Linear models</li>
+</ol>
+<ul>
+<li>Linear models are a very general, flexible, and powerful analysis method</li>
+<li>We can use assuming that prediction outcomes (residuals) are normally distributed</li>
+<li>With potentially multiple predictor variables</li>
+</ul>
+<ol start="2" type="1">
+<li>Thinking about linear models</li>
+</ol>
+<ul>
+<li>Closing the loop: when we plan an analysis we should try to use contextual information – theory and measurement understanding – to specify our model</li>
+<li>Closing the loop: when we critically evaluate our or others’ findings, we should consider validity, measurement, and generalizability</li>
+</ul>
+<ol start="3" type="1">
+<li>Reporting linear models</li>
+</ol>
+<ul>
+<li>When we report an analysis, we should report:</li>
+</ul>
+<ol type="1">
+<li>Explain what I did, specifying the method (linear model), the outcome variable (accuracy) and the predictor variables (health literacy, reading strategy, reading skill and vocabulary)</li>
+<li>Report the model fit statistics overall (<span class="math inline">\(F, R^2\)</span>)</li>
+<li>Report the significant effects (<span class="math inline">\(\beta, t, p\)</span>) and describe the nature of the effects (does the outcome increase or decrease?)</li>
+</ol>
+
+
+</section>
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../PSYC401/part2/knowledge-ecosystem.html" class="pagination-link" aria-label="The R knowledge ecosystem and how to help yourself">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The R knowledge ecosystem and how to help yourself</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../PSYC401/part2/lm-intro.html" class="pagination-link" aria-label="Introduction to the linear model">
+        <span class="nav-page-text">Introduction to the linear model</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../previous-content/index.html">
+<p>Previous Content</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
