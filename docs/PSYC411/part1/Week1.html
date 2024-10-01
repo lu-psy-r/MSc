@@ -196,10 +196,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">PSYC412</span></span>
-  </li>
     </ul>
     </div>
 </nav>
@@ -367,6 +363,7 @@ Tip
 ## Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -383,6 +380,7 @@ sqrt(a)
 
 :::
 :::
+
 
 
 :::
@@ -405,6 +403,7 @@ sqrt(a)
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
+
 
 
 ::: {.cell}
@@ -459,6 +458,7 @@ hist(b)
 :::
 
 
+
 ::: --->
 </section>
 <section id="task-four-z-scores" class="level5">
@@ -511,6 +511,7 @@ Hint
 They all have the same mean = 75.
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -557,6 +558,7 @@ mean(carrie)
 :::
 
 
+
 ::: --->
 <ol start="18" type="1">
 <li>Who has the most variable scores for their course?</li>
@@ -580,6 +582,7 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
+
 
 
 ::: {.cell}
@@ -617,6 +620,7 @@ sd(annie); sd(saj); sd(carrie)
 :::
 
 
+
 ::: --->
 <ol start="19" type="1">
 <li>What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function <code>hist()</code> to draw the distributions to help you see.</li>
@@ -640,6 +644,7 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
  median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
+
 
 
 ::: {.cell}
@@ -693,6 +698,7 @@ hist(annie); hist(saj); hist(carrie)
 :::
 
 
+
 ::: --->
 </section>
 <section id="task-six-standardised-scores-z-scores" class="level5">
@@ -709,6 +715,7 @@ hist(annie); hist(saj); hist(carrie)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
+
 
 
 ::: {.cell}
@@ -742,6 +749,7 @@ sd(annie_z)
 :::
 
 
+
 ::: --->
 <ol start="22" type="1">
 <li>What is the mean and standard deviation of annie_z’s standardised scores?</li>
@@ -750,6 +758,7 @@ sd(annie_z)
 ## Answer
 1.4142136
 You could find this by just eyeballing (searching through) the data, or by using the function `max`:
+
 
 
 ::: {.cell}
@@ -779,6 +788,7 @@ max(annie); max(annie_z)
 :::
 
 
+
 ::: --->
 <ol start="23" type="1">
 <li>Draw a histogram of annie’s standardised scores, in the console type <code>hist(annie_z)</code>. What is the peak frequency value?</li>
@@ -786,6 +796,7 @@ max(annie); max(annie_z)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 Between -1 and -0.5.
+
 
 
 ::: {.cell}
@@ -800,6 +811,7 @@ hist(annie_z)
 :::
 
 
+
 ::: --->
 <ol start="24" type="1">
 <li>Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: <code>pnorm(x)</code> where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?</li>
@@ -807,6 +819,7 @@ hist(annie_z)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
+
 
 
 ::: {.cell}
@@ -824,6 +837,7 @@ pnorm(1.4142136)
 
 :::
 :::
+
 
 
 ::: --->
@@ -846,6 +860,7 @@ pnorm(1.4142136)
 6.006498
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -865,6 +880,7 @@ f <- 8**4 # this does the same thing as 8^4
 :::
 
 
+
 ::: --->
 </section>
 <section id="task-eight-exploring-functions" class="level5">
@@ -876,6 +892,7 @@ f <- 8**4 # this does the same thing as 8^4
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 5.3. It takes the sign (negative) away from the number.
+
 
 
 ::: {.cell}
@@ -893,6 +910,7 @@ abs(-5.3)
 
 :::
 :::
+
 
 
 ::: --->
@@ -928,6 +946,7 @@ Stuck? Here’s the solution
 mean = 15.
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -943,6 +962,7 @@ g <- seq(0,30,3); mean(g)
 
 :::
 :::
+
 
 
 ::: --->
@@ -981,6 +1001,7 @@ g <- seq(0,30,3); mean(g)
  112 male, 87 female
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -992,6 +1013,7 @@ summary(dat$Gender)
 :::
 
 
+
 ::: --->
 <ol start="2" type="a">
 <li>How many people never have earworms in the middle of the night?</li>
@@ -1001,12 +1023,14 @@ summary(dat$Gender)
 97
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 summary(dat$Earworms.MiddleOfTheNight)
 ```
 :::
+
 
 
 ::: --->
@@ -1018,12 +1042,14 @@ summary(dat$Earworms.MiddleOfTheNight)
 17
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 summary(dat$StanfordSleepinessScale)
 ```
 :::
+
 
 
 ::: --->
@@ -1033,6 +1059,7 @@ summary(dat$StanfordSleepinessScale)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 35.9, sd = 10.9, range 20-73.
+
 
 
 ::: {.cell}
@@ -1046,12 +1073,14 @@ mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
 :::
 
 
+
 ::: --->
 <ol start="5" type="a">
 <li>Can you work out the mean age of the male and female participants separately?</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
+
 
 
 ::: {.cell}
@@ -1062,12 +1091,14 @@ dat %>% group_by(Gender) %>% summarise(mean(Age))
 :::
 
 
+
 ::: --->
 <ol start="6" type="a">
 <li>Explore the data, see if you can remember tasks for separating different subgroups, graphing relations, comparing groups.</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
+
 
 
 ::: {.cell}
@@ -1077,6 +1108,7 @@ dat %>% group_by(Gender) %>% summarise(mean(Age))
 dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
 ```
 :::
+
 
 
 ::: --->
