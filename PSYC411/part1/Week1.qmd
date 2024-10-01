@@ -52,3 +52,33 @@ Take the quiz on the lecture material (not assessed), by clicking [here](https:/
 
 
 Download the lecture slides for [part 1 here](ppt/wk1/PSYC411 Lecture week1 part1 handout.pptx) and [part 2 here](ppt/wk1/PSYC411 Lecture week1 part2 handout.pptx)
+
+
+## 1.4 Practical Materials
+
+### 1.4.1 Workbook
+
+In your group (or on your own until you've formed a group), work through this workbook, note any problems and questions you have, 
+and come prepared to the online practical class to go through the tasks and ask your questions.
+
+If you've done statistics using R-studio before then Parts 1 and 2 will be just
+revision for you. In which case, Part 3 is where you can focus your work.
+
+Part 1 of this workbook reproduces what you saw in the week 1 part 3 lecture.
+
+Part 2 gives you some more exercises in using R studio for finding means, 
+standard deviations, z scores, and drawing histograms.
+                                        
+Part 3 provides some more extended tasks you can do to practise exploring what R
+-studio can do and develop your skills further. If you are new to R-studio then parts 1
+and 2 cover what you need to know, and Part 3 contains some more extending, optional exercises.
+
+
+#### 1.4.1.1 Part One: repeat the steps from lecture 1 part 3
+
+##### Task One: Open Rstudio
+
+1. Startup Rstudio
+
+{{< include /Includes/_login.qmd >}}
+

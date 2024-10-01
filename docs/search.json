@@ -21,49 +21,61 @@
   {
     "objectID": "PSYC411/part1/Week1.html",
     "href": "PSYC411/part1/Week1.html",
-    "title": "Week 1. Introducing Data",
+    "title": "Statistics for Psychologists",
     "section": "",
     "text": "This week, there are three mini lectures, and then a practical workbook to get you going with R-studio.\nBefore the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).",
     "crumbs": [
       "Home",
       "PSYC411",
-      "Week 1. Introducing Data"
+      "Statistics for Psychologists"
     ]
   },
   {
     "objectID": "PSYC411/part1/Week1.html#overview",
     "href": "PSYC411/part1/Week1.html#overview",
-    "title": "Week 1. Introducing Data",
+    "title": "Statistics for Psychologists",
     "section": "",
     "text": "This week, there are three mini lectures, and then a practical workbook to get you going with R-studio.\nBefore the practical on Tuesday, please try to work through the practical workbook (in the first practical we will form groups of people to work together on the workbooks, for now you can work on the practical workbook individually or with anyone else on the course you are in touch with!).",
     "crumbs": [
       "Home",
       "PSYC411",
-      "Week 1. Introducing Data"
+      "Statistics for Psychologists"
     ]
   },
   {
     "objectID": "PSYC411/part1/Week1.html#learning-goals",
     "href": "PSYC411/part1/Week1.html#learning-goals",
-    "title": "Week 1. Introducing Data",
+    "title": "Statistics for Psychologists",
     "section": "1.2 Learning Goals",
     "text": "1.2 Learning Goals\nBy the end of Week 1, you should be able to:\n\nUnderstand the importance of data analysis and statistics\nIdentify types of data in psychology (nominal, ordinal, interval, ratio)\nUnderstand means and standard deviations\nUnderstand standardized scores (Z-scores)\nUse R-studio to begin to manipulate data, investigate means and standard deviations, and convert scores into Z-scores",
     "crumbs": [
       "Home",
       "PSYC411",
-      "Week 1. Introducing Data"
+      "Statistics for Psychologists"
     ]
   },
   {
     "objectID": "PSYC411/part1/Week1.html#lectures",
     "href": "PSYC411/part1/Week1.html#lectures",
-    "title": "Week 1. Introducing Data",
+    "title": "Statistics for Psychologists",
     "section": "1.3 Lectures",
     "text": "1.3 Lectures\nWatch Lecture week1 part1:\n\n\nWatch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking here\nThen come back and watch the end of Lecture week 1 part2:\n\nWatch Lecture week1 part3:\n\nTake the quiz on the lecture material (not assessed), by clicking here\nDownload the lecture slides for part 1 here and part 2 here",
     "crumbs": [
       "Home",
       "PSYC411",
-      "Week 1. Introducing Data"
+      "Statistics for Psychologists"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week1.html#practical-materials",
+    "href": "PSYC411/part1/Week1.html#practical-materials",
+    "title": "Statistics for Psychologists",
+    "section": "1.4 Practical Materials",
+    "text": "1.4 Practical Materials\n\n1.4.1 Workbook\nIn your group (or on your own until you’ve formed a group), work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.\nIf you’ve done statistics using R-studio before then Parts 1 and 2 will be just revision for you. In which case, Part 3 is where you can focus your work.\nPart 1 of this workbook reproduces what you saw in the week 1 part 3 lecture.\nPart 2 gives you some more exercises in using R studio for finding means, standard deviations, z scores, and drawing histograms.\nPart 3 provides some more extended tasks you can do to practise exploring what R -studio can do and develop your skills further. If you are new to R-studio then parts 1 and 2 cover what you need to know, and Part 3 contains some more extending, optional exercises.\n\n1.4.1.1 Part One: repeat the steps from lecture 1 part 3\n\nTask One: Open Rstudio\n\nStartup Rstudio\n\nTo log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS instructions here or connecting to Eduroam here.\nWhen you are connected, navigate to https://psy-rstudio.lancaster.ac.uk, where you will be shown a login screen that looks like the below. Click the option that says “Sign in with SAML”.\n \nThis will take you through to the University login screen, where you should enter your username (e.g. ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!\n\n\n\n\n\n\n\n\nNote\n\n\n\nIf you have already logged in through the university login already, perhaps to get to the portal, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Statistics for Psychologists"
     ]
   }
 ]
