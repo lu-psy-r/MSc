@@ -47,11 +47,10 @@ Watch Lecture week2 part3
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec6c6ac3-833e-4d83-b0cb-b09100dd75db&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w2 p3" ></iframe>
 ```
 
-Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049) on the lecture material (not assessed).
+Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049){target="_blank"} on the lecture material (not assessed).
 
 Download the lecture slides for:
-[part 1](ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx)
-[part 2](ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx)
+[part 1](ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx), [part 2](ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx), and
 [part 3](ppt/wk3/PSYC411 Lecture week2 part3 handout.pptx)
 
 
