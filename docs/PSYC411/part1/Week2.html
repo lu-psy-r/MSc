@@ -198,7 +198,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../PSYC411/part1/Week3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3. Drawing graphs from data</span></a>
+ <span class="menu-text">Week 3. Drawing graphs from data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4. Testing nominal data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5. Testing differences between groups</span></a>
   </div>
 </li>
       </ul>
@@ -213,16 +225,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">2.1 Overview</a></li>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">2.2 Learning Goals</a></li>
-  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">2.3 Lectures</a></li>
-  <li><a href="#practical-materials" id="toc-practical-materials" class="nav-link" data-scroll-target="#practical-materials">2.4 Practical Materials</a>
-  <ul class="collapse">
-  <li><a href="#workbook" id="toc-workbook" class="nav-link" data-scroll-target="#workbook">2.4.1 Workbook</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">2.4.2 Data</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">2.4.2 Data</a></li>
   <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">2.4.3 Answers</a></li>
   <li><a href="#extras" id="toc-extras" class="nav-link" data-scroll-target="#extras">2.5 Extras</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -250,176 +255,313 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Material for week 2 will be released after week 1 practical.</p>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">2.1 Overview</h2>
-<p>This week, there are three mini lectures, and then a practical workbook to get you going with R-studio. Before the practical on Tuesday, please try to work through the practical workbook in your group.</p>
-<p>Bring your questions (and/or answers) to the practical.</p>
-</section>
-<section id="learning-goals" class="level2">
-<h2 class="anchored" data-anchor-id="learning-goals">2.2 Learning Goals</h2>
-<p>By the end of Week 2, you should be able to:</p>
-<ul>
-<li><p>Understand the importance of open data in psychology</p></li>
-<li><p>Understand different types of data and how best to represent them</p></li>
-<li><p>Understand bar graphs, scatter plots, and interpret patterns in these graphs</p></li>
-<li><p>Open data sets in R-studio and manipulate those data</p></li>
-<li><p>Use R-studio to make simple graphs</p></li>
-</ul>
-</section>
-<section id="lectures" class="level2">
-<h2 class="anchored" data-anchor-id="lectures">2.3 Lectures</h2>
-<p>Watch Lecture week2 part1.</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c7713b87-a9c3-4301-81ea-adad00bb5872&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w2_p1"></iframe>
-<p>Watch Lecture week2 part2</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8354694a-0c7b-4caf-9fc9-ac3e00d8a2ca&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w2_p2"></iframe>
-<p>Watch Lecture week2 part3</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec6c6ac3-833e-4d83-b0cb-b09100dd75db&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w2 p3"></iframe>
-<p>Take <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049" target="_blank">the quiz</a> on the lecture material (not assessed).</p>
-<p>Download the lecture slides for: <a href="ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx">part 1</a>, <a href="ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx">part 2</a>, and <a href="ppt/wk2/PSYC411 Lecture week2 part3 handout.pptx">part 3</a></p>
-</section>
-<section id="practical-materials" class="level2">
-<h2 class="anchored" data-anchor-id="practical-materials">2.4 Practical Materials</h2>
-<section id="workbook" class="level3">
-<h3 class="anchored" data-anchor-id="workbook">2.4.1 Workbook</h3>
-<p>In your group (or on your own until you’ve formed a group), work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.</p>
-<p>If you’ve done statistics using R-studio before then Parts 1 and 2 will be again largely revision for you. In this case, Part 3 is where you can focus your work.</p>
-<p>Part 1 of this workbook reproduces what you saw in the week 2 part 3 lecture.</p>
-<p>Part 2 gives you some more exercises in using R studio to revise last week’s material see <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00962/full" target="_blank">this article</a> for the psychology behind learning and memory effects of “spacing”.</p>
-<p>Part 3 provides you with more practice at looking at others’ data and manipulating it.</p>
-<p>Part 4 provides some more advanced methods for data manipulation.</p>
-<p>Part 5 looks at different ways that data is stored, and how to adjust that.</p>
-<p>Part 6 provides some extended extra practice in finding and investigating datasets.</p>
-<p>If you have used R-studio before, then Part 6 will be where you will be developing some new advanced skills.</p>
-<section id="part-one-repeat-the-steps-from-lecture-2-part-3" class="level4">
-<h4 class="anchored" data-anchor-id="part-one-repeat-the-steps-from-lecture-2-part-3">2.4.1.1 Part One: repeat the steps from lecture 2 part 3</h4>
-<section id="task-zero-making-and-opening-an-r-script-file" class="level5">
-<h5 class="anchored" data-anchor-id="task-zero-making-and-opening-an-r-script-file">Task Zero: making and opening an R script file</h5>
-<ol type="1">
-<li><p>Open up the R server at <a href="https://psy-rstudio.lancaster.ac.uk" target="_blank">https://psy-rstudio.lancaster.ac.uk</a></p></li>
-<li><p>In R studio, at the File menu, select New File, then R script.</p>
-<p>Now, we can put in our favourite sum to check it’s working.</p>
-<p>At the top of the R script window type:</p></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fl">10.5</span> <span class="sc">+</span> <span class="dv">7</span>                        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>With the cursor on the same line as the sum click on the Run button.</p>
-<p>In the console, you should see the sum being run, and the answer produced.</p>
-<ol start="3" type="1">
-<li>Save the R script.</li>
-</ol>
-<p>First of all, you can make a Directory/Folder to save the R scripts in to.</p>
-<p>Your file structure can be anything you like, but here’s how I organised it: At the bottom right panel of the R-studio window, click on Folder. Add a new Folder, call it, say PSYC411.</p>
-<p>Click on the PSYC411 Folder, and then make another new Folder, called, say “Week2”.</p>
-<ol start="4" type="1">
-<li>Then, you can save this week’s workbook into the Week2 folder:</li>
-</ol>
-<p>Click on the Save icon just above the R script window, browse to the Folder where you want to save the script (e.g., PSYC411/Week2), then name the R script file (e.g., workbook_week2.r) and Save.</p>
-<p>The .r subscript indicates to R studio that this is an R script file.</p>
-<ol start="5" type="1">
-<li><p>Close the R script, by clicking on the little x next to the R script filename just above the R script window.</p></li>
-<li><p>Now open it again. In the R studio window File menu, select Open File, and browse to where you saved your R script file and open it.</p></li>
-<li><p>To make it easier to save and open files we can set what is called the “working directory” for R studio. Click “Session” in the menu at the top of the R studio screen, select “Working directory”, then select “Choose directory”.</p>
-<p>Browse to the Folder where you are going to save your PSYC411 R studio files (for me this is Documents/PSYC411), and click Open.</p>
-<p>Over on the right lower panel, you should now see all the files that are in this Folder - including psyc411_week2.r</p></li>
-</ol>
-</section>
-<section id="task-one-open-and-check-practical-week1-workbook-script-file" class="level5">
-<h5 class="anchored" data-anchor-id="task-one-open-and-check-practical-week1-workbook-script-file">Task One: open and check Practical week1 workbook script file</h5>
-<ol start="8" type="1">
-<li>Last week, we didn’t save a script (as we were just using the console for R studio). But here’s one I prepared earlier… Download the <a href="answers/psyc411_week1_workbook_answers.r">week 1 script file here</a>. This also has the answers (but you can check last week’s answers via the main Week 1 page already too).</li>
-</ol>
-<p>This has now downloaded the file on to your local computer. You now need to make it available in the psy-rstudio system. To do this, we have to “Upload” the file.</p>
-<p>In the bottom right panel of R studio, click “Upload”.</p>
-<p>For the Target directory, select the Folder in R-studio that you’d like to upload the file to (e.g., PSYC411/Week1 - maybe first of all you’ll need to make the Folder).</p>
-<p>Then Browse to the file that is on your local computer, and click OK.</p>
-<p>You should see it in the Files in the bottom right panel on R-studio.</p>
-<ol start="9" type="1">
-<li>Now you can open psyc411_week1_workbook_answers.r in R-studio (either through File &gt; Open File, at the top left panel, or just by double-clicking it in the Files in the bottom right panel). You can now look through this R script, check your commands and answers to the tasks from last week.</li>
-</ol>
-</section>
-<section id="task-two-opening-a-data-file" class="level5">
-<h5 class="anchored" data-anchor-id="task-two-opening-a-data-file">Task Two: Opening a data file</h5>
-<ol start="10" type="1">
-<li><p>Make sure your script file psyc411_week2.r in R studio.</p></li>
-<li><p>It’s generally a good idea to refresh and clear out R studio when you start a new session, so add this line to the beginning of your R studio file:</p></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())                    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="12" type="1">
-<li>Next we are going to open a new data file.</li>
-</ol>
-<p>Download the file <a href="data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv">PSYC411-shipley-scores-anonymous-17_18.csv</a></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>DO NOT OPEN THIS FILE ON YOUR COMPUTER – IF YOU DO, DELETE IT THEN DOWNLOAD IT AGAIN - THE REASON FOR THIS IS THAT IT CHANGES THE FILE FORMAT AND THEN WON’T OPEN PROPERLY IN R STUDIO.</p>
-</div>
-</div>
-<p>Then, Upload the data file into R-Studio, and put it in PSYC411/Week2 Folder for instance.</p>
-<p>Each row is one person’s data, and each column is a measure taken from the person. Columns are separated by commas, which is what the “csv” refers to” comma-separated values.</p>
-<ol start="13" type="1">
-<li>In R studio, we open csv files using a function called <code>read_csv()</code> which comes from a set of functions that are stored in a library called “tidyverse”, we can install these functions by putting <code>library(tidyverse)</code> at the very top of our R script.</li>
-</ol>
-<p>Type this command in the script file and then run it:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Want to know more about library()?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>R comes with certain functions pre-installed, such as <code>mean()</code>, but part of the charm of R is that we can install different functions that give us the opportunity to do <em>almost</em> anything! Collections of functions are called packages, and collections of packages are called libraries, but for the purpose of practicality, we typically refer to them interchangably. We install libraries using <code>library()</code> and enter the name of the library in the brackets.</p>
-</div>
-</div>
-</div>
-<ol start="14" type="1">
-<li>Then type this command in the script file and run it:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"PSYC411-shipley-scores-anonymous-17_18.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Remember the <code>dat &lt;-</code> notation, which means we put the data into an object called “dat”</p>
-<ol start="15" type="1">
-<li>If all went well, we can then look at the data, using the function <code>View</code>: In the script file type:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>and run it. It should open a spreadsheet where we can see the data.</p>
-<ol start="16" type="1">
-<li>Have a good look around the data to see if you can make sense of it. For now, we will just focus on two variables from the data: <em>subject_ID</em> which is the participants’ anonymised number, and <em>Gent_1_score</em>, which is the participants’ score on the Gent vocabulary test, the first time they had a go (that’s what the 1 stands for). We can just pick out the columns of data that we want using the <code>select</code> function.</li>
-</ol>
-<p><code>select</code> is in the library called “tidyverse”, so we don’t need to load this in again because we already have.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>summarydat <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="17" type="1">
-<li>Finally, let’s just have a quick look at these data. In the script file type:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(summarydat<span class="sc">$</span>Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>and run it.</p>
-<ol start="18" type="1">
-<li>This will draw a histogram of the Gent vocabulary scores. <code>summarydat$Gent_1_score</code> means that we look at the Gent_1_score values from the summarydat data – the <code>$</code> indicates that this is one of the measures from the data. What kind of pattern does the histogram show?</li>
-</ol>
+<!---
+
+## 2.1 Overview
+
+This week, there are three mini lectures, and then a practical workbook to get you going with R-studio. 
+Before the practical on Tuesday, please try to work through the practical workbook in your group.
+
+Bring your questions (and/or answers) to the practical.
+
+
+## 2.2 Learning Goals
+
+By the end of Week 2, you should be able to:
+
+* Understand the importance of open data in psychology
+
+* Understand different types of data and how best to represent them
+
+* Understand bar graphs, scatter plots, and interpret patterns in these graphs
+
+* Open data sets in R-studio and manipulate those data
+
+* Use R-studio to make simple graphs
+
+
+
+## 2.3 Lectures
+
+Watch Lecture week2 part1.
+
+
+
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c7713b87-a9c3-4301-81ea-adad00bb5872&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w2_p1" ></iframe>
+```
+
+
+
+
+
+
+Watch Lecture week2 part2
+
+
+
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8354694a-0c7b-4caf-9fc9-ac3e00d8a2ca&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w2_p2" ></iframe>
+```
+
+
+
+
+
+Watch Lecture week2 part3
+
+
+
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec6c6ac3-833e-4d83-b0cb-b09100dd75db&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w2 p3" ></iframe>
+```
+
+
+
+
+
+Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049){target="_blank"} on the lecture material (not assessed).
+
+Download the lecture slides for:
+[part 1](ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx), [part 2](ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx), and
+[part 3](ppt/wk2/PSYC411 Lecture week2 part3 handout.pptx)
+
+
+## 2.4 Practical Materials
+
+### 2.4.1 Workbook
+
+In your group (or on your own until you've formed a group), work through this workbook, note any problems and questions you have, and come prepared to the online practical class to go through the tasks and ask your questions.
+
+If you've done statistics using R-studio before then Parts 1 and 2 will be again largely
+revision for you. In this case, Part 3 is where you can focus your work.
+
+Part 1 of this workbook reproduces what you saw in the week 2 part 3 lecture.
+
+Part 2 gives you some more exercises in using R studio to revise last week's material see [this article](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00962/full){target="_blank"} for the psychology behind learning and memory effects of "spacing".
+                        
+Part 3 provides you with more practice at looking at others' data and manipulating it.
+                             
+Part 4 provides some more advanced methods for data manipulation.
+
+Part 5 looks at different ways that data is stored, and how to adjust that.
+
+Part 6 provides some extended extra practice in finding and investigating datasets.
+
+If you have used R-studio before, then Part 6 will be where you will be developing some new advanced skills.
+
+#### 2.4.1.1 Part One: repeat the steps from lecture 2 part 3
+
+##### Task Zero: making and opening an R script file
+
+1.  Open up the R server at [https://psy-rstudio.lancaster.ac.uk](https://psy-rstudio.lancaster.ac.uk){target="_blank"}
+
+2.  In R studio, at the File menu, select New File, then R script.
+
+    Now, we can put in our favourite sum to check it's working.
+
+    At the top of the R script window type:
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+10.5 + 7                        
+```
+:::
+
+
+
+
+
+With the cursor on the same line as the sum click on the Run button.
+
+In the console, you should see the sum being run, and the answer produced.
+
+3.  Save the R script. 
+
+First of all, you can make a Directory/Folder to save the R scripts in to.
+
+Your file structure can be anything you like, but here's how I organised it: At the bottom right panel of the R-studio window, click on Folder. Add a new Folder, call it, say PSYC411. 
+
+Click on the PSYC411 Folder, and then make another new Folder, called, say "Week2".
+
+4.  Then, you can save this week's workbook into the Week2 folder:
+
+Click on the Save icon just above the R script window, browse to the Folder where you want to save the script (e.g., PSYC411/Week2), then name the R script file (e.g., workbook_week2.r)
+and Save.
+
+The .r subscript indicates to R studio that this is an R script file.
+
+5. Close the R script, by clicking on the little x next to the R script filename just above the R script window.
+
+6.  Now open it again.
+    In the R studio window File menu, select Open File, and browse to where you saved your R script file and open it.
+
+7.  To make it easier to save and open files we can set what is called the "working directory" for R studio.
+    Click "Session" in the menu at the top of the R studio screen, select "Working directory", then select "Choose directory".
+    
+    Browse to the Folder where you are going to save your PSYC411 R studio files (for me this is Documents/PSYC411), and click Open.
+    
+    Over on the right lower panel, you should now see all the files that are in this Folder - including psyc411_week2.r
+
+
+##### Task One: open and check Practical week1 workbook script file
+
+8.  Last week, we didn't save a script (as we were just using the console for R studio). But here's one I prepared earlier... Download the [week 1 script file here](answers/psyc411_week1_workbook_answers.r). This also has the answers (but you can check last week's answers via the main Week 1 page already too).
+
+This has now downloaded the file on to your local computer. You now need to make it available in the psy-rstudio system. To do this, we have to "Upload" the file.
+
+In the bottom right panel of R studio, click "Upload".
+
+For the Target directory, select the Folder in R-studio that you'd like to upload the 
+file to (e.g., PSYC411/Week1 - maybe first of all you'll need to make the Folder).
+
+Then Browse to the file that is on your local computer, and click OK.
+
+You should see it in the Files in the bottom right panel on R-studio.
+
+9.  Now you can open psyc411_week1_workbook_answers.r in R-studio (either 
+through File > Open File, at the top left panel, or just by double-clicking 
+it in the Files in the bottom right panel). You can now look through this R script, 
+check your commands and answers to the tasks from last week.
+
+
+##### Task Two: Opening a data file
+
+10. Make sure your script file psyc411_week2.r in R studio.
+
+11. It's generally a good idea to refresh and clear out R studio when you start a new session, so add this line to the beginning of your R studio file:
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+rm(list=ls())                    
+```
+:::
+
+
+
+
+12. Next we are going to open a new data file.
+
+Download the file [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv)
+
+::: callout-tip
+DO NOT OPEN THIS FILE ON YOUR COMPUTER -- IF YOU DO, DELETE IT THEN DOWNLOAD IT AGAIN - THE REASON FOR THIS IS THAT IT CHANGES THE FILE FORMAT AND THEN WON'T OPEN PROPERLY IN R STUDIO.
+:::
+Then, Upload the data file into R-Studio, and put it in PSYC411/Week2 Folder for instance.
+
+Each row is one person's data, and each column is a measure taken from the person. Columns are separated by commas, which is what the "csv" refers to" comma-separated values.
+
+13. In R studio, we open csv files using a function called `read_csv()` which comes from a set of functions that are stored in a library called "tidyverse", we can install these functions by putting `library(tidyverse)` at the very top of our R script.
+
+Type this command in the script file and then run it:
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(tidyverse)
+```
+:::
+
+
+
+
+::: {.callout-note icon="false" collapse="true"}
+## Want to know more about library()?
+R comes with certain functions pre-installed, such as `mean()`, but part of the charm of R is that we can install different functions that give us the opportunity to do *almost* anything!
+Collections of functions are called packages, and collections of packages are called libraries, but for the purpose of practicality, we typically refer to them interchangably.
+We install libraries using `library()` and enter the name of the library in the brackets.
+:::
+
+14. Then type this command in the script file and run it:
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
+```
+:::
+
+
+
+
+Remember the `dat <-` notation, which means we put the data into an object called "dat"
+
+15. If all went well, we can then look at the data, using the function `View`: In the script file type:
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+View(dat)
+```
+:::
+
+
+
+
+and run it. It should open a spreadsheet where we can see the data.
+
+16. Have a good look around the data to see if you can make sense of it.
+For now, we will just focus on two variables from the data: *subject_ID* which
+is the participants' anonymised number, and *Gent_1_score*, which is the participants'
+score on the Gent vocabulary test, the first time they had a go (that's what the
+1 stands for). We can just pick out the columns of data that we want using the `select` function.
+
+`select` is in the library called "tidyverse", so we don't need to load this in again because we already have. 
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+summarydat <- select(dat, subject_ID, Gent_1_score)
+```
+:::
+
+
+
+
+17. Finally, let's just have a quick look at these data.
+    In the script file type: 
+
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+hist(summarydat$Gent_1_score)
+```
+:::
+
+
+
+
+and run it.
+
+18. This will draw a histogram of the Gent vocabulary scores.
+    `summarydat$Gent_1_score` means that we look at the Gent_1_score values from the summarydat data -- the `$` indicates that this is one of the measures from the data.
+    What kind of pattern does the histogram show?
+
 <!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 
@@ -483,15 +625,13 @@ hist(summarydat$Gent_1_score)
 
 Looks close to a normal distribution, slight negative skew possibly.
 ::: --->
-</section>
-</section>
 <section id="part-two-revision-from-last-week" class="level4">
 <h4 class="anchored" data-anchor-id="part-two-revision-from-last-week">2.4.1.2 Part Two: Revision from last week</h4>
 <ol start="19" type="1">
 <li>Save your R script. Now, without looking at your notes, make a new object called “iknow”, and assign this list of numbers to it: 126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92, 92, 87, 135, 115</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -500,7 +640,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>use the <code>iknow &lt;- c(number1, number2, …)</code> notation</p>
 </div>
@@ -569,9 +709,9 @@ hist(iknow)
 <p>The first file is data from participants’ self-ratings of happiness and depression.</p>
 <p>The second contains demographic information about the participants. Type this in your R script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"ahicesd.csv"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"participantinfo.csv"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">, run this command (type Ctrl-Enter), then type </span><span class="st">`</span>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"participantinfo.csv"</span>)<span class="st">`</span><span class="at">, and run that. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"ahicesd.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"participantinfo.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">, run this command (type Ctrl-Enter), then type </span><span class="st">`</span>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"participantinfo.csv"</span>)<span class="st">`</span><span class="at">, and run that. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This has made two new objects – one called “dat” which contains the experimental data, and one called “pinfo” which contains the demographic information.</p>
 </section>
@@ -581,8 +721,8 @@ hist(iknow)
 <li>Let’s have a look at the data now.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dat)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">in the source and Run it in the console, and you should see the data appear above the console window.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dat)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">in the source and Run it in the console, and you should see the data appear above the console window.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Have a good long hard look at it.</p>
 <ol start="25" type="1">
@@ -612,7 +752,7 @@ View(pinfo)
 <li><p>Now, we are going to join together the two files. Type this:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'id'</span>, <span class="st">'intervention'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'id'</span>, <span class="st">'intervention'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Question: what does the c(“id”, “intervention”) bit mean?</p>
 <!--- ::: {.callout-warning icon=false collapse="true"}
@@ -643,7 +783,7 @@ data_full <- inner_join(x = data1, y = data2, by = c("participantname"))
 <li>Now we just want to keep a few of the variables – we’re not interested in the individual questionnaire items. So, let’s select the variables we want to keep:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Where “all_dat” is the name of the object to take data from, and “ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention” are all the variables we want to keep.</p>
 <ol start="31" type="1">
@@ -689,7 +829,7 @@ hist(summarydata$age)
 <li>Now, let’s look at how the AHI and the CESD scores relate. To gain an impression of how two variables relate we can draw a scatter graph.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata<span class="sc">$</span>ahiTotal, summarydata<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata<span class="sc">$</span>ahiTotal, summarydata<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What does the “$” do in this command? What relationship do you find between these two variables?</p>
 <!--- ::: {.callout-warning icon="false" collapse="true"}
@@ -716,7 +856,7 @@ Relation is negative – higher happiness indicates lower depression.
 </ol>
 <p>Take a look at the help information for inner_join by typing <code>?inner_join</code> then in the help pane on the right, scroll down to find the section titled “Arguments”, and read what it has to say about the argument “by”. See if you can understand how to join these files together. The examples at the bottom of the help section may be useful too.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -725,11 +865,11 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The important help information is: “To join by different variables on x and y, use a named vector. For example, by = c(”a” = “b”) will match x$a to y$b.”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_full <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dataone, <span class="at">y =</span> datatwo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"participant"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data_full <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dataone, <span class="at">y =</span> datatwo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"participant"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -738,7 +878,7 @@ Hint
 <li>In the data set from Woodworth et al., we might want to just look at the pretests. We can use a function called <code>filter</code> to pull out just some of the rows.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>summarydata_occasion0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>summarydata_occasion0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This pulls out just the first occasion of testing (the pretest).</p>
 <p>How would you pull out the second occasion of testing?</p>
@@ -841,7 +981,7 @@ The relationship is still similar.
 <li><p>The aim here is to convert the data so that each Gent vocabulary score is on a separate line, we use the <code>pivot_longer</code> function for this. First we specify what the new object should be (datlong), then we say where the old data is (dat), then we make a new variable to keep the names of the tests (names_to = “test”), then we make a new variable to keep the scores from the tests (values_to = “vocab”), then we specify the list of old variables to combine into the new scores variable (c(“Gent_1_score”, “Gent_2_score”) ) – remember lists are written as c(). So, run this command:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>datlong <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"vocab"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datlong <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"vocab"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="44" type="1">
 <li>Have a look at the new object datlong that results: <code>View(datlong)</code>. This function <code>pivot_longer</code> has taken as input the data in dat, it has created a new variable called “test” which reports whether it is the Gent_1_score or the Gent_2_score that is the measurement, and a new variable called “vocab” where the actual scores are listed. Then, the following list of variables let’s the function <code>pivot_longer</code> know which variables from the object dat we are converting (or lengthening). It also includes all the other variables, but unconverted. How many rows of data are there now corresponding to data from subject_ID number 1?</li>
@@ -854,7 +994,7 @@ The relationship is still similar.
 <li>Let’s tidy things up so we only have subject_ID, and the Gent vocabulary scores by using select:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>datlongsummary <span class="ot">&lt;-</span> <span class="fu">select</span>(datlong, subject_ID, test, vocab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>datlongsummary <span class="ot">&lt;-</span> <span class="fu">select</span>(datlong, subject_ID, test, vocab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="task-seven-long-to-wide-format-conversion" class="level5">
@@ -863,7 +1003,7 @@ The relationship is still similar.
 <li>Now, we will have a go at converting from long to wide format. Let’s start with the datlongsummary object. We will convert this so that Gent_1_score and Gent_2_score are listed alongside each other – one row per person. The command for this is the reverse of <code>pivot_longer</code>, called <code>pivot_wider.</code> Run this command:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>datwide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(datlongsummary, <span class="at">names_from =</span> <span class="st">"test"</span>, <span class="at">values_from =</span> <span class="st">"vocab"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>datwide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(datlongsummary, <span class="at">names_from =</span> <span class="st">"test"</span>, <span class="at">values_from =</span> <span class="st">"vocab"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This command takes the data from datlongsummary and puts the different measures reported in the variable test into different columns again, filling in the values from the variable vocab.</p>
 </section>
@@ -881,22 +1021,21 @@ The relationship is still similar.
 <ul>
 <li><p>First, real life data is usually not complete – it contains missing values. The usual way to indicate missing values is “NA” in R. But if the data set contains missing values indicated in a different way, then you have to specify this when you input the data. So, if missing values are indicated by “999”, you have to do it like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"999"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"999"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>where file.csv is the file you are inputting. If missing values are indicated by “na”, you have to do this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"na"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"na"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>if missing values are “.”, then like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>The second thing you might need to know is how to input files other than comma separated files. For excel files, you need to do this: <code>library(readxl)</code>, then you can use the command <code>read_excel("file.xls")</code>, this should work for xls and xlsx files. For inputting data that is in text, but not separated by commas, have a look at the help for the <code>read_csv()</code> function: <code>?read_csv</code>. Hint – you’ll be looking to change the <em>sep</em> option for the read_csv command.</p></li>
 </ul>
 <ol start="47" type="1">
 <li>See if you can find and load the data from one or both of these studies. Then have a go at exploring the data - can you recreate the numbers in the paper (e.g., age and number of participants, mean and sd of the main dependent variable?)</li>
 </ol>
-</section>
 </section>
 <section id="data" class="level3">
 <h3 class="anchored" data-anchor-id="data">2.4.2 Data</h3>
@@ -914,9 +1053,9 @@ The relationship is still similar.
 <ul>
 <li>Optionally, watch <a href="https://www.youtube.com/watch?v=q1JoKB7luPU&amp;ab_channel=TheBritishPsychologicalSociety" target="_blank">Brian Nosek’s keynote</a> at the 2018 British Psychological Society conference on the replicability crisis (note hosted on youtube).</li>
 </ul>
+<p>—&gt;</p>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1347,8 +1486,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../PSYC411/part1/Week3.html" class="pagination-link" aria-label="3. Drawing graphs from data">
-        <span class="nav-page-text">3. Drawing graphs from data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../PSYC411/part1/Week3.html" class="pagination-link" aria-label="Week 3. Drawing graphs from data">
+        <span class="nav-page-text">Week 3. Drawing graphs from data</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,0 +1,9 @@
+---
+title: Week 4. Testing nominal data
+subtitle: Written by Padraic Monaghan
+order: 5
+
+---
+
+
+Material for week 4 will be released after week 3 practical.

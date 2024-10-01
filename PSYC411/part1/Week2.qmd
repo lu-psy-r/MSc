@@ -6,6 +6,7 @@ order: 3
 
 Material for week 2 will be released after week 1 practical.
 
+<!---
 
 ## 2.1 Overview
 
@@ -626,4 +627,4 @@ It's really important for your learning that you have a go first of all at the w
 
 - Optionally, watch [Brian Nosek's keynote](https://www.youtube.com/watch?v=q1JoKB7luPU&ab_channel=TheBritishPsychologicalSociety){target="_blank"} at the 2018 British Psychological Society conference on the replicability crisis (note hosted on youtube).
 
-
+--->
