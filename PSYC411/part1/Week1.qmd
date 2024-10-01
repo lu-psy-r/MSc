@@ -92,3 +92,10 @@ When you are connected, navigate to [https://psy-rstudio.lancaster.ac.uk](https:
 This will take you through to the University login screen, where you should enter your username (e.g. ivorym) and then your university password. This will then redirect you to the R server where you can start using RStudio!
 
 ![](images/2LoginUser.png)
+
+![](images/3LoginPass.png)
+
+::: {.callout-note}
+If you have already logged in through the university login, then you may not see the username/password screen. When you click login, you will be redirected straight to RStudio. This is because the server shares the login information securely across the university.
+:::
+
