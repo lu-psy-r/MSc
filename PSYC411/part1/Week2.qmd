@@ -1,5 +1,5 @@
 ---
-title: 2. Manipulating data
+title: 2. Manipulating data (not ready quite yet)
 subtitle: Written by Padraic Monaghan
 order: 3
 ---
