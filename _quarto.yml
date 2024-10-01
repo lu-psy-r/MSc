@@ -9,11 +9,11 @@ website:
       - section: "PSYC401"
         contents: 
           - auto: PSYC401/part1/*
-          - auto: PSYC401/part2/*
-      - section: "PSYC402"
-        contents: 
-          - auto: PSYC402/part1/*
-          - auto: PSYC402/part2/*
+#          - auto: PSYC401/part2/*
+#      - section: "PSYC402"
+#        contents: 
+#          - auto: PSYC402/part1/*
+#          - auto: PSYC402/part2/*
   
 format:
   html: 
