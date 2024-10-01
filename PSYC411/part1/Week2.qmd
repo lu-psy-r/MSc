@@ -1,8 +1,10 @@
 ---
-title: 2. Manipulating data (not ready quite yet)
+title: 2. Manipulating data
 subtitle: Written by Padraic Monaghan
 order: 3
 ---
+
+Material for week 2 will be released after week 1 practical.
 
 
 ## 2.1 Overview
@@ -159,7 +161,7 @@ rm(list=ls())
 
 12. Next we are going to open a new data file.
 
-Download the file [PSYC411-shipley-scores-anonymous-17_18.csv]("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
+Download the file [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv)
 
 ::: callout-tip
 DO NOT OPEN THIS FILE ON YOUR COMPUTER -- IF YOU DO, DELETE IT THEN DOWNLOAD IT AGAIN - THE REASON FOR THIS IS THAT IT CHANGES THE FILE FORMAT AND THEN WON'T OPEN PROPERLY IN R STUDIO.
@@ -223,7 +225,7 @@ and run it.
     `summarydat$Gent_1_score` means that we look at the Gent_1_score values from the summarydat data -- the `$` indicates that this is one of the measures from the data.
     What kind of pattern does the histogram show?
 
-::: {.callout-warning icon=false collapse="true"}
+<!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 ``` {r}
 library(tidyverse)
@@ -232,7 +234,7 @@ summarydat <- select(dat, subject_ID, Gent_1_score)
 hist(summarydat$Gent_1_score)
 ```
 Looks close to a normal distribution, slight negative skew possibly.
-:::
+::: --->
 
 #### 2.4.1.2 Part Two: Revision from last week
 
@@ -250,7 +252,7 @@ use the `iknow <- c(number1, number2, …)` notation
 
 21. Draw a histogram of the iknow data.
 
-::: {.callout-warning icon=false collapse="true"}
+<!--- ::: {.callout-warning icon=false collapse="true"}
 # Answers to 19-21
 ``` {r}
 library(tidyverse)
@@ -258,7 +260,7 @@ iknow <- c(126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92,
 mean(iknow); sd(iknow)
 hist(iknow)
 ```
-:::
+::: --->
 
 
 
@@ -313,15 +315,15 @@ Way over on the right are the total scores on the AHI and the CESD questionnaire
     How can you look at it?
 
 
-::: {.callout-warning icon=false collapse="true"}
+<!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
-``` {r}
+``` {r eval=FALSE}
 library(tidyverse)
 dat <- read_csv("data/wk2/ahicesd.csv")
 pinfo <- read_csv("data/wk2/participantinfo.csv")
 View(pinfo)
 ```
-:::
+::: --->
 
 27. Looking at the data replaced the source window, but the source is still there.
     Just above the View panel you should see a tab named *psyc411_week2.r*, click on that to get your source panel back.
@@ -338,23 +340,23 @@ all_dat <- inner_join(x = dat, y = pinfo, by = c('id', 'intervention'))
 
 Question: what does the c("id", "intervention") bit mean?
 
-::: {.callout-warning icon=false collapse="true"}
+<!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer 
 This means we match by two variables -- id and intervention.
 We use the `c()` notation to indicate that this is a list of things.
-:::
+::: --->
 
 We've now made a new data set called "all_dat".
 The "x = dat" bit is the name of the first datafile we want to join, the "y = pinfo" is the name of the second datafile we want to join, the "by = 'id', 'intervention'" bit is the names of variables that the two datasets have in common.
 
 29. How would you join two data sets one called "data1" the other called "data2" together if they both have the variable "participantname" in common?
 
-::: {.callout-warning icon="false" collapse="true"}
+<!--- ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 data_full <- inner_join(x = data1, y = data2, by = c("participantname"))
 ```
-:::
+::: --->
 
 30. Now we just want to keep a few of the variables -- we're not interested in the individual questionnaire items. So, let's select the variables we want to keep:
 
@@ -366,12 +368,12 @@ Where "all_dat" is the name of the object to take data from, and "ahiTotal, cesd
 
 31. Have a look at the summarydata in the View. How do you do that?
 
-::: {.callout-warning icon="false" collapse="true"}
+<!--- ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 View(summarydata)
 ```
-:::
+::: --->
 
 
 ##### Task Five: Investigate data
@@ -382,12 +384,12 @@ View(summarydata)
     So, to investigate the "age" column from the "summarydata" dataset, you would look at summarydata\$age.
     Draw a histogram (bar graph) of the distribution of age in the participant sample.
 
-::: {.callout-warning icon="false" collapse="true"}
+<!--- ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 hist(summarydata$age)
 ```
-:::
+::: --->
 
 33. Now, let's look at how the AHI and the CESD scores relate.
     To gain an impression of how two variables relate we can draw a scatter graph.
@@ -399,12 +401,12 @@ plot(summarydata$ahiTotal, summarydata$cesdTotal)
 What does the "\$" do in this command?
 What relationship do you find between these two variables?
 
-::: {.callout-warning icon="false" collapse="true"}
+<!--- ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 \$ refers to one column in the data – either \$ahiTotal or \$cesdTotal columns.
 
 Relation is negative – higher happiness indicates lower depression.
-:::
+::: --->
 
 
 34. Now make sure you save psyc411_week2.r that contains all these commands that you ran.
@@ -446,39 +448,39 @@ This pulls out just the first occasion of testing (the pretest).
 
 How would you pull out the second occasion of testing?
 
-::: {.callout-warning icon="false" collapse="true"}
+<!--- ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 ``` {r eval=FALSE}
 filter(summarydata, occasion == 1)
 ```
-:::
+::: --->
 
 
 38. How would you pull out just those participants who had the first intervention from the summarydata data?
 
-::: {.callout-warning icon="false" collapse="true"}
+<!--- ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 ``` {r eval=FALSE}
 filter(summarydata, intervention == 1)
 ```
-:::
+::: --->
 
 39. Back to the data set with just occasion == 0 selected.
     Now plot the relationship between the AHI and CESD scores at this pretest.
     What is the pattern now?
 
-::: {.callout-warning icon="false" collapse="true"}
+<!--- ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 still the same
 ``` {r eval=FALSE}
 plot(summarydata_occasion0$ahiTotal, summarydata_occasion0$cesdTotal)
 ```
-:::
+::: --->
 
 40. How about just the participants who had intervention 1.
     What is the relationship between their scores on the AHI and CESD in the first test?
 
-::: {.callout-warning icon="false" collapse="true"}
+<!--- ::: {.callout-warning icon="false" collapse="true"}
 ## Answer
 can do this in two ways:
 ``` {r eval=FALSE}
@@ -491,7 +493,7 @@ summarydata_occasion0_intervention1 <- filter(summarydata_occasion0, interventio
 plot(summarydata_occasion0$ahiTotal, summarydata_occasion0$cesdTotal)
 ```
 The relationship is still similar.
-:::
+::: --->
 
 
 #### 4.1.3.5 Part Five: Different ways in which data are stored: long and wide data format
@@ -527,10 +529,10 @@ datlong <- pivot_longer(dat, names_to = "test", values_to = "vocab", cols = c("G
     It also includes all the other variables, but unconverted.
     How many rows of data are there now corresponding to data from subject_ID number 1?
 
-::: {.callout-warning icon=false collapse="true"}
+<!--- ::: {.callout-warning icon=false collapse="true"}
 # Answer
 2
-:::
+::: --->
 
 
 45. Let's tidy things up so we only have subject_ID, and the Gent vocabulary scores by using select:
@@ -608,7 +610,7 @@ Then have a go at exploring the data - can you recreate the numbers in the paper
 ### 2.4.2 Data
 
 Here are links to all the data referred to in this practical:
-[PSYC411-shipley-scores-anonymous-17_18.csv]("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
+[PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv)
 
 [ahicesd.csv](data/wk2/ahicesd.csv)
 
@@ -623,3 +625,5 @@ It's really important for your learning that you have a go first of all at the w
 ### 2.5 Extras
 
 - Optionally, watch [Brian Nosek's keynote](https://www.youtube.com/watch?v=q1JoKB7luPU&ab_channel=TheBritishPsychologicalSociety){target="_blank"} at the 2018 British Psychological Society conference on the replicability crisis (note hosted on youtube).
+
+
