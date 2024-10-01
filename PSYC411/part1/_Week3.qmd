@@ -524,7 +524,12 @@ it looks positive.
     score. Let's look at Gent_1\_score against Gender. What type of
     variables are these?
 
-28. We will draw a box plot (you could draw a bar graph, but box plots
+::: {.callout-warning icon=false collapse="true"}
+## Answer
+one ratio, one nominal, so need a box plot.
+:::
+
+30. We will draw a box plot (you could draw a bar graph, but box plots
     tend to be preferred for these combinations of variables - use a bar
     graph for counts):
 
@@ -543,16 +548,21 @@ ggplot(summarydata, aes(x= Gender, y = Gent_1_score)) + geom_boxplot() + labs(ti
 
 ```
 
-29. Interpreting box plots: The horizontal line indicates the median.
+31. Interpreting box plots: The horizontal line indicates the median.
     The box indicates where 50% of the data lie. The lines indicate an
     estimate of the range of the data (minimum and maximum values). The
     dots indicate outliers. A large box indicates larger standard
     deviation. If the boxes don't overlap much then this indicates there
     may be a difference between the groups.
 
--   Are there differences in Vocabulary according to gender?
+Are there differences in Vocabulary according to gender?
 
-30. Now for the other relations:
+::: {.callout-warning icon=false collapse="true"}
+## Answer
+maybe females slightly lower than males.
+:::
+
+32. Now for the other relations:
 
 -   Academic year and vocabulary score
 -   Academic year and age
@@ -570,39 +580,58 @@ summarydata$academic_year <- as.factor(summarydata$academic_year)
 
 Draw a graph for each of these relations.
 
-31. Save your R script.
+::: {.callout-warning icon=false collapse="true"}
+## Answer
+These are categorical against ratio variables, so all box plots:
+```{r eval=FALSE}
+ggplot(summarydata, aes(x = academic_year, y = Gent_1_score) ) + geom_boxplot()
+ggplot(summarydata, aes(x = academic_year, y = Age) ) + geom_boxplot()
+ggplot(summarydata, aes(x = english_status, y = Gent_1_score) ) + geom_boxplot()
+ggplot(summarydata, aes(x = english_status, y = Age) ) + geom_boxplot()
+ggplot(summarydata, aes(x = Age, fill = english_status) ) + geom_histogram()
+```
+:::
 
-# Part 5: More practise manipulating data
+33. Save your R script.
 
-32. For finding minimum and maximum values, we have used the `arrange()`
-    function. However, if you were designing R, what would you call the
-    function that could just print the minimum values for you. See if
-    your intuitions are right (if you have them), and/or search (on the
-    internet) for the R function that finds the minimum or maximum
-    values. What is the R command for finding the minimum and maximum
-    values of the Shipley Vocabulary scores?
+#### 3.4.1.5 Part 5: More practise manipulating data
 
-33. An important part of using R-studio is that people share their code,
-    their tutorials, and help one another out in troubleshooting.
-    Searching for commands and how to use them on search engines is
-    absolutely fine, and supplementing your learning with others'
-    tutorials is also what the community does.
+34.  What are the minimum and maximum values for the ESL and English native speakers?
 
-Glasgow University psychology department has made some of their course
-materials available and so for more practise in using the different data
-manipulation functions, you could have a look at
-https://psyteachr.github.io/msc-conv/data-wrangling-1.html Ignore the
-part about making a new R markdown document, use instead an R script.
-Just go straight to clear out the environment rm(list=ls()) then load
-the libraries tidyverse() and babynames() where the babynames() library
-contains the database on babies' names that you can explore in the
-example. And then begin at Section "4.4: Activity 2: Look at the data".
+::: {.callout-warning icon=false collapse="true"}
+## Answer
+```{r eval=FALSE}
+summarise(summarydata2, min(Shipley_Voc_Score), max(Shipley_Voc_Score))
+```
+english_status `min(Shipley_Voc_Score)` `max(Shipley_Voc_Score)`
+1 ESL                                  10                       38
+2 native                               24                       38
+3 NA                                   24                       35
+:::
 
-# Part 6: Take home exercise
 
-For the data that you downloaded from the Psychological Science paper
-for your take home exercise last week, construct some graphs to show
-relations between variables.
+#### 3.4.1.6 Part 6: Extending your knowledge
+
+35. An important part of using R-studio is that people share their code, their tutorials,
+and help one another out in troubleshooting. Searching for commands and how to use them on
+search engines is absolutely fine, and supplementing your learning with others' tutorials is
+also what the community does.
+Glasgow University psychology department has made some of their course materials available
+and so for more practise in using the different data manipulation functions, you could have a look at
+[https://psyteachr.github.io/msc-conv/data-wrangling-1.html](https://psyteachr.github.io/msc-conv/data-wrangling-1.html)
+
+Ignore the part about making a new R markdown document, use instead an R script.
+
+Just go straight to clear out the environment rm(list=ls()) then load the 
+libraries tidyverse() and babynames() where the babynames()
+library contains the database on babies' names that you can explore in the example (you'll
+need to install.packages("babynames") first). 
+
+And then begin at Section "4.4: Activity 2: Look at the data".
+
+
+36. For the data that you downloaded from the papers for your 
+extra exercises in weeks 1 and 2, construct some graphs to show relations between variables. 
 
 ::: callout-note
 Use `geom_bar()` for bar graphs of counts Use `geom_box()` for box plots
@@ -612,9 +641,10 @@ variables
 :::
 
 
+
 ### 3.4.2 Data
 
-Here are links to all the data referred to in this practical:
+Here is a link to all the data referred to in this practical:
 
 [PSYC411-shipley-scores-anonymous-17_18.csv]("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
 
