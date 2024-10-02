@@ -6,7 +6,7 @@ order: 3
 
 Material for week 2 will be released after week 1 practical.
 
-<!---
+
 
 ## 2.1 Overview
 
@@ -290,8 +290,13 @@ The second contains demographic information about the participants. Type this in
 ``` {r eval=FALSE}
 dat <- read_csv("ahicesd.csv")
 pinfo <- read_csv("participantinfo.csv")
-`, run this command (type Ctrl-Enter), then type `pinfo <- read_csv("participantinfo.csv")`, and run that. 
 ```
+run this command (type Ctrl-Enter), then type 
+``` {r eval=FALSE}
+pinfo <- read_csv("participantinfo.csv")
+```
+and run that. 
+
 This has made two new objects -- one called "dat" which contains the experimental data, and one called "pinfo" which contains the demographic information.
 
 ##### Task Four: Examining and manipulating data
@@ -300,16 +305,22 @@ This has made two new objects -- one called "dat" which contains the experimenta
 
 ``` {r eval=FALSE}
 View(dat)
-`in the source and Run it in the console, and you should see the data appear above the console window.
 ```
+Run this command, and you should see the data appear above the console window.
 Have a good long hard look at it.
 
 25. The data contains:
+
 *id* which is the participant number;
+
 *occasion* which is whether this is the first (0), second (1), up to sixth (5) time they filled in the questionnaires;
+
 *intervention* is which intervention they took part in with respect to attempting to promote their mood;
+
 *ahi01*-*ahi24* are the 24 items on the AHI happiness scale;
+
 *cesd01*-*cesd20* are the 20 items on the CESD depression scale.
+
 Way over on the right are the total scores on the AHI and the CESD questionnaires.
 
 26. Now, view the pinfo data.
@@ -627,4 +638,3 @@ It's really important for your learning that you have a go first of all at the w
 
 - Optionally, watch [Brian Nosek's keynote](https://www.youtube.com/watch?v=q1JoKB7luPU&ab_channel=TheBritishPsychologicalSociety){target="_blank"} at the 2018 British Psychological Society conference on the replicability crisis (note hosted on youtube).
 
---->
