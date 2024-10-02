@@ -1,0 +1,38 @@
+---
+title: Analysing and Interpreting Psychological Data II
+subtitle: "Course coordinators: Margriet Groen, Rob Davies"
+email-obfuscation: javascript
+order: 1
+
+#listing:
+#  id: links
+#  template: ../links.ejs
+#  contents: guide.yml
+---
+
+# Welcome
+
+Welcome to PSYC402!
+
+This module builds on the knowledge and skills acquired in Statistics for Psychologists 1 (PSYC401). You will continue to practise data handling, data processing and data visualisation, using R and R Studio. In addition, you will extend your knowledge of the general linear model and learn how to adapt it when working with different types of data. Of course you'll also learn how to implement those methods in R and R Studio.
+
+This page gives you access to all the materials that you will need. You will have timetabled lab classes during which you are expected to work through a series of exercises to practise that week's material. Before you come to your lab session, you should watch the lectures for that week, read the relevant book chapter and complete the pre-lab activities. 
+
+# Asking for help
+
+We have carefully prepared and refined the lab materials in this course over several years, and we feel that the pace of the materials is just right for our students. Some students will complete them more quickly, and others more slowly - both of these scenarios are absolutely fine. You should work at the pace that suits you best, making sure you understand the materials before you move forward. 
+
+It is fairly inevitable that you will get stuck on the lab materials in this module at some point. This might be in Week 11, Week 12, or later. When you do, it's important you reach out for help:
+
+  - **Ask your friends on your table**. We've designed this teaching space to help collaborative work. You are encouraged to work with other students. Make sure you ask others to explain how they've solved an exercise. Make sure you help out others where you can. Always make sure you understand the code and the exercise; don't simply be satisfied that you've got the right answer.
+  - **Ask a GTA or Lecturer**. Our teaching staff is there to help you. There are no "stupid questions" in statistics, so just ask the GTA or the lecturer any question about what you're doing.
+  - **Ask on the Discussion Forum**. On the PSYC402 moodle page you will find a [Discussion Forum](https://modules.lancaster.ac.uk/mod/forum/view.php?id=2212548). This is a great way to ask a question outside of the lab sessions. It might seem scary to ask a question in the forum, but please don't be afraid to do this. If you have a question, you can bet other students also have the same question! So by asking the question on the forum, you help out many more people on the module. A friendly GTA or Lecturer will be along to answer the question as soon as possible (we aim for within 48 hours during the working week).
+  - **Ask on the module Q & A session**. Each week we hold a "Q&A" online session where we will try and resolve any general queries and problems. It's an ideal time to discuss things that students are struggling with or confused about, and can share ideas and answers. You can ask on the discussion forum above and then we might be able to pick up the issues and discuss them, but also you can ask in the session itself.
+
+# Course Contacts
+
+|             | Email Address                                                  |
+|-------------|----------------------------------------------------------------|
+| Margriet Groen | [m.groen\@lancaster.ac.uk](mailto:m.groen@lancaster.ac.uk) |
+| Rob Davies  | [r.davies1\@lancaster.ac.uk](mailto:r.davies1@lancaster.ac.uk)     |
+|             |                                                                |
