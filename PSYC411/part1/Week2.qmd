@@ -227,7 +227,7 @@ and run it.
     What kind of pattern does the histogram show?
 
 <!--- ::: {.callout-warning icon=false collapse="true"}
-# Answer
+## Answer
 ``` {r}
 library(tidyverse)
 dat <- read_csv("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
@@ -254,7 +254,7 @@ use the `iknow <- c(number1, number2, …)` notation
 21. Draw a histogram of the iknow data.
 
 <!--- ::: {.callout-warning icon=false collapse="true"}
-# Answers to 19-21
+## Answers to 19-21
 ``` {r}
 library(tidyverse)
 iknow <- c(126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92, 92, 87, 135, 115)

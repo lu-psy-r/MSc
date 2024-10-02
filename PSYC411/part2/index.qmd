@@ -1,0 +1,47 @@
+# Preface: Our approach {#sec-preface}
+
+We can, here, explain a development in the approach we take in teaching this course.
+Naturally, this development in approach will require a parallel development in your approach to learning.
+
+We are going to focus on working in research in context (see @fig-simple).
+
+```{dot}
+//| fig-width: 5
+//| label: fig-simple
+//| fig-cap: Working in research in context.
+//| fig-alt: The diagram shows a network chart, with oval bubbles (knowledge, convention, concepts, and practices) linked by straight lines. 
+graph G {
+  layout=neato
+  reading -- knowledge;
+  knowledge -- conventions;
+  knowledge -- concepts;
+  knowledge -- practices;
+}
+```
+
+You have been introduced to R.
+We know that some of you are new to R so we will practice the skills you are learning.
+We will consolidate, revise, and extend these skills.
+
+We will encounter --- some, for the first time -- the linear model also known as regression analysis.
+But the big change is this *focus on context*.
+The reason is that not talking about the context is risky for how you approach, do, or think about data analysis.
+
+In traditional methods teaching, the schedule of classes will progress through a series of tests, one test a week, from simpler to more complex tests.
+In this approach, the presentation is often brief about the context: the question the researchers are investigating; the methods they use to collect data; and, critically, the assumptions they make about how your reasoning can get you from the things you measure to the things you are trying to understand.
+
+This approach is understandable but it presents a misleading view.
+It implies that if you learn the method, and can match the textbook example to your context then all you need to do is to apply the analysis code to get the right result.
+This style of working is common, and it is often a reasonable *place to start*, but the isolation from context reduces the application of judgment, and limits critical evaluation of measurement, analysis assumptions, and sources of uncertainty. 
+
+::: callout-tip
+We can do better.
+:::
+
+A more productive approach -- this is the approach we will take -- is to expose, and talk about some of the real challenges that anybody who handles data, or quantitative evidence, deals with in professional life:
+
+1. Thinking about the mapping from our concerns to the research questions, to the things we measure, the analysis we do, and then the conclusions we make.
+2. Selecting or constructing valid measures that can be assumed to measure the things they are supposed to measure.
+3. Taking samples of observations, and making conclusions about the population.
+4. Making estimates and linking these estimates to an account that is explicit about causes.
+
