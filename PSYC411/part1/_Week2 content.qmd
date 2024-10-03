@@ -149,6 +149,12 @@ through File > Open File, at the top left panel, or just by double-clicking
 it in the Files in the bottom right panel). You can now look through this R script, 
 check your commands and answers to the tasks from last week.
 
+::: callout-tip
+A really important feature to include in your r script are commments. Comments are preceded by a \# which means that anything after the \# on a line is not going to be interpreted as a command in R studio, but as a comment. 
+
+Comments help us to keep track of what each bit of our r script is doing, and, also importantly, enable others to figure out what on earth it is that we've done so they 
+:::
+
 
 ##### Task Two: Opening a data file
 

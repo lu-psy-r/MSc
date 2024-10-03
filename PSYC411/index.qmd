@@ -33,19 +33,19 @@ Here are the steps to go through before the module begins, to help you prepare f
 *First:* Watch this first video which is a chat between Rob Davies and Padraic Monaghan giving you a bit of an insight into what we'd like you to take from this module and what our philosophy is for teaching.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=30972d92-8108-44db-b2c0-b1f5008f9566&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w0 p0" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=30972d92-8108-44db-b2c0-b1f5008f9566&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w0 p0" ></iframe>
 ```
 
 *Second:* Watch this welcome video (part 1) to give you an outline of how this module works:
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35153553-493b-4ece-bd7d-b1f500a07cf6&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w0 p1" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35153553-493b-4ece-bd7d-b1f500a07cf6&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w0 p1" ></iframe>
 ```
 
 *Third:* Then watch this welcome video (part 2) on how to access the software for this module. Basically, what you need to do is in a web browser go to: [http://psy-rstudio.lancaster.ac.uk](http://psy-rstudio.lancaster.ac.uk) and login with your university account name, and your university account password:
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c8b1818f-d436-42dc-b3e7-b090011a581d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411 2024 w0 p2" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c8b1818f-d436-42dc-b3e7-b090011a581d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411 2024 w0 p2" ></iframe>
 ```
 
 Note that you can only access this website from on campus, or via the University's VPN. For information on connecting to the VPN, see here: [ISS help for VPN](https://answers.lancaster.ac.uk/display/ISS/VPN+help)

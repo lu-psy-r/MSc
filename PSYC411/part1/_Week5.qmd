@@ -5,25 +5,50 @@ order: 6
 
 ---
 
-# Preparation
 
-- Watch Lecture [week5 part 1](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2007173), [slides here](ppt/wk5/PSYC401 Lecture week5 p1.pptx)
+## 5.1 Overview
 
-- [Part 2](https://modules.lancaster.ac.uk/mod/panopto/view.php?id=2007174), [slides here](ppt/wk5/PSYC401 Lecture week5 p2.pptx). Please note I say week 6 in the lectures, but I mean week 5. Sorry about that! It is week 5, be assured.
+This week, there are two mini lectures, and the practical workbook working with R-studio.
 
-- Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1921449) (not assessed) on the lecture materials.
+Before the practical on Tuesday, please try to work through the practical workbook in your group.
 
-- Work through the materials below.
+Bring your questions (and/or answers) to the practical.
 
-- Attend the practical.
+## 5.2 Learning Goals
 
-- Pop into the drop in (optional). Please note this is in Levy Lab - do come along with any questions at all on the workbooks so far.
+* Understand when t-tests are appropriately applied to data
 
-- Optionally, if you can give us your (anonymised) [feedback](https://modules.lancaster.ac.uk/mod/feedback/view.php?id=1921451) on how the course is going from your perspective, that would be very welcome.
+* Understand the distinction between paired and independent t-tests
 
-- Also optionally, read the articles on the importance of statistical understanding and insights from good data visualisation.
-  - [How scientists can be better at statistics](https://modules.lancaster.ac.uk/mod/url/view.php?id=2007180)
-  - [Florence Nightingale and data visualisation](https://modules.lancaster.ac.uk/mod/url/view.php?id=2007186)
+* Interpret p-values from t-tests
+
+* Determine how a paired t-test is calculated
+
+* Determine how an independent t-test is calculated
+
+* Understand effect sizes for t-tests
+
+* Be able to effectively interpret t-test results
+
+* Be able to accurately present t-test results in research reports
+
+
+## 5.3 Lectures
+
+Watch Lecture week 5 part 1:
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=98f7b065-26f1-42d9-9872-ac5900c7cda0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w5_p1" ></iframe>
+```
+
+Watch Lecture week 5 part 2:
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=551cef0e-76e4-43b6-8895-ac5900cdf342&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w5_p2" ></iframe>
+```
+
+Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530057){target="_blank"} (not assessed) on the lecture materials.
+
 
 # Part 1: Revision
 
@@ -281,3 +306,13 @@ dat4 <- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gen
 61. Are there significant differences for the other vocabulary test measures between males and females, or between those with  English as first or second language?
 
 62. For more practice running and interpreting t-tests, look at the Glasgow psychology materials: [https://psyteachr.github.io/quant-fun-v2/t-tests.html](https://psyteachr.github.io/quant-fun-v2/t-tests.html) (ignore anything that says R markdown, you should be able to get to the data and follow the instructions for manipulating it and running t-tests.)
+
+## 5.5 Extras
+
+Optionally, if you can give us your (anonymised) [feedback](https://modules.lancaster.ac.uk/mod/feedback/view.php?id=2530058){target="_blank"} on how the course is going from your perspective, that would be very welcome.
+
+Also optionally, read the articles on the importance of statistical understanding and insights from good data visualisation:
+
+  - [How scientists can be better at statistics](https://www.spectator.co.uk/article/vital-statistics/){target="_blank"}. Note that this article is hosted on the Spectator website, and *(content warning)* refers to Harold Shipman, a serial killer.
+  
+  - [Florence Nightingale and data visualisation](https://www.scientificamerican.com/article/how-florence-nightingale-changed-data-visualization-forever/){target="_blank"}. Note that this is hosted on Scientific American.
