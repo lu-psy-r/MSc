@@ -54,6 +54,10 @@ Watch Lecture week 4 part 3
 
 Take the [quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530056){target="_blank"} (not assessed) on the lecture materials.
 
+Download the lecture slides for:
+[part 1](ppt/wk4/PSYC411 Lecture week4 part1 handout.pptx), [part 2](ppt/wk4/PSYC411 Lecture week4 part2 handout.pptx), and
+[part 3](ppt/wk4/PSYC411 Lecture week4 part3 handout.pptx)
+
 
 The materials in this workbook share some material with [Glasgow University Psychology Department Teaching in R website](https://psyteachr.github.io/quant-fun-v2)
 
