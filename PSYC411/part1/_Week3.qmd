@@ -45,6 +45,7 @@ Bring your questions (and/or answers) to the practical.
 
 Watch Lecture week3 part2
 ```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ffbf5c9b-b608-45f0-b0df-adb80102b4d0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w3_p2" ></iframe>
 ```
 
 Watch Lecture week3 part3

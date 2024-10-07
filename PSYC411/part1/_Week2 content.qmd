@@ -149,7 +149,9 @@ check your commands and answers to the tasks from last week.
 ::: callout-tip
 A really important feature to include in your r script are commments. Comments are preceded by a \# which means that anything after the \# on a line is not going to be interpreted as a command in R studio, but as a comment. 
 
-Comments help us to keep track of what each bit of our r script is doing, and, also importantly, enable others to figure out what on earth it is that we've done so they 
+Good comment style involves consistent use of \# to indicate different sections (e.g., you can use multiples of \#'s to partition different sections of the results and make it easy to navigate, i.e., \#\#\#\#\#\#\#\#), and clear and succinct statements about why the command is there and what it is doing - see examples in the script file.
+
+Comments help us to keep track of what each bit of our r script is doing, and, also importantly, enable others to figure out what on earth it is that we've done so they can reproduce our analyses, and access our data more effectively, in the spirit of open science.
 :::
 
 

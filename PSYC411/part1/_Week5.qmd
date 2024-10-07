@@ -53,10 +53,13 @@ Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530057){ta
 Download the lecture slides for:
 [part 1](ppt/wk4/PSYC411 Lecture week5 part1 handout.pptx), and [part 2](ppt/wk4/PSYC411 Lecture week5 part2 handout.pptx).
 
+## 5.4 Practical Materials
 
-# Part 1: Revision
+### 5.4.1 Workbook
 
-## Task 1: Checklist: What I can now do
+#### 5.4.1.1 Part 1: Revision
+
+##### Task 1: Checklist: What I can now do
 
 You should be able to answer yes to all the following. If you can't yet, go back to the previous workbooks and repeat your working until you can answer yes, being able to type in and run the commands without referring to your notes. 
 
@@ -93,29 +96,94 @@ You should be able to answer yes to all the following. If you can't yet, go back
 16. I can save an R script file.
 
 
-# Part 2: Running an independent t-test
+::: {.callout-note icon="false" collapse="false"}
+## ANSWER
+Here are some examples of the commands/functions in use:
+
+``` {r}
+rm(list=ls())
+library(tidyverse)
+
+# from week4 practical
+dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"); 
+dat$academic_year <- as.factor(dat$academic_year)
+View(dat)
+
+# from week2 practical
+dat2 <- read_csv("data/wk2/practical/data/ahicesd.csv")
+pinfo <- read_csv("data/wk2/practical/data/participantinfo.csv")
+
+all_dat <- inner_join(x = dat2, y = pinfo, by = c("id", "intervention"))
+summarydata <- select(all_dat, id, ahiTotal, cesdTotal, age, occasion)
+dat_17 <- filter(dat, academic_year == "201718")
+all_dat2 <- group_by(all_dat, intervention, occasion)
+summarise(all_dat2, mean(ahiTotal), sd(ahiTotal), n())
+ggplot(dat, aes(x = Age)) + geom_histogram()
+ggplot(dat, aes(x = Shipley_Voc_Score, y = Gent_1_score)) + geom_point()
+ggplot(dat, aes(x = Shipley_Voc_Score, y = Gent_1_score)) + geom_point() + geom_smooth( method = lm)
+all_dat$occasion <- as.factor(all_dat$occasion)
+ggplot(all_dat, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
+dat_long <- pivot_longer(dat, names_to = "test", values_to = "score", cols = c("Gent_1_score", "Gent_2_score"))
+#or:
+dat_long <- pivot_longer(dat, names_to = "test", values_to = "score", cols = starts_with("Gent"))
+dat_wide <- pivot_wider(dat_long, names_from = "test", values_from = "score")
+
+library(lsr)
+chisq.test(x = all_dat$occasion, y = all_dat$intervention)
+cramersV(x = all_dat$occasion, y = all_dat$intervention)
+```
+:::
+
+#### 5.4.1.2 Part 2: Running an independent t-test
 
 
-## Task 2: Load, prepare, and explore the data
+##### Task 2: Load, prepare, and explore the data
 
 17. Clear out R using `rm(list=ls())`
 
-18. Load again the data set on the Shipley and Gent vocabulary scores. 
+18. Load again the data set on the Shipley and Gent vocabulary scores from week 4. 
 
 19. Set the research question: do people who self-identify as male or female have different scores on the Gent vocabulary test? The research hypothesis is: "People who identify as male or female have different vocabulary scores". What is the null hypothesis?
   
+  
+::: {.callout-note icon="false" collapse="false"}
+## Answer
+There is no difference between people who self-identify as male or female on vocabulary scores.
+:::
+
 20. To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a  subset of the data (note that the `|` stands for "or", and means Gender matches male or gender matches female:
 
 ```{r eval=FALSE}
 
-dat2 <- filter(.data = dat, Gender == 'Male' | Gender == 'Female')
+dat2 <- filter(dat, Gender == 'Male' | Gender == 'Female')
 
 ```
 
 21. Draw a box plot of Gent vocabulary test 1 scores by gender. For a box plot, note that we need data in "long format", where each observation is on one line, and we have a column that indicates which condition (in this case Gender) the participant is in. Does it look like there might be a gender effect? What is the direction of the effect? 
 
+::: {.callout-note icon="false" collapse="false"}
+## Answer
+```{r}
+dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv")
+# remember to change academic year to be a nominal/categorical variable, rather than a number:
+dat$academic_year <- as.factor(dat$academic_year)
+dat2 <- filter(dat, Gender == 'Male' | Gender == 'Female')
+ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
+
+```
+The graph indicates that maybe males are slightly higher, but looks like a lot of overlap.
+:::
+
 
 22. Note that unless we had filtered the data, the box plot would contain 'NA' as well, which stands for missing data.  In a data set it's always a good idea to call missing data 'NA' rather than just leaving them blank because this could be interpreted as a zero or as an error of filling in data.  Missing values make things untidy, so it's good practice to focus only on the variables we need for the t-test and remove all other missing values. Use `select()` to get just the Gender and Gent_1_score variables, and put this in a new object called 'dat3'. 
+
+::: {.callout-note icon="false" collapse="false"}
+## Answer
+```{r}
+dat3 <- select(dat2, Gender, Gent_1_score)
+
+```
+:::
 
 
 23. Next, in order to run a t-test we have to remove any rows of data which contain a 'NA' - either in the Gender or the Gent_1_score variables. We do this using `drop_na(dat3)`, put the result in a new object called 'dat4'. Run this command:
@@ -127,8 +195,18 @@ dat4 <- drop_na(dat3)
 ```
 
 
-24. Now, redraw the box plot from Step 21. Check there are just two groups.
+24. Now, redraw the box plot from Step 21. Check there are just two groups still.
 
+::: {.callout-note icon="false" collapse="false"}
+## Answer
+```{r}
+dat3 <- select(dat2, Gender, Gent_1_score)
+dat4 <- drop_na(dat3)
+ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
+
+```
+Yes, two groups.
+:::
 
 25. Compute mean and SDs for people who self-identify as male or female on Gent vocabulary test 1 scores.
 
@@ -138,7 +216,18 @@ dat4 <- drop_na(dat3)
 Use `group_by()` and `summarise()`.
 :::
 
-## Task 3: Run the independent t-test and measure effect size
+
+::: {.callout-note icon="false" collapse="false"}
+## Answer
+```{r}
+dat5 <- group_by(dat4, Gender)
+summarise(dat5, mean(Gent_1_score), sd(Gent_1_score))
+# Or, if you know how to use the %>% (pipe) ...:
+group_by(dat4, Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score))
+```
+:::
+
+##### Task 3: Run the independent t-test and measure effect size
 
 26. Conduct an independent t-test using this command:
 
