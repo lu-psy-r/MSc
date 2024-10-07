@@ -260,6 +260,11 @@ The value is negative because the function includes Female before Male - and Fem
 
 29. Is this a significant difference? 
 
+::: {.callout-note icon="false" collapse="false"}
+## Answer
+No, it isn't. The p-value is greater than 0.05.
+:::
+
 30. Now we need to compute the effect size, using Cohen's d. You need to load the library lsr then use this command:
 ```{{r}}
 
