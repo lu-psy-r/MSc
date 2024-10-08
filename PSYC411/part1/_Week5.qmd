@@ -57,12 +57,6 @@ Download the lecture slides for:
 
 ### 5.4.1 Workbook
 
-* Part 1 is some revision from the last 4 weeks.
-* Part 2 covers running an independent t-test.
-* Part 3 covers running a paired t-test.
-* Part 4 provides more practice running paired t-tests.
-* Part 5 presents some extras - exploring different datasets and running t-tests on those data.
-
 #### 5.4.1.1 Part 1: Revision
 
 ##### Task 1: Checklist: What I can now do
@@ -116,8 +110,8 @@ dat$academic_year <- as.factor(dat$academic_year)
 View(dat)
 
 # from week2 practical
-dat2 <- read_csv("data/wk2/ahicesd.csv")
-pinfo <- read_csv("data/wk2/participantinfo.csv")
+dat2 <- read_csv("data/wk2/practical/data/ahicesd.csv")
+pinfo <- read_csv("data/wk2/practical/data/participantinfo.csv")
 
 all_dat <- inner_join(x = dat2, y = pinfo, by = c("id", "intervention"))
 summarydata <- select(all_dat, id, ahiTotal, cesdTotal, age, occasion)
@@ -130,7 +124,7 @@ ggplot(dat, aes(x = Shipley_Voc_Score, y = Gent_1_score)) + geom_point() + geom_
 all_dat$occasion <- as.factor(all_dat$occasion)
 ggplot(all_dat, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
 dat_long <- pivot_longer(dat, names_to = "test", values_to = "score", cols = c("Gent_1_score", "Gent_2_score"))
-# or:
+#or:
 dat_long <- pivot_longer(dat, names_to = "test", values_to = "score", cols = starts_with("Gent"))
 dat_wide <- pivot_wider(dat_long, names_from = "test", values_from = "score")
 
@@ -159,7 +153,7 @@ There is no difference between people who self-identify as male or female on voc
 
 20. To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a  subset of the data (note that the `|` stands for "or", and means Gender matches male or gender matches female:
 
-``` {r eval=FALSE}
+```{r eval=FALSE}
 
 dat2 <- filter(dat, Gender == 'Male' | Gender == 'Female')
 
@@ -169,7 +163,7 @@ dat2 <- filter(dat, Gender == 'Male' | Gender == 'Female')
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-``` {r}
+```{r}
 dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv")
 # remember to change academic year to be a nominal/categorical variable, rather than a number:
 dat$academic_year <- as.factor(dat$academic_year)
@@ -185,7 +179,7 @@ The graph indicates that maybe males are slightly higher, but looks like a lot o
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-``` {r}
+```{r}
 dat3 <- select(dat2, Gender, Gent_1_score)
 
 ```
@@ -194,7 +188,7 @@ dat3 <- select(dat2, Gender, Gent_1_score)
 
 23. Next, in order to run a t-test we have to remove any rows of data which contain a 'NA' - either in the Gender or the Gent_1_score variables. We do this using `drop_na(dat3)`, put the result in a new object called 'dat4'. Run this command:
 
-``` {r eval=FALSE}
+```{r eval=FALSE}
 
 dat4 <- drop_na(dat3)
 
@@ -205,7 +199,7 @@ dat4 <- drop_na(dat3)
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-``` {r}
+```{r}
 dat3 <- select(dat2, Gender, Gent_1_score)
 dat4 <- drop_na(dat3)
 ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
@@ -225,7 +219,7 @@ Use `group_by()` and `summarise()`.
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-``` {r}
+```{r}
 dat5 <- group_by(dat4, Gender)
 summarise(dat5, mean(Gent_1_score), sd(Gent_1_score))
 # Or, if you know how to use the %>% (pipe) ...:
@@ -237,19 +231,11 @@ group_by(dat4, Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score))
 
 26. Conduct an independent t-test using this command:
 
-``` {r eval=FALSE}
+```{r eval=FALSE}
 
 t.test(Gent_1_score ~ Gender, paired = FALSE, data = dat5 )
 
 ```
-
-::: {.callout-caution icon="false" collapse="false"}
-## Bug warning!
-This t-test command works on our https://psy-rstudio.lancaster.ac.uk/ system, but really annoyingly doesn't work in the very latest version of R. If you have downloaded R-studio onto your computer there is a chance this won't work! 
-
-To fix this on your own computer version, you need to download and install an older version of R from the [r server webpage](https://www.r-project.org){target="_blank"}: version R4.2.3 *does* work ok, version 4.4 does not work, not sure about versions 4.3... 
-:::
-
 
 - 'Gent_1_score ~ Gender' : the ~ can be interpreted as 'by', i.e., compute Gent_1_score by Gender 
 - 'paired = FALSE' : this means we are doing an independent t-test (a paired t-test would have paired = TRUE) 
@@ -258,10 +244,17 @@ To fix this on your own computer version, you need to download and install an ol
 ````
 Welch Two Sample t-test
 
-***** TO COMPLETE *****
+data:  Gent_1_score by Gender
+t = -1.7356, df = 62.409, p-value = 0.08756
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  -10.0862020   0.7105407
+sample estimates:
+  mean in group Female   mean in group Male 
+57.57407             62.26190 
 ````
 
-28. The key part of the results to look at is the one that has t = -1.7356, df = 62.409, p-value = 0.08756. This is the result that you report: *t*(62.41) = -1.74, *p* = .088.
+28. The key part of the results to look at is the one that has t = -1.7356, df = 62.409, p-value = 0.08756. This is the result that you report: t(62.41) = -1.74, p = .088.
 
 The value is negative because the function includes Female before Male - and Female score is lower than Male score. What matters is how far away from zero the t-test is (either positively or negatively).  The df value is slightly odd because the t.test() function figures out degrees of freedom in a technical way which takes into account differences in variance in the data between the two groups. We can just use the value that the `t.test()` function gives us. 
 
@@ -273,7 +266,7 @@ No, it isn't. The p-value is greater than 0.05.
 :::
 
 30. Now we need to compute the effect size, using Cohen's d. You need to load the library lsr then use this command:
-``` {r}
+```{{r}}
 
 cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 
@@ -282,125 +275,45 @@ cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 
 - It's pretty much the same as the t-test() command except that we use 'method = 'unequal' instead of 'paired = FALSE'. For a paired t-test you would use 'method = 'paired' 
 
-
 31. What is the effect size? Make a brief report of the results - reporting means and SDs, the t-test, p-value, and Cohen's d. Discuss your brief report in your group.
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
- d = 0.27
-
-An ideal brief report of the results would state what the research question/hypothesis is, describe the means and SDs of the groups being compared, and then report the t-test statistic, with p-value and Cohen's d effect size, then provide a brief interpretation of what the results mean.
-
-Based on Hyde and Linn (1988), we hypothesised that people who self-identify as female may score slightly higher than males in
-terms of vocabulary scores. Males (mean = 62.1, SD = 15.3) scored higher than 
-females (mean = 58.0, SD = 14.7) on the first time participants attempted the 
-Gent vocabulary test, however this difference was not significant,
-*t*(73.94) = -1.68, *p* = .098, Cohen's *d* = 0.27. We did not find evidence to support the hypothesis.
-
-*Reference*
-
-Hyde, J. S., & Linn, M. C. (1988). Gender differences in verbal ability: A meta-analysis. *Psychological Bulletin, 104(1)*, 53–69. https://doi.org/10.1037/0033-2909.104.1.53
-:::
-
 
 32. Make sure all commands are in the source window, save them as a new R script file.
 
-##### Task 4: Practise running another independent t-test
+## Task 4: Practise running another independent t-test
 
 33. Next research question: do people who are native English speakers have different vocabulary scores than those who learned English as a second language? What is the research hypothesis and the null hypothesis?
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-Research Hypothesis: People who speak English as a native language have higher vocabulary scores than those with English as a second language.
-
-Null Hypothesis: There is no difference in vocabulary scores between native English and second language English speakers.
-:::
 
 
 34. Repeat the Steps 22-30 in Tasks 2 and 3 except using english_status in place of Gender throughout.
 
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-dat <- read.csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv")
-dat2 <- select(dat, english_status, Gent_1_score)
-dat3 <- drop_na(dat2)
-ggplot(dat3, aes(x = english_status, y = Gent_1_score)) + geom_boxplot()
-dat4 <- group_by(dat3, english_status)
-summarise(dat4, mean(Gent_1_score), sd(Gent_1_score), n())
-t.test(Gent_1_score ~ english_status, paired = FALSE, data = dat3 )
-cohensD(Gent_1_score ~ english_status, method = "unequal", data = dat3 )
-```
-:::
 
 35. Write a brief report of the results, including means and SDs for native speakers and ESL speakers, t-test, p-value, and Cohen's d.  Discuss your report in your group.
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-We hypothesised that English as an additional language would result in lower overall vocabulary scores than English as a first language, because of the relation between length of time learning a language and language skills (Davies et al., 2017). 
-Native
-English speakers (mean = 65.4, SD = 9.8) scored significantly higher
-on the Gent vocabulary test than speakers of English as a second
-language (mean = 48.3, SD = 15.7), *t*(127.79) = -9.08, *p* < .001,
-Cohen's *d* = 1.30, a large effect size. Thus, the hypothesis was supported, with native English speakers scoring significantly higher on the Gent vocabulary test than those with English as an additional language.
-
-*Reference*
-
-Davies, R. A. I., Arnell, R., Birchenough, J., Grimmond, D., & Houlson, S. (2017). Reading Through the Life Span: Individual Differences in Psycholinguistic Effects. *Journal of Experimental Psychology: Learning, Memory, and Cognition, 43(8)*, 1298-1338. https://doi.org/10.1037/xlm0000366
-:::
-
 
 
 36. Save your R script file.
 
 
-#### 5.4.1.3 Part 3: Conducting a paired t-test
+Part 3: Conducting a paired t-test
 
 
-##### Task 5: Conducting a paired t-test 
+Task 5: Conducting a paired t-test 
 
 37. Clear out R-studio before we get started again using `rm(list=ls())`
 
-38. We are going to investigate again the data from this paper: Woodworth, R.J., O'Brien-Malone, A., Diamond, M.R. and Schuez, B., 2017. Data from, "Web-based Positive Psychology Interventions: A Reexamination of Effectiveness". Journal of Open Psychology Data, 6(1). 
+38. We are going to investigate again the data from this paper: Woodworth, R.J., O'Brien-Malone, A., Diamond, M.R. and Schuez, B., 2018. Data from, "Web-based Positive Psychology Interventions: A Reexamination of Effectiveness". Journal of Open Psychology Data, 6(1). 
 
 Our research question is whether happiness scores are affected by the interventions. We will look at the pre-test (occasion 0)  and the first test after the intervention (occasion 1).
 
 39. What is the research hypothesis and what is the null hypothesis?
 
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-RH: happiness scores change (increase) from the first to the second
-occasion of testing. 
 
-NH: happiness scores do not change across occasions.
-:::
-
-40. For a paired t-test we can only include data from people who have produced scores at both occasions of testing. So, we need a slightly different version of the data, which you can download [here for the ahicesd.csv file](data/wk5/ahicesd.csv) and [here for the participantinfo2.csv file](data/wk5/participantinfo2.csv). 
-
-Remind yourself what these data mean.  
+40. For a paired t-test we can only include data from people who have produced scores at both occasions of testing. So, we need a slightly different version of the data. Download the files [here](data/PSYC401_wk5.zip). Remind yourself what these data mean.  
       
 
-41. Once again, join the ahicesd.csv and participantinfo2.csv data in R-studio by aligning the names for the participant numbers in these two data sets (see week 2 workbook for reminders about this). 
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-library(tidyverse)
-dat <- read_csv("data/wk5/ahicesd.csv")
-pinfo <- read_csv("data/wk5/participantinfo2.csv")
-all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
-```
-:::
+41. Once again, join the ahicesd.csv and participantinfo2.csv data in R-studio by aligning the names for the participant bumbers in these two data sets (see week 2 workbook for reminders about this). 
 
 
 42. Let's select only the relevant variables. Use `select()` to select only id, ahiTotal, and occasion variables, and save this as a new object called 'summarydata' 
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-summarydata <- select(all_dat, c("id", "ahiTotal", "occasion"))
-```
-:::
 
 
 43. Use filter to pull out only occasion == 0 or occasion == 1 scores
@@ -411,20 +324,11 @@ use `occasion == 0 | occasion == 1')`, save this as a new object
 called `summarydata2`
 :::
 
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-summarydata2 <- filter(summarydata, occasion == 0 | occasion == 1)
-```
-:::
-
-
 44. Here is where we would usually remove all the NA values, but there aren't any in this file (so we don't need drop_na()). 
 
 45. Now, we need to make sure occasion is treated as a categorical variable, rather than a continuous variable, so we need to convert it to a factor:
 
-``` {r}
+```{{r}}
 
 summarydata2$occasion <-as.factor(summarydata2$occasion)
 
@@ -432,29 +336,11 @@ summarydata2$occasion <-as.factor(summarydata2$occasion)
 
 46. Now, draw a box plot of ahiTotal scores by occasion (why do we use a box plot?)
 
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
-
-```
-We use a boxplot because we have one nominal/categorical variable and one
-interval/ratio/ordinal measure.
-:::
-
 47. Compute mean and SD for each occasion
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
-```
-:::
-
 
 48. Run the paired t-test: it's the same as for the independent t-test except that we use `paired = TRUE` in place of `paired = FALSE`:
 
-``` {r}
+```{{r}}
 
 t.test(ahiTotal ~ occasion, paired = TRUE, data = summarydata2)
 
@@ -462,14 +348,9 @@ t.test(ahiTotal ~ occasion, paired = TRUE, data = summarydata2)
 
 Is the result significant? 
 
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-yes, because *p* < .05.
-:::
-
 49. Before we run the Cohen's d command for these data, we have to make sure we have a list of the participants in one condition, followed by the list of participants in the other condition. We can do this using the command `arrange()`:
 
-``` {r}
+```{{r}}
 
 summarydata3 <- arrange(.data = summarydata2, occasion)
 
@@ -478,7 +359,7 @@ summarydata3 <- arrange(.data = summarydata2, occasion)
 50. Now run Cohen's d: it's the same as for the independent t-test
 except that we use 'method = 'paired':
 
-``` {r}
+```{{r}}
 
 cohensD(ahiTotal ~ occasion, method = "paired", data = summarydata3)
 
@@ -486,51 +367,22 @@ cohensD(ahiTotal ~ occasion, method = "paired", data = summarydata3)
 
 What is the value for Cohen's d?
 
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-d = 0.4059904
-:::
-
 51. Write up a brief report of the result and discuss in your group.
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-We tested whether participants' happiness scores at first
-testing after the interventions were different than their scores prior
-to the interventions. We found that, prior to the intervention, scores
-were significantly lower (M = 69.3, SD = 12.3) than they were
-immediately after the interventions (M = 72.4, SD = 12.6), *t*(146) =
-= 4.92, *p* < .001, Cohen's *d* = 0.41, a medium effect. The results indicate that 
-the intervention had a positive effect on happiness scores.
-:::
-
 
 52. Save your R script file.
 
 
-#### 5.4.1.4 Part 4: More practise running a paired t-test
+# Part 4: More practise running a paired t-test
 
 We are going to figure out whether people have different scores the first and second time they take the Gent vocabulary test.
 
 53. Go back to the vocabulary scores data. Load the data into dat, and make another object dat2 that contains only the subject_ID, Gent_1_score and Gent_2_score.
 
-
 54. Some people did not do all the tests - look at participant 46 for instance. To do a t-test we need data where the person does both tests. We can filter out the scores where there are no NAs by repeating the drop_na we did at step 23, above. Call the new data object dat3.
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-dat <- read.csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"); 
-dat$academic_year <- as.factor(dat$academic_year)
-dat2 <- select(dat, subject_ID, Gent_1_score, Gent_2_score)
-dat3 <- drop_na(dat2)
-```
-:::
-
 
 55. Now to do a paired t-test we need to get the Gent_1_score and Gent_2_scores into the same column. We do this with `pivot_longer`, run this command:
 
-``` {r}
+```{{r}}
 
 dat4 <- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gent_1_score", "Gent_2_score"))
 
@@ -538,88 +390,20 @@ dat4 <- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gen
 
 56. As an extra benefit of having the data in "long format", it also means we can now also draw a box plot of the Gent vocabulary scores taken at the first and second occasion. Draw the box plot.
 
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-ggplot(dat4, aes(x = test, y = score)) + geom_boxplot()
-```
-:::
-
 57. Get mean and SD of the scores for the tests.
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-dat5 <- group_by(dat4, test)
-summarise(dat5, mean(score), sd(score), n())
-# or if you know how to pipe:
-group_by(dat4, test) %>% summarise(mean(score), sd(score), n())
-```
-:::
-
 
 58. Run the paired t-test.
 
+59. arrange the data as in step 49 so that the responses to the first test are listed first, then the responses to the second test.
 
-59. arrange the data as in step 49 so that the responses to the first test are listed first, then the responses to the second test, and the find out Cohen's d.
 
-
-::: {.callout-note icon="false" collapse="false"}
-## Answers to 58-59.
-``` {r}
-t.test(score ~ test, paired = TRUE, data = dat4 )
-dat6 <- arrange(dat4, test)
-cohensD(score ~ test, method = "paired", data = dat6 )
-```
-:::
-
-#### 5.4.1.5 Part 5: Extras
+# Part 5: Extras
 
 60. In the vocabulary scores data, is there a significant difference between males and females for your academic year group? 
 
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-dat2 <- filter(dat, academic_year == "202324")
-ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
-dat3 <- group_by(dat2, Gender)
-summarise(dat3, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score), n())
-t.test(Gent_1_score ~ Gender, paired = FALSE, data = dat2 )
-cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat2 )
-t.test(Gent_2_score ~ Gender, paired = FALSE, data = dat2 )
-cohensD(Gent_2_score ~ Gender, method = "unequal", data = dat2 )
-```
-nothing significant...
-:::
-
 61. Are there significant differences for the other vocabulary test measures between males and females, or between those with  English as first or second language?
 
-
-62. The data from this paper are called [ClassDraw.csv available here](data/wk5/ClassDraw.csv). The data are on osf as well, but they're not properly formatted, so I adjusted them and put them here.
-
-Jalava, S. T., Wammes, J. D., & Cheng, K. (2023). Drawing your way to an A: 
-Long-lasting improvements in classroom quiz performance following drawing. 
-*Psychonomic Bulletin & Review, 30*, 1939–1945. https://doi.org/10.3758/s13423-023-02294-2
-
-There are some useful tips in the results of this study about the benefit of doodling...
-
-My challenge to you:
-
-- Can you make a ggplot that looks a bit like Figure 2 from this study?
-
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-jalava <- read_csv("data/wk5/ClassDraw.csv")
-# View(jalava)
-
-jalava1 <- pivot_longer(jalava, names_to = c("test",".value"), names_sep="_" , values_to = "score", cols = c("write_1","write_2","draw_1","draw_2"))
-jalava2 <- pivot_longer(jalava1, names_to = "test_time", values_to = "score", cols = c(`1`,`2`))
-jalava2$test_time <- as.factor(jalava2$test_time)
-ggplot(jalava2, aes(x = "test_time", y = "score")) + geom_boxplot()
-```
-:::
+62. For more practice running and interpreting t-tests, look at the Glasgow psychology materials: [https://psyteachr.github.io/quant-fun-v2/t-tests.html](https://psyteachr.github.io/quant-fun-v2/t-tests.html) (ignore anything that says R markdown, you should be able to get to the data and follow the instructions for manipulating it and running t-tests.)
 
 ## 5.5 Extras
 

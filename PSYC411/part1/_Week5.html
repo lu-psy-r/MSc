@@ -123,23 +123,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Watch Lecture week 5 part 2:</p>
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=551cef0e-76e4-43b6-8895-ac5900cdf342&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w5_p2"></iframe>
 <p>Take <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530057" target="_blank">the quiz</a> (not assessed) on the lecture materials.</p>
-<p>Download the lecture slides for: <a href="ppt/wk4/PSYC411%20Lecture%20week5%20part1%20handout.pptx">part 1</a>, and <a href="ppt/wk4/PSYC411%20Lecture%20week5%20part2%20handout.pptx">part 2</a>.</p>
 </section>
-<section id="practical-materials" class="level2">
-<h2 class="anchored" data-anchor-id="practical-materials">5.4 Practical Materials</h2>
-<section id="workbook" class="level3">
-<h3 class="anchored" data-anchor-id="workbook">5.4.1 Workbook</h3>
-<ul>
-<li>Part 1 is some revision from the last 4 weeks.</li>
-<li>Part 2 covers running an independent t-test.</li>
-<li>Part 3 covers running a paired t-test.</li>
-<li>Part 4 provides more practice running paired t-tests.</li>
-<li>Part 5 presents some extras - exploring different datasets and running t-tests on those data.</li>
-</ul>
-<section id="part-1-revision" class="level4">
-<h4 class="anchored" data-anchor-id="part-1-revision">5.4.1.1 Part 1: Revision</h4>
-<section id="task-1-checklist-what-i-can-now-do" class="level5">
-<h5 class="anchored" data-anchor-id="task-1-checklist-what-i-can-now-do">Task 1: Checklist: What I can now do</h5>
+<section id="part-1-revision" class="level1">
+<h1>Part 1: Revision</h1>
+<section id="task-1-checklist-what-i-can-now-do" class="level2">
+<h2 class="anchored" data-anchor-id="task-1-checklist-what-i-can-now-do">Task 1: Checklist: What I can now do</h2>
 <p>You should be able to answer yes to all the following. If you can’t yet, go back to the previous workbooks and repeat your working until you can answer yes, being able to type in and run the commands without referring to your notes.</p>
 <ol type="1">
 <li><p>I can open R-studio</p></li>
@@ -159,320 +147,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>I can interpret the results of a Chi-squared test and Cramer’s V test and write up a simple report of the results.</p></li>
 <li><p>I can save an R script file.</p></li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-ANSWER
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Here are some examples of the commands/functions in use:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from week4 practical</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>); </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 239 Columns: 8
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (2): english_status, Gender
-dbl (6): subject_ID, Age, Shipley_Voc_Score, Gent_1_score, Gent_2_score, aca...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dat)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># from week2 practical</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/ahicesd.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 992 Columns: 50
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-dbl (50): id, occasion, elapsed.days, intervention, ahi01, ahi02, ahi03, ahi...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/participantinfo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 295 Columns: 6
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-dbl (6): id, intervention, sex, age, educ, income
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat2, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"intervention"</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, id, ahiTotal, cesdTotal, age, occasion)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>dat_17 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, academic_year <span class="sc">==</span> <span class="st">"201718"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>all_dat2 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(all_dat, intervention, occasion)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(all_dat2, <span class="fu">mean</span>(ahiTotal), <span class="fu">sd</span>(ahiTotal), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'intervention'. You can override using the
-`.groups` argument.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 24 × 5
-# Groups:   intervention [4]
-   intervention occasion `mean(ahiTotal)` `sd(ahiTotal)` `n()`
-          &lt;dbl&gt;    &lt;dbl&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;int&gt;
- 1            1        0             68.4           14.0    72
- 2            1        1             69.5           13.4    30
- 3            1        2             70.3           15.7    38
- 4            1        3             75.0           12.8    29
- 5            1        4             76.5           16.2    36
- 6            1        5             75.5           14.5    27
- 7            2        0             68.8           13.0    76
- 8            2        1             71.6           12.5    48
- 9            2        2             73.0           14.0    48
-10            2        3             72.5           14.2    43
-# ℹ 14 more rows</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 162 rows containing non-finite outside the scale range
-(`stat_bin()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Shipley_Voc_Score, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 9 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Shipley_Voc_Score, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>( <span class="at">method =</span> lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 9 rows containing non-finite outside the scale range
-(`stat_smooth()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 9 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>all_dat<span class="sc">$</span>occasion <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(all_dat<span class="sc">$</span>occasion)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_dat, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dat_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>))</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or:</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>dat_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"Gent"</span>))</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>dat_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(dat_long, <span class="at">names_from =</span> <span class="st">"test"</span>, <span class="at">values_from =</span> <span class="st">"score"</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> all_dat<span class="sc">$</span>occasion, <span class="at">y =</span> all_dat<span class="sc">$</span>intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Pearson's Chi-squared test
-
-data:  all_dat$occasion and all_dat$intervention
-X-squared = 9.7806, df = 15, p-value = 0.8333</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cramersV</span>(<span class="at">x =</span> all_dat<span class="sc">$</span>occasion, <span class="at">y =</span> all_dat<span class="sc">$</span>intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.05732779</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section>
 </section>
-<section id="part-2-running-an-independent-t-test" class="level4">
-<h4 class="anchored" data-anchor-id="part-2-running-an-independent-t-test">5.4.1.2 Part 2: Running an independent t-test</h4>
-<section id="task-2-load-prepare-and-explore-the-data" class="level5">
-<h5 class="anchored" data-anchor-id="task-2-load-prepare-and-explore-the-data">Task 2: Load, prepare, and explore the data</h5>
+<section id="part-2-running-an-independent-t-test" class="level1">
+<h1>Part 2: Running an independent t-test</h1>
+<section id="task-2-load-prepare-and-explore-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="task-2-load-prepare-and-explore-the-data">Task 2: Load, prepare, and explore the data</h2>
 <ol start="17" type="1">
 <li><p>Clear out R using <code>rm(list=ls())</code></p></li>
-<li><p>Load again the data set on the Shipley and Gent vocabulary scores from week 4.</p></li>
+<li><p>Load again the data set on the Shipley and Gent vocabulary scores.</p></li>
 <li><p>Set the research question: do people who self-identify as male or female have different scores on the Gent vocabulary test? The research hypothesis is: “People who identify as male or female have different vocabulary scores”. What is the null hypothesis?</p></li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>There is no difference between people who self-identify as male or female on vocabulary scores.</p>
-</div>
-</div>
-</div>
-<ol start="20" type="1">
-<li>To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a subset of the data (note that the <code>|</code> stands for “or”, and means Gender matches male or gender matches female:</li>
+<li><p>To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a subset of the data (note that the <code>|</code> stands for “or”, and means Gender matches male or gender matches female:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, Gender <span class="sc">==</span> <span class="st">'Male'</span> <span class="sc">|</span> Gender <span class="sc">==</span> <span class="st">'Female'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(<span class="at">.data =</span> dat, Gender <span class="sc">==</span> <span class="st">'Male'</span> <span class="sc">|</span> Gender <span class="sc">==</span> <span class="st">'Female'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="21" type="1">
-<li>Draw a box plot of Gent vocabulary test 1 scores by gender. For a box plot, note that we need data in “long format”, where each observation is on one line, and we have a column that indicates which condition (in this case Gender) the participant is in. Does it look like there might be a gender effect? What is the direction of the effect?</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 239 Columns: 8
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (2): english_status, Gender
-dbl (6): subject_ID, Age, Shipley_Voc_Score, Gent_1_score, Gent_2_score, aca...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remember to change academic year to be a nominal/categorical variable, rather than a number:</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, Gender <span class="sc">==</span> <span class="st">'Male'</span> <span class="sc">|</span> Gender <span class="sc">==</span> <span class="st">'Female'</span>)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 4 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The graph indicates that maybe males are slightly higher, but looks like a lot of overlap.</p>
-</div>
-</div>
-</div>
-<ol start="22" type="1">
-<li>Note that unless we had filtered the data, the box plot would contain ‘NA’ as well, which stands for missing data. In a data set it’s always a good idea to call missing data ‘NA’ rather than just leaving them blank because this could be interpreted as a zero or as an error of filling in data. Missing values make things untidy, so it’s good practice to focus only on the variables we need for the t-test and remove all other missing values. Use <code>select()</code> to get just the Gender and Gent_1_score variables, and put this in a new object called ‘dat3’.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat2, Gender, Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<ol start="23" type="1">
-<li>Next, in order to run a t-test we have to remove any rows of data which contain a ‘NA’ - either in the Gender or the Gent_1_score variables. We do this using <code>drop_na(dat3)</code>, put the result in a new object called ‘dat4’. Run this command:</li>
+<li><p>Draw a box plot of Gent vocabulary test 1 scores by gender. For a box plot, note that we need data in “long format”, where each observation is on one line, and we have a column that indicates which condition (in this case Gender) the participant is in. Does it look like there might be a gender effect? What is the direction of the effect?</p></li>
+<li><p>Note that unless we had filtered the data, the box plot would contain ‘NA’ as well, which stands for missing data. In a data set it’s always a good idea to call missing data ‘NA’ rather than just leaving them blank because this could be interpreted as a zero or as an error of filling in data. Missing values make things untidy, so it’s good practice to focus only on the variables we need for the t-test and remove all other missing values. Use <code>select()</code> to get just the Gender and Gent_1_score variables, and put this in a new object called ‘dat3’.</p></li>
+<li><p>Next, in order to run a t-test we have to remove any rows of data which contain a ‘NA’ - either in the Gender or the Gent_1_score variables. We do this using <code>drop_na(dat3)</code>, put the result in a new object called ‘dat4’. Run this command:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="24" type="1">
-<li>Now, redraw the box plot from Step 21. Check there are just two groups still.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat2, Gender, Gent_1_score)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat3)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 4 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Yes, two groups.</p>
-</div>
-</div>
-</div>
-<ol start="25" type="1">
-<li>Compute mean and SDs for people who self-identify as male or female on Gent vocabulary test 1 scores.</li>
+<li><p>Now, redraw the box plot from Step 21. Check there are just two groups.</p></li>
+<li><p>Compute mean and SDs for people who self-identify as male or female on Gent vocabulary test 1 scores.</p></li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -481,72 +184,20 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Use <code>group_by()</code> and <code>summarise()</code>.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dat5 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat4, Gender)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat5, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 3
-  Gender `mean(Gent_1_score)` `sd(Gent_1_score)`
-  &lt;chr&gt;                 &lt;dbl&gt;              &lt;dbl&gt;
-1 Female                 58.0               14.7
-2 Male                   62.1               15.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, if you know how to use the %&gt;% (pipe) ...:</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(dat4, Gender) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 3
-  Gender `mean(Gent_1_score)` `sd(Gent_1_score)`
-  &lt;chr&gt;                 &lt;dbl&gt;              &lt;dbl&gt;
-1 Female                 58.0               14.7
-2 Male                   62.1               15.3</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section>
-<section id="task-3-run-the-independent-t-test-and-measure-effect-size" class="level5">
-<h5 class="anchored" data-anchor-id="task-3-run-the-independent-t-test-and-measure-effect-size">Task 3: Run the independent t-test and measure effect size</h5>
+<section id="task-3-run-the-independent-t-test-and-measure-effect-size" class="level2">
+<h2 class="anchored" data-anchor-id="task-3-run-the-independent-t-test-and-measure-effect-size">Task 3: Run the independent t-test and measure effect size</h2>
 <ol start="26" type="1">
 <li>Conduct an independent t-test using this command:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">data =</span> dat5 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Bug warning!
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>This t-test command works on our https://psy-rstudio.lancaster.ac.uk/ system, but really annoyingly doesn’t work in the very latest version of R. If you have downloaded R-studio onto your computer there is a chance this won’t work!</p>
-<p>To fix this on your own computer version, you need to download and install an older version of R from the <a href="https://www.r-project.org" target="_blank">r server webpage</a>: version R4.2.3 <em>does</em> work ok, version 4.4 does not work, not sure about versions 4.3…</p>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">data =</span> dat5 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>‘Gent_1_score ~ Gender’ : the ~ can be interpreted as ‘by’, i.e., compute Gent_1_score by Gender</li>
@@ -557,277 +208,59 @@ Bug warning!
 </ol>
 <pre><code>Welch Two Sample t-test
 
-***** TO COMPLETE *****</code></pre>
+data:  Gent_1_score by Gender
+t = -1.7356, df = 62.409, p-value = 0.08756
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+  -10.0862020   0.7105407
+sample estimates:
+  mean in group Female   mean in group Male 
+57.57407             62.26190 </code></pre>
 <ol start="28" type="1">
-<li>The key part of the results to look at is the one that has t = -1.7356, df = 62.409, p-value = 0.08756. This is the result that you report: <em>t</em>(62.41) = -1.74, <em>p</em> = .088.</li>
+<li>The key part of the results to look at is the one that has t = -1.7356, df = 62.409, p-value = 0.08756. This is the result that you report: t(62.41) = -1.74, p = .088.</li>
 </ol>
 <p>The value is negative because the function includes Female before Male - and Female score is lower than Male score. What matters is how far away from zero the t-test is (either positively or negatively). The df value is slightly odd because the t.test() function figures out degrees of freedom in a technical way which takes into account differences in variance in the data between the two groups. We can just use the value that the <code>t.test()</code> function gives us.</p>
 <ol start="29" type="1">
-<li>Is this a significant difference?</li>
+<li><p>Is this a significant difference?</p></li>
+<li><p>Now we need to compute the effect size, using Cohen’s d.&nbsp;You need to load the library lsr then use this command:</p></li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>No, it isn’t. The p-value is greater than 0.05.</p>
-</div>
-</div>
-</div>
-<ol start="30" type="1">
-<li>Now we need to compute the effect size, using Cohen’s d.&nbsp;You need to load the library lsr then use this command:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2729692</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="in">cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>It’s pretty much the same as the t-test() command except that we use ‘method = ’unequal’ instead of ‘paired = FALSE’. For a paired t-test you would use ‘method = ’paired’</li>
 </ul>
 <ol start="31" type="1">
-<li>What is the effect size? Make a brief report of the results - reporting means and SDs, the t-test, p-value, and Cohen’s d.&nbsp;Discuss your brief report in your group.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>d = 0.27</p>
-<p>An ideal brief report of the results would state what the research question/hypothesis is, describe the means and SDs of the groups being compared, and then report the t-test statistic, with p-value and Cohen’s d effect size, then provide a brief interpretation of what the results mean.</p>
-<p>Based on Hyde and Linn (1988), we hypothesised that people who self-identify as female may score slightly higher than males in terms of vocabulary scores. Males (mean = 62.1, SD = 15.3) scored higher than females (mean = 58.0, SD = 14.7) on the first time participants attempted the Gent vocabulary test, however this difference was not significant, <em>t</em>(73.94) = -1.68, <em>p</em> = .098, Cohen’s <em>d</em> = 0.27. We did not find evidence to support the hypothesis.</p>
-<p><em>Reference</em></p>
-<p>Hyde, J. S., &amp; Linn, M. C. (1988). Gender differences in verbal ability: A meta-analysis. <em>Psychological Bulletin, 104(1)</em>, 53–69. https://doi.org/10.1037/0033-2909.104.1.53</p>
-</div>
-</div>
-</div>
-<ol start="32" type="1">
-<li>Make sure all commands are in the source window, save them as a new R script file.</li>
+<li><p>What is the effect size? Make a brief report of the results - reporting means and SDs, the t-test, p-value, and Cohen’s d.&nbsp;Discuss your brief report in your group.</p></li>
+<li><p>Make sure all commands are in the source window, save them as a new R script file.</p></li>
 </ol>
 </section>
-<section id="task-4-practise-running-another-independent-t-test" class="level5">
-<h5 class="anchored" data-anchor-id="task-4-practise-running-another-independent-t-test">Task 4: Practise running another independent t-test</h5>
+<section id="task-4-practise-running-another-independent-t-test" class="level2">
+<h2 class="anchored" data-anchor-id="task-4-practise-running-another-independent-t-test">Task 4: Practise running another independent t-test</h2>
 <ol start="33" type="1">
-<li>Next research question: do people who are native English speakers have different vocabulary scores than those who learned English as a second language? What is the research hypothesis and the null hypothesis?</li>
+<li><p>Next research question: do people who are native English speakers have different vocabulary scores than those who learned English as a second language? What is the research hypothesis and the null hypothesis?</p></li>
+<li><p>Repeat the Steps 22-30 in Tasks 2 and 3 except using english_status in place of Gender throughout.</p></li>
+<li><p>Write a brief report of the results, including means and SDs for native speakers and ESL speakers, t-test, p-value, and Cohen’s d.&nbsp;Discuss your report in your group.</p></li>
+<li><p>Save your R script file.</p></li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Research Hypothesis: People who speak English as a native language have higher vocabulary scores than those with English as a second language.</p>
-<p>Null Hypothesis: There is no difference in vocabulary scores between native English and second language English speakers.</p>
-</div>
-</div>
-</div>
-<ol start="34" type="1">
-<li>Repeat the Steps 22-30 in Tasks 2 and 3 except using english_status in place of Gender throughout.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, english_status, Gent_1_score)</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat2)</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat3, <span class="fu">aes</span>(<span class="at">x =</span> english_status, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat3, english_status)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat4, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  english_status `mean(Gent_1_score)` `sd(Gent_1_score)` `n()`
-  &lt;chr&gt;                         &lt;dbl&gt;              &lt;dbl&gt; &lt;int&gt;
-1 ESL                            48.3              15.7     87
-2 native                         65.4               9.81   141</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> english_status, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">data =</span> dat3 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  Gent_1_score by english_status
-t = -9.0777, df = 127.79, p-value = 1.725e-15
-alternative hypothesis: true difference in means between group ESL and group native is not equal to 0
-95 percent confidence interval:
- -20.75411 -13.32561
-sample estimates:
-   mean in group ESL mean in group native 
-            48.32184             65.36170 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> english_status, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat3 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.300352</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<ol start="35" type="1">
-<li>Write a brief report of the results, including means and SDs for native speakers and ESL speakers, t-test, p-value, and Cohen’s d.&nbsp;Discuss your report in your group.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>We hypothesised that English as an additional language would result in lower overall vocabulary scores than English as a first language, because of the relation between length of time learning a language and language skills (Davies et al., 2017). Native English speakers (mean = 65.4, SD = 9.8) scored significantly higher on the Gent vocabulary test than speakers of English as a second language (mean = 48.3, SD = 15.7), <em>t</em>(127.79) = -9.08, <em>p</em> &lt; .001, Cohen’s <em>d</em> = 1.30, a large effect size. Thus, the hypothesis was supported, with native English speakers scoring significantly higher on the Gent vocabulary test than those with English as an additional language.</p>
-<p><em>Reference</em></p>
-<p>Davies, R. A. I., Arnell, R., Birchenough, J., Grimmond, D., &amp; Houlson, S. (2017). Reading Through the Life Span: Individual Differences in Psycholinguistic Effects. <em>Journal of Experimental Psychology: Learning, Memory, and Cognition, 43(8)</em>, 1298-1338. https://doi.org/10.1037/xlm0000366</p>
-</div>
-</div>
-</div>
-<ol start="36" type="1">
-<li>Save your R script file.</li>
-</ol>
-</section>
-</section>
-<section id="part-3-conducting-a-paired-t-test" class="level4">
-<h4 class="anchored" data-anchor-id="part-3-conducting-a-paired-t-test">5.4.1.3 Part 3: Conducting a paired t-test</h4>
-<section id="task-5-conducting-a-paired-t-test" class="level5">
-<h5 class="anchored" data-anchor-id="task-5-conducting-a-paired-t-test">Task 5: Conducting a paired t-test</h5>
+<p>Part 3: Conducting a paired t-test</p>
+<p>Task 5: Conducting a paired t-test</p>
 <ol start="37" type="1">
 <li><p>Clear out R-studio before we get started again using <code>rm(list=ls())</code></p></li>
-<li><p>We are going to investigate again the data from this paper: Woodworth, R.J., O’Brien-Malone, A., Diamond, M.R. and Schuez, B., 2017. Data from, “Web-based Positive Psychology Interventions: A Reexamination of Effectiveness”. Journal of Open Psychology Data, 6(1).</p></li>
+<li><p>We are going to investigate again the data from this paper: Woodworth, R.J., O’Brien-Malone, A., Diamond, M.R. and Schuez, B., 2018. Data from, “Web-based Positive Psychology Interventions: A Reexamination of Effectiveness”. Journal of Open Psychology Data, 6(1).</p></li>
 </ol>
 <p>Our research question is whether happiness scores are affected by the interventions. We will look at the pre-test (occasion 0) and the first test after the intervention (occasion 1).</p>
 <ol start="39" type="1">
-<li>What is the research hypothesis and what is the null hypothesis?</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>RH: happiness scores change (increase) from the first to the second occasion of testing.</p>
-<p>NH: happiness scores do not change across occasions.</p>
-</div>
-</div>
-</div>
-<ol start="40" type="1">
-<li>For a paired t-test we can only include data from people who have produced scores at both occasions of testing. So, we need a slightly different version of the data, which you can download <a href="data/wk5/ahicesd.csv">here for the ahicesd.csv file</a> and <a href="data/wk5/participantinfo2.csv">here for the participantinfo2.csv file</a>.</li>
-</ol>
-<p>Remind yourself what these data mean.</p>
-<ol start="41" type="1">
-<li>Once again, join the ahicesd.csv and participantinfo2.csv data in R-studio by aligning the names for the participant numbers in these two data sets (see week 2 workbook for reminders about this).</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/ahicesd.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 992 Columns: 50
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-dbl (50): id, occasion, elapsed.days, intervention, ahi01, ahi02, ahi03, ahi...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/participantinfo2.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 147 Columns: 7
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," dbl
-(7): ...1, id, intervention, sex, age, educ, income
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...1`</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"intervention"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<ol start="42" type="1">
-<li>Let’s select only the relevant variables. Use <code>select()</code> to select only id, ahiTotal, and occasion variables, and save this as a new object called ‘summarydata’</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"ahiTotal"</span>, <span class="st">"occasion"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<ol start="43" type="1">
-<li>Use filter to pull out only occasion == 0 or occasion == 1 scores</li>
+<li><p>What is the research hypothesis and what is the null hypothesis?</p></li>
+<li><p>For a paired t-test we can only include data from people who have produced scores at both occasions of testing. So, we need a slightly different version of the data. Download the files <a href="data/PSYC401_wk5.zip">here</a>. Remind yourself what these data mean.</p></li>
+<li><p>Once again, join the ahicesd.csv and participantinfo2.csv data in R-studio by aligning the names for the participant bumbers in these two data sets (see week 2 workbook for reminders about this).</p></li>
+<li><p>Let’s select only the relevant variables. Use <code>select()</code> to select only id, ahiTotal, and occasion variables, and save this as a new object called ‘summarydata’</p></li>
+<li><p>Use filter to pull out only occasion == 0 or occasion == 1 scores</p></li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -836,27 +269,9 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>use <code>occasion == 0 | occasion == 1')</code>, save this as a new object called <code>summarydata2</code></p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>summarydata2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> occasion <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -864,447 +279,72 @@ Answer
 <li><p>Here is where we would usually remove all the NA values, but there aren’t any in this file (so we don’t need drop_na()).</p></li>
 <li><p>Now, we need to make sure occasion is treated as a categorical variable, rather than a continuous variable, so we need to convert it to a factor:</p></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>summarydata2<span class="sc">$</span>occasion <span class="ot">&lt;-</span><span class="fu">as.factor</span>(summarydata2<span class="sc">$</span>occasion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="in">summarydata2$occasion &lt;-as.factor(summarydata2$occasion)</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="46" type="1">
-<li>Now, draw a box plot of ahiTotal scores by occasion (why do we use a box plot?)</li>
+<li><p>Now, draw a box plot of ahiTotal scores by occasion (why do we use a box plot?)</p></li>
+<li><p>Compute mean and SD for each occasion</p></li>
+<li><p>Run the paired t-test: it’s the same as for the independent t-test except that we use <code>paired = TRUE</code> in place of <code>paired = FALSE</code>:</p></li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata2, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>We use a boxplot because we have one nominal/categorical variable and one interval/ratio/ordinal measure.</p>
-</div>
-</div>
-</div>
-<ol start="47" type="1">
-<li>Compute mean and SD for each occasion</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata2, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<ol start="48" type="1">
-<li>Run the paired t-test: it’s the same as for the independent t-test except that we use <code>paired = TRUE</code> in place of <code>paired = FALSE</code>:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(ahiTotal <span class="sc">~</span> occasion, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> summarydata2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Paired t-test
-
-data:  ahiTotal by occasion
-t = -4.9224, df = 146, p-value = 2.282e-06
-alternative hypothesis: true mean difference is not equal to 0
-95 percent confidence interval:
- -4.347519 -1.856563
-sample estimates:
-mean difference 
-      -3.102041 </code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">t.test(ahiTotal ~ occasion, paired = TRUE, data = summarydata2)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Is the result significant?</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>yes, because <em>p</em> &lt; .05.</p>
-</div>
-</div>
-</div>
 <ol start="49" type="1">
 <li>Before we run the Cohen’s d command for these data, we have to make sure we have a list of the participants in one condition, followed by the list of participants in the other condition. We can do this using the command <code>arrange()</code>:</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>summarydata3 <span class="ot">&lt;-</span> <span class="fu">arrange</span>(<span class="at">.data =</span> summarydata2, occasion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">summarydata3 &lt;- arrange(.data = summarydata2, occasion)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="50" type="1">
 <li>Now run Cohen’s d: it’s the same as for the independent t-test except that we use ‘method = ’paired’:</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(ahiTotal <span class="sc">~</span> occasion, <span class="at">method =</span> <span class="st">"paired"</span>, <span class="at">data =</span> summarydata3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in cohensD(ahiTotal ~ occasion, method = "paired", data =
-summarydata3): calculating paired samples Cohen's d using formula input.
-Results will be incorrect if cases do not appear in the same order for both
-levels of the grouping factor</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4059904</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">cohensD(ahiTotal ~ occasion, method = "paired", data = summarydata3)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>What is the value for Cohen’s d?</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>d = 0.4059904</p>
-</div>
-</div>
-</div>
 <ol start="51" type="1">
-<li>Write up a brief report of the result and discuss in your group.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>We tested whether participants’ happiness scores at first testing after the interventions were different than their scores prior to the interventions. We found that, prior to the intervention, scores were significantly lower (M = 69.3, SD = 12.3) than they were immediately after the interventions (M = 72.4, SD = 12.6), <em>t</em>(146) = = 4.92, <em>p</em> &lt; .001, Cohen’s <em>d</em> = 0.41, a medium effect. The results indicate that the intervention had a positive effect on happiness scores.</p>
-</div>
-</div>
-</div>
-<ol start="52" type="1">
-<li>Save your R script file.</li>
+<li><p>Write up a brief report of the result and discuss in your group.</p></li>
+<li><p>Save your R script file.</p></li>
 </ol>
 </section>
 </section>
-<section id="part-4-more-practise-running-a-paired-t-test" class="level4">
-<h4 class="anchored" data-anchor-id="part-4-more-practise-running-a-paired-t-test">5.4.1.4 Part 4: More practise running a paired t-test</h4>
+<section id="part-4-more-practise-running-a-paired-t-test" class="level1">
+<h1>Part 4: More practise running a paired t-test</h1>
 <p>We are going to figure out whether people have different scores the first and second time they take the Gent vocabulary test.</p>
 <ol start="53" type="1">
 <li><p>Go back to the vocabulary scores data. Load the data into dat, and make another object dat2 that contains only the subject_ID, Gent_1_score and Gent_2_score.</p></li>
 <li><p>Some people did not do all the tests - look at participant 46 for instance. To do a t-test we need data where the person does both tests. We can filter out the scores where there are no NAs by repeating the drop_na we did at step 23, above. Call the new data object dat3.</p></li>
+<li><p>Now to do a paired t-test we need to get the Gent_1_score and Gent_2_scores into the same column. We do this with <code>pivot_longer</code>, run this command:</p></li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>); </span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Gent_1_score, Gent_2_score)</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<ol start="55" type="1">
-<li>Now to do a paired t-test we need to get the Gent_1_score and Gent_2_scores into the same column. We do this with <code>pivot_longer</code>, run this command:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat3, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="in">dat4 &lt;- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gent_1_score", "Gent_2_score"))</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="56" type="1">
-<li>As an extra benefit of having the data in “long format”, it also means we can now also draw a box plot of the Gent vocabulary scores taken at the first and second occasion. Draw the box plot.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat4, <span class="fu">aes</span>(<span class="at">x =</span> test, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<ol start="57" type="1">
-<li>Get mean and SD of the scores for the tests.</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>dat5 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat4, test)</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat5, <span class="fu">mean</span>(score), <span class="fu">sd</span>(score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  test         `mean(score)` `sd(score)` `n()`
-  &lt;chr&gt;                &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
-1 Gent_1_score          58.7        14.7   216
-2 Gent_2_score          60.2        15.8   216</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or if you know how to pipe:</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(dat4, test) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(score), <span class="fu">sd</span>(score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 4
-  test         `mean(score)` `sd(score)` `n()`
-  &lt;chr&gt;                &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
-1 Gent_1_score          58.7        14.7   216
-2 Gent_2_score          60.2        15.8   216</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<ol start="58" type="1">
+<li><p>As an extra benefit of having the data in “long format”, it also means we can now also draw a box plot of the Gent vocabulary scores taken at the first and second occasion. Draw the box plot.</p></li>
+<li><p>Get mean and SD of the scores for the tests.</p></li>
 <li><p>Run the paired t-test.</p></li>
-<li><p>arrange the data as in step 49 so that the responses to the first test are listed first, then the responses to the second test, and the find out Cohen’s d.</p></li>
+<li><p>arrange the data as in step 49 so that the responses to the first test are listed first, then the responses to the second test.</p></li>
 </ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answers to 58-59.
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(score <span class="sc">~</span> test, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> dat4 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Paired t-test
-
-data:  score by test
-t = -2.3465, df = 215, p-value = 0.01986
-alternative hypothesis: true mean difference is not equal to 0
-95 percent confidence interval:
- -2.8281385 -0.2459356
-sample estimates:
-mean difference 
-      -1.537037 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>dat6 <span class="ot">&lt;-</span> <span class="fu">arrange</span>(dat4, test)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(score <span class="sc">~</span> test, <span class="at">method =</span> <span class="st">"paired"</span>, <span class="at">data =</span> dat6 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in cohensD(score ~ test, method = "paired", data = dat6): calculating
-paired samples Cohen's d using formula input. Results will be incorrect if
-cases do not appear in the same order for both levels of the grouping factor</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1596602</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section>
-<section id="part-5-extras" class="level4">
-<h4 class="anchored" data-anchor-id="part-5-extras">5.4.1.5 Part 5: Extras</h4>
+<section id="part-5-extras" class="level1">
+<h1>Part 5: Extras</h1>
 <ol start="60" type="1">
-<li>In the vocabulary scores data, is there a significant difference between males and females for your academic year group?</li>
-</ol>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, academic_year <span class="sc">==</span> <span class="st">"202324"</span>)</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat2, Gender)</span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat3, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">mean</span>(Gent_2_score), <span class="fu">sd</span>(Gent_2_score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 6
-  Gender `mean(Gent_1_score)` `sd(Gent_1_score)` `mean(Gent_2_score)`
-  &lt;chr&gt;                 &lt;dbl&gt;              &lt;dbl&gt;                &lt;dbl&gt;
-1 Female                 62.2               7.85                 61.6
-2 Male                   61.3              13.4                  57.1
-# ℹ 2 more variables: `sd(Gent_2_score)` &lt;dbl&gt;, `n()` &lt;int&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  Gent_1_score by Gender
-t = 0.16297, df = 7.6522, p-value = 0.8748
-alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
-95 percent confidence interval:
- -11.68411  13.44601
-sample estimates:
-mean in group Female   mean in group Male 
-            62.16667             61.28571 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.08004559</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_2_score <span class="sc">~</span> Gender, <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Welch Two Sample t-test
-
-data:  Gent_2_score by Gender
-t = 0.58606, df = 6.695, p-value = 0.5771
-alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
-95 percent confidence interval:
- -13.55749  22.38289
-sample estimates:
-mean in group Female   mean in group Male 
-            61.55556             57.14286 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_2_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3007885</code></pre>
-</div>
-</div>
-<p>nothing significant…</p>
-</div>
-</div>
-</div>
-<ol start="61" type="1">
+<li><p>In the vocabulary scores data, is there a significant difference between males and females for your academic year group?</p></li>
 <li><p>Are there significant differences for the other vocabulary test measures between males and females, or between those with English as first or second language?</p></li>
-<li><p>The data from this paper are called <a href="data/wk5/ClassDraw.csv">ClassDraw.csv available here</a>. The data are on osf as well, but they’re not properly formatted, so I adjusted them and put them here.</p></li>
+<li><p>For more practice running and interpreting t-tests, look at the Glasgow psychology materials: <a href="https://psyteachr.github.io/quant-fun-v2/t-tests.html">https://psyteachr.github.io/quant-fun-v2/t-tests.html</a> (ignore anything that says R markdown, you should be able to get to the data and follow the instructions for manipulating it and running t-tests.)</p></li>
 </ol>
-<p>Jalava, S. T., Wammes, J. D., &amp; Cheng, K. (2023). Drawing your way to an A: Long-lasting improvements in classroom quiz performance following drawing. <em>Psychonomic Bulletin &amp; Review, 30</em>, 1939–1945. https://doi.org/10.3758/s13423-023-02294-2</p>
-<p>There are some useful tips in the results of this study about the benefit of doodling…</p>
-<p>My challenge to you:</p>
-<ul>
-<li>Can you make a ggplot that looks a bit like Figure 2 from this study?</li>
-</ul>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>jalava <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/ClassDraw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 168 Columns: 9
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (1): Gender
-dbl (8): ID, Age, write_1, write_2, draw_1, draw_2, exam_draw, exam_write
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(jalava)</span></span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>jalava1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(jalava, <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"test"</span>,<span class="st">".value"</span>), <span class="at">names_sep=</span><span class="st">"_"</span> , <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"write_1"</span>,<span class="st">"write_2"</span>,<span class="st">"draw_1"</span>,<span class="st">"draw_2"</span>))</span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>jalava2 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(jalava1, <span class="at">names_to =</span> <span class="st">"test_time"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span>,<span class="st">`</span><span class="at">2</span><span class="st">`</span>))</span>
-<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>jalava2<span class="sc">$</span>test_time <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(jalava2<span class="sc">$</span>test_time)</span>
-<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(jalava2, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">"test_time"</span>, <span class="at">y =</span> <span class="st">"score"</span>)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_boxplot(): All aesthetics have length 1, but the data has 672 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="_Week5_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-</section>
 <section id="extras" class="level2">
 <h2 class="anchored" data-anchor-id="extras">5.5 Extras</h2>
 <p>Optionally, if you can give us your (anonymised) <a href="https://modules.lancaster.ac.uk/mod/feedback/view.php?id=2530058" target="_blank">feedback</a> on how the course is going from your perspective, that would be very welcome.</p>
@@ -1313,6 +353,7 @@ dbl (8): ID, Age, write_1, write_2, draw_1, draw_2, exam_draw, exam_write
 <li><p><a href="https://www.spectator.co.uk/article/vital-statistics/" target="_blank">How scientists can be better at statistics</a>. Note that this article is hosted on the Spectator website, and <em>(content warning)</em> refers to Harold Shipman, a serial killer.</p></li>
 <li><p><a href="https://www.scientificamerican.com/article/how-florence-nightingale-changed-data-visualization-forever/" target="_blank">Florence Nightingale and data visualisation</a>. Note that this is hosted on Scientific American.</p></li>
 </ul>
+</section>
 </section>
 
 </main>
