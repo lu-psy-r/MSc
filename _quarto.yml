@@ -4,7 +4,7 @@ metadata-files:
 website:
   sidebar:
     style: "floating"
-    collapse-level: 1
+    collapse-level: 2
     contents:
       - section: "PSYC411"
         contents: 
