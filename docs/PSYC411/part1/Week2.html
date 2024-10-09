@@ -295,7 +295,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="slides" class="level3">
 <h3 class="anchored" data-anchor-id="slides">2.3.2 Slides</h3>
-<p>Download the lecture slides for: - <a href="ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx">part 1</a> - <a href="ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx">part 2</a> - <a href="ppt/wk2/PSYC411 Lecture week2 part3 handout.pptx">part 3</a></p>
+<p>Download the lecture slides for:</p>
+<ul>
+<li><p><a href="ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx">part 1</a></p></li>
+<li><p><a href="ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx">part 2</a></p></li>
+<li><p><a href="ppt/wk2/PSYC411 Lecture week2 part3 handout.pptx">part 3</a></p></li>
+</ul>
 </section>
 </section>
 <section id="practical-materials" class="level2">
@@ -460,6 +465,7 @@ Want to know more about library()?
 ## Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -515,6 +521,7 @@ hist(summarydat$Gent_1_score)
 :::
 
 
+
 Looks close to a normal distribution, slight negative skew possibly.
 ::: --->
 </section>
@@ -546,6 +553,7 @@ Hint
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answers to 19-21
+
 
 
 ::: {.cell}
@@ -582,6 +590,7 @@ hist(iknow)
 ![](Week2_files/figure-html/unnamed-chunk-9-1.png){width=672}
 :::
 :::
+
 
 
 ::: --->
@@ -636,6 +645,7 @@ hist(iknow)
 ## Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -645,6 +655,7 @@ pinfo <- read_csv("data/wk2/participantinfo.csv")
 View(pinfo)
 ```
 :::
+
 
 
 ::: --->
@@ -669,12 +680,14 @@ We use the `c()` notation to indicate that this is a list of things.
 ## Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 data_full <- inner_join(x = data1, y = data2, by = c("participantname"))
 ```
 :::
+
 
 
 ::: --->
@@ -692,12 +705,14 @@ data_full <- inner_join(x = data1, y = data2, by = c("participantname"))
 ## Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 View(summarydata)
 ```
 :::
+
 
 
 ::: --->
@@ -711,12 +726,14 @@ View(summarydata)
 ## Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 hist(summarydata$age)
 ```
 :::
+
 
 
 ::: --->
@@ -781,12 +798,14 @@ Hint
 ## Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 filter(summarydata, occasion == 1)
 ```
 :::
+
 
 
 ::: --->
@@ -797,12 +816,14 @@ filter(summarydata, occasion == 1)
 ## Answer
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 filter(summarydata, intervention == 1)
 ```
 :::
+
 
 
 ::: --->
@@ -814,12 +835,14 @@ filter(summarydata, intervention == 1)
 still the same
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 plot(summarydata_occasion0$ahiTotal, summarydata_occasion0$cesdTotal)
 ```
 :::
+
 
 
 ::: --->
@@ -831,6 +854,7 @@ plot(summarydata_occasion0$ahiTotal, summarydata_occasion0$cesdTotal)
 can do this in two ways:
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -840,7 +864,9 @@ plot(summarydata_occasion0_intervention1$ahiTotal, summarydata_occasion0_interve
 :::
 
 
+
 or 
+
 
 
 ::: {.cell}
@@ -850,6 +876,7 @@ summarydata_occasion0_intervention1 <- filter(summarydata_occasion0, interventio
 plot(summarydata_occasion0$ahiTotal, summarydata_occasion0$cesdTotal)
 ```
 :::
+
 
 
 The relationship is still similar.

@@ -54,7 +54,9 @@ Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530057){ta
 ### 5.3.2 Slides
 
 Download the lecture slides for:
+
 - [part 1](ppt/wk4/PSYC411 Lecture week5 part1 handout.pptx)
+
 - [part 2](ppt/wk4/PSYC411 Lecture week5 part2 handout.pptx)
 
 ## 5.4 Practical Materials

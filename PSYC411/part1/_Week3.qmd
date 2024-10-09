@@ -59,8 +59,10 @@ Do the [quick quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530054
 
 ### 3.3.2 Slides
 
-Download the lecture slides for 
+Download the lecture slides for:
+
 - [part 2 here](ppt/wk3/PSYC411 Lecture week3 part2 handout.pptx)
+
 - [part 3 here](ppt/wk3/PSYC411 Lecture week3 part2 handout.pptx)
 
 I haven't put slides for part 1 here because they just said to do the different vocabulary tests.
