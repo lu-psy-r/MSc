@@ -138,14 +138,14 @@ a <- 40
 
 6.	Now find the square root of the object `a` by typing `sqrt(a)`. Press return.
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r}
 a<- 40
 sqrt(a)
 ```
 :::
---->
+
 
 ##### Task Three: finding distributions
 
@@ -165,7 +165,7 @@ b <- c( 4, 1, 5, 3, 8, 2, 2, 6, 8, 5, 4, 1, 6, 5, 4, 5, 7, 9, 10, 1, 1, 3, 5, 4,
 
 12.	Draw a histogram of these numbers by typing `hist(b)`.
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r}
 b <- c( 4, 1, 5, 3, 8, 2, 2, 6, 8, 5, 4, 1, 6, 5, 4, 5, 7, 9, 10, 1, 1, 3, 5, 4, 6, 4, 8, 6, 5, 5, 7, 8, 9, 8, 8, 2, 1, 4, 3, 2, 5, 1, 5, 6, 8, 6, 7, 2, 7)
@@ -174,7 +174,7 @@ median(b)
 sd(b)
 hist(b)
 ```
-::: --->
+::: 
 
 
 ##### Task Four: z scores
@@ -210,7 +210,7 @@ carrie <- c(75, 65, 95, 95, 55, 85, 75, 55, 95, 55)
 use the `mean()` function
 :::
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 They all have the same mean = 75.
 ```{r}
@@ -221,7 +221,7 @@ mean(annie)
 mean(saj)
 mean(carrie)
 ```
-::: --->
+::: 
 
 
 
@@ -232,13 +232,13 @@ mean(carrie)
 use the `sd()` function
 :::
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
 ```{r}
 sd(annie); sd(saj); sd(carrie)
 ```
-::: --->
+::: 
 
 
 19.	What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function `hist()` to draw the distributions to help you see.
@@ -248,14 +248,14 @@ sd(annie); sd(saj); sd(carrie)
 you can use the `summary()` function, or the `median()` function
 :::
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
  median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
 ```{r}
 median(annie); median(saj); median(carrie)
 hist(annie); hist(saj); hist(carrie)
 ```
-::: --->
+::: 
 
 
 ##### Task Six: standardised scores: Z scores
@@ -274,7 +274,7 @@ annie_z <- scale(annie)
 thanks to Fan for helping me rephrase this question more clearly :)
 :::
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
 ```{r}
@@ -282,12 +282,12 @@ annie_z <- scale(annie)
 mean(annie_z)
 sd(annie_z)
 ```
-::: --->
+::: 
 
 
 22.	What is the mean and standard deviation of annie_z’s standardised scores?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 1.4142136
 You could find this by just eyeballing (searching through) the data, or by using the function `max`:
@@ -295,30 +295,30 @@ You could find this by just eyeballing (searching through) the data, or by using
 annie_z <- scale(annie)
 max(annie); max(annie_z)
 ```
-::: --->
+::: 
 
 
 23.	Draw a histogram of annie’s standardised scores, in the console type `hist(annie_z)`. Between which z values are the highest number of scores?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 Between -1 and -0.5.
 ```{r}
 hist(annie_z)
 ```
-::: --->
+::: 
 
 
 24.	Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: `pnorm(x)` where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?
 
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
 ```{r}
 pnorm(1.4142136)
 ```
-::: --->
+::: 
 
 #### 1.4.1.3 Part Three: Extras
 
@@ -337,7 +337,7 @@ So far, we’ve just looked at `+` as an operator. Go to this page: https://www.
 28.	What is the result of `d` added to `e` all divided by `f`
 
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 6.006498
 ```{r}
@@ -345,7 +345,7 @@ d <- 100 * 246; e <- 84/32.1; f <- 8^4;
 f <- 8**4 # this does the same thing as 8^4
 (d+e)/f 
 ```
-::: --->
+::: 
 
 
 ##### Task Eight: Exploring functions
@@ -356,13 +356,13 @@ https://www.statmethods.net/management/functions.html
 29.	What is the result of `abs(-5.3)`? What does the `abs` function do?
 
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 5.3. It takes the sign (negative) away from the number.
 ```{r}
 abs(-5.3)
 ```
-::: --->
+::: 
 
 30.	Using the `seq()` function, generate a sequence of numbers from 0 to 30 in intervals of 3.
 
@@ -381,13 +381,13 @@ mean(sequence)
 
 32. Assign the sequence generated in 31 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 15.
 ```{r}
 g <- seq(0,30,3); mean(g)
 ```
-::: --->
+::: 
 
 
 ##### Task Nine: Exploring others' data
@@ -453,7 +453,7 @@ dat <- spss.get("Earworm_MTurk_OSF.sav")
   
 a)	How many male, how many female participants?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
  112 male, 87 female
 ```{r eval=FALSE}
@@ -462,32 +462,32 @@ dat <- spss.get("data/PSYC411_wk1/EArworm_MTurk_OSF.sav")
 # note that my use of the spss.get function here looks in the folder data and the subfolder PSYC411_wk1 because that's where I've put my EArworm_MTurk_OSF.sav data file.
 summary(dat$Gender)
 ```
-::: --->
+::: 
 
 b)	How many people never have earworms in the middle of the night?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 97
 ```{r eval=FALSE}
 summary(dat$Earworms.MiddleOfTheNight)
 ```
-::: --->
+::: 
 
 c)	For the Stanford Sleepiness Scale, how many participants felt “Somewhat foggy, let down”?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 17
 ```{r eval=FALSE}
 summary(dat$StanfordSleepinessScale)
 ```
-::: --->
+::: 
 
 
 d)	What was the mean, SD and range of age of the participants? Does your calculation of mean age correspond to that given in the paper?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 35.9, sd = 10.9, range 20-73.
 ```{r eval=FALSE}
@@ -496,27 +496,27 @@ summarise(dat, mean(Age), sd(Age), min(Age), max(Age))
 # summarise does lots of things at the same time, you could also just do them one by one:
 mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
 ```
-::: --->
+::: 
 
  e)	Can you work out the mean age of the male and female participants separately?
  
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 dat %>% group_by(Gender) %>% summarise(mean(Age))
 ```
-::: --->
+::: 
 
 
 f)	Explore the data, see if you can remember tasks for separating different subgroups, graphing relations, comparing groups.
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 # this is just one example, other commands and ways are also legitimate:
 dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
 ```
-::: --->
+::: 
 
 
 ### 1.4.2 Data
@@ -525,7 +525,7 @@ dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
 
 ### 1.4.3 Answers
 
-The answers to the workbook will appear below each question in the workbook, above, after the practical has finished, so you can check your answers.
+The answers to the workbook **have now appeared** below each question in the workbook, above, after the practical has finished, so you can check your answers.
 
 It's really important for your learning that you have a go first of all at the workbook before looking at the answers.
 
