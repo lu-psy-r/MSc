@@ -161,7 +161,7 @@ Comments help us to keep track of what each bit of our r script is doing, and, a
 
 11. It's generally a good idea to refresh and clear out R studio when you start a new session, so add this line to the beginning of your R studio file:
 
-```{r eval=FALSE}
+``` {r eval=FALSE}
 rm(list=ls())                    
 ```
 
@@ -627,11 +627,10 @@ Then have a go at exploring the data - can you recreate the numbers in the paper
 ### 2.4.2 Data
 
 Here are links to all the data referred to in this practical:
-[PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv)
 
-[ahicesd.csv](data/wk2/ahicesd.csv)
-
-[participantinfo.csv](data/wk2/participantinfo.csv)
+- [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv)
+- [ahicesd.csv](data/wk2/ahicesd.csv)
+- [participantinfo.csv](data/wk2/participantinfo.csv)
 
 ### 2.4.3 Answers
 
