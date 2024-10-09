@@ -267,7 +267,12 @@ annie_z <- scale(annie)
 ```
 
 
-21.	You can have a look at the standardised scores of annie, by just typing `annie_z`. To what did annie’s highest initial score of 95 convert to?
+21.	You can have a look at the standardised scores of annie, by just typing `annie_z`. What z score corresponds to annie’s highest initial score of 95?
+
+::: {.callout-tip icon=false collapse="true"}
+## thanks
+thanks to Fan for helping me rephrase this question more clearly :)
+:::
 
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
@@ -293,7 +298,7 @@ max(annie); max(annie_z)
 ::: --->
 
 
-23.	Draw a histogram of annie’s standardised scores, in the console type `hist(annie_z)`. What is the peak frequency value?
+23.	Draw a histogram of annie’s standardised scores, in the console type `hist(annie_z)`. Between which z values are the highest number of scores?
 
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer

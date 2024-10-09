@@ -381,7 +381,6 @@ Tip
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -398,7 +397,6 @@ sqrt(a)
 
 :::
 :::
-
 
 
 :::
@@ -421,7 +419,6 @@ sqrt(a)
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -476,7 +473,6 @@ hist(b)
 :::
 
 
-
 ::: --->
 </section>
 <section id="task-four-z-scores" class="level5">
@@ -529,7 +525,6 @@ Hint
 They all have the same mean = 75.
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -576,7 +571,6 @@ mean(carrie)
 :::
 
 
-
 ::: --->
 <ol start="18" type="1">
 <li>Who has the most variable scores for their course?</li>
@@ -600,7 +594,6 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
-
 
 
 ::: {.cell}
@@ -638,7 +631,6 @@ sd(annie); sd(saj); sd(carrie)
 :::
 
 
-
 ::: --->
 <ol start="19" type="1">
 <li>What is the median score for each student?. What does this mean about the distribution of each students’ scores? Use the function <code>hist()</code> to draw the distributions to help you see.</li>
@@ -662,7 +654,6 @@ Hint
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
  median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
-
 
 
 ::: {.cell}
@@ -716,7 +707,6 @@ hist(annie); hist(saj); hist(carrie)
 :::
 
 
-
 ::: --->
 </section>
 <section id="task-six-standardised-scores-z-scores" class="level5">
@@ -728,12 +718,27 @@ hist(annie); hist(saj); hist(carrie)
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>annie_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(annie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="21" type="1">
-<li>You can have a look at the standardised scores of annie, by just typing <code>annie_z</code>. To what did annie’s highest initial score of 95 convert to?</li>
+<li>You can have a look at the standardised scores of annie, by just typing <code>annie_z</code>. What z score corresponds to annie’s highest initial score of 95?</li>
 </ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+thanks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>thanks to Fan for helping me rephrase this question more clearly :)</p>
+</div>
+</div>
+</div>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
-
 
 
 ::: {.cell}
@@ -767,7 +772,6 @@ sd(annie_z)
 :::
 
 
-
 ::: --->
 <ol start="22" type="1">
 <li>What is the mean and standard deviation of annie_z’s standardised scores?</li>
@@ -776,7 +780,6 @@ sd(annie_z)
 ## Answer
 1.4142136
 You could find this by just eyeballing (searching through) the data, or by using the function `max`:
-
 
 
 ::: {.cell}
@@ -806,15 +809,13 @@ max(annie); max(annie_z)
 :::
 
 
-
 ::: --->
 <ol start="23" type="1">
-<li>Draw a histogram of annie’s standardised scores, in the console type <code>hist(annie_z)</code>. What is the peak frequency value?</li>
+<li>Draw a histogram of annie’s standardised scores, in the console type <code>hist(annie_z)</code>. Between which z values are the highest number of scores?</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 Between -1 and -0.5.
-
 
 
 ::: {.cell}
@@ -829,7 +830,6 @@ hist(annie_z)
 :::
 
 
-
 ::: --->
 <ol start="24" type="1">
 <li>Bonus extra: If you want to find out the proportion of scores lower than a particular score you can do it like this in R-studio: <code>pnorm(x)</code> where x is the z-score you’re interested in. What is the proportion of scores lower than annie’s highest grade score?</li>
@@ -837,7 +837,6 @@ hist(annie_z)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
-
 
 
 ::: {.cell}
@@ -855,7 +854,6 @@ pnorm(1.4142136)
 
 :::
 :::
-
 
 
 ::: --->
@@ -878,7 +876,6 @@ pnorm(1.4142136)
 6.006498
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -898,7 +895,6 @@ f <- 8**4 # this does the same thing as 8^4
 :::
 
 
-
 ::: --->
 </section>
 <section id="task-eight-exploring-functions" class="level5">
@@ -910,7 +906,6 @@ f <- 8**4 # this does the same thing as 8^4
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 5.3. It takes the sign (negative) away from the number.
-
 
 
 ::: {.cell}
@@ -930,14 +925,13 @@ abs(-5.3)
 :::
 
 
-
 ::: --->
 <ol start="30" type="1">
 <li><p>Using the <code>seq()</code> function, generate a sequence of numbers from 0 to 30 in intervals of 3.</p></li>
 <li><p>Assign the sequence generated in step 28 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).</p></li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -946,7 +940,7 @@ Stuck? Here’s the solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Try out the following code, pay special attention to how the sentences above “convert” into R code.</p>
 <div class="cell">
@@ -964,7 +958,6 @@ Stuck? Here’s the solution
 mean = 15.
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -980,7 +973,6 @@ g <- seq(0,30,3); mean(g)
 
 :::
 :::
-
 
 
 ::: --->
@@ -1019,7 +1011,6 @@ g <- seq(0,30,3); mean(g)
  112 male, 87 female
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -1031,7 +1022,6 @@ summary(dat$Gender)
 :::
 
 
-
 ::: --->
 <ol start="2" type="a">
 <li>How many people never have earworms in the middle of the night?</li>
@@ -1041,14 +1031,12 @@ summary(dat$Gender)
 97
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
 summary(dat$Earworms.MiddleOfTheNight)
 ```
 :::
-
 
 
 ::: --->
@@ -1060,14 +1048,12 @@ summary(dat$Earworms.MiddleOfTheNight)
 17
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
 summary(dat$StanfordSleepinessScale)
 ```
 :::
-
 
 
 ::: --->
@@ -1077,7 +1063,6 @@ summary(dat$StanfordSleepinessScale)
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 35.9, sd = 10.9, range 20-73.
-
 
 
 ::: {.cell}
@@ -1091,14 +1076,12 @@ mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
 :::
 
 
-
 ::: --->
 <ol start="5" type="a">
 <li>Can you work out the mean age of the male and female participants separately?</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1109,14 +1092,12 @@ dat %>% group_by(Gender) %>% summarise(mean(Age))
 :::
 
 
-
 ::: --->
 <ol start="6" type="a">
 <li>Explore the data, see if you can remember tasks for separating different subgroups, graphing relations, comparing groups.</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="true"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1126,7 +1107,6 @@ dat %>% group_by(Gender) %>% summarise(mean(Age))
 dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
 ```
 :::
-
 
 
 ::: --->
