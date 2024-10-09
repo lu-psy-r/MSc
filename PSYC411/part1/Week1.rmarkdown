@@ -4,6 +4,8 @@ subtitle: Written by Padraic Monaghan
 order: 2
 ---
 
+
+
 ## 1.1 Overview
 
 This week, there are three mini lectures, and then a practical workbook to get you going with R-studio. 
@@ -32,25 +34,37 @@ By the end of Week 1, you should be able to:
 
 Watch Lecture week1 part1:
 
+
+
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7b94cdef-6407-4369-9423-b1fc0087f221&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w1 p1" ></iframe>
 
 ```
 
+
+
 Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530047){target="_blank"}
 
 Then come back and watch the end of Lecture week 1 part2:
+
+
 
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=2d1319ad-9f0b-4ec7-865f-ac4c00b40487&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w1_p2" ></iframe>
 ```
 
 
+
+
 Watch Lecture week1 part3:
+
+
 
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fb0627af-75d6-4f12-81f2-b091008d8793&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w1 p3" ></iframe>
 ```
+
+
 
 Take the quiz on the lecture material (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530078){target="_blank"}
 
@@ -122,9 +136,13 @@ Text that is highlighted with a grey background denotes code, rather than typica
 
 2. In the “console” part of the R window, next to the >, type `10 + 30`.  Press return.
 
+
+
 ```{r eval=FALSE}
 10 + 30                        
 ```
+
+
 
 ::: callout-tip
 If you hover your mouse over the box that includes the code snippet, a 'copy to clipboard' icon will appear in the top right corner of the box. Click that to copy the code. Now you can easily paste it into your script. 
@@ -134,9 +152,13 @@ It should give you the answer 40.
 
 3.	In the console, type `a <- 40` and press Return.
 
+
+
 ```{r eval=FALSE}
 a <- 40                      
 ```
+
+
 
 4. Now type `a` and press return. It should give you the answer 40. `a` is called an object, think of it like a bucket that you can keep a number, or some numbers, or actually all kinds of stuff in.
 
@@ -146,10 +168,14 @@ a <- 40
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
+
+
 ```{r}
 a<- 40
 sqrt(a)
 ```
+
+
 :::
 
 
@@ -157,9 +183,13 @@ sqrt(a)
 
 7. Make a new object `b`, and put the following list of children’s attachment scores into it
 
+
+
 ```{r eval=FALSE}
 b <- c( 4, 1, 5, 3, 8, 2, 2, 6, 8, 5, 4, 1, 6, 5, 4, 5, 7, 9, 10, 1, 1, 3, 5, 4, 6, 4, 8, 6, 5, 5, 7, 8, 9, 8, 8, 2, 1, 4, 3, 2, 5, 1, 5, 6, 8, 6, 7, 2, 7)
 ```
+
+
 
 8.	Check it works by typing `b`, press return. 
 
@@ -173,6 +203,8 @@ b <- c( 4, 1, 5, 3, 8, 2, 2, 6, 8, 5, 4, 1, 6, 5, 4, 5, 7, 9, 10, 1, 1, 3, 5, 4,
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
+
+
 ```{r}
 b <- c( 4, 1, 5, 3, 8, 2, 2, 6, 8, 5, 4, 1, 6, 5, 4, 5, 7, 9, 10, 1, 1, 3, 5, 4, 6, 4, 8, 6, 5, 5, 7, 8, 9, 8, 8, 2, 1, 4, 3, 2, 5, 1, 5, 6, 8, 6, 7, 2, 7)
 mean(b)
@@ -180,6 +212,8 @@ median(b)
 sd(b)
 hist(b)
 ```
+
+
 ::: 
 
 
@@ -187,9 +221,13 @@ hist(b)
 
 13.	Make a new object b_z and assign to it the z scores of the values from b:
 
+
+
 ```{r eval=FALSE}
 b_z <- scale(b)
 ```
+
+
 
 14.	Check that it worked by typing `b_z`.
 
@@ -201,6 +239,8 @@ b_z <- scale(b)
 
 16.	Let’s make three new objects, with the marks from three people’s university masters courses. They are called annie, saj, and carrie and they took 10 courses each. We use the special notation `c()` to indicate a list, each number in the list is separated by a comma. Type the following into the console:
 
+
+
 ```{r eval=FALSE}
 
 annie <- c(55, 95, 85, 65, 65, 85, 65, 95, 65, 75)
@@ -208,6 +248,8 @@ saj <- c(65, 85, 95, 75, 65, 55, 55, 75, 95, 85)
 carrie <- c(75, 65, 95, 95, 55, 85, 75, 55, 95, 55)
 
 ```
+
+
 
 17.	Who has the highest average (mean) score for their course? 
 
@@ -219,6 +261,8 @@ use the `mean()` function
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 They all have the same mean = 75.
+
+
 ```{r}
 annie <- c(55, 95, 85, 65, 65, 85, 65, 95, 65, 75)
 saj <- c(65, 85, 95, 75, 65, 55, 55, 75, 95, 85)
@@ -227,6 +271,8 @@ mean(annie)
 mean(saj)
 mean(carrie)
 ```
+
+
 ::: 
 
 
@@ -241,9 +287,13 @@ use the `sd()` function
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 Annie has the least variable scores sd = 14.14214, then saj sd = 14.90712, then carrie sd = 16.99673. Carrie is most variable.
+
+
 ```{r}
 sd(annie); sd(saj); sd(carrie)
 ```
+
+
 ::: 
 
 
@@ -257,10 +307,14 @@ you can use the `summary()` function, or the `median()` function
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
  median(annie) = 70; median(saj) and median(carrie) are both median = 75. So, annie’s scores are positive skewed – more lower values and a few (very) high values. saj looks like a uniform (flat) distribution, and carrie is different than normal distribution – maybe bimodal? In each case it’s very hard to tell from so few data points, and more data would make it clearer.
+
+
 ```{r}
 median(annie); median(saj); median(carrie)
 hist(annie); hist(saj); hist(carrie)
 ```
+
+
 ::: 
 
 
@@ -268,9 +322,13 @@ hist(annie); hist(saj); hist(carrie)
 
 20.	Make a new object called `annie_z` and use the function `scale` to convert annie’s scores to z-scores: in the console type:
 
+
+
 ```{r eval=FALSE}
 annie_z <- scale(annie)
 ```
+
+
 
 
 21.	You can have a look at the standardised scores of annie, by just typing `annie_z`. What z score corresponds to annie’s highest initial score of 95?
@@ -283,11 +341,15 @@ thanks to Fan for helping me rephrase this question more clearly :)
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 0, sd = 1. So that’s good, the z-score conversion worked.
+
+
 ```{r}
 annie_z <- scale(annie)
 mean(annie_z)
 sd(annie_z)
 ```
+
+
 ::: 
 
 
@@ -297,10 +359,14 @@ sd(annie_z)
 ## Answer
 1.4142136
 You could find this by just eyeballing (searching through) the data, or by using the function `max`:
+
+
 ```{r}
 annie_z <- scale(annie)
 max(annie); max(annie_z)
 ```
+
+
 ::: 
 
 
@@ -309,9 +375,13 @@ max(annie); max(annie_z)
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 Between -1 and -0.5.
+
+
 ```{r}
 hist(annie_z)
 ```
+
+
 ::: 
 
 
@@ -321,9 +391,13 @@ hist(annie_z)
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 pnorm(1.4142136) = 0.9213504, 92% of scores (in a population) are lower than her highest score.
+
+
 ```{r}
 pnorm(1.4142136)
 ```
+
+
 ::: 
 
 #### 1.4.1.3 Part Three: Extras
@@ -346,11 +420,15 @@ So far, we’ve just looked at `+` as an operator. Go to this page: https://www.
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 6.006498
+
+
 ```{r}
 d <- 100 * 246; e <- 84/32.1; f <- 8^4;
 f <- 8**4 # this does the same thing as 8^4
 (d+e)/f 
 ```
+
+
 ::: 
 
 
@@ -365,9 +443,13 @@ https://www.statmethods.net/management/functions.html
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 5.3. It takes the sign (negative) away from the number.
+
+
 ```{r}
 abs(-5.3)
 ```
+
+
 ::: 
 
 30.	Using the `seq()` function, generate a sequence of numbers from 0 to 30 in intervals of 3.
@@ -377,12 +459,16 @@ abs(-5.3)
 ::: {.callout-warning icon=false collapse="true"}
 ## Stuck? Here's the solution
 Try out the following code, pay special attention to how the sentences above "convert" into R code.
+
+
 ```{r eval=FALSE}
 
 sequence <- seq(0,30, 3)
 mean(sequence)
 
 ```
+
+
 :::
 
 32. Assign the sequence generated in 31 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).
@@ -390,9 +476,13 @@ mean(sequence)
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 15.
+
+
 ```{r}
 g <- seq(0,30,3); mean(g)
 ```
+
+
 ::: 
 
 
@@ -443,15 +533,23 @@ But, we can still load that in to R-studio.
 
 To do that first, load the library *Hmisc*: `library(Hmisc)`
 
+
+
 ```{r eval=FALSE}
 library(Hmisc)
 ```
 
+
+
 37.	Then, use the function spss.get(): 
+
+
 
 ```{r eval=FALSE}
 dat <- spss.get("Earworm_MTurk_OSF.sav")
 ```
+
+
 
 38.	That should have made you a new object in R-studio called "dat" which contains the data from the study.
 
@@ -462,12 +560,16 @@ a)	How many male, how many female participants?
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
  112 male, 87 female
+
+
 ```{r eval=FALSE}
 library(Hmisc)
 dat <- spss.get("data/PSYC411_wk1/EArworm_MTurk_OSF.sav")
 # note that my use of the spss.get function here looks in the folder data and the subfolder PSYC411_wk1 because that's where I've put my EArworm_MTurk_OSF.sav data file.
 summary(dat$Gender)
 ```
+
+
 ::: 
 
 b)	How many people never have earworms in the middle of the night?
@@ -475,9 +577,13 @@ b)	How many people never have earworms in the middle of the night?
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 97
+
+
 ```{r eval=FALSE}
 summary(dat$Earworms.MiddleOfTheNight)
 ```
+
+
 ::: 
 
 c)	For the Stanford Sleepiness Scale, how many participants felt “Somewhat foggy, let down”?
@@ -485,9 +591,13 @@ c)	For the Stanford Sleepiness Scale, how many participants felt “Somewhat fog
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 17
+
+
 ```{r eval=FALSE}
 summary(dat$StanfordSleepinessScale)
 ```
+
+
 ::: 
 
 
@@ -496,21 +606,29 @@ d)	What was the mean, SD and range of age of the participants? Does your calcula
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 mean = 35.9, sd = 10.9, range 20-73.
+
+
 ```{r eval=FALSE}
 library(tidyverse)
 summarise(dat, mean(Age), sd(Age), min(Age), max(Age))
 # summarise does lots of things at the same time, you could also just do them one by one:
 mean(dat$Age); sd(dat$Age); min(dat$Age); max(dat$Age)
 ```
+
+
 ::: 
 
  e)	Can you work out the mean age of the male and female participants separately?
  
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
+
+
 ```{r eval=FALSE}
 dat %>% group_by(Gender) %>% summarise(mean(Age))
 ```
+
+
 ::: 
 
 
@@ -518,10 +636,14 @@ f)	Explore the data, see if you can remember tasks for separating different subg
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
+
+
 ```{r eval=FALSE}
 # this is just one example, other commands and ways are also legitimate:
 dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
 ```
+
+
 ::: 
 
 
@@ -538,4 +660,5 @@ It's really important for your learning that you have a go first of all at the w
 ## 1.5 Extras
 
 Optionally, [watch the lecture by Tim Harford on the importance of understanding statistics](https://fb.watch/uN8oc-KF6u/){target="_blank"}. Note this video is hosted on facebook.
+
 

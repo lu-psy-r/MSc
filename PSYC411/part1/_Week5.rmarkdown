@@ -6,6 +6,8 @@ order: 6
 ---
 
 
+
+
 ## 5.1 Overview
 
 This week, there are two mini lectures, and the practical workbook working with R-studio.
@@ -39,15 +41,23 @@ Bring your questions (and/or answers) to the practical.
 
 Watch Lecture week 5 part 1:
 
+
+
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=98f7b065-26f1-42d9-9872-ac5900c7cda0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w5_p1" ></iframe>
 ```
 
+
+
 Watch Lecture week 5 part 2:
+
+
 
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=551cef0e-76e4-43b6-8895-ac5900cdf342&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w5_p2" ></iframe>
 ```
+
+
 
 Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530057){target="_blank"} (not assessed) on the lecture materials.
 
@@ -110,6 +120,8 @@ You should be able to answer yes to all the following. If you can't yet, go back
 ## ANSWER
 Here are some examples of the commands/functions in use:
 
+
+
 ``` {r}
 rm(list=ls())
 library(tidyverse)
@@ -142,6 +154,8 @@ library(lsr)
 chisq.test(x = all_dat$occasion, y = all_dat$intervention)
 cramersV(x = all_dat$occasion, y = all_dat$intervention)
 ```
+
+
 :::
 
 #### 5.4.1.2 Part 2: Running an independent t-test
@@ -163,16 +177,22 @@ There is no difference between people who self-identify as male or female on voc
 
 20. To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a  subset of the data (note that the `|` stands for "or", and means Gender matches male or gender matches female:
 
+
+
 ``` {r eval=FALSE}
 
 dat2 <- filter(dat, Gender == 'Male' | Gender == 'Female')
 
 ```
 
+
+
 21. Draw a box plot of Gent vocabulary test 1 scores by gender. For a box plot, note that we need data in "long format", where each observation is on one line, and we have a column that indicates which condition (in this case Gender) the participant is in. Does it look like there might be a gender effect? What is the direction of the effect? 
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv")
 # remember to change academic year to be a nominal/categorical variable, rather than a number:
@@ -181,6 +201,8 @@ dat2 <- filter(dat, Gender == 'Male' | Gender == 'Female')
 ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
 
 ```
+
+
 The graph indicates that maybe males are slightly higher, but looks like a lot of overlap.
 :::
 
@@ -189,14 +211,20 @@ The graph indicates that maybe males are slightly higher, but looks like a lot o
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 dat3 <- select(dat2, Gender, Gent_1_score)
 
 ```
+
+
 :::
 
 
 23. Next, in order to run a t-test we have to remove any rows of data which contain a 'NA' - either in the Gender or the Gent_1_score variables. We do this using `drop_na(dat3)`, put the result in a new object called 'dat4'. Run this command:
+
+
 
 ``` {r eval=FALSE}
 
@@ -205,16 +233,22 @@ dat4 <- drop_na(dat3)
 ```
 
 
+
+
 24. Now, redraw the box plot from Step 21. Check there are just two groups still.
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 dat3 <- select(dat2, Gender, Gent_1_score)
 dat4 <- drop_na(dat3)
 ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
 
 ```
+
+
 Yes, two groups.
 :::
 
@@ -229,23 +263,31 @@ Use `group_by()` and `summarise()`.
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 dat5 <- group_by(dat4, Gender)
 summarise(dat5, mean(Gent_1_score), sd(Gent_1_score))
 # Or, if you know how to use the %>% (pipe) ...:
 group_by(dat4, Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score))
 ```
+
+
 :::
 
 ##### Task 3: Run the independent t-test and measure effect size
 
 26. Conduct an independent t-test using this command:
 
+
+
 ``` {r eval=FALSE}
 
 t.test(Gent_1_score ~ Gender, paired = FALSE, data = dat5 )
 
 ```
+
+
 
 ::: {.callout-caution icon="false" collapse="false"}
 ## Bug warning!
@@ -277,11 +319,15 @@ No, it isn't. The p-value is greater than 0.05.
 :::
 
 30. Now we need to compute the effect size, using Cohen's d. You need to load the library lsr then use this command:
+
+
 ``` {r}
 
 cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 
 ```
+
+
 
 
 - It's pretty much the same as the t-test() command except that we use 'method = 'unequal' instead of 'paired = FALSE'. For a paired t-test you would use 'method = 'paired' 
@@ -325,6 +371,8 @@ Null Hypothesis: There is no difference in vocabulary scores between native Engl
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 dat <- read.csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv")
 dat2 <- select(dat, english_status, Gent_1_score)
@@ -335,6 +383,8 @@ summarise(dat4, mean(Gent_1_score), sd(Gent_1_score), n())
 t.test(Gent_1_score ~ english_status, paired = FALSE, data = dat3 )
 cohensD(Gent_1_score ~ english_status, method = "unequal", data = dat3 )
 ```
+
+
 :::
 
 35. Write a brief report of the results, including means and SDs for native speakers and ESL speakers, t-test, p-value, and Cohen's d.  Discuss your report in your group.
@@ -388,12 +438,16 @@ Remind yourself what these data mean.
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 library(tidyverse)
 dat <- read_csv("data/wk5/ahicesd.csv")
 pinfo <- read_csv("data/wk5/participantinfo2.csv")
 all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 ```
+
+
 :::
 
 
@@ -401,9 +455,13 @@ all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 summarydata <- select(all_dat, c("id", "ahiTotal", "occasion"))
 ```
+
+
 :::
 
 
@@ -418,9 +476,13 @@ called `summarydata2`
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 summarydata2 <- filter(summarydata, occasion == 0 | occasion == 1)
 ```
+
+
 :::
 
 
@@ -428,20 +490,28 @@ summarydata2 <- filter(summarydata, occasion == 0 | occasion == 1)
 
 45. Now, we need to make sure occasion is treated as a categorical variable, rather than a continuous variable, so we need to convert it to a factor:
 
+
+
 ``` {r}
 
 summarydata2$occasion <-as.factor(summarydata2$occasion)
 
 ```
 
+
+
 46. Now, draw a box plot of ahiTotal scores by occasion (why do we use a box plot?)
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
 
 ```
+
+
 We use a boxplot because we have one nominal/categorical variable and one
 interval/ratio/ordinal measure.
 :::
@@ -450,19 +520,27 @@ interval/ratio/ordinal measure.
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
 ```
+
+
 :::
 
 
 48. Run the paired t-test: it's the same as for the independent t-test except that we use `paired = TRUE` in place of `paired = FALSE`:
+
+
 
 ``` {r}
 
 t.test(ahiTotal ~ occasion, paired = TRUE, data = summarydata2)
 
 ```
+
+
 
 Is the result significant? 
 
@@ -473,20 +551,28 @@ yes, because *p* < .05.
 
 49. Before we run the Cohen's d command for these data, we have to make sure we have a list of the participants in one condition, followed by the list of participants in the other condition. We can do this using the command `arrange()`:
 
+
+
 ``` {r}
 
 summarydata3 <- arrange(.data = summarydata2, occasion)
 
 ```
 
+
+
 50. Now run Cohen's d: it's the same as for the independent t-test
 except that we use 'method = 'paired':
+
+
 
 ``` {r}
 
 cohensD(ahiTotal ~ occasion, method = "paired", data = summarydata3)
 
 ```
+
+
 
 What is the value for Cohen's d?
 
@@ -523,16 +609,22 @@ We are going to figure out whether people have different scores the first and se
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 dat <- read.csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"); 
 dat$academic_year <- as.factor(dat$academic_year)
 dat2 <- select(dat, subject_ID, Gent_1_score, Gent_2_score)
 dat3 <- drop_na(dat2)
 ```
+
+
 :::
 
 
 55. Now to do a paired t-test we need to get the Gent_1_score and Gent_2_scores into the same column. We do this with `pivot_longer`, run this command:
+
+
 
 ``` {r}
 
@@ -540,25 +632,35 @@ dat4 <- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gen
 
 ```
 
+
+
 56. As an extra benefit of having the data in "long format", it also means we can now also draw a box plot of the Gent vocabulary scores taken at the first and second occasion. Draw the box plot.
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 ggplot(dat4, aes(x = test, y = score)) + geom_boxplot()
 ```
+
+
 :::
 
 57. Get mean and SD of the scores for the tests.
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 dat5 <- group_by(dat4, test)
 summarise(dat5, mean(score), sd(score), n())
 # or if you know how to pipe:
 group_by(dat4, test) %>% summarise(mean(score), sd(score), n())
 ```
+
+
 :::
 
 
@@ -570,11 +672,15 @@ group_by(dat4, test) %>% summarise(mean(score), sd(score), n())
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answers to 58-59.
+
+
 ``` {r}
 t.test(score ~ test, paired = TRUE, data = dat4 )
 dat6 <- arrange(dat4, test)
 cohensD(score ~ test, method = "paired", data = dat6 )
 ```
+
+
 :::
 
 #### 5.4.1.5 Part 5: Extras
@@ -583,6 +689,8 @@ cohensD(score ~ test, method = "paired", data = dat6 )
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 dat2 <- filter(dat, academic_year == "202324")
 ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
@@ -593,6 +701,8 @@ cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat2 )
 t.test(Gent_2_score ~ Gender, paired = FALSE, data = dat2 )
 cohensD(Gent_2_score ~ Gender, method = "unequal", data = dat2 )
 ```
+
+
 nothing significant...
 :::
 
@@ -614,6 +724,8 @@ My challenge to you:
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
+
+
 ``` {r}
 jalava <- read_csv("data/wk5/ClassDraw.csv")
 # View(jalava)
@@ -623,6 +735,8 @@ jalava2 <- pivot_longer(jalava1, names_to = "test_time", values_to = "score", co
 jalava2$test_time <- as.factor(jalava2$test_time)
 ggplot(jalava2, aes(x = "test_time", y = "score")) + geom_boxplot()
 ```
+
+
 :::
 
 
@@ -648,3 +762,4 @@ Also optionally, read the articles on the importance of statistical understandin
   - [How scientists can be better at statistics](https://www.spectator.co.uk/article/vital-statistics/){target="_blank"}. Note that this article is hosted on the Spectator website, and *(content warning)* refers to Harold Shipman, a serial killer.
   
   - [Florence Nightingale and data visualisation](https://www.scientificamerican.com/article/how-florence-nightingale-changed-data-visualization-forever/){target="_blank"}. Note that this is hosted on Scientific American.
+
