@@ -660,7 +660,7 @@ variables
 
 Here is a link to the data referred to in this practical:
 
-[PSYC411-shipley-scores-anonymous-17_18.csv]("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
+- [PSYC411-shipley-scores-anonymous-17_18.csv]("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
 
 ### 3.4.3 Answers
 

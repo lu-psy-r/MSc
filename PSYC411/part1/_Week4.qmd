@@ -512,7 +512,21 @@ the time that it was due but might have completed at either at the time that
 it was due, or later. We recorded the date and time at which follow-up
 questionnaires were completed.
 
-## 4.4 Answers
+## 4.4.2 Data
+
+Data referred to in this workbook:
+
+- [PSYC411-shipley-scores-anonymous-17_24.csv](data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv) 
+
+- [ahicesd.csv](data/wk2/ahicesd.csv)
+
+- [participantinfo.csv](data/wk2/participantinfo.csv)
+
+- [titanic data](data/wk4/titanic.csv)
+
+- [papatsou study data](data/wk4/papatsou_cleaneddata.csv)
+
+## 4.4.3 Answers
 
 Answers will appear in this page, above, after the practical in week 4.
 
