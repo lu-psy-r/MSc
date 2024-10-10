@@ -245,16 +245,16 @@ group_by(dat4, Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score))
 
 ``` {r eval=FALSE}
 
-t.test(Gent_1_score ~ Gender, paired = FALSE, data = dat5 )
+t.test(Gent_1_score ~ Gender, data = dat5 )
 
 ```
 
-::: {.callout-caution icon="false" collapse="false"}
+<!--- ::: {.callout-caution icon="false" collapse="false"}
 ## Bug warning!
 This t-test command works on our https://psy-rstudio.lancaster.ac.uk/ system, but really annoyingly doesn't work in the very latest version of R. If you have downloaded R-studio onto your computer there is a chance this won't work! 
 
 To fix this on your own computer version, you need to download and install an older version of R from the [r server webpage](https://www.r-project.org){target="_blank"}: version R4.2.3 *does* work ok, version 4.4 does not work, not sure about versions 4.3... 
-:::
+::: --->
 
 
 - 'Gent_1_score ~ Gender' : the ~ can be interpreted as 'by', i.e., compute Gent_1_score by Gender 
@@ -286,7 +286,7 @@ cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 ```
 
 
-- It's pretty much the same as the t-test() command except that we use 'method = 'unequal' instead of 'paired = FALSE'. For a paired t-test you would use 'method = 'paired' 
+- It's pretty much the same as the t-test() command except that we use 'method = 'unequal'. For a paired t-test you would use 'method = 'paired' 
 
 
 31. What is the effect size? Make a brief report of the results - reporting means and SDs, the t-test, p-value, and Cohen's d. Discuss your brief report in your group.
@@ -334,7 +334,7 @@ dat3 <- drop_na(dat2)
 ggplot(dat3, aes(x = english_status, y = Gent_1_score)) + geom_boxplot()
 dat4 <- group_by(dat3, english_status)
 summarise(dat4, mean(Gent_1_score), sd(Gent_1_score), n())
-t.test(Gent_1_score ~ english_status, paired = FALSE, data = dat3 )
+t.test(Gent_1_score ~ english_status, data = dat3 )
 cohensD(Gent_1_score ~ english_status, method = "unequal", data = dat3 )
 ```
 :::
@@ -458,11 +458,17 @@ ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
 :::
 
 
-48. Run the paired t-test: it's the same as for the independent t-test except that we use `paired = TRUE` in place of `paired = FALSE`:
+48. In order to run the paired t-test, we first need to make sure that the paired values (in this case the measures from the same person) are on the same row of the data. So, let's use pivot_wider to put the ahiTotal scores for occasion 0 in one column, and the ahiTotal scores for occasion 1 in another column:
+
+``` {r}
+summarydata2_wide <- pivot_wider(summarydata2, names_from = occasion, values_from = ahiTotal)
+```
+
+49. Then, we can run the paired t-test in the following way:
 
 ``` {r}
 
-t.test(ahiTotal ~ occasion, paired = TRUE, data = summarydata2)
+t.test(summarydata2_wide$`0`, summarydata2_wide$`1`, paired = TRUE)
 
 ```
 
@@ -473,20 +479,12 @@ Is the result significant?
 yes, because *p* < .05.
 :::
 
-49. Before we run the Cohen's d command for these data, we have to make sure we have a list of the participants in one condition, followed by the list of participants in the other condition. We can do this using the command `arrange()`:
+
+50. Now run Cohen's d: it's similar to the way we do the paired t-test:
 
 ``` {r}
 
-summarydata3 <- arrange(.data = summarydata2, occasion)
-
-```
-
-50. Now run Cohen's d: it's the same as for the independent t-test
-except that we use 'method = 'paired':
-
-``` {r}
-
-cohensD(ahiTotal ~ occasion, method = "paired", data = summarydata3)
+cohensD( summarydata2_wide$`0`, summarydata2_wide$`1`, method =  "paired")
 
 ```
 
