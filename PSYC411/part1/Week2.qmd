@@ -576,7 +576,7 @@ datwide <- pivot_wider(datlongsummary, names_from = "test", values_from = "vocab
 
 This command takes the data from datlongsummary and puts the different measures reported in the variable test into different columns again, filling in the values from the variable vocab.
 
-#### 4.1.3.6 Part Six: Extra practise finding and interpreting data sets
+#### 4.1.3.6 Part Six: Extra practice finding and interpreting data sets
 
 This part involves you exploring online psychology articles and finding an article which has made its data set available.
 More and more journals require data to be available when articles are published, an influential journal that has supported open science practices is Psychological Science.
@@ -605,9 +605,10 @@ Psychological Science, 27(1), 119-122.
 data is available on osf.io (open science foundation) have a look in the Archive of OSF Storage for this article, under "Clean Data", "Study 1 data long format.csv".
 See if you can figure that one out.
 
-There are two things to be aware of with data.
+::: callout-tip
+## There are two things to be aware of with data.
 
--   First, real life data is usually not complete -- it contains missing values.
+-   First, real life data, just like real life, is usually not complete -- it contains missing values.
     The usual way to indicate missing values is "NA" in R.
     But if the data set contains missing values indicated in a different way, then you have to specify this when you input the data.
     So, if missing values are indicated by "999", you have to do it like this:
@@ -628,10 +629,37 @@ There are two things to be aware of with data.
     For excel files, you need to do this: `library(readxl)`, then you can use the command `read_excel("file.xls")`, this should work for xls and xlsx files.
     For inputting data that is in text, but not separated by commas, have a look at the help for the `read_csv()` function: `?read_csv`.
     Hint -- you'll be looking to change the *sep* option for the read_csv command.
+:::
 
-47. See if you can find and load the data from one or both of these studies. 
-Then have a go at exploring the data - can you recreate the numbers in the paper
-(e.g., age and number of participants, mean and sd of the main dependent variable?)
+::: callout-tip
+## What happens if I can't upload a file into the r server?
+
+Sometimes, very annoyingly, a file is too large to upload into the r server. 
+
+This isn't a problem if you have r studio installed on your own computer, but using the server it is rather annoying.
+
+If the data is stored online somewhere, then if you can find the web address for the data file then you can upload it directly in the following way:
+
+Here is an example on osf:
+
+This is from the study [Wald, K. A., Abraham, M., Pike, B., & Galinsky, A. D. (2024). Gender Differences in Climbing up the Ladder: Why Experience Closes the Ambition Gender Gap. *Psychological Science, in press*.](https://doi.org/10.1177/09567976241266778){target="_blank"} and the [data is here on osf](https://osf.io/w8e35/?view_only=e7257f621e7c4b50b4032efd667d0db1"){target="_blank"}
+
+Navigate to the actual data file in osf, in this case we go to OSF storage, then Study 1, then data, then the file *gender_study1_cleaned_data.csv*.
+ 
+Click on the file, then on the next screen click on the three dots that are next to the file name, then right-click on Download and copy the link. This is the web address for the 
+data file [gender_study1_cleaned_data.csv](https://osf.io/download/zstxk/?view_only=e7257f621e7c4b50b4032efd667d0db1){target="_blank"}
+ 
+Then, paste this into the read_csv command, and load it directly into an object in r studio, i.e.:
+
+``` r{} 
+dat <- read_csv('https://osf.io/download/zstxk/?view_only=e7257f621e7c4b50b4032efd667d0db1')
+```
+
+Importantly, you need to use single quotation marks ', either side of the web address.
+:::
+
+47. See if you can find and load the data from any (or all) of these studies. 
+Then have a go at exploring the data - e.g., can you first of all recreate the numbers in the paper (e.g., age and number of participants, mean and sd of the main dependent variable?)
 
 ### 2.4.2 Data
 

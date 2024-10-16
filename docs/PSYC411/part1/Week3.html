@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../PSYC411/part1/Week4.html" rel="next">
+<link href="../../PSYC411/part1/Week3_holding.html" rel="next">
 <link href="../../PSYC411/part1/Week2.html" rel="prev">
 <link href="../../Images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -169,6 +203,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week3_holding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3. Drawing graphs from data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../PSYC411/part1/Week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4. Testing nominal data</span></a>
   </div>
@@ -186,8 +226,28 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">3.1 Overview</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">3.2 Learning Goals</a></li>
+  <li><a href="#lectures-and-slides" id="toc-lectures-and-slides" class="nav-link" data-scroll-target="#lectures-and-slides">3.3 Lectures and slides</a>
+  <ul class="collapse">
+  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">3.3.1 Lectures</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">3.3.2 Slides</a></li>
+  </ul></li>
+  <li><a href="#practical-materials" id="toc-practical-materials" class="nav-link" data-scroll-target="#practical-materials">3.4 Practical Materials</a>
+  <ul class="collapse">
+  <li><a href="#workbook" id="toc-workbook" class="nav-link" data-scroll-target="#workbook">3.4.1 Workbook</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">3.4.2 Data</a></li>
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">3.4.3 Answers</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -212,9 +272,719 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Material for week 3 will be released after week 2 practical.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">3.1 Overview</h2>
+<p>This week, there are three mini lectures, the practical workbook working with R-studio, and the first assignment (due by Friday of week 3).</p>
+<p>Before the practical on Tuesday, please try to work through the practical workbook in your group.</p>
+<p>Bring your questions (and/or answers) to the practical.</p>
+<p>The assignment is on <a href="https://modules.lancaster.ac.uk/course/view.php?id=44343#sectionid-462913-title" target="_blank">moodle here</a>.</p>
+</section>
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">3.2 Learning Goals</h2>
+<ul>
+<li><p>See how data gathering for vocabulary knowledge can be conducted</p></li>
+<li><p>Understand different types of reproducibility</p></li>
+<li><p>Understand the relations between observed score, true score, and error score</p></li>
+<li><p>Understand multiple types of graphs and how to construct them in Rstudio</p></li>
+<li><p>Manipulate data, including filtering, grouping and summarizing data in Rstudio</p></li>
+</ul>
+</section>
+<section id="lectures-and-slides" class="level2">
+<h2 class="anchored" data-anchor-id="lectures-and-slides">3.3 Lectures and slides</h2>
+<section id="lectures" class="level3">
+<h3 class="anchored" data-anchor-id="lectures">3.3.1 Lectures</h3>
+<ul>
+<li>Watch Lecture 3 part 1</li>
+</ul>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=47640930-d2a2-43ea-90c7-b09d0092413c&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w3_p1"></iframe>
+<ul>
+<li><p>Have a go at the <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530050" target="_blank">Gent Vocabulary test</a>, and record your score.</p></li>
+<li><p>Have another go at the <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530051" target="_blank">Gent Vocabulary test</a>, and record your score again.</p></li>
+<li><p>Have a go at the <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530052" target="_blank">Shipley Vocabulary test</a>, and record your score. <!--- [Scoring sheet here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=1921431){target="_blank"} ---></p></li>
+<li><p>Fill in your vocabulary scores into <a href="https://modules.lancaster.ac.uk/mod/questionnaire/view.php?id=2530053" target="_blank">our course database</a>: What is your vocabulary?</p></li>
+</ul>
+<p>Watch Lecture week3 part2</p>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ffbf5c9b-b608-45f0-b0df-adb80102b4d0&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=true&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w3_p2"></iframe>
+<p>Watch Lecture week3 part3</p>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=05684e75-5e86-4c1f-9036-b09d009beb98&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w3 p3"></iframe>
+<p>Do the <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530054" target="_blank">quick quiz</a> (not assessed).</p>
+</section>
+<section id="slides" class="level3">
+<h3 class="anchored" data-anchor-id="slides">3.3.2 Slides</h3>
+<p>Download the lecture slides for:</p>
+<ul>
+<li><p><a href="ppt/wk3/PSYC411 Lecture week3 part2 handout.pptx">part 2 here</a></p></li>
+<li><p><a href="ppt/wk3/PSYC411 Lecture week3 part2 handout.pptx">part 3 here</a></p></li>
+</ul>
+<p>I haven’t put slides for part 1 here because they just said to do the different vocabulary tests.</p>
+</section>
+</section>
+<section id="practical-materials" class="level1">
+<h1>3.4 Practical Materials</h1>
+<section id="workbook" class="level2">
+<h2 class="anchored" data-anchor-id="workbook">3.4.1 Workbook</h2>
+<p>Part 1 is revision from last week.</p>
+<p>Part 2 is to reproduce the Lecture week 3 part 3 analyses.</p>
+<p>Part 3 is to practise manipulating data.</p>
+<p>Part 4 is starting making visualisations of data.</p>
+<p>Part 5 is some more advanced manipulation of data.</p>
+<p>Parts 6 and 7 are extra: extending your knowledge.</p>
+<p>If you’ve followed a course in R studio before then Parts 1, 6 and 7 will extend your knowledge.</p>
+<section id="part-1-revision-from-last-week" class="level4">
+<h4 class="anchored" data-anchor-id="part-1-revision-from-last-week">3.4.1.1 Part 1: Revision from last week</h4>
+<p>If you had a look at the data from Stamkou et al.’s study from last week, then that’s great, in which case follow Task 1, otherwise just go straight to Task 2.</p>
+<section id="task-1-describe-stamkou-et-al.s-study-from-last-week" class="level5">
+<h5 class="anchored" data-anchor-id="task-1-describe-stamkou-et-al.s-study-from-last-week">Task 1: Describe Stamkou et al.’s study from last week</h5>
+<ol type="1">
+<li><p>Talk to your group about what you did.</p></li>
+<li><p>From the Stamkou et al.&nbsp;data, can you look at whether there was a change in happiness ratings from the baseline (PracticeHappy) to after watching the video (VideoHappy)?</p></li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Remember first to load in the libraries Hmisc and tidyverse, and then use get.spss to load in the data: There are two ways to load in data that comes from spss - when the datafile ends with .sav The way we looked at doing this in week 1 workbook used the library Hmisc and then the function get.spss The other way is to use the library haven, and the function read_sav</p>
+</div>
+</div>
+</div>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
 
 
+
+::: {.cell}
+
+```{.r .cell-code}
+library(Hmisc)
+dat <- spss.get("stamkou_Study 1_edited data.sav")
+```
+:::
+
+
+
+or:
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(haven)
+dat <- read_sav("stamkou_Study 1_edited data.sav")
+```
+:::
+
+
+
+::: --->
+<ol start="3" type="1">
+<li>If you used get.spss, though, the data, as you may have seen, is rather messy, and needs some tidying up. If you used read_sav then these issues don’t apply. But for get.spss, in particular, the ratings of happiness are a bit all over the place. (this is because get.spss keeps information about responses but also what those responses mean and sometimes mixes them up together). We want these to just be numbers, 1,2,3,4, but instead they have the coding for what the numbers mean as well. If you’ve loaded in your data set into an object called “dat”: then the following lines will work to tidy things up:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">1=not happy at all</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"1"</span>, dat<span class="sc">$</span>PracticeHappy)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">2=a bit happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"2"</span>, dat<span class="sc">$</span>PracticeHappy)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">3=quite happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"3"</span>, dat<span class="sc">$</span>PracticeHappy)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">4=very happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"4"</span>, dat<span class="sc">$</span>PracticeHappy)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat<span class="sc">$</span>PracticeHappy)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">1=not happy at all</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"1"</span>, dat<span class="sc">$</span>VideoHappy)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">2=a bit happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"2"</span>, dat<span class="sc">$</span>VideoHappy)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">3=quite happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"3"</span>, dat<span class="sc">$</span>VideoHappy)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">4=very happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"4"</span>, dat<span class="sc">$</span>VideoHappy)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat<span class="sc">$</span>VideoHappy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Now, you can look at plotting the happiness ratings at baseline against happiness ratings after the children watch the video. You can also look at the means and standard deviations of the ratings to see if there is a numerical difference. What are the means and SDs?</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Remember: You will need to load in the tidyverse library at this stage.</p>
+</div>
+</div>
+</div>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(tidyverse)
+plot(dat$PracticeHappy, dat$VideoHappy)
+summarise(dat, mean(PracticeHappy), sd(PracticeHappy), mean(VideoHappy, na.rm=T), sd(VideoHappy, na.rm=T))
+```
+:::
+
+
+
+mean(PracticeHappy) sd(PracticeHappy) mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)
+
+1            2.638889         0.7822321                    1.983051                  0.828982
+
+
+or you could use:
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+mean(dat$PracticeHappy); sd(dat$PracticeHappy); mean(dat$VideoHappy); sd(dat$VideoHappy)
+```
+:::
+
+
+
+::: --->
+<ol start="5" type="1">
+<li>Later in the workbook, we use the functions group_by and summarise, so you could use these to look at the means separately for the emotion conditions (EmotionCondition) - how would you do that? What are the means and SDs? What effect does there seem to be of the emotion conditions on happiness mood change? If you don’t yet know how to do this, then come back to it after you’ve completed the rest of the workbook.</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+dat2 <- group_by(dat, EmotionCondition)
+summarise(dat2, mean(PracticeHappy), sd(PracticeHappy), mean(VideoHappy, na.rm=T), sd(VideoHappy, na.rm=T))
+```
+:::
+
+
+
+EmotionCondition `mean(PracticeHappy)` `sd(PracticeHappy)` `mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)`
+
+1 Awe                               2.68               0.800                          2.08                0.747
+
+2 Joy                               2.5                0.701                          2.22                0.956
+
+3 Control                           2.74               0.835                          1.62                0.648
+
+happiness decreases in all conditions, but most for Control, mid for Awe, least for Joy conditions
+::: --->
+</section>
+</section>
+<section id="part-2-reproduce-the-lecture-week3-part3-analyses" class="level4">
+<h4 class="anchored" data-anchor-id="part-2-reproduce-the-lecture-week3-part3-analyses">Part 2: Reproduce the Lecture week3 part3 analyses</h4>
+<section id="task-2-load-in-the-data-draw-a-histogram-find-means-and-standard-deviations" class="level5">
+<h5 class="anchored" data-anchor-id="task-2-load-in-the-data-draw-a-histogram-find-means-and-standard-deviations">Task 2: Load in the data, draw a histogram, find means and standard deviations</h5>
+<ol start="6" type="1">
+<li><p>Create a new r script, called psyc411_week3.r, and clear out R studio ready for a new script using <code>rm(list=ls())</code>.</p></li>
+<li><p>Download the data files from last week once again on the vocabulary tests here: <a href="data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv">PSYC411-shipley-scores-anonymous-17_18.csv</a>.</p></li>
+<li><p>Load the data into an object called “dat” using <code>read_csv()</code>, what command line do you use? (remember to set the working directory)</p></li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
+```
+:::
+
+
+
+::: --->
+<ol start="9" type="1">
+<li>View the data. What command do you use?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+View(dat)
+```
+:::
+
+
+
+::: --->
+<ol start="10" type="1">
+<li>We can make a histogram of the first time people took the Gent vocabulary test:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="11" type="1">
+<li>And a histogram of the second time people took the Gent test, what command line do you use?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+hist(dat$Gent_2_score)
+```
+:::
+
+
+
+::: --->
+<ol start="12" type="1">
+<li>We will use a function called summarise. This is more powerful than just using mean(dat$Gent_1_score) and sd(dat$Gent_1_score), etc. because it can give us summary statistics on subgroups of data, and can give us much more than just means and SDs. Have a look at the documentation for the function:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?summarise</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We use it like this: first put the object that the variables are in, then tell summarise what to do with each variable - eg compute the mean or sd or number of times it’s measured (that’s the n() part), or whatever:</p>
+<pre data-eval="FALSE"><code>summarise(dat, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score), n())</code></pre>
+<p>However, this won’t have worked - it will just say NA for means and SDs. This is because summarise doesn’t work if there are missing values (called NA). So, we have to tell summarise to ignore the NAs.</p>
+<pre data-eval="FALSE"><code>summarise(dat, mean(Gent_1_score, na.rm=T), sd(Gent_1_score, na.rm=T), mean(Gent_2_score, na.rm=T), sd(Gent_2_score, na.rm=T), n())</code></pre>
+<p>What is the mean and standard deviation of Gent_1_score and Gent_2_score?</p>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+summarise(dat, mean(Gent_1_score, na.rm=T), sd(Gent_1_score, na.rm=T), mean(Gent_2_score, na.rm=T), sd(Gent_2_score, na.rm=T), n())
+```
+:::
+
+
+
+`mean(Gent_1_score, na.rm = T)` `sd(Gent_1_score, na.rm = T)` `mean(Gent_2_score, na.rm = T)` `sd(Gent_2_score, na-rm= T)` `n()`
+
+ 57.4                          16.0                            57.1      18.7    81
+::: --->
+</section>
+<section id="task-3-use-ggplot-to-draw-some-histograms" class="level5">
+<h5 class="anchored" data-anchor-id="task-3-use-ggplot-to-draw-some-histograms">Task 3: Use ggplot to draw some histograms:</h5>
+<ol start="13" type="1">
+<li>Now we are going to use another way of making graphs. This is more flexible than the <code>hist</code> function. Here is how to make a histogram of the Gent vocabulary scores:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Gent_1_score) ) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"blue"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 1"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="14" type="1">
+<li>And for the second Gent test:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Gent_2_score) ) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"red"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 2"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Breaking it down:</p>
+<p><code>ggplot(dat, aes(x = Gent_1_score))</code>: this calls the plotting function ggplot</p>
+<p><code>dat</code>: we specify the data set we will use</p>
+<p>and we set the data for the plot, in this case we say that the x value (so that’s what will be along the x-axis in the graph) is the Gent_1_score. We put this inside <code>aes()</code>, which stands for “aesthetic”.</p>
+<p><code>+ geom_histogram(fill="blue")</code>: this adds a graph of type histogram and colours it blue</p>
+<p><code>+ labs(title="Gent Vocabulary Test", x = "Vocabulary Score", y = "Frequency")</code>: this adds labels to the graph: title, the x-axis label and the y-axis label.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-practise-manipulating-data" class="level4">
+<h4 class="anchored" data-anchor-id="part-3-practise-manipulating-data">4.1.3.3 Part 3: Practise manipulating data</h4>
+<section id="task-4-practise-manipulating-data" class="level5">
+<h5 class="anchored" data-anchor-id="task-4-practise-manipulating-data">Task 4: Practise manipulating data</h5>
+<ol start="15" type="1">
+<li>Let’s keep only some of the variables from the dataset dat - let’s remove Gender_code, and Dyslexia_diagnosis. Keep the other variables using <code>select()</code> and load this into summarydata</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Age, english_status, Gender, Shipley_Voc_Score, Gent_1_score, Gent_2_score, academic_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="16" type="1">
+<li>Next we will have a bit more of a wander around the data to get a feel for it. We will first use the function <code>arrange()</code>, which changes the order of observations (rows):</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(summarydata, Shipley_Voc_Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What is the lowest score of a participant on the Shipley Vocabulary questionnaire? (You may like to make a new object, which is the result of the <code>arrange</code> function, then look at it in View).</p>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+10
+::: --->
+<ol start="17" type="1">
+<li>If you want to order from highest to lowest, you have to use the <code>desc()</code> function:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(summarydata, <span class="fu">desc</span>(Shipley_Voc_Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What is the highest value on the Shipley Vocabulary Test? How many participants have this highest score?</p>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+38, 2 participants
+::: --->
+<ol start="18" type="1">
+<li>Next we will use the <code>filter()</code> function. This includes or excludes certain observations (rows). Let’s just include the participants with English as a first language and put this into a new object, called summarydata_enl.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>summarydata_enl <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, english_status <span class="sc">==</span> <span class="st">'native'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What are the mean and SD values of the Shipley Vocabulary test for the native speakers? (use the summarise function)</p>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+summarise(summarydata_enl, mean(Shipley_Voc_Score), sd(Shipley_Voc_Score))
+```
+:::
+
+
+
+mean = 32.1, sd = 3.25
+::: --->
+<ol start="19" type="1">
+<li>Make another variable with the z-scores of the Shipley Vocabulary test (see week 1 workbook, 1.4.1.1 Part 1, Task 4). What are the maximum and minimum z-scores? (you can use min() and max() in summarise to compute these)?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+summarydata$zshipley <- scale(summarydata$Shipley_Voc_Score)
+summarise(summarydata, min(zshipley), max(zshipley))
+```
+:::
+
+
+
+Min: -2.46, max = 1.43
+::: --->
+<ol start="20" type="1">
+<li>Making subgroups of data using group_by function. Another handy function in the tidyverse library is group_by. This makes subgroups of data which can then be looked at separately in other functions, such as summarise. Above, we filtered just the “native” English speakers, but we can specify subgroups of speakers instead. We make a new object of the grouped data (it looks just the same, but the groups are behind the scenes):</li>
+</ol>
+<p>summarydata2 &lt;- group_by(summarydata, english_status)</p>
+<ol start="21" type="1">
+<li>Then we summarise dat2. What is the mean, SD and number of participants for the Shipley_Voc_Score for the ESL and native English speakers groups?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+summarise(summarydata2, mean(Shipley_Voc_Score), sd(Shipley_Voc_Score), n())
+```
+:::
+
+
+
+english_status `mean(Shipley_Voc_Score)` `sd(Shipley_Voc_Score)` `n()`
+
+1 ESL                                 21.6                    6.76    33
+
+2 native                              32.1                    3.25    42
+
+3 NA                                  30.3                    4.93     6
+::: --->
+<ol start="22" type="1">
+<li>Remember to save your script file as you go along.</li>
+</ol>
+</section>
+</section>
+<section id="part-4-graphing-data" class="level4">
+<h4 class="anchored" data-anchor-id="part-4-graphing-data">3.1.4.4 Part 4: Graphing data</h4>
+<section id="task-5-graphing-data-using-histograms" class="level5">
+<h5 class="anchored" data-anchor-id="task-5-graphing-data-using-histograms">Task 5: graphing data using histograms</h5>
+<ol start="23" type="1">
+<li>Previously we used plot to draw a scatter plot, and hist to draw a histogram. Now, we’re going to use ggplot which can draw all kinds of graphs, with a great deal more flexibility. We are going to represent the data to reflect the following relations:</li>
+</ol>
+<ul>
+<li>English status and gender</li>
+<li>Age and vocabulary score</li>
+<li>Gender and vocabulary score</li>
+<li>Academic year and vocabulary score</li>
+<li>Academic year and age</li>
+<li>English status and vocabulary score</li>
+<li>English status and age</li>
+</ul>
+<p>But first, let’s repeat reproducing the histogram from the overhead slides to look at the distribution of variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gent_1_score)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 1"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="24" type="1">
+<li>Now draw a histogram with Shipley_Voc_Score as the variable and colour it orange. Remember to change the title to something appropriate.</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+ggplot(summarydata, aes(x = summarydata$Shipley_Voc_Score)) + geom_histogram(fill="orange") + labs(title="Shipley Vocabulary Test", x = "Vocabulary Score", y = "Frequency")
+```
+:::
+
+
+
+or how about this for a version that separates out the gender in the same figure:
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+ggplot(summarydata, aes(x = Shipley_Voc_Score, fill=Gender )) + geom_histogram(bins = 10) + labs(title="Shipley Vocabulary Test", x = "Vocabulary Score", y = "Frequency")
+```
+:::
+
+
+
+::: --->
+</section>
+<section id="task-6-graphing-data-using-bar-graphs" class="level5">
+<h5 class="anchored" data-anchor-id="task-6-graphing-data-using-bar-graphs">Task 6: graphing data using bar graphs</h5>
+<ol start="25" type="1">
+<li>Next let’s look at English status and gender. What types of variable are these? Nominal? Ordinal? Interval/ratio?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+both nominal. So we can only count them.
+::: --->
+<ol start="26" type="1">
+<li>We will draw a bar graph of the counts. We use <code>geom_bar()</code> for this:</li>
+</ol>
+<ul>
+<li>First try this:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gender)) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>This just draws counts of Gender</li>
+<li>Now let’s draw Gender and English Status together:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> english_status)) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note 1: We use position dodge so that it puts the bars next to each other (what happens if you leave out <code>position = dodge</code>?)</p>
+<p>Note 2: We use <code>fill = english_status</code> so that it fills the different bars with different colours according to different english statuses.</p>
+<p>What is the general pattern of counts? Are there proportional differences by English status according to gender?</p>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+proportionally more males who are native English. But we don't (yet) know if that's significant...
+::: --->
+</section>
+<section id="task-7-graphing-data-using-scatterplot" class="level5">
+<h5 class="anchored" data-anchor-id="task-7-graphing-data-using-scatterplot">Task 7: graphing data using scatterplot</h5>
+<ol start="27" type="1">
+<li>Next we’ll look at Age and Shipley Vocabulary Score. What types of data are these?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+interval/ratio, so we can draw a point plot (scatterplot).
+::: --->
+<ol start="28" type="1">
+<li>We will draw a point plot of these values:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can add <code>+ labs(title = "Age by Shipley Vocabulary Score", x = "Age", y = "Shipley Vocabulary Score")</code> to tidy up presentation a bit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score)) <span class="sc">+</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age by Shipley Vocabulary Score"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Shipley Vocabulary Score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>What is the relation between age and Shipley Vocabulary score?</li>
+</ul>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+it looks positive.
+::: --->
+</section>
+<section id="task-8-draw-and-interpret-a-box-plot" class="level5">
+<h5 class="anchored" data-anchor-id="task-8-draw-and-interpret-a-box-plot">Task 8: Draw and interpret a box plot</h5>
+<ol start="29" type="1">
+<li>Next on the list of relations to check is gender and vocabulary score. Let’s look at Gent_1_score against Gender. What type of variables are these?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+one ratio, one nominal, so need a box plot.
+::: --->
+<ol start="30" type="1">
+<li>We will draw a box plot (you could draw a bar graph, but box plots tend to be preferred for these combinations of variables - use a bar graph for counts):</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Again we can tidy this up by adding labels:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vocabulary Score by Gender"</span>, <span class="at">x =</span> <span class="st">"Gender"</span>, <span class="at">y =</span> <span class="st">"Gent Vocabulary Score Test 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="31" type="1">
+<li>Interpreting box plots: The horizontal line indicates the median. The box indicates where 50% of the data lie. The lines indicate an estimate of the range of the data (minimum and maximum values). The dots indicate outliers. A large box indicates larger standard deviation. If the boxes don’t overlap much then this indicates there may be a difference between the groups.</li>
+</ol>
+<p>Are there differences in Vocabulary according to gender?</p>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+maybe females slightly lower than males.
+::: --->
+<ol start="32" type="1">
+<li>Now for the other relations:</li>
+</ol>
+<ul>
+<li>Academic year and vocabulary score</li>
+<li>Academic year and age</li>
+<li>English status and vocabulary score</li>
+<li>English status and age</li>
+</ul>
+<p>At the moment, R is interpreting Academic year as a number. We need to turn it into a nominal variable (called a “factor” in R studio):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>summarydata<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(summarydata<span class="sc">$</span>academic_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Draw a graph for each of these relations.</p>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+These are categorical against ratio variables, so all box plots:
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+ggplot(summarydata, aes(x = academic_year, y = Gent_1_score) ) + geom_boxplot()
+ggplot(summarydata, aes(x = academic_year, y = Age) ) + geom_boxplot()
+ggplot(summarydata, aes(x = english_status, y = Gent_1_score) ) + geom_boxplot()
+ggplot(summarydata, aes(x = english_status, y = Age) ) + geom_boxplot()
+ggplot(summarydata, aes(x = Age, fill = english_status) ) + geom_histogram()
+```
+:::
+
+
+
+::: --->
+<ol start="33" type="1">
+<li>Save your R script.</li>
+</ol>
+</section>
+</section>
+<section id="part-5-more-practise-manipulating-data" class="level4">
+<h4 class="anchored" data-anchor-id="part-5-more-practise-manipulating-data">3.4.1.5 Part 5: More practise manipulating data</h4>
+<ol start="34" type="1">
+<li>What are the minimum and maximum values for the ESL and English native speakers?</li>
+</ol>
+<!--- ::: {.callout-warning icon=false collapse="true"}
+## Answer
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+summarise(summarydata2, min(Shipley_Voc_Score), max(Shipley_Voc_Score))
+```
+:::
+
+
+
+english_status `min(Shipley_Voc_Score)` `max(Shipley_Voc_Score)`
+1 ESL                                  10                       38
+2 native                               24                       38
+3 NA                                   24                       35
+::: --->
+</section>
+<section id="part-6-extending-your-knowledge" class="level4">
+<h4 class="anchored" data-anchor-id="part-6-extending-your-knowledge">3.4.1.6 Part 6: Extending your knowledge</h4>
+<ol start="35" type="1">
+<li>An important part of using R-studio is that people share their code, their tutorials, and help one another out in troubleshooting. Searching for commands and how to use them on search engines is absolutely fine, and supplementing your learning with others’ tutorials is also what the community does. Glasgow University psychology department has made some of their course materials available and so for more practise in using the different data manipulation functions, you could have a look at <a href="https://psyteachr.github.io/msc-conv/data-wrangling-1.html">https://psyteachr.github.io/msc-conv/data-wrangling-1.html</a></li>
+</ol>
+<p>Ignore the part about making a new R markdown document, use instead an R script.</p>
+<p>Just go straight to clear out the environment rm(list=ls()) then load the libraries tidyverse() and babynames() where the babynames() library contains the database on babies’ names that you can explore in the example (you’ll need to install.packages(“babynames”) first).</p>
+<p>And then begin at Section “4.4: Activity 2: Look at the data”.</p>
+<ol start="36" type="1">
+<li>For the data that you downloaded from the papers for your extra exercises in weeks 1 and 2, construct some graphs to show relations between variables.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use <code>geom_bar()</code> for bar graphs of counts Use <code>geom_box()</code> for box plots showing means Use <code>geom_point()</code> to show relations between two or more variables Use <code>geom_histogram()</code> to show distributions of one or more variables</p>
+</div>
+</div>
+</section>
+<section id="part-7-extending-everyones-knowledge-optional-extra" class="level4">
+<h4 class="anchored" data-anchor-id="part-7-extending-everyones-knowledge-optional-extra">3.4.1.7 Part 7: Extending everyone’s knowledge (Optional extra)</h4>
+<p>If you want a real challenge, where we can get to the boundary of doing some original research, then here is another optional extra:</p>
+<p>This is a recently published paper that draws on lots of different sources of secondary data. It is a really impressive example of what you can do with already existing data.</p>
+<p>This is from the study <a href="https://doi.org/10.1037/xhp0001209" target="_blank">de Zubicaray, G. I., Kearney, E., Guenther, F., McMahon, K. L., &amp; Arciuli, J. (2024). Statistical relationships between surface form and sensory meanings of English words influence lexical processing. <em>Journal of Experimental Psychology: Human Perception and Performance, in press</em>.</a></p>
+<p>My challenge to you is to get all the datasets together that this paper refers to, and see if you can repeat the first analysis in their paper. They actually have the r scripts (in this case they are r-markdown (.rmd) files) as well as the data available.</p>
+<p>If you can do that, then I will be amazed and impressed, and then I’ve got another task for you, which you’ll have to ask me for in the practical.</p>
+</section>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">3.4.2 Data</h3>
+<p>Here is a link to the data referred to in this practical:</p>
+<ul>
+<li><a href="data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv">PSYC411-shipley-scores-anonymous-17_18.csv</a></li>
+</ul>
+</section>
+<section id="answers" class="level3">
+<h3 class="anchored" data-anchor-id="answers">3.4.3 Answers</h3>
+<p>The answers to the workbook will appear below each question in the workbook, above, after the practical has finished, so you can check your work.</p>
+<p>It’s really important for your learning that you have a go first of all at the workbook before looking at the answers.</p>
+<!---- ## 3.5 Extras --->
+
+
+</section>
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -644,8 +1414,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../PSYC411/part1/Week4.html" class="pagination-link" aria-label="Week 4. Testing nominal data">
-        <span class="nav-page-text">Week 4. Testing nominal data</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../PSYC411/part1/Week3_holding.html" class="pagination-link" aria-label="Week 3. Drawing graphs from data">
+        <span class="nav-page-text">Week 3. Drawing graphs from data</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
