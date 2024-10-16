@@ -235,7 +235,7 @@ Use `group_by()` and `summarise()`.
 dat5 <- group_by(dat4, Gender)
 summarise(dat5, mean(Gent_1_score), sd(Gent_1_score))
 # Or, if you know how to use the %>% (pipe) ...:
-group_by(dat4, Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score))
+dat4 %>% group_by(Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score))
 ```
 :::
 
@@ -461,14 +461,21 @@ ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
 48. In order to run the paired t-test, we first need to make sure that the paired values (in this case the measures from the same person) are on the same row of the data. So, let's use pivot_wider to put the ahiTotal scores for occasion 0 in one column, and the ahiTotal scores for occasion 1 in another column:
 
 ``` {r}
-summarydata2_wide <- pivot_wider(summarydata2, names_from = occasion, values_from = ahiTotal)
+summarydata2_wide <- pivot_wider(summarydata2, names_from = occasion, values_from = ahiTotal, names_prefix = "occasion_")
 ```
+
+::: {.callout-note icon="false" collapse="false"}
+## Note
+Note that we use the names_prefix = "occasion_" as an extra argument to make the column names "occasion_0" and "occasion_1". 
+
+What would happen if we didn't use names_prefix? It would still work, but it's a bit more awkward to work with the output.
+:::
 
 49. Then, we can run the paired t-test in the following way:
 
 ``` {r}
 
-t.test(summarydata2_wide$`0`, summarydata2_wide$`1`, paired = TRUE)
+t.test(summarydata2_wide$occasion_0, summarydata2_wide$occasion_1, paired = TRUE)
 
 ```
 
@@ -484,7 +491,7 @@ yes, because *p* < .05.
 
 ``` {r}
 
-cohensD( summarydata2_wide$`0`, summarydata2_wide$`1`, method =  "paired")
+cohensD( summarydata2_wide$occasion_0, summarydata2_wide$occasion_1, method =  "paired")
 
 ```
 
@@ -531,55 +538,46 @@ dat3 <- drop_na(dat2)
 ```
 :::
 
+55. Run the paired t-test. 
 
-55. Now to do a paired t-test we need to get the Gent_1_score and Gent_2_scores into the same column. We do this with `pivot_longer`, run this command:
+Each row contains a score for each person for each Gent test, and so we are ready to run the paired t-test:
 
+::: {.callout-note icon="false" collapse="false"}
+## Answer to 55-59.
 ``` {r}
-
-dat4 <- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gent_1_score", "Gent_2_score"))
+t.test(dat3$Gent_1_score, dat3$Gent_2_score, paired = TRUE)
+cohensD( dat3$Gent_1_score, dat3$Gent_2_score, , method =  "paired")
 
 ```
 
-56. As an extra benefit of having the data in "long format", it also means we can now also draw a box plot of the Gent vocabulary scores taken at the first and second occasion. Draw the box plot.
+``` {r}
+```
+
+56. Get mean and SD of the scores for the tests.
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
 ``` {r}
+summarise(dat3, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score))
+```
+:::
+
+
+57. In order to draw a box plot of the Gent vocabulary scores taken at the first and second occasion, we will need the data in "long format", so that there is a column saying which test it is and a column reporting the scores on the Gent tests.
+Apply the `pivot_longer` command and then draw the box plot.
+
+::: {.callout-note icon="false" collapse="false"}
+## Answer
+``` {r}
+dat4 <- pivot_longer(dat3, names_to = "test", values_to = "score", cols = c("Gent_1_score", "Gent_2_score"))
 ggplot(dat4, aes(x = test, y = score)) + geom_boxplot()
 ```
 :::
 
-57. Get mean and SD of the scores for the tests.
-
-::: {.callout-note icon="false" collapse="false"}
-## Answer
-``` {r}
-dat5 <- group_by(dat4, test)
-summarise(dat5, mean(score), sd(score), n())
-# or if you know how to pipe:
-group_by(dat4, test) %>% summarise(mean(score), sd(score), n())
-```
-:::
-
-
-58. Run the paired t-test.
-
-
-59. arrange the data as in step 49 so that the responses to the first test are listed first, then the responses to the second test, and the find out Cohen's d.
-
-
-::: {.callout-note icon="false" collapse="false"}
-## Answers to 58-59.
-``` {r}
-t.test(score ~ test, paired = TRUE, data = dat4 )
-dat6 <- arrange(dat4, test)
-cohensD(score ~ test, method = "paired", data = dat6 )
-```
-:::
 
 #### 5.4.1.5 Part 5: Extras
 
-60. In the vocabulary scores data, is there a significant difference between males and females for your academic year group? 
+58. In the vocabulary scores data, is there a significant difference between males and females for your academic year group? 
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Answer
@@ -588,18 +586,22 @@ dat2 <- filter(dat, academic_year == "202324")
 ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
 dat3 <- group_by(dat2, Gender)
 summarise(dat3, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score), n())
-t.test(Gent_1_score ~ Gender, paired = FALSE, data = dat2 )
+# or:
+dat2 %>% group_by(Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score), n())
+
+t.test(Gent_1_score ~ Gender, data = dat2 )
 cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat2 )
-t.test(Gent_2_score ~ Gender, paired = FALSE, data = dat2 )
+
+t.test(Gent_2_score ~ Gender, data = dat2 )
 cohensD(Gent_2_score ~ Gender, method = "unequal", data = dat2 )
 ```
 nothing significant...
 :::
 
-61. Are there significant differences for the other vocabulary test measures between males and females, or between those with  English as first or second language?
+59. Are there significant differences for the other vocabulary test measures between males and females, or between those with English as first or second language?
 
 
-62. The data from this paper are called [ClassDraw.csv available here](data/wk5/ClassDraw.csv). The data are on osf as well, but they're not properly formatted, so I adjusted them and put them here.
+60. The data from this paper are called [ClassDraw.csv available here](data/wk5/ClassDraw.csv). The data are on osf as well, but they're not properly formatted, so I adjusted them and put them here.
 
 Jalava, S. T., Wammes, J. D., & Cheng, K. (2023). Drawing your way to an A: 
 Long-lasting improvements in classroom quiz performance following drawing. 
@@ -616,12 +618,16 @@ My challenge to you:
 ## Answer
 ``` {r}
 jalava <- read_csv("data/wk5/ClassDraw.csv")
-# View(jalava)
 
 jalava1 <- pivot_longer(jalava, names_to = c("test",".value"), names_sep="_" , values_to = "score", cols = c("write_1","write_2","draw_1","draw_2"))
 jalava2 <- pivot_longer(jalava1, names_to = "test_time", values_to = "score", cols = c(`1`,`2`))
+
 jalava2$test_time <- as.factor(jalava2$test_time)
-ggplot(jalava2, aes(x = "test_time", y = "score")) + geom_boxplot()
+ggplot(jalava2, aes(x = test_time, y = score, fill = test)) + geom_boxplot()
+
+# median looks very similar (boxplots very overlapping), but means are a bit different:
+jalava2 %>% group_by(test, test_time) %>% summarise(mean(score, na.rm=TRUE), sd(score, na.rm=TRUE))
+
 ```
 :::
 
