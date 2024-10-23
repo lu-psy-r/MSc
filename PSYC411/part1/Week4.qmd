@@ -380,7 +380,7 @@ cramersV(x = titanic$class, y = titanic$survival)
 
 ```
 
-24. Your next task is to run some Chi-squared and Cramer's V tests on some of the other nominal data. Open the data "PSYC401-shipley-scores-anonymous-17_24.csv" again. Investigate the association between gender and year (are there different distributions of males and females in each of our masters' year cohorts) using Chi-squared and Cramer's V. Is it significant? 
+24. Your next task is to run some Chi-squared and Cramer's V tests on some of the other nominal data. Open the data "PSYC411-shipley-scores-anonymous-17_24.csv" again. Investigate the association between gender and year (are there different distributions of males and females in each of our masters' year cohorts) using Chi-squared and Cramer's V. Is it significant? 
 
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
@@ -466,7 +466,7 @@ Not significant, X-squared = 2.73, df = 6, p-value = .842
 
 Papoutsi, C., Zimianiti, E., Bosker, H. R., & Frost, R. L. (2024). Statistical learning at a virtual cocktail party. *Psychonomic Bulletin & Review, 31(2)*, 849-861. https://doi.org/10.3758/s13423-023-02384-1
 
-The data are available on OSF, but also a cleaned version of the dataset is [avaiilable here](data/wk4/papatsou_cleaneddata.csv). 
+The data are available on OSF, but also a cleaned version of the dataset is [available here](data/wk4/papatsou_cleaneddata.csv). 
 
 There is also something in the osf site called a R-markdown file - Data_analysis_script.rmd
 

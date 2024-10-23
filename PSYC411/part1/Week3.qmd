@@ -42,7 +42,6 @@ The assignment is on [moodle here](https://modules.lancaster.ac.uk/course/view.p
 - Have another go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530051){target="_blank"}, and record your score again.
 
 - Have a go at the [Shipley Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530052){target="_blank"}, and record your score. 
-<!--- [Scoring sheet here](https://modules.lancaster.ac.uk/mod/resource/view.php?id=1921431){target="_blank"} --->
 
 - Fill in your vocabulary scores into [our course database](https://modules.lancaster.ac.uk/mod/questionnaire/view.php?id=2530053){target="_blank"}: What is your vocabulary?
 
@@ -107,7 +106,7 @@ The way we looked at doing this in week 1 workbook used the library Hmisc and th
 The other way is to use the library haven, and the function read_sav
 :::
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ``` {r eval=FALSE}
 library(Hmisc)
@@ -118,7 +117,7 @@ or:
 library(haven)
 dat <- read_sav("stamkou_Study 1_edited data.sav")
 ```
-::: --->
+:::
 
 3. If you used get.spss, though, the data, as you may have seen, is rather messy, and needs some tidying up.
 If you used read_sav then these issues don't apply.
@@ -150,7 +149,7 @@ ratings to see if there is a numerical difference. What are the means and SDs?
 Remember: You will need to load in the tidyverse library at this stage.
 :::
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ``` {r eval=FALSE}
 library(tidyverse)
@@ -166,7 +165,7 @@ or you could use:
 ``` {r eval=FALSE}
 mean(dat$PracticeHappy); sd(dat$PracticeHappy); mean(dat$VideoHappy); sd(dat$VideoHappy)
 ```
-::: --->
+:::
 
 5. Later in the workbook, we use the functions group_by and summarise,
 so you could use these to look at the means separately for the emotion conditions 
@@ -175,7 +174,7 @@ What effect does there seem to be of the emotion conditions on happiness mood ch
 If you don't yet know how to do this, then come back to it after you've completed the rest of
 the workbook.
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ``` {r eval=FALSE}
 dat2 <- group_by(dat, EmotionCondition)
@@ -190,7 +189,7 @@ EmotionCondition `mean(PracticeHappy)` `sd(PracticeHappy)` `mean(VideoHappy, na.
 3 Control                           2.74               0.835                          1.62                0.648
 
 happiness decreases in all conditions, but most for Control, mid for Awe, least for Joy conditions
-::: --->
+:::
 
 
 #### Part 2: Reproduce the Lecture week3 part3 analyses
@@ -203,21 +202,21 @@ happiness decreases in all conditions, but most for Control, mid for Awe, least 
 
 8.  Load the data into an object called "dat" using `read_csv()`, what command line do you use? (remember to set the working directory)
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
 ```
-::: --->
+:::
 
 9.  View the data. What command do you use?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 View(dat)
 ```
-::: --->
+:::
 
 10. We can make a histogram of the first time people took the Gent
     vocabulary test:
@@ -229,12 +228,12 @@ hist(dat$Gent_1_score)
 11. And a histogram of the second time people took the Gent test, what
     command line do you use?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 hist(dat$Gent_2_score)
 ```
-::: --->
+:::
 
 12. We will use a function called summarise. This is more powerful than just using mean(dat\$Gent_1_score) and sd(dat\$Gent_1_score), etc.
 because it can give us summary statistics on subgroups of data, and can give us much more than just means and SDs.
@@ -262,7 +261,7 @@ summarise(dat, mean(Gent_1_score, na.rm=T), sd(Gent_1_score, na.rm=T), mean(Gent
 
 What is the mean and standard deviation of Gent_1_score and Gent_2_score?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 summarise(dat, mean(Gent_1_score, na.rm=T), sd(Gent_1_score, na.rm=T), mean(Gent_2_score, na.rm=T), sd(Gent_2_score, na.rm=T), n())
@@ -270,7 +269,7 @@ summarise(dat, mean(Gent_1_score, na.rm=T), sd(Gent_1_score, na.rm=T), mean(Gent
 `mean(Gent_1_score, na.rm = T)` `sd(Gent_1_score, na.rm = T)` `mean(Gent_2_score, na.rm = T)` `sd(Gent_2_score, na-rm= T)` `n()`
 
  57.4                          16.0                            57.1      18.7    81
-::: --->
+:::
 
 
 ##### Task 3: Use ggplot to draw some histograms:
@@ -336,10 +335,10 @@ What is the lowest score of a participant on the Shipley Vocabulary
 questionnaire? (You may like to make a new object, which is the result
 of the `arrange` function, then look at it in View).
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 10
-::: --->
+:::
 
 17. If you want to order from highest to lowest, you have to use the
     `desc()` function:
@@ -351,10 +350,10 @@ arrange(summarydata, desc(Shipley_Voc_Score))
 What is the highest value on the Shipley Vocabulary Test? How many
 participants have this highest score?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 38, 2 participants
-::: --->
+:::
 
 18. Next we will use the `filter()` function. This includes or excludes
     certain observations (rows). Let's just include the participants
@@ -367,26 +366,26 @@ summarydata_enl <- filter(summarydata, english_status == 'native')
 
 What are the mean and SD values of the Shipley Vocabulary test for the native speakers? (use the summarise function)
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 summarise(summarydata_enl, mean(Shipley_Voc_Score), sd(Shipley_Voc_Score))
 ```
 mean = 32.1, sd = 3.25
-::: --->
+:::
 
 19. Make another variable with the z-scores of the Shipley Vocabulary
     test (see week 1 workbook, 1.4.1.1 Part 1, Task 4). What are the maximum and minimum
     z-scores? (you can use min() and max() in summarise to compute these)?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 summarydata$zshipley <- scale(summarydata$Shipley_Voc_Score)
 summarise(summarydata, min(zshipley), max(zshipley))
 ```
 Min: -2.46, max = 1.43
-::: --->
+:::
 
 20. Making subgroups of data using group_by function.
 Another handy function in the tidyverse library is group_by. This makes subgroups of data
@@ -399,7 +398,7 @@ summarydata2 <- group_by(summarydata, english_status)
 21. Then we summarise dat2. What is the mean, SD and number of participants for the Shipley_Voc_Score
 for the ESL and native English speakers groups?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 summarise(summarydata2, mean(Shipley_Voc_Score), sd(Shipley_Voc_Score), n())
@@ -411,7 +410,7 @@ english_status `mean(Shipley_Voc_Score)` `sd(Shipley_Voc_Score)` `n()`
 2 native                              32.1                    3.25    42
 
 3 NA                                  30.3                    4.93     6
-::: --->
+:::
 
 
 
@@ -448,7 +447,7 @@ ggplot(summarydata, aes(x = Gent_1_score)) +
     colour it orange. Remember to change the title to something
     appropriate.
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 ggplot(summarydata, aes(x = summarydata$Shipley_Voc_Score)) + geom_histogram(fill="orange") + labs(title="Shipley Vocabulary Test", x = "Vocabulary Score", y = "Frequency")
@@ -457,7 +456,7 @@ or how about this for a version that separates out the gender in the same figure
 ```{r eval=FALSE}
 ggplot(summarydata, aes(x = Shipley_Voc_Score, fill=Gender )) + geom_histogram(bins = 10) + labs(title="Shipley Vocabulary Test", x = "Vocabulary Score", y = "Frequency")
 ```
-::: --->
+:::
 
 
 ##### Task 6: graphing data using bar graphs
@@ -465,10 +464,10 @@ ggplot(summarydata, aes(x = Shipley_Voc_Score, fill=Gender )) + geom_histogram(b
 25. Next let's look at English status and gender. What types of variable
     are these? Nominal? Ordinal? Interval/ratio?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 both nominal. So we can only count them.
-::: --->
+:::
 
 26. We will draw a bar graph of the counts. We use `geom_bar()` for
     this:
@@ -501,20 +500,20 @@ bars with different colours according to different english statuses.
 What is the general pattern of counts? Are there proportional
 differences by English status according to gender?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 proportionally more males who are native English. But we don't (yet) know if that's significant...
-::: --->
+:::
 
 ##### Task 7: graphing data using scatterplot
 
 27. Next we'll look at Age and Shipley Vocabulary Score. What types of
     data are these?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 interval/ratio, so we can draw a point plot (scatterplot).
-::: --->
+:::
 
 
 28. We will draw a point plot of these values:
@@ -539,10 +538,10 @@ ggplot(summarydata, aes(x= Age, y = Shipley_Voc_Score)) +
 
 -   What is the relation between age and Shipley Vocabulary score?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 it looks positive.
-::: --->
+:::
 
 ##### Task 8: Draw and interpret a box plot
 
@@ -550,10 +549,10 @@ it looks positive.
     score. Let's look at Gent_1\_score against Gender. What type of
     variables are these?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 one ratio, one nominal, so need a box plot.
-::: --->
+:::
 
 30. We will draw a box plot (you could draw a bar graph, but box plots
     tend to be preferred for these combinations of variables - use a bar
@@ -583,10 +582,10 @@ ggplot(summarydata, aes(x= Gender, y = Gent_1_score)) + geom_boxplot() + labs(ti
 
 Are there differences in Vocabulary according to gender?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 maybe females slightly lower than males.
-::: --->
+:::
 
 32. Now for the other relations:
 
@@ -606,7 +605,7 @@ summarydata$academic_year <- as.factor(summarydata$academic_year)
 
 Draw a graph for each of these relations.
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 These are categorical against ratio variables, so all box plots:
 ```{r eval=FALSE}
@@ -616,7 +615,7 @@ ggplot(summarydata, aes(x = english_status, y = Gent_1_score) ) + geom_boxplot()
 ggplot(summarydata, aes(x = english_status, y = Age) ) + geom_boxplot()
 ggplot(summarydata, aes(x = Age, fill = english_status) ) + geom_histogram()
 ```
-::: --->
+:::
 
 33. Save your R script.
 
@@ -624,7 +623,7 @@ ggplot(summarydata, aes(x = Age, fill = english_status) ) + geom_histogram()
 
 34.  What are the minimum and maximum values for the ESL and English native speakers?
 
-<!--- ::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 summarise(summarydata2, min(Shipley_Voc_Score), max(Shipley_Voc_Score))
@@ -633,7 +632,7 @@ english_status `min(Shipley_Voc_Score)` `max(Shipley_Voc_Score)`
 1 ESL                                  10                       38
 2 native                               24                       38
 3 NA                                   24                       35
-::: --->
+:::
 
 
 #### 3.4.1.6 Part 6: Extending your knowledge
@@ -692,5 +691,5 @@ The answers to the workbook now appear below each question in the workbook, abov
 
 It's really important for your learning that you have a go first of all at the workbook before looking at the answers.
 
-<!---- ## 3.5 Extras --->
+<!---- ## 3.5 Extras
 

@@ -342,7 +342,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -387,7 +386,6 @@ dbl (6): subject_ID, Age, Shipley_Voc_Score, Gent_1_score, Gent_2_score, aca...
 
 :::
 :::
-
 
 
 ::: --->
@@ -435,14 +433,12 @@ Hint
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
 summaryvdat_sort <- arrange(summaryvdat, desc(Gent_2_score))
 ```
 :::
-
 
 
 ::: --->
@@ -459,7 +455,6 @@ summaryvdat_sort <- arrange(summaryvdat, desc(Gent_2_score))
 </ul>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -500,7 +495,6 @@ Warning: Removed 5 rows containing non-finite outside the scale range
 :::
 
 
-
 ::: --->
 <ol start="7" type="1">
 <li>Save your script file.</li>
@@ -524,7 +518,6 @@ Warning: Removed 5 rows containing non-finite outside the scale range
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -573,7 +566,6 @@ all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 :::
 
 
-
 ::: --->
 </section>
 <section id="task-5-selecting-and-manipulating-data" class="level5">
@@ -606,7 +598,6 @@ Hint
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -627,7 +618,6 @@ summarise(summary_all_dat_scale, min(ahiTotalscale), max(ahiTotalscale))
 
 :::
 :::
-
 
 
 The values are z-scores so the numbers indicate how many standard deviations the values are from the mean
@@ -651,7 +641,6 @@ The values are z-scores so the numbers indicate how many standard deviations the
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -670,7 +659,6 @@ summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), mean(cesdTotal), 
 
 :::
 :::
-
 
 
 ::: --->
@@ -689,7 +677,6 @@ summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), mean(cesdTotal), 
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -710,7 +697,6 @@ summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), mean(cesdTotal), 
 :::
 
 
-
 It separates out the means and SDs by the group_by condition - i.e, by intervention.
 ::: --->
 <ol start="15" type="1">
@@ -725,7 +711,6 @@ It separates out the means and SDs by the group_by condition - i.e, by intervent
 </ul>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -770,14 +755,12 @@ summarise(summary_all_dat_intocc, mean(ahiTotal), sd(ahiTotal))
 :::
 
 
-
 ::: --->
 <ol start="16" type="1">
 <li>This doesn’t print all the lines out, so you can make a new object (e.g., called sum_output) and view that, or you can filter out some of the lines so we only look at the first and second occasion of testing.</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -787,7 +770,6 @@ sum_output <- summarise(summary_all_dat_intocc, mean(ahiTotal), sd(ahiTotal))
 View(sum_output)
 ```
 :::
-
 
 
 ::: --->
@@ -821,7 +803,6 @@ Hint
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -834,14 +815,12 @@ ggplot(summary_all_dat, aes(x = ahiTotal, y = cesdTotal)) + geom_point() + labs(
 :::
 
 
-
 ::: --->
 <ol start="18" type="1">
 <li>Now redraw the plot, but colour the points according to whether they are first, second, third, etc occasion of testing. Add in <code>col = "occasion"</code> into the <code>aes()</code> part of the geom_point function, so that this part looks like this: <code>aes(x = ahiTotal, y = cesdTotal, col = occasion)</code></li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -854,7 +833,6 @@ ggplot(summary_all_dat, aes(x = ahiTotal, y = cesdTotal, col = occasion)) + geom
 ![](Week4_files/figure-html/unnamed-chunk-18-1.png){width=672}
 :::
 :::
-
 
 
 ::: --->
@@ -874,7 +852,6 @@ ggplot(summary_all_dat, aes(x = ahiTotal, y = cesdTotal, col = occasion)) + geom
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -907,7 +884,6 @@ ggplot(titanic, aes(x = class, fill = survival)) + geom_bar( position = "dodge")
 ![](Week4_files/figure-html/unnamed-chunk-19-1.png){width=672}
 :::
 :::
-
 
 
 ::: --->
@@ -968,11 +944,10 @@ titanic$class       died   survived
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cramersV</span>(<span class="at">x =</span> titanic<span class="sc">$</span>class, <span class="at">y =</span> titanic<span class="sc">$</span>survival)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="24" type="1">
-<li>Your next task is to run some Chi-squared and Cramer’s V tests on some of the other nominal data. Open the data “PSYC401-shipley-scores-anonymous-17_24.csv” again. Investigate the association between gender and year (are there different distributions of males and females in each of our masters’ year cohorts) using Chi-squared and Cramer’s V. Is it significant?</li>
+<li>Your next task is to run some Chi-squared and Cramer’s V tests on some of the other nominal data. Open the data “PSYC411-shipley-scores-anonymous-17_24.csv” again. Investigate the association between gender and year (are there different distributions of males and females in each of our masters’ year cohorts) using Chi-squared and Cramer’s V. Is it significant?</li>
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1052,12 +1027,10 @@ Warning in stats::chisq.test(...): Chi-squared approximation may be incorrect
 
 
 
-
 it isn't significant, X-squared = 11.79, df = 14, p-value = .623, but there is < 5 in the 
 "Other" gender category which gives us the error message "Chi-squared approximation may be incorrect".
 if we focus just on Male/Female data, if, for instance, we are interested for the purposes of 
 our investigation only in these larger categories:
-
 
 
 ::: {.cell}
@@ -1095,7 +1068,6 @@ cramersV( x = vdatmf$Gender, vdatmf$academic_year)
 :::
 
 
-
 It still isn't significant, X-squared = 5.99, df = 7, p-value = .541
 ::: --->
 <ol start="25" type="1">
@@ -1103,7 +1075,6 @@ It still isn't significant, X-squared = 5.99, df = 7, p-value = .541
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1159,11 +1130,9 @@ Warning in stats::chisq.test(...): Chi-squared approximation may be incorrect
 :::
 
 
-
 not significant, X-squared = 2.09, df = 2, p-value = .352.
 
 And just for Male/Female:
-
 
 
 ::: {.cell}
@@ -1200,7 +1169,6 @@ cramersV( x = vdatmf$Gender, vdatmf$english_status)
 :::
 
 
-
 Still not significant, X-squared = 0.62, df = 1, p-value = .431
 ::: --->
 <ol start="26" type="1">
@@ -1208,7 +1176,6 @@ Still not significant, X-squared = 0.62, df = 1, p-value = .431
 </ol>
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1245,7 +1212,6 @@ cramersV( x = vdat$english_status, vdat$academic_year)
 :::
 
 
-
 Not significant, X-squared = 4.32, df = 7, p-value = .742
 ::: --->
 </section>
@@ -1260,7 +1226,6 @@ Not significant, X-squared = 4.32, df = 7, p-value = .742
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
 For example, you could have a go at occasion and intervention. This would tell you whether the participants are unevenly distributed across the occasions and interventions:
-
 
 
 
@@ -1299,7 +1264,6 @@ cramersV( x = all_dat$occasion, all_dat$intervention)
 :::
 
 
-
 chi2(15, N = 992) = 9.78, p = .833
 
 Cramer's V = .06
@@ -1314,7 +1278,7 @@ Not significant, X-squared = 2.73, df = 6, p-value = .842
 <li>Here is another dataset for you to investigate:</li>
 </ol>
 <p>Papoutsi, C., Zimianiti, E., Bosker, H. R., &amp; Frost, R. L. (2024). Statistical learning at a virtual cocktail party. <em>Psychonomic Bulletin &amp; Review, 31(2)</em>, 849-861. https://doi.org/10.3758/s13423-023-02384-1</p>
-<p>The data are available on OSF, but also a cleaned version of the dataset is <a href="data/wk4/papatsou_cleaneddata.csv">avaiilable here</a>.</p>
+<p>The data are available on OSF, but also a cleaned version of the dataset is <a href="data/wk4/papatsou_cleaneddata.csv">available here</a>.</p>
 <p>There is also something in the osf site called a R-markdown file - Data_analysis_script.rmd</p>
 <p>This is a special kind of R-script, a “R-markdown” file, which also stores the results alongside the commands.</p>
 <p>You should be able to scroll through it and see some of the R studio commands that might be familiar.</p>
@@ -1325,7 +1289,6 @@ Not significant, X-squared = 2.73, df = 6, p-value = .842
 <!--- ::: {.callout-warning icon=false collapse="false"}
 ## Answer
 This is the dataset you need
-
 
 
 ::: {.cell}
@@ -1350,7 +1313,6 @@ dbl (11): trialNo, tablerow, soundrow, correct_answer, rt, status, trialaccu...
 
 :::
 :::
-
 
 
 ::: --->
