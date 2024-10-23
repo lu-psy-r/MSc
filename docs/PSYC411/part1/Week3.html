@@ -209,6 +209,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week4_holding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4. Testing nominal data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../PSYC411/part1/Week5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5. Testing differences between groups</span></a>
   </div>
@@ -352,6 +358,7 @@ Hint
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -362,7 +369,9 @@ dat <- spss.get("stamkou_Study 1_edited data.sav")
 
 
 
+
 or:
+
 
 
 
@@ -373,6 +382,7 @@ library(haven)
 dat <- read_sav("stamkou_Study 1_edited data.sav")
 ```
 :::
+
 
 
 
@@ -416,6 +426,7 @@ Hint
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -424,6 +435,7 @@ plot(dat$PracticeHappy, dat$VideoHappy)
 summarise(dat, mean(PracticeHappy), sd(PracticeHappy), mean(VideoHappy, na.rm=T), sd(VideoHappy, na.rm=T))
 ```
 :::
+
 
 
 
@@ -436,12 +448,14 @@ or you could use:
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 mean(dat$PracticeHappy); sd(dat$PracticeHappy); mean(dat$VideoHappy); sd(dat$VideoHappy)
 ```
 :::
+
 
 
 
@@ -454,6 +468,7 @@ mean(dat$PracticeHappy); sd(dat$PracticeHappy); mean(dat$VideoHappy); sd(dat$Vid
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -461,6 +476,7 @@ dat2 <- group_by(dat, EmotionCondition)
 summarise(dat2, mean(PracticeHappy), sd(PracticeHappy), mean(VideoHappy, na.rm=T), sd(VideoHappy, na.rm=T))
 ```
 :::
+
 
 
 
@@ -490,12 +506,14 @@ happiness decreases in all conditions, but most for Control, mid for Awe, least 
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
 ```
 :::
+
 
 
 
@@ -508,12 +526,14 @@ dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 View(dat)
 ```
 :::
+
 
 
 
@@ -532,12 +552,14 @@ View(dat)
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 hist(dat$Gent_2_score)
 ```
 :::
+
 
 
 
@@ -558,12 +580,14 @@ hist(dat$Gent_2_score)
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 summarise(dat, mean(Gent_1_score, na.rm=T), sd(Gent_1_score, na.rm=T), mean(Gent_2_score, na.rm=T), sd(Gent_2_score, na.rm=T), n())
 ```
 :::
+
 
 
 
@@ -650,12 +674,14 @@ Note
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 summarise(summarydata_enl, mean(Shipley_Voc_Score), sd(Shipley_Voc_Score))
 ```
 :::
+
 
 
 
@@ -669,6 +695,7 @@ mean = 32.1, sd = 3.25
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -676,6 +703,7 @@ summarydata$zshipley <- scale(summarydata$Shipley_Voc_Score)
 summarise(summarydata, min(zshipley), max(zshipley))
 ```
 :::
+
 
 
 
@@ -693,12 +721,14 @@ Min: -2.46, max = 1.43
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 summarise(summarydata2, mean(Shipley_Voc_Score), sd(Shipley_Voc_Score), n())
 ```
 :::
+
 
 
 
@@ -745,6 +775,7 @@ english_status `mean(Shipley_Voc_Score)` `sd(Shipley_Voc_Score)` `n()`
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -754,7 +785,9 @@ ggplot(summarydata, aes(x = summarydata$Shipley_Voc_Score)) + geom_histogram(fil
 
 
 
+
 or how about this for a version that separates out the gender in the same figure:
+
 
 
 
@@ -764,6 +797,7 @@ or how about this for a version that separates out the gender in the same figure
 ggplot(summarydata, aes(x = Shipley_Voc_Score, fill=Gender )) + geom_histogram(bins = 10) + labs(title="Shipley Vocabulary Test", x = "Vocabulary Score", y = "Frequency")
 ```
 :::
+
 
 
 
@@ -883,6 +917,7 @@ These are categorical against ratio variables, so all box plots:
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -893,6 +928,7 @@ ggplot(summarydata, aes(x = english_status, y = Age) ) + geom_boxplot()
 ggplot(summarydata, aes(x = Age, fill = english_status) ) + geom_histogram()
 ```
 :::
+
 
 
 
@@ -912,12 +948,14 @@ ggplot(summarydata, aes(x = Age, fill = english_status) ) + geom_histogram()
 
 
 
+
 ::: {.cell}
 
 ```{.r .cell-code}
 summarise(summarydata2, min(Shipley_Voc_Score), max(Shipley_Voc_Score))
 ```
 :::
+
 
 
 
@@ -970,7 +1008,7 @@ Note
 </section>
 <section id="answers" class="level3">
 <h3 class="anchored" data-anchor-id="answers">3.4.3 Answers</h3>
-<p>The answers to the workbook will appear below each question in the workbook, above, after the practical has finished, so you can check your work.</p>
+<p>The answers to the workbook now appear below each question in the workbook, above, after the practical has finished, so you can check your work.</p>
 <p>It’s really important for your learning that you have a go first of all at the workbook before looking at the answers.</p>
 <!---- ## 3.5 Extras --->
 

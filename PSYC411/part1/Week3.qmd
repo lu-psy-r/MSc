@@ -688,7 +688,7 @@ Here is a link to the data referred to in this practical:
 
 ### 3.4.3 Answers
 
-The answers to the workbook will appear below each question in the workbook, above, after the practical has finished, so you can check your work.
+The answers to the workbook now appear below each question in the workbook, above, after the practical has finished, so you can check your work.
 
 It's really important for your learning that you have a go first of all at the workbook before looking at the answers.
 
