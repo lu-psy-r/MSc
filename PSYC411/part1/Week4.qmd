@@ -95,7 +95,7 @@ library(tidyverse)
 
 The data set on the Shipley and Gent vocabulary scores is now updated with the data from your group, so it now contains *eight* years of PSYC411 students' data. I've omitted Age as this might impact anonymity of the data. Download the data from here: [PSYC411-shipley-scores-anonymous-17_24.csv](data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv) and read the data into an object in R studio called `vdat` (for vocabulary data).
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ``` {r}
 library(tidyverse)
@@ -113,7 +113,7 @@ vdat$academic_year <- as.factor(vdat$academic_year)
 view(vdat) #view the data
 ```
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 It has to be nominal unless we have a hypothesis about the order of years of groups being important to the data. But that is very unlikely to have an effect (though you could look up the "Flynn Effect" in case you wanted to generate one...). But for now we want each year to be treated independently, rather than in order, in our analysis.
 :::
@@ -121,7 +121,7 @@ It has to be nominal unless we have a hypothesis about the order of years of gro
 
 4.  Make sure the tidyverse library is loaded. Select all the variables apart from Age and save as a new object called "summaryvdat". We will omit these variables because they are not complete for the dataset.
 
-::: {.callout-warning icon="false" collapse="true"}
+::: {.callout-warning icon="false" collapse="false"}
 ## Hint
 ```{r eval=TRUE}
 # there are two ways to do this, either list the variables you are omitting with a `-c(variables,variables,...)` command:
@@ -136,7 +136,7 @@ summaryvdat <- select(vdat, subject_ID, english_status, Gender, Shipley_Voc_Scor
 
 5. Arrange the data according to Gent_2_score, from highest to lowest. Save this as a new object called "summaryvdat_sort"
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ``` {r}
 summaryvdat_sort <- arrange(summaryvdat, desc(Gent_2_score))
@@ -150,7 +150,7 @@ summaryvdat_sort <- arrange(summaryvdat, desc(Gent_2_score))
 * Gender and academic year
 * Vocabulary score and academic year
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ``` {r}
 ggplot(summaryvdat, aes(x = academic_year, fill = english_status)) + 
@@ -178,7 +178,7 @@ ggplot(summaryvdat, aes(x = academic_year, y = Gent_1_score)) +
 
 10. Next, load and join the ahicesd.csv and participantinfo.csv data in R studio. Call the joined data set "all_dat" (see week 2 workbook for reminders about this)
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ``` {r}
 dat <- read_csv("data/wk2/ahicesd.csv")
@@ -203,7 +203,7 @@ all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 hint: use the `arrange()` function, or the `min()` and `max()` functions.
 :::
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
 summary_all_dat <- select(all_dat, c("id", "occasion", "intervention", "ahiTotal","cesdTotal","sex", "age", "educ", "income"))
@@ -229,7 +229,7 @@ summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), mean(cesdTotal), 
 
 - What is the result of this command?
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
 summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), 
@@ -250,7 +250,7 @@ summary_all_dat_scale_intervention <- group_by(summary_all_dat_scale, interventi
 
 Now, we can look at the means for each intervention using the summarise function again. Run the `summarise` function on summarydata_scale_intervention. What happens?
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
 summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), 
@@ -272,7 +272,7 @@ summary_all_dat_intocc <- group_by(summary_all_dat_scale, intervention, occasion
 
 - Now produce the means and standard deviations of the happiness score (ahiTotal) for each intervention at each testing occasion. 
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
 summary_all_dat_intocc <- group_by(summary_all_dat_scale, intervention, occasion)
@@ -283,7 +283,7 @@ summarise(summary_all_dat_intocc, mean(ahiTotal), sd(ahiTotal))
 
 16. This doesn't print all the lines out, so you can make a new object (e.g., called sum_output) and view that, or you can filter out some of the lines so we only look at the first and second occasion of testing.
 
-::: {.callout-warning icon=false collapse="true"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r eval=FALSE}
 sum_output <- summarise(summary_all_dat_intocc, mean(ahiTotal), sd(ahiTotal))
