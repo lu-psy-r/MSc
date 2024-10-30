@@ -107,7 +107,6 @@ You should be able to answer yes to all the following. If you can't yet, go back
 
 16. I can save an R script file.
 
-
 ::: {.callout-note icon="false" collapse="false"}
 ## ANSWER
 Here are some examples of the commands/functions in use:
@@ -222,7 +221,7 @@ Yes, two groups.
 
 25. Compute mean and SDs for people who self-identify as male or female on Gent vocabulary test 1 scores.
 
-::: {.callout-warning icon="false" collapse="true"}
+::: {.callout-warning icon="false" collapse="false"}
 ## Hint
 
 Use `group_by()` and `summarise()`.
@@ -245,7 +244,7 @@ dat4 %>% group_by(Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score))
 
 ``` {r eval=FALSE}
 
-t.test(Gent_1_score ~ Gender, data = dat5 )
+t.test(Gent_1_score ~ Gender, data = dat5 ) 
 
 ```
 
@@ -262,12 +261,19 @@ To fix this on your own computer version, you need to download and install an ol
 
 27. The results should look like this, do yours?
 ````
-Welch Two Sample t-test
+	Welch Two Sample t-test
 
-***** TO COMPLETE *****
+data:  Gent_1_score by Gender
+t = -1.6693, df = 83.298, p-value = 0.09881
+alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
+95 percent confidence interval:
+ -7.982423  0.697279
+sample estimates:
+mean in group Female   mean in group Male 
+            58.57561             62.21818 
 ````
 
-28. The key part of the results to look at is the one that has t = -1.7356, df = 62.409, p-value = 0.08756. This is the result that you report: *t*(62.41) = -1.74, *p* = .088.
+28. The key part of the results to look at is the one that has t = -1.6693, df = 83.298, p-value = 0.09881. This is the result that you report: *t*(83.30) = -1.67, *p* = .099.
 
 The value is negative because the function includes Female before Male - and Female score is lower than Male score. What matters is how far away from zero the t-test is (either positively or negatively).  The df value is slightly odd because the t.test() function figures out degrees of freedom in a technical way which takes into account differences in variance in the data between the two groups. We can just use the value that the `t.test()` function gives us. 
 
@@ -279,7 +285,7 @@ No, it isn't. The p-value is greater than 0.05.
 :::
 
 30. Now we need to compute the effect size, using Cohen's d. You need to load the library lsr then use this command:
-``` {r}
+``` {r eval=FALSE}
 
 cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 
@@ -298,10 +304,10 @@ cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 An ideal brief report of the results would state what the research question/hypothesis is, describe the means and SDs of the groups being compared, and then report the t-test statistic, with p-value and Cohen's d effect size, then provide a brief interpretation of what the results mean.
 
 Based on Hyde and Linn (1988), we hypothesised that people who self-identify as female may score slightly higher than males in
-terms of vocabulary scores. Males (mean = 62.1, SD = 15.3) scored higher than 
-females (mean = 58.0, SD = 14.7) on the first time participants attempted the 
+terms of vocabulary scores. Males (mean = 62.2, SD = 14.5) scored higher than 
+females (mean = 58.6, SD = 14.0) on the first time participants attempted the 
 Gent vocabulary test, however this difference was not significant,
-*t*(73.94) = -1.68, *p* = .098, Cohen's *d* = 0.27. We did not find evidence to support the hypothesis.
+*t*(83.30) = -1.67, *p* = .099, Cohen's *d* = 0.27. We did not find evidence to support the hypothesis.
 
 *Reference*
 
@@ -411,7 +417,7 @@ summarydata <- select(all_dat, c("id", "ahiTotal", "occasion"))
 
 43. Use filter to pull out only occasion == 0 or occasion == 1 scores
 
-::: {.callout-warning icon="false" collapse="true"}
+::: {.callout-warning icon="false" collapse="false"}
 ## Hint
 use `occasion == 0 | occasion == 1')`, save this as a new object
 called `summarydata2`
@@ -460,7 +466,7 @@ ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
 
 48. In order to run the paired t-test, we first need to make sure that the paired values (in this case the measures from the same person) are on the same row of the data. So, let's use pivot_wider to put the ahiTotal scores for occasion 0 in one column, and the ahiTotal scores for occasion 1 in another column:
 
-``` {r}
+``` {r eval=FALSE}
 summarydata2_wide <- pivot_wider(summarydata2, names_from = occasion, values_from = ahiTotal, names_prefix = "occasion_")
 ```
 
@@ -473,7 +479,7 @@ What would happen if we didn't use names_prefix? It would still work, but it's a
 
 49. Then, we can run the paired t-test in the following way:
 
-``` {r}
+``` {r eval=FALSE}
 
 t.test(summarydata2_wide$occasion_0, summarydata2_wide$occasion_1, paired = TRUE)
 
@@ -489,7 +495,7 @@ yes, because *p* < .05.
 
 50. Now run Cohen's d: it's similar to the way we do the paired t-test:
 
-``` {r}
+``` {r eval=FALSE}
 
 cohensD( summarydata2_wide$occasion_0, summarydata2_wide$occasion_1, method =  "paired")
 
@@ -543,19 +549,17 @@ dat3 <- drop_na(dat2)
 Each row contains a score for each person for each Gent test, and so we are ready to run the paired t-test:
 
 ::: {.callout-note icon="false" collapse="false"}
-## Answer to 55-59.
+## Answer
 ``` {r}
 t.test(dat3$Gent_1_score, dat3$Gent_2_score, paired = TRUE)
 cohensD( dat3$Gent_1_score, dat3$Gent_2_score, , method =  "paired")
 
 ```
-
-``` {r}
-```
+:::
 
 56. Get mean and SD of the scores for the tests.
 
-::: {.callout-note icon="false" collapse="false"}
+:::{.callout-note icon="false" collapse="false"}
 ## Answer
 ``` {r}
 summarise(dat3, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score))
@@ -637,7 +641,7 @@ jalava2 %>% group_by(test, test_time) %>% summarise(mean(score, na.rm=TRUE), sd(
 
 *Note, this is a major challenge, but it will be a step into new research!*
 
-The task is to take the de Zubicaray data, and add a new variable which determines whether the word is a palindrome or not. A palindrome is a word that is spelled the same backwards as forwards (e.g., abba, papal).
+The task is to take the de Zubicaray data, and add a new variable which determines whether the word is a palindrome or not. A palindrome is a word that is spelled the same backwards as forwards (e.g., abba, rotavator).
 
 I would like to know if being a palindrome or not affects processing of the words. My prediction is that being a palindrome helps access the word.
 

@@ -553,7 +553,7 @@ Data referred to in this workbook:
 
 ## 4.4.3 Answers
 
-Answers will appear in this page, above, after the practical in week 4.
+Answers now appear in this page, above.
 
 ## 4.5 Extras
 
