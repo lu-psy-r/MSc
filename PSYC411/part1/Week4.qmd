@@ -95,13 +95,13 @@ library(tidyverse)
 
 The data set on the Shipley and Gent vocabulary scores is now updated with the data from your group, so it now contains *eight* years of PSYC411 students' data. I've omitted Age as this might impact anonymity of the data. Download the data from here: [PSYC411-shipley-scores-anonymous-17_24.csv](data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv) and read the data into an object in R studio called `vdat` (for vocabulary data).
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ``` {r}
 library(tidyverse)
 vdat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv")
 ```
-::: --->
+:::
 
 
 3. As a reminder, when we want to look at a particular variable (a column) in an object in R studio, we refer to it using the `$` notation. So, for the object vdat and the variable academic_year you would refer to it as `vdat$academic_year`. For this data set, we need to change academic year to be a nominal (factor) variable. Why are we setting academic year to be nominal and not interval/ratio?:
@@ -113,15 +113,15 @@ vdat$academic_year <- as.factor(vdat$academic_year)
 view(vdat) #view the data
 ```
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 It has to be nominal unless we have a hypothesis about the order of years of groups being important to the data. But that is very unlikely to have an effect (though you could look up the "Flynn Effect" in case you wanted to generate one...). But for now we want each year to be treated independently, rather than in order, in our analysis.
-::: --->
+:::
 
 
 4.  Make sure the tidyverse library is loaded. Select all the variables apart from Age and save as a new object called "summaryvdat". We will omit these variables because they are not complete for the dataset.
 
-::: {.callout-warning icon="false" collapse="false"}
+::: {.callout-warning icon="false" collapse="true"}
 ## Hint
 ```{r eval=TRUE}
 # there are two ways to do this, either list the variables you are omitting with a `-c(variables,variables,...)` command:
@@ -136,12 +136,12 @@ summaryvdat <- select(vdat, subject_ID, english_status, Gender, Shipley_Voc_Scor
 
 5. Arrange the data according to Gent_2_score, from highest to lowest. Save this as a new object called "summaryvdat_sort"
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ``` {r}
 summaryvdat_sort <- arrange(summaryvdat, desc(Gent_2_score))
 ```
-::: --->
+:::
 
 ##### Task 3: Draw Graphs of the Vocabulary Data
 
@@ -150,15 +150,18 @@ summaryvdat_sort <- arrange(summaryvdat, desc(Gent_2_score))
 * Gender and academic year
 * Vocabulary score and academic year
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ``` {r}
-ggplot(summaryvdat, aes(x = academic_year, fill = english_status)) + geom_bar(position = "dodge")
-ggplot(summaryvdat, aes(x = academic_year, fill = Gender)) + geom_bar(position = "dodge")
-ggplot(summaryvdat, aes(x = academic_year, y = Gent_1_score)) + geom_boxplot()
+ggplot(summaryvdat, aes(x = academic_year, fill = english_status)) + 
+  geom_bar(position = "dodge")
+ggplot(summaryvdat, aes(x = academic_year, fill = Gender)) + 
+  geom_bar(position = "dodge")
+ggplot(summaryvdat, aes(x = academic_year, y = Gent_1_score)) + 
+  geom_boxplot()
 
 ```
-::: --->
+:::
 
 7. Save your script file.
 
@@ -175,14 +178,14 @@ ggplot(summaryvdat, aes(x = academic_year, y = Gent_1_score)) + geom_boxplot()
 
 10. Next, load and join the ahicesd.csv and participantinfo.csv data in R studio. Call the joined data set "all_dat" (see week 2 workbook for reminders about this)
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ``` {r}
 dat <- read_csv("data/wk2/ahicesd.csv")
 pinfo <- read_csv("data/wk2/participantinfo.csv")
 all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 ```
-::: --->
+:::
 
 ##### Task 5: Selecting and manipulating data
 
@@ -200,16 +203,17 @@ all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 hint: use the `arrange()` function, or the `min()` and `max()` functions.
 :::
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r}
 summary_all_dat <- select(all_dat, c("id", "occasion", "intervention", "ahiTotal","cesdTotal","sex", "age", "educ", "income"))
-summary_all_dat_scale <- mutate(summary_all_dat, ahiTotalscale = scale(ahiTotal), cesdTotalscale = scale(cesdTotal))
+summary_all_dat_scale <- mutate(summary_all_dat, ahiTotalscale = scale(ahiTotal),
+                                cesdTotalscale = scale(cesdTotal))
 summarise(summary_all_dat_scale, min(ahiTotalscale), max(ahiTotalscale))
 
 ```
 The values are z-scores so the numbers indicate how many standard deviations the values are from the mean
-::: --->
+:::
 
 13. The next way we will work with the data is to organise the observations into different groups.  We will use the function summarise(). So, instead of `mean(summary_all_dat_scale$ahiTotal)` you can use this, which turns out to be a much more powerful way of looking at the data:
 
@@ -225,12 +229,13 @@ summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), mean(cesdTotal), 
 
 - What is the result of this command?
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r}
-summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), mean(cesdTotal), sd(cesdTotal))
+summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), 
+          mean(cesdTotal), sd(cesdTotal))
 ```
-::: --->
+:::
 
 
 14. But now let's think about what kind of patterns we'd like to investigate in the data. There are four interventions conducted in this study. Let's look at each of these interventions and their effect of ahiTotal and cesdTotal. 
@@ -245,13 +250,14 @@ summary_all_dat_scale_intervention <- group_by(summary_all_dat_scale, interventi
 
 Now, we can look at the means for each intervention using the summarise function again. Run the `summarise` function on summarydata_scale_intervention. What happens?
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r}
-summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), mean(cesdTotal), sd(cesdTotal))
+summarise(summary_all_dat_scale, mean(ahiTotal), sd(ahiTotal), 
+          mean(cesdTotal), sd(cesdTotal))
 ```
 It separates out the means and SDs by the group_by condition - i.e, by intervention.
-::: --->
+:::
 
 
 15. You can also group by several factors at the same time. We can group by intervention and get means and standard deviations, but that is not going to give us a huge amount of insight into how the interventions affect the happiness measure because we are combining the mean of ahiTotal across all occasions of testing, including testing before the intervention has been applied.
@@ -266,24 +272,24 @@ summary_all_dat_intocc <- group_by(summary_all_dat_scale, intervention, occasion
 
 - Now produce the means and standard deviations of the happiness score (ahiTotal) for each intervention at each testing occasion. 
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r}
 summary_all_dat_intocc <- group_by(summary_all_dat_scale, intervention, occasion)
 summarise(summary_all_dat_intocc, mean(ahiTotal), sd(ahiTotal))
 ```
-::: --->
+:::
 
 
 16. This doesn't print all the lines out, so you can make a new object (e.g., called sum_output) and view that, or you can filter out some of the lines so we only look at the first and second occasion of testing.
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r eval=FALSE}
 sum_output <- summarise(summary_all_dat_intocc, mean(ahiTotal), sd(ahiTotal))
 View(sum_output)
 ```
-::: --->
+:::
 
 #### 4.4.1.4 Part 4: Graphing groups
 
@@ -299,22 +305,30 @@ And make it a bit more beautiful using the labs() addition.
 ::: 
 
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
-ggplot(summary_all_dat, aes(x = ahiTotal, y = cesdTotal)) + geom_point() + labs(title = "Happiness and Depression Scores", x = "Happiness Score", y = "Depression Score")
+ggplot(summary_all_dat, aes(x = ahiTotal, y = cesdTotal)) + 
+  geom_point() + 
+  labs(title = "Happiness and Depression Scores", 
+       x = "Happiness Score", 
+       y = "Depression Score")
 ```
-::: --->
+:::
 
 
 18. Now redraw the plot, but colour the points according to whether they are first, second, third, etc occasion of testing. Add in `col = "occasion"` into the `aes()` part of the geom_point function, so that this part looks like this:  `aes(x = ahiTotal, y = cesdTotal, col = occasion)`
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
-ggplot(summary_all_dat, aes(x = ahiTotal, y = cesdTotal, col = occasion)) + geom_point() + labs(title = "Happiness and Depression Scores", x = "Happiness Score", y = "Depression Score")
+ggplot(summary_all_dat, aes(x = ahiTotal, y = cesdTotal, col = occasion)) + 
+  geom_point() + 
+  labs(title = "Happiness and Depression Scores", 
+       x = "Happiness Score", 
+       y = "Depression Score")
 ```
-::: --->
+:::
 
 #### 4.4.1.5 Part 5: Working out whether nominal data is random or structured: Repeating the analyses from Lecture week4 part3
 
@@ -328,13 +342,14 @@ View the data. It should correspond to the data in the overhead slides.
 
 20. Make a bar graph to count the numbers of survived and died by class.
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
 titanic <- read_csv("data/wk4/titanic.csv")
-ggplot(titanic, aes(x = class, fill = survival)) + geom_bar( position = "dodge")
+ggplot(titanic, aes(x = class, fill = survival)) + 
+  geom_bar( position = "dodge")
 ```
-::: --->
+:::
 
 
 21. Now let's see if there is a significant relation between class and survival using Chi-squared: 
@@ -382,7 +397,7 @@ cramersV(x = titanic$class, y = titanic$survival)
 
 24. Your next task is to run some Chi-squared and Cramer's V tests on some of the other nominal data. Open the data "PSYC411-shipley-scores-anonymous-17_24.csv" again. Investigate the association between gender and year (are there different distributions of males and females in each of our masters' year cohorts) using Chi-squared and Cramer's V. Is it significant? 
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
 library(lsr)
@@ -403,12 +418,12 @@ chisq.test( x = vdatmf$Gender, vdatmf$academic_year)
 cramersV( x = vdatmf$Gender, vdatmf$academic_year)
 ```
 It still isn't significant, X-squared = 5.99, df = 7, p-value = .541
-::: --->
+:::
 
 
 25. What about the association between english_status and Gender? 
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
 chisq.test( x = vdat$Gender, vdat$english_status)
@@ -422,18 +437,18 @@ chisq.test( x = vdatmf$Gender, vdatmf$english_status)
 cramersV( x = vdatmf$Gender, vdatmf$english_status)
 ```
 Still not significant, X-squared = 0.62, df = 1, p-value = .431
-::: --->
+:::
 
 26. What about the association between english_status and academic year?
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 ```{r}
 chisq.test( x = vdat$english_status, vdat$academic_year)
 cramersV( x = vdat$english_status, vdat$academic_year)
 ```
 Not significant, X-squared = 4.32, df = 7, p-value = .742
-::: --->
+:::
 
 
 #### 4.4.1.6 Part 6: More practice using Chi-squared and Cramer's V test
@@ -443,7 +458,7 @@ Not significant, X-squared = 4.32, df = 7, p-value = .742
 27. Look at the "ahicesd.csv" and "participantinfo.csv" data sets from week 2 again. Which nominal measures could you look at an association between? Report the Chi-squared test and Cramer's V results for these associations. Are these associations significant? How do you interpret the significant associations?
 
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 For example, you could have a go at occasion and intervention. This would tell you whether the participants are unevenly distributed across the occasions and interventions:
 
@@ -457,7 +472,7 @@ chi2(15, N = 992) = 9.78, p = .833
 Cramer's V = .06
 
 Not significant, X-squared = 2.73, df = 6, p-value = .842
-::: --->
+:::
 
 
 #### 4.4.1.7 Part 7: Extra practise downloading and analysing data
@@ -467,6 +482,11 @@ Not significant, X-squared = 2.73, df = 6, p-value = .842
 Papoutsi, C., Zimianiti, E., Bosker, H. R., & Frost, R. L. (2024). Statistical learning at a virtual cocktail party. *Psychonomic Bulletin & Review, 31(2)*, 849-861. https://doi.org/10.3758/s13423-023-02384-1
 
 The data are available on OSF, but also a cleaned version of the dataset is [available here](data/wk4/papatsou_cleaneddata.csv). 
+If this doesn't work when you try to upload into psy-rstudio.lancaster.ac.uk, then you can always get the data from the osf site using this command: 
+
+``` {r eval=FALSE}
+dat <- read_csv('https://osf.io/download/ky4u6/')
+```
 
 There is also something in the osf site called a R-markdown file - Data_analysis_script.rmd
 
@@ -480,13 +500,13 @@ For more information on R-markdown, you can see here: https://r4ds.had.co.nz/r-m
 If you're keen to learn, there is more information on pirate plots here: 
 [pirateplots](https://cran.r-project.org/web/packages/yarrr/vignettes/pirateplot.html){target="_blank"}
 
-<!--- ::: {.callout-warning icon=false collapse="false"}
+::: {.callout-warning icon=false collapse="false"}
 ## Answer
 This is the dataset you need
 ```{r}
 papitsou <- read_csv("data/wk4/papatsou_cleaneddata.csv")
 ```
-::: --->
+:::
 
 30. Have a further browse of Psychological Science for data sets that you can download and begin to explore. Practise applying the data manipulation and graphing functions to these data sets. Or here is another one you might find interesting:
 
