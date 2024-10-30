@@ -4,7 +4,7 @@
     "href": "PSYC411/part1/Week5.html",
     "title": "Week 5. Testing differences between groups",
     "section": "",
-    "text": "Material for week 5 will be released after week 4 practical.\n\n\n\n Back to top",
+    "text": "This week, there are two mini lectures, and the practical workbook working with R-studio.\nBefore the practical on Tuesday, please try to work through the practical workbook in your group.\nBring your questions (and/or answers) to the practical.",
     "crumbs": [
       "Home",
       "PSYC411",
@@ -1683,6 +1683,90 @@
       "Home",
       "PSYC411",
       "Week 4. Testing nominal data"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week5.html#overview",
+    "href": "PSYC411/part1/Week5.html#overview",
+    "title": "Week 5. Testing differences between groups",
+    "section": "",
+    "text": "This week, there are two mini lectures, and the practical workbook working with R-studio.\nBefore the practical on Tuesday, please try to work through the practical workbook in your group.\nBring your questions (and/or answers) to the practical.",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Week 5. Testing differences between groups"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week5.html#learning-goals",
+    "href": "PSYC411/part1/Week5.html#learning-goals",
+    "title": "Week 5. Testing differences between groups",
+    "section": "5.2 Learning Goals",
+    "text": "5.2 Learning Goals\n\nUnderstand when t-tests are appropriately applied to data\nUnderstand the distinction between paired and independent t-tests\nInterpret p-values from t-tests\nDetermine how a paired t-test is calculated\nDetermine how an independent t-test is calculated\nUnderstand effect sizes for t-tests\nBe able to effectively interpret t-test results\nBe able to accurately present t-test results in research reports",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Week 5. Testing differences between groups"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week5.html#lectures-and-slides",
+    "href": "PSYC411/part1/Week5.html#lectures-and-slides",
+    "title": "Week 5. Testing differences between groups",
+    "section": "5.3 Lectures and slides",
+    "text": "5.3 Lectures and slides\n\n5.3.1 Lectures\nWatch Lecture week 5 part 1:\n\nWatch Lecture week 5 part 2:\n\nTake the quiz (not assessed) on the lecture materials.\n\n\n5.3.2 Slides\nDownload the lecture slides for:\n\npart 1\npart 2",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Week 5. Testing differences between groups"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week5.html#practical-materials",
+    "href": "PSYC411/part1/Week5.html#practical-materials",
+    "title": "Week 5. Testing differences between groups",
+    "section": "5.4 Practical Materials",
+    "text": "5.4 Practical Materials\n\n5.4.1 Workbook\n\nPart 1 is some revision from the last 4 weeks.\nPart 2 covers running an independent t-test.\nPart 3 covers running a paired t-test.\nPart 4 provides more practice running paired t-tests.\nPart 5 presents some extras - exploring different datasets and running t-tests on those data.\n\n\n5.4.1.1 Part 1: Revision\n\nTask 1: Checklist: What I can now do\nYou should be able to answer yes to all the following. If you can’t yet, go back to the previous workbooks and repeat your working until you can answer yes, being able to type in and run the commands without referring to your notes.\n\nI can open R-studio\nI can open new libraries using library()\nI can make an R script file\nI can input a file into an object in R-studio using read_csv()\nI can join two files together using inner_join()\nI can select certain variables from an object using select()\nI can select subsets of data using filter() (e.g., I can select participants in two conditions from a data set containing participants in four conditions)\nI can make new variables using mutate()\nI can arrange data according to subsets using group_by()\nI can change format of data from wide to long format using pivot_longer\nI can change format of data from long to wide format using pivot_wider\nI can produce summaries of means and standard deviations for subsets of data after applying group_by() using summarise()\nI can draw histograms of single variables, point plots of two ratio/interval/ordinal variables, bar plots of counts, and box plots of one categorical and one ratio/interval/ordinal variable using ggplot()\nI can run a Chi-squared test and Cramer’s V test using chisq.test() and cramersV()\nI can interpret the results of a Chi-squared test and Cramer’s V test and write up a simple report of the results.\nI can save an R script file.\n\n\n\n\n\n5.4.1.2 Part 2: Running an independent t-test\n\nTask 2: Load, prepare, and explore the data\n\nClear out R using rm(list=ls())\nLoad again the data set on the Shipley and Gent vocabulary scores from week 4.\nSet the research question: do people who self-identify as male or female have different scores on the Gent vocabulary test? The research hypothesis is: “People who identify as male or female have different vocabulary scores”. What is the null hypothesis?\n\n\n\nTo test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a subset of the data (note that the | stands for “or”, and means Gender matches male or gender matches female:\n\n\ndat2 &lt;- filter(dat, Gender == 'Male' | Gender == 'Female')\n\n\nDraw a box plot of Gent vocabulary test 1 scores by gender. For a box plot, note that we need data in “long format”, where each observation is on one line, and we have a column that indicates which condition (in this case Gender) the participant is in. Does it look like there might be a gender effect? What is the direction of the effect?\n\n\n\nNote that unless we had filtered the data, the box plot would contain ‘NA’ as well, which stands for missing data. In a data set it’s always a good idea to call missing data ‘NA’ rather than just leaving them blank because this could be interpreted as a zero or as an error of filling in data. Missing values make things untidy, so it’s good practice to focus only on the variables we need for the t-test and remove all other missing values. Use select() to get just the Gender and Gent_1_score variables, and put this in a new object called ‘dat3’.\n\n\n\nNext, in order to run a t-test we have to remove any rows of data which contain a ‘NA’ - either in the Gender or the Gent_1_score variables. We do this using drop_na(dat3), put the result in a new object called ‘dat4’. Run this command:\n\n\ndat4 &lt;- drop_na(dat3)\n\n\nNow, redraw the box plot from Step 21. Check there are just two groups still.\n\n\n\nCompute mean and SDs for people who self-identify as male or female on Gent vocabulary test 1 scores.\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nUse group_by() and summarise().\n\n\n\n\n\n\nTask 3: Run the independent t-test and measure effect size\n\nConduct an independent t-test using this command:\n\n\nt.test(Gent_1_score ~ Gender, data = dat5 ) \n\n\n\n‘Gent_1_score ~ Gender’ : the ~ can be interpreted as ‘by’, i.e., compute Gent_1_score by Gender\n‘paired = FALSE’ : this means we are doing an independent t-test (a paired t-test would have paired = TRUE)\n\n\nThe results should look like this, do yours?\n\n    Welch Two Sample t-test\n\ndata:  Gent_1_score by Gender\nt = -1.6693, df = 83.298, p-value = 0.09881\nalternative hypothesis: true difference in means between group Female and group Male is not equal to 0\n95 percent confidence interval:\n -7.982423  0.697279\nsample estimates:\nmean in group Female   mean in group Male \n            58.57561             62.21818 \n\nThe key part of the results to look at is the one that has t = -1.6693, df = 83.298, p-value = 0.09881. This is the result that you report: t(83.30) = -1.67, p = .099.\n\nThe value is negative because the function includes Female before Male - and Female score is lower than Male score. What matters is how far away from zero the t-test is (either positively or negatively). The df value is slightly odd because the t.test() function figures out degrees of freedom in a technical way which takes into account differences in variance in the data between the two groups. We can just use the value that the t.test() function gives us.\n\nIs this a significant difference?\n\n\n\nNow we need to compute the effect size, using Cohen’s d. You need to load the library lsr then use this command:\n\n\ncohensD(Gent_1_score ~ Gender, method = \"unequal\", data = dat4)\n\n\nIt’s pretty much the same as the t-test() command except that we use ‘method = ’unequal’. For a paired t-test you would use ‘method = ’paired’\n\n\nWhat is the effect size? Make a brief report of the results - reporting means and SDs, the t-test, p-value, and Cohen’s d. Discuss your brief report in your group.\n\n\n\nMake sure all commands are in the source window, save them as a new R script file.\n\n\n\nTask 4: Practise running another independent t-test\n\nNext research question: do people who are native English speakers have different vocabulary scores than those who learned English as a second language? What is the research hypothesis and the null hypothesis?\n\n\n\nRepeat the Steps 22-30 in Tasks 2 and 3 except using english_status in place of Gender throughout.\n\n\n\nWrite a brief report of the results, including means and SDs for native speakers and ESL speakers, t-test, p-value, and Cohen’s d. Discuss your report in your group.\n\n\n\nSave your R script file.\n\n\n\n\n5.4.1.3 Part 3: Conducting a paired t-test\n\nTask 5: Conducting a paired t-test\n\nClear out R-studio before we get started again using rm(list=ls())\nWe are going to investigate again the data from this paper: Woodworth, R.J., O’Brien-Malone, A., Diamond, M.R. and Schuez, B., 2017. Data from, “Web-based Positive Psychology Interventions: A Reexamination of Effectiveness”. Journal of Open Psychology Data, 6(1).\n\nOur research question is whether happiness scores are affected by the interventions. We will look at the pre-test (occasion 0) and the first test after the intervention (occasion 1).\n\nWhat is the research hypothesis and what is the null hypothesis?\n\n\n\nFor a paired t-test we can only include data from people who have produced scores at both occasions of testing. So, we need a slightly different version of the data, which you can download here for the ahicesd.csv file and here for the participantinfo2.csv file.\n\nRemind yourself what these data mean.\n\nOnce again, join the ahicesd.csv and participantinfo2.csv data in R-studio by aligning the names for the participant numbers in these two data sets (see week 2 workbook for reminders about this).\n\n\n\nLet’s select only the relevant variables. Use select() to select only id, ahiTotal, and occasion variables, and save this as a new object called ‘summarydata’\n\n\n\nUse filter to pull out only occasion == 0 or occasion == 1 scores\n\n\n\n\n\n\n\nHint\n\n\n\n\n\nuse occasion == 0 | occasion == 1'), save this as a new object called summarydata2\n\n\n\n\n\nHere is where we would usually remove all the NA values, but there aren’t any in this file (so we don’t need drop_na()).\nNow, we need to make sure occasion is treated as a categorical variable, rather than a continuous variable, so we need to convert it to a factor:\n\n\nsummarydata2$occasion &lt;-as.factor(summarydata2$occasion)\n\n\nNow, draw a box plot of ahiTotal scores by occasion (why do we use a box plot?)\n\n\n\nCompute mean and SD for each occasion\n\n\n\nIn order to run the paired t-test, we first need to make sure that the paired values (in this case the measures from the same person) are on the same row of the data. So, let’s use pivot_wider to put the ahiTotal scores for occasion 0 in one column, and the ahiTotal scores for occasion 1 in another column:\n\n\nsummarydata2_wide &lt;- pivot_wider(summarydata2, names_from = occasion, values_from = ahiTotal, names_prefix = \"occasion_\")\n\n\n\n\n\n\n\nNote\n\n\n\n\n\nNote that we use the names_prefix = “occasion_” as an extra argument to make the column names “occasion_0” and “occasion_1”.\nWhat would happen if we didn’t use names_prefix? It would still work, but it’s a bit more awkward to work with the output.\n\n\n\n\nThen, we can run the paired t-test in the following way:\n\n\nt.test(summarydata2_wide$occasion_0, summarydata2_wide$occasion_1, paired = TRUE)\n\nIs the result significant?\n\n\nNow run Cohen’s d: it’s similar to the way we do the paired t-test:\n\n\ncohensD( summarydata2_wide$occasion_0, summarydata2_wide$occasion_1, method =  \"paired\")\n\nWhat is the value for Cohen’s d?\n\n\nWrite up a brief report of the result and discuss in your group.\n\n\n\nSave your R script file.\n\n\n\n\n5.4.1.4 Part 4: More practise running a paired t-test\nWe are going to figure out whether people have different scores the first and second time they take the Gent vocabulary test.\n\nGo back to the vocabulary scores data. Load the data into dat, and make another object dat2 that contains only the subject_ID, Gent_1_score and Gent_2_score.\nSome people did not do all the tests - look at participant 46 for instance. To do a t-test we need data where the person does both tests. We can filter out the scores where there are no NAs by repeating the drop_na we did at step 23, above. Call the new data object dat3.\n\n\n\nRun the paired t-test.\n\nEach row contains a score for each person for each Gent test, and so we are ready to run the paired t-test:\n\n\nGet mean and SD of the scores for the tests.\n\n\n\nIn order to draw a box plot of the Gent vocabulary scores taken at the first and second occasion, we will need the data in “long format”, so that there is a column saying which test it is and a column reporting the scores on the Gent tests. Apply the pivot_longer command and then draw the box plot.\n\n\n\n\n5.4.1.5 Part 5: Extras\n\nIn the vocabulary scores data, is there a significant difference between males and females for your academic year group?\n\n\n\nAre there significant differences for the other vocabulary test measures between males and females, or between those with English as first or second language?\nThe data from this paper are called ClassDraw.csv available here. The data are on osf as well, but they’re not properly formatted, so I adjusted them and put them here.\n\nJalava, S. T., Wammes, J. D., & Cheng, K. (2023). Drawing your way to an A: Long-lasting improvements in classroom quiz performance following drawing. Psychonomic Bulletin & Review, 30, 1939–1945. https://doi.org/10.3758/s13423-023-02294-2\nThere are some useful tips in the results of this study about the benefit of doodling…\nMy challenge to you:\n\nCan you make a ggplot that looks a bit like Figure 2 from this study?\n\n\n\nIf you’ve made some progress on the de Zubicaray et al. (2024) data analysis, to the point where you have replicated (more or less) the multiple regression analysis from the first study in that paper, then here is the next step.\n\nNote, this is a major challenge, but it will be a step into new research!\nThe task is to take the de Zubicaray data, and add a new variable which determines whether the word is a palindrome or not. A palindrome is a word that is spelled the same backwards as forwards (e.g., abba, rotavator).\nI would like to know if being a palindrome or not affects processing of the words. My prediction is that being a palindrome helps access the word.\nWhat you will need to do is apply a function called “palindrome” to the words in the de Zubicaray dataset, to make a new variable, called or some other name then run a multiple regression with all the other variables plus this one.\nHere is a script with the function called palindrome included, with some comments to show how it is put into practice. You will need to add the function into the top of an analysis script (e.g., rmd or r script) file and make sure that is loaded along with the other commands you are using.",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Week 5. Testing differences between groups"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week5.html#data",
+    "href": "PSYC411/part1/Week5.html#data",
+    "title": "Week 5. Testing differences between groups",
+    "section": "5.4.2 Data",
+    "text": "5.4.2 Data\nData referred to in this workbook:\n\nPSYC411-shipley-scores-anonymous-17_24.csv\nahicesd.csv adapted for t-test\nparticipantinfo2.csv adapted for t-test.\nClassDraw.csv",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Week 5. Testing differences between groups"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week5.html#answers",
+    "href": "PSYC411/part1/Week5.html#answers",
+    "title": "Week 5. Testing differences between groups",
+    "section": "5.4.3 Answers",
+    "text": "5.4.3 Answers\nThe answers to the workbook will appear below each question in the workbook, above, after the practical has finished, so you can check your work.",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Week 5. Testing differences between groups"
+    ]
+  },
+  {
+    "objectID": "PSYC411/part1/Week5.html#extras",
+    "href": "PSYC411/part1/Week5.html#extras",
+    "title": "Week 5. Testing differences between groups",
+    "section": "5.5 Extras",
+    "text": "5.5 Extras\nOptionally, if you can give us your (anonymised) feedback on how the course is going from your perspective, that would be very welcome.\nAlso optionally, read the articles on the importance of statistical understanding and insights from good data visualisation:\n\nHow scientists can be better at statistics. Note that this article is hosted on the Spectator website, and (content warning) refers to Harold Shipman, a serial killer.\nFlorence Nightingale and data visualisation. Note that this is hosted on Scientific American.",
+    "crumbs": [
+      "Home",
+      "PSYC411",
+      "Week 5. Testing differences between groups"
     ]
   }
 ]

@@ -632,6 +632,20 @@ jalava2 %>% group_by(test, test_time) %>% summarise(mean(score, na.rm=TRUE), sd(
 :::
 
 
+
+61. If you've made some progress on the [de Zubicaray et al. (2024)](https://doi.org/10.1037/xhp0001209){target="_blank"} data analysis, to the point where you have replicated (more or less) the multiple regression analysis from the first study in that paper, then here is the next step. 
+
+*Note, this is a major challenge, but it will be a step into new research!*
+
+The task is to take the de Zubicaray data, and add a new variable which determines whether the word is a palindrome or not. A palindrome is a word that is spelled the same backwards as forwards (e.g., abba, papal).
+
+I would like to know if being a palindrome or not affects processing of the words. My prediction is that being a palindrome helps access the word.
+
+What you will need to do is apply a function called "palindrome" to the words in the de Zubicaray dataset, to make a new variable, called \pally or some other name then run a multiple regression with all the other variables plus this one.
+
+[Here is a script with the function called palindrome included](data/wk5/palindrome.r), with some comments to show how it is put into practice. You will need to add the function into the top of an analysis script (e.g., rmd or r script) file and make sure that is loaded along with the other commands you are using.
+
+
 ## 5.4.2 Data
 
 Data referred to in this workbook:
