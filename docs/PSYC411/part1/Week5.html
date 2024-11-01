@@ -297,8 +297,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="slides">5.3.2 Slides</h3>
 <p>Download the lecture slides for:</p>
 <ul>
-<li><p><a href="ppt/wk4/PSYC411 Lecture week5 part1 handout.pptx">part 1</a></p></li>
-<li><p><a href="ppt/wk4/PSYC411 Lecture week5 part2 handout.pptx">part 2</a></p></li>
+<li><p><a href="ppt/wk5/PSYC411 Lecture week5 part1 handout.pptx">part 1</a></p></li>
+<li><p><a href="ppt/wk5/PSYC411 Lecture week5 part2 handout.pptx">part 2</a></p></li>
 </ul>
 </section>
 </section>
@@ -339,7 +339,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## ANSWER
 Here are some examples of the commands/functions in use:
-
 
 
 
@@ -601,7 +600,6 @@ cramersV(x = all_dat$occasion, y = all_dat$intervention)
 :::
 
 
-
 ::: --->
 </section>
 </section>
@@ -629,7 +627,6 @@ There is no difference between people who self-identify as male or female on voc
 </ol>
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -677,7 +674,6 @@ Warning: Removed 4 rows containing non-finite outside the scale range
 :::
 
 
-
 The graph indicates that maybe males are slightly higher, but looks like a lot of overlap.
 ::: --->
 <ol start="22" type="1">
@@ -687,14 +683,12 @@ The graph indicates that maybe males are slightly higher, but looks like a lot o
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
 dat3 <- select(dat2, Gender, Gent_1_score)
 ```
 :::
-
 
 
 ::: --->
@@ -709,7 +703,6 @@ dat3 <- select(dat2, Gender, Gent_1_score)
 </ol>
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -736,7 +729,6 @@ Warning: Removed 4 rows containing non-finite outside the scale range
 :::
 
 
-
 Yes, two groups.
 ::: --->
 <ol start="25" type="1">
@@ -760,7 +752,6 @@ Hint
 </div>
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -801,7 +792,6 @@ dat4 %>% group_by(Gender) %>% summarise(mean(Gent_1_score), sd(Gent_1_score))
 
 :::
 :::
-
 
 
 ::: --->
@@ -898,7 +888,6 @@ Null Hypothesis: There is no difference in vocabulary scores between native Engl
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -968,7 +957,6 @@ cohensD(Gent_1_score ~ english_status, method = "unequal", data = dat3 )
 :::
 
 
-
 ::: --->
 <ol start="35" type="1">
 <li>Write a brief report of the results, including means and SDs for native speakers and ESL speakers, t-test, p-value, and Cohen’s d.&nbsp;Discuss your report in your group.</li>
@@ -1021,7 +1009,6 @@ NH: happiness scores do not change across occasions.
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -1070,7 +1057,6 @@ all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 :::
 
 
-
 ::: --->
 <ol start="42" type="1">
 <li>Let’s select only the relevant variables. Use <code>select()</code> to select only id, ahiTotal, and occasion variables, and save this as a new object called ‘summarydata’</li>
@@ -1079,14 +1065,12 @@ all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
 summarydata <- select(all_dat, c("id", "ahiTotal", "occasion"))
 ```
 :::
-
 
 
 ::: --->
@@ -1113,14 +1097,12 @@ Hint
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
 summarydata2 <- filter(summarydata, occasion == 0 | occasion == 1)
 ```
 :::
-
 
 
 ::: --->
@@ -1138,7 +1120,6 @@ summarydata2 <- filter(summarydata, occasion == 0 | occasion == 1)
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -1151,7 +1132,6 @@ ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
 :::
 
 
-
 We use a boxplot because we have one nominal/categorical variable and one
 interval/ratio/ordinal measure.
 ::: --->
@@ -1160,7 +1140,6 @@ interval/ratio/ordinal measure.
 </ol>
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1173,7 +1152,6 @@ ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
 ![](Week5_files/figure-html/unnamed-chunk-16-1.png){width=672}
 :::
 :::
-
 
 
 ::: --->
@@ -1251,7 +1229,6 @@ the intervention had a positive effect on happiness scores.
 ## Answer
 
 
-
 ::: {.cell}
 
 ```{.r .cell-code}
@@ -1263,7 +1240,6 @@ dat3 <- drop_na(dat2)
 :::
 
 
-
 ::: --->
 <ol start="55" type="1">
 <li>Run the paired t-test.</li>
@@ -1271,7 +1247,6 @@ dat3 <- drop_na(dat2)
 <p>Each row contains a score for each person for each Gent test, and so we are ready to run the paired t-test:</p>
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1314,14 +1289,12 @@ cohensD( dat3$Gent_1_score, dat3$Gent_2_score, , method =  "paired")
 :::
 
 
-
 ::: --->
 <ol start="56" type="1">
 <li>Get mean and SD of the scores for the tests.</li>
 </ol>
 <!--- :::{.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1342,14 +1315,12 @@ summarise(dat3, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gen
 :::
 
 
-
 ::: --->
 <ol start="57" type="1">
 <li>In order to draw a box plot of the Gent vocabulary scores taken at the first and second occasion, we will need the data in “long format”, so that there is a column saying which test it is and a column reporting the scores on the Gent tests. Apply the <code>pivot_longer</code> command and then draw the box plot.</li>
 </ol>
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1365,7 +1336,6 @@ ggplot(dat4, aes(x = test, y = score)) + geom_boxplot()
 :::
 
 
-
 ::: --->
 </section>
 <section id="part-5-extras" class="level4">
@@ -1375,7 +1345,6 @@ ggplot(dat4, aes(x = test, y = score)) + geom_boxplot()
 </ol>
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1501,7 +1470,6 @@ cohensD(Gent_2_score ~ Gender, method = "unequal", data = dat2 )
 :::
 
 
-
 nothing significant...
 ::: --->
 <ol start="59" type="1">
@@ -1516,7 +1484,6 @@ nothing significant...
 </ul>
 <!--- ::: {.callout-note icon="false" collapse="false"}
 ## Answer
-
 
 
 ::: {.cell}
@@ -1594,7 +1561,6 @@ jalava2 %>% group_by(test, test_time) %>% summarise(mean(score, na.rm=TRUE), sd(
 
 :::
 :::
-
 
 
 ::: --->
