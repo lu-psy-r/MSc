@@ -25,7 +25,7 @@ If you want to know more about **what** you are expected to do, you can read abo
 [the what chapter section of what you have to write](../part2/report-preface.qmd#sec-report-quick-what).
 
 We provide information on assessment criteria and our approach to marking in
-[the what chapter on how we will mark your woprkl](../part2/report-preface.qmd#sec-report-quick-how-mark).
+[the what chapter on how we will mark your work](../part2/report-preface.qmd#sec-report-quick-how-mark).
 
 ## The variety of things students do {#sec-how-variety} 
 
@@ -37,7 +37,7 @@ Students have taken a variety of approaches to the assignment.
 
 Ask in class or on the Moodle discussion forum for advice about any one of these approaches.
 
-I consider, first, working with data-sets where an analysis of the data has been presented in the article ([see Section -@sec-publishedanalysis]). 
+I consider, first, working with data-sets where an analysis of the data has been presented in the article [@sec-publishedanalysis]. 
 I then look at working with data-sets where the data are presented without an analysis ([see Section -@sec-noanalysis]). 
 Our advice on working with data-sets presented without an analysis will overlap in key respects with our advice on working with curated demonstration data.
 
