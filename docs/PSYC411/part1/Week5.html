@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -352,12 +352,39 @@ library(tidyverse)
 ::: {.cell-output .cell-output-stderr}
 
 ```
+Warning: package 'tidyr' was built under R version 4.1.1
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning: package 'purrr' was built under R version 4.1.1
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning: package 'stringr' was built under R version 4.1.1
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
 ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -390,7 +417,7 @@ dbl (6): subject_ID, Age, Shipley_Voc_Score, Gent_1_score, Gent_2_score, aca...
 
 ```{.r .cell-code}
 dat$academic_year <- as.factor(dat$academic_year)
-View(dat)
+## View(dat)
 
 # from week2 practical
 dat2 <- read_csv("data/wk2/ahicesd.csv")
@@ -569,6 +596,18 @@ dat_long <- pivot_longer(dat, names_to = "test", values_to = "score", cols = sta
 dat_wide <- pivot_wider(dat_long, names_from = "test", values_from = "score")
 
 library(lsr)
+```
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning: package 'lsr' was built under R version 4.1.1
+```
+
+
+:::
+
+```{.r .cell-code}
 chisq.test(x = all_dat$occasion, y = all_dat$intervention)
 ```
 
@@ -1263,12 +1302,12 @@ t.test(dat3$Gent_1_score, dat3$Gent_2_score, paired = TRUE)
 
 data:  dat3$Gent_1_score and dat3$Gent_2_score
 t = -2.2126, df = 246, p-value = 0.02784
-alternative hypothesis: true mean difference is not equal to 0
+alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
  -2.4488231 -0.1422701
 sample estimates:
-mean difference 
-      -1.295547 
+mean of the differences 
+              -1.295547 
 ```
 
 

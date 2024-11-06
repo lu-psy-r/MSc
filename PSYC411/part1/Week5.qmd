@@ -118,7 +118,7 @@ library(tidyverse)
 # from week4 practical
 dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"); 
 dat$academic_year <- as.factor(dat$academic_year)
-View(dat)
+## View(dat)
 
 # from week2 practical
 dat2 <- read_csv("data/wk2/ahicesd.csv")
