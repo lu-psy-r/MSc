@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>how – Statistics for Psychologists</title>
+<title>Week 6. How you can do the analysis work – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,6 +50,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../PSYC411/part2/intro.html" rel="next">
+<link href="../../PSYC411/part2/report-preface.html" rel="prev">
 <link href="../../Images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -126,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part2/how.html">Week 6. How you can do the analysis work</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -177,6 +199,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Week 5. Testing differences between groups</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/report-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. The structured research report – Quick start</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/how.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 6. How you can do the analysis work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. Why we are asking you to do this</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -189,13 +229,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-how" id="toc-sec-how" class="nav-link active" data-scroll-target="#sec-how">How you can do it</a>
+  <li><a href="#sec-how" id="toc-sec-how" class="nav-link active" data-scroll-target="#sec-how">How you can do the analysis work</a>
   <ul class="collapse">
   <li><a href="#sec-how-variety" id="toc-sec-how-variety" class="nav-link" data-scroll-target="#sec-how-variety">The variety of things students do</a></li>
   <li><a href="#sec-publishedanalysis" id="toc-sec-publishedanalysis" class="nav-link" data-scroll-target="#sec-publishedanalysis">Working with data associated with a published analysis</a>
   <ul class="collapse">
   <li><a href="#sec-locateaccesscheck" id="toc-sec-locateaccesscheck" class="nav-link" data-scroll-target="#sec-locateaccesscheck">Locate, access and check the data</a></li>
-  <li><a href="#sec-whatanalysis" id="toc-sec-whatanalysis" class="nav-link" data-scroll-target="#sec-whatanalysis">Plan the analysis you want to do</a></li>
+  <li><a href="#sec-report-quick-whatanalysis" id="toc-sec-report-quick-whatanalysis" class="nav-link" data-scroll-target="#sec-report-quick-whatanalysis">Plan the analysis you want to do</a></li>
   <li><a href="#sec-published-analyses-summary" id="toc-sec-published-analyses-summary" class="nav-link" data-scroll-target="#sec-published-analyses-summary">Summary: working with data associated with a published analysis</a></li>
   </ul></li>
   <li><a href="#sec-noanalysis" id="toc-sec-noanalysis" class="nav-link" data-scroll-target="#sec-noanalysis">Working with data that are not associated with a published analysis</a>
@@ -203,7 +243,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-looking-for-open-data" id="toc-sec-looking-for-open-data" class="nav-link" data-scroll-target="#sec-looking-for-open-data">Looking for open data</a></li>
   <li><a href="#sec-openanalysis" id="toc-sec-openanalysis" class="nav-link" data-scroll-target="#sec-openanalysis">Thinking about analyses of open data</a></li>
   </ul></li>
-  <li><a href="#sec-how-summary" id="toc-sec-how-summary" class="nav-link" data-scroll-target="#sec-how-summary">Summary: how</a></li>
+  <li><a href="#sec-how-summary" id="toc-sec-how-summary" class="nav-link" data-scroll-target="#sec-how-summary">Summary: how</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -211,12 +254,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part2/how.html">Week 6. How you can do the analysis work</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Week 6. How you can do the analysis work</h1>
+<p class="subtitle lead">Written by Rob Davies</p>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="sec-how" class="level1">
-<h1>How you can do it</h1>
-<p>The PSYC401 Research Report assignment requires students to locate, access, analyse and report previously collected data.</p>
+<h1>How you can do the analysis work</h1>
+<p>The PSYC411 Research Report assignment requires students to locate, access, analyse and report previously collected data.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -235,8 +295,8 @@ Tip
 </div>
 <p>We outline the workflow you can follow, proceeding through a series of steps, to complete the essential tasks. Look at this outline, make a plan, and then follow the advice, taking it <em>one step at a time</em>.</p>
 <p>If you want to understand <strong>why</strong> we think you will benefit from doing this, you can read the explanation in <strong>?@sec-intro-why</strong>.</p>
-<p>If you want to know more about <strong>what</strong> you are expected to do, you can read about that in <strong>?@sec-what</strong>.</p>
-<p>We provide information on assessment criteria and our approach to marking in <strong>?@sec-marking</strong>.</p>
+<p>If you want to know more about <strong>what</strong> you are expected to do, you can read about that in <strong>?@sec-report-quick-what</strong>.</p>
+<p>We provide information on assessment criteria and our approach to marking in <strong>?@sec-report-quick-how-mark</strong>.</p>
 <section id="sec-how-variety" class="level2">
 <h2 class="anchored" data-anchor-id="sec-how-variety">The variety of things students do</h2>
 <p>Students have taken a variety of approaches to the assignment.</p>
@@ -253,9 +313,9 @@ Tip
 <p>In the following, I split our guidance into two parts.</p>
 <ol type="1">
 <li>I look next at the task of locating, accessing and checking the data (<a href="#sec-locateaccesscheck" class="quarto-xref">Section&nbsp;1.2.1</a>).</li>
-<li>Then I look at the task of figuring out what analysis you can do with the data (<a href="#sec-whatanalysis" class="quarto-xref">see Section&nbsp;1.2.2</a>).</li>
+<li>Then I look at the task of figuring out what analysis you can do with the data (<a href="#sec-report-quick-whatanalysis" class="quarto-xref">see Section&nbsp;1.2.2</a>).</li>
 </ol>
-<p>Obviously, you cannot consider an analysis if you cannot be sure that you can work with the data <span class="citation" data-cites="minocher">[@minocher]</span>.</p>
+<p>Obviously, you cannot consider an analysis if you cannot be sure that you can work with the data <span class="citation" data-cites="minocher">(<a href="#ref-minocher" role="doc-biblioref">Minocher et al., n.d.</a>)</span>.</p>
 <section id="sec-locateaccesscheck" class="level3">
 <h3 class="anchored" data-anchor-id="sec-locateaccesscheck">Locate, access and check the data</h3>
 <p>At the start of your work on the assignment, you will need to (1.) locate then (2.) access data for analysis, and then you will need to (3.) check that the data are usable. I set out advice on doing each step, following. Work through the steps: <em>one step at a time</em>.</p>
@@ -330,9 +390,9 @@ Tip
 <p>Rodríguez-Ferreiro, J., Aguilera, M., &amp; Davies, R. (2020). Semantic priming and schizotypal personality: Reassessing the link between thought disorder and enhanced spreading of semantic activation. PeerJ, 8, e9511. <a href="https://doi.org/10.7717/peerj.9511" class="uri">https://doi.org/10.7717/peerj.9511</a></p>
 </blockquote>
 <p>These are both open access articles.</p>
-<p>If you look at the webpage for, <span class="citation" data-cites="rodríguez-ferreiro2020">@rodríguez-ferreiro2020</span>, <a href="https://peerj.com/articles/9511/" class="external" target="_blank">(here)</a>), you can do a search in the article text for the keyword <code>OSF</code> (on the article webpage, use keys <code>CMD-F</code> plus <code>OSF</code>). You are checking to see if you can click on the link <em>and</em> and if clicking on the link takes you to a repository listing the data for the article. The <span class="citation" data-cites="rodríguez-ferreiro2020">@rodríguez-ferreiro2020</span> article is associated with a data plus analysis code repository <a href="https://osf.io/j29fn/" class="external" target="_blank">(OSF)</a>)</p>
+<p>If you look at the webpage for, <span class="citation" data-cites="rodríguez-ferreiro2020">Rodríguez-Ferreiro et al. (<a href="#ref-rodríguez-ferreiro2020" role="doc-biblioref">2020</a>)</span>, <a href="https://peerj.com/articles/9511/" class="external" target="_blank">(here)</a>), you can do a search in the article text for the keyword <code>OSF</code> (on the article webpage, use keys <code>CMD-F</code> plus <code>OSF</code>). You are checking to see if you can click on the link <em>and</em> and if clicking on the link takes you to a repository listing the data for the article. The <span class="citation" data-cites="rodríguez-ferreiro2020">Rodríguez-Ferreiro et al. (<a href="#ref-rodríguez-ferreiro2020" role="doc-biblioref">2020</a>)</span> article is associated with a data plus analysis code repository <a href="https://osf.io/j29fn/" class="external" target="_blank">(OSF)</a>)</p>
 <p>Notice that on the repository webpage, you can see a description of the project plus .pdf files and a folder <code>data-set and Code</code>. If you can click through to the folders, and download the datafiles, you have accessed the data successfully.</p>
-<p>I have guided you, here, through to the <span class="citation" data-cites="rodríguez-ferreiro2020">@rodríguez-ferreiro2020</span> data repository, can you find the data for the <span class="citation" data-cites="ricketts2021">@ricketts2021</span> repository?</p>
+<p>I have guided you, here, through to the <span class="citation" data-cites="rodríguez-ferreiro2020">Rodríguez-Ferreiro et al. (<a href="#ref-rodríguez-ferreiro2020" role="doc-biblioref">2020</a>)</span> data repository, can you find the data for the <span class="citation" data-cites="ricketts2021">Ricketts et al. (<a href="#ref-ricketts2021" role="doc-biblioref">2021</a>)</span> repository?</p>
 </section>
 <section id="sec-check" class="level4">
 <h4 class="anchored" data-anchor-id="sec-check">Check</h4>
@@ -358,7 +418,7 @@ Tip
 <li>Information in the article, or in the data repository documentation, on the study design and data collection methods: you need to be able to understand where the data came from, how they were collected, and why.</li>
 <li>Clear data documentation: you need to find information on the variables, the observations, the scoring, the coding, and whether and how the data were processed to get them from raw data state to the data ready for analysis.</li>
 </ol>
-<p>Data documentation is often presented as a note or a wiki page or a miniature paper and may be called a <em>codebook, data dictionary, guide to materials</em> or something similar. You will need to check that you can find information on (examples shown are from the <span class="citation" data-cites="rodríguez-ferreiro2020">@rodríguez-ferreiro2020</span> OSF <em>guide to materials</em>):</p>
+<p>Data documentation is often presented as a note or a wiki page or a miniature paper and may be called a <em>codebook, data dictionary, guide to materials</em> or something similar. You will need to check that you can find information on (examples shown are from the <span class="citation" data-cites="rodríguez-ferreiro2020">Rodríguez-Ferreiro et al. (<a href="#ref-rodríguez-ferreiro2020" role="doc-biblioref">2020</a>)</span> OSF <em>guide to materials</em>):</p>
 <ul>
 <li>what the data files are called e.g.&nbsp;<code>PrimDir-111019.csv</code>;</li>
 <li>how the named data files correspond to the studies presented in the report;</li>
@@ -382,8 +442,8 @@ Warning
 </div>
 </section>
 </section>
-<section id="sec-whatanalysis" class="level3">
-<h3 class="anchored" data-anchor-id="sec-whatanalysis">Plan the analysis you want to do</h3>
+<section id="sec-report-quick-whatanalysis" class="level3">
+<h3 class="anchored" data-anchor-id="sec-report-quick-whatanalysis">Plan the analysis you want to do</h3>
 <p>After you have found an interesting article, and have confirmed that you can use the associated data, you will need to plan what analysis you want to do.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -408,11 +468,11 @@ Tip
 <li>Some students choose to complete an <em>alternate analysis</em> of the data, varying elements of the analysis (<strong>?@sec-multiverse</strong>).</li>
 </ul>
 <p>Either way, you will want to first make sure you can identify exactly <em>what</em> the authors of the original study did, <em>how</em> they did it, and <em>why</em> they did it.</p>
-<p>You can process the key article information efficiently using the <em>QALMRI</em> method we discussed in the class on graduate writing skills <span class="citation" data-cites="brosowsky kosslyn2005">[@brosowsky; @kosslyn2005]</span>. You are first aiming to locate information on the broad and the specific question the study addresses, the methods the study authors used to collect data, the results they report, and the conclusions they present given the results. Can you find these bits of information?</p>
+<p>You can process the key article information efficiently using the <em>QALMRI</em> method we discussed in the class on graduate writing skills <span class="citation" data-cites="brosowsky kosslyn2005">(<a href="#ref-brosowsky" role="doc-biblioref">Brosowsky et al., n.d.</a>; <a href="#ref-kosslyn2005" role="doc-biblioref">Kosslyn &amp; Rosenberg, 2005</a>)</span>. You are first aiming to locate information on the broad and the specific question the study addresses, the methods the study authors used to collect data, the results they report, and the conclusions they present given the results. Can you find these bits of information?</p>
 <section id="sec-try-repro" class="level4">
 <h4 class="anchored" data-anchor-id="sec-try-repro">Completing a <em>reanalysis</em> of the data</h4>
 <p>Are you interested in attempting a <em>methods reproducibility</em> test?</p>
-<p>Following Hardwicke and colleagues <span class="citation" data-cites="hardwicke2018 hardwicke">[@hardwicke2018; @hardwicke]</span>, it would be sensible to focus on identifying the primary or <strong>substantive</strong> result for a study in an article.</p>
+<p>Following Hardwicke and colleagues <span class="citation" data-cites="hardwicke2018 hardwicke">(<a href="#ref-hardwicke" role="doc-biblioref">Hardwicke et al., n.d.</a>; <a href="#ref-hardwicke2018" role="doc-biblioref">Hardwicke et al., 2018</a>)</span>, it would be sensible to focus on identifying the primary or <strong>substantive</strong> result for a study in an article.</p>
 <ul>
 <li>The result is <strong>substantive</strong> if the researchers state that it is (e.g., “Our critical analysis is…”), if it is emphasized in the abstract, or if it is presented in a table or figure.</li>
 </ul>
@@ -433,14 +493,14 @@ Tip
 </ul>
 </div>
 </div>
-<p>You will want to identify a result that is both substantive and <em>straightforward</em> <span class="citation" data-cites="hardwicke2018 hardwicke">[@hardwicke2018; @hardwicke]</span>.</p>
+<p>You will want to identify a result that is both substantive and <em>straightforward</em> <span class="citation" data-cites="hardwicke2018 hardwicke">(<a href="#ref-hardwicke" role="doc-biblioref">Hardwicke et al., n.d.</a>; <a href="#ref-hardwicke2018" role="doc-biblioref">Hardwicke et al., 2018</a>)</span>.</p>
 <ul>
 <li>The result is <strong>Straightforward</strong> if the outcome could be calculated using the kind of test you have been learning about or will learn about (e.g., t-test, correlation, the linear model)</li>
 </ul>
-<p>Psychological science researchers use a variety of data analysis methods and not all the analyses that you read about will be analyses done using methods that you know about. The use of the methods we teach — t-test, correlation, and the linear model — are very <em>very</em> common; that is why we teach them. But you may also see reports of analyses done using methods like ANOVA, and multilevel or (increasingly) linear mixed-effects models <span class="citation" data-cites="meteyard2020">[@meteyard2020]</span>.</p>
+<p>Psychological science researchers use a variety of data analysis methods and not all the analyses that you read about will be analyses done using methods that you know about. The use of the methods we teach — t-test, correlation, and the linear model — are very <em>very</em> common; that is why we teach them. But you may also see reports of analyses done using methods like ANOVA, and multilevel or (increasingly) linear mixed-effects models <span class="citation" data-cites="meteyard2020">(<a href="#ref-meteyard2020" role="doc-biblioref">Meteyard &amp; Davies, 2020</a>)</span>.</p>
 <p>In research on the reproducibility of results in the literature (<strong>?@sec-checkanalyses</strong>), the researchers attempting to reproduce results often focused on answering the research question the original authors stated using the data the original authors shared. This does not mean that they always tried to <em>exactly</em> reproduce an analysis or an analysis result. Sometimes, that was not possible.</p>
 <p>Sometimes, you will encounter an article and a data-set you are interested in but the analysis presented in the article looks a bit complicated, or more complex than the methods you have learned would allow you to do. In this situation, don’t give up.</p>
-<p>What you can do – maybe with our advice – is identify <em>a part</em> of the primary result that you <em>can</em> try to reproduce. For example, what if the original study authors report a linear mixed-effects analysis of the effects of both prime relatedness and schizotypy score on response reaction time <span class="citation" data-cites="rodríguez-ferreiro2020">[@rodríguez-ferreiro2020]</span>? Maybe you have not learned about mixed-effects models, or you have not learned about analysing the effects of two variables but you <em>have</em> (you will) learn about analysing the effect of one variable using the linear model method: OK then, do an analysis of the shared data using the method you know.</p>
+<p>What you can do – maybe with our advice – is identify <em>a part</em> of the primary result that you <em>can</em> try to reproduce. For example, what if the original study authors report a linear mixed-effects analysis of the effects of both prime relatedness and schizotypy score on response reaction time <span class="citation" data-cites="rodríguez-ferreiro2020">(<a href="#ref-rodríguez-ferreiro2020" role="doc-biblioref">Rodríguez-Ferreiro et al., 2020</a>)</span>? Maybe you have not learned about mixed-effects models, or you have not learned about analysing the effects of two variables but you <em>have</em> (you will) learn about analysing the effect of one variable using the linear model method: OK then, do an analysis of the shared data using the method you know.</p>
 <p>You may be helped, here, by knowing about two good-enough (mostly true) insights from statistical analysis:</p>
 <ol type="1">
 <li>Many of the common analysis methods you see used in psychological science can be coded as a linear model.</li>
@@ -468,7 +528,7 @@ Tip
 <section id="sec-try-multiverse" class="level4">
 <h4 class="anchored" data-anchor-id="sec-try-multiverse">Completing an <em>alternate analysis</em> of the data</h4>
 <p>Are you interested in attempting a different analysis than the analysis you see in the journal article?</p>
-<p>It can be interesting and important work to complete a simpler analysis of shared data. Sometimes, we learn that a simpler analysis provides a good account of the behaviour we observe, perhaps as good an account as that produced using other, more complex, analyses. This can happen if, for example, our theory predicts that two effects should work together but an analysis shows that we can explain behaviour in an account in which the two effects are independent. For example, <span class="citation" data-cites="ricketts2021">@ricketts2021</span> predicted that children should learn words more effectively if they were shown the spellings of the words <em>and</em> they were told they would be helped by seeing the spelling but, in our data, we found that just seeing the spellings was enough to explain the learning we observed.</p>
+<p>It can be interesting and important work to complete a simpler analysis of shared data. Sometimes, we learn that a simpler analysis provides a good account of the behaviour we observe, perhaps as good an account as that produced using other, more complex, analyses. This can happen if, for example, our theory predicts that two effects should work together but an analysis shows that we can explain behaviour in an account in which the two effects are independent. For example, <span class="citation" data-cites="ricketts2021">Ricketts et al. (<a href="#ref-ricketts2021" role="doc-biblioref">2021</a>)</span> predicted that children should learn words more effectively if they were shown the spellings of the words <em>and</em> they were told they would be helped by seeing the spelling but, in our data, we found that just seeing the spellings was enough to explain the learning we observed.</p>
 <p>In completing analyses that <em>vary</em> from original analyses, we are engaging in the kind of work people do when they do <em>multiverse analyses</em> or <em>robustness checks</em> (<strong>?@sec-multiverse</strong>).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -484,7 +544,7 @@ Tip
 </div>
 </div>
 <p>In planning an alternate or multiverse analysis, you will want to begin by critically evaluating the analysis you see described in the published article. I talk about how to do this, next.</p>
-<p>Before we go on, note that I previously discussed an example of how to critically evaluate the results of published research in the context of <span class="citation" data-cites="rodríguez-ferreiro2020">@rodríguez-ferreiro2020</span>. Take a look at the Introduction of that article. There, we summarised the analyses researchers did previously and used the information about the analyses to explain inconsistencies in the research literature. We found limitations in the analyses that people did that had (negative) consequences for the strength of the conclusions we can take from the data.</p>
+<p>Before we go on, note that I previously discussed an example of how to critically evaluate the results of published research in the context of <span class="citation" data-cites="rodríguez-ferreiro2020">Rodríguez-Ferreiro et al. (<a href="#ref-rodríguez-ferreiro2020" role="doc-biblioref">2020</a>)</span>. Take a look at the Introduction of that article. There, we summarised the analyses researchers did previously and used the information about the analyses to explain inconsistencies in the research literature. We found limitations in the analyses that people did that had (negative) consequences for the strength of the conclusions we can take from the data.</p>
 <section id="sec-critical-evaluation" class="level5">
 <h5 class="anchored" data-anchor-id="sec-critical-evaluation">Critically evaluate the analysis description</h5>
 <p>If you revisit our discussion of multiverse analyses, you will see that we discussed two things: (1.) analyses of the impact on results of varying how you construct data-sets for analysis (<strong>?@sec-multiversedata</strong>) and (2.) analyses of the impact on results of varying what analysis method you use, or how you use the method (<strong>?@sec-multiverseanalysis</strong>). These are both good ways to approach thinking about the description of the analysis you see in a published article.</p>
@@ -513,8 +573,8 @@ Tip
 </div>
 </div>
 <p>As we noted in <strong>?@sec-multiverseanalysis</strong>, when we consider how to answer a research question with a data-set, it is often possible to imagine multiple different analysis methods: reasonable alternatives. Most often, this is most clearly apparent when we are looking at an <em>observational</em> data-set or data collected given a <em>cross-sectional</em> study design.</p>
-<p>In <em>cross-sectional</em> or <em>observational</em> studies, we typically are not manipulating experimental conditions, and we are often analysed data using some kind of linear model. We often collect data or have access to data on a number of different variables relevant to our interests. For example, in studies I have done on how people read <span class="citation" data-cites="davies2013 davies2017">[@davies2013; @davies2017]</span>, we wanted to know what factors would predict or influence how people do basic reading tasks like reading aloud. We collected information on many different kinds of word properties and on the attributes of the participants we tested. (Note: the papers are associated with data repositories in Supplementary Materials.) It is often an open question <em>which variables</em> should be included in a prediction model of the observed outcome (reading response reaction times). Therefore, if you are interested in a study like this, and can access usable data from the study, it will typically be true that you are able to sensibly motivate a different analysis of the study data using a different choice of variables.</p>
-<p>As discussed in a number of interesting analyses over the years <span class="citation" data-cites="patel2015">[e.g., @patel2015]</span>, researchers may be interested in the specific impact of one particular predictor variable (e.g., we may be interested in whether it is easier to read words we learned early in life), but will need to include in their analysis that variable plus other variables known to affect the outcome. In that situation, the effect of the variable of interest may appear to be different depending on <em>what other variables</em> are also analysed. This makes it interesting and useful to check the impact of different analysis choices.</p>
+<p>In <em>cross-sectional</em> or <em>observational</em> studies, we typically are not manipulating experimental conditions, and we are often analysed data using some kind of linear model. We often collect data or have access to data on a number of different variables relevant to our interests. For example, in studies I have done on how people read <span class="citation" data-cites="davies2013 davies2017">(<a href="#ref-davies2013" role="doc-biblioref">R. Davies et al., 2013</a>; <a href="#ref-davies2017" role="doc-biblioref">R. A. I. Davies et al., 2017</a>)</span>, we wanted to know what factors would predict or influence how people do basic reading tasks like reading aloud. We collected information on many different kinds of word properties and on the attributes of the participants we tested. (Note: the papers are associated with data repositories in Supplementary Materials.) It is often an open question <em>which variables</em> should be included in a prediction model of the observed outcome (reading response reaction times). Therefore, if you are interested in a study like this, and can access usable data from the study, it will typically be true that you are able to sensibly motivate a different analysis of the study data using a different choice of variables.</p>
+<p>As discussed in a number of interesting analyses over the years <span class="citation" data-cites="patel2015">(e.g., <a href="#ref-patel2015" role="doc-biblioref">Patel et al., 2015</a>)</span>, researchers may be interested in the specific impact of one particular predictor variable (e.g., we may be interested in whether it is easier to read words we learned early in life), but will need to include in their analysis that variable plus other variables known to affect the outcome. In that situation, the effect of the variable of interest may appear to be different depending on <em>what other variables</em> are also analysed. This makes it interesting and useful to check the impact of different analysis choices.</p>
 <p>We will look at data like these, for analyses involving the linear model, in our classes on this method.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -652,8 +712,46 @@ Tip
 </ul>
 </div>
 </div>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-brosowsky" class="csl-entry" role="listitem">
+Brosowsky, N., Parshina, O., Locicero, A., &amp; Crump, M. (n.d.). <em>Teaching undergraduate students to read empirical articles: An evaluation and revision of the QALMRI method</em>. <a href="https://doi.org/10.31234/osf.io/p39sc">https://doi.org/10.31234/osf.io/p39sc</a>
+</div>
+<div id="ref-davies2017" class="csl-entry" role="listitem">
+Davies, R. A. I., Birchenough, J. M. H., Arnell, R., Grimmond, D., &amp; Houlson, S. (2017). Reading through the life span: Individual differences in psycholinguistic effects. <em>Journal of Experimental Psychology: Learning Memory and Cognition</em>, <em>43</em>(8). <a href="https://doi.org/10.1037/xlm0000366">https://doi.org/10.1037/xlm0000366</a>
+</div>
+<div id="ref-davies2013" class="csl-entry" role="listitem">
+Davies, R., Barbón, A., &amp; Cuetos, F. (2013). Lexical and semantic age-of-acquisition effects on word naming in spanish. <em>Memory and Cognition</em>, <em>41</em>(2), 297–311. <a href="https://doi.org/10.3758/s13421-012-0263-8">https://doi.org/10.3758/s13421-012-0263-8</a>
+</div>
+<div id="ref-hardwicke" class="csl-entry" role="listitem">
+Hardwicke, T. E., Bohn, M., MacDonald, K., Hembacher, E., Nuijten, M. B., Peloquin, B. N., deMayo, B. E., Long, B., Yoon, E. J., &amp; Frank, M. C. (n.d.). Analytic reproducibility in articles receiving open data badges at the journal psychological science: An observational study. <em>Royal Society Open Science</em>, <em>8</em>(1), 201494. <a href="https://doi.org/10.1098/rsos.201494">https://doi.org/10.1098/rsos.201494</a>
+</div>
+<div id="ref-hardwicke2018" class="csl-entry" role="listitem">
+Hardwicke, T. E., Mathur, M. B., MacDonald, K., Nilsonne, G., Banks, G. C., Kidwell, M. C., Hofelich Mohr, A., Clayton, E., Yoon, E. J., Henry Tessler, M., Lenne, R. L., Altman, S., Long, B., &amp; Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: evaluating the impact of a mandatory open data policy at the journal Cognition. <em>Royal Society Open Science</em>, <em>5</em>(8), 180448. <a href="https://doi.org/10.1098/rsos.180448">https://doi.org/10.1098/rsos.180448</a>
+</div>
+<div id="ref-kosslyn2005" class="csl-entry" role="listitem">
+Kosslyn, S. M., &amp; Rosenberg, R. S. (2005). <em>Fundamentals of psychology: The brain, the person, the world, 2nd ed</em>. Pearson Education New Zealand.
+</div>
+<div id="ref-meteyard2020" class="csl-entry" role="listitem">
+Meteyard, L., &amp; Davies, R. A. I. (2020). Best practice guidance for linear mixed-effects models in psychological science. <em>Journal of Memory and Language</em>, <em>112</em>. <a href="https://doi.org/10.1016/j.jml.2020.104092">https://doi.org/10.1016/j.jml.2020.104092</a>
+</div>
+<div id="ref-minocher" class="csl-entry" role="listitem">
+Minocher, R., Atmaca, S., Bavero, C., McElreath, R., &amp; Beheim, B. (n.d.). Estimating the reproducibility of social learning research published between 1955 and 2018. <em>Royal Society Open Science</em>, <em>8</em>(9), 210450. <a href="https://doi.org/10.1098/rsos.210450">https://doi.org/10.1098/rsos.210450</a>
+</div>
+<div id="ref-patel2015" class="csl-entry" role="listitem">
+Patel, C. J., Burford, B., &amp; Ioannidis, J. P. A. (2015). Assessment of vibration of effects due to model specification can demonstrate the instability of observational associations. <em>Journal of Clinical Epidemiology</em>, <em>68</em>(9), 1046–1058. <a href="https://doi.org/10.1016/j.jclinepi.2015.05.029">https://doi.org/10.1016/j.jclinepi.2015.05.029</a>
+</div>
+<div id="ref-ricketts2021" class="csl-entry" role="listitem">
+Ricketts, J., Dawson, N., &amp; Davies, R. (2021). The hidden depths of new word knowledge: Using graded measures of orthographic and semantic learning to measure vocabulary acquisition. <em>Learning and Instruction</em>, <em>74</em>, 101468. <a href="https://doi.org/10.1016/j.learninstruc.2021.101468">https://doi.org/10.1016/j.learninstruc.2021.101468</a>
+</div>
+<div id="ref-rodríguez-ferreiro2020" class="csl-entry" role="listitem">
+Rodríguez-Ferreiro, J., Aguilera, M., &amp; Davies, R. (2020). Semantic priming and schizotypal personality: reassessing the link between thought disorder and enhanced spreading of semantic activation. <em>PeerJ</em>, <em>8</em>, e9511. <a href="https://doi.org/10.7717/peerj.9511">https://doi.org/10.7717/peerj.9511</a>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 
@@ -1078,6 +1176,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../PSYC411/part2/report-preface.html" class="pagination-link" aria-label="Week 6. The structured research report -- Quick start">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 6. The structured research report – Quick start</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../PSYC411/part2/intro.html" class="pagination-link" aria-label="Week 6. Why we are asking you to do this">
+        <span class="nav-page-text">Week 6. Why we are asking you to do this</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

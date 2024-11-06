@@ -1,3 +1,11 @@
+---
+title: Week 6. How you can do the analysis work
+subtitle: Written by Rob Davies
+order: 8
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
+
 # How you can do the analysis work {#sec-how}
 
 The PSYC411 Research Report assignment requires students to locate, access, analyse and report previously collected data. 
@@ -456,4 +464,9 @@ It is always a good idea to explore your data using visualization techniques thr
 :::  callout-tip
 - You can always get advice, do not hesitate to ask.
 - We are happy to discuss your thinking, especially in class.
+:::
+
+### References
+
+::: {#refs}
 :::

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>report-preface – Statistics for Psychologists</title>
+<title>Week 6. The structured research report – Quick start – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,6 +49,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../PSYC411/part2/how.html" rel="next">
+<link href="../../PSYC411/part1/Week5.html" rel="prev">
 <link href="../../Images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -126,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part2/report-preface.html">Week 6. The structured research report – Quick start</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -177,6 +198,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Week 5. Testing differences between groups</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/report-preface.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 6. The structured research report – Quick start</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. How you can do the analysis work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. Why we are asking you to do this</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -189,13 +228,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-report-intro" id="toc-sec-report-intro" class="nav-link active" data-scroll-target="#sec-report-intro">The research report assignment: Outline introduction</a>
+  <li><a href="#sec-report-intro" id="toc-sec-report-intro" class="nav-link active" data-scroll-target="#sec-report-intro">The structured research report: Quick start</a>
   <ul class="collapse">
-  <li><a href="#sec-report-intro-chapters" id="toc-sec-report-intro-chapters" class="nav-link" data-scroll-target="#sec-report-intro-chapters">Chapters with information on why, what and how</a></li>
-  <li><a href="#sec-report-intro-lecture" id="toc-sec-report-intro-lecture" class="nav-link" data-scroll-target="#sec-report-intro-lecture">Lecture recordings</a>
+  <li><a href="#sec-report-quick-what" id="toc-sec-report-quick-what" class="nav-link" data-scroll-target="#sec-report-quick-what">What you have to write</a></li>
+  <li><a href="#sec-report-quick-how" id="toc-sec-report-quick-how" class="nav-link" data-scroll-target="#sec-report-quick-how">How you can do the analysis work</a></li>
+  <li><a href="#sec-report-quick-why" id="toc-sec-report-quick-why" class="nav-link" data-scroll-target="#sec-report-quick-why">Why we are asking you to do this</a>
   <ul class="collapse">
-  <li><a href="#sec-report-intro-lecture-videos" id="toc-sec-report-intro-lecture-videos" class="nav-link" data-scroll-target="#sec-report-intro-lecture-videos">Lecture recordings</a></li>
-  <li><a href="#sec-report-intro-lecture-slides" id="toc-sec-report-intro-lecture-slides" class="nav-link" data-scroll-target="#sec-report-intro-lecture-slides">Lecture recordings</a></li>
+  <li><a href="#sec-report-intro-lecture-videos" id="toc-sec-report-intro-lecture-videos" class="nav-link" data-scroll-target="#sec-report-intro-lecture-videos">Lecture recordings – videos</a></li>
+  <li><a href="#sec-report-intro-lecture-slides" id="toc-sec-report-intro-lecture-slides" class="nav-link" data-scroll-target="#sec-report-intro-lecture-slides">Lecture recordings – slides</a></li>
+  </ul></li>
+  <li><a href="#sec-report-quick-how-mark" id="toc-sec-report-quick-how-mark" class="nav-link" data-scroll-target="#sec-report-quick-how-mark">How we will mark your work</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -204,13 +248,30 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part2/report-preface.html">Week 6. The structured research report – Quick start</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Week 6. The structured research report – Quick start</h1>
+<p class="subtitle lead">Written by Rob Davies</p>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="sec-report-intro" class="level1">
-<h1>The research report assignment: Outline introduction</h1>
-<p>In the Department of Psychology at Lancaster University, in the MSc programme module <em>PSYC401</em>, we ask students to analyse a previously collected dataset and write a report about their findings. This is the <strong>research report</strong> assignment.</p>
-<p>We are providing materials to support your work. Because you are here, in the book, I start by identifying the chapters, but see <a href="#sec-report-intro-lecture" class="quarto-xref">Section&nbsp;1.2</a>, below, for information on lectures.</p>
+<h1>The structured research report: Quick start</h1>
+<p>The <strong>structured research report</strong> assignment: We want you to analyse previously collected data and write a report about your findings.</p>
+<p>Here, we present a guide in five parts:</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -221,43 +282,201 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Different people prefer to take different approaches to course materials. We ahev designed the materials to allow you to take the approach you prefer.</p>
+<ol type="1">
+<li><strong>What</strong> you have to write.</li>
+<li><strong>How</strong> you can do the analysis work.</li>
+<li><strong>Why</strong> we are asking you to do this.</li>
+<li>Where you can get in-depth information.</li>
+<li>How you can expect us to grade your work.</li>
+</ol>
+</div>
+</div>
+<p>We provide a <em>summary</em> guide to what you have to write in <a href="#sec-report-quick-what" class="quarto-xref">Section&nbsp;1.1</a>, and a guide on how you can do the analysis in <a href="#sec-report-quick-how" class="quarto-xref">Section&nbsp;1.2</a>.</p>
+<p>We share a lecture on <em>why</em> we are asking you to do this work — what you will learn and how you will benefit — in <a href="#sec-report-quick-why" class="quarto-xref">Section&nbsp;1.3</a>.</p>
+<p>At the end of this page, in <a href="#sec-report-quick-how-mark" class="quarto-xref">Section&nbsp;1.4</a>, we detail how we will mark your work so that you can both understand what we want you to do, and what good work will look like.</p>
+<p>If you want more in-depth guidance or support, we provide detailed <em>how-to</em> notes on the analysis work in <strong>?@sec-how</strong>, and an explanation of why we are asking you to do this work in terms of current thinking of best practices in science <strong>?@sec-intro-why</strong>.</p>
+<section id="sec-report-quick-what" class="level2">
+<h2 class="anchored" data-anchor-id="sec-report-quick-what">What you have to write</h2>
+<p>Let’s begin with what you need to write to complete this coursework.</p>
+<ol type="1">
+<li><strong>Submission deadline: On Friday 17th January 2025</strong></li>
+<li>You will submit a structured report.</li>
+<li>Presenting an analysis: what you did; what you found; the context; and the implications.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will be able to find the submission point on Moodle <a href="https://modules.lancaster.ac.uk/mod/assign/view.php?id=2530759">here</a> when it is revealed.</p>
+</div>
+</div>
+<p><strong>What is a structured report?</strong></p>
+<p>You will submit short answers to a series of questions:</p>
+<ol type="1">
+<li>Describe the questions or the predictions you examine in your analysis.</li>
+<li>Explain the research background: you are analyzing previously collected data, so briefly explain why the people who originally collected the data did that work.</li>
+<li>Explain if you are attempting to repeat the analysis that the original researchers did <em>or</em> if you are doing something different.</li>
+<li>Explain the motivation for the questions or the predictions your analysis examines.</li>
+<li>Summarize the methods that were used to collect the data you analyzed.</li>
+<li>Identify what variables are included in the analysis: what variable is the outcome (or dependent) variable, and what variables are the predictor (or independent) variables.</li>
+<li>Describe the analysis method you use to address the question or test the predictions.</li>
+<li>Explain your analysis method choices: why are you using this method?</li>
+<li>Identify the model you use in your analysis.</li>
+<li>Present a summary of the analysis results: use text and plots to show what you found.</li>
+<li>Explain the implications of the results, in theoretical or in policy terms.</li>
+<li>Critically evaluate your findings: reflect on the strength or the limitations of the evidence you present, as answers to the questions or as tests of the predictions you outlined.</li>
+<li>Predict: how can future research build on the work you have done?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li>You can begin by viewing the lecture recording then read some or all of the chapters. The lecture mostly focuses on an explanation of the context and motivations for the exercise — explaining <em>why</em> you will benefit — to help you understand <em>what</em> you should do.</li>
-<li>Or you can jump right in, and get reading here for an in-depth explanation on what we want you to do, why and how we want you to do it.</li>
-<li><em>In class</em>, we will be ready to talk about your questions and your ideas with you. Be sure to come to class ready to call on our help.</li>
+<li>You will write each answer in sentences, organized in one or more paragraphs.</li>
+<li>You will submit your analysis code in an appendix.</li>
+<li>Where appropriate, you will include plots.</li>
+<li>Submit your report as a series of answers to the questions listed <em>in a single document</em>.</li>
+<li>You can use each question as a heading in the document.</li>
+<li><em>Word count limit</em>: no more than 1500 words are allowed for all materials except references, appendices, and the content of tables.</li>
 </ul>
 </div>
 </div>
-<section id="sec-report-intro-chapters" class="level2">
-<h2 class="anchored" data-anchor-id="sec-report-intro-chapters">Chapters with information on why, what and how</h2>
-<p>We have written a series of chapters to support your learning in depth. The chapters are oriented around our answers to three questions that students might ask themselves.</p>
-<ul>
-<li><strong>Why</strong>: what will you learn about, what is our motivation?</li>
-<li><strong>What</strong> do we expect students to do?</li>
-<li><strong>How</strong> can the assignment be done?</li>
-</ul>
-<p>You can read the chapters in whatever order you like.</p>
-<p>Some may wish to start with our information on <strong>what</strong> we expect students to do <strong>?@sec-what</strong> and on <strong>how</strong> the work can be done <strong>?@sec-how</strong>. It may then be useful to come back to our information on the context and the motivations for the exercise <strong>?@sec-intro-why</strong>. Of course, you can also start with our explanation for the motivations.</p>
 </section>
-<section id="sec-report-intro-lecture" class="level2">
-<h2 class="anchored" data-anchor-id="sec-report-intro-lecture">Lecture recordings</h2>
-<p>The lecture material is presented in three short parts.</p>
+<section id="sec-report-quick-how" class="level2">
+<h2 class="anchored" data-anchor-id="sec-report-quick-how">How you can do the analysis work</h2>
+<p>Reports will concern, usually, findings from analyses of data collected in previous studies or data accessed from online sources. These data will usually be associated with a published report in a journal like <em>Psychological Science</em> or a pre-print archive like <em>PsyArXiv</em>.</p>
+<p>We expect students to use one of the analysis methods taught in the module.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you want to know more about <strong>how</strong> to do this work, you can read in-depth guidance in <strong>?@sec-how</strong>.</p>
+</div>
+</div>
+<p>You can see information on APA formatting of statistics and numbers in the <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_numbers_statistics.html">OWL Purdue guide</a>. Though the APA guidelines are the authoritative guide.</p>
+</section>
+<section id="sec-report-quick-why" class="level2">
+<h2 class="anchored" data-anchor-id="sec-report-quick-why">Why we are asking you to do this</h2>
+<p>We are asking you to do the structured research report because doing the work — the analysis and the writing — will build your awareness and understanding of how psychological science <em>really</em> works, and will strengthen your sense of what <em>best practice</em> looks like in modern science.</p>
 <section id="sec-report-intro-lecture-videos" class="level3">
-<h3 class="anchored" data-anchor-id="sec-report-intro-lecture-videos">Lecture recordings</h3>
+<h3 class="anchored" data-anchor-id="sec-report-intro-lecture-videos">Lecture recordings – videos</h3>
 <p>Click on a link and your browser should open a tab showing the <em>Panopto</em> video for the lecture part. You should be able to access the videos anywhere; you should not need to be on campus or logged on to the university VPN to view the videos.</p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=af7a2889-5ea9-446e-b65c-af4900daec6c">Part 1 of 3; about 15 minutes</a></p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d62a1395-b411-46db-b458-af4900dfefd2">Part 2 of 3; about 20 minutes</a></p>
-<p><a href="https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bd28611a-58e0-4a33-9e7f-af4900e81e9d">Part 3 of 3; about 20 minutes</a></p>
+<ol type="1">
+<li><strong>Overview</strong> (20 minutes): the key ideas, the scientific context</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=66487acb-5cbc-4a53-b853-b21f00c46462&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-research-report-1"></iframe>
+<ol start="2" type="1">
+<li><strong>Overview</strong> (20 minutes): the research workflow, multiverse analyses</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d62a1395-b411-46db-b458-af4900dfefd2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-research-report-2"></iframe>
+<ol start="3" type="1">
+<li><strong>Overview</strong> (20 minutes): kinds of reproducibility, open data, and doing better science.</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bd28611a-58e0-4a33-9e7f-af4900e81e9d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-research-report-3"></iframe>
 </section>
 <section id="sec-report-intro-lecture-slides" class="level3">
-<h3 class="anchored" data-anchor-id="sec-report-intro-lecture-slides">Lecture recordings</h3>
-<p>You can download the lecture slides in two different forms.</p>
-<ol type="1">
-<li>You can download the slides as a .html file: <a href="files/401-research-report.html">401-research-report.html</a>. This can be opened in a browser and presents the slides as they are delivered.</li>
-<li>You can download the slides as a Word .docx file: <a href="files/401-research-report-printable.docx">401-research-report-printable.docx</a>. This can be opened in Microsoft Word. You can edit the file to write your own notes. And you can print the document.</li>
-</ol>
-<p>There will be some slight variation in how the images appear in the .html and .docx versions. This is because I wrote the slides in <code>{Quarto}</code>, in R-Studio, and <code>{Quarto}</code> is designed to render <em>natively</em> to .html (so that images look nice in a browser).</p>
+<h3 class="anchored" data-anchor-id="sec-report-intro-lecture-slides">Lecture recordings – slides</h3>
+<p>You can download the lecture slides as a single downloadable <code>.html</code> file that you can open in any browser: <a href="files/411-research-report.html">411-research-report.html</a>. This can be opened in a browser and presents the slides as they are delivered.</p>
+</section>
+</section>
+<section id="sec-report-quick-how-mark" class="level2">
+<h2 class="anchored" data-anchor-id="sec-report-quick-how-mark">How we will mark your work</h2>
+<p>A <strong>distinction</strong> requires:</p>
+<p><em>A. Background and methods</em></p>
+<ul>
+<li>A concise explanation of the background or context for the research. Why did the original study authors do the research? Why are you doing the analysis you report? The explanation should briefly reference previous research, identifying the limitations of that research, where appropriate.</li>
+<li>A clear statement of the research question that your analysis addresses, or the hypothesis or prediction that your analysis tests. A statement of questions or predictions should be specific and concrete, i.e., not just a statement that some difference is expected: what difference is expected?</li>
+<li>There should be a coherent, logical, argument for how the background or context leads to the questions or predictions.</li>
+</ul>
+<p><em>B. Analysis and results</em></p>
+<ul>
+<li>A clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.</li>
+<li>A concise summary of the properties of the variables — how data were collected, how variable values were coded or scored — explaining enough relevant information that the reader can understand the structure of the data, and the reliability or validity of observations.</li>
+<li>A scholarly explanation of the analysis you did, including an account of why you chose to use the method you use, given possible alternatives and, if relevant, referring to justifications for your choice that are identified in the statistical literature.</li>
+<li>A clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.</li>
+<li>Evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.</li>
+<li>A clear presentation of the results, presenting a correct interpretation of statistical information concerning the size, the direction (or sign), and the significance of any effect you estimate or difference you test. The presentation should explain how the outcome is expected to vary, on average, given the differences or the effects estimated using your analyses.</li>
+<li>There is full and correct use of APA conventions in the presentation of statistical results.</li>
+<li>Where appropriate, results are presented using both text and relevant, informative, visualizations.</li>
+</ul>
+<p><em>C. Implications and critical reflection</em></p>
+<ul>
+<li>An accurate account of whether or how the analysis results address the questions, or how the analysis results support or disconfirm the predictions stated.</li>
+<li>A scholarly explanation of the implications of the results: what do the results suggest we now know that we did (or did not) know before?</li>
+<li>A critical analysis of the strengths or limitations of the evidence: how confident can we be, how uncertain should we be, that the results that are presented do or do not suggest what you think they suggest.</li>
+<li>A constructive analysis of how future research could build on your findings to further extend understanding or evaluate methodological concerns.</li>
+</ul>
+<p>A <strong>merit</strong> will be awarded, by comparison, if:</p>
+<p><em>A. Background and methods</em></p>
+<ul>
+<li>There is a concise explanation of the background or context for the research. There is limited or partial information on why the original study authors did the research or why you are you doing the analysis you report. We may see statements but we do not see an argument explaining the justifications motivating either the original or your research.</li>
+<li>There is a clear statement of the research question, or the hypothesis or prediction that your analysis tests. But the question or the prediction may be vague, or stated in general not specific terms.</li>
+</ul>
+<p><em>B. Analysis and results</em></p>
+<ul>
+<li>There is a clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.</li>
+<li>The summary of the properties of the variables may not be sufficiently clear or informative to communicate effectively the structure of the data, or to support evaluations of the reliability or validity of analysis results.</li>
+<li>There is an explanation of the analysis you did, but there is limited explanation of why you chose to use the method you use. There is no or there is limited awareness of possible alternatives. No informed justification is presented for analysis choices.</li>
+<li>There is a clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.</li>
+<li>There is evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.</li>
+<li>There is a clear presentation of the results, presenting a correct interpretation of statistical information concerning the size, the direction (or sign), and the significance of any effect you estimate or difference you test. The presentation should explain how the outcome is expected to vary, on average, given the differences or the effects estimated using your analyses.</li>
+<li>There is full and correct use of APA conventions in the presentation of statistical results.</li>
+<li>Where appropriate, results are presented using both text and relevant, informative, visualizations.</li>
+</ul>
+<p><em>C. Implications and critical reflection</em></p>
+<ul>
+<li>There is an accurate account of whether or how the analysis results address the questions, or how the analysis results support or disconfirm the predictions stated.</li>
+<li>There is some explanation of the implications of the results but this account is not linked to previous research (in the literature).</li>
+<li>There is limited reflection on the strengths or limitations of the evidence. We may see generic but not well informed discussion of the evidence specific to your analysis or your data.</li>
+<li>There is limited discussion of future research.</li>
+</ul>
+<p>A <strong>pass</strong> will be awarded, by comparison, if:</p>
+<p><em>A. Background and methods</em></p>
+<ul>
+<li>There is a concise explanation of the background or context for the research. There is limited or no information on why the original study authors did the research or why you are you doing the analysis you report.</li>
+<li>There is a statement of the research question, or the hypothesis or prediction that your analysis tests. But the question or the prediction may be vague, or stated in general terms only.</li>
+</ul>
+<p><em>B. Analysis and results</em></p>
+<ul>
+<li>There is a clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.</li>
+<li>The summary of the properties of the variables provides information on the structure of the data but it may be unclear how one or more variables were coded or scored. There is limited engagement with questions of measurement reliability or validity.</li>
+<li>There is an explanation of the analysis you did, but there is no explanation of why you chose to use the method you use. Limited or no informed justification is presented for analysis choices.</li>
+<li>There is a clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.</li>
+<li>There is evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.</li>
+<li>There is a clear presentation of the results, presenting a correct interpretation of statistical information concerning the direction (or sign) and the significance of any effect you estimate or difference you test. The presentation should explain how the outcome is expected to vary, on average, given the differences or the effects estimated using your analyses.</li>
+<li>There may be partial use of APA conventions in the presentation of statistical results.</li>
+<li>Appropriate visualizations may be included but without comment or discussion.</li>
+</ul>
+<p><em>C. Implications and critical reflection</em></p>
+<ul>
+<li>There is a summary account of the results but it may not clearly explain whether or how the analysis results address the questions, or how the analysis results support or do not support the predictions stated.</li>
+<li>There is limited or no explanation of the implications of some of the results.</li>
+<li>There is limited or no reflection on the strengths or limitations of the evidence.</li>
+<li>There is no discussion of future research.</li>
+</ul>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<div id="refs" role="list">
+
+</div>
 
 
 </section>
@@ -685,6 +904,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../PSYC411/part1/Week5.html" class="pagination-link" aria-label="Week 5. Testing differences between groups">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 5. Testing differences between groups</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../PSYC411/part2/how.html" class="pagination-link" aria-label="Week 6. How you can do the analysis work">
+        <span class="nav-page-text">Week 6. How you can do the analysis work</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

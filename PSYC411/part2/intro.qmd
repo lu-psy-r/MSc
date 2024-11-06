@@ -1,3 +1,11 @@
+---
+title: Week 6. Why we are asking you to do this
+subtitle: Written by Rob Davies
+order: 9
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
+
 # Why we are asking you to do this {#sec-intro-why}
 
 The research report assignment requires students to locate, access, analyse and report previously collected data. 
@@ -596,3 +604,8 @@ One last question: why not just do less demanding or challenging tasks?
 Because this is part of what makes graduate degree valuable, what will make you more skilled in the workplace. 
 Most of the time, we work in teams, we inherit problems or data analysis tasks, or are given results with partial information. 
 The lessons you learn here will help you to effectively navigate those situations.
+
+### References
+
+::: {#refs}
+:::
