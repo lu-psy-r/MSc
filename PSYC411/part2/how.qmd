@@ -19,11 +19,13 @@ Here, we answer the question:
 We outline the workflow you can follow, proceeding through a series of steps, to complete the essential tasks. 
 Look at this outline, make a plan, and then follow the advice, taking it *one step at a time*.
 
-If you want to understand **why** we think you will benefit from doing this, you can read the explanation in @sec-intro-why.
+If you want to understand **why** we think you will benefit from doing this, you can read the explanation in [the why chapter](../part2/intro.qmd#sec-intro-why).
 
-If you want to know more about **what** you are expected to do, you can read about that in @sec-report-quick-what.
+If you want to know more about **what** you are expected to do, you can read about that in
+[the what chapter](../part2/report-preface.qmd#sec-report-quick-what).
 
-We provide information on assessment criteria and our approach to marking in @sec-report-quick-how-mark.
+We provide information on assessment criteria and our approach to marking in
+[the what chapter](../part2/report-preface.qmd#sec-report-quick-how-mark).
 
 ## The variety of things students do {#sec-how-variety} 
 
