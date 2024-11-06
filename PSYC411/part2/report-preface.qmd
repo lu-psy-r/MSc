@@ -1,56 +1,185 @@
-# The research report assignment: Outline introduction {#sec-report-intro}
+# The structured research report: Quick start {#sec-report-intro}
 
-In the Department of Psychology at Lancaster University, in the MSc programme module *PSYC401*, we ask students to analyse a previously collected dataset and write a report about their findings.
-This is the **research report** assignment.
+The **structured research report** assignment: We want you to analyse previously collected data and write a report about your findings.
 
-We are providing materials to support your work.
-Because you are here, in the book, I start by identifying the chapters, but see @sec-report-intro-lecture, below, for information on lectures.
+Here, we present a guide in five parts:
 
 ::: callout-tip
-Different people prefer to take different approaches to course materials.
-We ahev designed the materials to allow you to take the approach you prefer.
-
-- You can begin by viewing the lecture recording then read some or all of the chapters. The lecture mostly focuses on an explanation of the context and motivations for the exercise --- explaining *why* you will benefit --- to help you understand *what* you should do.
-- Or you can jump right in, and get reading here for an in-depth explanation on what we want you to do, why and how we want you to do it.
-- *In class*, we will be ready to talk about your questions and your ideas with you. Be sure to come to class ready to call on our help.
+1. **What** you have to write.
+2. **How** you can do the analysis work.
+3. **Why** we are asking you to do this.
+4. Where you can get in-depth information.
+5. How you can expect us to grade your work.
 :::
- 
-## Chapters with information on why, what and how {#sec-report-intro-chapters} 
 
-We have written a series of chapters to support your learning in depth.
-The chapters are oriented around our answers to three questions that students might ask themselves.
+We provide a *summary* guide to what you have to write in @sec-report-quick-what, and a guide on how you can do the analysis in @sec-report-quick-how.
 
--   **Why**: what will you learn about, what is our motivation?
--   **What** do we expect students to do?
--   **How** can the assignment be done?
+We share a lecture on *why* we are asking you to do this work --- what you will learn and how you will benefit --- in @sec-report-quick-why.
 
-You can read the chapters in whatever order you like.
+At the end of this page, in @sec-report-quick-how-mark, we detail how we will mark your work so that you can both understand what we want you to do, and what good work will look like.
 
-Some may wish to start with our information on **what** we expect students to do [in Chapter -@sec-what] and on **how** the work can be done [in Chapter -@sec-how].
-It may then be useful to come back to our information on the context and the motivations for the exercise [in Chapter -@sec-intro-why].
-Of course, you can also start with our explanation for the motivations.
+If you want more in-depth guidance or support, we provide detailed *how-to* notes on the analysis work in [Chapter -@sec-how], and an explanation of why we are asking you to do this work in terms of current thinking of best practices in science [Chapter -@sec-intro-why].
 
-## Lecture recordings {#sec-report-intro-lecture}
+## What you have to write {#sec-report-quick-what} 
 
-The lecture material is presented in three short parts.
+Let's begin with what you need to write to complete this coursework.
 
-### Lecture recordings {#sec-report-intro-lecture-videos}
+1. **Submission deadline: On Friday 17th January 2025**
+2. You will submit a structured report.
+3. Presenting an analysis: what you did; what you found; the context; and the implications.
+
+::: callout-tip
+You will be able to find the submission point on Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=2530759) when it is revealed.
+:::
+
+**What is a structured report?** 
+
+You will submit short answers to a series of questions:
+
+1. Describe the questions or the predictions you examine in your analysis.
+2. Explain the research background: you are analyzing previously collected data, so briefly explain why the people who originally collected the data did that work.
+3. Explain if you are attempting to repeat the analysis that the original researchers did *or* if you are doing something different.
+4. Explain the motivation for the questions or the predictions your analysis examines.
+5. Summarize the methods that were used to collect the data you analyzed.
+6. Identify what variables are included in the analysis: what variable is the outcome (or dependent) variable, and what variables are the predictor (or independent) variables.
+7. Describe the analysis method you use to address the question or test the predictions.
+8. Explain your analysis method choices: why are you using this method?
+9. Identify the model you use in your analysis.
+10. Present a summary of the analysis results: use text and plots to show what you found.
+11. Explain the implications of the results, in theoretical or in policy terms.
+12. Critically evaluate your findings: reflect on the strength or the limitations of the evidence you present, as answers to the questions or as tests of the predictions you outlined.
+13. Predict: how can future research build on the work you have done?
+
+::: callout-tip
+- You will write each answer in sentences, organized in one or more paragraphs.
+- You will submit your analysis code in an appendix.
+- Where appropriate, you will include plots.
+- Submit your report as a series of answers to the questions listed *in a single document*.
+- You can use each question as a heading in the document.
+- *Word count limit*: no more than 1500 words are allowed for all materials except references, appendices, and the content of tables.
+:::
+
+## How you can do the analysis work {#sec-report-quick-how} 
+
+Reports will concern, usually, findings from analyses of data collected in previous studies or data accessed from online sources.
+These data will usually be associated with a published report in a journal like *Psychological Science* or a pre-print archive like *PsyArXiv*.
+
+We expect students to use one of the analysis methods taught in the module. 
+
+::: callout-tip
+If you want to know more about **how** to do this work, you can read in-depth guidance in @sec-how.
+:::
+
+You can see information on APA formatting of statistics and numbers in the [OWL Purdue guide](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_numbers_statistics.html).
+Though the APA guidelines are the authoritative guide.
+
+## Why we are asking you to do this {#sec-report-quick-why} 
+
+We are asking you to do the structured research report because doing the work --- the analysis and the writing --- will build your awareness and understanding of how psychological science *really* works, and will strengthen your sense of what *best practice* looks like in modern science.
+
+### Lecture recordings -- videos {#sec-report-intro-lecture-videos}
 
 Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
 You should be able to access the videos anywhere; you should not need to be on campus or logged on to the university VPN to view the videos.
 
-[Part 1 of 3; about 15 minutes](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=af7a2889-5ea9-446e-b65c-af4900daec6c)
+1. **Overview** (20 minutes): the key ideas, the scientific context
 
-[Part 2 of 3; about 20 minutes](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=d62a1395-b411-46db-b458-af4900dfefd2)
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=66487acb-5cbc-4a53-b853-b21f00c46462&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-research-report-1" ></iframe>
+```
 
-[Part 3 of 3; about 20 minutes](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bd28611a-58e0-4a33-9e7f-af4900e81e9d)
+2. **Overview** (20 minutes): the research workflow, multiverse analyses
 
-### Lecture recordings {#sec-report-intro-lecture-slides}
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d62a1395-b411-46db-b458-af4900dfefd2&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-research-report-2" ></iframe>
+```
 
-You can download the lecture slides in two different forms.
+3. **Overview** (20 minutes): kinds of reproducibility, open data, and doing better science.
 
-1. You can download the slides as a .html file:  [401-research-report.html](files/401-research-report.html). This can be opened in a browser and presents the slides as they are delivered.
-2. You can download the slides as a Word .docx file:  [401-research-report-printable.docx](files/401-research-report-printable.docx). This can be opened in Microsoft Word. You can edit the file to write your own notes. And you can print the document. 
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bd28611a-58e0-4a33-9e7f-af4900e81e9d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-research-report-3" ></iframe>
+```
 
-There will be some slight variation in how the images appear in the .html and .docx versions.
-This is because I wrote the slides in `{Quarto}`, in R-Studio, and `{Quarto}` is designed to render *natively* to .html (so that images look nice in a browser).
+### Lecture recordings -- slides {#sec-report-intro-lecture-slides}
+
+You can download the lecture slides as a single downloadable `.html` file that you can open in any browser:  [411-research-report.html](files/411-research-report.html). This can be opened in a browser and presents the slides as they are delivered.
+
+## How we will mark your work {#sec-report-quick-how-mark} 
+
+A **distinction** requires: 
+
+*A. Background and methods*
+
+- A concise explanation of the background or context for the research. Why did the original study authors do the research? Why are you doing the analysis you report? The explanation should briefly reference previous research, identifying the limitations of that research, where appropriate.
+- A clear statement of the research question that your analysis addresses, or the hypothesis or prediction that your analysis tests. A statement of questions or predictions should be specific and concrete, i.e., not just a statement that some difference is expected: what difference is expected?
+- There should be a coherent, logical, argument for how the background or context leads to the questions or predictions.
+
+*B. Analysis and results*
+
+- A clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.
+- A concise summary of the properties of the variables --- how data were collected, how variable values were coded or scored --- explaining enough relevant information that the reader can understand the structure of the data, and the reliability or validity of observations.
+- A scholarly explanation of the analysis you did, including an account of why you chose to use the method you use, given possible alternatives and, if relevant, referring to justifications for your choice that are identified in the statistical literature.
+- A clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.
+- Evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.
+- A clear presentation of the results, presenting a correct interpretation of statistical information concerning the size, the direction (or sign), and the significance of any effect you estimate or difference you test. The presentation should explain how the outcome is expected to vary, on average, given the differences or the effects estimated using your analyses.
+- There is full and correct use of APA conventions in the presentation of statistical results.
+- Where appropriate, results are presented using both text and relevant, informative, visualizations.
+
+*C. Implications and critical reflection*
+
+- An accurate account of whether or how the analysis results address the questions, or how the analysis results support or disconfirm the predictions stated.
+- A scholarly explanation of the implications of the results: what do the results suggest we now know that we did (or did not) know before?
+- A critical analysis of the strengths or limitations of the evidence: how confident can we be, how uncertain should we be, that the results that are presented do or do not suggest what you think they suggest.
+- A constructive analysis of how future research could build on your findings to further extend understanding or evaluate methodological concerns.
+
+A **merit** will be awarded, by comparison, if:
+
+*A. Background and methods*
+
+- There is a concise explanation of the background or context for the research. There is limited or partial information on why the original study authors did the research or why you are you doing the analysis you report. We may see statements but we do not see an argument explaining the justifications motivating either the original or your research.
+- There is a clear statement of the research question, or the hypothesis or prediction that your analysis tests. But the question or the prediction may be vague, or stated in general not specific terms.
+
+*B. Analysis and results*
+
+- There is a clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.
+- The summary of the properties of the variables may not be sufficiently clear or informative to communicate effectively the structure of the data, or to support evaluations of the reliability or validity of analysis results.
+- There is an explanation of the analysis you did, but there is limited explanation of why you chose to use the method you use. There is no or there is limited awareness of possible alternatives. No informed justification is presented for analysis choices.
+- There is a clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.
+- There is evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.
+- There is a clear presentation of the results, presenting a correct interpretation of statistical information concerning the size, the direction (or sign), and the significance of any effect you estimate or difference you test. The presentation should explain how the outcome is expected to vary, on average, given the differences or the effects estimated using your analyses.
+- There is full and correct use of APA conventions in the presentation of statistical results.
+- Where appropriate, results are presented using both text and relevant, informative, visualizations.
+
+*C. Implications and critical reflection*
+
+- There is an accurate account of whether or how the analysis results address the questions, or how the analysis results support or disconfirm the predictions stated.
+- There is some explanation of the implications of the results but this account is not linked to previous research (in the literature).
+- There is limited reflection on the strengths or limitations of the evidence. We may see generic but not well informed discussion of the evidence specific to your analysis or your data.
+- There is limited discussion of future research.
+
+A **pass** will be awarded, by comparison, if:
+
+*A. Background and methods*
+
+- There is a concise explanation of the background or context for the research. There is limited or no information on why the original study authors did the research or why you are you doing the analysis you report.
+- There is a statement of the research question, or the hypothesis or prediction that your analysis tests. But the question or the prediction may be vague, or stated in general terms only.
+
+*B. Analysis and results*
+
+- There is a clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.
+- The summary of the properties of the variables provides information on the structure of the data but it may be unclear how one or more variables were coded or scored. There is limited engagement with questions of measurement reliability or validity.
+- There is an explanation of the analysis you did, but there is no explanation of why you chose to use the method you use. Limited or no informed justification is presented for analysis choices.
+- There is a clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.
+- There is evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.
+- There is a clear presentation of the results, presenting a correct interpretation of statistical information concerning the direction (or sign) and the significance of any effect you estimate or difference you test. The presentation should explain how the outcome is expected to vary, on average, given the differences or the effects estimated using your analyses.
+- There may be partial use of APA conventions in the presentation of statistical results.
+- Appropriate visualizations may be included but without comment or discussion.
+
+*C. Implications and critical reflection*
+
+- There is a summary account of the results but it may not clearly explain whether or how the analysis results address the questions, or how the analysis results support or do not support the predictions stated.
+- There is limited or no explanation of the implications of some of the results.
+- There is limited or no reflection on the strengths or limitations of the evidence.
+- There is no discussion of future research.
+
+

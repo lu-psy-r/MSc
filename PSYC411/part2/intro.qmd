@@ -1,4 +1,4 @@
-# Reasons why we do the research report assignment: What you will learn {#sec-intro-why}
+# Why we are asking you to do this {#sec-intro-why}
 
 The research report assignment requires students to locate, access, analyse and report previously collected data. 
 This introduction is intended to answer the first question anybody might ask.
@@ -15,7 +15,7 @@ It will help you to understand *why* we are asking you to do the assignment, and
 It will help you to understand *how* this work will aid your development. 
 
 You may not be interested in the discussion in this chapter.
-If you are not, go ahead to the information on **what** we expect students to do [in Chapter -@sec-what] and on **how** the work can be done [in Chapter -@sec-how].
+If you are not, go to the information on **what** we expect students to do [in Chapter -@sec-report-intro] and on **how** the work can be done [in Chapter -@sec-how].
 
 ## The key ideas {#sec-why-key-ideas}
 
@@ -40,7 +40,7 @@ In the workplace, the accuracy of these ideas will emerge when you see how a tea
 If we talk about the ideas now, we can get you ready for dealing with the practical and the ethical concerns you will confront when that happens.
 
 We will begin by discussing psychological research, and research *about* psychological research, to answer the question: **Why: what is the motivation for the assignment?** 
-We will then move to answering the **What** question [@sec-what] and the **How** question [@sec-how].
+We will then move to answering the **What** question [@sec-report-intro] and the **How** question [@sec-how].
 
 ## Why: what is the motivation for the assignment? {#sec-motivation-for-assignment}
 

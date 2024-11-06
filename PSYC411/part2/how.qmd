@@ -1,6 +1,6 @@
-# How you can do it {#sec-how}
+# How you can do the analysis work {#sec-how}
 
-The PSYC401 Research Report assignment requires students to locate, access, analyse and report previously collected data. 
+The PSYC411 Research Report assignment requires students to locate, access, analyse and report previously collected data. 
 
 ::: callout-tip
 Here, we answer the question:
@@ -13,9 +13,9 @@ Look at this outline, make a plan, and then follow the advice, taking it *one st
 
 If you want to understand **why** we think you will benefit from doing this, you can read the explanation in @sec-intro-why.
 
-If you want to know more about **what** you are expected to do, you can read about that in @sec-what.
+If you want to know more about **what** you are expected to do, you can read about that in @sec-report-quick-what.
 
-We provide information on assessment criteria and our approach to marking in @sec-marking.
+We provide information on assessment criteria and our approach to marking in @sec-report-quick-how-mark.
 
 ## The variety of things students do {#sec-how-variety} 
 
@@ -36,7 +36,7 @@ Our advice on working with data-sets presented without an analysis will overlap 
 In the following, I split our guidance into two parts. 
 
 1. I look next at the task of locating, accessing and checking the data ([Section -@sec-locateaccesscheck]). 
-2. Then I look at the task of figuring out what analysis you can do with the data ([see Section -@sec-whatanalysis]). 
+2. Then I look at the task of figuring out what analysis you can do with the data ([see Section -@sec-report-quick-whatanalysis]). 
 
 Obviously, you cannot consider an analysis if you cannot be sure that you can work with the data [@minocher].
 
@@ -160,7 +160,7 @@ Data documentation is often presented as a note or a wiki page or a miniature pa
 If these information are not presented, or are not clear: **walk away**.
 :::
 
-### Plan the analysis you want to do {#sec-whatanalysis}
+### Plan the analysis you want to do {#sec-report-quick-whatanalysis}
 
 After you have found an interesting article, and have confirmed that you can use the associated data, you will need to plan what analysis you want to do.
 
