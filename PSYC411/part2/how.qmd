@@ -21,11 +21,10 @@ Look at this outline, make a plan, and then follow the advice, taking it *one st
 
 If you want to understand **why** we think you will benefit from doing this, you can read the explanation in [the why chapter](../part2/intro.qmd#sec-intro-why).
 
-If you want to know more about **what** you are expected to do, you can read about that in
-[the what chapter section of what you have to write](../part2/report-preface.qmd#sec-report-quick-what).
+If you want to know more about **what** you are expected to do, you can read about that in the section on [what you have to write](../part2/report-preface.qmd#sec-report-quick-what).
 
-We provide information on assessment criteria and our approach to marking in
-[the what chapter on how we will mark your work](../part2/report-preface.qmd#sec-report-quick-how-mark).
+We provide information on assessment criteria and our approach to marking in the section on 
+[how we will mark your work](../part2/report-preface.qmd#sec-report-quick-how-mark).
 
 ## The variety of things students do {#sec-how-variety} 
 
@@ -37,16 +36,16 @@ Students have taken a variety of approaches to the assignment.
 
 Ask in class or on the Moodle discussion forum for advice about any one of these approaches.
 
-I consider, first, working with data-sets where an analysis of the data has been presented in the article [@sec-publishedanalysis]. 
-I then look at working with data-sets where the data are presented without an analysis ([see Section -@sec-noanalysis]). 
+I consider, first, working with data-sets where an analysis of the data has been presented in the article (@sec-publishedanalysis). 
+I then look at working with data-sets where the data are presented without an analysis (see @sec-noanalysis). 
 Our advice on working with data-sets presented without an analysis will overlap in key respects with our advice on working with curated demonstration data.
 
 ## Working with data associated with a published analysis {#sec-publishedanalysis}
 
 In the following, I split our guidance into two parts. 
 
-1. I look next at the task of locating, accessing and checking the data ([Section -@sec-locateaccesscheck]). 
-2. Then I look at the task of figuring out what analysis you can do with the data ([see Section -@sec-report-quick-whatanalysis]). 
+1. I look next at the task of locating, accessing and checking the data (@sec-locateaccesscheck). 
+2. Then I look at the task of figuring out what analysis you can do with the data (@sec-report-quick-whatanalysis). 
 
 Obviously, you cannot consider an analysis if you cannot be sure that you can work with the data [@minocher].
 
@@ -95,7 +94,7 @@ You can use these words, and maybe consider alternate terms.
 For example, I am interested in `reading comprehension` or `development reading comprehension` but researchers working on reading development might also refer to `children reading comprehension`.
 
 You want to be as efficient as possible so combine your search for articles in an interesting topic area with your search for accessible data. 
-We can learn from the research we discussed on data sharing practices ([see Section -@sec-sharing]) by looking for specific markers that data associated with an article should be accessible.
+We can learn from the research we discussed on data sharing practices in [the why chapter section on data sharing](../part2/intro.qmd#sec-sharing) by looking for specific markers that data associated with an article should be accessible.
 
 If you are doing a search (1.) on [Google scholar](https://scholar.google.com){.external target="_blank"}), I would use the key words related to your topic plus words like: `open data badge`; `open science badge`. 
 So, I would do a search for the words: `reading comprehension open data badge`. 
@@ -144,7 +143,7 @@ I have guided you, here, through to the @rodríguez-ferreiro2020 data repository
 
 #### Check {#sec-check}
 
-If you have located an interesting article with data that you can access, and if you have read the introductory notes ([see Section -@sec-checkanalyses]), then you will next need to make sure that you can use the data.
+If you have located an interesting article with data that you can access, and if you have read the introductory notes (see @sec-checkanalyses), then you will next need to make sure that you can use the data.
 
 ::: callout-tip
 The task here is:
@@ -183,8 +182,8 @@ The task here is:
 
 Students have taken a variety of approaches to the assignment.
 
--   Some students choose to complete a *reanalysis* of the data, in an attempt to reproduce the results presented in the article ([see -@sec-methodsrepro, and advice in -@sec-try-repro]).
--   Some students choose to complete an *alternate analysis* of the data, varying elements of the analysis ([see the discussion in -@sec-multiverse, and advice in -@sec-try-multiverse]).
+-   Some students choose to complete a *reanalysis* of the data, in an attempt to reproduce the results presented in the article (see @sec-methodsrepro, and advice in @sec-try-repro).
+-   Some students choose to complete an *alternate analysis* of the data, varying elements of the analysis (see the discussion in @sec-multiverse, and advice in @sec-try-multiverse).
 
 Either way, you will want to first make sure you can identify exactly *what* the authors of the original study did, *how* they did it, and *why* they did it.
 
@@ -215,7 +214,7 @@ Psychological science researchers use a variety of data analysis methods and not
 The use of the methods we teach --- t-test, correlation, and the linear model --- are very *very* common; that is why we teach them. 
 But you may also see reports of analyses done using methods like ANOVA, and multilevel or (increasingly) linear mixed-effects models [@meteyard2020].
 
-In research on the reproducibility of results in the literature ([see Section -@sec-checkanalyses]), the researchers attempting to reproduce results often focused on answering the research question the original authors stated using the data the original authors shared. 
+In research on the reproducibility of results in the literature (see [the why chapter section on check analyses](../part2/intro.qmd#sec-checkanalyses)), the researchers attempting to reproduce results often focused on answering the research question the original authors stated using the data the original authors shared. 
 This does not mean that they always tried to *exactly* reproduce an analysis or an analysis result. 
 Sometimes, that was not possible.
 
@@ -248,7 +247,7 @@ Sometimes, we learn that a simpler analysis provides a good account of the behav
 This can happen if, for example, our theory predicts that two effects should work together but an analysis shows that we can explain behaviour in an account in which the two effects are independent. 
 For example, @ricketts2021 predicted that children should learn words more effectively if they were shown the spellings of the words *and* they were told they would be helped by seeing the spelling but, in our data, we found that just seeing the spellings was enough to explain the learning we observed.
 
-In completing analyses that *vary* from original analyses, we are engaging in the kind of work people do when they do *multiverse analyses* or *robustness checks* ([see Section -@sec-multiverse]).
+In completing analyses that *vary* from original analyses, we are engaging in the kind of work people do when they do *multiverse analyses* or *robustness checks* (see @sec-multiverse).
 
 ::: callout-tip
 In planning an alternate or multiverse analysis, do not suppose that you need to do multiple analyses: you do not.
@@ -263,16 +262,16 @@ We found limitations in the analyses that people did that had (negative) consequ
 
 ##### Critically evaluate the analysis description {#sec-critical-evaluation}
 
-If you revisit our discussion of multiverse analyses, you will see that we discussed two things: (1.) analyses of the impact on results of varying how you construct data-sets for analysis ([Section -@sec-multiversedata]) and (2.) analyses of the impact on results of varying what analysis method you use, or how you use the method ([see Section -@sec-multiverseanalysis]). 
+If you revisit our discussion of multiverse analyses, you will see that we discussed two things: (1.) analyses of the impact on results of varying how you construct data-sets for analysis ([multiverse data](../part2/intro.qmd#sec-multiversedata)) and (2.) analyses of the impact on results of varying what analysis method you use, or how you use the method ([multiverse analyses](../part2/intro.qmd#sec-multiverseanalysis)). 
 These are both good ways to approach thinking about the description of the analysis you see in a published article.
 
-As we noted in [Section -@sec-multiversedata], you almost always have to process the data you collect (in an experiment or a survey) before you can analyse the data. 
-Often, this means you need to code for responses to survey questions e.g. asking people to self-report their gender, or you need to identify and code for people making errors when they try to do the experimental task you set them, or you need to process the data to exclude participants who took too long to do the task (if taking too long is a problem).
+As we noted in [the section on multiverse data](../part2/intro.qmd#sec-multiversedata), you almost always have to process the data you collect (in an experiment or a survey) before you can analyse the data. 
+Often, this means you need to code for responses to survey questions, e.g., asking people to self-report their gender, or you need to identify and code for people making errors when they try to do the experimental task you set them, or you need to process the data to exclude participants who took too long to do the task (if taking too long is a problem).
 Not all of these processing steps will have an impact on the results but some might.
 This is why you can sometimes do **useful** and sometimes **original** research work in reanalysing previously published data.
 
 You can begin your analysis planning work by first identifying exactly what data processing the original study authors did then identifying what different data processing they could have done. 
-Remember the research we discussed in relation to reproducibility studies, you need to be prepared for the possibility that it is challenging to identify what researchers did to process their data for analysis [Section -@sec-datachallenges]. 
+Remember the research we discussed in relation to reproducibility studies, you need to be prepared for the possibility that it is challenging to identify what researchers did to process their data for analysis (@sec-datachallenges). 
 To identify the information you need, look for keywords like `code, exclude, process, tidy, transform` in the text of the article, or look for words like this in the documentation you find in the data repository.
 
 When you have identified this information, you can then consider three questions:
@@ -293,7 +292,7 @@ For example, you can ask: what happens if you analyse the impact of the variable
 -   Do you want to check the impact of varying data processing choices: check, do you need and have access to the raw data? can you see how to recode variables?
 :::
 
-As we noted in [Section -@sec-multiverseanalysis], when we consider how to answer a research question with a data-set, it is often possible to imagine multiple different analysis methods: reasonable alternatives. 
+As we noted in [the section on multiverse analyses](../part2/intro.qmd#sec-multiverseanalysis), when we consider how to answer a research question with a data-set, it is often possible to imagine multiple different analysis methods: reasonable alternatives. 
 Most often, this is most clearly apparent when we are looking at an *observational* data-set or data collected given a *cross-sectional* study design.
 
 In *cross-sectional* or *observational* studies, we typically are not manipulating experimental conditions, and we are often analysed data using some kind of linear model. 
@@ -333,7 +332,7 @@ We talk about that situation, next.
 A number of data-sets have been published online with information about the data but with no analysis.
 You can look for data that may be interest you in a number of different places, now, but I would focus on one. 
 I talk about that next.
-Then I offer some guidance on how you might approach analyzing such data [Section -@sec-openanalysis].
+Then I offer some guidance on how you might approach analyzing such data (@sec-openanalysis).
 
 ### Looking for open data {#sec-looking-for-open-data}
 

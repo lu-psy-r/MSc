@@ -79,7 +79,7 @@ These data will usually be associated with a published report in a journal like 
 We expect students to use one of the analysis methods taught in the module. 
 
 ::: callout-tip
-If you want to know more about **how** to do this work, you can read in-depth guidance in @sec-how.
+If you want to know more about **how** to do this work, you can read in-depth step-by-step guidance in [the how-to chapter](../part2/how.qmd#sec-how).
 :::
 
 You can see information on APA formatting of statistics and numbers in the [OWL Purdue guide](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_numbers_statistics.html).
