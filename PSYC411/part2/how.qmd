@@ -22,10 +22,10 @@ Look at this outline, make a plan, and then follow the advice, taking it *one st
 If you want to understand **why** we think you will benefit from doing this, you can read the explanation in [the why chapter](../part2/intro.qmd#sec-intro-why).
 
 If you want to know more about **what** you are expected to do, you can read about that in
-[the what chapter](../part2/report-preface.qmd#sec-report-quick-what).
+[the what chapter section of what you have to write](../part2/report-preface.qmd#sec-report-quick-what).
 
 We provide information on assessment criteria and our approach to marking in
-[the what chapter](../part2/report-preface.qmd#sec-report-quick-how-mark).
+[the what chapter on how we will mark your woprkl](../part2/report-preface.qmd#sec-report-quick-how-mark).
 
 ## The variety of things students do {#sec-how-variety} 
 
