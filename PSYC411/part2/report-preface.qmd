@@ -189,8 +189,3 @@ A **pass** will be awarded, by comparison, if:
 - There is limited or no explanation of the implications of some of the results.
 - There is limited or no reflection on the strengths or limitations of the evidence.
 - There is no discussion of future research.
-
-### References
-
-::: {#refs}
-:::
