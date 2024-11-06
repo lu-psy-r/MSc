@@ -30,7 +30,7 @@ We share a lecture on *why* we are asking you to do this work --- what you will 
 
 At the end of this page, in @sec-report-quick-how-mark, we detail how we will mark your work so that you can both understand what we want you to do, and what good work will look like.
 
-If you want more in-depth guidance or support, we provide detailed *how-to* notes on the analysis work in [the how-to chapter](../part2/how.qmd#sec-how), and an explanation of why we are asking you to do this work in terms of current thinking of best practices in science [Chapter -@sec-intro-why].
+If you want more in-depth guidance or support, we provide detailed *how-to* notes on the work you can expect to do in [the how-to chapter](../part2/how.qmd#sec-how), and an explanation of why we are asking you to do this work in terms of current thinking of best practices in science [the why chapter](../part2/intro.qmd#sec-intro-why).
 
 ## What you have to write {#sec-report-quick-what} 
 
