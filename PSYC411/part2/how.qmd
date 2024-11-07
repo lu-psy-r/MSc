@@ -188,7 +188,7 @@ Students have taken a variety of approaches to the assignment.
 
 Either way, you will want to first make sure you can identify exactly *what* the authors of the original study did, *how* they did it, and *why* they did it.
 
-You can process the key article information efficiently using the *QALMRI* method we discussed in the *PSYC413* class on graduate writing skills [@brosowsky; @kosslyn2005], summarised in the slides from that class, which can be downloaded [here](files/PSYC413-writing.html). 
+You can process the key article information efficiently using the *QALMRI* method we discussed in the *PSYC413* class on graduate writing skills [@brosowsky; @kosslyn2005], summarised in the slides from that class. 
 You are first aiming to locate information on the broad and the specific question the study addresses, the methods the study authors used to collect data, the results they report, and the conclusions they present given the results. 
 
 Can you find these bits of information?
