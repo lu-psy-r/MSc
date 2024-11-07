@@ -8,22 +8,23 @@ csl: psychological-bulletin.csl
 
 # Why we are asking you to do this {#sec-intro-why}
 
-The research report assignment requires students to locate, access, analyse and report previously collected data. 
-This introduction is intended to answer the first question anybody might ask.
+The PSYC411 Research Report assignment requires students to locate, access, analyse and report previously collected data. 
+
+::: callout-tip
+Here, we answer the question:
 
 -   **Why**: what will you learn about, what is our motivation?
-
-In following chapters, I will answer the questions.
-
--   **What** do we expect students to do?
--   **How** can the assignment be done?
+:::
 
 I hope you will agree that the discussion that follows is worth your time in reading it. 
 It will help you to understand *why* we are asking you to do the assignment, and *why* we are looking for what we are looking for. 
 It will help you to understand *how* this work will aid your development. 
 
 You may not be interested in the discussion in this chapter.
-If you are not, go to the information on **what** we expect students to do [in Chapter -@sec-report-intro] and on **how** the work can be done [in Chapter -@sec-how].
+
+We also provide a *summary* guide to [What you have to write](../part2/report-preface.qmd#sec-report-quick-what).
+
+If you want more in-depth guidance or support, we provide detailed *step-by-step* notes on the work you can plan to do in a chapter we have written to support you: [How you can do the analysis work](../part2/how.qmd#sec-how).
 
 ## The key ideas {#sec-why-key-ideas}
 
@@ -48,7 +49,6 @@ In the workplace, the accuracy of these ideas will emerge when you see how a tea
 If we talk about the ideas now, we can get you ready for dealing with the practical and the ethical concerns you will confront when that happens.
 
 We will begin by discussing psychological research, and research *about* psychological research, to answer the question: **Why: what is the motivation for the assignment?** 
-We will then move to answering the **What** question [@sec-report-intro] and the **How** question [@sec-how].
 
 ## Why: what is the motivation for the assignment? {#sec-motivation-for-assignment}
 
@@ -255,7 +255,7 @@ Typically, the explanation for these answers are rarely explained. We might say:
 
 -   "*Consistent with common practice in this field*, we excluded all reaction times greater than 1500ms before analysis."
 
-But the reader of a journal article typically **will not see** an explanation for why, as in the example, we exclude reaction times greater than 1500ms and not 2000ms or 3000ms, etc. 
+But the reader of a journal article typically **will not see** an explanation for *why*, as in the example, we exclude reaction times greater than 1500ms and not 2000ms or 3000ms, etc. 
 We typically do not see an explanation for why *we* exclude all reaction times greater than 1500ms but *other* researchers exclude all reaction times greater than 2000ms. 
 (I do not pick this example at random: there are serious concerns about the impact on analyses of exclusions like this [@Ulrich1994a].)
 
@@ -392,7 +392,7 @@ In looking at reproducibility, here, we are considering how much, or in what way
 
 #### Methods reproducibility {#sec-methodsrepro}
 
-As @gilmore2017 discuss, **methods reproducibility** means that another researcher should be able to get the same results if they use the same tools and analysis methods to analyse the same data-set [some researchers also refer to *analytic reproducibility* or *computational reproducibility*; see e.g. @crüwell; @hardwicke2018; @hardwicke; @laurinavichyute2022; @minocher].
+As @gilmore2017 discuss, **methods reproducibility** means that another researcher should be able to get the same results if they use the same tools and analysis methods to analyse the same data-set [some researchers also refer to *analytic reproducibility* or *computational reproducibility*; see, e.g., @crüwell; @hardwicke2018; @hardwicke; @laurinavichyute2022; @minocher].
 
 In neuroimaging, the multiplicity of possible implementations of the data analysis pipeline [@carp2012plurality], and the fact that important elements or information about the pipeline deployed by researchers may be missing from published reports [@carp2012secret], can make it challenging to identify how results can be reproduced.
 
@@ -449,9 +449,9 @@ This raises an important question: **What exactly do we see, when we look at cur
 The question is important because answering it helps to identify where the challenges are located when you complete your work to locate, access, analyse and report previously collected data.
 
 I break the discussion of what we see into two parts. 
-Firstly, I look at the results of audits of data and code sharing ([see Section -@sec-sharing]): are data shared and can we access the data? 
-Secondly, I discuss analyses of methods reproducibility, and shared data and code usability ([see Section -@sec-checkanalyses]): can others reproduce the results reported in published articles, given shared data? can others access and run shared analysis code? can others use the shared code to reproduce the reported results? 
-Again, I need to be brief but reference sources that you can follow-up.
+Firstly, I look at the results of audits of data and code sharing: are data shared and can we access the data? 
+Secondly, I discuss analyses of methods reproducibility, and shared data and code usability: can others reproduce the results reported in published articles, given shared data? can others access and run shared analysis code? can others use the shared code to reproduce the reported results? 
+Again, I need to be brief so I reference sources that you can follow-up.
 
 #### The link between the credibility revolution and the reproducibility of results
 
@@ -512,7 +512,7 @@ Practices tended to be slightly better in more recent publications.
 
 Where data were found to be incomplete, this appeared to be, in part, because participants were excluded in the processing of the data for analysis but this information was not in the report, or because data were shared without a guide or "readme" file or data dictionary (or codebook) explaining the structure, coding or composition of the shared data.
 
-Potentially important for future open science practices, [@towse2021; also @roche2015] found that sharing data as *Supplementary materials* may appear to carry risks that, in the long term, mean that data may become inaccessible.
+Potentially important for future open science practices, @towse2021 [see, also, @roche2015] found that sharing data as *Supplementary materials* may appear to carry risks that, in the long term, mean that data may become inaccessible.
 
 ::: callout-tip
 -   When you locate open data you can access, look for a guide, "readme" file, codebook or data dictionary explaining the data: you need to be able to understand what the variables are, what the observations relate to (observations per person, per trial?) and how variables are coded.
