@@ -6,10 +6,6 @@ bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
 
-::: callout-important
-Under construction: come back in a few hours
-:::
-
 # The structured research report: Quick start {#sec-report-intro}
 
 The **structured research report** assignment: We want you to analyse previously collected data and write a report about your findings.
