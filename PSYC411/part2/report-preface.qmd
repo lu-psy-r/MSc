@@ -26,7 +26,7 @@ Here, we present a guide in five parts:
 
 We provide a *summary* guide to [What you have to write](../part2/report-preface.qmd#sec-report-quick-what) next, and then a quick guide to [How you can do the analysis work](../part2/report-preface.qmd#sec-report-quick-how) you need to do, so that you can do the writing.
 
-We share a lecture on [Why we are asking you to do this work](../part2/report-preface.qmd#@sec-report-quick-why): what you will learn and how you will *benefit*.
+We share a lecture on [Why we are asking you to do this work](../part2/report-preface.qmd#sec-report-quick-why): what you will learn and how you will *benefit*.
 
 At the end of this page, in [How we will mark your work](../part2/report-preface.qmd#sec-report-quick-how-mark), we detail what work of different grades looks like, so that you can both understand what we want you to do, and how you can do it.
 
@@ -119,43 +119,42 @@ You can download the lecture slides as a single downloadable `.html` file that y
 
 ## How we will mark your work {#sec-report-quick-how-mark} 
 
-A **distinction** requires: 
+A **distinction** requires the following.
 
 *A. Background and methods*
 
-- A concise explanation of the background or context for the research. Why did the original study authors do the research? Why are you doing the analysis you report? The explanation should briefly reference previous research, identifying the limitations of that research, where appropriate.
-- A clear statement of the research question that your analysis addresses, or the hypothesis or prediction that your analysis tests. A statement of questions or predictions should be specific and concrete, i.e., not just a statement that some difference is expected: what difference is expected?
 - There should be a coherent, logical, argument for how the background or context leads to the questions or predictions.
+- There should be a concise explanation of the background or context for the research: Why did the original study authors do the research? Why are you doing the analysis you report?
+- There should be a specific concrete statement of the research question that your analysis addresses, or the hypothesis that your analysis tests.
+- In the method information, there should be a concise summary of the properties of the variables --- how data were collected, how variable values were coded or scored --- so that the reader can understand the structure of the data.
 
 *B. Analysis and results*
 
-- A clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.
-- A concise summary of the properties of the variables --- how data were collected, how variable values were coded or scored --- explaining enough relevant information that the reader can understand the structure of the data, and the reliability or validity of observations.
-- A scholarly explanation of the analysis you did, including an account of why you chose to use the method you use, given possible alternatives and, if relevant, referring to justifications for your choice that are identified in the statistical literature.
-- A clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.
-- Evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.
-- A clear presentation of the results, presenting a correct interpretation of statistical information concerning the size, the direction (or sign), and the significance of any effect you estimate or difference you test. The presentation should explain how the outcome is expected to vary, on average, given the differences or the effects estimated using your analyses.
-- There is full and correct use of APA conventions in the presentation of statistical results.
+- There should be a clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.
+- There should be a scholarly explanation of the analysis you did, including an account of why you chose to use the method you use, given possible alternatives and, if relevant, referring to justifications for your choice that are identified in the statistical literature.
+- There should be a clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.
+-There should be a clear presentation of the results, presenting a correct interpretation of statistical information concerning the size, the direction (or sign), and the significance of any effect you estimate or difference you test. The presentation should explain how the outcome is expected to vary, on average, given the differences or the effects estimated using your analyses.
+- There should be full and correct use of APA conventions in the presentation of statistical results.
 - Where appropriate, results are presented using both text and relevant, informative, visualizations.
 
 *C. Implications and critical reflection*
 
-- An accurate account of whether or how the analysis results address the questions, or how the analysis results support or disconfirm the predictions stated.
-- A scholarly explanation of the implications of the results: what do the results suggest we now know that we did (or did not) know before?
-- A critical analysis of the strengths or limitations of the evidence: how confident can we be, how uncertain should we be, that the results that are presented do or do not suggest what you think they suggest.
-- A constructive analysis of how future research could build on your findings to further extend understanding or evaluate methodological concerns.
+- There should be an accurate account of whether or how the analysis results address the questions, or how the analysis results support or disconfirm the predictions stated.
+- There should be a scholarly explanation of the implications of the results: what do the results suggest we now know that we did (or did not) know before?
+- There should be a critical analysis of the strengths or limitations of the evidence: how confident can we be, how uncertain should we be, that the results that are presented do or do not suggest what you think they suggest.
+- There should be a constructive analysis of how future research could build on your findings to further extend understanding or evaluate methodological concerns.
 
 A **merit** will be awarded, by comparison, if:
 
 *A. Background and methods*
 
-- There is a concise explanation of the background or context for the research. There is limited or partial information on why the original study authors did the research or why you are you doing the analysis you report. We may see statements but we do not see an argument explaining the justifications motivating either the original or your research.
+- There is a concise explanation of the background or context for the research. There is limited or partial information on why the original study authors did the research, or why you are you doing the analysis you report. We do not see an argument explaining the reasons motivating your research.
 - There is a clear statement of the research question, or the hypothesis or prediction that your analysis tests. But the question or the prediction may be vague, or stated in general not specific terms.
+- The summary of the properties of the variables may not be sufficiently clear or informative about the structure of the data that the reader can understand what data are involved in analyses.
 
 *B. Analysis and results*
 
 - There is a clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.
-- The summary of the properties of the variables may not be sufficiently clear or informative to communicate effectively the structure of the data, or to support evaluations of the reliability or validity of analysis results.
 - There is an explanation of the analysis you did, but there is limited explanation of why you chose to use the method you use. There is no or there is limited awareness of possible alternatives. No informed justification is presented for analysis choices.
 - There is a clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.
 - There is evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.
@@ -176,11 +175,11 @@ A **pass** will be awarded, by comparison, if:
 
 - There is a concise explanation of the background or context for the research. There is limited or no information on why the original study authors did the research or why you are you doing the analysis you report.
 - There is a statement of the research question, or the hypothesis or prediction that your analysis tests. But the question or the prediction may be vague, or stated in general terms only.
+- The summary of the properties of the variables provides information on the structure of the data but it may be unclear how one or more variables were coded or scored. There is limited engagement with questions of measurement reliability or validity.
 
 *B. Analysis and results*
 
 - There is a clear account of which variables are included in the analyses, so that the reader can understand what outcome (dependent) variable is being analyzed using what predictor (independent) variables.
-- The summary of the properties of the variables provides information on the structure of the data but it may be unclear how one or more variables were coded or scored. There is limited engagement with questions of measurement reliability or validity.
 - There is an explanation of the analysis you did, but there is no explanation of why you chose to use the method you use. Limited or no informed justification is presented for analysis choices.
 - There is a clear identification of what analysis you did, using what method, outlining the elements and structure of the model whose results you present.
 - There is evidence that the analysis method you chose was used correctly, that the method was appropriate to the question and the data, and that the code you used could do the analysis you say it did.
