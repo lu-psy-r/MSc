@@ -28,7 +28,7 @@ We provide a *summary* guide to [What you have to write](../part2/report-preface
 
 We share a lecture on [Why we are asking you to do this work](../part2/report-preface.qmd#@sec-report-quick-why): what you will learn and how you will *benefit*.
 
-At the end of this page, in [How we will mark your work](../part2/report-preface.qmd#sec-report-quick-how-mark), we detail how we will mark your work so that you can both understand what we want you to do, and what good work will look like.
+At the end of this page, in [How we will mark your work](../part2/report-preface.qmd#sec-report-quick-how-mark), we detail what work of different grades looks like, so that you can both understand what we want you to do, and how you can do it.
 
 If you want more in-depth guidance or support, we provide detailed *step-by-step* notes on the work you can plan to do in a chapter we have written to support you: [How you can do the analysis work](../part2/how.qmd#sec-how).
 If you want an explanation of *why* we are asking you to do this work, so you can think about best practice in science, we have got that for you in our chapter: [Why we are asking you to do this](../part2/intro.qmd#sec-intro-why).
