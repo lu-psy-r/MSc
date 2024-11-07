@@ -20,17 +20,18 @@ Here, we present a guide in five parts:
 1. **What** you have to write.
 2. **How** you can do the analysis work.
 3. **Why** we are asking you to do this.
-4. Where you can get in-depth information.
-5. How you can expect us to grade your work.
+4. Where you can get **in-depth** information.
+5. How you can expect us to **grade** your work.
 :::
 
-We provide a *summary* guide to what you have to write in @sec-report-quick-what, and a guide on how you can do the analysis in @sec-report-quick-how.
+We provide a *summary* guide to [What you have to write](../part2/report-preface.qmd#sec-report-quick-what) next, and then a quick guide to [How you can do the analysis work](../part2/report-preface.qmd#sec-report-quick-how) you need to do, so that you can do the writing.
 
-We share a lecture on *why* we are asking you to do this work --- what you will learn and how you will benefit --- in @sec-report-quick-why.
+We share a lecture on [Why we are asking you to do this work](../part2/report-preface.qmd#@sec-report-quick-why): what you will learn and how you will *benefit*.
 
-At the end of this page, in @sec-report-quick-how-mark, we detail how we will mark your work so that you can both understand what we want you to do, and what good work will look like.
+At the end of this page, in [How we will mark your work](../part2/report-preface.qmd#sec-report-quick-how-mark), we detail how we will mark your work so that you can both understand what we want you to do, and what good work will look like.
 
-If you want more in-depth guidance or support, we provide detailed *how-to* notes on the work you can expect to do in [the how-to chapter](../part2/how.qmd#sec-how), and an explanation of why we are asking you to do this work in terms of current thinking of best practices in science [the why chapter](../part2/intro.qmd#sec-intro-why).
+If you want more in-depth guidance or support, we provide detailed *step-by-step* notes on the work you can plan to do in a chapter we have written to support you: [How you can do the analysis work](../part2/how.qmd#sec-how).
+If you want an explanation of *why* we are asking you to do this work, so you can think about best practice in science, we have got that for you in our chapter: [Why we are asking you to do this](../part2/intro.qmd#sec-intro-why).
 
 ## What you have to write {#sec-report-quick-what} 
 
