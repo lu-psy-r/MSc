@@ -82,6 +82,15 @@ If you want to know more about **how** to do this work, you can read in-depth st
 You can see information on APA formatting of statistics and numbers in the [OWL Purdue guide](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_numbers_statistics.html).
 Though the APA guidelines are the authoritative guide.
 
+### Report checklist {#sec-report-quick-how-checklist}  
+
+::: callout-important
+##Checklist
+
+To help you organize your work in preparing for the research report assignment, we share a downloadable checklist:
+[PSYC411-research-report-checklist](files/PSYC411-research-report-checklist.docx).
+:::
+
 ## Why we are asking you to do this {#sec-report-quick-why} 
 
 We are asking you to do the structured research report because doing the work --- the analysis and the writing --- will build your awareness and understanding of how psychological science *really* works, and will strengthen your sense of what *best practice* looks like in modern science.
