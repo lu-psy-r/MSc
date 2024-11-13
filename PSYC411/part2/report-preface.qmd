@@ -86,7 +86,6 @@ Though the APA guidelines are the authoritative guide.
 
 ::: callout-important
 ##Checklist
-
 To help you organize your work in preparing for the research report assignment, we share a downloadable checklist:
 [PSYC411-research-report-checklist](files/PSYC411-research-report-checklist.docx).
 :::
