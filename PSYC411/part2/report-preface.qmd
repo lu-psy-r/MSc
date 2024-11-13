@@ -84,8 +84,8 @@ Though the APA guidelines are the authoritative guide.
 
 ### Report checklist {#sec-report-quick-how-checklist}  
 
-::: callout-important
-##Checklist
+::: callout-tip
+## Checklist
 To help you organize your work in preparing for the research report assignment, we share a downloadable checklist:
 [PSYC411-research-report-checklist](files/PSYC411-research-report-checklist.docx).
 :::
