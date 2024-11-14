@@ -1,0 +1,1194 @@
+# Hypotheses and associations {#sec-associations}
+
+```{r libraries-hide}
+#| warning: false
+#| echo: false
+library(faux)
+library(kableExtra)
+library(patchwork)
+library(tidyverse)
+```
+
+```{r readin-hide}
+#| warning: false
+#| echo: false
+# -- code to read in the aggregated subject level data from the clearly-understood data set
+# -- study one
+study.one.gen <- read_csv("study-one-general-participants.csv", 
+                                  col_types = cols(
+                                    participant_ID = col_factor(),
+                                    study = col_factor(),
+                                    EDUCATION = col_factor(),
+                                    GENDER = col_factor(),
+                                    ETHNICITY = col_factor()
+                                    )
+                                   )
+
+# -- study two
+study.two.gen <- read_csv("study-two-general-participants.csv", 
+                                  col_types = cols(
+                                    participant_ID = col_factor(),
+                                    study = col_factor(),
+                                    EDUCATION = col_factor(),
+                                    GENDER = col_factor(),
+                                    ETHNICITY = col_factor()
+                                    )
+                                   )
+```
+
+## Overview {#sec-associations-overview}
+
+Welcome to our overview of the materials you will work with in our data analysis class in the *PSYC401* module, Week 7.
+
+We are completing five classes together in weeks 6-10. These classes are designed to help students to learn about some very common and powerful psychological data analysis methods. We will focus on methods that allow us to visualize and make sense of evidence for **associations** between variables. Our materials are designed to help you to think about what you are doing, to understand the aims of the practical steps.
+
+We will do this in the context of a live research project with potential real world impacts: the *Clearly understood* project. We will present our PSYC401 lessons in the context of this research project because we think that this **context** will help you to make sense of the data, and to see why we ask you to practise the skills we are teaching.
+
+We encounter written health information all the time: on medication labels, in letters from doctors, and online when we research things we are worried about. It is not always easy to understand this information.
+
+It is unclear how to make health communication more effective. The problem is that we are not sure how health information should be communicated so that everyone can understand it. This is why we ask the research questions:
+
+1.  What person attributes predict success in understanding?
+2.  Can people accurately evaluate whether they correctly understand written health information?
+
+As we work together, we will be revisiting some of the ideas and techniques you have seen in previous classes. This is to give you the opportunity to consolidate your learning. We will be extending your development with some new ideas to strengthen your skills.
+
+## Our learning goals {#sec-associations-goals}
+
+This week, we focus on both developing your critical thinking and strengthening your practical skills in data analysis.
+
+**1. Critical thinking**
+
+-   *Concepts*: begin with critical thinking
+-   *Skills*: developing hypotheses
+
+**2. Practical skills**
+
+-   *Concepts* -- associations: correlations, estimates and hypothesis tests
+-   *Skills* -- visualizing variation and covariation
+-   *Skills* -- writing the code
+-   *Skills* -- estimating correlations
+-   *Skills* -- hypothesis tests for correlations
+-   *Skills* -- interpreting and reporting correlations
+
+## Learning resources {#sec-associations-resources}
+
+You will see *next* links to the lectures we created to explain the concepts behind the critical thinking and analysis skills we want you to develop (@sec-associations-lectures), *then* information about the practical materials we have provided to help you to practise your skills (@sec-associations-practical).
+
+All the links to the lecture videos, the lecture slides, and everything you need for your practical work can *also* be found in the Week 7 files folder on Moodle [here](https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse8){target="_blank"}
+
+In @sec-associations-notes, we present the lecture slide points. We do this here because we can share the code we used to generate the plots we use in some of the slides [^hypotheses-associations-1]
+
+[^hypotheses-associations-1]: We write the slides and this book in [Quarto](https://quarto.org){target="_blank"} in R-Studio. Quarto scripts can be rendered as .html to share web-books like this one, or to share slides like those we use in presenting the lecture. One advantage of using Quarto is that we can share a plot and the code we used to generate the plot in the same page.
+
+### Lectures {#sec-associations-lectures}
+
+The lecture material for this week is presented in five short parts. Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
+
+[Part 1 of 5](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=3e5f2ca1-fc6d-4e31-8f7c-af5000c9916f){target="_blank"}
+
+[Part 2 of 5](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9a10462c-e185-4069-b72a-af5000cc076a){target="_blank"}
+
+[Part 3 of 5](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=1653a285-fa5b-45c4-a850-af5000d1c8d5){target="_blank"}
+
+[Part 4 of 5](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=ca174423-d385-40d5-9068-af5000d60688){target="_blank"}
+
+[Part 5 of 5](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=9d53628e-3133-43aa-b78f-af5000dc0d0b){target="_blank"}
+
+You can download the slides we presented in the lecture in two different formats, depending on what you think will be most useful to you:
+
+-   Download the slides exactly as they appear in the lecture from [this link](files/401-hypotheses-assocations.html). The .html file can be opened and viewed in any web browser (e.g., Chrome, Firefox, Safari).
+-   Or you can download a printable Word .docx presentation of the slides from [this link](files/401-hypotheses-associations-printable-edited.docx). The .docx can be opened in Microsoft Word. The figures will not appear exactly as they do in the lecture recording because Word cannot cope with images so well but the trade-off is that you get a document you can print and edit to add notes.
+
+<!-- ## Pre-lab activity 1 -->
+
+<!-- In weeks 16-19, we will be working together on a research project to investigate how people vary in their response to health advice. -->
+
+<!-- Completing the project involves collecting responses from PSYC122 students. -->
+
+<!-- In our class activities, we can then analyze the data we collect. -->
+
+<!-- To enter your responses, we invite you to complete a short survey. -->
+
+<!-- You can complete the survey here (just click on the web address to get started): -->
+
+<!-- [Complete the survey](https://lancasteruni.eu.qualtrics.com/jfe/form/SV_0ww8HHxx172TPJs){target="_blank"} -->
+
+<!-- ### Survey information -->
+
+<!-- The survey asks you to: -->
+
+<!-- - complete some questions about who you are; -->
+
+<!-- - and then answer some questions about what you know about some English words, about what you know about health matters, and about how you approach reading. -->
+
+<!-- The survey then asks you to: -->
+
+<!-- - read five short extracts from patient information leaflets about different kinds of health issue; -->
+
+<!-- - respond to some multiple choice questions about each extract; -->
+
+<!-- - and rate how well you think you understand the advice. -->
+
+<!-- The survey should take about 20 minutes to complete. -->
+
+<!-- Some people will take less time, and some people might take a little more time. -->
+
+<!-- Taking part in the survey is **completely voluntary**. -->
+
+<!-- You can stop at any time without completing the survey if you do not want to finish it. -->
+
+<!-- If you do not want to do the survey, you can do an alternative activity (see below). -->
+
+<!-- All responses will be recorded completely anonymously. -->
+
+<!-- ## Pre-lab activity 1 alternative -->
+
+<!-- If you do not want to complete the survey, we invite you to read the pre-registered research plan for the *PSYC122 health advice* research project. -->
+
+<!-- [Read the project pre-registration](https://osf.io/p6fsc/){target="_blank"} -->
+
+### Practical materials {#sec-associations-practical}
+
+We have collected the practical materials together into a folder.
+
+The folder includes the data files:
+
+-   `study-one-general-participants.csv`
+-   `study-two-general-participants.csv`
+
+and .R code files:
+
+-   `401-associations-how-to.R`
+-   `401-associations-workbook.R`
+
+You will use these files for your practical learning.
+
+You can download the .R files and the data .csv files in a single folder, using the link [here](files/PSYC401_week7_materials.zip).
+
+Or you can download the files as individual files from the module [Moodle page for PSYC401](https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse8){target="_blank"}.
+
+Once you have downloaded the file folder, you will need to upload it to the R-Studio server to access and use the R files.
+
+#### The how-to guide {#sec-associations-practical-how-to}
+
+In the `how-to` guide:
+
+-   `401-associations-how-to.R`
+
+we show you how to do everything you need to do in the practical workbook (see @sec-associations-practical-workbook). The guide comprises an .R file `401-associations-how-to.R` with code and advice.
+
+The code in the .R file was written to work with the data file
+
+-   `study-one-general-participants.csv`.
+
+<!-- In the video, I work my way through the R code, step-by-step, explaining what each line of code does. -->
+
+<!-- Watching the video takes about 20 minutes. -->
+
+<!-- It is completely optional but I have provided the video because students have told us they find it useful. -->
+
+<!-- [Watch the how-to guide](https://dtu-panopto.lancs.ac.uk/Panopto/Pages/Viewer.aspx?id=fc290f97-5085-4b92-8870-ae3f01294230){target="_blank"} -->
+
+::: callout-tip
+-   Work through the steps in the `how-to` guide first, this practice will help you to understand what you need to do for the `workbook` tasks.
+
+-   The `how-to` guide and the `workbook` have similar structures. This is intentional: so that you can copy and *adapt* code from the `how-to` guide to do the practical tasks in the `workbook`.
+:::
+
+### The workbook {#sec-associations-practical-workbook}
+
+In the `workbook`:
+
+-   `401-associations-workbook.R`
+
+you will work with the data file
+
+-   `study-two-general-participants.csv`
+
+We split .R scripts into parts, tasks and questions:
+
+-   different parts for different phases of the analysis workflow;
+-   different tasks for different steps in each phase;
+-   different questions to examine different ideas or coding steps.
+
+In the week 7 workbook, we are going to work through the following workflow steps:
+
+1.  Empty the R environment -- using `rm(list=ls())`
+2.  Load relevant libraries -- using `library()`
+3.  Read in the data file -- using `read_csv()`
+4.  Inspect the data -- using `head()` and `summary()`
+5.  Change the type classification of a variable in the data -- using `as.factor()`
+6.  Draw histograms to examine the distributions of variables -- using `ggplot()` and `geom_histogram()`
+7.  Draw scatterplots to examine the association between pairs of variables -- using `ggplot()` and `geom_point()`
+8.  Estimate and test the correlations between pairs of variables -- using `cor.test()`
+
+The activity `401-associations-workbook.R` file takes you through the tasks, one by one.
+
+If you are unsure about what you need to do, check the advice in `401-associations-how-to.R`.
+
+You will see that you can match a task in the `activity` to the same task in the `how-to`. The `how-to` shows you what function you need and how you should write the function code. You will need to change the names of the data-set or the variables to complete the tasks in the activity.
+
+This process of adapting demonstration code is a process critical to data literacy and to effective problem solving in working with data in psychological science.
+
+### The data files
+
+Each of the data files we will work with has a similar structure.
+
+Here are what the first few rows in the data file `study.two.gen` looks like:
+
+```{r head}
+#| warning: false
+#| echo: false
+kable(head(study.two.gen))
+```
+
+You can see the columns:
+
+-   `participant_ID` participant code
+-   `mean.acc` average accuracy of response to questions testing understanding of health guidance
+-   `mean.self` average self-rated accuracy of understanding of health guidance
+-   `study` variable coding for what study the data were collected in
+-   `AGE` age in years
+-   `HLVA` health literacy test score
+-   `SHIPLEY` vocabulary knowledge test score
+-   `FACTOR3` reading strategy survey score
+-   `GENDER` gender code
+-   `EDUCATION` education level code
+-   `ETHNICITY` ethnicity (Office National Statistics categories) code
+
+### The answers
+
+After the practical class, you will be able to download the answers version of the `workbook` here.
+
+<!-- [401-associations-workbook-answers.R](files/401-associations-workbook-answers.R) -->
+
+The answers version will present my answers for questions, and some extra information where that is helpful.
+
+## Lecture notes {#sec-associations-notes}
+
+Some people find it easier to read notes than to watch video recordings. This is why we also include the lecture notes here.
+
+::: callout-tip
+In these notes, I provide notes on the code steps that result in the plot. 
+
+- Click on the `Notes` tab to see them.
+:::
+
+### Better methods can't make up for mediocre theory
+
+-   *Previously* -- in week 6: I talked about improving science through open *reproducible* methods but we cannot make progress without better theory and data [@smaldino2019better]
+-   We want open reproducible findings but we do not just want reproducibility
+-   We want to make sense of people in useful ways
+
+### Open, reproducible, methods are not enough
+
+-   **Now**: we need to think causally about predictions and about measurement
+-   We discuss health comprehension project to demonstrate critical self-reflection
+
+1.  For useful hypotheses, we need better theory so we can build clear testable predictions from explicit assumptions
+2.  And with better models, we need better measurement because if we cannot reliably measure something then it is hard to build a theory about it
+
+### Critical thinking and you
+
+-   Students and colleagues almost never have problems *coding* analyses in R
+-   The challenges are *almost always* located in the critical reflection you must do in order to develop sensible analysis, and to interpret the analysis results
+-   So we need to start by highlighting the work of critical reflection in data analysis
+
+### Why most psychological research findings are not even wrong
+
+-   As you will know, it is often difficult to identify a claim in an article [@scheel2022]
+-   Here are some questions you can ask to decide if a claim *you read or make* is clear:
+
+1.  Is the claim stated unambiguously: can the claim support or contradict (or is it uncertain about) a prediction?
+2.  Can you understand how we get back from the claim to the data, given assumptions about measurement, sampling and procedure?
+
+### Why hypothesis testers should spend less time testing hypotheses
+
+-   The response to crisis has been to teach and use better methods
+-   This improvement reveals a core problem [@scheel2021]: we often work to test hypotheses but our hypotheses are often *undeveloped*
+-   We train hypothesis testing but we also need to train *hypothesising*:
+-   how to measure, operationalize, and how to decide if hypothesis is corroborated or not
+
+::: callout-tip
+We want to be capable of being wrong
+:::
+
+### Statistical rituals largely eliminate critical statistical *thinking*
+
+-   Traditionally, students learn statistical tests, and learn to identify if a test statistic is significance or not
+-   If we do not also talk about what is actually observed, and whether or how -- or why -- it is or is not compatible with theory based predictions then we do *ritual not science* [@Gigerenzer2004]
+-   This is a problem: the focus on anything-but-null allows us to build or accommodate vague theories that can never be wrong
+
+### We need to think about the derivation chain
+
+```{dot}
+//| label: fig-derivation-chain
+//| fig-cap: The derivation chain
+//| fig-alt: The diagram shows a flowchart. The flowchart starts at the top with "concept formation" and "causal model" in the same subset, that subset is linked by an arrow to "measurement", "measurement" and "auxiliary assumptions" are linked to "statistical predictions", "statistical predictions" are linked to "testing hypotheses".
+digraph Q {
+
+  node [shape=record];
+
+  nd_1_l   [label = "Concept formation"];
+  nd_1_r   [label = "Causal model"];
+  nd_2_l   [label = "Measurement"];
+  nd_2_r [label = "Auxiliary assumptions"];
+  nd_3   [label = "Statistical predictions"];
+  nd_4   [label = "Testing hypotheses"];
+
+  nd_1_l -> nd_2_l -> nd_3 -> nd_4;
+
+  nd_2_r -> nd_3;
+
+  subgraph cluster_R {
+
+    {rank=same nd_1_l nd_1_r}
+
+    nd_1_l -> nd_1_r [color= none arrowhead=none];
+
+  }
+
+}
+```
+
+### Here's a toolkit for thinking productively about your hypotheses
+
+<!-- scheel et al 2021 Why Hypothesis Testers Should Spend Less Time Testing Hypotheses.pdf -->
+
+<!-- - concept formation is the process of defining the building blocks of theories and specifying their attributes -->
+
+<!-- - we need to specify how they will be measured and understand what these measures mean -->
+
+<!-- - if concepts are sufficiently defined, we need to specify a causal model of how they relate to one another -->
+
+<!-- - good theory is clear about its boundary conditions -->
+
+<!-- - auxiliary assumptions are claims not directly derived from our theory but that are necessary for translating statements about theoretical constructs into statements about observables -->
+
+<!-- - inferences we can draw from statistical tests depend on the specificity of the theoretical predictions and on the capacity of tests to falsify them -- when preregistering confirmatory analyses, researchers should specify which findings would support and falsify their hypotheses and indicate the test’s capacity to provide informative results -->
+
+The derivation chain [@meehl1990; @scheel2021]
+
+1.  Develop your theory: the concepts, and the assumptions about causality
+2.  Specify how psychological concepts will be measured
+3.  Identify auxiliary assumptions about how we get from theoretical concepts to observable data
+4.  Identify theoretical predictions
+5.  Link theoretical predictions to specific statistical tests that may support or contradict them
+
+### Valid measures
+
+-   We often teach and learn about different kinds of validity but the key idea is simple [@borsboom2004]
+
+> a test is valid for measuring an attribute if and only if (a) the attribute exists and (b) variations in the attribute causally produce variations in the outcomes of the measurement procedure
+
+-   We want to work with valid measures but *validity* requires explaining: (Q.1) Does the thing exist in the world? (Q.2) Is variation in that thing be reflected in variation in our measurement?
+
+### Summary: our critical thinking checklist
+
+-   What is our (causal) theory?
+-   What measures are we using, why?
+-   What is our specific prediction, why?
+-   Does the prediction relate to sign and to magnitude?
+-   What analysis can test this prediction, why?
+-   How will our results affect our beliefs, why?
+
+### Case study: the health comprehension project
+
+-   Because the important questions concern how psychologists ask and answer research questions
+-   We will work in the context of a live research project: *What makes it easy or difficult to understand written health information?*
+
+![flickr: Sasin Tipchair 'Senior woman in wheelchair talking to a nurse in a hospital'](nurse-patient-talk.png){fig-alt="flickr: Sasin Tipchair 'Senior woman in wheelchair talking to a nurse in a hospital'"}
+
+Why this? We don't really know what makes it easy or difficult to understand advice about health
+
+### Health comprehension project: impacts
+
+-   We are working to help improve communication
+-   With partners at Vienna Business University, Kantar Public, and the London School of Economics
+-   Our work has implications for: business communication; understanding reading development; marketing communication
+
+### Health comprehension project: questions and analyses
+
+-   Our research questions are:
+
+1.  What person attributes predict success in understanding?
+2.  Can people accurately evaluate whether they correctly understand written health information?
+
+-   These kinds of research questions can be answered using methods like **correlation, linear models**
+
+### Health comprehension project -- relevance: methods you will use in your professional work
+
+-   We got funding to collect data online using online Qualtrics questionnaire surveys
+-   We tested people on a range of dimensions using standardized ability and our own knowledge tests
+-   Many of you will go on to work with online surveys, and with data from standardized ability measures
+
+### Health comprehension project: samples
+
+-   We collected data in two studies in 2020: using the online Prolific platform to recruit participants
+-   We did several replication studies in student-led projects: we analyze the data in class
+
+### Health comprehension project: why it is a case study
+
+-   The health project has strengths and limitations
+-   We show how to identify and critically evaluate this project so you can do the same for your work
+
+![Extract from Qualtrics survey](qualtrics-covid-quest-58-aspirin.png){fig-alt="Extract from Qualtrics survey showing a sample written health information text extract, a multiple choice question probing understanding of the information in the extract, and a rating scale allowing participants to self-evaluate their understanding"}
+
+<!-- - gelman -- p.23 -- Data analysis reaches a dead end if we have poor data. There are some measurement problems that no amount of fixing and adjusting can solve. -->
+
+### Cognitive process theory of comprehension success
+
+-   When skilled adult readers read and try to understand written text [@kintsch1994]
+-   They must recognize and access the meanings of words
+-   Then use knowledge and reasoning to build an interpretation of what is in the text
+-   Based on connecting the information in the text with what they already know
+
+### Individual differences theory of comprehension success
+
+-   Successfully understanding text depends on (1.) language experience and (2.) reasoning ability [@freed2017]
+
+```{dot}
+//| label: fig-comprehension-drivers
+//| fig-cap: Factors influencing comprehension success
+//| fig-alt: The diagram shows a flowchart, from left to right, nodes "Language experience" and "Reasoning capacity" are both connected by arrows to "Comprehension outcome".
+digraph Q {
+  rankdir="LR"
+
+  node [shape=box];
+  node [style=rounded];
+
+  nd_1_l   [label = "Language experience"];
+  nd_1_r   [label = "Reasoning capacity"];
+  nd_2   [label = "Comprehension outcome"];
+
+  nd_1_l -> nd_2;
+  nd_1_r -> nd_2;
+
+}
+```
+
+<!-- ![Freed et al., 2017; structural equation model, adult reading comprehension](freed-2017-fig1-sem-model-1.png){fig-alt="Freed et al., 2017; structural equation model, adult reading comprehension"} -->
+
+### Where the data come from: our measures
+
+-   We measure reading comprehension: asking people to read text and then answer multiple choice questions
+-   We measure background knowledge: vocabulary knowledge (Shipley); health literacy (HLVA)
+-   We ask people to rate their own understanding of each text
+
+### Example critical evaluation questions
+
+-   Are multiple choice questions good ways to probe understanding? -- What alternatives are there?
+-   Are tests like the Shipley good measures of language knowledge? -- What do we miss?
+-   Can a person accurately evaluate their own understanding? -- Can we rely on subjective judgments?
+
+### Relevance to you
+
+-   Even very good students sometimes do not question the validity of measures:
+-   Not asking questions like this has a real impact on the value of the interpretation of results
+-   Here, we are looking ahead to the critical thinking you will need to do for your dissertations
+
+### Talking about the relationships between variables
+
+-   Psychologists and people who work in related fields often want to know about *associations*
+-   Is variation in observed values on one dimension (e.g., comprehension) related to variation in another dimension (e.g., vocabulary)?
+-   Do values on both dimensions *vary together*?
+
+### The language in this area can vary: we will be consistent but you need to be aware of the different terms
+
+-   **Outcome** $=$ response $=$ criterion $=$ dependent variable
+-   **Predictor** $=$ covariate $=$ independent variable $=$ factor
+-   **Linear model** $=$ regression analysis $=$ regression model $=$ multiple regression
+
+### Let's look at the data we will use
+
+- First, we need to read the data into R
+
+```{r}
+#| eval: false
+study.one.gen <- read_csv("study-one-general-participants.csv")
+```
+
+-   Next, we should take a look at the data: you can open the data-set in Excel or you can use the `head` command to show the first few rows in 
+-   The person in row 1 has `ETHNICITY` White, is `AGE` 34 years, scored 33 on `Shipley` vocabulary, scored 7 on `HLVA` health literacy and, on average, self-rated their understanding of health information as 7.96 (*so* 8/9, `mean.self`) while scoring 0.49 accuracy in tests of understanding (49% `mean.acc`)
+
+```{r}
+#| label: study-one-gen-head
+#| fig-cap: "Figure showing an extract of the data-set: 'study.one.gen'"
+#| fig-alt: "Figure showing an extract of the data-set: study.one.gen. We see the two few rows of values observed under the column headers 'mean.acc, mean.self, HLVA, SHIPLEY, AGE, ETHNICITY'"
+study.one.gen %>%
+    select(mean.acc, mean.self, HLVA, SHIPLEY, AGE, ETHNICITY) %>%
+    head(n = 4)
+```
+
+### Destination correlation: where the correlation number comes from
+
+-   **Covariance**
+
+$$COV_{xy} = \frac{\sum(x - \bar{x})(y - \bar{y})}{n -1}$$
+
+-   If we want to estimate the correlation between two sets of numbers: $x$ and $y$
+-   We want to know if variation in $x$ (given by $x - \bar{x}$)
+-   Varies together with variation in $y$ (given by $y - \bar{y}$)
+
+### Destination correlation: where the correlation number comes from
+
+-   **Covariance divided by standard deviations**
+
+$$r = \frac{COV_{xy}}{s_xs_y}$$
+
+-   Because the two sets of numbers can be on different scales: e.g., `SHIPLEY` out of 40; `mean.acc` (proportion, out of 1)
+-   And because *covariance* values depend on the scales
+-   To correlations easier to compare, we need to remove scale by dividing by the variables standard deviations
+
+<!-- ## Correlation analyses and why we always visualize our data: the datasaurus -->
+
+<!-- http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html -->
+
+<!-- ::: columns -->
+
+<!-- ::: {.column width=".5"} -->
+
+<!-- -   The correlation -->
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE} -->
+
+<!-- cor.test(datasaurus$A, datasaurus$B, method = "pearson") -->
+
+<!-- ``` -->
+
+<!-- -   The scatterplot -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width=".5"} -->
+
+<!-- ```{r, echo = FALSE, message=FALSE, warning=FALSE, fig.align='center', fig.width = 4, fig.height = 4, out.width='90%', fig.cap="The datasaurus: Alberto Cairo"} -->
+
+<!-- datasaurus %>% -->
+
+<!--   ggplot(aes(x = A, y = B)) + -->
+
+<!--   geom_point() + -->
+
+<!--   theme_bw() -->
+
+<!-- ``` -->
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+### Let's think about an example correlation
+
+-   Research question: Can people accurately evaluate whether they correctly understand written health information?
+-   Measurement: Someone with higher scores on tested accuracy of understanding will also present higher scores on their ratings of their own understanding
+-   Statistical prediction: We predict that `mean.acc` and `mean.self` scores will be associated
+-   Test: If the prediction is correct, `mean.acc` and `mean.self` scores will be correlated
+
+### Distributions: How do scores vary?
+
+::: panel-tabset
+## Plot
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-study-one-gen-self-acc-histograms
+#| fig-cap: "Histograms showing the distribution of mean accuracy and mean self-rated accuracy scores in the 'study.one.gen' data-set: means calculated for each participant over all their responses"
+#| fig-alt: "There are two histograms, shown side by side: The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with a peak, indicated by a vertical red line, around .8; the 'mean self-rated accuracy' histogram shows how 'mean accuracy' scores vary between about 2.5 and 9.0, with a peak, indicated by a vertical red line, around 7."
+p.acc <- study.one.gen %>%
+           ggplot(aes(x = mean.acc)) + geom_histogram(binwidth = .1) +
+           geom_vline(xintercept = mean(study.one.gen$mean.acc),
+                      size = 1.5, colour = "red") +
+           xlab("mean accuracy") +
+           xlim(0, 1.1) +
+           theme_bw()
+
+p.self <- study.one.gen %>%
+           ggplot(aes(x = mean.self)) + geom_histogram(binwidth = 1) +
+           geom_vline(xintercept = mean(study.one.gen$mean.self),
+                      size = 1.5, colour = "red") +
+           xlab("mean self-rated accuracy") +
+           xlim(0, 10) +
+           theme_bw()
+
+p.acc + p.self
+```
+
+## Notes
+
+```{r}
+#| eval: false
+#| code-line-numbers: true
+library(patchwork)
+library(tidyverse)
+
+p.acc <- study.one.gen %>%
+           ggplot(aes(x = mean.acc)) + 
+           geom_histogram(binwidth = .1) +
+           geom_vline(xintercept = mean(study.one.gen$mean.acc),
+                      size = 1.5, colour = "red") +
+           xlab("mean accuracy") +
+           xlim(0, 1.1) +
+           theme_bw()
+
+p.self <- study.one.gen %>%
+           ggplot(aes(x = mean.self)) + 
+           geom_histogram(binwidth = 1) +
+           geom_vline(xintercept = mean(study.one.gen$mean.self),
+                      size = 1.5, colour = "red") +
+           xlab("mean self-rated accuracy") +
+           xlim(0, 10) +
+           theme_bw()
+
+p.acc + p.self
+```
+
+Let's go through the code step-by-step.
+
+::: callout-tip
+- Here the code is broken down, line by line, and each line is numbered. 
+- This presentation style is done to make it easier for you to see what each step is doing.
+- Notice that when we use `p.acc <- study.one.gen` we tell R to first create the plot (giving it the name `p.acc`) but to not show it *yet*.
+:::
+
+1. `library(patchwork)` and `library(tidyverse)`: We need to use {tidyverse} library functions to construct the plots and {patchwork} library functions to assemble the plots into a grid showing the plots next to each other. We use the `library()` function to get these libraries.
+2. We construct two plots. We call the plots `p.acc` and `p.self`. Each plot is constructed in a similar way so we explain the main steps for one plot. The plots are constructed but not shown until the last line of code is run.
+3. `p.acc <- ...` creates a plot called `p.acc`, using the processes that are specified in the next lines of code that follow.
+4. `... <- study.one.gen` tells R that we are working with the data-set `study.one.gen` that we read in earlier.
+5. `%>%` is called the `pipe` and it is code telling R to work with the `study.one.gen` data in the next plot processing steps.
+6. `ggplot(aes(x = mean.acc)) +` takes the `study.one.gen` data and asks R to use the `ggplot()` function to produce a plot.
+7. `aes(x = mean.acc)` tells R that in the plot we want it to show the `mean.acc` variable values as locations on the x-axis: this is the *aesthetic mapping*.
+8. `geom_histogram(binwidth = .1) +` tells R to produce a histogram then add a step, next.
+9. `geom_vline(...) +` tells R we want to draw a vertical line.
+10. `xintercept = mean(study.one.gen$mean.acc), ...` tells R to draw the vertical line at the mean value of the variable `mean.acc` in the `study.one.gen` data-set.
+11. `size = 1.5, colour = "red"` tells R we want the vertical line to be red, and 1.5 times the usual size.
+13. `xlab("mean accuracy") +` tells R we want the x-axis label to say that the plot is of `"mean accuracy"`.
+14. `xlim(0, 1.1) +` sets limits on the minimum and maximum `mean accuracy` values shown in the plot.
+15. `theme_bw()` lastly, we change the theme.
+16. Then we have code to construct the second plot `p.self`.
+17. `p.acc + p.self`: tells R to put the two plots together so they appear side-by-side in a grid for easy comparison.
+
+In using pipes in the code, I am structuring the code so that it works --- and is presented --- in a sequence of steps. There are different ways to write code but I find this way easier to work with and to read and I think you will too.
+
+What you can see is that each line ending in a `%>` pipe passes something on to the next line. A following line takes the output of the process coded in the preceding line, and works with it.
+
+Each step is executed in turn, in strict sequence. This means that if I delete the line `study.one.gen %>%` then the following lines cannot work because the `ggplot()` function will be looking for a variable `average` that does not yet exist.
+
+::: callout-tip
+- You can see that in the data processing part of the code, successive steps in data processing end in a pipe `%>%`.
+- In contrast, successive steps of the plotting code add `ggplot` elements line by line with each line (except the last) ending in a `+`.
+:::
+
+Notice that none of the processing steps actually changes the dataset called `study.one.gen`. The results of the process exist and can be used only within the sequence of steps coded to produce the plots.
+
+- You can read a clear explanation of pipes [here](https://r4ds.had.co.nz/pipes.html){.external target="_blank"}.
+- You can read about the new `geom_vline()` [here](https://ggplot2.tidyverse.org/reference/geom_abline.html){.external target="_blank"}.
+:::
+
+### A histogram is a useful way to show the distribution of values
+
+-   We have a sample of accuracy scores:
+-   Mean accuracy scores vary between 0.0 and 1.0
+-   We draw the plot by grouping together similar values in bins
+-   Heights of bars represent numbers of cases with similar values in same bin
+
+::: panel-tabset
+
+## Plot
+
+```{r}
+#| label: fig-study-one-gen-acc-histograms-case
+#| warning: false
+#| echo: false
+#| fig-cap: "Distribution of mean accuracy"
+#| fig-alt: "The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with a peak, indicated by a vertical red line, around .8."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+study.one.gen %>%
+           ggplot(aes(x = mean.acc)) + geom_histogram(binwidth = .1) +
+           geom_vline(xintercept = mean(study.one.gen$mean.acc),
+                      size = 1.5, colour = "red") +
+           annotate("text", x = 0.6, y = 60,
+                    colour = "red",
+                    label = "average value\nshown in red") +
+           xlab("mean accuracy") +
+           xlim(0, 1.1) +
+           theme_bw()
+```
+
+## Notes
+
+```{r}
+#| eval: false
+#| code-line-numbers: true
+study.one.gen %>%
+           ggplot(aes(x = mean.acc)) + 
+           geom_histogram(binwidth = .1) +
+           geom_vline(xintercept = mean(study.one.gen$mean.acc),
+                      size = 1.5, colour = "red") +
+           annotate("text", x = 0.6, y = 60,
+                    colour = "red",
+                    label = "average value\nshown in red") +
+           xlab("mean accuracy") +
+           xlim(0, 1.1) +
+           theme_bw()
+```
+
+We go through the code line by line. It will be useful to identify some differences between this chunk of code and the previous chunk of code.
+
+1. We are going to use {tidyverse} library functions to construct the plots and {patchwork} library functions to assemble the plots into a grid. I assume you have already run the `library()` function to get these libraries. We do not need to do it again in the same R session.
+2. We construct one plot here. We do not give it a name. Run the code and R will show the plot in the plot window immediately.
+3. `study.one.gen %>%` tells R that we are working with the data-set `study.one.gen` that we read in earlier.
+4. `%>%` is the `pipe` and it is code telling R to work with the `study.one.gen` data in the next plot processing steps.
+5. `ggplot(aes(x = mean.acc)) +` takes the `study.one.gen` data and asks R to use the `ggplot()` function to produce a plot.
+6. `aes(x = mean.acc)` tells R that in the plot we want it to show the `mean.acc` variable values as locations on the x-axis: this is the *aesthetic mapping*.
+7. `geom_histogram(binwidth = .1) +` tells R to produce a histogram then add a step, next.
+8. `geom_vline(...) +` tells R we want to draw a vertical line.
+9. `xintercept = mean(study.one.gen$mean.acc), ...` tells R to draw the vertical line at the mean value of the variable `mean.acc` in the `study.one.gen` data-set.
+10. `size = 1.5, colour = "red"` tells R we want the vertical line to be red, and 1.5 times the usual size.
+11. `annotate("text", ...`** tells R to write some text.
+12. `x = 0.6, y = 60`** tells R where to write the text.
+13. `colour = "red"`** tells R what colour to write the text.
+14. `label = "average value\nshown in red"`** tells R what text to write.
+15. `xlab("mean accuracy") +` tells R we want the x-axis label to say that the plot is about `"mean accuracy"`.
+16. `xlim(0, 1.1) +` sets limits on the minimum and maximum `mean accuracy` values shown in the plot.
+17. `theme_bw()` lastly, we change the theme.
+
+- You can read about the new `annotate()` function [here](https://ggplot2.tidyverse.org/reference/annotate.html){.external target="_blank"}.
+
+:::
+
+### When we talk about variance we are talking about how values vary in relation to the mean for the sample
+
+-   The average of these *mean accuracy* scores is marked with a red line where $\bar{x} =$ `r round(mean(study.one.gen$mean.acc), 1)`
+-   The accuracy score for the person in row 1 is located at $x = .49$, marked in blue
+
+```{r}
+#| label: fig-study-one-gen-acc-histograms-one-case
+#| warning: false
+#| echo: false
+#| fig-cap: "Distribution of mean accuracy"
+#| fig-alt: "The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with the average of mean accuracy scores, indicated by a vertical red line located near .8, and the score of the person in row 1 of the data-set, indicated by a blue line located at .49."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+study.one.gen %>%
+           ggplot(aes(x = mean.acc)) + geom_histogram(binwidth = .1) +
+           geom_vline(xintercept = mean(study.one.gen$mean.acc),
+                      size = 1.5, colour = "red") +
+           geom_vline(xintercept = 0.49, size = 1.25, colour = "blue") +
+           annotate("text", x = 0.7, y = 60, colour = "red",
+                    label = "average\nvalue") +
+           annotate("text", x = 0.3, y = 40, colour = "blue",
+                    label = "value for\nperson in row 1") +
+           xlab("mean accuracy") +
+           xlim(0, 1.1) +
+           theme_bw()
+```
+
+### We are talking about how values vary in relation to the mean for the sample
+
+-   In comparison, the mean accuracy score for the person in row 4 is located at $x = .94$, marked in blue
+
+```{r}
+#| label: fig-study-one-gen-acc-histograms-another-case
+#| warning: false
+#| echo: false
+#| fig-cap: "Distribution of mean accuracy"
+#| fig-alt: "The 'mean accuracy' histogram shows how 'mean accuracy' scores vary between about 0.3 and 1.0, with the average of mean accuracy scores, indicated by a vertical red line located near .8, and the score of the person in row 4 of the data-set, indicated by a blue line located at .94."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+study.one.gen %>%
+           ggplot(aes(x = mean.acc)) + geom_histogram(binwidth = .1) +
+           geom_vline(xintercept = mean(study.one.gen$mean.acc),
+                      size = 1.5, colour = "red") +
+           geom_vline(xintercept = 0.94, size = 1.25, colour = "blue") +
+           annotate("text", x = 0.7, y = 60, colour = "red",
+                    label = "average\nvalue") +
+           annotate("text", x = 1.05, y = 20, colour = "blue",
+                    label = "value for\nperson in \nrow 4") +
+           xlab("mean accuracy") +
+           xlim(0, 1.1) +
+           theme_bw()
+```
+
+### The basic question when we examine covariance: do values vary *together*?
+
+-   If the person at row 1 has a `mean.accuracy` score of .49, lower than the average
+-   And the person at row 4 has a `mean.accuracy` score of .94, higher than the average
+-   What will their `mean.self` scores be: will *they* be higher or lower than the average `mean.self` score?
+
+### We can use scatterplots to examine associations
+
+-   Is variation in the mean accuracy of understanding (of health information) associated with variation in mean self-rated accuracy of understanding?
+
+::: panel-tabset
+
+## Plot
+
+```{r}
+#| label: fig-study-one-gen-scatter-acc-self-grid
+#| warning: false
+#| echo: false
+#| fig-cap: "Scatterplots showing whether values on mean accuracy (`mean.acc`) vary together with values on mean self-rated accuracy (`mean.self`) for the participants in this sample"
+#| fig-alt: "The figure shows two scatterplots, side by side: both plots show points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot on the left orients the presentation with 'mean accuracy' on the y axis. The plot on the right orients the presentation with 'mean self-rated accuracy' on the y axis."
+p.acc <- study.one.gen %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 2, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+
+p.self <- study.one.gen %>%
+           ggplot(aes(y = mean.self, x = mean.acc)) +
+           geom_point(size = 2, alpha = .5) +
+           xlab("mean accuracy") +
+           ylab("mean self-rated accuracy") +
+           ylim(0, 10) + xlim(0, 1.1) +
+           theme_bw()
+
+p.acc + p.self
+```
+
+## Notes
+
+```{r}
+#| eval: false
+#| code-line-numbers: true
+p.acc <- study.one.gen %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 2, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+
+p.self <- study.one.gen %>%
+           ggplot(aes(y = mean.self, x = mean.acc)) +
+           geom_point(size = 2, alpha = .5) +
+           xlab("mean accuracy") +
+           ylab("mean self-rated accuracy") +
+           ylim(0, 10) + xlim(0, 1.1) +
+           theme_bw()
+
+p.acc + p.self
+```
+
+1. We are going to use {tidyverse} library functions to construct the plots and {patchwork} library functions to assemble the plots into a grid. I assume you have already run the `library()` function to get these libraries. We do not need to do it again in the same R session.
+2. We construct two plots. We call the plots `p.acc` and `p.self` *again*. Each plot is constructed in a similar way so we explain the main steps for one plot. The plots are constructed but not shown until the last line of code is run.
+3. `p.acc <- ...` creates a plot called `p.acc`, using the processes that are specified in the next lines of code that follow.
+4. `... <- study.one.gen` tells R that we are working with the data-set `study.one.gen` that we read in earlier.
+5. `%>%` is called the `pipe` and it is code telling R to work with the `study.one.gen` data in the next plot processing steps.
+6. `ggplot(...) +` takes the `study.one.gen` data and asks R to use the `ggplot()` function to produce a plot.
+7. `aes(x = mean.self, ...)` tells R that in the plot we want it to show the `mean.self` variable values as horizontal (left to right) locations on the x-axis: this is one *aesthetic mapping*.
+8. `aes(... , y = mean.acc)` tells R that in the plot we want it to show the `mean.acc` variable values as vertical (low to high) locations on the y-axis: this is the second *aesthetic mapping*.
+9. `aes(x = mean.self, y = mean.acc)` thus encodes two aesthetic mappings, telling R the position of the things it will draw (it will draw points, next): the vertical height, and the horizontal left-to-right position.
+10. `geom_point(...)` tells R to produce a scatterplot, representing data values as points.
+11. `size = 2, alpha = .5` tells R we want the points to be 2 times the usual size with `size = 2`, and half the usual level of opacity (i.e. how solid the colour is) with `alpha = .5`.
+12. `ylab("mean accuracy") +` tells R we want the y-axis label to say that the plot is of `"mean accuracy"`.
+13. `xlab("mean self-rated accuracy") +` tells R we want the y-axis label to say that the plot is of `"mean self-rated accuracy"`.
+14. `ylim(0, 10) + xlim(0, 1.1) +` sets limits on the minimum and maximum `mean accuracy` and `mean self-rated accuracy` values shown in the plot.
+15. `theme_bw()` changes the theme.
+16. Then we have code to construct the second plot `p.self`.
+17. `p.acc + p.self`: tells R to put the two plots together so they appear side-by-side in a grid for easy comparison.
+
+- You can read about the `geom_point()` function [here](https://ggplot2.tidyverse.org/reference/geom_point.html){.external target="_blank"}.
+:::
+
+### A scatterplot is a useful way to examine if the values of two or more variables vary together
+
+1.  Mean accuracy scores vary between 0.0 and 1.0
+
+-   The height of each point shows the observed value of accuracy on the y-axis
+
+2.   Self-rated accuracy scores vary between 1 and 9
+
+-   The horizontal position of each point shows the observed value of self-rated accuracy on the x-axis
+
+::: panel-tabset
+
+## Plot
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-study-one-gen-scatter-acc-self-single
+#| fig-cap: "Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together"
+#| fig-alt: "The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+study.one.gen %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 2, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+```
+
+## Notes
+
+```{r}
+#| eval: false
+#| code-line-numbers: true
+study.one.gen %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 2, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+```
+
+We use mostly the same code to draw @fig-study-one-gen-scatter-acc-self-single, compared to the code we used to draw @fig-study-one-gen-scatter-acc-self-grid, but there is one difference.
+I do not walk through every line of code, here, but highlight the difference.
+
+1. We construct one plot here. We do not give it a name. Run the code and R will show the plot in the plot window immediately.
+2. `study.one.gen %>%` tells R that we are working with the data-set `study.one.gen` that we read in earlier.
+3. `ggplot(aes(x = mean.self, y = mean.acc)) +` takes the `study.one.gen` data and asks R to use the `ggplot()` function to produce a plot.
+4. `aes(x = mean.self, y = mean.acc)` thus encodes two aesthetic mappings, telling R the position of the things it will draw (it will draw points, next): the vertical height, and the horizontal left-to-right position.
+
+:::
+
+We can focus in one point, showing the data for one person.
+
+-   We have a sample of 170 people
+-   For each person, we have a value for the mean accuracy and a *paired* value for the mean self-rated accuracy
+-   Each point shows the paired data values for a person
+-   In red: someone scored 3.48 on mean self-rated accuracy, 0.57 on mean accuracy
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-study-one-gen-scatter-acc-self-single-highlighted
+#| fig-cap: "Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together"
+#| fig-alt: "The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+study.one.gen %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 2, alpha = .5) +
+           geom_point(aes(x = 3.48, y = 0.57), size = 2.5, colour = "red", shape = "star") +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+```
+
+### The R code for a correlation test, bit by bit
+
+```{r}
+#| echo: true
+#| code-line-numbers: true
+#| eval: false
+cor.test(study.one.gen$mean.acc,
+         study.one.gen$mean.self,
+         method = "pearson")
+```
+
+1.  We specify the `cor.test` function, and name one variable `study.one.gen$mean.acc`
+2.  Then we name the second variable `study.one.gen$mean.self`
+3.  Last we specify the correlation `method = "pearson"` because we have a choice (we can apply other methods to estimate the correlation, e.g., *Spearmans*)
+
+### Identifying the key information in the results from one correlation test {.smaller}
+
+-   We look at the value of the correlation (here, `cor`) and the p-value
+-   We can see that the correlation statistic is positive `cor = .4863771` which we round to $cor = .49$
+-   And `p-value = 2.026e-11` indicating that the correlation is *significant* $p < .001$
+
+```{r}
+#| echo: true
+cor.test(study.one.gen$mean.acc,
+         study.one.gen$mean.self,
+         method = "pearson")
+```
+
+### Reporting a correlation
+
+-   Usually, we report a correlation like this:
+
+> Mean accuracy and mean self-rated accuracy were significantly correlated ($r (167 \text{ df}) = .49, p < .001$). Higher mean accuracy scores are associated with higher mean self-rated accuracy scores.
+
+### Interpreting correlations with the help of visualization {.smaller}
+
+-   The correlation statistic is positive in sign and moderate in size, about $r = .49$
+-   We can see that higher mean accuracy (`mean.acc`) scores are associated with higher mean self-rated accuracy (`mean.self`) scores
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-study-one-gen-scatter-acc-self-single-repeat-1
+#| fig-cap: "Scatterplot showing how values on mean accuracy and mean self-rated accuracy vary together"
+#| fig-alt: "The figure shows a scatterplot showing points where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in the example data. The plot orients the presentation with 'mean accuracy' on the y axis."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+study.one.gen %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 2, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+```
+
+### What will different kinds of correlations look like?
+
+We can simulate data to demonstrate [what scatterplots look like if]: **(left)** the correlation is positive, $r = .5$; **(right)** the correlation is negative, $r = -.5$
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-study-one-gen-scatter-acc-self-grid-simulated-signs
+#| fig-cap: "Scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive or negative correlations"
+#| fig-alt: "The figure shows two scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive or negative correlations. Each plot shows points, where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in a simulated data-set. The plot on the left shows the scatter of points when data are simulated assuming r = .5. The plot on the left shows the scatter of points when data are simulated assuming r = -.5."
+# -- if we look at the study one sample data
+# -- and the correlation between mean.self and mean.acc
+# describe(study.one.gen)
+# cor.test(study.one.gen$mean.acc, study.one.gen$mean.self)
+# -- we can simulate roughly the data and the association:
+dat.1 <- rnorm_multi(n = 150,
+                     mu = c(0.8, 7),
+                     sd = c(0.1, 1.5),
+                     r = c(0.5),
+                     varnames = c("mean.acc", "mean.self"),
+                     empirical = FALSE)
+
+dat.2 <- rnorm_multi(n = 150,
+                     mu = c(0.8, 7),
+                     sd = c(0.1, 1.5),
+                     r = c(-0.5),
+                     varnames = c("mean.acc", "mean.self"),
+                     empirical = FALSE)
+
+p.acc.pos <- dat.1 %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 1.5, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           annotate("text", x = 2.5, y = 0.3, label = "positive r", colour = "red") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+
+p.acc.neg <- dat.2 %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 1.5, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           annotate("text", x = 2.5, y = 0.3, label = "negative r", colour = "red") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+
+p.acc.pos + p.acc.neg
+```
+
+### We can also imagine -- again with simulated data -- what correlations of increasing size might look like
+
+-   Notice how, as you compare the plots, going from left to right
+-   As the correlation increases, the points cluster together more closely
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-study-one-gen-scatter-acc-self-grid-simulated-sizes
+#| fig-cap: "Scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive correlations of increasing size"
+#| fig-alt: "The figure shows 4 scatterplots showing how simulated data values on mean accuracy and mean self-rated accuracy *could* vary together given positive correlations of increasing size. Each plot shows points, where each point indicates the pair of scores corresponding to the 'mean accuracy' and the 'mean self-rated accuracy' recorded for each participant in a simulated data-set. The plots show the scatter of points, from left to right, (1.) if r - .1; (2.) if r = .3; (3.) if r = .5; (4.) if r = .8"
+#| fig-height: 10
+#| fig-width: 10
+#| fig-align: center
+# -- if we look at the study one sample data
+# -- and the correlation between mean.self and mean.acc
+# describe(study.one.gen)
+# cor.test(study.one.gen$mean.acc, study.one.gen$mean.self)
+
+# -- we can simulate roughly the data and the association:
+dat.1 <- rnorm_multi(n = 150,
+                     mu = c(0.8, 7),
+                     sd = c(0.1, 1.5),
+                     r = c(0.1),
+                     varnames = c("mean.acc", "mean.self"),
+                     empirical = FALSE)
+
+dat.2 <- rnorm_multi(n = 150,
+                     mu = c(0.8, 7),
+                     sd = c(0.1, 1.5),
+                     r = c(0.3),
+                     varnames = c("mean.acc", "mean.self"),
+                     empirical = FALSE)
+
+dat.3 <- rnorm_multi(n = 150,
+                     mu = c(0.8, 7),
+                     sd = c(0.1, 1.5),
+                     r = c(0.5),
+                     varnames = c("mean.acc", "mean.self"),
+                     empirical = FALSE)
+
+dat.4 <- rnorm_multi(n = 150,
+                     mu = c(0.8, 7),
+                     sd = c(0.1, 1.5),
+                     r = c(0.8),
+                     varnames = c("mean.acc", "mean.self"),
+                     empirical = FALSE)
+
+p.acc.low <- dat.1 %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 1.5, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           annotate("text", x = 2.5, y = 0.3, label = "small r = 0.1", colour = "red") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+
+p.acc.med <- dat.2 %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 1.5, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           annotate("text", x = 2.5, y = 0.3, label = "medium r = 0.3", colour = "red") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+
+p.acc.hig <- dat.3 %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 1.5, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           annotate("text", x = 2.5, y = 0.3, label = "large r = 0.5", colour = "red") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+
+p.acc.higher <- dat.4 %>%
+           ggplot(aes(x = mean.self, y = mean.acc)) +
+           geom_point(size = 1.5, alpha = .5) +
+           ylab("mean accuracy") +
+           xlab("mean self-rated accuracy") +
+           annotate("text", x = 2.5, y = 0.3, label = "larger r = 0.8", colour = "red") +
+           xlim(0, 10) + ylim(0, 1.1) +
+           theme_bw()
+
+p.acc.low + p.acc.med + p.acc.hig + p.acc.higher +
+  plot_layout(ncol = 2)
+```
+
+## Summary
+
+-   We are often interested in whether or how variation in the values of two variables are associated
+-   We can visualize the distribution of values in any one variable using histograms
+-   We visualize the association of values in two variables using scatterplots
+-   We conduct correlation tests to examine the sign (positive or negative) and the strength of the association
+-   But we always need to think about our research questions, about where our data come from and about whether our measures are any good
+
+### Look ahead: growing in independence
+
+-   Every problem you ever have: someone has had it before, solved it, and written a blog (or tweet or toot) about it
+
+### Look ahead: the revolution in knowledge and you
+
+-   R is *free open statistical software*: everything you use is contributed, discussed and taught by a community of R users online, in open forums
+-   Learning to navigate this knowledge is an introduction to the future of knowledge sharing

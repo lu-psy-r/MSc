@@ -1,0 +1,1367 @@
+# Developing the linear model {#sec-lm-dev-intro}
+
+```{r library}
+#| echo: false
+#| warning: false
+
+library(faux)
+library(ggcorrplot)
+library(ggeffects)
+library(ggExtra)
+library(ggridges)
+library(gridExtra)
+library(here)
+library(knitr)
+library(ordinal)
+library(patchwork)
+library(tidyverse)
+```
+
+```{r readin}
+#| echo: false
+#| warning: false
+
+# -- code to read in the aggregated subject level data from the clearly-understood data set
+# -- study one
+clearly.one.subjects <- read_csv("study-one-general-participants.csv", 
+                                  col_types = cols(
+                                    participant_ID = col_factor(),
+                                    study = col_factor(),
+                                    EDUCATION = col_factor(),
+                                    GENDER = col_factor(),
+                                    ETHNICITY = col_factor()
+                                    )
+                                   )
+
+# -- code to read in the currently collated student project datasets
+
+# -- see:
+# teaching-PSYC122-PYC401-402-notes_2022-07-22.rtf
+# 2022-12-05 notes
+# -- where see:
+# 2022-07-27_all-studies.csv
+# 2022-07-27_all-studies-subject-scores.csv
+# /Users/robdavies/OneDrive - Lancaster University/FromBox/project health comprehension/PSYC400 2021-22 study/data-analysis
+# -- which comprises the PSYC122, PSYC304, PSYC401 datasets:
+# PSYC122-2021-22_2022-05-13.csv
+# PSYC304-2021-22_2022-05-13.csv
+# PSYC401-2021-22_2022-05-13.csv  
+# -- plus:
+# 2022-07-27_KA-prog-noNAs-tidy.csv
+# 2022-07-27_KA-prog-noNAs-tidy.csv
+all.studies <- read_csv("2022-07-27_all-studies.csv", 
+                                  col_types = cols(
+                                    ResponseId = col_factor(),
+                                    study = col_factor(),
+                                    EDUCATION = col_factor(),
+                                    GENDER = col_factor(),
+                                    ETHNICITY = col_factor()
+                                    )
+                                   )
+
+# -- code to read in the aggregated subject level data from the combined dataset
+all.studies.subjects <- read_csv("2022-07-27_all-studies-subject-scores.csv", 
+                                  col_types = cols(
+                                    ResponseId = col_factor(),
+                                    study = col_factor(),
+                                    EDUCATION = col_factor(),
+                                    GENDER = col_factor(),
+                                    ETHNICITY = col_factor()
+                                    )
+                                   )
+
+# -- need to calculate and add mean.acc to all.studies.subjects
+all.studies.subjects <- all.studies %>%
+  group_by(ResponseId) %>%
+  summarise(mean.acc = mean(response), mean.self = mean(rating)) %>%
+  full_join(all.studies.subjects)
+
+```
+
+## Overview {#sec-lm-dev-overview}
+
+Welcome to our overview of the materials for our class on developing the **linear model** in *PSYC401* Week 10.
+
+We will continue to locate our learning in the context of the *Clearly understood* project. We present our PSYC401 lessons in the context of this research project because we think that this context will help you to make sense of the data (as we explain in @sec-preface).
+
+In this chapter, we focus on extending your understanding and skills so that you can apply the linear model analysis approach to a wider range of research questions.
+
+In the context of the *Clearly understood* project, we frame our analysis concerns and methods in relation to two example research questions:
+
+1.  What person attributes predict success in understanding?
+2.  Can people accurately evaluate whether they correctly understand written health information?
+
+It will be seen that to answer these research questions, we need to think about how we analyze data when *multiple* different predictor variables could be included in our model of outcome data, and when these variables may consist of *different kinds* of observations.
+
+You can read a bit more about the project and the project data in @sec-associations.
+
+## Our learning goals {#sec-lm-dev-goals}
+
+This week, we build on what we have learnt so far about how we can analyze data to *predict* data about people (e.g., our attributes) or about the things we make or do. To do this, we will learn to think about and work with *linear models*.
+
+**Our learning objectives: --- what are we learning about?**
+
+### Develop the linear model: our aims
+
+-   We will learn how to:
+
+1.  Extend our capacity to code models so that we can incorporate **multiple predictors**
+2.  Develop the thought processes required to make **decisions about what predictors to include**
+3.  Develop the skills required to **critically evaluate results**
+
+Especially considering potential variation across samples
+
+-   We will revise how to:
+
+4.  Identify and interpret model statistics
+5.  Critically evaluate the results
+6.  Communicate the results
+
+-   We will learn how to: explore **extensions** or **generalisations** of the linear model
+
+## Learning resources {#sec-lm-dev-resources}
+
+You will see in the *next section* links to the lectures we created both to explain the concepts we want to help you to learn about, and to explain the practical data analysis skills we want to help you to develop (@sec-lm-dev-lectures). We *then* share links to information about the practical materials we have provided to help you to practise those skills (@sec-lm-dev-practical).
+
+All the links to the lecture videos, the lecture slides, and everything you need for your practical work can *also* be found in the Week 10 files folder on Moodle [here](https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse11){target="_blank"}
+
+In @sec-lm-dev-notes, we present the lecture slide points.
+
+::: callout-tip
+**Linked resources** include:
+
+-   In @sec-associations, we present an overview of our materials in relation to thinking about associations, and working with correlation-based analyses of associations.
+-   In @sec-lm-intro-intro, we introduce you to the main ideas and practical steps involved in conducting linear model analyses.
+:::
+
+### Lectures {#sec-lm-dev-lectures}
+
+The lecture material for this week is presented in four short parts. Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
+
+[Part 1 of 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=6bc16beb-f7f1-4fb7-ab5c-af630105f8eb){target="_blank"}
+
+[Part 2 of 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=cce303a1-392c-4607-aecd-af63010c4070){target="_blank"}
+
+[Part 3 of 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=5f02f90d-5a7f-4742-9638-af63011046b8){target="_blank"}
+
+[Part 4 of 4](https://lancaster.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=b559ac42-6752-4eaa-b3a9-af630116c7e8){target="_blank"}
+
+You can download the slides we presented in the lecture in two different formats, depending on what you think will be most useful to you:
+
+-   Download the slides exactly as they appear in the lecture from [this link](files/401-linear-model-develop.html). The .html file can be opened and viewed in any web browser (e.g., Chrome, Firefox, Safari).
+-   Or you can download a printable Word .docx presentation of the slides from [this link](files/401-linear-model-develop-printable-edit.docx). The .docx can be opened in Microsoft Word. The figures will not appear exactly as they do in the lecture recording because Word cannot cope with images so well but the trade-off is that you get a document you can print and edit to add notes.
+
+### Practical materials {#sec-lm-dev-practical}
+
+We have collected the practical materials together into a folder.
+
+The folder includes the data file:
+
+-   `2022-12-08_all-studies-subject-scores.csv`
+
+and .R code files:
+
+-   `401-lm-dev-how-to.R`
+-   `401-lm-dev-workbook.R`
+
+You will use these files for your practical learning.
+
+You can download the .R files and the data .csv files in a single folder, using the link [here](files/PSYC401_lm-dev_materials.zip).
+
+Or you can download the files as individual files from the module [Moodle page for PSYC401](https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse11){target="_blank"}.
+
+Once you have downloaded the file folder, you will need to upload it to the R-Studio server to access and use the R files.
+
+#### The how-to guide {#sec-lm-dev-practical-how-to}
+
+In the `how-to` guide:
+
+-   `401-lm-dev-how-to.R`
+
+we show you how to do everything you need to do in the practical workbook (see @sec-lm-dev-practical-workbook). The guide comprises an .R file `401-lm-dev-how-to.R` with code and advice.
+
+The code in the .R file was written to work with the data file
+
+-   `2022-12-08_all-studies-subject-scores.csv`.
+
+::: callout-tip
+-   Work through the steps in the `how-to` guide first, this practice will help you to understand what you need to do for the `workbook` tasks.
+-   The `how-to` guide and the `workbook` have similar structures.
+-   This is intentional: so that you can copy and *adapt* code from the `how-to` guide to do the practical tasks in the `workbook`.
+:::
+
+### The workbook {#sec-lm-dev-practical-workbook}
+
+In the `workbook`:
+
+-   `401-lm-dev-workbook.R`
+
+you will work with the data file
+
+-   `2022-12-08_all-studies-subject-scores.csv`
+
+We split .R scripts into parts, tasks and questions.
+
+For this class on developing the linear model, our practical materials have two aims:
+
+1.  Helping you to consolidate your learning on how to use linear models to estimate and to visualize the hypothetical association between outcome and predictor variables.
+
+-   You will work to code linear models, to identify key statistical information in model outputs, and to interpret and report the results of the models.
+-   We refresh your learning by working with a data-set you have not encountered before
+-   We extend your skills by using a new function to generate predictions from fitted models.
+
+2.  Helping you to learn how to extend your capacity to work with data to answer research questions by developing linear models that include multiple predictor variables.
+
+-   We extend your skills by looking at how you work with categorical predictor variables: *factors*.
+-   Because factors are so important to research in Psychology, we examine how to code or recode factor levels, and how to visualize the effects on outcomes of differences between factor levels.
+
+To meet these aims, we progress through a series of parts:
+
+-   **Part 2** shows you how you can read in data *and* at the same time ensure that different kinds of variables (e.g., factors versus numeric variables) are handled differently by R.
+-   **Part 3** consolidates your learning on how to work with linear models when there is one outcome variable and just one predictor variable. Learning to work with linear models involves not just coding models but also being able to identify and interpret the results of the models you fit.
+-   **Part 5** extends your capacities by helping you to learn how to code linear models that include multiple predictor variables.
+-   **Part 6** builds your understanding of what linear models do, and what model estimates mean, by demonstrating a key point: linear models are coded to fit sample outcome data. When you look at model results, your interpretation is based on how the outcome is predicted to change, on average, given differences in values of one or more predictor variables.
+-   **Part 7** builds your skills by helping you to learn how to code, visualize and interpret the impact on outcomes of the differences between factor levels.
+
+Throughout, we help you to develop skills in calculating and presenting model predictions.
+
+-   **Parts optional** are designed to help you to examine the ways in which the association between variables may, itself, differ between different samples, and to help you to consolidate skills on exporting plots for use in reports.
+
+The activity `401-lm-dev-workbook.R` file takes you through the tasks, one by one.
+
+If you are unsure about what you need to do, check the advice in `401-lm-dev-how-to.R`.
+
+You will see that you can match a task in the `activity` to the same task in the `how-to`. The `how-to` shows you what function you need and how you should write the function code. You will need to change the names of the data-set or the variables to complete the tasks in the activity.
+
+### The data files
+
+The data file we will work with has a similar structure to the structure you have seen before.
+
+Here are what the first few rows in the data file `2022-12-08_all-studies-subject-scores.csv` looks like:
+
+```{r head}
+#| warning: false
+#| echo: false
+kable(head(all.studies.subjects))
+```
+
+There are two new columns:
+
+-   `NATIVE.LANGUAGE` self reported language status, whether the participant reports whether they are or are not a `native speaker` of English
+-   `study` codes for which study participant data were collected in
+
+You can also see the columns you have seen before:
+
+-   `ResponseId` participant code
+-   `mean.acc` average accuracy of response to questions testing understanding of health guidance
+-   `mean.self` average self-rated accuracy of understanding of health guidance
+-   `study` variable coding for what study the data were collected in
+-   `AGE` age in years
+-   `GENDER` gender code
+-   `EDUCATION` education level code
+-   `ETHNICITY` ethnicity (Office National Statistics categories) code
+-   `SHIPLEY` vocabulary knowledge test score
+-   `HLVA` health literacy test score
+-   `FACTOR3` reading strategy survey score
+
+### The answers
+
+After the practical class, you will be able to download the answers version of the `workbook` here.
+
+<!-- [401-visualization-workbook-answers.R](files/401-visualization-workbook-answers.R) -->
+
+The answers version will present my answers for questions, and some extra information where that is helpful.
+
+## Lecture notes {#sec-lm-dev-notes}
+
+Some people find it easier to read notes than to watch video recordings. This is why we also include the lecture notes here.
+
+<!-- ::: callout-tip -->
+
+<!-- In these notes, I provide notes on the code steps that result in plots. -->
+
+<!-- -   Click on the `Notes` tab to see them. -->
+
+<!-- ::: -->
+
+### Analyze + visualize + present
+
+```{dot}
+//| label: fig-pipeline
+//| fig-cap: "The data analysis pipeline or workflow: we focus on the linear model"
+//| fig-alt: "The diagram shows a flowchart. The flowchart starts at the top with 'get raw data' and finishes at the bottom with 'present'. 'get raw data' has an arrow to 'tidy data'. 'tidy data' has arrows to 'analyze', 'explore' and 'visualize'. On the same level as 'tidy 'data', 'assumptions' also has arrows to 'analyze', 'explore' and 'visualize'. Then 'analyze', 'explore' and 'visualize' have arrows to 'present'. The 'analyze', 'visualize' and 'present' boxes are outlined in red."
+
+digraph Q {
+
+  node [shape=record];
+
+  nd_1   [label = "Get raw data"];
+  nd_2   [label = "Tidy data"];
+  nd_3_a [label = "Assumptions"];
+  nd_3_l [label = "Visualize", color = red];
+  nd_3   [label = "Analyze", color = red];
+  nd_3_r [label = "Explore"];
+  nd_4   [label = "Present", color = red];
+
+  nd_3_a -> nd_3 [color = grey];
+  nd_3_a -> nd_3_r [color = grey];
+  nd_3_a -> nd_3_l [color = grey];
+
+  nd_2 -> nd_3_r [color = grey];
+  nd_2 -> nd_3_l [color = grey];
+
+  nd_1 -> nd_2 -> nd_3 -> nd_4 [color = grey];
+
+  nd_3_l -> nd_4 [color = grey];
+
+  subgraph cluster_R {
+
+    {rank=same nd_3_l nd_3 nd_3_r}
+
+    nd_3_l -> nd_3 -> nd_3_r [color= none arrowhead=none];
+
+  }
+
+}
+```
+
+### Develop the linear model: our aims
+
+-   We will learn how to:
+
+1.  Extend our capacity to code models so that we can incorporate **multiple predictors**
+2.  Develop the thought processes required to make **decisions about what predictors to include**
+3.  Develop the skills required to **critically evaluate results**
+
+-   Especially considering potential variation across samples
+
+### Develop the linear model: our aims
+
+-   We will revise how to:
+
+5.  Identify and interpret model statistics
+6.  Critically evaluate the results
+7.  Communicate the results
+
+-   We will learn how to: explore **extensions** of the linear model
+
+### We close the loop: Our *context*, the health comprehension project
+
+1.  Because public health impacts depend on giving people information they can understand
+2.  We want to know: **What makes it easy or difficult to understand written health information?**
+
+```{r nurse-patient-talk-1, echo=FALSE, out.width='100%', fig.cap="flickr: Sasin Tipchair 'Senior woman in wheelchair talking to a nurse in a hospital'"}
+knitr::include_graphics("nurse-patient-talk.png")
+```
+
+### We close the loop: Health comprehension project, questions and analyses
+
+1.  We want to know: **What makes it easy or difficult to understand written health information?**
+2.  So our research questions are:
+
+-   What person attributes predict success in understanding?
+-   Can people accurately evaluate whether they correctly understand written health information?
+
+### Extensions to the linear model: Multiple predictors
+
+-   We need only a **limited change to R code**
+-   To specify a model with **multiple predictors**
+
+### How we *estimate* the association between two variables: One outcome and one predictor
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: true
+model <- lm(mean.acc ~ SHIPLEY,
+            data = all.studies.subjects)
+summary(model)
+```
+
+1.  Specify the `lm` function and the model `mean.acc ~ ...`
+2.  Specify what data we use `data = all.studies.subjects`
+3.  Get the results `summary(model)`
+
+### How we *estimate* the association between multiple variables: One outcome and *multiple* predictors
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: true
+model <- lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE,
+            data = all.studies.subjects)
+summary(model)
+```
+
+4.  Specify the `lm` function and the model:
+
+-   `mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE`
+
+### The sentence structure of model code in R {background-color="lightblue"}
+
+Take a good look:
+
+```{r}
+#| echo: true
+#| eval: false
+lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE, ...)
+```
+
+You will see this sentence structure in coding for *many* different analysis types
+
+-   `method(outcome ~ predictors)`
+-   `predictors` could be `SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE ...`
+
+### Extensions to the linear model: Multiple predictors
+
+-   We assume that the outcome prediction errors *residuals* are normally distributed
+-   We do not assume that the distributions of *predictor variables* are normal
+
+### Revision: What differences between observed and predicted outcome values look like {.smaller}
+
+-   Differences between observed and predicted outcomes are shown by the vertical lines -- outcome prediction errors: **residuals**
+-   Better models should show smaller differences between observed and predicted outcome values
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-abline-predict-residuals-1
+#| fig-cap: "The predicted change in mean comprehension accuracy, given variation in vocabulary scores. Observed values are shown in orange-red. Predicted values are shown in blue"
+#| fig-alt: "The figure presents a scatterplot indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in different shades of orange to red, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The predicted trend is indicated by a thick blue line. Predicted outcomes, given different sample values of vocabulary are circled in black along the blue line. Light grey lines indicate the difference between predicted and observed outcomes. The observed points are darker red the further they are from the prediction."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+
+# -- plot residuals against predicted values
+# https://drsimonj.svbtle.com/visualising-residuals
+# clearly.one.subjects
+fit <- lm(mean.acc ~ SHIPLEY, data = clearly.one.subjects)
+# -- then
+clearly.one.subjects$predicted <- predict(fit)   # Save the predicted values
+clearly.one.subjects$residuals <- residuals(fit) # Save the residual values
+
+# -- plot observed vs. predicted values
+ggplot(clearly.one.subjects, aes(x = SHIPLEY, y = mean.acc)) +
+  geom_smooth(method = "lm", se = FALSE, colour = "lightblue") +  # Plot regression slope
+  geom_segment(aes(xend = SHIPLEY, yend = predicted), alpha = .25) +  # alpha to fade lines
+  # > Color adjustments made here...
+  geom_point(aes(color = abs(residuals))) + # Color mapped to abs(residuals)
+  scale_color_continuous(low = "orange", high = "darkred") +  # Colors to use here
+  guides(color = FALSE) +  # Color legend removed
+  geom_point(aes(y = predicted), shape = 1) +
+  theme_bw() +
+  ylim(0,1.1) + xlim(20,40) +
+  xlab("Vocabulary (Shipley)") + ylab("Mean accuracy")
+
+```
+
+### Revision: We typically assume that the residuals are normally distributed
+
+-   Some outcome prediction errors -- **residuals** -- are positive
+-   Some residuals are negative
+-   The average of the residuals will be zero overall
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-residuals-density-1
+#| fig-cap: "Plot showing the distribution of prediction errors -- residuals -- for the linear model of comprehension accuracy"
+#| fig-alt: "The figure a histogram of the residuals, the prediction errors, for the linear model of the association between mean comprehension accuracy and vocabulary. The histogram is shown in grey, and the peak is centered at residuals = 0. A dashed red line is drawn at resdiduals = 0. A red density curve is superimposed on the histogram to indicate the theoretical normal distribution of residuals."
+#| fig-height: 5
+#| fig-width: 5
+#| fig-align: center
+
+# -- plot residuals vs. theoretical normal
+# https://stackoverflow.com/questions/6967664/ggplot2-histogram-with-normal-curve
+ggplot(clearly.one.subjects, aes(x = residuals)) +
+  geom_histogram(aes(y = ..density..), alpha = .75, binwidth = .1) +
+  stat_function(fun = dnorm, args =
+                  list(mean = mean(clearly.one.subjects$residuals),
+                       sd = sd(clearly.one.subjects$residuals)),
+                colour = "red", size = 1.5) +
+  geom_vline(xintercept = 0, linetype = "dashed", colour = "darkred", size = 1.1, alpha = .75) +
+  xlim(-.5, .5) +
+  theme_bw()
+
+```
+
+### Multiple candidate predictor variables
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-scatterplot-grid
+#| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and variation on each of a series of potential predictor variables. Data from 8 studies"
+#| fig-alt: "The figure presents a grid of scatterplots indicating the association between outcome mean accuracy (on y-axis) and (x-axis) scores on a range of predictor variables. The points are shown in grey, and higher points are associated with higher accuracy scores. The grid includes as predictors: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate that mean accuracy increases with increasing self-rated accuracy, vocabulary, health literacy, and reading strategy scores. Trends are indicated by red lines."
+#| fig-width: 20
+#| fig-height: 10
+
+p.self <- all.studies.subjects %>%
+  ggplot(aes(x = mean.self, y = mean.acc)) +
+  geom_point(alpha = .35, colour = "darkgrey") +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Mean self-rated accuracy") + ylab("Mean accuracy")
+
+p.SHIPLEY <- all.studies.subjects %>%
+  ggplot(aes(x = SHIPLEY, y = mean.acc)) +
+  geom_point(alpha = .35, colour = "darkgrey") +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Vocabulary (Shipley)") + ylab("Mean accuracy")
+
+p.HLVA <- all.studies.subjects %>%
+  ggplot(aes(x = HLVA, y = mean.acc)) +
+  geom_point(alpha = .35, colour = "darkgrey") +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Health literacy (HLVA)") + ylab("Mean accuracy")
+
+p.FACTOR3 <- all.studies.subjects %>%
+  ggplot(aes(x = FACTOR3, y = mean.acc)) +
+  geom_point(alpha = .35, colour = "darkgrey") +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Reading strategy (FACTOR3)") + ylab("Mean accuracy")
+
+p.AGE <- all.studies.subjects %>%
+  ggplot(aes(x = AGE, y = mean.acc)) +
+  geom_point(alpha = .35, colour = "darkgrey") +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Age (years)") + ylab("Mean accuracy")
+
+p.GENDER <- all.studies.subjects %>%
+  mutate(GENDER = fct_recode(GENDER,
+
+            "Prefer-not-to-say" = "prefer-not-to-say"
+
+                             )) %>%
+  ggplot(aes(x = GENDER, y = mean.acc)) +
+  geom_jitter(alpha = .35, colour = "darkgrey") +
+  geom_boxplot(outlier.shape = NA, colour = "red", alpha = .1) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Gender") + ylab("Mean accuracy")
+
+p.EDUCATION <- all.studies.subjects %>%
+  ggplot(aes(x = EDUCATION, y = mean.acc)) +
+  geom_jitter(alpha = .35, colour = "darkgrey") +
+  geom_boxplot(outlier.shape = NA, colour = "red", alpha = .1) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Education") + ylab("Mean accuracy")
+
+p.ETHNICITY <- all.studies.subjects %>%
+  ggplot(aes(x = ETHNICITY, y = mean.acc)) +
+  geom_jitter(alpha = .35, colour = "darkgrey") +
+  geom_boxplot(outlier.shape = NA, colour = "red", alpha = .1) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Ethnicity") + ylab("Mean accuracy")
+
+p.self + p.SHIPLEY + p.HLVA + p.FACTOR3 + p.AGE + p.GENDER + p.EDUCATION + p.ETHNICITY +
+  plot_layout(ncol = 4)
+
+```
+
+### We do not assume normal *predictors*
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-histogram-grid-1
+#| fig-cap: "Grid of plots showing the distribution of potential predictor variables. Data from 8 studies"
+#| fig-alt: "The figure presents a grid of histograms indicating the distribution of (x-axis) scores on a range of predictor variables. The grid includes as predictors: self-rated accuracy; vocabulary (SHIPLEY); health literacy (HLVA); reading strategy (FACTOR3); age (years); gender; education, and ethnicity. The plots indicate: (1.) most self-rated accuracy scores are high (over 6); (2.) many participants with vocabulary scores greater than 30, a few with lower scores; (3.) health literacy scores centered on 8 or some, with lower and higher scores; (4.) a skewed distribution of reading strategy scores, with many around 20-40, and a tail of higher scores; (5.) most participants are 20-40 years of age, some older; (6.) many more female than male participants, very few non-binary reported; (7.) many more participants with higher education than further, very few with secondary; and (8.) many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants."
+#| fig-width: 14
+#| fig-height: 7.5
+
+p.self <- ggplot(data = all.studies.subjects, aes(x = mean.self)) +
+  geom_histogram(binwidth = 1) +
+  theme_bw() +
+  labs(x = "Self-rated accuracy", y = "frequency count")
+
+p.shipley <- ggplot(data = all.studies.subjects, aes(x = SHIPLEY)) +
+  geom_histogram(binwidth = 2) +
+  theme_bw() +
+  labs(x = "Vocabulary (SHIPLEY)", y = "frequency count")
+
+p.HLVA <- ggplot(data = all.studies.subjects, aes(x = HLVA)) +
+  geom_histogram(binwidth = 2) +
+  theme_bw() +
+  labs(x = "HLVA", y = "frequency count")
+
+p.FACTOR3 <- ggplot(data = all.studies.subjects, aes(x = AGE)) +
+  geom_histogram(binwidth = 5) +
+  theme_bw() +
+  labs(x = "Reading strategy (FACTOR3)", y = "frequency count")
+
+p.age <- ggplot(data = all.studies.subjects, aes(x = AGE)) +
+  geom_histogram(binwidth = 5) +
+  theme_bw() +
+  labs(x = "Age (years)", y = "frequency count")
+
+p.GENDER <- all.studies.subjects %>%
+  mutate(GENDER = fct_recode(GENDER,
+
+            "Prefer-not-to-say" = "prefer-not-to-say"
+
+                             )) %>%
+  group_by(GENDER) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(GENDER = fct_reorder(GENDER, count)) %>%
+  ggplot(aes(y = GENDER, x = count)) +
+  geom_point(size = 3, aes(colour = GENDER)) +
+  theme_bw() +
+  labs(y = "Gender", x = "frequency count")
+
+p.EDUCATION <- all.studies.subjects %>%
+  group_by(EDUCATION) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(EDUCATION = fct_reorder(EDUCATION, count)) %>%
+  ggplot(aes(y = EDUCATION, x = count)) +
+  geom_point(size = 3, aes(colour = EDUCATION)) +
+  theme_bw() +
+  labs(y = "Education", x = "frequency count")
+
+p.ETHNICITY <- all.studies.subjects %>%
+  group_by(ETHNICITY) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(ETHNICITY = fct_reorder(ETHNICITY, count)) %>%
+  ggplot(aes(y = ETHNICITY, x = count)) +
+  geom_point(size = 3, aes(colour = ETHNICITY)) +
+  theme_bw() +
+  labs(y = "Education", x = "frequency count")
+
+p.self + p.shipley + p.HLVA + p.FACTOR3 + p.age + p.GENDER + p.EDUCATION + p.ETHNICITY +
+  plot_layout(ncol = 3)
+
+```
+
+### Extensions to the linear model: Multiple predictors
+
+::: callout-tip
+We can try to model *anything* using linear models: that is the **real challenge we face**
+
+-   Any analysis you have learned can instead be done using a linear model: ANOVA, t-test, correlation, $\chi^2$ test, ...
+-   We can work with any kind of dependent or independent variable you can think of
+
+**This is why we need to be careful**
+:::
+
+### Analyses are done in context so when we conduct analyses we *must* use contextual information
+
+**Closing the loop: The health comprehension project questions**
+
+1.  We want to know: *What makes it easy or difficult to understand written health information?*
+2.  So our research questions include:
+
+-   What person attributes predict success in understanding?
+
+### We *must* use contextual information: theory of comprehension
+
+```{dot}
+//| label: fig-comprehension-drivers-1
+//| fig-cap: "Understanding text depends on (1.) language experience and (2.) reasoning ability [@freed2017]"
+//| fig-alt: "The diagram shows a flowchart, from left to right, nodes 'Language experience' and 'Reasoning capacity' are both connected by arrows to 'Comprehension outcome'."
+digraph Q {
+  rankdir="LR"
+
+  node [shape=box];
+  node [style=rounded];
+
+  nd_1_l   [label = "Language experience"];
+  nd_1_r   [label = "Reasoning capacity"];
+  nd_2   [label = "Comprehension outcome"];
+
+  nd_1_l -> nd_2;
+  nd_1_r -> nd_2;
+
+}
+
+<!-- Freed et al., 2017; structural equation model, adult reading comprehension](freed-2017-fig1-sem-model-1.png){fig-alt="Freed et al., 2017; structural equation model, adult reading comprehension"} -->
+
+```
+
+### Given theory, model of comprehension accuracy *should* include measures of
+
+(1.) experience (HLVA, SHIPLEY) and (2.) reasoning ability (reading strategy)
+
+```{dot}
+//| label: fig-comprehension-drivers-2
+//| fig-cap: "Understanding text depends on (1.) language experience and (2.) reasoning ability [@freed2017]"
+//| fig-alt: "The diagram shows a flowchart, from left to right, nodes 'Language experience' and 'Reasoning capacity' are both connected by arrows to 'Comprehension outcome'."
+digraph Q {
+  rankdir="LR"
+
+  node [shape=box];
+  node [style=rounded];
+
+  nd_1_l   [label = "Language experience"];
+  nd_1_r   [label = "Reasoning capacity"];
+  nd_2   [label = "Comprehension outcome"];
+
+  nd_1_l -> nd_2;
+  nd_1_r -> nd_2;
+
+}
+
+<!-- Freed et al., 2017; structural equation model, adult reading comprehension](freed-2017-fig1-sem-model-1.png){fig-alt="Freed et al., 2017; structural equation model, adult reading comprehension"} -->
+
+```
+
+### The flexibility and power of linear models requires us to be aware of the *garden of forking paths*
+
+-   Which variables *should be included* in an analysis?
+-   All of them; some of them; why?
+-   Will others disagree with reason?
+
+```{dot}
+//| fig-width: 5
+//| label: fig-forking
+//| fig-cap: Forking paths in data analysis
+//| fig-alt: The diagram shows a hierarchy of nodes. At the top, node A has arrows down to nodes B1 and B2. Nodes B1 and B2 are on the same level. B1 has arrows to nodes C1, C2 and C3. B2 has arrows to nodes C4, C5 and C6.
+
+digraph D {
+
+  A -> {B1, B2}
+
+  B1 -> {C1, C2, C3}
+
+  B2 -> {C4, C5, C6}
+
+}
+```
+
+### Different researchers can reasonably make different choices
+
+This is why we care about open science
+
+-   Theory- and evidence-based selection of critical variables for analysis $\rightarrow$ *literature review*
+-   Share usable data and analysis code in open repositories $\rightarrow$ *research report exercise*, PSYC403 data archiving
+
+### Coding, thinking about, and reporting linear models with multiple predictors
+
+```{r}
+#| echo: true
+#| eval: false
+lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE, ...)
+```
+
+### Coding the linear model with multiple predictors
+
+```{r}
+#| echo: true
+#| eval: false
+lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE, ...)
+```
+
+-   The code represents a linear model with multiple predictors:
+-   $y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \dots + \epsilon$
+
+### Thinking about the linear model with multiple predictors
+
+$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \dots + \epsilon$
+
+Outcome $y$ is calculated as the sum of:
+
+-   The intercept $\beta_0$ plus
+-   The product of the coefficient of the effect of e.g. `AGE` $\beta_1$ multiplied by $x_1$ a person's age `+`
+-   `+` any number of other variables `+`
+-   The error $\epsilon$: mismatches between observed and predicted outcomes
+
+### Identifying key information in results
+
+```{r}
+#| echo: false
+#| label: fig-lm-output-summary-1
+#| fig-cap: "Output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors"
+#| fig-alt: "The figure presents the output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors. The summary indicates significant positive effects of vocabulary, health literacy and reading strategy, and significant negative effects of age and native language (other). Overall, the model is significant, and eplains about 42% of outcome variance."
+model <- lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE,
+            data = all.studies.subjects)
+summary(model)
+```
+
+### Identifying key information in results
+
+1.  The `summary()` of the linear model shows:
+2.  Estimates of the coefficients of the effects of the predictors we included, with null hypothesis significance tests of those estimates
+3.  Model fit statistics including `R-squared` and `F-statistic` estimates
+
+### For each predictor, e.g. HLVA, we see
+
+```{r}
+#| echo: false
+#| label: fig-lm-output-summary-2
+#| fig-cap: "Output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors"
+#| fig-alt: "The figure presents the output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors. The summary indicates significant positive effects of vocabulary, health literacy and reading strategy, and significant negative effects of age and native language (other). Overall, the model is significant, and eplains about 42% of outcome variance."
+model <- lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE,
+            data = all.studies.subjects)
+summary(model)
+```
+
+1.  The Coefficient `Estimate`: `0.0242787` for the slope of the effect of variation in HLVA scores
+2.  The `Std. Error` (standard error) `0.0031769` for the estimate
+3.  The `t value` of `7.642` and associated `Pr(>|t|)` p-value `9.44e-14` for the null hypothesis test of the coefficient
+
+### Identifying the key information in the linear model results: Coefficients
+
+```{r}
+#| echo: false
+#| label: fig-lm-output-summary-3
+#| fig-cap: "Output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors"
+#| fig-alt: "The figure presents the output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors. The summary indicates significant positive effects of vocabulary, health literacy and reading strategy, and significant negative effects of age and native language (other). Overall, the model is significant, and eplains about 42% of outcome variance."
+model <- lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE,
+            data = all.studies.subjects)
+summary(model)
+```
+
+-   Pay attention to **sign and the size** of coefficient estimate:
+-   Is the coefficient (e.g., HLVA `0.0242787`) a positive or a negative number? is it relatively large or small?
+
+### Identifying the key information in the linear model results: R-squared
+
+```{r}
+#| echo: false
+#| label: fig-lm-output-summary-4
+#| fig-cap: "Output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors"
+#| fig-alt: "The figure presents the output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors. The summary indicates significant positive effects of vocabulary, health literacy and reading strategy, and significant negative effects of age and native language (other). Overall, the model is significant, and eplains about 42% of outcome variance."
+model <- lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE,
+            data = all.studies.subjects)
+summary(model)
+```
+
+-   Revision: Pay attention to R-squared
+-   R-squared indicates how much outcome variation we can predict, given our model
+-   Revision: we report `Adjusted R-squared` because it tends to be more accurate
+
+### Identifying the key information in the linear model results: F
+
+```{r}
+#| echo: false
+#| label: fig-lm-output-summary-5
+#| fig-cap: "Output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors"
+#| fig-alt: "The figure presents the output summary for a linear model with mean accuracy of comprehension as the outcome and vocabulary (SHIPLEY), health literacy (HLVA), reading strategy (FACTOR3), age, and native language status as predictors. The summary indicates significant positive effects of vocabulary, health literacy and reading strategy, and significant negative effects of age and native language (other). Overall, the model is significant, and eplains about 42% of outcome variance."
+model <- lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE,
+            data = all.studies.subjects)
+summary(model)
+```
+
+-   The model summary gives us the F-statistic:
+-   Revision: the F-test of the null hypothesis that the model *does not* predict the outcome
+
+### Plot predictions to interpret effects
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-marginal-effects-plots-1
+#| fig-cap: "A grid of plots showing model predictions, for outcome accuracy, given variation in (a.) age, (b.) vocabulary, (c.) health literacy, (d) reading strategy and (e.) native language. Data from eight studies"
+#| fig-alt: "The figure presents grid of plots showing model predictions, for outcome accuracy, given variation in (a.) age, (b.) vocabulary, (c.) health literacy, (d) reading strategy and (e.) native language. The plots are a series of scatterplots: raw data points are shown in grey; predicted outcome change, given variation on predictors, are indicated by a red line. The plots indicate that accuracy of comprehension is predicted to increase given increase in voccabulary, health literacy, and reading  strategy. Native speakers of English are predicted to show greater accuracy than speakers of English as another language. Older participants are predicted to show lower levels of accuracy."
+#| fig-width: 10
+#| fig-height: 7
+# https://strengejacke.github.io/ggeffects/articles/introduction_plotmethod.html
+
+model <- lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE,
+            data = all.studies.subjects)
+
+dat <- ggpredict(model, terms = "AGE")
+p.AGE <- plot(dat)
+
+p.AGE <- p.AGE +
+  geom_point(data = all.studies.subjects,
+             aes(x = AGE, y = mean.acc), size = 1.5, colour = "darkgrey", alpha = .2) +
+  geom_line(size = 1.5, colour = "red") +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Age (years)") + ylab("Mean accuracy") +
+  ggtitle("(a.)")
+
+dat <- ggpredict(model, terms = "SHIPLEY")
+p.SHIPLEY <- plot(dat)
+
+p.SHIPLEY <- p.SHIPLEY +
+  geom_point(data = all.studies.subjects,
+             aes(x = SHIPLEY, y = mean.acc), size = 1.5, colour = "darkgrey", alpha = .2) +
+  geom_line(size = 1.5, colour = "red") +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Vocabulary (Shipley)") + ylab("Mean accuracy") +
+  ggtitle("(b.)")
+
+dat <- ggpredict(model, terms = "HLVA")
+p.HLVA <- plot(dat)
+
+p.HLVA <- p.HLVA +
+  geom_point(data = all.studies.subjects,
+             aes(x = HLVA, y = mean.acc), size = 1.5, colour = "darkgrey", alpha = .2) +
+  geom_line(size = 1.5, colour = "red") +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Health literacy (HLVA)") + ylab("Mean accuracy") +
+  ggtitle("(c.)")
+
+dat <- ggpredict(model, terms = "FACTOR3")
+p.FACTOR3 <- plot(dat)
+
+p.FACTOR3 <- p.FACTOR3 +
+  geom_point(data = all.studies.subjects,
+             aes(x = FACTOR3, y = mean.acc), size = 1.5, colour = "darkgrey", alpha = .2) +
+  geom_line(size = 1.5, colour = "red") +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Reading strategy (FACTOR3)") + ylab("Mean accuracy") +
+  ggtitle("(d.)")
+
+dat <- ggpredict(model, terms = "NATIVE.LANGUAGE")
+p.NATIVE.LANGUAGE <- plot(dat)
+
+p.NATIVE.LANGUAGE <- p.NATIVE.LANGUAGE +
+  ylim(0, 1.1) +
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Native language") + ylab("Mean accuracy") +
+  ggtitle("(e.)")
+
+p.AGE + p.SHIPLEY + p.HLVA + p.FACTOR3 + p.NATIVE.LANGUAGE + plot_layout(ncol = 3)
+
+```
+
+### Compare estimates with effects plots
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-alt: "The figure presents grid of plots showing model predictions, for outcome accuracy, given variation in (a.) age, (b.) vocabulary, (c.) health literacy, (d) reading strategy and (e.) native language. The plots are a series of scatterplots: raw data points are shown in grey; predicted outcome change, given variation on predictors, are indicated by a red line. The plots indicate that accuracy of comprehension is predicted to increase given increase in voccabulary, health literacy, and reading  strategy. Native speakers of English are predicted to show greater accuracy than speakers of English as another language. Older participants are predicted to show lower levels of accuracy."
+#| #| fig-width: 10
+#| fig-height: 7
+#| fig-align: center
+# https://strengejacke.github.io/ggeffects/articles/introduction_plotmethod.html
+
+model <- lm(mean.acc ~ SHIPLEY + HLVA + FACTOR3 + AGE + NATIVE.LANGUAGE,
+            data = all.studies.subjects)
+
+dat <- ggpredict(model, terms = "AGE")
+p.AGE <- plot(dat)
+
+p.AGE <- p.AGE +
+  geom_point(data = all.studies.subjects,
+             aes(x = AGE, y = mean.acc), size = 1.5, colour = "darkgrey", alpha = .2) +
+  geom_line(size = 1.5, colour = "red") +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Age (years)") + ylab("Mean accuracy") +
+  ggtitle("(a.)")
+
+dat <- ggpredict(model, terms = "SHIPLEY")
+p.SHIPLEY <- plot(dat)
+
+p.SHIPLEY <- p.SHIPLEY +
+  geom_point(data = all.studies.subjects,
+             aes(x = SHIPLEY, y = mean.acc), size = 1.5, colour = "darkgrey", alpha = .2) +
+  geom_line(size = 1.5, colour = "red") +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Vocabulary (Shipley)") + ylab("Mean accuracy") +
+  ggtitle("(b.)")
+
+dat <- ggpredict(model, terms = "HLVA")
+p.HLVA <- plot(dat)
+
+p.HLVA <- p.HLVA +
+  geom_point(data = all.studies.subjects,
+             aes(x = HLVA, y = mean.acc), size = 1.5, colour = "darkgrey", alpha = .2) +
+  geom_line(size = 1.5, colour = "red") +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Health literacy (HLVA)") + ylab("Mean accuracy") +
+  ggtitle("(c.)")
+
+dat <- ggpredict(model, terms = "FACTOR3")
+p.FACTOR3 <- plot(dat)
+
+p.FACTOR3 <- p.FACTOR3 +
+  geom_point(data = all.studies.subjects,
+             aes(x = FACTOR3, y = mean.acc), size = 1.5, colour = "darkgrey", alpha = .2) +
+  geom_line(size = 1.5, colour = "red") +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Reading strategy (FACTOR3)") + ylab("Mean accuracy") +
+  ggtitle("(d.)")
+
+dat <- ggpredict(model, terms = "NATIVE.LANGUAGE")
+p.NATIVE.LANGUAGE <- plot(dat)
+
+p.NATIVE.LANGUAGE <- p.NATIVE.LANGUAGE +
+  ylim(0, 1.1) +
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Native language") + ylab("Mean accuracy") +
+  ggtitle("(e.)")
+
+p.AGE + p.SHIPLEY + p.HLVA + p.FACTOR3 + p.NATIVE.LANGUAGE + plot_layout(ncol = 3)
+
+```
+
+-   Coefficients estimates in the summary match what we see
+-   Positive coefficients show upward slopes
+-   Larger coefficients show steeper slopes
+
+### The language and style of reporting linear model results
+
+> We fitted a linear model with mean comprehension accuracy as the outcome and, as predictors: vocabulary knowledge (Shipley), health literacy (HLVA), reading strategy (FACTOR3), age (years) and native language status. Our analysis indicated significant effects of all predictor variables. The model is significant overall, with $F(5, 555) = 81.09, p < .001$, and explains 42% of variance ($\text{adjusted } R^2 = 0.42$). The model estimates showed that the accuracy of comprehension increased with higher levels of participant vocabulary knowledge ($\beta = .007, t = 6.64, p <.001$), health literacy ($\beta = .024, t = 7.64, p <.001$), and reading strategy ($\beta = .005, t = 5.98, p = < .001$). Younger participants ($\beta = -0.003, t = -5.39, p <.001$) and native speakers of English as another language ($\beta = -.090, t = -6.37, p <.001$) tended to show lower levels of accuracy.
+
+### Look at what we do with the text
+
+> We fitted a linear model with mean comprehension accuracy as the outcome and, as predictors: vocabulary knowledge (Shipley), health literacy (HLVA), reading strategy (FACTOR3), age (years) and native language status. Our analysis indicated significant effects of all predictor variables. The model is significant overall, with $F(5, 555) = 81.09, p < .001$, and explains 42% of variance ($\text{adjusted } R^2 = 0.42$). The model estimates showed that the accuracy of comprehension increased with higher levels of participant vocabulary knowledge ($\beta = .007, t = 6.64, p <.001$), health literacy ($\beta = .024, t = 7.64, p <.001$), and reading strategy ($\beta = .005, t = 5.98, p = < .001$). Younger participants ($\beta = -0.003, t = -5.39, p <.001$) and native speakers of English as another language ($\beta = -.090, t = -6.37, p <.001$) tended to show lower levels of accuracy.
+
+1.  Explain: the method (linear model); the outcome (accuracy) and the predictors
+2.  Report the model fit statistics overall ($F, R^2$)
+3.  Report the significant effects ($\beta, t, p$) and describe the nature of the effects
+
+### Critically evaluating the results of analyses involving linear models
+
+There are three levels of **uncertainty** when we look at sample data [@mcelreath2020] -- uncertainty over:
+
+1.  The nature of the expected change in outcome
+2.  The ways that expected changes might vary between individual participants or between groups of participants
+3.  The random ways that specific responses can be produced
+
+### Critically evaluating the results of analyses involving linear models
+
+-   These uncertainties require us to carefully qualify the conclusions we draw from data analyses
+-   This does not mean we should avoid *causal language* when we think that psychological processes cause the behaviours we examine [@Grosz2020]
+-   But it *does mean* we can be careful to identify the limits in the evidence we analyse
+
+### Revision: As we move into thinking about the data analysis, we need to identify our assumptions
+
+1.  **validity**: that differences in knowledge or ability cause differences in test scores
+2.  **measurement**: that this is equally true across the different kinds of people we tested
+3.  **generalizability**: that the sample of people we recruited resembles the population
+
+### How do *you* do this work?
+
+1.  **validity**
+
+-   We want to work with valid measures but *validity* requires explaining [@borsboom2004]:
+
+a.  Does the thing exist in the world?
+b.  Is variation in that thing be reflected in variation in our measurement?
+
+-   What you can do: literature review $\rightarrow$ to identify your reasoning in answer to these questions
+
+### How do *you* do this work?
+
+2.  **measurement**
+3.  **generalizability**
+
+-   It is most helpful to assume from the start that effects estimates will vary [@Gelman2015; @vasishth2021]
+-   So then we ask ourselves: will this test work in the same way in different groups?
+-   And we ask: how will these effects estimates vary across different groups
+
+### Why we need replication studies
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-scatterplot-facet-2
+#| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and vocabulary scores: Data from eight studies. Effects *will* vary between different samples so: expect the variation [@Gelman2015; @vasishth2021] >>> important to evaluating claims in the literature, and to evaluation of your own results"
+#| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Each plot in the grid represents the pattern for data from one of eight studies. The scatter of points and the steepness if not the direction of the trend clearly varies between studies."
+#| fig-width: 7.5
+#| fig-height: 7.5
+
+all.studies %>%
+  group_by(ResponseId) %>%
+  mutate(mean.acc = mean(response)) %>%
+  ungroup() %>%
+  distinct(ResponseId, .keep_all = TRUE) %>%
+  select(SHIPLEY, mean.acc, ResponseId, study) %>%
+  ggplot(aes(x = SHIPLEY, y = mean.acc)) +
+  geom_point(size = 2, alpha = .5, colour = "darkgrey") +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  xlim(0, 40) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Vocabulary (Shipley)") + ylab("Mean accuracy") +
+  facet_wrap(~ study)
+```
+
+### Why we need replication studies
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-scatterplot-facet-3
+#| fig-cap: "Effects will vary between samples *so* expect the variation [@Gelman2015; @vasishth2021] >>> ask what variation may result from *systematic differences between groups*"
+#| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and vocabulary (x-axis) scores. The points are shown in grey, and clustered such that higher vocabulary scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Each plot in the grid represents the pattern for data from one of eight studies. The scatter of points and the steepness if not the direction of the trend clearly varies between studies."
+#| fig-width: 7.5
+#| fig-height: 7.5
+
+all.studies %>%
+  group_by(ResponseId) %>%
+  mutate(mean.acc = mean(response)) %>%
+  ungroup() %>%
+  distinct(ResponseId, .keep_all = TRUE) %>%
+  select(HLVA, mean.acc, ResponseId, study) %>%
+  ggplot(aes(x = HLVA, y = mean.acc)) +
+  geom_point(size = 2, alpha = .5, colour = "darkgrey") +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  xlim(0, 15) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  xlab("Health literacy (HLVA)") + ylab("Mean accuracy") +
+  facet_wrap(~ study)
+```
+
+### Why we need to consider the generalizability of sample data
+
+```{r}
+#| warning: false
+#| echo: false
+#| label: fig-factor-counts-grid
+#| fig-cap: "Grid of plots showing the distribution of potential predictor variables"
+#| fig-alt: "The figure presents a grid of plots indicating the distribution of (x-axis) scores on a range of predictor variables. The grid includes as predictors: age (years); gender; education, and ethnicity. The plots indicate: most participants are 20-40 years of age, some older; many more female than male participants, very few non-binary reported; many more participants with higher education than further, very few with secondary; and many White participants (ONS categories), far fewer Asian or Mixed or Black ethnicity participants."
+#| fig-width: 12
+#| fig-height: 8
+
+p.age <- ggplot(data = all.studies.subjects, aes(x = AGE)) +
+  geom_histogram(binwidth = 5) +
+  theme_bw() +
+  labs(x = "Age (years)", y = "frequency count")
+
+p.GENDER <- all.studies.subjects %>%
+  mutate(GENDER = fct_recode(GENDER,
+
+            "Prefer-not-to-say" = "prefer-not-to-say"
+
+                             )) %>%
+  group_by(GENDER) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(GENDER = fct_reorder(GENDER, count)) %>%
+  ggplot(aes(y = GENDER, x = count)) +
+  geom_point(size = 3, aes(colour = GENDER)) +
+  theme_bw() +
+  labs(y = "Gender", x = "frequency count")
+
+p.EDUCATION <- all.studies.subjects %>%
+  group_by(EDUCATION) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(EDUCATION = fct_reorder(EDUCATION, count)) %>%
+  ggplot(aes(y = EDUCATION, x = count)) +
+  geom_point(size = 3, aes(colour = EDUCATION)) +
+  theme_bw() +
+  labs(y = "Education", x = "frequency count")
+
+p.ETHNICITY <- all.studies.subjects %>%
+  group_by(ETHNICITY) %>%
+  summarise(count = n()) %>%
+  ungroup() %>%
+  mutate(ETHNICITY = fct_reorder(ETHNICITY, count)) %>%
+  ggplot(aes(y = ETHNICITY, x = count)) +
+  geom_point(size = 3, aes(colour = ETHNICITY)) +
+  theme_bw() +
+  labs(y = "Education", x = "frequency count")
+
+p.age + p.GENDER + p.EDUCATION + p.ETHNICITY +
+  plot_layout(ncol = 2)
+
+```
+
+### Convenience samples are common in Psychology
+
+-   We test who we can -- convenience sampling -- and who we can test has an impact on the quality of evidence [@bornstein2013]
+-   If age, ethnicity or gender are not balanced $\rightarrow$ does this matter to your research question?
+-   If samples are limited in size $\rightarrow$ how does that affect our uncertainty over effects estimates?
+
+### The linear model is very flexible, powerful and general
+
+-   Most introductory statistics classes teach each statistical test *as if* they are independent
+
+::: callout-tip
+Most common statistical tests are special cases of linear models, or are close approximations
+:::
+
+### The t-test as linear model
+
+$y_i = \beta_0 + \beta_1X$
+
+-   If you have two groups, with a variable `X` coding for group membership
+-   Then the mean outcome for one group $= \beta_0$
+-   The estimate of the slope $\beta_1$ tells about the average difference between groups
+-   And we can code the model like this: `lm(y ~ group)`
+
+### ANOVA as linear model
+
+$y_i = \beta_0 + \beta_1X + \beta_2Z + \beta_3XZ$
+
+-   If you have a 2 x 2 factorial design, with two factors `factor.1, factor.2`, and a dataset with variables `X, Z` coding for group membership
+-   Then the mean outcome for baseline conditions $= \beta_0$
+-   The estimates of the slopes $\beta_1, \beta_2$ tells about the average difference between groups
+-   The estimate of the slope $\beta_3$ tells us about the interaction
+-   And we can code the model like this: `lm(y ~ factor.1*factor.2)`
+-   Or this `Anova(aov(y ~ factor.1*factor.2, data), type='II')`
+
+### ANOVA as linear model
+
+-   In general, the psychological literature is full of ANOVA
+-   But the field is moving away from ANOVA towards mixed-effects models
+
+::: callout-tip
+We have to make choices in teaching and, here, we are choosing to focus on a powerful, flexible, and generally applicable method we can explain *in depth*: linear models
+
+-   Our aim is for students to better understand how to use a general approach
+:::
+
+### Extensions to the linear model
+
+$outcome ~ predictors + error$
+
+-   `outcome` can generalize to analyse data that are not metric, do not come from normal distributions
+-   `predictors` can be curvilinear, categorical, involve interactions
+-   `error` can be independent; can be non-independent
+
+### Look ahead: extensions to the linear model
+
+-   What if the outcome measurement data cannot be understood to be metric or to come from a normal probability distribution?
+
+### Extensions to the linear model -- binary or dichotomous outcomes
+
+1.  Binary outcomes are very common in Psychology: yes or no; correct or incorrect; left or right visual field etc.
+2.  The change in coding is e.g. `glm(ratings ~ predictors, family = "binomial")`
+
+### Extensions to the linear model -- ordinal outcomes
+
+1.  Likert scale or ratings data are best analysed using ordinal models [@liddell2018]
+2.  The change in coding \[@christensen\] is e.g. `clm(ratings ~ predictors)`
+
+### Extensions to the linear model -- non-independence of observations
+
+1.  Much -- maybe most -- psychological data are collected in ways that guarantee the non-independence of observations
+
+-   We test children in classes, patients in clinics, individuals in regions
+-   We test participants in multiple trials in an experiment, recording responses to multiple stimuli
+
+2.  These data should be analysed using **linear mixed-effects models [@meteyard2020]**
+
+### General advice
+
+An old saying goes:
+
+> All models are wrong but some are useful
+
+(attributed to George Box).
+
+::: callout-tip
+-   Sometimes, it can be useful to adopt a simpler approach as a way to approximate *get closer to* better methods
+-   Box also advises "Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad."
+-   Here, we focus on validity, measurement, generalizability and *critical thinking*
+:::
+
+### Summary
+
+1.  Linear models
+
+-   Linear models are a very general, flexible, and powerful analysis method
+-   We can use assuming that prediction outcomes (residuals) are normally distributed
+-   With potentially multiple predictor variables
+
+2.  Thinking about linear models
+
+-   Closing the loop: when we plan an analysis we should try to use contextual information -- theory and measurement understanding -- to specify our model
+-   Closing the loop: when we critically evaluate our or others' findings, we should consider validity, measurement, and generalizability
+
+3.  Reporting linear models
+
+-   When we report an analysis, we should report:
+
+1.  Explain what I did, specifying the method (linear model), the outcome variable (accuracy) and the predictor variables (health literacy, reading strategy, reading skill and vocabulary)
+2.  Report the model fit statistics overall ($F, R^2$)
+3.  Report the significant effects ($\beta, t, p$) and describe the nature of the effects (does the outcome increase or decrease?)
