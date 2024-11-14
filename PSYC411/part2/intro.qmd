@@ -6,7 +6,7 @@ bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
 
-# Why we are asking you to do this {#sec-intro-why}
+## Overview {#sec-intro-why}
 
 The PSYC411 Research Report assignment requires students to locate, access, analyse and report previously collected data. 
 

@@ -6,7 +6,7 @@ bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
 
-# How you can do the analysis work {#sec-how}
+## Overview {#sec-how}
 
 The PSYC411 Research Report assignment requires students to locate, access, analyse and report previously collected data. 
 
