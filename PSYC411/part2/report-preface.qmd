@@ -6,7 +6,7 @@ bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
 
-# The structured research report: Quick start {#sec-report-intro}
+## 6.1 Overview: Quick start {#sec-report-intro}
 
 The **structured research report** assignment: We want you to analyse previously collected data and write a report about your findings.
 
@@ -29,7 +29,7 @@ At the end of this page, in [How we will mark your work](../part2/report-preface
 If you want more in-depth guidance or support, we provide detailed *step-by-step* notes on the work you can plan to do in a chapter we have written to support you: [How you can do the analysis work](../part2/how.qmd#sec-how).
 If you want an explanation of *why* we are asking you to do this work, so you can think about best practice in science, we have got that for you in our chapter: [Why we are asking you to do this](../part2/intro.qmd#sec-intro-why).
 
-## What you have to write {#sec-report-quick-what} 
+## 6.2 What you have to write {#sec-report-quick-what} 
 
 Let's begin with what you need to write to complete this coursework.
 
@@ -68,7 +68,7 @@ You will submit short answers to a series of questions:
 - *Word count limit*: no more than 1500 words are allowed for all materials except references, appendices, and the content of tables.
 :::
 
-## How you can do the analysis work {#sec-report-quick-how} 
+## 6.3 How you can do the analysis work {#sec-report-quick-how} 
 
 Reports will concern, usually, findings from analyses of data collected in previous studies or data accessed from online sources.
 These data will usually be associated with a published report in a journal like *Psychological Science* or a pre-print archive like *PsyArXiv*.
@@ -82,7 +82,7 @@ If you want to know more about **how** to do this work, you can read in-depth st
 You can see information on APA formatting of statistics and numbers in the [OWL Purdue guide](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_numbers_statistics.html).
 Though the APA guidelines are the authoritative guide.
 
-### Report checklist {#sec-report-quick-how-checklist}  
+### 6.3.1 Report checklist {#sec-report-quick-how-checklist}  
 
 ::: callout-tip
 ## Checklist
@@ -90,11 +90,13 @@ To help you organize your work in preparing for the research report assignment, 
 [PSYC411-research-report-checklist](files/PSYC411-research-report-checklist.docx).
 :::
 
-## Why we are asking you to do this {#sec-report-quick-why} 
+## 6.4 Why we are asking you to do this {#sec-report-quick-why} 
 
 We are asking you to do the structured research report because doing the work --- the analysis and the writing --- will build your awareness and understanding of how psychological science *really* works, and will strengthen your sense of what *best practice* looks like in modern science.
 
-### Lecture recordings -- videos {#sec-report-intro-lecture-videos}
+## 6.5 Lectures and slides {#sec-report-intro-lecture}
+
+### 6.5.1 Lecture recordings -- videos {#sec-report-intro-lecture-videos}
 
 Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
 You should be able to access the videos anywhere; you should not need to be on campus or logged on to the university VPN to view the videos.
@@ -117,11 +119,11 @@ You should be able to access the videos anywhere; you should not need to be on c
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bd28611a-58e0-4a33-9e7f-af4900e81e9d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-research-report-3" ></iframe>
 ```
 
-### Lecture recordings -- slides {#sec-report-intro-lecture-slides}
+### 6.5.2 Lecture recordings -- slides {#sec-report-intro-lecture-slides}
 
 You can download the lecture slides as a single downloadable `.html` file that you can open in any browser:  [411-research-report.html](files/411-research-report.html). This can be opened in a browser and presents the slides as they are delivered.
 
-## How we will mark your work {#sec-report-quick-how-mark} 
+## 6.6 How we will mark your work {#sec-report-quick-how-mark} 
 
 A **distinction** requires the following.
 
