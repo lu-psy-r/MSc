@@ -28,7 +28,7 @@ study.one.gen <- read_csv("study-one-general-participants.csv")
 study.two.gen <- read_csv("study-two-general-participants.csv")
 ```
 
-Welcome to your overview of the work we will do together in **Week 6**.
+Welcome to your overview of the work we will do together in **Week 7**.
 
 This week, we focus on methods that allow us to make sense of the evidence for **associations**.
 
