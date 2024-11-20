@@ -591,17 +591,17 @@ To begin, we set up our environment in R.
 
 ##### Practical Task 1 -- Run code to empty the R environment
 
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- rm(list=ls())                             -->
-<!-- ``` -->
+```{r}
+#| eval: false
+rm(list=ls())
+```
 
 ##### Practical Task 2 -- Run code to load relevant libraries
 
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- library("tidyverse") -->
-<!-- ``` -->
+```{r}
+#| eval: false
+library("tidyverse")
+```
 
 #### 7.4.3.2 Practical Part 2: Load the data
 
@@ -613,13 +613,13 @@ The data file for the practical exercises is:
 
 Use the `read_csv()` function to read the data file into R.
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- study.two.gen <- read_csv("study-two-general-participants.csv") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+study.two.gen <- read_csv("study-two-general-participants.csv")
+```
+:::
 
 When you code this, you can choose your own file name, but be sure to give the data object you create a distinct name e.g. `study.two.gen`.
 
@@ -627,55 +627,55 @@ When you code this, you can choose your own file name, but be sure to give the d
 
 Use the `summary()` or `head()` functions to take a look
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- summary(study.two.gen) -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+summary(study.two.gen)
+```
+:::
 
 >**Q.1.** What is the median of `AGE`?
 
-<!-- - A.1. 32.50   -->
+- A.1. 32.50
 
 >**Q.2.** What class is the variable `ETHNICITY`?
 
-<!-- - A.2. character   -->
+- A.2. character
 
 >**Q.3.** Does the summary indicate if any variable has missing values (NAs)?
 
-<!-- - Q.3. No -->
+- A.3. No
 
 ##### Practical Task 5 -- Change the class or type of the variable `ETHNICITY` to factor
 
 You can use the `as.factor()` function you have used before: how do you write the code for these data?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- study.two.gen$ETHNICITY <- as.factor(study.two.gen$ETHNICITY) -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+study.two.gen$ETHNICITY <- as.factor(study.two.gen$ETHNICITY)
+```
+:::
 
 >**Q.4.** After you have done this, what information does `summary()` give you 
 about the variable `ETHNICITY`?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- summary(study.two.gen) -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+summary(study.two.gen)
+```
+:::
 
-<!-- - A.4. We can see that ETHNICITY lists observations following UK Office National Statistics ethnicity grouping: -->
+- A.4. We can see that ETHNICITY lists observations following UK Office National Statistics ethnicity grouping:
 
-<!-- - Asian: 15 -->
-<!-- - Black: 5 -->
-<!-- - Mixed: 7 -->
-<!-- - White: 145 -->
+- Asian: 15
+- Black: 5
+- Mixed: 7
+- White: 145
 
 #### 7.4.3.3 Practical Part 3: Visualise the associations between variables
 
@@ -721,85 +721,85 @@ First draw the plot, then answer the question.
 
 >**Q.5.** What is the shape (direction) of the association between `mean.self` and `mean.acc`?
 
-<!-- - A.5. Increase in `mean.self` is associated with increase in `mean.acc` -->
+- A.5. Increase in `mean.self` is associated with increase in `mean.acc`
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = mean.self, y = mean.acc)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = mean.self, y = mean.acc)) +
+  geom_point()
+```
+:::
 
 >**Q.6.** What is the shape (direction) of the association between `AGE` and `mean.acc`?
 
-<!-- - A.6. There is no clear association between `AGE` and `mean.acc` -->
+- A.6. There is no clear association between `AGE` and `mean.acc`
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) +
+  geom_point()
+```
+:::
 
 >**Q.7.** What is the shape (direction) of the association between `SHIPLEY`
 and `mean.acc`?
 
-<!-- - A.7. Increase in `SHIPLEY` is associated with increase in `mean.acc` -->
+- A.7. Increase in `SHIPLEY` is associated with increase in `mean.acc`
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) +
+  geom_point()
+```
+:::
 
 >**Q.8.** What is the shape (direction) of the association between `HLVA`
 and `mean.acc`?
 
-<!-- - A.8. Increase in `HLVA` is associated with increase in `mean.acc` -->
+- A.8. Increase in `HLVA` is associated with increase in `mean.acc`
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
+  geom_point()
+```
+:::
 
 >**Q.9.** What is the shape (direction) of the association between `FACTOR3`
 and `mean.acc`?
 
-<!-- - A.9. Increase in `FACTOR3` is associated with increase in `mean.acc` -->
+- A.9. Increase in `FACTOR3` is associated with increase in `mean.acc`
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = FACTOR3, y = mean.acc)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = FACTOR3, y = mean.acc)) +
+  geom_point()
+```
+:::
 
 >**Q.10.** What is the shape (direction) of the association between `QRITOTAL`
 and `mean.acc`?
 
-<!-- - A.10. Increase in `QRITOTAL` is associated with increase in `mean.acc` -->
+- A.10. Increase in `QRITOTAL` is associated with increase in `mean.acc`
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = QRITOTAL, y = mean.acc)) + -->
-<!--   geom_point() -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = QRITOTAL, y = mean.acc)) +
+  geom_point()
+```
+:::
 
 #### 7.4.3.4 Practical Part 4: Learn how to edit plotting code
 
@@ -818,47 +818,47 @@ You can work out what to do.
 
 >**Q.11.** Can you edit the appearance of the points in a scatterplot using alpha, size and colour?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "red") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "red")
+```
+:::
 
 >**Q.12.** Can you edit the appearance of the plot background?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "red")   + -->
-<!--   theme_bw() -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "red")   +
+  theme_bw()
+```
+:::
 
 >**Q.13.** Can you edit the appearance of the labels using `labs()`?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "red")   + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "HLVA", y = "mean accuracy") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "red")   +
+  theme_bw() +
+  labs(x = "HLVA", y = "mean accuracy")
+```
+:::
 
 >**Q.14.** Can you find online information about colour blind palettes?
 
 Try doing a search with the keywords: `ggplot colour blind`
 
-<!-- - A.14. -- Here is one: -->
+- A.14. -- Here is one:
 
-<!-- <http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/> -->
+<http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/>
 
 ::: callout=tip
 Now it's your turn: experiment!
@@ -876,83 +876,83 @@ Now it's your turn: experiment!
 
 Can you figure out the code to do the calculation?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- cor.test(study.two.gen$HLVA, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+cor.test(study.two.gen$HLVA, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
+```
+:::
 
-<!-- - A.15. r = 0.5000559 -->
+- A.15. r = 0.5000559
 
 >**Q.16.** Is the correlation significant?
 
-<!-- - A.16. r is significant -->
+- A.16. r is significant
 
 >**Q.17.** What are the values for t and p for the significance test for the correlation?
 
-<!-- - A.17. t = 7.5288, p = 2.866e-12 -->
+- A.17. t = 7.5288, p = 2.866e-12
 
 >**Q.18.** What do you conclude, given the correlation results? 
 
 Maybe draw a scatterplot to examine the shape of the association.
 
-<!-- - A.18. `HLVA` and `mean.acc` are positively correlated suggesting that as `HLVA` scores increase so also do `mean.acc` scores -->
+- A.18. `HLVA` and `mean.acc` are positively correlated suggesting that as `HLVA` scores increase so also do `mean.acc` scores
 
 >**Q.19.** What is r (given as `cor` in the output) for the correlation between `mean.self` and `mean.acc`?
 
-<!-- - A.19. r = 0.5460792 -->
+- A.19. r = 0.5460792
 
 Can you figure out the code to do the calculation?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- cor.test(study.two.gen$mean.self, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+cor.test(study.two.gen$mean.self, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
+```
+:::
 
 >**Q.20.** Is the correlation between `AGE` and `mean.acc` significant?
 
-<!-- - A.20. r is not significant -->
+- A.20. r is not significant
 
 Can you figure out the code to do the calculation?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- cor.test(study.two.gen$AGE, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+cor.test(study.two.gen$AGE, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
+```
+:::
 
 >**Q.21.** What are the values for t and p for the significance test for the correlation between `QRITOTAL` and `mean.acc`?
 
-<!-- - A.21. t = 6.4711, p = 9.993e-10 -->
+- A.21. t = 6.4711, p = 9.993e-10
 
 Can you figure out the code to do the calculation?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- cor.test(study.two.gen$QRITOTAL, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+cor.test(study.two.gen$QRITOTAL, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
+```
+:::
 
 >**Q.22.** What do you conclude, given the correlation results, about the association between `SHIPLEY` and `mean.acc`?
 
-<!-- - A.22. `SHIPLEY` and `mean.acc` are positively correlated suggesting that as HLVA scores increase so also do mean.acc scores -->
+- A.22. `SHIPLEY` and `mean.acc` are positively correlated suggesting that as HLVA scores increase so also do mean.acc scores
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- cor.test(study.two.gen$SHIPLEY, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+cor.test(study.two.gen$SHIPLEY, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
+```
+:::
 
 ### 7.4.4 The answers
 
@@ -1005,19 +1005,19 @@ Now you try it:
 1. Create two plots, using `QRITOTAL` and `SHIPLEY` as predictors, and `mean.acc` as the outcome
 2. Then make a grid to present them side by side.
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- p.QRITOTAL <- ggplot(data = study.two.gen, aes(x = QRITOTAL, y = mean.acc)) + -->
-<!--   geom_point()  -->
-<!-- # -->
-<!-- p.SHIPLEY <- ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) + -->
-<!--   geom_point()   -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| eval: false
+p.QRITOTAL <- ggplot(data = study.two.gen, aes(x = QRITOTAL, y = mean.acc)) +
+  geom_point()
+#
+p.SHIPLEY <- ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) +
+  geom_point()
 
-<!-- # -- second put them together -->
-<!-- p.QRITOTAL  + p.SHIPLEY -->
-<!-- ``` -->
-<!-- ::: -->
+# -- second put them together
+p.QRITOTAL  + p.SHIPLEY
+```
+:::
 
 
