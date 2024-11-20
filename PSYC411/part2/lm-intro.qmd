@@ -1,4 +1,12 @@
-# Introduction to the linear model {#sec-lm-intro-intro}
+---
+title: Week 8. Introduction to the linear model
+subtitle: Written by Rob Davies
+order: 11
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
+
+## 8.1 Overview {#sec-lm-intro-overview}
 
 ```{r libraries-hide}
 #| echo: false
@@ -20,8 +28,6 @@ study.one.gen <- read_csv("study-one-general-participants.csv")
 study.two.gen <- read_csv("study-two-general-participants.csv")
 ```
 
-## Overview {#sec-lm-intro-overview}
-
 Welcome to your overview of the work we will do together in **Week 8**.
 
 This week, we focus on learning **how to predict** people: predicting observations about us (e.g., our attributes) or about the things we make or do.
@@ -33,7 +39,7 @@ As students, now, learning about linear model analyses in the context of the **C
 
 You will see that the linear model is *very* flexible and powerful so learning to use it effectively involves not only learning to code analyses but also learning to think critically about what it is you want to do with it.
 
-## Our learning goals {#sec-lm-intro-goals}
+## 8.2 Our learning goals {#sec-lm-intro-goals}
 
 We continue to develop your critical thinking while we strengthen your practical skills.
 
@@ -58,7 +64,7 @@ To enable you to answer questions like these, you will learn how to:
 
 As we progress, we will continue to strengthen your skills in building *professional visualizations*.
 
-## Learning resources {#sec-lm-intro-resources}
+## 8.3 Learning resources {#sec-lm-intro-resources}
 
 You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop (@sec-lm-intro-lectures). Then you will see information about the practical materials you can use to build and practise your skills (@sec-lm-intro-practical).
 
@@ -70,7 +76,7 @@ Every week, you will learn best if you *first* watch the lectures *then* do the 
 2. In @sec-lm-dev-intro, we share materials to extend your capacity to use linear models, to answer more and different kinds of research questions.
 :::
 
-### Lectures {#sec-lm-intro-lectures}
+### 8.3.1 Lectures {#sec-lm-intro-lectures}
 
 The lecture materials for this week are presented in four short parts. 
 
@@ -100,6 +106,8 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=a16c627e-609b-49db-b683-af5f00bfb15f&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-intro-4" ></iframe>
 ```
 
+### 8.3.2 Lecture slides {#sec-lm-intro-lectures-slides}
+
 ::: callout-tip
 ## Download the lecture slides
 The slides presented in the videos can be downloaded here:
@@ -111,12 +119,12 @@ You can download the web page `.html` file and click on it to open it in any bro
 
 We are going to work through some practical exercises, next, to develop your critical thinking and practical skills for working with linear models.
 
-### Practical materials: data and R-Studio {#sec-lm-intro-practical}
+## 8.4 Practical materials: data and R-Studio {#sec-lm-intro-practical}
 
 We will work with two data files which you can download by clicking on their names (below):
 
--   [`study-one-general-participants.csv`](files/study-one-general-participants.csv).
--   [`study-two-general-participants.csv`](files/study-two-general-participants.csv).
+-   [study-one-general-participants.csv](files/study-one-general-participants.csv).
+-   [study-two-general-participants.csv](files/study-two-general-participants.csv).
 
 Once you have downloaded the files, you will need to upload them to the R-Studio server to access and use the R files.
 
@@ -124,7 +132,7 @@ Once you have downloaded the files, you will need to upload them to the R-Studio
 Here is a link to the sign-in page for [R-Studio Server](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
 :::
 
-### Practical materials guide {#sec-lm-intro-practical-guide}
+### 8.4.1 Practical materials guide {#sec-lm-intro-practical-guide}
 
 You will find that the practical exercises are simpler to do if you follow these steps in order.
 
@@ -162,7 +170,7 @@ When we do these analyses, we need to think about how we report the results:
 
 We will consolidate and extend learning on data visualization so that we can produce eye-catching, appealing, plots for professional audiences.
 
-#### The data files {#sec-lm-intro-practical-data}
+#### 8.4.1.1 The data files {#sec-lm-intro-practical-data}
 
 Each of the data files we will work with has a similar structure.
 
@@ -192,13 +200,13 @@ When you look at the data table, you can see the columns:
 -   `EDUCATION` education level code
 -   `ETHNICITY` ethnicity (Office National Statistics categories) code
 
-#### The how-to guide {#sec-lm-intro-practical-how-to}
+### 8.4.2 The how-to guide {#sec-lm-intro-practical-how-to}
 
 We will take things *step-by-step*.
 
 Make sure you complete each part, task and question, in order, before you move on to the next one.
 
-#### How-to Part 1: Set-up
+#### 8.4.2.1 How-to Part 1: Set-up
 
 To begin, we set up our environment in R.
 
@@ -219,7 +227,7 @@ library("patchwork")
 library("tidyverse")
 ```
 
-#### How-to Part 2: Load the data
+#### 8.4.2.2 How-to Part 2: Load the data
 
 ##### How-to Task 3 -- Read in the data file we will be using
 
@@ -258,7 +266,7 @@ summary(study.one.gen)
 - `summary()` will give you either descriptive statistics for variable columns classified as numeric or will tell you that columns in the dataset are not numeric.
 :::
 
-#### How-to Part 3: Developing histograms to examine the distributions of variables
+#### 8.4.2.3 How-to Part 3: Developing histograms to examine the distributions of variables
 
 ##### How-to Task 5 -- Edit histogram plotting code to visualize distributions like a pro
 
@@ -427,7 +435,7 @@ The `{ggplot2}` reference information for drawing lines is here:
 <https://ggplot2.tidyverse.org/reference/geom_abline.html>
 :::
 
-#### How-to Part 4: Developing scatterplots to examine associations between variables
+#### 8.4.2.4 How-to Part 4: Developing scatterplots to examine associations between variables
 
 ##### How-to Task 6 -- Edit scatterplot code to visualize associations like a pro
 
@@ -546,7 +554,7 @@ Some useful information about colour options is here:
 Now you: experiment!
 :::
 
-#### How-to Part 5: Using correlations to to answer research questions
+#### 8.4.2.5 How-to Part 5: Using correlations to to answer research questions
 
 ##### How-to Task 7 -- Examine the correlation between a pair of variables
 
@@ -607,7 +615,7 @@ Review the scatterplot you drew earlier (or draw one now) to examine the shape o
 > A.4. Vocabulary and `mean.acc` are positively correlated suggesting that as `SHIPLEY` scores increase so also do `mean.acc` scores.
 :::
 
-#### How-to Part 6: **New**: using a linear model to answer research questions
+#### 8.4.2.6 How-to Part 6: **New**: using a linear model to answer research questions
 
 ##### How-to Task 8 -- Code and read the results from a linear model analysis
 
@@ -674,7 +682,7 @@ If you look at the model summary you can answer the following questions.
 > A.8. The model slope estimate suggests that as `SHIPLEY` scores increase so also do `mean.acc` scores.
 :::
 
-#### How-to Part 7: **New**: using a linear model to generate predictions
+#### 8.4.2.7 How-to Part 7: **New**: using a linear model to generate predictions
 
 ##### How-to Task 9 -- Fit a linear model and plot the model predictions
 
@@ -765,7 +773,7 @@ You can see reference information on drawing lines here:
 <https://ggplot2.tidyverse.org/reference/geom_abline.html>
 :::
 
-#### The practical exercises {#sec-lm-intro-practical-workbook}
+#### 8.4.3 The practical exercises {#sec-lm-intro-practical-workbook}
 
 Now you will progress through a series of tasks, and challenges, to test what you have learnt.
 
@@ -799,7 +807,7 @@ In the following, we will guide you through the tasks and questions step by step
 An answers version of the workbook will be provided after the practical class.
 :::
 
-#### Practical Part 1: Set-up
+#### 8.4.3.1 Practical Part 1: Set-up
 
 To begin, we set up our environment in R.
 
@@ -817,7 +825,7 @@ rm(list=ls())
 library("tidyverse")
 ```
 
-#### Practical Part 2: Load the data
+#### 8.4.3.2 Practical Part 2: Load the data
 
 ##### Practical Task 3 -- Read in the data file we will be using
 
@@ -853,7 +861,7 @@ This time:
 
 - Pay attention to what you see, for the numeric variables, in the information about minimum `Min.` and maximum `Max.` values.
 
-#### Practical Part 3: Revision -- developing histograms to examine the distributions of variables
+#### 8.4.3.3 Practical Part 3: Revision -- developing histograms to examine the distributions of variables
 
 ##### Practical Task 5 -- Practise editing the appearance of a histogram plot step-by-step
 
@@ -1005,7 +1013,7 @@ You can see the information in this week's `how-to` but try a search online for 
 
 <!-- <https://ggplot2.tidyverse.org/reference/geom_abline.html> -->
 
-#### Practical Part 4: Developing scatterplots to examine associations between variables
+#### 8.4.3.4 Practical Part 4: Developing scatterplots to examine associations between variables
 
 ##### Practical Task 6 -- Create a scatterplot to examine the association between some variables
 
@@ -1164,7 +1172,7 @@ ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) +
 ```
 :::
 
-#### Practical Part 5: Using correlations to to answer research questions --- making sure you are comfortable
+#### 8.4.3.5 Practical Part 5: Using correlations to to answer research questions --- making sure you are comfortable
 
 One of our research questions is:
 
@@ -1219,7 +1227,7 @@ Now use the results from the correlations to answer the following questions.
 
 <!-- - A.16. -- All the correlations are positive. -->
 
-#### Practical Part 6: Using a linear model to to answer research questions
+#### 8.4.3.6 Practical Part 6: Using a linear model to to answer research questions
 
 Now we can use linear models to try to answer the question:
 
@@ -1297,7 +1305,7 @@ If you look at the model summary you can answer the following questions.
 
 <!-- - A.21. It is possible to see, given coefficient estimates, that the association between predictor and outcome is positive for each model: mean accuracy appears to increase for increasing values of SHIPLEY vocabulary, HLVA health literacy, and age. -->
 
-#### Practical Part 7: Using a linear model to make predictions
+#### 8.4.3.7 Practical Part 7: Using a linear model to make predictions
 
 ##### Practical Task 10 -- Fit a linear model and use the results to plot the model predictions
 
@@ -1351,7 +1359,7 @@ ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
 ```
 :::
 
-#### You have now completed the Week 7 practical exercises and questions
+#### You have now completed the Week 8 practical exercises and questions
 
 ::: callout-important
 Predicting human behaviour is at the heart of:
