@@ -66,14 +66,13 @@ As we progress, we will continue to strengthen your skills in building *professi
 
 ## 8.3 Learning resources {#sec-lm-intro-resources}
 
-You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop (@sec-lm-intro-lectures). Then you will see information about the practical materials you can use to build and practise your skills (@sec-lm-intro-practical).
+You will see, next, the lectures we share to explain the concepts behind the critical thinking and analysis skills you will develop, then you will see information about the practical materials you can use to practise your skills.
 
 Every week, you will learn best if you *first* watch the lectures *then* do the practical exercises.
 
 ::: callout-tip
 ## Linked resources
-1. In @sec-associations, we share materials to support your development of critical thinking about associations, and your development of practical skills in working with correlation-based analyses.
-2. In @sec-lm-dev-intro, we share materials to extend your capacity to use linear models, to answer more and different kinds of research questions.
+- In [the chapter for week 7](../part2/hypotheses-associations.qmd#sec-associations-overview), we share materials to support your development of critical thinking about associations, and your development of practical skills in working with correlation-based analyses.
 :::
 
 ### 8.3.1 Lectures {#sec-lm-intro-lectures}
