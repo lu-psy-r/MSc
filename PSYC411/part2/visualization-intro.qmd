@@ -1248,7 +1248,7 @@ Hint: If you get a warning that a function is `not available` check that you hav
 To edit the example code to work for you, you will need to change the specification of the data-set and of the `x = ...` and `y = ...` aesthetic mappings in `aes(...)`.
 :::
 
-> Pract.A.11. -- You need to change the data, and the aesthetic mappings -- from something like this:
+<!-- > Pract.A.11. -- You need to change the data, and the aesthetic mappings -- from something like this: -->
 
 <!-- :::{.callout-tip collapse="true"} -->
 <!-- ## Code -->
@@ -1293,33 +1293,33 @@ You **can't break things** in the world, in R, so you can experiment as much as 
 
 In the `how-to` guide you can find information on how to do this. Take a look and come back, if you need to.
 
-Adapt the example code to do the task:
+<!-- Adapt the example code to do the task: -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| eval: false
-ggplot(iris, aes(Species, Sepal.Width)) +
-   ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0, 
-                        justification = -.2, point_colour = NA) +
-   geom_boxplot(width = .2, outlier.shape = NA) +
-   geom_jitter(width = .05, alpha = .3)
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- ggplot(iris, aes(Species, Sepal.Width)) + -->
+<!--    ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0,  -->
+<!--                         justification = -.2, point_colour = NA) + -->
+<!--    geom_boxplot(width = .2, outlier.shape = NA) + -->
+<!--    geom_jitter(width = .05, alpha = .3) -->
 
- ggsave(filename = 'my-plot-2.tiff', device='tiff', dpi=700)
-```
-:::
-   
-Now you should see:
+<!--  ggsave(filename = 'my-plot-2.tiff', device='tiff', dpi=700) -->
+<!-- ``` -->
+<!-- ::: -->
 
-1. A plot appear in the 'Plots' window in R-Studio
-2. And a plot appear in the 'Files' window in R-Studio
+<!-- Now you should see: -->
 
-Notice:
- 
-- I gave the file a new name.
-- I defined format using `device='tiff'` and resolution using `dpi=700`
+<!-- 1. A plot appear in the 'Plots' window in R-Studio -->
+<!-- 2. And a plot appear in the 'Files' window in R-Studio -->
 
-But if you do not do these things, R will use (OK) defaults for you.
+<!-- Notice: -->
+
+<!-- - I gave the file a new name. -->
+<!-- - I defined format using `device='tiff'` and resolution using `dpi=700` -->
+
+<!-- But if you do not do these things, R will use (OK) defaults for you. -->
 
 >**Pract.Q.12.** Can you figure out how to insert the plot file you have created into a Word document?
 
@@ -1333,7 +1333,7 @@ You can search for information on how to do this by using keywords like: `word h
 <!-- <https://support.microsoft.com/en-us/office/insert-pictures-3c51edf4-22e1-460a-b372-9329a8724344:~:text=Insert%20a%20picture%20in%20Word%2C%20PowerPoint%2C%20or%20Excel&text=On%20the%20Insert%20tab%2C%20click,in%20iPhoto%20or%20Photo%20Booth.> -->
 
 
-<!-- >**Pract.Q.13.** Can you adapt the colour scheme of the plot to make it look good to you? -->
+>**Pract.Q.13.** Can you adapt the colour scheme of the plot to make it look good to you?
 
 <!-- > Pract.A.13. Again, we are asking you to do a key words search. If you do, the results may include: -->
 
