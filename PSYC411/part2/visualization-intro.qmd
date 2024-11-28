@@ -81,7 +81,7 @@ You will realize that we are helping to build familiarity and fluency in your pr
 4. In PSYC413: in Week 9, in the *visualizations perspective* class, we explore more broadly why being able to produce and read data visualizations is now an important **sought-after skill**.
 5. In PSYC411: in Week 10, we explore how to use convenience functions to do visualization tasks automatically. We reach the **most advanced** kind of plots: presenting model estimates with raw data.
 
-In [the Visualization chapter](../part2/visualization.qmd#sec-visualization-overview), we present **optional reading** if you want to extend your learning: a more extensive discussion of data visualization, enabling you to work with a wider range of visualizations for richer data-sets.
+<!-- In [the Visualization chapter](../part2/visualization.qmd#sec-visualization-overview), we present **optional reading** if you want to extend your learning: a more extensive discussion of data visualization, enabling you to work with a wider range of visualizations for richer data-sets. -->
 :::
 
 Throughout our materials, we have called your attention to the ecosystem of free, high-value, information that is available to people working with R.
