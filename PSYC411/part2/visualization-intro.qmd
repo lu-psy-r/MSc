@@ -30,7 +30,7 @@ study.two.gen <- read_csv("study-two-general-participants.csv")
 
 Welcome to your overview of the work we will do together in **Week 9**.
 
-This week, we will focus on perspectives and practices in data visualization.
+This week, we will focus on perspectives and practices in **data visualization**.
 
 In a wide range of professions, you will benefit if you can exercise skills in the capacity to produce and to interpret data visualizations.
 
@@ -40,7 +40,8 @@ This means that learning how to produce visualizations using R will give you an 
 Our materials are designed to help you to think about what you are doing --- to understand the aims of the practical steps --- as well as to learn about producing professional effective data visualizations.
 This is because, as you progress in your careers, you may come to manage as well as to direct the development of visualizations, so we need to see **what best practice looks like**.
 
-We will continue to work with data collected for the *Clearly understood* project (@sec-associations) because we think that working with these data in this research **context** will help you to make sense of the data, and to see why we ask you to practise the skills we are teaching.
+We will continue to work with data collected for the *Clearly understood* project because we think that working with these data in this research **context** will help you to make sense of the data, and to see why we ask you to practise the skills we are teaching.
+(You can read more about the project in [the chapter for week 7](../part2/hypotheses-associations.qmd#sec-associations-overview).)
 
 ## 9.2 Our learning goals {#sec-vis-intro-goals}
 
@@ -77,10 +78,10 @@ You will realize that we are helping to build familiarity and fluency in your pr
 1. In PSYC411: in Week 3, we started learning about histograms, bar charts, scatterplots, and boxplots; in Week 4, we revisited bar charts and scatterplots; in Week 5, we revised boxplots.
 2. In PSYC411: in Week 7, we consolidated and extended your skills with scatterplots, and practised how to **read plots**.
 3. In PSYC411: in Week 8, we consolidated and extended your skills with both histograms and scatterplots; learning to **combine analysis with visualization**. 
-4. In PSYC413: in Week 9, we explore more broadly why being able to produce and read data visualizations is now an important **sought-after skill**.
+4. In PSYC413: in Week 9, in the *visualizations perspective* class, we explore more broadly why being able to produce and read data visualizations is now an important **sought-after skill**.
 5. In PSYC411: in Week 10, we explore how to use convenience functions to do visualization tasks automatically. We reach the **most advanced** kind of plots: presenting model estimates with raw data.
 
--   In @sec-visualization, as **optional reading**, we present a more extensive discussion of data visualization, explaining perspectives, and enabling you to work with richer data-sets.
+In [the Visualization chapter](../part2/visualization.qmd#sec-visualization-overview), we present **optional reading** if you want to extend your learning: a more extensive discussion of data visualization, enabling you to work with a wider range of visualizations for richer data-sets.
 :::
 
 Throughout our materials, we have called your attention to the ecosystem of free, high-value, information that is available to people working with R.
@@ -95,7 +96,7 @@ The lecture materials for this week are presented in four short parts.
 
 Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
 
-1. Part 1 (12 minutes) **Data visualization perspectives and practices**: The concepts and skills we will learn about in week 9: what we will learn and how we will know if we have learned it, the different kinds of goals we think about when we make visualizations, discovery and communication.
+1. Part 1 (14 minutes) **Data visualization perspectives and practices**: The concepts and skills we will learn about in week 9: what we will learn and how we will know if we have learned it, the different kinds of goals we think about when we make visualizations, discovery and communication.
 
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec0ae3b2-03c3-422f-b021-b23600ca8ea3&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-visualization-1" ></iframe>
@@ -165,7 +166,7 @@ This week --- **Week 9** --- our emphasis is on finding and making use of online
 2. Load the data
 3. **Revision**: locate and use `{ggplot2}` reference information.
 4. **New**: locate and use tutorial or how-to information.
-5. **New**: locate and use StackOverflow information.
+5. **New**: locate and use `StackOverflow` information.
 :::
 
 There are three main sources of information you can access for free online:
@@ -173,7 +174,7 @@ There are three main sources of information you can access for free online:
 1. The people who write software like the `{tidyverse}` or `{ggplot2}` libraries
 provide manuals, reference guides and tutorials. This information is often written as free web books.
 2. Other people write tutorials or guides or teaching materials designed to show learners (like us) how to use R functions or to do certain things using R. They may present these tutorials or guides as web books, blog sites or video tutorials, e.g., on Youtube or TikTok.
-3. Many people post questions and answers to discussion forums like Stackoverflow.
+3. Many people post questions and answers to discussion forums like `Stackoverflow`.
 
 ::: callout-important
 Learning how to find, understand and use this information is important because:
@@ -225,19 +226,23 @@ To begin, we set up our environment in R.
 
 ##### How-to Task 1 -- Run code to empty the R environment
 
+:::{.callout-tip collapse="true"}
 ```{r}
 #| eval: false
 rm(list=ls())                            
 ```
+:::
 
 ##### How-to Task 2 -- Run code to load libraries
 
 Load libraries using `library()`.
 
+:::{.callout-tip collapse="true"}
 ```{r}
 #| eval: false
 library("tidyverse")
 ```
+:::
 
 #### 9.4.2.2 How-to Part 2: Load the data
 
@@ -249,18 +254,22 @@ The code in the `how-to` guide was written to work with the data file:
 
 Read in the data file -- using `read_csv()`.
 
+:::{.callout-tip collapse="true"}
 ```{r}
 #| eval: false
 study.one.gen <- read_csv("study-one-general-participants.csv")
 ```
+:::
 
 ##### How-to Task 4 -- Inspect the data file
 
 Use the `summary()` function to take a look.
 
+:::{.callout-tip collapse="true"}
 ```{r}
 summary(study.one.gen)
 ```
+:::
 
 #### 9.4.2.3 How-to Part 3: Revision -- locate and use `{ggplot2}` reference information
 
@@ -298,25 +307,31 @@ We work through the steps in order:
 
 **1. Find relevant and useful information**
 
-You find the information you need by doing *keyword* searches online: but what are the keywords?
+You find the information you need by doing *keyword* searches online: 
 
-::: callout-tip
-Hint: Do a search using the words: `ggplot reference`.
+- but what are the keywords?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Do a search using the words: `ggplot reference`.
 
 That will get you results including this one:
 
 <https://ggplot2.tidyverse.org/reference/>
 :::
 
-How do you know if you can or should use this information?
+How do you know if you can or should use the information you find?
 
-- You know this source is 'official', relevant, and useful because you can see the hex badge (a hexagon shaped image): "ggplot2".
+- You know the `{ggplot2.tidyverse.org}` information is 'official', relevant, and useful because you can see the hex badge (a hexagon shaped image): "ggplot2".
 
-We need more *specific* information on boxplots in the `{ggplot2}` library reference information: how do we find it?
+We need more *specific* information on boxplots in the `{ggplot2}` library reference information: 
 
-- You can do a search of the reference index, or you can expand your set of keywords.
+- How do we find it?
 
-::: callout-tip
+You can do a search of the reference index, or you can expand your set of keywords.
+
+:::{.callout-tip collapse="true"}
+## Hint
 We are looking specifically for information on box plots so do a search of the web page e.g. using `CMD-F` (on a Mac) or `CTRL-F` (on a PC) using the words: `box or boxplot`
 
 That will get you a link -- click on it:
@@ -334,16 +349,19 @@ Most R developers design their information web pages in the same way:
 - fourth, they give you **example code** $\rightarrow$ **this is the bit you want**.
 
 ::: callout-tip
-Example code can be run without reading in any extra data, once you have run
+Example code can be run without reading in any extra data, once you have run:
 
 ```{r}
+#| eval: false
 library(tidyverse)
 ```
+
+Data referenced in the `{tidyverse}` help document examples will be available to use, pre-loaded.
 :::
 
 Scroll through the page, looking for an example plot that looks like what we want: a plot which shows (i.) the summary statistics (median and quartile) information of the boxplot plus (ii.) the raw observation information (points) of the sample data.
 
-Do you see it?
+- Do you see it?
 
 ::: callout-tip
 You can see the example shown under this line of code.
@@ -396,7 +414,7 @@ In the plot you can see that we get what we want. The plot shows:
 - Using `geom_jitter(width = 0.2)` -- the *raw* observations (of `hwy` per `class`) that the boxplots summarize, shown as the black points superimposed on the boxplots.
 
 ::: callout-tip
-The example code from the `{ggplot2}` reference demonstrates *why* we want to produce this kind of plot:
+The example code from the `{ggplot2}` reference information demonstrates *why* we want to produce this kind of plot:
 
 1. We can see that the boxplots, by their differing heights, show us the differences between groups in *average* outcomes (here, `hwy`, the y-axis variable).
 2. We can also see that the points show us that showing *just* the boxes hides the fact that different groups (here, `class` of car) are associated with differences in samples (note the differences in the number or scatter of points).
@@ -412,7 +430,9 @@ Let's say that I want to produce a boxplot, showing raw data observations of acc
 
 How do we convert the example code to produce the same kind of plot with *our* data?
 
-Hint: You need to change the data, and the aesthetic mappings -- from this:
+:::{.callout-tip collapse="true"}
+## Hint
+You need to change the data, and the aesthetic mappings -- from this:
 
 ```{r}
 #| eval: false
@@ -435,13 +455,17 @@ Notice:
 3. When you construct a boxplot, `x` must be mapped `=` to a categorical variable: a nominal variable or factor like `EDUCATION`.
 4. When you construct a boxplot, `y` must be mapped `=`to a numeric variable: a continuous or interval variable like `mean.acc`.
 5. `geom_jitter(width = 0.2)` is new: we add that to show the raw data observations.
+:::
 
 Now take a look at the plot we have made.
 
+:::{.callout-tip collapse="true"}
+## Code
 ```{r}
 p <- ggplot(data = study.one.gen, aes(x = EDUCATION, y = mean.acc))
 p + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 0.2)
 ```
+:::
 
 You can make two useful observations:
 
@@ -493,15 +517,18 @@ We break this task into the same steps we followed before:
 
 As before, we begin with a keyword search.
 
-::: callout-tip
-Hint: Do a search using the words: `ggplot boxplot colour`
+- What keywords do we need?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Do a search using the words: `ggplot boxplot colour`
 
 That will get you results including this one:
 
 <https://r-graph-gallery.com/264-control-ggplot2-boxplot-colors.html>
 :::
 
-This source is not official linked to the `{ggplot}` project so now you have to decide if it is useful: how do you do that?
+The source you are looking for is not officially linked to the `{ggplot}` project so now you have to decide if it is useful: how do you do that?
 
 Hint: You can decide *simply* if a source is useful by (1.) trying the example code (does it work?) and evaluating if you understand how it works (do you understand why it works?)
 
@@ -525,8 +552,9 @@ How do you this?
 
 - Usually, tutorial writers tell you first what libraries you need to load, do that, then run their example code.
 
-::: callout-tip
-Hint: Copy a chunk of example code and paste it directly into the Console and run it, or paste it into the Script window and run it:
+:::{.callout-tip collapse="true"}
+## Hint
+Copy a chunk of example code and paste it directly into the `Console` and run it, or paste it into the `Script` window and run it:
 
 ```{r}
 ggplot(mpg, aes(x=class, y=hwy, fill=class)) + 
@@ -534,7 +562,6 @@ ggplot(mpg, aes(x=class, y=hwy, fill=class)) +
   theme(legend.position="none") +
   scale_fill_brewer(palette="BuPu")
 ```
-:::
 
 In this sequence of code:
  
@@ -542,10 +569,9 @@ In this sequence of code:
 2. `geom_boxplot(alpha=0.3) +` -- tells R to draw boxplots, and reduce the opacity of the boxes (increase transparency).
 3. `theme(legend.position="none") +` -- tells R to hide the legend.
 4. `scale_fill_brewer(palette="BuPu")` -- tells R to use the blue-purple Brewer colour palette to draw the colours.
-
-::: colour-tip
-So far, you have been using the default colour palette -- sets of colours -- that are built-in in R, or in `{ggplot2}` but there are many more palettes available.
 :::
+
+So far, you have been using the default colour palette -- sets of colours -- that are built-in in R, or in `{ggplot2}` but there are many more palettes available.
 
 **4. Edit the code to do the task with the `study.one.gen` data**
 
@@ -557,7 +583,9 @@ Let's say that I want to produce a boxplot, showing the average accuracy of unde
 
 How do we convert the example code to produce the same kind of plot with *our* data?
 
-Hint: You need to change the data, and the aesthetic mappings -- from this:
+:::{.callout-tip collapse="true"}
+## Hint
+You need to change the data, and the aesthetic mappings -- from this:
 
 ```{r}
 #| eval: false
@@ -588,16 +616,24 @@ Notice:
 2. You change the data-set name to `study.one.gen` and you change the `x=` and `y=` aesthetic mappings.
 3. To change the colour of the boxplots, you add: `fill=EDUCATION` as an argument to the aesthetic mappings in `aes(...)`
 4. `scale_fill_brewer()` adds in the colour using the Brewer **colour-blind friendly** palette.
+:::
 
 ##### How-to Task 7 -- Can you find out more information about colour palettes?
 
-Hint: Do a search using the words: 
+Usually, information about the availability of options for colour choices is organized in terms of *palettes* (like a set of colours in painting).
+
+- What keywords do you need?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Do a search using the words: 
 
 1. `ggplot colour palettes`
 2. `ggplot colour blind friendly palettes`
 3. `ggplot cookbook colour palettes`
+:::
 
-Results include:
+Results may include:
 
 <https://ggplot2-book.org/scales-colour>
 
@@ -605,7 +641,9 @@ Results include:
 
 <http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/#:~:text=(size%3D3)-,A%20colorblind%2Dfriendly%20palette,variable%2C%20then%20use%20it%20later>
 
-These sources are quite technical in places, can you find useful example code?
+These sources are quite technical in places:
+
+- Can you find useful example code?
 
 **What are we learning here?**
 
@@ -642,12 +680,12 @@ And some people have contributed deep thinking about *how* and *why* we should d
 Make *intentional choices* when you use colour!
 :::
 
-#### 9.4.2.5 How-to Part 5: New -- locate and use StackOverflow information
+#### 9.4.2.5 How-to Part 5: New -- locate and use `StackOverflow` information
 
-Everybody who uses R professionally uses StackOverflow all the time.
+Everybody who uses R professionally uses `StackOverflow` all the time.
 
 - It is a huge, useful, resource of helpful information.
-- Most of the time, if you do a search for answers to a question about using R -- for data analysis, or plotting -- the search will take you to a StackOverflow discussion page, sooner or later.
+- Most of the time, if you do a search for answers to a question about using R -- for data analysis, or plotting -- the search will take you to a `StackOverflow` discussion page, sooner or later.
 
 Let's learn how to use this resource.
 
@@ -656,7 +694,7 @@ Let's learn how to use this resource.
 In writing a report, we often need to insert an image file.
 
 - You have been drawing some plots.
-- You need to save the plots so that you can use the plots in a report.
+- *Now*, you need to save the plots so that you can use the plots in a report.
 
 ::: callout-tip
 People sometimes paste copies of screenshots of plots into reports. Sometimes, the plots look bad because they are low resolution, or because they are squashed into the wrong aspect ratio.
@@ -681,37 +719,48 @@ We break this task into the same steps we followed before:
 
 You find the information you need by doing *keyword* searches online.
 
-::: callout-tip
-Hint: Do a search using the words: `how to export ggplot`
+- What keywords do you need?
 
-That will get you results including this one:
+:::{.callout-tip}
+## Hint
+Do a search using the words: `how to export ggplot`
+:::
+
+If you use the right keywords, you should get to resources including this one:
 
 <https://ggplot2.tidyverse.org/reference/ggsave.html>
 
-This is the official {ggplot2} library reference information on how to save plots.
-:::
+This is the official `{ggplot2}` library reference information on how to save plots.
 
 Notice:
 
 - This time, the example code at the end of the web page may not be helpful to everyone.
-- The usage information at the beginning tells you what you need to know but you will have to look up what arguments like 'device' or 'dpi' mean, and you will need to experiment a bit, trying different arguments, to get it to work for you.
-- **Let's move on**.
+- The usage information at the beginning tells you what you need to know but you will have to look up what arguments like `device` or `dpi` mean, and you will need to experiment a bit, trying different arguments, to get it to work for you.
 
-::: callout-tip
-Hint: Do a search using the words: how to export ggplot
+**Let's move on**. We want something that is easy to use.
+
+- How do we find easy-to-use helpful information?
+
+Often, you are looking for a `how-to` guide of some kind.
+
+- So: what keywords do you need?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Do a search using the words: `how to export ggplot`
 
 That will also get you results including this one:
 
 <https://stackoverflow.com/questions/38907514/saving-a-high-resolution-image-in-r>
-:::
 
 This is what we want: the example code, you will find, is usable and it is clearly explained.
 
 Notice:
 
-- On StackOverflow, people posts questions and then other people post answers to those questions.
+- On `StackOverflow`, people posts questions and then other people post answers to those questions.
 - Still others can up-vote or down-vote the questions and the answers.
 - This system means that the most interesting or useful questions are more likely to appear in your search results when you do searches with the right key words.
+:::
 
 ::: callout-important
 In working with R: if you have a question someone has usually asked your question before, and someone else has usually posted an answer to that question.
@@ -721,14 +770,14 @@ In working with R: if you have a question someone has usually asked your questio
 You just need to be able to find that discussion, and to be able to use the answer information.
 :::
 
-Here, you can see that the discussion has been viewed 258k times (a lot).
+In the linked-to example, here, you can see that the discussion has been viewed 258k times (a lot).
 
 - Many people have up-voted the question because it is *so* important.
 - Many people have up-voted the answers to the question because they are *so* useful.
 
 **2. Locate example code**
 
-On Stackoverflow, in response to any one question, different people may post alternative answers.
+On `Stackoverflow`, in response to any one question, different people may post alternative answers.
 
 - Some students may be concerned that there is no one right answer.
 - In mathematics, there are right or wrong answers but this here is something different: we are working out how to do something with a computer.
@@ -789,7 +838,7 @@ Notice:
 
 Now let's go back to the way that the `{ggplot2}` library information recommends.
 
-- Take a look at the second answer to the Stackoverflow question:
+- Take a look at the second answer to the `Stackoverflow` question:
 
 ```{r}
 #| eval: false
@@ -826,7 +875,7 @@ Which method do you prefer?
 
 We are learning two things:
 
-1. StackOverflow has many of the answers you will need, now, and later if you continue to use R.
+1. `StackOverflow` has many of the answers you will need, now, and later if you continue to use R.
 2. You can save the image files you make for use in your reports.
 
 ::: callout-tip
@@ -907,13 +956,13 @@ The data file for the practical exercises is:
 
 Use the `read_csv()` function to read the data file into R.
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| eval: false
-study.two.gen <- read_csv("study-two-general-participants.csv")
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- study.two.gen <- read_csv("study-two-general-participants.csv") -->
+<!-- ``` -->
+<!-- ::: -->
 
 When you code this, you can choose your own file name, but be sure to give the data object you create a distinct name e.g. `study.two.gen`.
 
@@ -921,13 +970,13 @@ When you code this, you can choose your own file name, but be sure to give the d
 
 Use the `summary()` function to take a look.
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| eval: false
-summary(study.two.gen)
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- summary(study.two.gen) -->
+<!-- ``` -->
+<!-- ::: -->
 
 #### 9.4.3.3 Practical Part 3: Revision -- locate and use `{ggplot2}` reference information
 
@@ -954,9 +1003,9 @@ We break this task into the same steps we followed before:
 
 Hint: If you have never created a box plot before, a good place to start is the `{ggplot2}` library reference information.
 
->**Q.1.** What keywords can you use to find the `{ggplot2}` library reference information?
+>**Pract.Q.1.** What keywords can you use to find the `{ggplot2}` library reference information?
 
-<!-- A.1. You can do an effective search using the words: `ggplot reference boxplot` -->
+<!-- Pract.A.1. You can do an effective search using the words: `ggplot reference boxplot` -->
 
 <!-- That will get you results including this one: -->
 
@@ -965,12 +1014,12 @@ Hint: If you have never created a box plot before, a good place to start is the 
 <!-- - You know this source is official, relevant, and useful because you can -->
 <!-- see the hex badge: "ggplot2". -->
 
->**Q.2.** What does a boxplot represent? In other words, what summary
+>**Pract.Q.2.** What does a boxplot represent? In other words, what summary
 statistics do the features of a boxplot display?
 
 Hint: You need to search the reference information page for the key information about `summary statistics`.
 
-<!-- > A.2. The reference page includes this information: -->
+<!-- > Pract.A.2. The reference page includes this information: -->
 
 <!-- > The lower and upper hinges correspond to the first and third quartiles (the 25th and 75th percentiles). This differs slightly from the method used by the boxplot() function, and may be apparent with small samples. See boxplot.stats() for more information on how hinge positions are calculated for boxplot(). -->
 
@@ -982,11 +1031,11 @@ Hint: You need to search the reference information page for the key information 
 
 **2. Locate example code**
 
->**Q.3.** Can you find example code showing how to produce a boxplot that
+>**Pract.Q.3.** Can you find example code showing how to produce a boxplot that
 allows you to examine if vocabulary scores are different for people with
 different education levels, where different levels are shown in different colours?
 
-<!-- > A.3. The web page: -->
+<!-- > Pract.A.3. The web page: -->
 
 <!-- <https://ggplot2.tidyverse.org/reference/geom_boxplot.html> -->
 
@@ -1022,16 +1071,16 @@ different education levels, where different levels are shown in different colour
 
 **3. Run the example code**
 
-:::{.callout-tip collapse="true"}
-## Code
-The example code, when you put it together, and adapt it for your needs, will look like this:
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- The example code, when you put it together, and adapt it for your needs, will look like this: -->
 
-```{r}
-#| eval: false
-p <- ggplot(mpg, aes(class, hwy, colour = class))
-p + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 0.2)
-```
-:::
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- p <- ggplot(mpg, aes(class, hwy, colour = class)) -->
+<!-- p + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 0.2) -->
+<!-- ``` -->
+<!-- ::: -->
 
 ::: callout-tip
 The free online reference information is *very* helpful but it requires *a bit* of work to make use of it. This is natural, the authors of the information don't know you and your situation.
@@ -1041,9 +1090,9 @@ The free online reference information is *very* helpful but it requires *a bit* 
 
 You will need to understand two things before you move on.
 
->**Q.4.** Can you explain what `geom_jitter()` does?
+>**Pract.Q.4.** Can you explain what `geom_jitter()` does?
 
-<!-- > A.4. You can do a search like you have been doing -- with the words: `ggplot reference geom_jitter` -->
+<!-- > Pract.A.4. You can do a search like you have been doing -- with the words: `ggplot reference geom_jitter` -->
 
 <!-- That will get you results including this one: -->
 
@@ -1051,26 +1100,26 @@ You will need to understand two things before you move on.
 
 <!-- - which says: -->
 
-<!-- >The jitter geom is a convenient shortcut for geom_point(position = "jitter"). It adds a small amount of random variation to the location of each point, and is a useful way of handling overplotting caused by discreteness in smaller datasets. -->
+<!-- > The jitter geom is a convenient shortcut for geom_point(position = "jitter"). It adds a small amount of random variation to the location of each point, and is a useful way of handling overplotting caused by discreteness in smaller datasets. -->
 
->**Q.5.** Can you explain what "overplotting" means?
+>**Pract.Q.5.** Can you explain what "overplotting" means?
 
-<!-- > A.5. Overplotting refers to where points (or other objects) are printed -->
+<!-- > Pract.A.5. Overplotting refers to where points (or other objects) are printed -->
 <!-- on top of each other, or printed crowded together, making it difficult to -->
 <!-- identify different data elements -->
 
 **4. Edit the code to do the task with the `study.two.gen` data**
 
->**Q.6.** Can you edit and run the example code to produce a complex plot comprising:
+>**Pract.Q.6.** Can you edit and run the example code to produce a complex plot comprising:
 
->1. boxplots showing a summary of vocabulary scores for people with different
+> 1. boxplots showing a summary of vocabulary scores for people with different
 education levels;
 
 > 2. plus a scatterplot showing individual vocabulary scores for each person in the data-set;
 
 > 3. with the boxes and the points representing vocabulary score data for different levels shown in different colours.
 
-<!-- > A.6. The example code can be edited to: -->
+<!-- > Pract.A.6. The example code can be edited to: -->
 
 <!-- :::{.callout-tip collapse="true"} -->
 <!-- ## Code -->
@@ -1080,17 +1129,17 @@ education levels;
 
 Now look at the plot you have produced and critically evaluate it.
 
->**Q.7.** What does the plot tell you about the average (median) vocabulary (`SHIPLEY`) score recorded for people in the `study.two.gen` data-set
+>**Pract.Q.7.** What does the plot tell you about the average (median) vocabulary (`SHIPLEY`) score recorded for people in the `study.two.gen` data-set
 who report different education levels?
 
-<!-- > A.7. The plot indicates that the median vocabulary score is higher for people who report `Higher` education compared to people who report `Further` education or people who report `Secondary` education. -->
+<!-- > Pract.A.7. The plot indicates that the median vocabulary score is higher for people who report `Higher` education compared to people who report `Further` education or people who report `Secondary` education. -->
 <!-- > We can see this because the middle line in the boxes, representing the median score for people in each education level group, is higher for for people who report `Higher` education. -->
 
->**Q.8.** What does the plot tell you about the individual, i.e., per-person
+>**Pract.Q.8.** What does the plot tell you about the individual, i.e., per-person
 vocabulary (`SHIPLEY`) score recorded for people in the `study.two.gen` data-set
 who report different education levels?
 
-<!-- > A.8. The plot indicates a lot of variability in the individual scores. The distributions of scores appears to have similar wide ranges in each group. -->
+<!-- > Pract.A.8. The plot indicates a lot of variability in the individual scores. The distributions of scores appears to have similar wide ranges in each group. -->
 
 #### 9.4.3.4 Practical Part 4: New -- locate and use tutorial or how-to information
 
@@ -1133,14 +1182,14 @@ You can do an effective search using the words: `how to ggplot rain cloud plot`
 <!-- <https://wellcomeopenresearch.org/articles/4-63> -->
 
 
->**Q.9.** There are reasons for doing the things we ask you to learn to do. Can you explain briefly why rain cloud plots are useful?
+>**Pract.Q.9.** There are reasons for doing the things we ask you to learn to do. Can you explain briefly why rain cloud plots are useful?
 
 :::{.callout-tip collapse="true"}
 ## Hint
 People often explain why or how to do things in academic articles. A good source of information for the answer to this question is in the article by Allen et al. in *wellcomeopenresearch*.
 :::
 
-<!-- > A.9. The explanation, in short is that: -->
+<!-- > Pract.A.9. The explanation, in short is that: -->
 
 <!-- - conventional visualizations like bar plots can be misleading; -->
 <!-- - showing raw data with statistical summaries helps the viewer to see both statistical summary information and raw outcomes. -->
@@ -1159,9 +1208,9 @@ Most tutorial or how-to writers design their web pages in the same way:
  - Pick the one that you can understand most easily.
 ::: 
 
->**Q.10.** Example code is often highlighted -- can you see it in the webpage?
+>**Pract.Q.10.** Example code is often highlighted -- can you see it in the webpage?
  
-<!--  > A.10. A good example tutorial is the one written by Cedric Scherer: -->
+<!--  > Pract.A.10. A good example tutorial is the one written by Cedric Scherer: -->
 
 <!-- <https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/> -->
 
@@ -1175,13 +1224,13 @@ Hint: A long sequence of code chunks are required to explain rain cloud plots, s
 
 Copy a chunk of example code and paste it directly into the `Console` and run it, or paste it into the `Script` window and run it:
 
-```{r}
-ggplot(iris, aes(Species, Sepal.Width)) +
-   ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0, 
-                        justification = -.2, point_colour = NA) +
-   geom_boxplot(width = .2, outlier.shape = NA) +
-   geom_jitter(width = .05, alpha = .3)
-```
+<!-- ```{r} -->
+<!-- ggplot(iris, aes(Species, Sepal.Width)) + -->
+<!--    ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0,  -->
+<!--                         justification = -.2, point_colour = NA) + -->
+<!--    geom_boxplot(width = .2, outlier.shape = NA) + -->
+<!--    geom_jitter(width = .05, alpha = .3) -->
+<!-- ``` -->
  
 Hint: Make sure you have copied the *complete* sequence of code shown in the highlighted window in the tutorial.
 
@@ -1189,7 +1238,7 @@ Hint: If you get a warning that a function is `not available` check that you hav
 
 **4. Edit the code to do the task with the `study.two.gen` data**
 
->**Q.11.** Can you edit the example code to draw a rain cloud plot including:
+>**Pract.Q.11.** Can you edit the example code to draw a rain cloud plot including:
 
 1. boxplots showing a summary of vocabulary scores for people with different education levels;
 2. plus a scatterplot showing individual vocabulary scores for each person in the data-set?
@@ -1199,7 +1248,7 @@ Hint: If you get a warning that a function is `not available` check that you hav
 To edit the example code to work for you, you will need to change the specification of the data-set and of the `x = ...` and `y = ...` aesthetic mappings in `aes(...)`.
 :::
 
-> A.11. -- You need to change the data, and the aesthetic mappings -- from something like this:
+> Pract.A.11. -- You need to change the data, and the aesthetic mappings -- from something like this:
 
 <!-- :::{.callout-tip collapse="true"} -->
 <!-- ## Code -->
@@ -1238,7 +1287,7 @@ Learning to experiment with codd is a *really* useful skill to develop:
 You **can't break things** in the world, in R, so you can experiment as much as you like through a process of trial-and-error.
 :::
 
-#### 9.4.3.5 Practical Part 5: New -- locate and use StackOverflow information
+#### 9.4.3.5 Practical Part 5: New -- locate and use `StackOverflow` information
 
 ##### Practical Task 7 -- Export one of the nice plots you have been making so you can include it in a report
 
@@ -1272,60 +1321,60 @@ Notice:
 
 But if you do not do these things, R will use (OK) defaults for you.
 
->**Q.12.** Can you figure out how to insert the plot file you have created into a Word document?
+>**Pract.Q.12.** Can you figure out how to insert the plot file you have created into a Word document?
 
 :::{.callout-tip collapse="true"}
 ## Hint
 You can search for information on how to do this by using keywords like: `word how to insert an image file`
 :::
 
-<!-- > A.12. -- You can find instructions e.g. here -->
+<!-- > Pract.A.12. -- You can find instructions e.g. here -->
 
 <!-- <https://support.microsoft.com/en-us/office/insert-pictures-3c51edf4-22e1-460a-b372-9329a8724344:~:text=Insert%20a%20picture%20in%20Word%2C%20PowerPoint%2C%20or%20Excel&text=On%20the%20Insert%20tab%2C%20click,in%20iPhoto%20or%20Photo%20Booth.> -->
 
 
-<!-- >**Q.13.** Can you adapt the colour scheme of the plot to make it look good to you? -->
+<!-- >**Pract.Q.13.** Can you adapt the colour scheme of the plot to make it look good to you? -->
 
-<!-- > A.13. Again, we are asking you to do a key words search. If you do, the results may include: -->
+<!-- > Pract.A.13. Again, we are asking you to do a key words search. If you do, the results may include: -->
 
 <!-- <https://ggplot2.tidyverse.org/reference/scale_brewer.html> -->
 
 <!-- You may need to edit the aesthetic mappings to instruct R to map colour (lines) and fill to the categorical variable or factor we are working with: -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = EDUCATION, y = SHIPLEY,
-                             colour = EDUCATION, fill = EDUCATION)) +
-  ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0, justification = -.2) +
-  geom_boxplot(width = .2, outlier.shape = NA) +
-  geom_jitter(width = .05, alpha = .3) +
-  scale_colour_brewer() +
-  scale_fill_brewer()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = EDUCATION, y = SHIPLEY, -->
+<!--                              colour = EDUCATION, fill = EDUCATION)) + -->
+<!--   ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0, justification = -.2) + -->
+<!--   geom_boxplot(width = .2, outlier.shape = NA) + -->
+<!--   geom_jitter(width = .05, alpha = .3) + -->
+<!--   scale_colour_brewer() + -->
+<!--   scale_fill_brewer() -->
+<!-- ``` -->
+<!-- ::: -->
 
->**Q.14.** Can you change the theme?
+>**Pract.Q.14.** Can you change the theme?
 
-<!-- > A.14. Again, we are asking you to do a key words search. If you do, the results may include: -->
+<!-- > Pract.A.14. Again, we are asking you to do a key words search. If you do, the results may include: -->
 
 <!-- <https://ggplot2.tidyverse.org/reference/ggtheme.html> -->
 
 <!-- - which provides information you can use to edit code as follows: -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = EDUCATION, y = SHIPLEY,
-                             colour = EDUCATION, fill = EDUCATION)) +
-  ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0, justification = -.2) +
-  geom_boxplot(width = .2, outlier.shape = NA) +
-  geom_jitter(width = .05, alpha = .3) +
-  scale_colour_brewer() +
-  scale_fill_brewer() +
-  theme_bw()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = EDUCATION, y = SHIPLEY, -->
+<!--                              colour = EDUCATION, fill = EDUCATION)) + -->
+<!--   ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0, justification = -.2) + -->
+<!--   geom_boxplot(width = .2, outlier.shape = NA) + -->
+<!--   geom_jitter(width = .05, alpha = .3) + -->
+<!--   scale_colour_brewer() + -->
+<!--   scale_fill_brewer() + -->
+<!--   theme_bw() -->
+<!-- ``` -->
+<!-- ::: -->
 
 #### You have now completed the Week 9 practical exercises and questions
 
