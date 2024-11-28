@@ -98,7 +98,7 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 1. Part 1 (12 minutes) **Data visualization perspectives and practices**: The concepts and skills we will learn about in week 9: what we will learn and how we will know if we have learned it, the different kinds of goals we think about when we make visualizations, discovery and communication.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b7324096-ad13-4ca1-b8ab-b0c000d85850&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC401-visualization-1" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec0ae3b2-03c3-422f-b021-b23600ca8ea3&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-visualization-1" ></iframe>
 ```
 
 2. Part 2 (8 minutes): the evidence base, the psychology of seeing and understanding visual information, and how we know what we should do in data visualization.
@@ -125,7 +125,7 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 ## Download the lecture slides
 The slides presented in the videos can be downloaded here:
 
-- [The slides](files/401-data-visualisation-practices.html) exactly as presented (7 MB). 
+- [The slides](files/411-data-visualisation-practices.html) exactly as presented (7 MB). 
 
 You can download the web page `.html` file and click on it to open it in any browser (e.g., Chrome, Edge or Safari). The slide images are high quality so the file is quite big and may take a few seconds to download.
 :::
