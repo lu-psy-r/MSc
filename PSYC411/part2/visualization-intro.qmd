@@ -1,11 +1,19 @@
-# Introduction to visualization {#sec-vis-intro-intro}
+---
+title: Week 9. Data visualization practices
+subtitle: Written by Rob Davies
+order: 12
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
 
-```{r library}
+## 9.1 Overview {#sec-vis-intro-overview}
+
+```{r libraries-hide}
 #| echo: false
 #| warning: false
-library("ggdist")
-library("kableExtra")
-library("tidyverse")
+library(kableExtra)
+library(patchwork)
+library(tidyverse)
 ```
 
 ```{r readin-hide}
@@ -19,8 +27,6 @@ study.one.gen <- read_csv("study-one-general-participants.csv")
 # -- study two
 study.two.gen <- read_csv("study-two-general-participants.csv")
 ```
-
-## Overview {#sec-vis-intro-overview}
 
 Welcome to your overview of the work we will do together in **Week 9**.
 
@@ -36,7 +42,7 @@ This is because, as you progress in your careers, you may come to manage as well
 
 We will continue to work with data collected for the *Clearly understood* project (@sec-associations) because we think that working with these data in this research **context** will help you to make sense of the data, and to see why we ask you to practise the skills we are teaching.
 
-## Our learning goals {#sec-vis-intro-goals}
+## 9.2 Our learning goals {#sec-vis-intro-goals}
 
 This week, we focus on *both* developing your critical thinking and strengthening your practical skills: our objectives blend *concepts* and *skills* targets.
 
@@ -58,7 +64,7 @@ We are working together so you can:
 3.  *Development* --- Locate yourself within the stages of the development process
 4.  *Implement* --- Produce visualizations that look good and are useful
 
-## Learning resources {#sec-vis-intro-resources}
+## 9.3 Learning resources {#sec-vis-intro-resources}
 
 You will see, next, the lectures we share to explain the concepts you will learn about, and the practical visualization skills you will develop. Then you will see information about the practical exercises you can use to build and practise your skills.
 
@@ -83,7 +89,7 @@ That is because this information is an important benefit of learning to use R.
 - This week we grow your capacity to find, and to use, the information you need. 
 - This will help to *build your independence* for the work you will do in your future professional careers.
 
-### Lectures {#sec-vis-intro-lectures}
+### 9.3.1 Lectures {#sec-vis-intro-lectures}
 
 The lecture materials for this week are presented in four short parts. 
 
@@ -113,7 +119,7 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5fccaa55-9d07-4e24-8995-b0c0010fe92b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-visualization-4" ></iframe>
 ```
 
-### Lecture slides {#sec-vis-intro-lectures-slides}
+### 9.3.2 Lecture slides {#sec-vis-intro-lectures-slides}
 
 ::: callout-tip
 ## Download the lecture slides
@@ -126,7 +132,7 @@ You can download the web page `.html` file and click on it to open it in any bro
 
 We are going to work through some practical exercises, next, to develop your critical thinking and practical skills for working with linear models.
 
-### Practical materials: data and R-Studio {#sec-vis-intro-practical}
+### 9.4 Practical materials: data and R-Studio {#sec-vis-intro-practical}
 
 We will work with two data files which you can download by clicking on their names (below):
 
@@ -139,7 +145,7 @@ Once you have downloaded the files, you will need to upload them to the R-Studio
 Here is a link to the sign-in page for [R-Studio Server](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
 :::
 
-### Practical materials guide {#sec-lm-intro-practical-guide}
+### 9.4.1 Practical materials guide {#sec-vis-intro-practical-guide}
 
 As usual, you will find that the practical exercises are simpler to do if you follow these steps in order.
 
@@ -177,7 +183,7 @@ Learning how to find, understand and use this information is important because:
 3. This means you get an advantage if you learn how to do that here.
 :::
 
-#### The data files {#sec-lm-intro-practical-data}
+#### 9.4.1.1 The data files {#sec-lm-intro-practical-data}
 
 Each of the data files we will work with has a similar structure.
 
@@ -207,13 +213,13 @@ When you look at the data table, you can see the columns:
 -   `EDUCATION` education level code
 -   `ETHNICITY` ethnicity (Office National Statistics categories) code
 
-#### The how-to guide {#sec-lm-intro-practical-how-to}
+#### 9.4.2 The how-to guide {#sec-vis-intro-practical-how-to}
 
 We will take things *step-by-step*.
 
 Make sure you complete each part, task and question, in order, before you move on to the next one.
 
-#### How-to Part 1: Set-up
+#### 9.4.2.1 How-to Part 1: Set-up
 
 To begin, we set up our environment in R.
 
@@ -233,7 +239,7 @@ Load libraries using `library()`.
 library("tidyverse")
 ```
 
-#### How-to Part 2: Load the data
+#### 9.4.2.2 How-to Part 2: Load the data
 
 ##### How-to Task 3 -- Read in the data file we will be using
 
@@ -256,7 +262,7 @@ Use the `summary()` function to take a look.
 summary(study.one.gen)
 ```
 
-#### How-to Part 3: Revision -- locate and use `{ggplot2}` reference information
+#### 9.4.2.3 How-to Part 3: Revision -- locate and use `{ggplot2}` reference information
 
 We have called your attention to `{ggplot2}` reference information before.
 
@@ -464,7 +470,7 @@ You can read more about jittering here:
 <https://ggplot2.tidyverse.org/reference/geom_jitter.html>
 :::
 
-#### How-to Part 4: New -- locate and use tutorial or how-to information
+#### 9.4.2.4 How-to Part 4: New -- locate and use tutorial or how-to information
 
 The official information provided by the developers of `{ggplot2}` or `{tidyverse}` are very useful but there is a whole other world of information --- many hundreds of web-sites --- provided by people interested in writing and sharing how-to guides and tutorials to highlight solutions to problems or answers to questions they, or others, have encountered.
 
@@ -636,7 +642,7 @@ And some people have contributed deep thinking about *how* and *why* we should d
 Make *intentional choices* when you use colour!
 :::
 
-#### How-to Part 5: New -- locate and use StackOverflow information
+#### 9.4.2.5 How-to Part 5: New -- locate and use StackOverflow information
 
 Everybody who uses R professionally uses StackOverflow all the time.
 
@@ -832,7 +838,7 @@ Here's a blog post by Cedric Scherer:
 - which covers many of the issues we have been discussing.
 :::
 
-#### The practical exercises {#sec-lm-intro-practical-workbook}
+#### 9.4.3 The practical exercises {#sec-lm-intro-practical-workbook}
 
 Now you will progress through a series of tasks, and challenges, to test what you have learnt.
 
@@ -868,7 +874,7 @@ We are going to work through the following tasks, split into separate parts.
 An answers version of the workbook will be provided after the practical class.
 :::
 
-#### Practical Part 1: Set-up
+#### 9.4.3.1 Practical Part 1: Set-up
 
 To begin, we set up our environment in R.
 
@@ -891,7 +897,7 @@ You may need to load other libraries as you progress.
 
 Notice, here, that we are using a library we have not used before: `{ggdist}`.
 
-#### Practical Part 2: Load the data
+#### 9.4.3.2 Practical Part 2: Load the data
 
 ##### Practical Task 3 -- Read in the data file we will be using
 
@@ -923,7 +929,7 @@ summary(study.two.gen)
 ```
 :::
 
-#### Practical Part 3: Revision -- locate and use `{ggplot2}` reference information
+#### 9.4.3.3 Practical Part 3: Revision -- locate and use `{ggplot2}` reference information
 
 ##### Practical Task 5 -- Find out how to produce boxplots to examine if vocabulary scores are different for people with different education levels
 
@@ -1086,7 +1092,7 @@ who report different education levels?
 
 <!-- > A.8. The plot indicates a lot of variability in the individual scores. The distributions of scores appears to have similar wide ranges in each group. -->
 
-#### Practical Part 4: New -- locate and use tutorial or how-to information
+#### 9.4.3.4 Practical Part 4: New -- locate and use tutorial or how-to information
 
 ##### Practical Task 6 -- Find out how to construct a rain cloud plot
 
@@ -1232,9 +1238,9 @@ Learning to experiment with codd is a *really* useful skill to develop:
 You **can't break things** in the world, in R, so you can experiment as much as you like through a process of trial-and-error.
 :::
 
-#### How-to Part 5: New -- locate and use StackOverflow information
+#### 9.4.3.5 Practical Part 5: New -- locate and use StackOverflow information
 
-##### How-to Task 7 -- Export one of the nice plots you have been making so you can include it in a report
+##### Practical Task 7 -- Export one of the nice plots you have been making so you can include it in a report
 
 In the `how-to` guide you can find information on how to do this. Take a look and come back, if you need to.
 
