@@ -1965,9 +1965,7 @@ Hint
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p>Pract.A.11. – You need to change the data, and the aesthetic mappings – from something like this:</p>
-</blockquote>
+<!-- > Pract.A.11. -- You need to change the data, and the aesthetic mappings -- from something like this: -->
 <!-- :::{.callout-tip collapse="true"} -->
 <!-- ## Code -->
 <!-- ```{r} -->
@@ -2006,47 +2004,31 @@ Hint
 <section id="practical-task-7-export-one-of-the-nice-plots-you-have-been-making-so-you-can-include-it-in-a-report" class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-7-export-one-of-the-nice-plots-you-have-been-making-so-you-can-include-it-in-a-report">Practical Task 7 – Export one of the nice plots you have been making so you can include it in a report</h5>
 <p>In the <code>how-to</code> guide you can find information on how to do this. Take a look and come back, if you need to.</p>
-<p>Adapt the example code to do the task:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Code
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-42" class="callout-42-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(Species, Sepal.Width)) <span class="sc">+</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>   ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(<span class="at">adjust =</span> .<span class="dv">5</span>, <span class="at">width =</span> .<span class="dv">7</span>, <span class="at">.width =</span> <span class="dv">0</span>, </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">justification =</span> <span class="sc">-</span>.<span class="dv">2</span>, <span class="at">point_colour =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">2</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_jitter</span>(<span class="at">width =</span> .<span class="dv">05</span>, <span class="at">alpha =</span> .<span class="dv">3</span>)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">'my-plot-2.tiff'</span>, <span class="at">device=</span><span class="st">'tiff'</span>, <span class="at">dpi=</span><span class="dv">700</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<p>Now you should see:</p>
-<ol type="1">
-<li>A plot appear in the ‘Plots’ window in R-Studio</li>
-<li>And a plot appear in the ‘Files’ window in R-Studio</li>
-</ol>
-<p>Notice:</p>
-<ul>
-<li>I gave the file a new name.</li>
-<li>I defined format using <code>device='tiff'</code> and resolution using <code>dpi=700</code></li>
-</ul>
-<p>But if you do not do these things, R will use (OK) defaults for you.</p>
+<!-- Adapt the example code to do the task: -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- ggplot(iris, aes(Species, Sepal.Width)) + -->
+<!--    ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0,  -->
+<!--                         justification = -.2, point_colour = NA) + -->
+<!--    geom_boxplot(width = .2, outlier.shape = NA) + -->
+<!--    geom_jitter(width = .05, alpha = .3) -->
+<!--  ggsave(filename = 'my-plot-2.tiff', device='tiff', dpi=700) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- Now you should see: -->
+<!-- 1. A plot appear in the 'Plots' window in R-Studio -->
+<!-- 2. And a plot appear in the 'Files' window in R-Studio -->
+<!-- Notice: -->
+<!-- - I gave the file a new name. -->
+<!-- - I defined format using `device='tiff'` and resolution using `dpi=700` -->
+<!-- But if you do not do these things, R will use (OK) defaults for you. -->
 <blockquote class="blockquote">
 <p><strong>Pract.Q.12.</strong> Can you figure out how to insert the plot file you have created into a Word document?</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2055,7 +2037,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can search for information on how to do this by using keywords like: <code>word how to insert an image file</code></p>
 </div>
@@ -2063,7 +2045,9 @@ Hint
 </div>
 <!-- > Pract.A.12. -- You can find instructions e.g. here -->
 <!-- <https://support.microsoft.com/en-us/office/insert-pictures-3c51edf4-22e1-460a-b372-9329a8724344:~:text=Insert%20a%20picture%20in%20Word%2C%20PowerPoint%2C%20or%20Excel&text=On%20the%20Insert%20tab%2C%20click,in%20iPhoto%20or%20Photo%20Booth.> -->
-<!-- >**Pract.Q.13.** Can you adapt the colour scheme of the plot to make it look good to you? -->
+<blockquote class="blockquote">
+<p><strong>Pract.Q.13.</strong> Can you adapt the colour scheme of the plot to make it look good to you?</p>
+</blockquote>
 <!-- > Pract.A.13. Again, we are asking you to do a key words search. If you do, the results may include: -->
 <!-- <https://ggplot2.tidyverse.org/reference/scale_brewer.html> -->
 <!-- You may need to edit the aesthetic mappings to instruct R to map colour (lines) and fill to the categorical variable or factor we are working with: -->
