@@ -75,7 +75,7 @@ This week, we will learn how to exploit professional tools to *automatically* ge
 
 ## 10.3 Learning resources {#sec-lm-dev-resources}
 
-You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop (@sec-lm-dev-lectures). Then you will see information about the practical materials you can use to build and practise your skills (@sec-lm-dev-practical).
+You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop. Then you will see information about the practical materials you can use to build and practise your skills.
 
 Every week, you will learn best if you *first* watch the lectures *then* do the practical exercises.
 
