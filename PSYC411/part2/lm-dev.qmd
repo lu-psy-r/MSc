@@ -1,4 +1,10 @@
-# Developing the linear model {#sec-lm-dev-intro}
+---
+title: Week 10. Developing the linear model
+subtitle: Written by Rob Davies
+order: 13
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
 
 ```{r libraries-hide}
 #| echo: false
@@ -26,7 +32,7 @@ all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv",
                                 )
 ```
 
-## Overview {#sec-lm-dev-overview}
+## 10.1 Overview {#sec-lm-dev-overview}
 
 Welcome to your overview of the work we will do together in **Week 10**.
 
@@ -50,7 +56,7 @@ As students, now, learning how to move from analyses involving one outcome and o
 We encounter linear models with multiple predictors, often, as *multiple regression* or *regression* analyses. The difference in names in different fields disguises the fact that we are working with the same technique: multiple regressions **are** linear models.
 :::
 
-## Our learning goals {#sec-lm-dev-goals}
+## 10.2 Our learning goals {#sec-lm-dev-goals}
 
 We will learn how to:
 
@@ -67,7 +73,7 @@ We will revise how to:
 As we progress, we will continue to strengthen your skills in building *professional visualizations*.
 This week, we will learn how to exploit professional tools to *automatically* generate and plot model predictions, when previously we produced model predictions by hand.
 
-## Learning resources {#sec-lm-dev-resources}
+## 10.3 Learning resources {#sec-lm-dev-resources}
 
 You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop (@sec-lm-dev-lectures). Then you will see information about the practical materials you can use to build and practise your skills (@sec-lm-dev-practical).
 
@@ -79,7 +85,7 @@ Every week, you will learn best if you *first* watch the lectures *then* do the 
 2. In @sec-lm-intro-intro, we introduce you to the main ideas and practical steps involved in conducting linear model analyses.
 :::
 
-### Lectures {#sec-lm-dev-lectures}
+### 10.3.1 Lectures {#sec-lm-dev-lectures}
 
 The lecture materials for this week are presented in four short parts. 
 
@@ -109,6 +115,8 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b559ac42-6752-4eaa-b3a9-af630116c7e8&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-4" ></iframe>
 ```
 
+### 10.3.2 Lecture slides {#sec-lm-dev-lectures-slides}
+
 ::: callout-tip
 ## Download the lecture slides
 The slides presented in the videos can be downloaded here:
@@ -120,7 +128,7 @@ You can download the web page `.html` file and click on it to open it in any bro
 
 We are going to work through some practical exercises, next, to develop your critical thinking and practical skills for working with linear models.
 
-### Practical materials: data and R-Studio {#sec-lm-dev-practical}
+### 10.4 Practical materials: data and R-Studio {#sec-lm-dev-practical}
 
 We will work with one data file which you can download by clicking on its name (below):
 
@@ -132,7 +140,7 @@ Once you have downloaded the file, you will need to upload it to the R-Studio se
 Here is a link to the sign-in page for [R-Studio Server](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
 :::
 
-### Practical materials guide {#sec-lm-dev-practical-guide}
+### 10.4.1 Practical materials guide {#sec-lm-dev-practical-guide}
 
 As usual, you will find that the practical exercises are simpler to do if you follow these steps in order.
 
@@ -170,7 +178,7 @@ As usual, when we do these analyses, we need to think about how we report the re
 
 We will really strengthen your ability to produce professional visualizations by learning how to translate model results into plots that help you and your audience to translate what your model tells you into accurate understanding and plain language.
 
-#### The data files {#sec-lm-dev-practical-data}
+#### 10.4.1.1 The data files {#sec-lm-dev-practical-data}
 
 Each of the data files we have worked with has had a similar structure. This week, that continuity remains. But, this week, we move on to working with a *big* data-set similar to the data you may encounter in real-world situations.
 
@@ -206,13 +214,13 @@ You can now see a new column:
 
 - `NATIVE.LANGUAGE` which codes for what language study participants grew up speaking (`English, Other`)
 
-#### The how-to guide {#sec-lm-dev-practical-how-to}
+#### 10.4.2 The how-to guide {#sec-lm-dev-practical-how-to}
 
 We will take things *step-by-step*.
 
 Make sure you complete each part, task and question, in order, before you move on to the next one.
 
-#### How-to Part 1: Set-up
+#### 10.4.2.1 How-to Part 1: Set-up
 
 To begin, we set up our environment in R.
 
@@ -235,7 +243,7 @@ library("psych")
 library("tidyverse")
 ```
 
-#### How-to Part 2: Load the data
+#### 10.4.2.2 How-to Part 2: Load the data
 
 ##### How-to Task 3 -- Read in the data file we will be using
 
@@ -358,7 +366,7 @@ The `{psych}` library is written by William Revelle who provides a lot of useful
 <http://personality-project.org/r/psych/>
 :::
 
-#### How-to Part 4: Using a linear model to answer research questions -- one predictor
+#### 10.4.2.3 How-to Part 3: Using a linear model to answer research questions -- one predictor
 
 ##### How-to Task 5 -- Examine the relation between outcome mean accuracy (`mean.acc`) and health literacy (`HLVA`)
 
@@ -425,7 +433,7 @@ It is worth your time reflecting, here, on how statistical analyses are incorpor
 Thinking ahead to your dissertation project, can you reflect on the research question you will hope to answer, how you will address that question through measurement, then data analysis to test a statistical prediction?
 :::
 
-#### How-to Part 4: Using a linear model to answer research questions -- multiple predictors
+#### 10.4.2.4 How-to Part 4: Using a linear model to answer research questions -- multiple predictors
 
 ##### How-to Task 6 --Examine the relation between outcome mean accuracy (`mean.acc`) and multiple predictors including: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`)
 
@@ -529,7 +537,7 @@ The estimate of the coefficient of any one predictor can be expected to vary dep
 > A.13. We fitted a linear model with mean comprehension accuracy as the outcome and health literacy (`HLVA`),  reading strategy (`FACTOR3`), vocabulary (`SHIPLEY`) and `AGE` (in years) as predictors. The model is significant overall, with F(4, 556) = 85.17, p < .001, and explains 38% of variance (adjusted R2 = 0.38).
 :::
 
-#### How-to Part 5: Plot predictions from linear models with multiple predictors
+#### 10.4.2.5 How-to Part 5: Plot predictions from linear models with multiple predictors
 
 ##### How-to Task 7 -- Produce and plot model results using R functions that make the process easier
 
@@ -708,7 +716,7 @@ If you follow the code example, and learn how to:
 Knowing how to follow this model $\rightarrow$ visualization workflow gives you a competitive advantage in future professional settings (job applications, interviews, workplace) because not many Psychology graduates can do it, yet.
 :::
 
-#### How-to Part 6: **New**: estimate the effects of factors as well as numeric variables
+#### 10.4.2.6 How-to Part 6: **New**: estimate the effects of factors as well as numeric variables
 
 As we have seen, one of our research questions is:
 
@@ -874,7 +882,7 @@ plot(dat)
 ```
 :::
 
-#### How-to Part 7: **New**: examine associations comparing data from different samples
+#### 10.4.2.7 How-to Part 7: **New**: examine associations comparing data from different samples
 
 The lecture for developing the linear model (@sec-lm-dev-lectures) includes a discussion of the ways in which the observed associations between variables or the estimated effects of predictor variables on some outcome may differ between different studies, different samples of data.
 
@@ -942,7 +950,7 @@ You can read more about faceting here:
 <https://ggplot2.tidyverse.org/reference/facet_wrap.html>
 :::
 
-#### The practical exercises {#sec-lm-dev-practical-workbook}
+#### 10.4.3 The practical exercises {#sec-lm-dev-practical-workbook}
 
 Now you will progress through a series of tasks, and challenges, to test what you have learnt.
 
@@ -978,7 +986,7 @@ In the following, we will guide you through the tasks and questions step by step
 An answers version of the workbook will be provided after the practical class.
 :::
 
-#### Practical Part 1: Set-up
+#### 10.4.3.1 Practical Part 1: Set-up
 
 To begin, we set up our environment in R.
 
@@ -1006,7 +1014,7 @@ Use the `library()` function to make these libraries available to you.
 <!-- ``` -->
 <!-- ::: -->
 
-#### Practical Part 2: Load the data
+#### 10.4.3.2 Practical Part 2: Load the data
 
 ##### Practical Task 3 -- Read in the data file we will be using
 
@@ -1062,7 +1070,7 @@ all.studies.subjects %>%
 
 <!-- > A.3. It looks like the `AGE` of 100 is maybe an error, or an extreme outlier. -->
 
-#### Practical Part 3: Revision -- using a linear model to answer research questions -- one predictor.
+#### 10.4.3.3 Practical Part 3: Revision -- using a linear model to answer research questions -- one predictor.
 
 One of our research questions is:
 
@@ -1126,7 +1134,7 @@ If you first fit the appropriate model, then read the model summary, you can ans
 
 <!-- > A.11. The R-squared suggests that 23% of outcome variance can be explained by the model -->
 
-#### Practical Part 4: New -- using a linear model to answer research questions -- multiple predictors
+#### 10.4.3.4 Practical Part 4: New -- using a linear model to answer research questions -- multiple predictors
 
 One of our research questions is:
 
@@ -1176,7 +1184,7 @@ If you look at the model summary you can answer the following questions
 
 <!-- > A.16. Ratings of understanding appear to be predicted by performance on tests of accuracy of understanding, together with variation in health literacy and reading strategy. -->
 
-#### Practical Part 5: New -- plot predictions from linear models
+#### 10.4.3.5 Practical Part 5: New -- plot predictions from linear models
 
 In this part, the practical work involves plotting the predictions from two linear models but the benefit from this practical work is to better your understanding of what linear models are doing.
 
@@ -1294,7 +1302,7 @@ Linear models are prediction models. We use them to predict variation in outcome
 Predictions *must* be scaled in the same way as the outcome variable.
 :::
 
-#### Practical Part 6: New -- estimate the effects of factors as well as numeric variables
+#### 10.4.3.6 Practical Part 6: New -- estimate the effects of factors as well as numeric variables
 
 ##### Practical Task 8 -- Fit a linear model to examine what variables predict outcome mean self-rated accuracy of `mean.self`
 
@@ -1358,7 +1366,7 @@ Hint: The effect or prediction plot will show you dot-and-whisker representation
 
 <!-- > A.25. The coefficient estimate = -0.225432. This matches the difference shown in the plot. -->
 
-#### Practical Part 7: New -- examine associations comparing data from different samples
+#### 10.4.3.7 Practical Part 7: New -- examine associations comparing data from different samples
 
 ##### Practical Task 8 -- Use `facet_wrap()` to show how the association between `mean.self` and `mean.acc` can vary between the different studies in the data-set
 
@@ -1391,7 +1399,7 @@ Hint: check out the continuous scale information in:
 
 <https://ggplot2.tidyverse.org/reference/scale_continuous.html>
 
-#### Practical Part Optional: New -- save or export plots so that you can insert them in reports
+#### 10.4.3.8 Practical Part Optional: New -- save or export plots so that you can insert them in reports
 
 Learning how to export plots from R will help you later with reports.
 
