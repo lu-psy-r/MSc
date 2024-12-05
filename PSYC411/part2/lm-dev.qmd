@@ -226,15 +226,20 @@ To begin, we set up our environment in R.
 
 ##### How-to Task 1 -- Run code to empty the R environment
 
+:::{.callout-tip collapse="true"}
 ```{r}
 #| eval: false
 rm(list=ls())                            
 ```
+:::
 
 ##### How-to Task 2 -- Run code to load libraries
 
 Load libraries using `library()`.
 
+- Notice that we are working with libraries that may be new to you here.
+
+:::{.callout-tip collapse="true"}
 ```{r}
 #| eval: false
 library("ggeffects")
@@ -242,6 +247,7 @@ library("patchwork")
 library("psych")
 library("tidyverse")
 ```
+:::
 
 #### 10.4.2.2 How-to Part 2: Load the data
 
@@ -253,10 +259,11 @@ We will be working with the data file:
 
 Read in the file -- using `read_csv()`.
 
+:::{.callout-tip collapse="true"}
 ```{r}
-#| eval: false
 all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv")
 ```
+:::
 
 ##### How-to Task 4 -- Inspect the data file
 
@@ -266,9 +273,11 @@ Now, let's do something new.
 
 We use the `describe()` function from the `{psych}` library to produce descriptive statistics for the variables in the data-set.
 
+:::{.callout-tip collapse="true"}
 ```{r}
 describe(all.studies.subjects)
 ```
+:::
 
 In the reports you write -- whether as a student or, later, in your professional work -- you may often be required to present table summaries of the variables in your data, incorporating descriptive statistics.
 
@@ -342,13 +351,13 @@ The information on the options available to you for any argument can be found in
 ::: callout-tip
 ## Further information you can explore
 
-1. Here is an explanation for how to use pipes %>% when you code and why it may be helpful to do so:
+1. Here is an explanation for how to use pipes `%>%` when you code and why it may be helpful to do so:
 
 <https://r4ds.had.co.nz/pipes.html>
 
-Note that we are not going to require the use of pipes in PSYC411.
+Note that we do not *require* the use of pipes in PSYC411: we are showing you this to expand your knowledge.
 
-2. You can get a guide to the 'psych' library here:
+2. You can get a guide to the `{psych}` library here:
 
 <http://personality-project.org/r/psych/vignettes/intro.pdf>
 
@@ -390,35 +399,52 @@ If you look at the model summary you can answer the following questions
 
 > Q.1. What is the estimate for the coefficient of the effect of the predictor, HLVA?
 
+:::{.callout-tip collapse="true"}
 > A.1. 0.041188 
+:::
 
 > Q.2. Is the effect significant?
 
+:::{.callout-tip collapse="true"}
 > A.2. It is significant because p < .05
+:::
 
 > Q.3. What are the values for t and p for the significance test for the coefficient?
+
+:::{.callout-tip collapse="true"}
 > A.3. t = 12.94, p <2e-16
+:::
 
 > Q.4. What do you conclude is the answer to the research question, given the linear model results?
 
+:::{.callout-tip collapse="true"}
 > A.4. The model slope estimate suggests that as `HLVA` scores increase so also do `mean.acc` scores.
+:::
 
 > Q.5. What is the F-statistic for the regression? Report F, DF and the p-value.
 
+:::{.callout-tip collapse="true"}
 > A.5. F-statistic: 167.5 on 1 and 559 DF,  p-value: < 2.2e-16
+:::
 
 > Q.6. Is the regression significant?
 
+:::{.callout-tip collapse="true"}
 > A.6. Yes: the regression is significant.
+:::
 
 > Q.7. What is the Adjusted R-squared?
 
+:::{.callout-tip collapse="true"}
 > A.7. Adjusted R-squared:  0.2292
+:::
 
 > Q.8. Explain in words what this R-squared value indicates?
 
+:::{.callout-tip collapse="true"}
 > A.8. The R-squared suggests that 23% of outcome variance can be explained 
 # by the model
+:::
 
 **What are we learning here?**
 
@@ -451,10 +477,12 @@ Here, the candidate predictor variables include: health literacy (`HLVA`); vocab
 
 We can incorporate all predictors together in a linear model: we use `lm()`, as before, but now specify each variable listed here by variable name.
 
+:::{.callout-tip collapse="true"}
 ```{r}
 model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE, data = all.studies.subjects)
 summary(model)
 ```
+:::
 
 If we look closely at this code example, we can first identify the working elements in the linear model code, but then we can identify some general properties that it will be useful to you to learn about.
 
@@ -759,17 +787,22 @@ Now, take a look at the results to answer the following questions.
 
 > Q.14. Can you report the estimated effect of `NATIVE.LANGUAGE` (the coding of participant language status: `English` versus `Other`)?
 
+:::{.callout-tip collapse="true"}
 > A.14. The effect of language status (`NATIVE.LANGUAGE`) on mean accuracy of 
  understanding is significant (estimate = -0.09, t = -6.37, p < .001) indicating that not being a native speaker of English ('Other') is associated with lower accuracy.
+:::
 
 > Q.15. Can you report the model and the model fit statistics?
 
-> A.15. We fitted a linear model with mean comprehension accuracy as the outcome and health literacy (`HLVA`), reading strategy (`FACTOR3`), vocabulary (`SHIPLEY`) and `AGE` (years), as well as language status as predictors. The model is significant overall, with F(5, 555) = 81.09, p < .001, and 
- explains 42% of variance (adjusted R2 = 0.42).
+:::{.callout-tip collapse="true"}
+> A.15. We fitted a linear model with mean comprehension accuracy as the outcome and health literacy (`HLVA`), reading strategy (`FACTOR3`), vocabulary (`SHIPLEY`) and `AGE` (years), as well as language status as predictors. The model is significant overall, with F(5, 555) = 81.09, p < .001, and explains 42% of variance (adjusted R2 = 0.42).
+:::
 
 > Q.16. What changes, when you compare the models with versus without `NATIVE.LANGUAGE`?
 
+:::{.callout-tip collapse="true"}
 > A.16. If you compare the summaries, for the last two models, you can see that the proportion of variance explained, `R-sq`, increases to 42% (0.4221), suggesting that knowing about participant language background helps to account for their response accuracy in tests of comprehension of health advice.
+:::
 
 **What are we learning here?**
 
@@ -853,6 +886,7 @@ summary(model)
 
 > Optional.Q.1. What changes, when you compare the models with versus without sum coding of `NATIVE.LANGUAGE`?
 
+:::{.callout-tip collapse="true"}
 > Optional.A.1. If you compare the summaries, for the last two models, you can see that the estimate for the coefficient of `NATIVE.LANGUAGE` changes in two ways: 
 
 > 1. the name changes, from `NATIVE.LANGUAGEOther` to `NATIVE.LANGUAGE2`, reflecting the change in coding;
@@ -884,7 +918,7 @@ plot(dat)
 
 #### 10.4.2.7 How-to Part 7: **New**: examine associations comparing data from different samples
 
-The lecture for developing the linear model (@sec-lm-dev-lectures) includes a discussion of the ways in which the observed associations between variables or the estimated effects of predictor variables on some outcome may differ between different studies, different samples of data.
+The lecture for developing the linear model includes a discussion of the ways in which the observed associations between variables or the estimated effects of predictor variables on some outcome may differ between different studies, different samples of data.
 
 To draw the plots, I used the `{ggplot2}` library function `facet_wrap()`:
 
@@ -904,7 +938,7 @@ all.studies.subjects %>%
   facet_wrap(~ study)
 ```
 
-What is new here is this bit:` facet_wrap(~ study)`
+What is new here is this bit: `facet_wrap(~ study)`
 
 This is how it works:
 
@@ -917,6 +951,7 @@ So: you need to identify a factor to do this work.
 
 Change the factor in `facet_wrap()` to show how the vocabulary effect may vary between English monolinguals versus non-native speakers of English.
 
+:::{.callout-tip collapse="true"}
 ```{r}
 all.studies.subjects %>%
   ggplot(aes(x = SHIPLEY, y = mean.acc)) +
@@ -932,6 +967,7 @@ all.studies.subjects %>%
   xlab("Vocabulary (Shipley)") + ylab("Mean accuracy") +
   facet_wrap(~ NATIVE.LANGUAGE)
 ```
+:::
 
 **What are we learning here?**
 
@@ -1036,29 +1072,29 @@ Use the `read_csv()` function to read the data files into R:
 
 Use the `{psych}` library `describe()` function to get a table summary of descriptive statistics for these variables.
 
-:::{.callout-tip collapse="true"}
-## Code
-Here, we can do this in two steps:
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- Here, we can do this in two steps: -->
 
-1. we select the variables we care about
-2. we get just the descriptive statistics we want for those variables
+<!-- 1. we select the variables we care about -->
+<!-- 2. we get just the descriptive statistics we want for those variables -->
 
-```{r}
-all.studies.subjects %>%
-  dplyr::select(AGE, HLVA) %>%
-  describe(skew = FALSE)
-```
-:::
+<!-- ```{r} -->
+<!-- all.studies.subjects %>% -->
+<!--   dplyr::select(AGE, HLVA) %>% -->
+<!--   describe(skew = FALSE) -->
+<!-- ``` -->
+<!-- ::: -->
 
->**Q.1.** What is the mean health literacy (HLVA) score in this sample?
+>**Pract.Q.1.** What is the mean health literacy (HLVA) score in this sample?
 
-<!-- > A.1. 7.22 -->
+<!-- > Pract.A.1. 7.22 -->
 
->**Q.2.** What are the minimum and maximum ages in this sample?
+>**Pract.Q.2.** What are the minimum and maximum ages in this sample?
 
-<!-- > A.2. 18-100 -->
+<!-- > Pract.A.2. 18-100 -->
 
->**Q.3.** Do you see any reason to be concerned about the data in this sample?
+>**Pract.Q.3.** Do you see any reason to be concerned about the data in this sample?
 
 <!-- > Hint: It is always a good idea to use your visualization skills to examine the distribution of variable values in a dataset: -->
 
@@ -1068,7 +1104,7 @@ all.studies.subjects %>%
 <!--   geom_histogram() -->
 <!-- ``` -->
 
-<!-- > A.3. It looks like the `AGE` of 100 is maybe an error, or an extreme outlier. -->
+<!-- > Pract.A.3. It looks like the `AGE` of 100 is maybe an error, or an extreme outlier. -->
 
 #### 10.4.3.3 Practical Part 3: Revision -- using a linear model to answer research questions -- one predictor.
 
@@ -1092,47 +1128,47 @@ For these data, participants were asked to respond to questions about health inf
 
 We can use `lm()` to estimate whether the ratings of accuracy actually predict the outcome tested accuracy levels.
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-model <- lm(mean.acc ~ mean.self, data = all.studies.subjects)
-summary(model)
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ::: -->
 
 If you first fit the appropriate model, then read the model summary, you can answer the following questions.
 
->**Q.4.** What is the estimate for the coefficient of the effect of the predictor `mean.self` on the outcome `mean.acc` in this model?
+>**Pract.Q.4.** What is the estimate for the coefficient of the effect of the predictor `mean.self` on the outcome `mean.acc` in this model?
 
-<!-- > A.4. 0.058613  -->
+<!-- > Pract.A.4. 0.058613  -->
 
->**Q.5.** Is the effect significant?
+>**Pract.Q.5.** Is the effect significant?
 
-<!-- > A.5. It is significant, p < .05 -->
+<!-- > Pract.A.5. It is significant, p < .05 -->
 
->**Q.6.** What are the values for t and p for the significance test for the coefficient?
+>**Pract.Q.6.** What are the values for t and p for the significance test for the coefficient?
 
-<!-- > A.6. t = 12.90, p <2e-16 -->
+<!-- > Pract.A.6. t = 12.90, p <2e-16 -->
 
->**Q.7.** What do you conclude is the answer to the research question, given the linear model results?
+>**Pract.Q.7.** What do you conclude is the answer to the research question, given the linear model results?
 
-<!-- > A.7. The model slope estimate suggests that higher levels of rated understanding can predict higher levels of tested understanding so, yes: it does appear that people can evaluate their own understanding. -->
+<!-- > Pract.A.7. The model slope estimate suggests that higher levels of rated understanding can predict higher levels of tested understanding so, yes: it does appear that people can evaluate their own understanding. -->
 
->**Q.8.** What is the F-statistic for the regression? Report F, DF and the p-value.
+>**Pract.Q.8.** What is the F-statistic for the regression? Report F, DF and the p-value.
 
-<!-- > A.8. F-statistic: 166.4 on 1 and 559 DF,  p-value: < 2.2e-16 -->
+<!-- > Pract.A.8. F-statistic: 166.4 on 1 and 559 DF,  p-value: < 2.2e-16 -->
 
->**Q.9.** Is the regression significant?
+>**Pract.Q.9.** Is the regression significant?
 
-<!-- > A.9. Yes: the regression is significant. -->
+<!-- > Pract.A.9. Yes: the regression is significant. -->
 
->**Q.10.** What is the Adjusted R-squared?
+>**Pract.Q.10.** What is the Adjusted R-squared?
 
-<!-- > A.10. Adjusted R-squared:  0.228 -->
+<!-- > Pract.A.10. Adjusted R-squared:  0.228 -->
 
->**Q.11.** Explain in words what this R-squared value indicates?
+>**Pract.Q.11.** Explain in words what this R-squared value indicates?
 
-<!-- > A.11. The R-squared suggests that 23% of outcome variance can be explained by the model -->
+<!-- > Pract.A.11. The R-squared suggests that 23% of outcome variance can be explained by the model -->
 
 #### 10.4.3.4 Practical Part 4: New -- using a linear model to answer research questions -- multiple predictors
 
@@ -1153,36 +1189,36 @@ We use `lm()`, as before, but now specify each variable listed here by variable 
 - outcome: mean self-rated accuracy (`mean.self`)
 - predictors: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc`.
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc, 
-            data = all.studies.subjects)
-summary(model)
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc,  -->
+<!--             data = all.studies.subjects) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ::: -->
 
 If you look at the model summary you can answer the following questions  
 
->**Q.12.** What predictors are significant in this model?
+>**Pract.Q.12.** What predictors are significant in this model?
 
-<!-- > A.12. Health literacy ('HLVA'), reading strategy ('FACTOR3') and performance on tests of accuracy of understanding ('mean.acc') all appear to significantly predict variation in mean ratings of understanding ('mean.self'). -->
+<!-- > Pract.A.12. Health literacy ('HLVA'), reading strategy ('FACTOR3') and performance on tests of accuracy of understanding ('mean.acc') all appear to significantly predict variation in mean ratings of understanding ('mean.self'). -->
 
->**Q.13.** What is the estimate for the coefficient of the effect of the predictor, `mean.acc`, in this model?
+>**Pract.Q.13.** What is the estimate for the coefficient of the effect of the predictor, `mean.acc`, in this model?
 
-<!-- > A.13. 2.502024  -->
+<!-- > Pract.A.13. 2.502024  -->
 
->**Q.14.** Is the effect significant?
+>**Pract.Q.14.** Is the effect significant?
 
-<!-- > A.14. It is significant because p < .05 -->
+<!-- > Pract.A.14. It is significant because p < .05 -->
 
->**Q.15.** What are the values for t and p for the significance test for the coefficient?
+>**Pract.Q.15.** What are the values for t and p for the significance test for the coefficient?
 
-<!-- > A.15. t = 6.929, p = 1.18e-11 -->
+<!-- > Pract.A.15. t = 6.929, p = 1.18e-11 -->
 
->**Q.16.** What do you conclude is the answer to the follow-up question, what actually predicts ratings of understanding?
+>**Pract.Q.16.** What do you conclude is the answer to the follow-up question, what actually predicts ratings of understanding?
 
-<!-- > A.16. Ratings of understanding appear to be predicted by performance on tests of accuracy of understanding, together with variation in health literacy and reading strategy. -->
+<!-- > Pract.A.16. Ratings of understanding appear to be predicted by performance on tests of accuracy of understanding, together with variation in health literacy and reading strategy. -->
 
 #### 10.4.3.5 Practical Part 5: New -- plot predictions from linear models
 
@@ -1214,23 +1250,23 @@ Note that the comparison between these models teaches us something about *what* 
 - You want to focus on the estimate of the coefficient of the predictor variable, for each model, presented in the model summary results.
 :::
   
->**Q.17.** Can you write the code for the two models? Can you give each model a distinctive name?
+>**Pract.Q.17.** Can you write the code for the two models? Can you give each model a distinctive name?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects)
-summary(model.1)
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
+<!-- summary(model.1) -->
 
-model.2 <- lm(mean.self ~ mean.acc, 
-              data = all.studies.subjects)
-summary(model.2)
-```
-:::
+<!-- model.2 <- lm(mean.self ~ mean.acc,  -->
+<!--               data = all.studies.subjects) -->
+<!-- summary(model.2) -->
+<!-- ``` -->
+<!-- ::: -->
   
 Take a look at the summary for each model.  
 
->**Q.18.** Why do you think it appears that the slope coefficient estimate is different if you compare:
+>**Pract.Q.18.** Why do you think it appears that the slope coefficient estimate is different if you compare:
 
 > (1.) the model, mean.acc ~ mean.self
 
@@ -1240,7 +1276,7 @@ Take a look at the summary for each model.
 
 > Hint: You may benefit by reflecting on the @sec-lm-intro-lectures lectures and practical materials, especially where they concern predictions.
 
-<!-- > A.18. Linear models are prediction models. We use them to predict variation in outcomes given some set of predictor variables. Because of this, predictions *must* be scaled in the same way as the outcome variable.  -->
+<!-- > Pract.A.18. Linear models are prediction models. We use them to predict variation in outcomes given some set of predictor variables. Because of this, predictions *must* be scaled in the same way as the outcome variable.  -->
 
 <!-- > So: -->
 
@@ -1254,45 +1290,45 @@ Take a look at the summary for each model.
 
 <!-- > Here: the model suggests that unit change in `mean.acc` predicts increase of 3.9135 in `mean.self`. -->
 
->**Q.19.** Can you plot the predictions from each model?
+>**Pract.Q.19.** Can you plot the predictions from each model?
 
-:::{.callout-tip collapse="true"}
-## Code
-> A.19. Here is the code to plot the predictions from both models:
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- > Pract.A.19. Here is the code to plot the predictions from both models: -->
 
-First fit the models -- give the model objects distinct names:
+<!-- First fit the models -- give the model objects distinct names: -->
 
-```{r}
-model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects)
-summary(model.1)
+<!-- ```{r} -->
+<!-- model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
+<!-- summary(model.1) -->
 
-model.2 <- lm(mean.self ~ mean.acc, 
-            data = all.studies.subjects)
-summary(model.2)
-```
+<!-- model.2 <- lm(mean.self ~ mean.acc,  -->
+<!--             data = all.studies.subjects) -->
+<!-- summary(model.2) -->
+<!-- ``` -->
 
-Then get the predictions:
+<!-- Then get the predictions: -->
 
-```{r}
-dat.1 <- ggpredict(model.1, "mean.self")
-dat.2 <- ggpredict(model.2, "mean.acc")
-```
+<!-- ```{r} -->
+<!-- dat.1 <- ggpredict(model.1, "mean.self") -->
+<!-- dat.2 <- ggpredict(model.2, "mean.acc") -->
+<!-- ``` -->
 
-Then make the plots, and arrange them for easy comparison, side-by-side:
+<!-- Then make the plots, and arrange them for easy comparison, side-by-side: -->
 
-```{r}
-plot.1 <- plot(dat.1)
-plot.2 <- plot(dat.2)
+<!-- ```{r} -->
+<!-- plot.1 <- plot(dat.1) -->
+<!-- plot.2 <- plot(dat.2) -->
 
-plot.1 + plot.2
-```
-:::
+<!-- plot.1 + plot.2 -->
+<!-- ``` -->
+<!-- ::: -->
 
->**Q.20.** Look at the two plots side-by-side: what do you see?
+>**Pract.Q.20.** Look at the two plots side-by-side: what do you see?
 
 Hint: Look at changes in height of the prediction line, given changes in x-axis position of the line.
 
-<!-- > A.20. A side-by-side comparison shows that for (1.) `mean.acc ~ mean.self,` increases in `mean.self` from about 2-8 are associated with a change in `mean.acc` from about .4 to about .85, while for (2.) `mean.self ~ mean.acc`, increases in `mean.self` from about .2-1.0 are associated with a change in `mean.acc` from about 4 to about 8. -->
+<!-- > Pract.A.20. A side-by-side comparison shows that for (1.) `mean.acc ~ mean.self,` increases in `mean.self` from about 2-8 are associated with a change in `mean.acc` from about .4 to about .85, while for (2.) `mean.self ~ mean.acc`, increases in `mean.self` from about .2-1.0 are associated with a change in `mean.acc` from about 4 to about 8. -->
 
 **What are we learning here?**
 
@@ -1310,61 +1346,61 @@ Include in the model both numeric variables and categorical variables as predict
 
 - health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc` and `NATIVE.LANGUAGE`.
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc +
-                        NATIVE.LANGUAGE, 
-            data = all.studies.subjects)
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc + -->
+<!--                         NATIVE.LANGUAGE,  -->
+<!--             data = all.studies.subjects) -->
+<!-- ``` -->
+<!-- ::: -->
 
->**Q.21.** Can you report the estimated effect of `NATIVE.LANGUAGE` (the coding of participant language status: `English` versus `other`)?
+>**Pract.Q.21.** Can you report the estimated effect of `NATIVE.LANGUAGE` (the coding of participant language status: `English` versus `other`)?
 
 Hint: you will need to get a summary of the model you have coded.
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-summary(model)
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ::: -->
 
-<!-- > A.21. The effect of language status (`NATIVE.LANGUAGE`) on mean accuracy of understanding is not significant (estimate = -0.225432, t = -1.750, p = .081) indicating that not being a native speaker of English (`Other`) is not associated with lower self-rated accuracy. -->
+<!-- > Pract.A.21. The effect of language status (`NATIVE.LANGUAGE`) on mean accuracy of understanding is not significant (estimate = -0.225432, t = -1.750, p = .081) indicating that not being a native speaker of English (`Other`) is not associated with lower self-rated accuracy. -->
 
->**Q.22.** Can you report the overall model and model fit statistics?
+>**Pract.Q.22.** Can you report the overall model and model fit statistics?
 
-> A.22. We fitted a linear model with mean self-rated accuracy as the outcome and with the predictors: health literacy (HLVA),  reading strategy (FACTOR3), vocabulary (SHIPLEY) and AGE (years), as well as mean accuracy (mean.acc) and language status. The model is significant overall, with F(6, 554) = 45.82, p < .001, and explains 32% of variance (adjusted R2 = 0.32).
+> Pract.A.22. We fitted a linear model with mean self-rated accuracy as the outcome and with the predictors: health literacy (HLVA),  reading strategy (FACTOR3), vocabulary (SHIPLEY) and AGE (years), as well as mean accuracy (mean.acc) and language status. The model is significant overall, with F(6, 554) = 45.82, p < .001, and explains 32% of variance (adjusted R2 = 0.32).
 
->**Q.23.** Can you plot the predicted effect of `NATIVE.LANGUAGE` given your model?
+>**Pract.Q.23.** Can you plot the predicted effect of `NATIVE.LANGUAGE` given your model?
 
-:::{.callout-tip collapse="true"}
-## Code
-We first fit the model, including `NATIVE.LANGUAGE`:
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- We first fit the model, including `NATIVE.LANGUAGE`: -->
 
-```{r}
-model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc +
-              NATIVE.LANGUAGE, 
-            data = all.studies.subjects)
-```
-            
-Then use the `ggpredict()` function to get the predictions
+<!-- ```{r} -->
+<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc + -->
+<!--               NATIVE.LANGUAGE,  -->
+<!--             data = all.studies.subjects) -->
+<!-- ``` -->
 
-```{r}
-dat <- ggpredict(model, "NATIVE.LANGUAGE")
-plot(dat)
-```
-:::
+<!-- Then use the `ggpredict()` function to get the predictions -->
 
->**Q.24.** The plot should give you dot-and-whisker representations of the estimated `mean.self` for `English` versus `Other` participants in the dataset. What is the difference in the estimated `mean.self` between these groups?
+<!-- ```{r} -->
+<!-- dat <- ggpredict(model, "NATIVE.LANGUAGE") -->
+<!-- plot(dat) -->
+<!-- ``` -->
+<!-- ::: -->
+
+>**Pract.Q.24.** The plot should give you dot-and-whisker representations of the estimated `mean.self` for `English` versus `Other` participants in the dataset. What is the difference in the estimated `mean.self` between these groups?
 
 Hint: The effect or prediction plot will show you dot-and-whisker representations of predicted outcome `mean.self`. In these plots, the dots represent the estimated `mean.self` while the lines (whiskers) represent confidence intervals.
 
-<!-- > A.24. The difference in the estimated 'mean.self' between these groups is about .2. -->
+<!-- > Pract.A.24. The difference in the estimated 'mean.self' between these groups is about .2. -->
 
->**Q.25.** Compare the difference in the estimated `mean.self` between these groups, given the plot, with the coefficient estimate from the model summary: what do you see?
+>**Pract.Q.25.** Compare the difference in the estimated `mean.self` between these groups, given the plot, with the coefficient estimate from the model summary: what do you see?
 
-<!-- > A.25. The coefficient estimate = -0.225432. This matches the difference shown in the plot. -->
+<!-- > Pract.A.25. The coefficient estimate = -0.225432. This matches the difference shown in the plot. -->
 
 #### 10.4.3.7 Practical Part 7: New -- examine associations comparing data from different samples
 
@@ -1372,24 +1408,24 @@ Hint: The effect or prediction plot will show you dot-and-whisker representation
 
 Change the factor in `facet_wrap()` to show how the association between `mean.self` and `mean.acc` can vary between the different studies
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-all.studies.subjects %>%
-  ggplot(aes(x = mean.self, y = mean.acc)) +
-  geom_point(size = 2, alpha = .5, colour = "darkgrey") +
-  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
-  xlim(0, 10) +
-  ylim(0, 1.1)+
-  theme_bw() +
-  theme(
-    axis.text = element_text(size = rel(1.15)),
-    axis.title = element_text(size = rel(1.5))
-  ) +
-  xlab("Mean self-rated accuracy") + ylab("Mean accuracy") +
-  facet_wrap(~ study)
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- all.studies.subjects %>% -->
+<!--   ggplot(aes(x = mean.self, y = mean.acc)) + -->
+<!--   geom_point(size = 2, alpha = .5, colour = "darkgrey") + -->
+<!--   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) + -->
+<!--   xlim(0, 10) + -->
+<!--   ylim(0, 1.1)+ -->
+<!--   theme_bw() + -->
+<!--   theme( -->
+<!--     axis.text = element_text(size = rel(1.15)), -->
+<!--     axis.title = element_text(size = rel(1.5)) -->
+<!--   ) + -->
+<!--   xlab("Mean self-rated accuracy") + ylab("Mean accuracy") + -->
+<!--   facet_wrap(~ study) -->
+<!-- ``` -->
+<!-- ::: -->
 
 You may need to edit the x-axis labeling to make it readable
 
@@ -1446,45 +1482,45 @@ You will need to:
 
 Then, you can import the saved plot into Word.
 
-:::{.callout-tip collapse="true"}
-## Code
-Fit a model:
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- Fit a model: -->
 
-```{r}
-model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE, 
-            data = all.studies.subjects)
-```
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE,  -->
+<!--             data = all.studies.subjects) -->
+<!-- ``` -->
 
-Create a set of predictions we can use for plotting  
+<!-- Create a set of predictions we can use for plotting   -->
 
-```{r}
-dat <- ggpredict(model, "FACTOR3")
-```
+<!-- ```{r} -->
+<!-- dat <- ggpredict(model, "FACTOR3") -->
+<!-- ``` -->
 
-Make a plot
+<!-- Make a plot -->
 
-```{r}
-p.model <- plot(dat)
-p.model +
-  geom_point(data = all.studies.subjects, 
-             aes(x = FACTOR3, y = mean.acc), size = 1.5, alpha = .75, colour = "darkgrey") +
-  geom_line(size = 1.5) +
-  theme_bw() +
-  theme(
-    axis.text = element_text(size = rel(1.15)),
-    axis.title = element_text(size = rel(1.25)),
-    plot.title = element_text(size = rel(1.4))
-  ) +
-  xlab("Reading strategy (FACTOR3)") + ylab("Mean accuracy") +
-  ggtitle("Effect of reading strategy on \n mean comprehension accuracy")
-```
+<!-- ```{r} -->
+<!-- p.model <- plot(dat) -->
+<!-- p.model + -->
+<!--   geom_point(data = all.studies.subjects,  -->
+<!--              aes(x = FACTOR3, y = mean.acc), size = 1.5, alpha = .75, colour = "darkgrey") + -->
+<!--   geom_line(size = 1.5) + -->
+<!--   theme_bw() + -->
+<!--   theme( -->
+<!--     axis.text = element_text(size = rel(1.15)), -->
+<!--     axis.title = element_text(size = rel(1.25)), -->
+<!--     plot.title = element_text(size = rel(1.4)) -->
+<!--   ) + -->
+<!--   xlab("Reading strategy (FACTOR3)") + ylab("Mean accuracy") + -->
+<!--   ggtitle("Effect of reading strategy on \n mean comprehension accuracy") -->
+<!-- ``` -->
 
-Save it
+<!-- Save it -->
 
-```{r}
-ggsave("reading-strategy-prediction.png", width = 10, height = 10, units = "cm")
-```
-:::
+<!-- ```{r} -->
+<!-- ggsave("reading-strategy-prediction.png", width = 10, height = 10, units = "cm") -->
+<!-- ``` -->
+<!-- ::: -->
 
 Some advice:
 
@@ -1511,7 +1547,10 @@ An old saying goes:
 
 ::: callout-tip
 -   Sometimes, it can be useful to adopt a simpler approach as a way to approximate *get closer to* better methods
--   Box also advises "Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad."
+-   Box also advises:
+
+> Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad.
+
 -   Here, we focus on validity, measurement, generalizability and *critical thinking*
 :::
 
@@ -1535,5 +1574,3 @@ An old saying goes:
 1.  Explain what I did, specifying the method (linear model), the outcome variable (accuracy) and the predictor variables (health literacy, reading strategy, reading skill and vocabulary)
 2.  Report the model fit statistics overall ($F, R^2$)
 3.  Report the significant effects ($\beta, t, p$) and describe the nature of the effects (does the outcome increase or decrease?)
-
-
