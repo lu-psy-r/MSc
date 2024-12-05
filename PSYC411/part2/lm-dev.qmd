@@ -890,6 +890,7 @@ model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE + NATIVE.LANGUAGE,
             data = all.studies.subjects)
 summary(model)
 ```
+:::
 
 > Optional.Q.1. What changes, when you compare the models with versus without sum coding of `NATIVE.LANGUAGE`?
 
