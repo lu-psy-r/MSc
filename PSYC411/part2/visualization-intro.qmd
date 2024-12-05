@@ -1076,7 +1076,6 @@ Notice:
 The example code, when you put it together, and adapt it for your needs, will look like this:
 
 ```{r}
-#| eval: false
 p <- ggplot(mpg, aes(class, hwy, colour = class))
 p + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 0.2)
 ```
@@ -1123,8 +1122,10 @@ education levels;
 
 :::{.callout-tip collapse="true"}
 ## Code
+```{r}
 p <- ggplot(data = study.two.gen, aes(x = EDUCATION, y = SHIPLEY, colour = EDUCATION))
 p + geom_boxplot(outlier.shape = NA) + geom_jitter(width = 0.2)
+```
 :::
 
 Now look at the plot you have produced and critically evaluate it.
@@ -1298,7 +1299,6 @@ Adapt the example code to do the task:
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| eval: false
 ggplot(iris, aes(Species, Sepal.Width)) +
    ggdist::stat_halfeye(adjust = .5, width = .7, .width = 0,
                         justification = -.2, point_colour = NA) +
