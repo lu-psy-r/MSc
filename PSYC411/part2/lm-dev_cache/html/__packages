@@ -1,15 +1,9 @@
-faux
-ggplot2
-ggcorrplot
 ggeffects
-ggExtra
-ggridges
-gridExtra
-here
-knitr
-ordinal
+kableExtra
 patchwork
+psych
 tidyverse
+ggplot2
 tibble
 tidyr
 readr
@@ -18,3 +12,6 @@ dplyr
 stringr
 forcats
 lubridate
+lattice
+MASS
+memisc

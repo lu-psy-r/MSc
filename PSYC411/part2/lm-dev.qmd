@@ -856,6 +856,13 @@ It is easy to do this, in two steps, proceeding as follows.
 library(memisc)
 ```
 
+- Make sure that the variable is being treated as a factor:
+
+```{r}
+#| warning: false
+all.studies.subjects$NATIVE.LANGUAGE <- as.factor(all.studies.subjects$NATIVE.LANGUAGE)
+```
+
 - Check the coding:
 
 ```{r}
