@@ -81,8 +81,8 @@ Every week, you will learn best if you *first* watch the lectures *then* do the 
 
 ::: callout-tip
 ## Linked resources
-1. In @sec-associations, we share materials to support your development of critical thinking about associations, and your development of practical skills in working with correlation-based analyses.
-2. In @sec-lm-intro-intro, we introduce you to the main ideas and practical steps involved in conducting linear model analyses.
+1. In [the chapter for week 7](../part2/hypotheses-associations.qmd#sec-associations-overview), we share materials to support your development of critical thinking about associations, and your development of practical skills in working with correlation-based analyses.
+2. In [the chapter for week 8](../part2/lm-intro.qmd#sec-lm-intro-overview), we introduce you to the main ideas and practical steps involved in conducting linear model analyses.
 :::
 
 ### 10.3.1 Lectures {#sec-lm-dev-lectures}
