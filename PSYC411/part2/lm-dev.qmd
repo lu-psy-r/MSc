@@ -385,7 +385,7 @@ One of our research questions is:
 
 Here, we can address the question directly because we have information on an outcome, mean accuracy (`mean.acc`), and information on a predictor, health literacy (`HLVA`).
 
-- Given the theoretical account outlined in @sec-associations, our hypothesis is that people who possess a higher level of background knowledge, measured here using the health literacy (`HLVA`) test, will be more likely to accurately understand health information when they read it, with understanding tested to calculate the mean accuracy (`mean.acc`).
+- Given the theoretical account outlined in [the chapter for week 7](../part2/hypotheses-associations.qmd#sec-associations-overview), our hypothesis is that people who possess a higher level of background knowledge, measured here using the health literacy (`HLVA`) test, will be more likely to accurately understand health information when they read it, with understanding tested to calculate the mean accuracy (`mean.acc`).
 - This hypothesis translates into a statistical prediction: if people in our sample have higher `HLVA` scores, we predict that, on average, they will also have higher `mean.acc` scores.
 
 To address the research question, we test the statistical prediction using the linear model:
@@ -549,7 +549,7 @@ If you look at the model summary you can answer the following questions.
 The estimate of the coefficient of any one predictor can be expected to vary depending on the presence of other predictors.
 
 - This is one reason why we need to be transparent about why we choose to use the predictors we include in our model.
-- The lecture for week 10 (@sec-lm-dev-lectures) discusses this concern in relation to the motivation for good open science practices.
+- The lecture for this week discusses this concern in relation to the motivation for good open science practices.
 
 > Q.12. Can you report the estimated effect of `SHIPLEY` (the measure of vocabulary)?
 
@@ -753,7 +753,7 @@ As we have seen, one of our research questions is:
 We have not yet included any categorical or nominal variables as predictors but we can, and should: `lm()` can cope with any kind of variable as a predictor.
 
 ::: callout-tip
-In Part 4 of the Week 10 lectures (@sec-lm-dev-lectures), I explain that fundamentally every kind of analysis you have learnt before (t-test, ANOVA, etc.) can be understood as a kind of linear model. This part shows how that works.
+In Part 4 of the Week 10 lectures, I explain that fundamentally every kind of analysis you have learnt before (t-test, ANOVA, etc.) can be understood as a kind of linear model. This part shows how that works.
 
 - In a (two groups) t-test, you are comparing the average outcome between two different groups.
 - To do that analysis, you need an outcome variable (like `mean.acc`) and a categorical variable or factor (like, say, experimental condition: condition 1 versus condition 2). 
@@ -1282,7 +1282,7 @@ Take a look at the summary for each model.
 
 > (2.) the model, mean.self ~ mean.acc?
 
-> Hint: You may benefit by reflecting on the @sec-lm-intro-lectures lectures and practical materials, especially where they concern predictions.
+> Hint: You may benefit by reflecting on the lectures and practical materials in [the chapter for week 8](../part2/lm-intro.qmd#sec-lm-intro-overview), especially where they concern predictions.
 
 > Pract.A.18. Linear models are prediction models. We use them to predict variation in outcomes given some set of predictor variables. Because of this, predictions *must* be scaled in the same way as the outcome variable.
 
