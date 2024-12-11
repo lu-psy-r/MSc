@@ -1054,6 +1054,7 @@ Use the `library()` function to make these libraries available to you.
 ```{r}
 library("ggeffects")
 library("patchwork")
+library("psych")
 library("tidyverse")
 ```
 :::
@@ -1071,8 +1072,7 @@ Use the `read_csv()` function to read the data files into R:
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-study.two.gen <- read_csv("study-two-general-participants.csv")
-study.122 <- read_csv("2023-24_PSYC122-participants.csv")
+all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv")
 ```
 :::
 
@@ -1284,7 +1284,7 @@ Take a look at the summary for each model.
 
 > Hint: You may benefit by reflecting on the lectures and practical materials in [the chapter for week 8](../part2/lm-intro.qmd#sec-lm-intro-overview), especially where they concern predictions.
 
-> Pract.A.18. Linear models are prediction models. We use them to predict variation in outcomes given some set of predictor variables. Because of this, predictions *must* be scaled in the same way as the outcome variable.
+> Pract.A.18. Linear models are prediction models. We use them to predict variation in *outcomes* given some set of predictor variables. Because of this, predictions *must* be scaled in the same way as the *outcome variable*.
 
 > So:
 
