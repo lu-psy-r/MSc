@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -396,22 +396,19 @@ ANSWER
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.5.1     ✔ purrr   1.0.2
-✔ tibble  3.2.1     ✔ dplyr   1.1.2
-✔ tidyr   1.3.0     ✔ stringr 1.5.0
-✔ readr   2.1.3     ✔ forcats 0.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.2.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from week4 practical</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>); </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from week4 practical</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>); </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 270 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
@@ -422,11 +419,11 @@ dbl (6): subject_ID, Age, Shipley_Voc_Score, Gent_1_score, Gent_2_score, aca...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View(dat)</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># from week2 practical</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/ahicesd.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View(dat)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># from week2 practical</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/ahicesd.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 992 Columns: 50
 ── Column specification ────────────────────────────────────────────────────────
@@ -436,7 +433,7 @@ dbl (50): id, occasion, elapsed.days, intervention, ahi01, ahi02, ahi03, ahi...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/participantinfo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/participantinfo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 295 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -446,11 +443,11 @@ dbl (6): id, intervention, sex, age, educ, income
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat2, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"intervention"</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, id, ahiTotal, cesdTotal, age, occasion)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>dat_17 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, academic_year <span class="sc">==</span> <span class="st">"201718"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>all_dat2 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(all_dat, intervention, occasion)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(all_dat2, <span class="fu">mean</span>(ahiTotal), <span class="fu">sd</span>(ahiTotal), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat2, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"intervention"</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, id, ahiTotal, cesdTotal, age, occasion)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>dat_17 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, academic_year <span class="sc">==</span> <span class="st">"201718"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>all_dat2 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(all_dat, intervention, occasion)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(all_dat2, <span class="fu">mean</span>(ahiTotal), <span class="fu">sd</span>(ahiTotal), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'intervention'. You can override using the
 `.groups` argument.</code></pre>
@@ -472,7 +469,7 @@ dbl (6): id, intervention, sex, age, educ, income
 10            2        3             72.5           14.2    43
 # ℹ 14 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -487,7 +484,7 @@ dbl (6): id, intervention, sex, age, educ, income
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Shipley_Voc_Score, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Shipley_Voc_Score, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 10 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
@@ -499,7 +496,7 @@ dbl (6): id, intervention, sex, age, educ, income
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Shipley_Voc_Score, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>( <span class="at">method =</span> lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Shipley_Voc_Score, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>( <span class="at">method =</span> lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -518,8 +515,8 @@ dbl (6): id, intervention, sex, age, educ, income
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>all_dat<span class="sc">$</span>occasion <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(all_dat<span class="sc">$</span>occasion)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_dat, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>all_dat<span class="sc">$</span>occasion <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(all_dat<span class="sc">$</span>occasion)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(all_dat, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -527,13 +524,13 @@ dbl (6): id, intervention, sex, age, educ, income
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dat_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>))</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or:</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>dat_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"Gent"</span>))</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>dat_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(dat_long, <span class="at">names_from =</span> <span class="st">"test"</span>, <span class="at">values_from =</span> <span class="st">"score"</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> all_dat<span class="sc">$</span>occasion, <span class="at">y =</span> all_dat<span class="sc">$</span>intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dat_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or:</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>dat_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"Gent"</span>))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>dat_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(dat_long, <span class="at">names_from =</span> <span class="st">"test"</span>, <span class="at">values_from =</span> <span class="st">"score"</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lsr)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> all_dat<span class="sc">$</span>occasion, <span class="at">y =</span> all_dat<span class="sc">$</span>intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's Chi-squared test
@@ -541,7 +538,7 @@ dbl (6): id, intervention, sex, age, educ, income
 data:  all_dat$occasion and all_dat$intervention
 X-squared = 9.7806, df = 15, p-value = 0.8333</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cramersV</span>(<span class="at">x =</span> all_dat<span class="sc">$</span>occasion, <span class="at">y =</span> all_dat<span class="sc">$</span>intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cramersV</span>(<span class="at">x =</span> all_dat<span class="sc">$</span>occasion, <span class="at">y =</span> all_dat<span class="sc">$</span>intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05732779</code></pre>
 </div>
@@ -580,7 +577,7 @@ Answer
 <li>To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a subset of the data (note that the <code>|</code> stands for “or”, and means Gender matches male or gender matches female:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, Gender <span class="sc">==</span> <span class="st">'Male'</span> <span class="sc">|</span> Gender <span class="sc">==</span> <span class="st">'Female'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, Gender <span class="sc">==</span> <span class="st">'Male'</span> <span class="sc">|</span> Gender <span class="sc">==</span> <span class="st">'Female'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="21" type="1">
 <li>Draw a box plot of Gent vocabulary test 1 scores by gender. For a box plot, note that we need data in “long format”, where each observation is on one line, and we have a column that indicates which condition (in this case Gender) the participant is in. Does it look like there might be a gender effect? What is the direction of the effect?</li>
@@ -598,7 +595,7 @@ Answer
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 270 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
@@ -609,10 +606,10 @@ dbl (6): subject_ID, Age, Shipley_Voc_Score, Gent_1_score, Gent_2_score, aca...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remember to change academic year to be a nominal/categorical variable, rather than a number:</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, Gender <span class="sc">==</span> <span class="st">'Male'</span> <span class="sc">|</span> Gender <span class="sc">==</span> <span class="st">'Female'</span>)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remember to change academic year to be a nominal/categorical variable, rather than a number:</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, Gender <span class="sc">==</span> <span class="st">'Male'</span> <span class="sc">|</span> Gender <span class="sc">==</span> <span class="st">'Female'</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 4 rows containing non-finite outside the scale range
 (`stat_boxplot()`).</code></pre>
@@ -645,7 +642,7 @@ Answer
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat2, Gender, Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat2, Gender, Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -654,7 +651,7 @@ Answer
 <li>Next, in order to run a t-test we have to remove any rows of data which contain a ‘NA’ - either in the Gender or the Gent_1_score variables. We do this using <code>drop_na(dat3)</code>, put the result in a new object called ‘dat4’. Run this command:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="24" type="1">
 <li>Now, redraw the box plot from Step 21. Check there are just two groups still.</li>
@@ -672,9 +669,9 @@ Answer
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat2, Gender, Gent_1_score)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat3)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat2, Gender, Gent_1_score)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat3)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 4 rows containing non-finite outside the scale range
 (`stat_boxplot()`).</code></pre>
@@ -723,8 +720,8 @@ Answer
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>dat5 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat4, Gender)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat5, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dat5 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat4, Gender)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat5, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   Gender `mean(Gent_1_score)` `sd(Gent_1_score)`
@@ -732,8 +729,8 @@ Answer
 1 Female                 58.6               14.0
 2 Male                   62.2               14.5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, if you know how to use the %&gt;% (pipe) ...:</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>dat4 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or, if you know how to use the %&gt;% (pipe) ...:</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>dat4 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   Gender `mean(Gent_1_score)` `sd(Gent_1_score)`
@@ -752,7 +749,7 @@ Answer
 <li>Conduct an independent t-test using this command:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">data =</span> dat4 ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">data =</span> dat4 ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <!--- ::: {.callout-caution icon="false" collapse="true"}
 ## Bug warning!
@@ -803,7 +800,7 @@ Answer
 <li>Now we need to compute the effect size, using Cohen’s d.&nbsp;You need to load the library lsr then use this command:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>It’s pretty much the same as the t-test() command except that we use ‘method = ’unequal’. For a paired t-test you would use ‘method = ’paired’</li>
@@ -873,10 +870,10 @@ Answer
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, english_status, Gent_1_score)</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat2)</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat3, <span class="fu">aes</span>(<span class="at">x =</span> english_status, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, english_status, Gent_1_score)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat2)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat3, <span class="fu">aes</span>(<span class="at">x =</span> english_status, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -884,8 +881,8 @@ Answer
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat3, english_status)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat4, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat3, english_status)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat4, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   english_status `mean(Gent_1_score)` `sd(Gent_1_score)` `n()`
@@ -893,7 +890,7 @@ Answer
 1 ESL                            49.1              15.3     95
 2 native                         65.2               9.36   163</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> english_status, <span class="at">data =</span> dat3 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> english_status, <span class="at">data =</span> dat3 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -907,7 +904,7 @@ sample estimates:
    mean in group ESL mean in group native 
             49.09474             65.23313 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> english_status, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat3 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> english_status, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat3 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.27044</code></pre>
 </div>
@@ -990,8 +987,8 @@ Answer
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/ahicesd.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/ahicesd.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 992 Columns: 50
 ── Column specification ────────────────────────────────────────────────────────
@@ -1001,7 +998,7 @@ dbl (50): id, occasion, elapsed.days, intervention, ahi01, ahi02, ahi03, ahi...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/participantinfo2.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/participantinfo2.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
 Rows: 147 Columns: 7
@@ -1012,7 +1009,7 @@ Rows: 147 Columns: 7
 Specify the column types or set `show_col_types = FALSE` to quiet this message.
 • `` -&gt; `...1`</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"intervention"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"intervention"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1033,7 +1030,7 @@ Answer
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"ahiTotal"</span>, <span class="st">"occasion"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"ahiTotal"</span>, <span class="st">"occasion"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1070,7 +1067,7 @@ Answer
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>summarydata2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> occasion <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>summarydata2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> occasion <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1080,7 +1077,7 @@ Answer
 <li><p>Now, we need to make sure occasion is treated as a categorical variable, rather than a continuous variable, so we need to convert it to a factor:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>summarydata2<span class="sc">$</span>occasion <span class="ot">&lt;-</span><span class="fu">as.factor</span>(summarydata2<span class="sc">$</span>occasion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>summarydata2<span class="sc">$</span>occasion <span class="ot">&lt;-</span><span class="fu">as.factor</span>(summarydata2<span class="sc">$</span>occasion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="46" type="1">
 <li>Now, draw a box plot of ahiTotal scores by occasion (why do we use a box plot?)</li>
@@ -1098,7 +1095,7 @@ Answer
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata2, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata2, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1127,7 +1124,7 @@ Answer
 <div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata2, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata2, <span class="fu">aes</span>(<span class="at">x =</span> occasion, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1143,7 +1140,7 @@ Answer
 <li>In order to run the paired t-test, we first need to make sure that the paired values (in this case the measures from the same person) are on the same row of the data. So, let’s use pivot_wider to put the ahiTotal scores for occasion 0 in one column, and the ahiTotal scores for occasion 1 in another column:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>summarydata2_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(summarydata2, <span class="at">names_from =</span> occasion, <span class="at">values_from =</span> ahiTotal, <span class="at">names_prefix =</span> <span class="st">"occasion_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>summarydata2_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(summarydata2, <span class="at">names_from =</span> occasion, <span class="at">values_from =</span> ahiTotal, <span class="at">names_prefix =</span> <span class="st">"occasion_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
@@ -1166,7 +1163,7 @@ Note
 <li>Then, we can run the paired t-test in the following way:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(summarydata2_wide<span class="sc">$</span>occasion_0, summarydata2_wide<span class="sc">$</span>occasion_1, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(summarydata2_wide<span class="sc">$</span>occasion_0, summarydata2_wide<span class="sc">$</span>occasion_1, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Is the result significant?</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -1189,7 +1186,7 @@ Answer
 <li>Now run Cohen’s d: it’s similar to the way we do the paired t-test:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>( summarydata2_wide<span class="sc">$</span>occasion_0, summarydata2_wide<span class="sc">$</span>occasion_1, <span class="at">method =</span>  <span class="st">"paired"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>( summarydata2_wide<span class="sc">$</span>occasion_0, summarydata2_wide<span class="sc">$</span>occasion_1, <span class="at">method =</span>  <span class="st">"paired"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What is the value for Cohen’s d?</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -1252,10 +1249,10 @@ Answer
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>); </span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Gent_1_score, Gent_2_score)</span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/wk4/PSYC411-shipley-scores-anonymous-17_24.csv"</span>); </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dat<span class="sc">$</span>academic_year)</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Gent_1_score, Gent_2_score)</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">drop_na</span>(dat2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1277,7 +1274,7 @@ Answer
 <div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(dat3<span class="sc">$</span>Gent_1_score, dat3<span class="sc">$</span>Gent_2_score, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(dat3<span class="sc">$</span>Gent_1_score, dat3<span class="sc">$</span>Gent_2_score, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
@@ -1291,7 +1288,7 @@ sample estimates:
 mean difference 
       -1.295547 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>( dat3<span class="sc">$</span>Gent_1_score, dat3<span class="sc">$</span>Gent_2_score, , <span class="at">method =</span>  <span class="st">"paired"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>( dat3<span class="sc">$</span>Gent_1_score, dat3<span class="sc">$</span>Gent_2_score, , <span class="at">method =</span>  <span class="st">"paired"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1407865</code></pre>
 </div>
@@ -1315,7 +1312,7 @@ Answer
 <div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat3, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">mean</span>(Gent_2_score), <span class="fu">sd</span>(Gent_2_score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat3, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">mean</span>(Gent_2_score), <span class="fu">sd</span>(Gent_2_score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean(Gent_1_score) sd(Gent_1_score) mean(Gent_2_score) sd(Gent_2_score)
 1           59.16194         13.99441           60.45749         14.89002</code></pre>
@@ -1340,8 +1337,8 @@ Answer
 <div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat3, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>))</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat4, <span class="fu">aes</span>(<span class="at">x =</span> test, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>dat4 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat3, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>))</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat4, <span class="fu">aes</span>(<span class="at">x =</span> test, <span class="at">y =</span> score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1372,8 +1369,8 @@ Answer
 <div id="callout-28" class="callout-28-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, academic_year <span class="sc">==</span> <span class="st">"202324"</span>)</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(dat, academic_year <span class="sc">==</span> <span class="st">"202324"</span>)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1381,8 +1378,8 @@ Answer
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat2, Gender)</span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat3, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">mean</span>(Gent_2_score), <span class="fu">sd</span>(Gent_2_score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>dat3 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat2, Gender)</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat3, <span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">mean</span>(Gent_2_score), <span class="fu">sd</span>(Gent_2_score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
   Gender `mean(Gent_1_score)` `sd(Gent_1_score)` `mean(Gent_2_score)`
@@ -1391,8 +1388,8 @@ Answer
 2 Male                   61.3              13.4                  57.1
 # ℹ 2 more variables: `sd(Gent_2_score)` &lt;dbl&gt;, `n()` &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or:</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">mean</span>(Gent_2_score), <span class="fu">sd</span>(Gent_2_score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or:</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(Gent_1_score), <span class="fu">sd</span>(Gent_1_score), <span class="fu">mean</span>(Gent_2_score), <span class="fu">sd</span>(Gent_2_score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
   Gender `mean(Gent_1_score)` `sd(Gent_1_score)` `mean(Gent_2_score)`
@@ -1401,7 +1398,7 @@ Answer
 2 Male                   61.3              13.4                  57.1
 # ℹ 2 more variables: `sd(Gent_2_score)` &lt;dbl&gt;, `n()` &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -1415,11 +1412,11 @@ sample estimates:
 mean in group Female   mean in group Male 
             62.16667             61.28571 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_1_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.08004559</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_2_score <span class="sc">~</span> Gender, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Gent_2_score <span class="sc">~</span> Gender, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -1433,7 +1430,7 @@ sample estimates:
 mean in group Female   mean in group Male 
             61.55556             57.14286 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_2_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cohensD</span>(Gent_2_score <span class="sc">~</span> Gender, <span class="at">method =</span> <span class="st">"unequal"</span>, <span class="at">data =</span> dat2 )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3007885</code></pre>
 </div>
@@ -1465,7 +1462,7 @@ Answer
 <div id="callout-29" class="callout-29-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>jalava <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/ClassDraw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>jalava <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk5/ClassDraw.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 168 Columns: 9
 ── Column specification ────────────────────────────────────────────────────────
@@ -1476,11 +1473,11 @@ dbl (8): ID, Age, write_1, write_2, draw_1, draw_2, exam_draw, exam_write
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>jalava1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(jalava, <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"test"</span>,<span class="st">".value"</span>), <span class="at">names_sep=</span><span class="st">"_"</span> , <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"write_1"</span>,<span class="st">"write_2"</span>,<span class="st">"draw_1"</span>,<span class="st">"draw_2"</span>))</span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>jalava2 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(jalava1, <span class="at">names_to =</span> <span class="st">"test_time"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span>,<span class="st">`</span><span class="at">2</span><span class="st">`</span>))</span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>jalava2<span class="sc">$</span>test_time <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(jalava2<span class="sc">$</span>test_time)</span>
-<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(jalava2, <span class="fu">aes</span>(<span class="at">x =</span> test_time, <span class="at">y =</span> score, <span class="at">fill =</span> test)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>jalava1 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(jalava, <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"test"</span>,<span class="st">".value"</span>), <span class="at">names_sep=</span><span class="st">"_"</span> , <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"write_1"</span>,<span class="st">"write_2"</span>,<span class="st">"draw_1"</span>,<span class="st">"draw_2"</span>))</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>jalava2 <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(jalava1, <span class="at">names_to =</span> <span class="st">"test_time"</span>, <span class="at">values_to =</span> <span class="st">"score"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">1</span><span class="st">`</span>,<span class="st">`</span><span class="at">2</span><span class="st">`</span>))</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>jalava2<span class="sc">$</span>test_time <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(jalava2<span class="sc">$</span>test_time)</span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(jalava2, <span class="fu">aes</span>(<span class="at">x =</span> test_time, <span class="at">y =</span> score, <span class="at">fill =</span> test)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 48 rows containing non-finite outside the scale range
 (`stat_boxplot()`).</code></pre>
@@ -1492,8 +1489,8 @@ dbl (8): ID, Age, write_1, write_2, draw_1, draw_2, exam_draw, exam_write
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median looks very similar (boxplots very overlapping), but means are a bit different:</span></span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>jalava2 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(test, test_time) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(score, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="fu">sd</span>(score, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># median looks very similar (boxplots very overlapping), but means are a bit different:</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>jalava2 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(test, test_time) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="fu">mean</span>(score, <span class="at">na.rm=</span><span class="cn">TRUE</span>), <span class="fu">sd</span>(score, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'test'. You can override using the
 `.groups` argument.</code></pre>

@@ -12,9 +12,9 @@ order: 1
 
 # Welcome
 
-Welcome to PSYC402!
+Welcome to PSYC412!
 
-This module builds on the knowledge and skills acquired in Statistics for Psychologists 1 (PSYC401). You will continue to practise data handling, data processing and data visualisation, using R and R Studio. In addition, you will extend your knowledge of the general linear model and learn how to adapt it when working with different types of data. Of course you'll also learn how to implement those methods in R and R Studio.
+This module builds on the knowledge and skills acquired in Statistics for Psychologists 1 (PSYC411). You will continue to practise data handling, data processing and data visualisation, using R and R Studio. In addition, you will extend your knowledge of the general linear model and learn how to adapt it when working with different types of data. Of course you'll also learn how to implement those methods in R and R Studio.
 
 This page gives you access to all the materials that you will need. You will have timetabled lab classes during which you are expected to work through a series of exercises to practise that week's material. Before you come to your lab session, you should watch the lectures for that week, read the relevant book chapter and complete the pre-lab activities. 
 
