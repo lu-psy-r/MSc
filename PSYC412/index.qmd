@@ -9,7 +9,6 @@ order: 1
 #  template: ../links.ejs
 #  contents: guide.yml
 ---
-TEST
 
 # Welcome
 
