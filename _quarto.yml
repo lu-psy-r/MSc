@@ -10,9 +10,9 @@ website:
         contents: 
           - auto: PSYC411/part1/*
           - auto: PSYC411/part2/*
-#      - section: "PSYC412"
-#        contents: 
-#          - auto: PSYC412/part1/*
+      - section: "PSYC412"
+        contents: 
+          - auto: PSYC412/part1/*
 #          - auto: PSYC412/part2/*
   
 format:
