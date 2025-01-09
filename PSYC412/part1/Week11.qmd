@@ -1,5 +1,5 @@
 ---
-title: 1. Recap of the linear model and practising data-wrangling in R
+title: Week 11. Recap of the linear model and practising data-wrangling in R
 subtitle: Written by Margriet Groen (partly adapted from materials developed by the PsyTeachR team at the University of Glasgow)
 order: 2
 ---
