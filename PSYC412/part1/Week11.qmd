@@ -40,8 +40,11 @@ An introduction to multiple regression. I follow material as discussed in Chapte
 [Slides](Week11-files/stats_multipleRegression_theory_slides.pdf)
 [Transcript](Week11-files/stats_multipleRegression_theory_transcript.txt)
 
-* [**Centering and standardising (~5 min)**](https://estream.lancaster.ac.uk/View.aspx?id=60912~5f~xjxBbNDjGF)
+* **Centering and standardising (~5 min)**
 Brief explanation of what centering and standardising are.
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=60912&amp;code=dI~CfhyvNW0bIOcdZjcPG96jHxIrFFtuA" frameborder="0" allowfullscreen></iframe>
+```
 [Slides](Week11-files/stats_centeringAndStandardizing_theory_slides.pdf)
 [Transcript](Week11-files/stats_centeringAndStandardizing_theory_transcript.txt)
 
