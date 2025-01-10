@@ -11,8 +11,13 @@ Before we start covering new material, we want to spent some time on recapping t
 
 Alternatively, if you don't feel confident about the material, these recorded lectures might help.
 
-* [**The linear model: theory (~30 min)**](https://estream.lancaster.ac.uk/View.aspx?id=60909~5l~EskRm8Serj) 
+* **The linear model: theory (~30 min)**
 An introduction to the linear model and linear regression. I follow material as discussed in Chapter 4 of Bodo Winter's book *Statistics for Linguists: An Introduction using R* (see below under 'Reading').
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=60909&amp;code=dR~mnPDLhRNfdGVfPKyVJpYRjz9BAoDKy" frameborder="0" allowfullscreen></iframe>
+```
+[Slides](Week11-files/stats_linearModel_theory_slides.pdf)
+[Transcript](Week11-files/stats_linearModel_theory_transcript.txt)
 
 * **How to build a linear model in R (~14 min)**
 In this video I demonstrate how to build a linear model in R by talking you through a simple linear regression script (you can download it by clicking on the link below the video). If you are unclear on what different parts of the `lm()` function do, or how to read the output, this video might help clarify that.
@@ -23,8 +28,13 @@ In this video I demonstrate how to build a linear model in R by talking you thro
 [Transcript](data/week13/statslinerModelhowto20240124.txt)
 [Example R-script](data/week13/122_wk13_simpleLinearRegressionHowTo.R)
 
-* [**Multiple regression: theory (~35 min)**](https://estream.lancaster.ac.uk/View.aspx?id=60911~5e~WIhZrOrXiD)
+* **Multiple regression: theory (~35 min)**
 An introduction to multiple regression. I follow material as discussed in Chapter 5 of Bodo Winter's book *Statistics for Linguists: An Introduction using R* (see below under 'Reading').
+```{=html}
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=60911&amp;code=dQ~LMA2a6GsIgNGJbjWPc6heaKTSdOb9c" frameborder="0" allowfullscreen></iframe>
+```
+[Slides]()
+[Transcript]()
 
 * [**Centering and standardising (~5 min)**](https://estream.lancaster.ac.uk/View.aspx?id=60912~5f~xjxBbNDjGF)
 Brief explanation of what centering and standardising are.
