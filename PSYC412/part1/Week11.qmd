@@ -6,6 +6,10 @@ order: 2
 
 Before we start covering new material, we want to spent some time on recapping the basic concepts of the linear model (correlation, simple regression, multiple regression). You all come from different educational backgrounds and therefore have vastly different knowledge of, and experience with statistics. Therefore, please follow your own judgement as to whether you feel you want to/need to revisit material outlining the theoretical background to and the practical implementation in R for these topics. Below we provide some guidance as to materials that are relevant. **Just to be clear: We don’t expect you to watch and/or read and/or do everything, please have a look at what you feel you need and spend some time with those materials.**
 
+::: {.callout-tip}
+You'll find links to the slides and transcripts underneath each video. You can also download them all at once [here](Week11-files/412_week11_slidesAndTranscripts.zip)
+:::
+
 ## Lectures {#sec-wk11-lectures}
 **The linear model was discussed in weeks 7 to 10 of PSYC411, so that is a good place to start.**
 
@@ -24,20 +28,22 @@ In this video I demonstrate how to build a linear model in R by talking you thro
 ```{=html}
 <iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=72461&amp;code=dH~asTfLNKCEXURHjJKJ8GFxHJmIidNKr&amp;cc=1" frameborder="0" allowfullscreen></iframe>
 ```
-[Slides](data/week13/stats_linearModel_howto_dis.pdf)
-[Transcript](data/week13/statslinerModelhowto20240124.txt)
-[Example R-script](data/week13/122_wk13_simpleLinearRegressionHowTo.R)
+[Slides](Week11-files/stats_linearModel_howto_slides.pdf)
+[Transcript](Week11-files/stats_linearModel_howto_transcript.txt)
+[Example R-script](Week11-files/stats_linearModel_howTo.R)
 
 * **Multiple regression: theory (~35 min)**
 An introduction to multiple regression. I follow material as discussed in Chapter 5 of Bodo Winter's book *Statistics for Linguists: An Introduction using R* (see below under 'Reading').
 ```{=html}
 <iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=60911&amp;code=dQ~LMA2a6GsIgNGJbjWPc6heaKTSdOb9c" frameborder="0" allowfullscreen></iframe>
 ```
-[Slides]()
-[Transcript]()
+[Slides](Week11-files/stats_multipleRegression_theory_slides.pdf)
+[Transcript](Week11-files/stats_multipleRegression_theory_transcript.txt)
 
 * [**Centering and standardising (~5 min)**](https://estream.lancaster.ac.uk/View.aspx?id=60912~5f~xjxBbNDjGF)
 Brief explanation of what centering and standardising are.
+[Slides](Week11-files/stats_centeringAndStandardizing_theory_slides.pdf)
+[Transcript](Week11-files/stats_centeringAndStandardizing_theory_transcript.txt)
 
 ## Reading {#sec-wk11-reading}
 
@@ -58,10 +64,6 @@ Brief explanation of what centering and standardising are.
 ## Pre-lab activities {#sec-wk11-pre-labactvities}
 After having watched the lectures and read the textbook chapters you’ll be in a good position to try these activities. Completing them before you attend your lab session will help you to consolidate your learning and help move through the lab activities more smoothly.
 
-::: {.callout-tip}
-More information on the pre-lab activities will be posted soon.
-:::
-
 ### Pre-lab activity 1: Visualising the regression line
 Have a look at [**this visualisation of the regression line**](https://ryansafner.shinyapps.io/ols_estimation_by_min_sse/) by Ryan Safner.
 
@@ -80,23 +82,27 @@ Pre-lab activity questions:
 ### Pre-lab activity 2: Data-wrangling in R
 In PSYC411, you've already learned how to read in data, how to select variables and how to compute summary statistics, so re-visiting the PSYC411 materials is a good place to start.
 
-RStudio also provides some useful interactive tutorials that take you through the basics:
+Alternatively, Posit (the company behind RStudio) provides useful [**recipes**](https://posit.cloud/learn/recipes): code snippets that provide a quick overview of basic functions.
 
-* [**The Basics**](https://rstudio.cloud/learn/primers/1) Start here to learn how to inspect, visualize, subset and transform your data, as well as how to run code.
+* Under **R Basics**, have a look at the recipe to **Read a CSV file** or remind yourself how to make sure to **Obey R's naming rules**. Of course, you are very welcome to review the other recipes in this category. 
 
-* [**Work with Data**](https://rstudio.cloud/learn/primers/2) Learn how to extract values form a table, subset tables, calculate summary statistics, and derive new variables.
+* Review the recipes in the **Transform Tables** category to remind yourself how to extract values form a table, calculate summary statistics, derive new variables and more by using `dplyr` verbs such as `select()`, `filter()`, `mutate()`, `rename()`, `group_by()` and `summarize()`.
 
-* [**Visualize Data**](https://rstudio.cloud/learn/primers/3) Learn how to use ggplot2 to make any type of plot with your data. The tutorials on [**Exploratory Data Analysis**](https://rstudio.cloud/learn/primers/3.1) and [**Scatterplots**](https://rstudio.cloud/learn/primers/3.5) are particularly relevant.
+* Under **Visualize Data**, you'll find recipes to create a histogram or a scatterplot (and much more).
 
 Please note that there are often different ways to do the same or similar things in R. This means you might encounter slightly different functions or styles of coding in different materials. This is not something to worry about. Just make sure you're clear on what a bit of code achieves and choose the function/style that you feel most comfortable with.
+
+::: {.callout-tip}
+In the Posit recipes, you'll see the function call for for instance `read_csv()` written as `readr::read_csv()`. This specifies the package or library the function is from (`readr`) as well as the function (`read_csv()`). As long as you have loaded the `tidyverse` library, you don't need to load `readr` separately, because it is part of the `tidyverse` library. If you want to know more about the `tidyverse` library, see [here](https://www.tidyverse.org/packages/).
+:::
 
 ### Pre-lab activity 3: Getting ready for the lab class
 #### Remind yourself of how to access and work with the RStudio Server.
 
-* Revisit [**PSYC411**](https://modules.lancaster.ac.uk/course/view.php?id=40622#coursecontentcollapse1) to remind yourself of how to access the RStudio Server.
+* Revisit [**PSYC411**](https://lu-psy-r.github.io/MSc/PSYC411/part1/Week1.html#workbook) to remind yourself of how to access the RStudio Server.
 
 #### Get your files ready
-Download the [402_week11_forStudents.zip](data/week11/402_week11_forStudents.zip) file and upload it into a new folder in RStudio Server. 
+Download the [412_week11_lab.zip](Week11-files/412_week11_lab.zip) folder and upload the files into a new folder in RStudio Server. 
 
 ## Lab activities {#sec-wk11-labactivities}
 
