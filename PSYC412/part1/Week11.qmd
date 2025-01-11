@@ -431,7 +431,7 @@ Now that we've established which model best fits the data, let's check whether i
 
 ::: {.callout-tip collapse="true"}
 ## Hint
-You can use the `crPlots()` and the  `qqPlot()` functions  to check linearity. The `shapiro.test()` can be used to check normality of the residuals and the `residualPlot()` and `nvcTest()` functions to check homoscedasticity of the residuals. These plots are from base R rather than using the `ggplot()` function. See [**here**] (https://r4ds.hadley.nz/base-r#plots) for a brief explanation of base R plots and why you might want to use them.
+You can use the `crPlots()` and the  `qqPlot()` functions  to check linearity. The `shapiro.test()` can be used to check normality of the residuals and the `residualPlot()` and `nvcTest()` functions to check homoscedasticity of the residuals. These plots are from base R rather than using the `ggplot()` function. See [**here**](https://r4ds.hadley.nz/base-r#plots) for a brief explanation of base R plots and why you might want to use them.
 :::
 
 ::: {.callout-tip collapse="true"}
