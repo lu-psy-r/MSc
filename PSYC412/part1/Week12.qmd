@@ -136,7 +136,7 @@ glimpse(demo)
 ```
 :::
 
-You'll find that the data file has 31 columns and 157 rows. The questionnaire responses are in the last column (Response). Additionally, we need information in the column `Question Key` to make sure we extract the labels associated with the responses. Finally, we need participant numbers (stored in `Participant Private ID`) to be able to link responses to a particular participant.
+You'll find that the data file has 31 columns and 157 rows. The questionnaire responses are in the last column (`Response`). Additionally, we need information in the column `Question Key` to make sure we extract the labels associated with the responses. Finally, we need participant numbers (stored in `Participant Private ID`) to be able to link responses to a particular participant.
 
 #### Step 3: Extract relevant columns and rows
 
@@ -200,7 +200,7 @@ Have another look at the data frame. We now have separate columns for different 
 
 :::{.callout-tip collapse="true"}
 ## Hint
-Use the `rename`()` function.
+Use the `rename()` function.
 :::
 
 :::{.callout-tip collapse="true"}
@@ -234,7 +234,7 @@ select(origID, age, gender, gender_text, bilingual, bilingual_text, handedness)
 :::
 
 #### Step 7: Recode gender and bilingual
-If you look at the gender variable, you'll see that it has 3 levels: 'Male', 'Female' and 'Other (please specify). There are 2 issues with this: 1) Male and female are labels associated with biological sex, rather than gender. These labels should be recoded to 'Man' and 'Woman'; 2) The third label reads 'Other (please specify)'. While a necessary part of the question, we don't really want the '(please specify)' part to show in tables and figures. We will want to recode that to just 'Other'. Similarly, for the bilingual variable, we have 'Yes. My strongest language is:' and 'No'. We will want to recode that to a simpler 'Yes' and 'No'.
+If you look at the gender variable, you'll see that it has 3 levels: 'Male', 'Female' and 'Other (please specify)'. There are 2 issues with this: 1) Male and female are labels associated with biological sex, rather than gender. These labels should be recoded to 'Man' and 'Woman'; 2) The third label reads 'Other (please specify)'. While a necessary part of the question, we don't really want the '(please specify)' part to show in tables and figures. We will want to recode that to just 'Other'. Similarly, for the bilingual variable, we have 'Yes. My strongest language is:' and 'No'. We will want to recode that to a simpler 'Yes' and 'No'.
 
 > **TASK**: Recode the levels of the gender variable to 'Man, 'Woman' and 'Other', rather than 'Male', 'Female and 'Other (please specify)'.
 
@@ -268,7 +268,7 @@ mutate(bilingual = dplyr::recode(bilingual,
 :::
 
 #### Step 8: Change variable types
-Something else to check at this stage is whether the variable types that R has automatically assigned to your variables are correct. An easy way to check what the variable type for each variable is, is by clicking on the white triangle in the blue circle next to the object name in the Environment. Using the `glimpse()` function will also show them. You will see that each variable is a 'num' (for 'numerical') or 'chr' (for 'character'). Specifically, currently R thinks that the values stored in 'origID' are numerical values and that the values stored in all other variables  are 'character' values (basically reading them as strings). This is not correct. Participant numbers, gender and bilingual are really factors with different levels (or categories) and the values in 'age' are numerical values. This is important, because certain functions expect variables of a certain type. For instance, you can't compute the mean of a variable that consists of 'characters'. So if you don't change the variable types and try to compute the mean of 'age' it will not work. You can read more about variable types in R [**here*]().
+Something else to check at this stage is whether the variable types that R has automatically assigned to your variables are correct. An easy way to check what the variable type for each variable is, is by clicking on the white triangle in the blue circle next to the object name in the Environment. Using the `glimpse()` function will also show them. You will see that each variable is a 'num' (for 'numerical') or 'chr' (for 'character'). Specifically, currently R thinks that the values stored in 'origID' are numerical values and that the values stored in all other variables  are 'character' values (basically reading them as strings). This is not correct. Participant numbers, gender and bilingual are really factors with different levels (or categories) and the values in 'age' are numerical values. This is important, because certain functions expect variables of a certain type. For instance, you can't compute the mean of a variable that consists of 'characters'. So if you don't change the variable types and try to compute the mean of 'age' it will not work. You can read more about variable types in R [**here**](https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures.html).
 
 > **TASK**: Change the variable types for participant number (factor), age (numerical), gender (factor), and bilingual (factor). Note that the variables 'gender_text' and 'bilingual_text' indeed contain string information, so are correctly identified as 'character' variables.
 
@@ -317,7 +317,7 @@ write_csv(demo_proc, ("Week12-files/demo_proc.csv"))
 ```
 :::
 
-:::{.callout}-tip collapse="false"}
+:::{.callout-tip collapse="false"}
 ## Tip
 You can download the R-script that combines all these bits of code into 1 pipe [**here**](Week12-files/412_wk12_pre_lab_demographics.R). It is always a good idea to build a pipe like this 1 line at a time. Make sure to check that each line actually does what you expect it to do before you add the next line.
 :::
@@ -327,7 +327,7 @@ Well done! The more you practise data wrangling, the easier it will become.
 ### Pre-lab activity 2: Getting ready for the lab class
 
 #### Get your files ready
-Download the [412_week12_forStudents.zip](Week12-files/412_week12_forStudents.zip) file. 
+Download the [412_week12_lab.zip](Week12-files/412_week12_lab.zip) file. 
 
 #### Remind yourself of how to access and work with the RStudio Server.
 
