@@ -1,4 +1,4 @@
-# PSYC402: Week 12 - Lab activity 1
+# PSYC412: Week 12 - Lab activity 1
 
 # Our research question: Does the negative association between hours of use and well-being (beyond the 
 # one-hour point) differ for adolescent boys and girls?

@@ -1,5 +1,5 @@
 ---
-title: 2. Categorical predictors
+title: Week 12. Categorical predictors
 subtitle: Written by Margriet Groen (partly adapted from materials developed by the PsyTeachR team at the University of Glasgow)
 order: 3
 ---
@@ -26,8 +26,8 @@ You'll find links to the slides and transcripts underneath each video. You can a
 ```{=html}
 <iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61043&amp;code=dQ~LMA2a8GnIiNFJ3jRPd6oe7KUSdOe9i&amp;cc=1" frameborder="0" allowfullscreen></iframe>
 ```
-[Slides](data/week12/stats_interactions_theory_dis_1pp.pdf)
-[Transcript](data/week12/statsinteractionstheory.txt)
+[Slides](Week12-files/stats_interactions_theory_dis_1pp.pdf)
+[Transcript](Week12-files/statsinteractionstheory.txt)
 
 If you are (relatively) new to using R and RStudio and not yet confident in using various functions from the `dplyr` package, the video below will be useful:
 
@@ -37,8 +37,8 @@ Watch this part before you complete the pre-lab activities and before you attend
 ```{=html}
 <iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61014&amp;code=ea~HQdqp3JqlWsGjiMcgx6Ge4C2VAI4pa&amp;cc=1" frameborder="0" allowfullscreen></iframe>
 ```
-[Slides](data/week12/dataWrangling_dplyrPipes_slides_1pp.pdf)
-[Transcript](data/week12/05dwdplyrPipes.txt)
+[Slides](Week12-files/dataWrangling_dplyrPipes_slides_1pp.pdf)
+[Transcript](Week12-files/05dwdplyrPipes.txt)
 
 ## Reading {#sec-wk12-reading}
 
@@ -96,7 +96,7 @@ If you experienced difficulties with uploading a folder or a file to the server,
 :::
 
 ```{r eval=FALSE}
-download.file("https://github.com/mg78/2324_PSYC402/blob/main/data/week12/participant_info.csv?raw=true", destfile = "participant_info.csv")
+download.file("https://github.com/lu-psy-r/MSc/blob/main/PSYC412/part1/Week12-files/data_exp_72623-v17_questionnaire-i5jp.csv?raw=true", destfile = "data_exp_72623-v17_questionnaire-i5jp.csv")
 ```
 
 
@@ -288,7 +288,7 @@ mutate(variable1 = as.factor(variable1),
 ```
 :::
 
-:::{.callout}-tip collapse="true"}
+:::{.callout-tip collapse="true"}
 ## Code
 The code to do this is below:
 ```
@@ -309,7 +309,7 @@ Now the data is in a much better shape to work with for data visualisation, comb
 Use the `write_csv()` function.
 :::
 
-:::{.callout}-tip collapse="true"}
+:::{.callout-tip collapse="true"}
 ## Code
 The code to do this is below:
 ```
@@ -483,7 +483,7 @@ Use the `recode()` function from the `dplyr` package to recode the labels. Use t
 :::{.callout-tip collapse="true"}
 ## Code
 The code to do this is below:
-```{r eval=FALSE}
+```
 
 pinfo <- pinfo %>%
   mutate (sex = dplyr::recode(sex,
@@ -493,6 +493,7 @@ pinfo <- pinfo %>%
 head(pinfo)
 tail(pinfo)
 ```
+:::
 
 >**QUESTION 2b**: In what format is the well-being data (long or wide)? On how many participants does it include observations? And on how many items for each participant?
 
