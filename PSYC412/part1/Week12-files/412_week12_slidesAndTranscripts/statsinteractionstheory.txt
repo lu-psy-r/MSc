@@ -1,0 +1,668 @@
+﻿Hi again, it's Margriet. In
+this video I want to talk to you
+
+about interactions. Now you
+might have already come across
+
+interactions between variables
+when you learned about ANOVA.
+
+Um an interaction basically
+describes a situation where the
+
+influence of a predictor on the
+outcome variable depends on
+
+another predictor. So
+interactions are about
+
+relationships between
+
+predictors. And how two or more
+predictors together influence
+
+the outcome variable.
+
+Um, as an example, let's imagine
+modeling plant growth.
+
+As a function of two of two
+predictors, water use and
+
+exposure to sun.
+
+Now neither of these predictors alone will have a great effect
+
+on on plant growth.
+
+It's only if there is both water
+and sun that a plant will grow.
+
+So the influence of the
+sun exposure predictor
+
+critically depends on
+the water use predictor
+
+and the other way round.
+
+So.
+
+We can incorporate an
+interaction by multiplying the
+
+two predictors, and for that we
+use this Asterix sign.
+
+So here we have the equation of
+a model with two predictors,
+
+this is an example of multiple regression, right?
+
+And so we have X1 and X2. I haven't bothered with the
+
+error term here.
+
+Now and to incorporate an
+interaction, you multiply the
+
+two predictors by each other. So X 1 * X 2 and this is what
+
+this looks like.
+
+So here we have.
+
+The Intercept effect of.
+
+The first predictor, the second
+predictor. And here we have the
+
+interaction term X 1 * X Two.
+
+And regression will then
+estimate the corresponding
+
+slope for this new term, right? For this new, so the
+
+better erm Beta 3 here.
+
+And the numerical value of
+this slope describes the
+
+strength, the strength of this multiplicative multiplicative
+
+multiplicative effect.
+
+So when beta three is close to 0. The interaction is weak and
+
+the further away it is from
+zero, the stronger the
+
+interaction effect.
+
+Now in psychology interactions are sometimes called moderator
+
+variables because they moderate
+the effects of other predictors.
+
+You can think of it this way
+by multiplying two
+
+predictors with each other, you effectively
+
+interlock them and the
+coefficient beta three
+
+specifies how the two
+predictors are interlocked.
+
+Now in the video about multiple
+regression, we looked at a study
+
+by winter and colleagues er 2017 on iconicity.
+
+So you might remember that
+iconicity describes the degree
+
+to which a word form resembles
+its meaning, so.
+
+Onomatopoeic words like bang and beep. They are
+
+iconic because this sound
+an what they describe.
+
+Now, one outcome of the
+analysis we looked at then
+
+also had words with more
+sensory content were on
+
+average more iconic than
+words with less sensory
+
+content.
+
+Now in the plot on the slide,
+the relationship between
+
+iconicity on the Y axis.
+
+and.
+
+Sensory experience ratings is
+shown separately for nouns on
+
+the left and verbs on the right.
+
+Now the lines inside these
+plots, they show the linear
+
+model fits of a simple
+regression model.
+
+So as iconicity.
+
+Iconicity is a functional
+sensory experience rating for
+
+only nouns on the left, or only
+verbs on the right.
+
+So basically we have two regression models here.
+
+Now the regression models estimate the slopes to be .63 for verbs
+
+and .12 for nouns.
+
+So the fact that sensory
+experience rating predicts
+
+iconicity differently depending on the part of speech.
+
+Some nouns versus verbs that
+hints at an interaction.
+
+But you cannot simply compare
+the slopes of separate models.
+
+You have to model the
+interaction explicitly
+
+within one model.
+
+So.
+
+Let's first model the iconicity data as a function of sensory
+
+experience rating and part of
+speech without of the
+
+interaction term. So that's
+what we do here, right?
+
+Iconicity as a functional
+sensory experience rating and
+
+part of speech noun versus
+verb. That as kind of two
+
+separate predictors.
+
+And so this is what we get.
+
+Let's then spend a little bit of
+time interpreting these
+
+coefficients. So first, here we have to intercept.
+
+And which is the prediction for
+nouns with sensory rate
+
+experience ratings of 0 and you know that nouns are the
+
+Intercept. Or the reference
+level because it says.
+
+Part of speech POSverb here in
+
+the output. Also, you also know it because N comes
+
+before V in the alphabet, so it will have taken the noun
+
+level. As the reference level.
+
+And a positive slope here of .60 shows that verbs are more iconic
+
+than nouns and that is in this
+case in this model, regardless
+
+of which value of sensory experience rating you consider
+
+there. So this is visible in the
+plot in that the lines for nouns
+
+and verbs are parallel.
+
+So then we have, so that's
+the Intercept. But here we
+
+have the sensory rate
+sensory experience rating,
+
+slope that's estimated to be .23. That indicates a
+
+positive relationship
+between iconicity and
+
+sensory experience. And we
+can indeed seem kind of
+
+upward sloping line.
+
+Um, if you remember what the
+slopes of the individual.
+
+Models for simple regression
+models for nouns and verbs were
+
+like then you might remember
+that this .23 is in between the
+
+slope for nouns only, which was .12 and the one for verbs
+
+only, which was .63.
+
+From the previous slides.
+
+It's a bit closer to the slope of the of the noun model
+
+because there are more nouns in the data set.
+
+So now we have, so we've modelled an intercept, we've modelled
+
+The
+
+Predictor sensory experience
+rating and suggest that this
+
+positive so lot of slightly
+positive and then we have here
+
+this part of speech predictor and it basically says because
+
+it's positive and verb. Noun is
+the reference level verbs are.
+
+More iconic than nouns because there is no interaction
+
+terms. These lines are parallel.
+
+And by not including the
+interaction term, the model ends
+
+up mischaracterizing the sensory
+experience rating slope for both
+
+lexical categories, right?
+
+Remember this. Well, we have two
+
+individual models. Did this this
+regression slopes are kind of
+
+appropriate for the different
+categories, but we don't see
+
+that in if we put them together
+in a model because we haven't
+
+included this interaction term.
+
+OK, so let's now do that and
+include an interaction term so.
+
+We do. We specify that by
+including the asterisks in
+
+the model here.
+
+And the most striking difference
+is the fact that the two lines
+
+are no longer parallel.
+
+So this means that sensory
+experience is estimated to have
+
+different effects on iconicity
+for nouns and verbs.
+
+It also means that the degree
+to which nouns and verbs differ
+
+from each other in terms of
+iconicity depends on what
+
+sensory experience rating value
+you're looking at.
+
+And if you just look at the
+difference between these lines,
+
+so the solid black line for nouns
+and the dashed line for verbs,
+
+and you look at that here. Here
+exactly at this at the Intercept
+
+verbs are less iconic then
+nouns, and if you then look
+
+across the X axis, you see that
+that changes. And here verbs
+
+are more iconic, so for
+different levels of sensory
+
+experience rating. The
+difference between verbs and
+
+nouns changes.
+
+It basically means you cannot
+interpret each of the predictors
+
+in isolation anymore. You have
+to look at them together.
+
+So let's look at the
+coefficients here on the right,
+
+and there is a coefficient for
+
+each predictor. And there is an
+
+additional coefficient.
+That uhm.
+
+That that that that is for the
+interaction term. So it is.
+
+colon here indicates that we're
+talking about the interaction
+
+term, so that is the coefficient
+for the interaction term.
+
+And we of course we have to
+intercept here. Remember that is
+
+the prediction for nouns with
+zero sensory experience rating.
+
+That is the intercept
+
+so crucially, now the lines are
+not parallel anymore. The
+
+meaning of the Sensory
+experience rating predictor and the
+
+part of speech predictor
+are have changed right? So
+
+and the slopes. The
+interpretation of the slopes
+
+has changed, so for the.
+
+Sensory experience rating slope
+that is not a slope of sensory
+
+experience, only for nouns.
+
+And the slope that goes with
+
+the position of speed, uh part
+of speech effect is the noun
+
+verb difference only for words
+with zero sensory experience.
+
+But how can we interpret
+the coefficient of the
+
+interaction term?
+
+So in this context, it is
+appropriate to think of this
+
+coefficient as a.
+
+Slope adjustment term.
+
+So the coefficient here is
+.51, which means that the
+
+sensory experience rating slope
+is steeper for verbs.
+
+So adding the .51 interaction
+term to the slope for the nouns.
+
+.12 yields the slope for the
+verbs, which is .63.
+
+Or put differently, the verbs
+get an additional boost with
+
+respect to the sensory
+experience rating effect.
+
+OK, now interpretation of models
+with interactions is often
+
+easier when you center the
+
+continuous predictor. So you
+might remember from a previous
+
+video that centering sets the
+intercept to the mean.
+
+So if you center the sensory
+experience ratings, you put the
+
+Intercept to the center of kind
+of the mass of this data. Of all
+
+these data points, right? So you
+can see that here on the right.
+
+So notice how this central
+
+sensory experience rating value.
+
+For this. For this central
+sensory experience rating value,
+
+verbs are actually more iconic
+
+than nouns. So this is
+arguably a better
+
+characterization of the noun
+verb difference than
+
+evaluating this difference at
+a sensory experience rating
+
+of zero, as as is the case in
+the uncentered model.
+
+In particular because.
+
+There isn't even any
+data at zero because the
+
+scale started at one.
+
+So centering sensory experience
+ratings has reversed the sign of
+
+the  Coefficient.
+
+For the part of speech
+predictor.
+
+So that is now, here.
+
+.72
+
+and it that is now more
+meaning, that that is now a
+
+more meaningful
+interpretation.
+
+Because it is the difference
+between nouns and verbs for
+
+words with average sensory
+rating experience ratings.
+
+So rather than
+difference between
+
+nouns and verbs with
+some arbitrary rating of
+
+0 that doesn't exist.
+
+So you can see that here.
+
+Then the way the lines are
+fitted and the way it is
+
+represented. I'm guess you
+better characterization of what
+
+is going on in the data.
+
+So the motto can be: if in
+
+doubt, center you continues
+variable.
+
+Now.
+
+Important to know is that in R, there're
+alternative ways of specifying
+
+interactions in regression
+
+models. And there are two
+different ways of doing this in
+
+the model formulas. So in this
+is what we what we used in the
+
+previous slide. And you might
+wonder where the main effects
+
+of in this case sensory
+experience rating and part of
+
+speech have gone.
+
+This is basically a compressed
+
+form. A compressed form of this.
+
+So. Here, it spells out that
+you have a main effect of
+
+sensory experience rating and of
+part of speech, and then throws
+
+a third term that.
+
+involves the interaction.
+
+So they do exactly the same
+thing, and the first one is just
+
+kind of a quicker. It's a bit of
+a shortcut, and so if you put in
+
+this it will, R will
+automatically include these
+
+terms as well. You just don't
+have to write them down.
+
+As with some other kind of
+shortcuts in R, in particular,
+
+in the beginning it is. It's a
+good idea to use this slightly
+
+longer form. You know just to
+make it clear to yourself what
+
+what is in the model.
+
+OK, so in summary, interactions
+describe a situation where the
+
+influence of a predictor on the
+response depends on another
+
+predictor, so it looks at the
+relationships between
+
+predictors and their combined
+effect on the outcome variable.
+
+And in the in the formula
+that is characterized by
+
+multiplying those two
+predictors and and that
+
+involves the asterisk, the asterisk.
+
+In R, in the model formula
+there is two options and. This
+
+is kind of the short version and
+this is the long version.
+
+Remember that it is makes it
+easier to interpret your model
+
+if you have interactions. If you
+center your continuous predictor.
+
+And it's also important to
+remember that if an interaction
+
+in your model is significant,
+
+you can't interpret the
+predictors in isolation anymore.
+
+You have to look at their
+combined effect.
+
+And you can think of the slope
+for the interaction effect
+
+as a slope adjustment term when
+you move from one category to
+
+the other category.
+
+Thank you very much for
+your attention.

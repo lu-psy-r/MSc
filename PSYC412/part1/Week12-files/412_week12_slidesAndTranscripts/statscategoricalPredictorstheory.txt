@@ -1,0 +1,644 @@
+﻿Hi, it's Margriet here.
+
+So up to this point, we looked
+at predictors that were
+
+continuous, but what if you
+wanted to know whether the
+
+response differed between two or
+more discrete groups? For
+
+instance, you may want to test
+whether well-being scores
+
+differ by biological
+sex, so female versus male.
+
+Or whether phobia symptoms differ
+by psychological treatment
+
+group. Sex or treatment group, in
+these cases, are categorical
+
+variables. So in this video we will
+look at how we can model
+
+responses as a function of such categorical predictors.
+
+Now let's first look at an
+example. So in this paper
+
+the author looked at emotional
+valence of perceptual
+
+adjectives. So specifically,
+it has been suggested that smell
+
+words are overall more negative,
+especially when compared to
+
+taste words. So you can assess
+this by looking at the context
+
+in which these words occur. So
+for example, the taste word
+
+sweet, often appears together
+with pleasant nouns such as
+
+aroma and music and smile.
+
+While
+
+the smell word rancid
+
+often occurs with nouns such as
+grease or sweat.
+
+So the average noun context,
+valence, is more positive for
+
+sweet than for rancid.
+
+So we'll look at modelling a
+categorical predictor variable
+
+by building a linear model
+to describe the relationship
+
+between context valence, and
+sensory modality, so taste
+
+versus smell.
+
+Now regression works well with
+sets of numbers, but how do we
+
+incorporate categorical
+predictors? So in the middle we
+
+have the graph from the previous
+slide. This graph from the previous
+
+slide with the box plots for
+
+smell words and taste words. So
+on the left here, this is
+
+plotted slightly differently in
+that you see the individual
+
+values for the words. So here we have the
+
+smell words and then we have the
+taste words, and the individual
+
+context valence scores for
+these two groups of words.
+
+Now,
+
+to incorporate the categorical
+predictor modality into a
+
+regression model, the labels,
+smell, and taste need to be
+
+replaced with numerical
+identifiers. So this process is
+
+called dummy coding and
+geometrically assigning numbers
+
+to categories basically means
+that the categories are placed
+
+within a coordinate system. So
+in the plot here in the middle,
+
+smell words are located at x = 0
+
+and taste words are located
+at X = 1.
+
+So this coding scheme is
+called treatment coding or
+
+dummy coding.
+
+The overarching term
+used for various coding schemes
+
+is contrasts and
+
+we'll come across a few
+different ones in
+
+this video.
+
+Now, within the treatment coding
+scheme, the category x = 0
+
+is called the reference level
+and it will assume the role of
+
+the intercept of the
+
+regression model. So in this
+example, smell words are
+
+rhe reference level.
+
+Now when you fit a regression
+line onto a variable with two
+
+categories, the line has to go
+through the means of both
+
+categories. But although there
+is a line, as in here,
+
+it is important to remember
+that that line can only be
+
+interpreted at the discrete
+points of x=0 and
+
+x=1.
+
+Any predictions generated for
+the intermediate values, here,
+
+they do not make any sense
+
+in the case of a
+categorical predictor.
+
+Now you may remember that the
+slope of the line indicates how
+
+much you go up on the Y axis,
+
+when you move one unit along the
+X axis. So if you move from x=0
+
+To x=1, you move
+from the mean Valance for smell
+
+words to the mean valence value
+for taste words.
+
+So in other words, for
+categorical predictors, your
+
+regression slope, this thing,
+
+actually shows the
+difference between the groups.
+
+Now,
+
+so let's plug the values
+for our example
+
+with smell and taste words into
+into the into the formula.
+
+And so the mean
+emotional context
+
+valence for smell
+words is 5.5.
+
+And and the regression
+
+has estimated that the slope for
+this this line is 0.3.
+
+Now for the smell words.
+Remember, smell is at x=0, so
+
+here we fit in at our context value
+at zero, which tells us that for
+
+smell words the mean is 5.5.
+
+So for taste words, which
+reside at x=1,
+
+we do the same thing again. We
+have the intercept plus the
+
+slope (0.3) and we
+multiply this by 1, because
+
+taste is at x=1.
+
+So then we get
+
+the mean value for
+taste words, which is 5.8.
+
+You can see that here.
+
+So that is how to translate that.
+
+Now another commonly used coding
+scheme that is called sum
+
+coding or also referred to as
+
+deviation coding. So you might
+ask, why would you want to use
+
+one coding scheme over another?
+
+We will see in another
+video that when you have
+
+interactions in your
+regression model, sum coding
+
+or deviation coding makes
+interpreting the interaction
+
+easier.
+
+So it's good to have
+some flexibility as to which
+
+coding scheme you apply,
+depending on your model and
+
+on your hypothesis.
+
+So how does the sum coding
+work? So when converting a
+
+categorical predictor into
+sum codes, one category is
+
+assigned to value minus one,
+
+here and the other is assigned plus
+
+one, here. So you can see
+that here.
+
+And with this coding scheme, the
+intercept basically sits in the
+
+middle of the two categories.
+Here, this is the intercept,
+
+where X is 0.
+
+Which is the conceptual analogue
+of centering for categorical
+
+predictors. So the Y value of
+the intercept is now the mean of
+
+the means between these two
+
+categories. So in other words,
+the intercept is half way in
+
+between the two categories.
+
+If we stick this into
+our formula, it looks like this:
+
+so we see
+
+that, you know, bar
+differences due to rounding, the
+
+predictions are pretty much
+exactly the same as those for
+
+the treatment model, right? So
+it estimates that the
+
+intercept is 5.6, which kind
+of sits in between the two,
+
+right? And that the slope is
+
+.17. And for the smell words
+which sit at minus one,
+
+so we have to multiply this
+thing. Sorry that thing, by minus
+
+one so we can remember if you
+multiply a positive number and
+
+the negative number, it will become
+negative. So you have
+
+5.6 -- 0.17 and that equals 5.43, so that is
+
+where the mean for smell words
+sits. And for taste
+
+words, it is plus one. So if
+we stick that into that, we get
+
+5.6 + 0.17 which equals
+5.77 and so that is the
+
+mean for the taste words.
+
+Examples so far can be used with
+a kind of binary categorical
+
+predictor, so with two
+categories. But what if your
+
+predictor variable has more
+than two levels right? So we looked
+
+at the taste and smell words,
+
+but the data actually contains
+words for all the five senses,
+
+so sight, touch, sound,
+taste and smell.
+
+So how would you create contrasts
+for a 5-level predictor?
+
+Now, if we fit a regression
+model with a 5-level
+
+predictor variable, this
+is what happens.
+
+The regression output shows
+basically four slopes.
+
+So here we have 1, 2, 3, 4
+slopes and the intercept.
+
+And then you can determine the
+reference level from the output.
+
+It is basically whatever
+category is not shown as one of
+
+the slopes. So here we have
+smell, sound, touch and
+
+taste, so sight is
+missing. And so in this case the
+
+reference level is sight.
+
+And that you can also ... the R
+default is that the level that
+
+comes first in the alphabet, is
+the reference level. So in this
+
+case sight and that comes first
+in the alphabet, compared to all
+
+the other levels.
+
+So sight words are basically the
+hidden in the intercept and the
+
+first slope, this one, the
+ModalitySmell is the difference
+
+between sight and smell words.
+
+Similarly, ModalitySound is the
+
+difference between sight and
+
+sound words. So these values are
+negative, which means that
+
+smell words are more
+negative, have a more
+
+negative emotional valence, than
+sight words, and
+
+similarly, sound words have a
+more negative emotional
+
+valence than sight
+words.
+
+So at the top here you can see
+what the matrix is like that
+
+specifies the two level
+situation that we looked at
+
+earlier. So this is how R
+
+specifies the treatment
+coding scheme in case of two
+
+predictors. So here the first
+
+row (that is this one)
+
+So this first
+
+level is mapped onto zero and then
+the second category, the second level
+
+is mapped onto 1.
+
+And the column here, is named two as
+the dummy variable will be named
+
+after the second category.
+
+So that is how to read that
+
+thing. So here at the bottom you
+see the situation and the matrix
+
+that specifies the five level
+situation. So again, we have
+
+here the 1st first category,
+second, third, 4th and 5th
+
+category. So in this case would
+be sight, smell, sound, taste
+
+and touch. As you can see the
+
+1st
+
+sight is basically
+the reference level and then
+
+comes smell, which sits at
+one when you look at
+
+this second slope.
+
+And the second slope is
+
+named, by the second level,
+so that's why it's called
+
+modalitySmell etc etc. for
+the other levels.
+
+Now there are various other
+coding schemes and they can be
+
+useful in certain situations so
+
+there's actually many
+others, and one example is
+
+Helmert coding, which compares
+the levels of variable with the
+
+mean of the subsequent levels of
+that variable. So it is
+
+sometimes comes in useful when
+you have an ordered categorical
+
+predictor in your model. So for
+instance, education level is an
+
+ordered categorical predictor,
+because having a PhD having
+
+completed a PhD is considered
+the highest level of education
+
+which is higher than having
+completed a Masters degree,
+
+which is higher than
+
+having completed a bachelors
+degree, which is higher than
+
+having completed A-levels etc etc.
+So it is an ordered categorical
+
+variable and in that case a
+Helmert coding scheme can be
+
+useful. So it looks like this.
+So in the corresponding
+
+regression output, the first
+slope indicates the difference,
+
+here to this one,
+
+Between levels one and two. And
+
+the second slope indicates the
+difference between levels
+
+one and two compared to level 3.
+
+And the third slope indicates
+the difference between
+
+levels 1, 2 and 3
+compared to level 4.
+
+That will be useful. So each
+consecutive level is compared to
+
+the mean of all the previous
+levels in an ordered sequence.
+
+Don't worry too much about it,
+just be aware that there are
+
+different coding schemes around.
+
+And you can use them
+depending on what's best for
+
+your particular model.
+
+So in summary, we looked at:
+
+Different ways to incorporate
+
+categorical predictors into a
+regression model, and if you do
+
+that, you have to specify what
+are called contrasts.
+
+If you have a two level
+categorical predictor, you
+
+can use treatment or dummy
+coding, which is actually the
+
+default in R, or you can use
+sum or deviation coding.
+
+If you have more than two
+levels, you can use either
+
+of those as well, or you
+can use many others, one of
+
+which is the Helmert coding.
+
+Now it's important to remember
+that the reference level is
+
+kind of hidden in the intercept
+and the default in R is that
+
+whatever level comes first in
+the alphabet is used as the
+
+reference level.
+
+You can change that actually
+in R, but keep it this in
+
+mind. Keep in mind that
+that is the default.
+
+Now actually, as you can
+imagine, to be able to
+
+interpret your coefficients,
+it's really important that
+
+the reader knows which
+coding scheme you have used.
+
+So it is important that when
+you write up a regression
+
+analysis that includes
+categorical predictors and
+
+you have used a particular
+coding scheme, tell the
+
+reader explicitly what
+coding scheme that is.
+
+OK, that's all for now.
+Thank you very much for
+
+your attention.
