@@ -300,7 +300,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#lab-activity-1-interpreting-and-reporting-results" id="toc-lab-activity-1-interpreting-and-reporting-results" class="nav-link" data-scroll-target="#lab-activity-1-interpreting-and-reporting-results">Lab activity 1: Interpreting and reporting results</a></li>
   <li><a href="#lab-activity-2-conducting-simple-and-multiple-regression" id="toc-lab-activity-2-conducting-simple-and-multiple-regression" class="nav-link" data-scroll-target="#lab-activity-2-conducting-simple-and-multiple-regression">Lab activity 2: Conducting simple and multiple regression</a></li>
   </ul></li>
-  <li><a href="#sec-wk11-answers" id="toc-sec-wk11-answers" class="nav-link" data-scroll-target="#sec-wk11-answers">Answers</a></li>
+  <li><a href="#sec-wk11-answers" id="toc-sec-wk11-answers" class="nav-link" data-scroll-target="#sec-wk11-answers">Answers</a>
+  <ul class="collapse">
+  <li><a href="#lab-activity-1-interpreting-and-reporting-results-1" id="toc-lab-activity-1-interpreting-and-reporting-results-1" class="nav-link" data-scroll-target="#lab-activity-1-interpreting-and-reporting-results-1">Lab activity 1: Interpreting and reporting results</a></li>
+  <li><a href="#lab-activity-2-conducting-simple-and-multiple-regression-1" id="toc-lab-activity-2-conducting-simple-and-multiple-regression-1" class="nav-link" data-scroll-target="#lab-activity-2-conducting-simple-and-multiple-regression-1">Lab activity 2: Conducting simple and multiple regression</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -399,11 +403,36 @@ Tip
 </section>
 <section id="pre-lab-activity-2-data-wrangling-in-r" class="level3">
 <h3 class="anchored" data-anchor-id="pre-lab-activity-2-data-wrangling-in-r">Pre-lab activity 2: Data-wrangling in R</h3>
-<p>In PSYC411, you’ve already learned how to read in data, how to select variables and how to compute summary statistics, so re-visiting the PSYC411 materials is a good place to start.</p>
-<p>Alternatively, Posit (the company behind RStudio) provides useful <a href="https://posit.cloud/learn/recipes"><strong>recipes</strong></a>: code snippets that provide a quick overview of basic functions.</p>
+<p>Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate observation (e.g.&nbsp;a participant), and each column stands for a different variable (e.g.&nbsp;a response, category, or group). A key benefit of tabular data is that it allows you to store different types of data-numerical measurements, alphanumeric labels, categorical descriptors-all in one place.</p>
+<p>It may surprise you to learn that scientists actually spend far more of time cleaning and preparing their data than they spend actually analysing it. This means completing tasks such as cleaning up bad values, changing the structure of tables, merging information stored in separate tables, reducing the data down to a subset of observations, and producing data summaries. Some have estimated that up to 80% of time spent on data analysis involves such data preparation tasks (Dasu &amp; Johnson, 2003)!</p>
+<p>Many people seem to operate under the assumption that the only option for data cleaning is the painstaking and time-consuming cutting and pasting of data within a spreadsheet program like Excel. We have witnessed students and colleagues waste days, weeks, and even months manually transforming their data in Excel, cutting, copying, and pasting data. Fixing up your data by hand is not only a terrible use of your time, but it is error-prone and not reproducible. Additionally, in this age where we can easily collect massive datasets online, you will not be able to organise, clean, and prepare these by hand.</p>
+<p><strong>In short, you will not thrive as a psychologist if you do not learn some key data wrangling skills.</strong> Although every dataset presents unique challenges, there are some systematic principles you should follow that will make your analyses easier, less error-prone, more efficient, and more reproducible.</p>
+<p>Some of the functions you’ll need in this week’s lab activity are mentioned below. You’ve used these functions before, but the following <a href="https://posit.cloud/learn/recipes"><strong>recipes</strong></a> summarise what each one does and how to use it.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recipes - How to use them
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each ‘recipe’ has the same structure.</p>
+<ol type="1">
+<li>First, it summarises what it is that you want to achieve when using that specific function. <em>In the case of <code>select()</code> it says “You want to extract specific columns from a data frame and return them as a new, smaller data frame.”</em></li>
+<li>Then, it outlines a number of steps that you need to carry out when using this function. <em>For <code>select()</code> it outlines 2 steps: 1. Pass the dataframe to the function. 2. List the column(s) to return.</em></li>
+<li>Finally, there is an example talks you through using the function with some data. <em>For <code>select()</code> it uses an example with data on the weather.</em></li>
+<li>Additional information appears in extra boxes with a light-bulb icon. If you find those confusing, don’t worry about them at this stage.</li>
+</ol>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>TASK</strong> Have a look at each ‘recipe’ and read through it. Try to understand each step.</p>
+</blockquote>
 <ul>
-<li><p>Under <strong>R Basics</strong>, have a look at the recipe to <strong>Read a CSV file</strong> or remind yourself how to make sure to <strong>Obey R’s naming rules</strong>. Of course, you are very welcome to review the other recipes in this category.</p></li>
-<li><p>Review the recipes in the <strong>Transform Tables</strong> category to remind yourself how to extract values form a table, calculate summary statistics, derive new variables and more by using <code>dplyr</code> verbs such as <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>rename()</code>, <code>group_by()</code> and <code>summarise()</code>.</p></li>
+<li><p>Under <strong>R Basics</strong>, have a look at the recipe to <strong>Read a CSV file</strong> or remind yourself how to make sure to <strong>Obey R’s naming rules</strong>. Of course, you are very welcome to review other recipes in this category as well.</p></li>
+<li><p>Review the recipes in the <strong>Transform Tables</strong> category to remind yourself how to extract values from a table, calculate summary statistics, derive new variables and more by using <code>dplyr</code> verbs such as <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>rename()</code>, <code>group_by()</code> and <code>summarise()</code>.</p></li>
 <li><p>Under <strong>Visualize Data</strong>, you’ll find recipes to create a histogram or a scatterplot (and much more).</p></li>
 </ul>
 <p>Please note that there are often different ways to do the same or similar things in R. This means you might encounter slightly different functions or styles of coding in different materials. This is not something to worry about. Just make sure you’re clear on what a bit of code achieves and choose the function/style that you feel most comfortable with.</p>
@@ -532,7 +561,7 @@ Tip
 <p><strong>TASK</strong>: Load the relevant libraries. If you are unsure how to do that, you can look at the ‘Hint’ below for a clue by expanding it. After that, if you are still unsure, you can view the code by expanding the ‘Code’ section below.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -541,14 +570,14 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Use the <code>library()</code> function.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -557,7 +586,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The code to do this is below.</p>
 <pre><code>library(broom)
@@ -575,7 +604,7 @@ library(tidyverse)</code></pre>
 <p><strong>TASK</strong>: Read in both files, have a look at the layout of the data and familiarise yourself with it. The ratings data is rather messy and in a different layout to the acoustics but can you tell what is what?</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -584,14 +613,14 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Use the <code>read_csv()</code> function.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -600,7 +629,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The code to do this is below.</p>
 <pre><code>acoustics &lt;- read_csv("voice_acoustics.csv")
@@ -636,7 +665,7 @@ ratings &lt;- read_csv("voice_ratings.csv")</code></pre>
 <p><strong>TASK</strong>: Calculate the mean rating for each voice and store the resulting table in a variable named ‘ratings_mean’.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -645,14 +674,14 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Use <code>group_by()</code> and <code>summarise()</code>. Are you using the tidy data? Also, remember that if there are any missing values (NAs) then na.rm = TRUE would help.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -661,7 +690,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>ratings_mean &lt;- ratings_tidy %&gt;%
   group_by(VoiceID) %&gt;%
@@ -677,7 +706,7 @@ Code
 <p><strong>TASK</strong>: Join the two tables and keep only the data for the male voices, call the resulting table ‘joined’.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -686,14 +715,14 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Use the <code>inner_join()</code> function (making use of the variable that is common across both tables) to join. See <a href="https://r4ds.hadley.nz/joins.html"><strong>here</strong></a> or type <code>?inner_join</code> in the Console for more info. Use the <code>filter()</code> function to only keep male voices. Remember that the Boolean operator for exactly equal is <code>==</code>.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -702,7 +731,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>joined &lt;- ratings_mean %&gt;%
   inner_join(acoustics, "VoiceID") %&gt;%
@@ -734,7 +763,7 @@ Code
 <p><strong>TASK</strong>: Now that we have all the variables in one place, make two scatterplots, one of mean trustworthiness rating with dispersion and one for mean trustworthiness rating and pitch.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -743,14 +772,14 @@ Hint 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For this you’ll need the <code>ggplot()</code> function together with <code>geom_point()</code> and <code>geom_smooth()</code>. Make sure to give your axes some sensible labels.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -759,7 +788,7 @@ Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Below is a template for the code. Make sure to specify the data frame and the relevant variables.</p>
 <pre><code>ggplot(DATA, aes(x = variable X, y = variable Y)) +
@@ -771,7 +800,7 @@ Hint 2
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -780,7 +809,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>ggplot(joined_wide, aes(x = Dispersion, y = mean_rating)) +
   geom_point() +
@@ -811,7 +840,7 @@ ggplot(joined_wide, aes(x = Pitch, y = mean_rating)) +
 <p><strong>TASK</strong>: Use the <code>lm()</code> function to run the following two regression models and use the <code>summary()</code> function to look at the output of each model. Store the first model in a table called ‘mod_pitch’ and store the second model in ‘mod_disp’.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -820,7 +849,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Below is a template for the code. Make sure to specify the data frame and the relevant variables.</p>
 <pre><code>lm(dv ~ iv, data = my_data)</code></pre>
@@ -828,7 +857,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -837,7 +866,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>mod_disp &lt;- lm(mean_rating ~ Dispersion, joined_wide)
 mod_disp_sum &lt;- summary(mod_disp)
@@ -867,7 +896,7 @@ mod_pitch_sum &lt;- summary(mod_pitch)</code></pre>
 <p><strong>TASK</strong>: Now use the centered and standardised data for the multiple regression. Use the <code>lm()</code> function to run a model for predicting trustworthiness mean ratings from Pitch and Dispersion, and store the model in ‘mod_pitchdisp_z’. Use the ‘summary()’ function to look at the output.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -876,7 +905,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Below is a template for the code. Make sure to specify the data frame and the relevant variables.</p>
 <pre><code>lm(dv ~ iv1 + iv2, data = my_data)</code></pre>
@@ -884,7 +913,7 @@ Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -893,7 +922,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>mod_pitchdisp_z &lt;- lm(mean_rating ~ Pitch_z + Dispersion_z, joined_wide)
 mod_pitchdisp_z_sum &lt;- summary(mod_pitchdisp_z)</code></pre>
@@ -911,7 +940,7 @@ mod_pitchdisp_z_sum &lt;- summary(mod_pitchdisp_z)</code></pre>
 <p><strong>TASK</strong>: Check the assumptions of linearity, normality and homoscedasticity.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -920,14 +949,14 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can use the <code>crPlots()</code> and the <code>qqPlot()</code> functions to check linearity. The <code>shapiro.test()</code> can be used to check normality of the residuals and the <code>residualPlot()</code> and <code>nvcTest()</code> functions to check homoscedasticity of the residuals. These plots are from base R rather than using the <code>ggplot()</code> function. See <a href="https://r4ds.hadley.nz/base-r#plots"><strong>here</strong></a> for a brief explanation of base R plots and why you might want to use them.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -936,7 +965,7 @@ Code
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <pre><code>crPlots(mod_pitch)
 
@@ -958,7 +987,7 @@ ncvTest(mod_pitch)</code></pre>
 <p><strong>TASK</strong>: Write up the results following APA guidelines.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -967,7 +996,7 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The <a href="https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_numbers_statistics.html"><strong>Purdue writing lab website</strong></a> is helpful for guidance on punctuating statistics. The <a href="https://apastyle.apa.org/instructional-aids/numbers-statistics-guide.pdf"><strong>APA Style 7th Edition Numbers and Statistics Guide</strong></a> is also useful.</p>
 </div>
@@ -979,18 +1008,24 @@ Hint
 <section id="sec-wk11-answers" class="level2">
 <h2 class="anchored" data-anchor-id="sec-wk11-answers">Answers</h2>
 <p>When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. <strong>Remember</strong>, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. <strong>Actively engaging</strong> with the material is the way to learn these analysis skills, not by looking at someone else’s completed code…</p>
-<p>The answers to the questions and the script containing the code will be available after the lab session has taken place.</p>
-<!-- ### Lab activity 1: Interpreting and reporting results -->
-<!-- 1. What is the outcome or dependent variable? **Word reading** -->
-<!-- 2. What is the predictor or independent variable? **Non-word reading** -->
-<!-- 3. Is the overall model significant? **Yes, *F*(1,50) = 69.03, *p* < .001** -->
-<!-- 4. How much variance does the model account for? **58%** -->
-<!-- 5. Does the relationship appear linear? **Yes. The dots and the pink line assemble quite closely on the dashed line.** -->
-<!-- 6. Do the residuals show normality and homoscedasticity? **The qq-plot suggests that the residuals are normally distributed as the dots fall close to the solid blue line and within the range of the dashed blue lines. The Shapiro-Wilk test of normality confirms this (it is not significant). Similarly, the output of the non-constant variance score tests is not significant suggesting that the residuals are homoscedastic.** -->
-<!-- ### Lab activity 2: Conducting simple and multiple regression -->
-<!-- You can download the R-script that includes the relevant code and answers to the questions here: [412_wk11_labAct2_withAnswers.R](Week11-files/412_wk11_labAct2_withAnswers.R). -->
+<!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
+<section id="lab-activity-1-interpreting-and-reporting-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="lab-activity-1-interpreting-and-reporting-results-1">Lab activity 1: Interpreting and reporting results</h3>
+<ol type="1">
+<li>What is the outcome or dependent variable? <strong>Word reading</strong></li>
+<li>What is the predictor or independent variable? <strong>Non-word reading</strong></li>
+<li>Is the overall model significant? <strong>Yes, <em>F</em>(1,50) = 69.03, <em>p</em> &lt; .001</strong></li>
+<li>How much variance does the model account for? <strong>58%</strong></li>
+<li>Does the relationship appear linear? <strong>Yes. The dots and the pink line assemble quite closely on the dashed line.</strong></li>
+<li>Do the residuals show normality and homoscedasticity? <strong>The qq-plot suggests that the residuals are normally distributed as the dots fall close to the solid blue line and within the range of the dashed blue lines. The Shapiro-Wilk test of normality confirms this (it is not significant). Similarly, the output of the non-constant variance score tests is not significant suggesting that the residuals are homoscedastic.</strong></li>
+</ol>
+</section>
+<section id="lab-activity-2-conducting-simple-and-multiple-regression-1" class="level3">
+<h3 class="anchored" data-anchor-id="lab-activity-2-conducting-simple-and-multiple-regression-1">Lab activity 2: Conducting simple and multiple regression</h3>
+<p>You can download the R-script that includes the relevant code and answers to the questions here: <a href="Week11-files/412_wk11_labAct2_withAnswers.R">412_wk11_labAct2_withAnswers.R</a>.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
