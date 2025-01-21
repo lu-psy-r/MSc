@@ -1,5 +1,5 @@
 ---
-title: 3. More on interactions
+title: Week 13. More on interactions
 subtitle: Written by Margriet Groen (partly adapted from materials developed by the PsyTeachR team at the University of Glasgow)
 order: 4
 ---
@@ -56,7 +56,7 @@ Another great resource they provide are the 'cheatsheets': one-page overviews of
 ### Pre-lab activity 2: Getting ready for the lab class
 
 #### Get your files ready
-Download the [412_week13_lab.zip](Week13-files/402_week13_forStudents.zip) file and upload it into a new folder in RStudio Server. 
+Download the [412_week13_lab.zip](Week13-files/412_week13_lab.zip) file and upload it into a new folder in RStudio Server. 
 
 #### Remind yourself of how to access and work with the RStudio Server.
 
@@ -90,7 +90,7 @@ The abstract of their paper is below or see [**here**](https://www.sciencedirect
 Abstract:
 Adjusted for many other determinants, beauty affects earnings; but does it lead directly to the differences in productivity that we believe generate earnings differences? We take a large sample of student instructional ratings for a group of university teachers and acquire six independent measures of their beauty, and a number of other descriptors of them and their classes. Instructors who are viewed as better looking receive higher instructional ratings, with the impact of a move from the 10th to the 90th percentile of beauty being substantial. This impact exists within university departments and even within particular courses, and is larger for male than for female instructors. Disentangling whether this outcome represents productivity or discrimination is, as with the issue generally, probably impossible. 
 
-Our **research question**: Do professors' beauty score and age predict how students evaluate their teaching?
+**Our research question: Do professors' beauty score and age predict how students evaluate their teaching?**
 
 To complete this lab activity, you can use the R-script (`412_wk13_labAct1_template.R`) that you downloaded as part of the 'Pre-lab activities' as a template. Work through the activity below, adding relevant bits of code to your script as you go along.
 
