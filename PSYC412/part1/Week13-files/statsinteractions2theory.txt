@@ -1,0 +1,599 @@
+﻿Hi, it's Margriet
+
+In a previous lecture we looked at the interaction
+
+between a continuous predictor
+and categorical predictor.
+
+Now in this video I want to
+look at the interaction
+
+between two continuous
+predictors.
+
+I'll just change my pointer.
+
+There we go.
+
+Now from last time you might
+remember this example where
+
+we imagined modeling plant
+growth as a function of the
+
+two predictors. Water use and
+sunlight.
+
+Neither of these predictors by
+themselves will have a great
+
+effect on plant growth only if
+there is both water and
+
+sunlight, the plant will grow.
+
+So that is the influence of the
+sun exposure predictor.
+
+Critically depends on the water
+use predictor and vice versa.
+
+Now here is the equation of a
+model with two variables X1 and
+
+X2 without the error term.
+
+And to incorporate the
+interaction you might
+
+remember that we use, we
+multiply the two predictors.
+
+So we multiply X1 first predicted by X2,
+
+and regression will then estimate the corresponding
+
+slope for this new predictor.
+So that is beta three. That is,
+
+the slope of the interaction
+effect.
+
+Now that slope describes the strength of of this kind of
+
+multiplicative effect. So when
+beta three is close to 0,
+
+the interaction. Is weak, but the further away from zero it is,
+
+either positive or negative.
+
+The stronger the
+interaction effect.
+
+OK, today another example
+involving iconicity. But
+
+this time will use the data from a paper by Sidhu andÂ 
+
+Paxman published in 2018.
+
+So.
+
+Um, these researchers, they
+discovered they looked at the
+
+effect of sensory experience or
+iconicity. But in addition, they
+
+considered the role of what's
+psycholinguists called the
+
+semantic neighborhood density.
+
+Now that term describes the idea
+that there is that for certain
+
+regions in your mental lexicon
+where there are lots of words,
+
+so it's quite crowded or dense and all those words are connected.
+
+to each other by virtue of having similar meanings.
+
+And other areas of your
+mental lexicon will have
+
+fewer words with similar
+meanings, and are therefore
+
+sparser. So have a lower
+semantic neighborhood
+
+density.
+
+Now it has been proposed that.
+
+Iconicity may lead to confusion because with many iconic forms,
+
+similar meanings will also sound
+
+similar. So therefore it's been proposed thatÂ 
+
+Sidhu and Paxman reasoned that language should be biased
+
+against iconicity, specifically
+in semantically dense
+
+neighborhoods. So where there is
+lots of opportunity for
+
+confusion. In sparse
+neighborhood, iconicity is
+
+not so dangerous as there is
+less opportunity for
+
+confusion between concepts.
+
+OK, so now let's load the data from Sidhu and Pexman into R
+
+And this is what the table looks like, so there are four columns
+
+four variables here we have the word variable and that is just
+
+the different items that are in the data set. We have the SER
+
+variable that you might
+
+recognize from. Previous
+examples so that contains the
+
+sensory experience ratings. Then
+we have the iconicity ratings
+
+here and the new one is this ARC variable. ARC stands for
+
+average radius, radius of Co
+occurrence and is the measure
+
+for semantic neighborhood
+
+density. So small values of ARC mean that this semantic
+
+neighborhood is sparse and large
+values mean that it's semantic
+
+neighborhood is dense.
+
+Now the hypothesis was that
+given that iconicity can lead to
+
+confusion, words with large ARC
+values open dense neighborhoods
+
+should be less iconic.
+
+OK, so let's fit the
+model with sensory
+
+experience and
+neighborhood density as
+
+predictors and well, we're including their
+
+interaction term, and you
+might recognize this.
+
+Formula notation here. As kind
+of the shorthand, we could also
+
+see say, SER + ARC plus SER, colon, ARC. So this
+
+is just shorthand for that now
+below here you see the
+
+coefficients for for this model.
+
+So there is the intercept and
+that is the predicted iconicity
+
+rating of a word with zero sonsory experience and zero
+
+neighborhood density. And we
+have the slope for SER. We have
+
+the slope for ARC an etc etc.
+
+Um and we have to the slope for
+the interaction effect.
+
+So this model is hard to
+interpret for two reasons.
+
+First of all, the predictors
+aren't centered, so that means
+
+that SCR and or sensory
+experience and semantic
+
+neighborhood density are
+reported for some arbitrary 0.
+
+Um, and in this case it really, the zero doesn't make much
+
+sense. Words without any sensory
+experience rating don't really
+
+exist, and neither do words that
+do not have any neighbors. So
+
+words in and segmented
+neighborhood density of zero
+
+also don't exist, so they don't.
+That zero is arbitrary and
+
+doesn't make any sense.
+
+And Secondly, so the second
+reason why this model is hard to
+
+interpret is that the slopes so
+that the magnitude of the SL of
+
+the sensory experience and
+semantic neighborhood slopes are
+
+difficult to compare because
+each variable has a different
+
+metric. So the one unit
+change is a different step
+
+size for each variable.
+
+Now we can do something about
+that. We can standardize our
+
+continuous predictors and that
+is what you see on the slide
+
+here. So here at the top you can see the codes that does that
+
+and here on the right you see
+the two variables that now have
+
+now been added, and this underscore Z just stands for
+
+kind of standardized units. So
+here we have the standardized
+
+version of the sensory
+experience variable. And here we
+
+have the standardized version of
+
+the. Censoring semantic neighborhoods
+
+variable. If you can't quite remember what
+
+centering and standardizing are about,
+
+then please revisit an
+earlier video about that.
+
+Um, OK, so now that we've standardized our predictors
+
+we can refit the model. So
+here you see.
+
+The code that does that
+again, so now we're using
+
+these standardized
+predictors. Here, again
+
+using the shorthand
+notation.
+
+Now let's have a look at these
+coefficients down here.
+
+So in this model they sense
+semantic neighborhood density
+
+and the sensory experience
+coefficients are shown for each
+
+others respective averages.
+Because the meaning of 0 has
+
+changed for both variables
+because we sent it to date the
+
+predictors. So after Centering
+Zero, Sensory experience is now
+
+the mean sensory experience
+
+rating. And O for cementing,
+neighborhood is now the mean
+
+semantic neighborhood density.
+
+Now let's first look at
+the slopes for sensory
+
+experience and.
+
+Semantic neighbor density.
+
+So the slope for sensory
+experience is 0.07, that is
+
+positive. And that means
+that words in.
+
+That more perceptual
+words are more iconic.
+
+Which kind of confirms
+earlier findings.
+
+Now the ARC underscore Z
+
+Slope so a slope for semantic neighbor density is negative
+
+If it's minus -0.32 and, that means that words in
+
+denser neighborhoods are
+predicted to be less iconic.
+
+Now that, fits with the prediction that the authors had.
+
+So moving on to the interactions
+are at the bottom there an.
+
+He the slope is negative
+again, so it's minus 0.06, seven
+
+or six 8.
+
+and
+
+That you can read that in the
+following way, so when both.
+
+sensory experience and semantic neighbor density
+
+increase words are actually
+predicted to be less iconic.
+
+Because it's the slope is
+negative.
+
+So in a way that the two effects
+cancel each other out.
+
+Now it it helps to think about
+one variable at a time when
+
+you're interpreting an
+interaction. So considering what
+
+the interaction means for that
+
+variable. So for example, if we
+take a sensory experience slope.
+
+On its own, it's positive,
+but your interactions
+
+negative, so the effect of
+sensory experience is
+
+diminished. For high levels
+of semantic neighborhood
+
+density.
+
+Or put differently, in dense
+semantic neighborhoods,
+
+there is less of a sensory
+experience effect.
+
+Now. And the interpretation of
+semantic of interactions can be
+
+facilitated by visualizing.
+
+The effects and Sidhu and Pexman opted to visualize at the
+
+interaction via partial plot,
+where the relationship between
+
+semantic experience rating and
+iconicity is shown for
+
+representative levels of the
+semantic neighborhood density.
+
+So we have sensory experience on
+the X axis.
+
+We have iconic iconicity ratings
+on the Y axis and we have 3
+
+lines for three kind of
+representative values of the
+
+semantic net neighborhood
+
+density measure. So here we have
+the average semantic neighbor
+
+density. Here we have sparse
+densities as neighborhood
+
+density, and here we have dense
+semantic neighborhood density.
+
+So for for high levels of
+semantic neighborhood density.
+
+This line is pretty flat, so
+the relationship between
+
+iconicity and sensory
+experience rating is very
+
+weak.
+
+and, for kind of intermediate levels of semantic
+
+neighborhood density, there is
+a weak positive relationship.
+
+And for.
+
+The.
+
+Sparse semantic neighborhood
+densities. There is actually
+
+strongly positive relationship
+between sensory experience
+
+ratings and iconicity.
+
+Now.
+
+This in this plot the
+authors have just chosen
+
+three what they considered.
+
+Representative values of this
+continuous variable semantic
+
+neighborhood density.
+
+In a perspective plot that you
+can see here on the right that
+
+it takes into account all the
+values of all the all the three
+
+variables so they take a little
+bit of getting used to when
+
+interpreting. So let me talk you
+
+through it. We basically have
+3 axis, so it's a 3D plot and
+
+we have iconicity.
+
+On the Y axis.
+
+We have a.
+
+Sensory experience rating on
+this axis and then we have.
+
+Semantic neighborhood
+density on this axis.
+
+So if we just focus on the
+relationship between sensory
+
+experience rating and iconicity, we look at that low value
+
+of er very high values of.
+
+Semantic neighbor density. So if
+we look at this end of the plot,
+
+this bottom edge, then you can
+see that this line is pretty
+
+flat, so not much going on.
+
+On the other hand, if you move
+up to kind of a very sparse
+
+semantic neighborhood density,
+
+then. This line is, it is.
+
+Moderately positive or even
+strongly positive so.
+
+The relationship between.
+
+Semantic, sorry, the
+relationship between sensory
+
+experience rating and iconicity
+varies depending on where along
+
+the semantic neighborhood
+
+density. Axis you look.
+
+And in a plot like this.
+
+That is, is visualised quite nicely.
+
+Now, interpreting an interaction
+takes a little bit of time, so
+
+it is. It is really worth it to
+consider what the individual
+
+coefficients mean and trying to use different plots to show these
+
+show these effects.
+
+OK, in summary.
+
+We looked at a different type of
+interaction between two
+
+continuous variables. And
+it's really important to
+
+remember to center and
+standardize your continuous
+
+predictors to facilitate the
+interpretation of the model.
+
+Then I'll be. I will
+reiterate that it is
+
+important to spend some time
+interpreting the
+
+coefficients.
+
+And Please remember that if the
+interaction is significant, you
+
+can't really interpret the
+predictors in isolation anymore.
+
+And finally, excuse me finally,
+the slope for the interaction
+
+can be read as if both
+
+predictors increase. Then
+something happens to the
+
+outcome variable.
+
+OK, that's it for now. Thank you
+very much for your attention.
