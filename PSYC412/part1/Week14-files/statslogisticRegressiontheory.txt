@@ -1,0 +1,1371 @@
+﻿Hi, it's Margriet
+
+So in all the models we've
+considered so far, we have dealt
+
+with continuous outcome
+
+variables. We have
+previously looked at
+
+incorporating categorical
+predictors, but what if the
+
+response or the outcome
+itself is categorical? So
+
+that is what we will be
+looking at today.
+
+Now what do we mean by a
+discrete or categorical outcome
+
+variable? Now categorical
+outcome variables are
+
+ubiquitous, ubiquitous in
+psychology and examples include
+
+responses in any two forced
+choice task. So for instance, in
+
+a face recognition task, the
+participant is asked to decide
+
+which one of two faces they have
+
+seen before. Or an it might
+be. Another example, is the
+
+likelihood of cancellations
+occurring in a
+
+schizophrenic patient
+receiving a particular
+
+treatment or an. You might
+want that the likelihood
+
+that a child.
+
+Falls in one of two groups like good readers versus poor
+
+readers, or the likelihood that somebody will move their eyes
+
+the left or the right.
+
+Um
+
+These are all examples of
+categorical outcome variables
+
+so there are a lot. But before we look at logistic
+
+regression, let's first talk
+about why it is a bad idea
+
+to use the linear model to
+analyze these. So ANOVA or
+
+simple or multiple linear
+regression.
+
+Now.
+
+If you are interested in some
+binary event, so participants
+
+accuracy in a false choice task.
+For instance, each measurement
+
+will be represented as a 0.
+
+Inaccurate or wrong accurate?
+
+And what you could do is that
+you kind of calculate the
+
+proportion of accurate
+responses for each
+
+participant. So percent
+correct an many people do
+
+that and then stick that number into a in an ANOVA
+
+simple linear regression, or
+multiple linear regression.
+
+No, that is a bad idea for two
+
+reasons. Firstly, the scale. So
+the values that the outcome
+
+variable can take is
+intrinsically limited, so it's
+
+bounded because it is.
+
+Zero and one. Can't be less than
+0. Can't be more than one.
+
+And that leads to problems
+if you treat it as if it
+
+is a continuous variable.
+
+And the other thing is that you
+might remember that to apply a
+
+linear model, you would usually check whether the ah 
+
+whether the residuals are show
+homoskedasticity. So whether the
+
+variance is kind of constant
+across different fitted values.
+
+And that is often not the
+case for a discrete or
+
+categorical outcome.
+Variables in more often
+
+than not, the variance is
+actually proportional to
+
+the mean of any those kind
+of count data.
+
+So let's look at each of
+these issues in term.
+
+And let's first think about this
+banded scale issue. So in this
+
+graph you see.
+
+In each of these plots you see
+the proportion correct responses
+
+on the Y axis made by each
+participant in 12 blocks.
+
+An in in in learning
+experiment. So in one
+
+condition did only learn nouns
+in another condition, then
+
+learn nouns and verbs come
+into mixed and in the third
+
+condition they were learning
+new verbs and that condition
+
+were only verbs. So across the
+X axis here we have block.
+
+Now as you can see.
+
+Across the blocks, they
+start to become more often
+
+correct, so they they are
+learning these words.
+
+So these black solid lines
+they showed the best fit for
+
+the effect of block for all
+the participants, but of more
+
+interest is that other other
+kind of grey dots and Gray
+
+lines because they showed a
+linear model best fit for the
+
+block effect, but for each
+participant an individually.
+
+So the er each Gray line here is one participant.
+
+Now the.
+
+Accuracy responses of a
+
+participant in. A set of trials
+like this can only vary between
+
+zero and one at the trial level. Either they are correct on that
+
+trial, in which case it is one
+or they are incorrect an, in
+
+which case the value is 0. So
+there is an inbuilt or intrinsic
+
+limit to the predicted
+proportions of the responses
+
+that can be correct.
+
+And you know that it can't go
+beyond zero or above or above 1.
+
+But here these Gray lines
+illustrated this problem,
+
+so this is a linear model
+fit, right?
+
+That can basically predict any
+value. So if you follow these
+
+lines you can see that some of
+them go well beyond one, and
+
+they could theoretically also
+can go below 0.
+
+So you could predict that the
+proportion of a person's
+
+responses that are correct
+could be less than zero or
+
+greater than one, and that is
+clearly impossible.
+
+Now this.
+
+If you treat if you treat a
+categorical outcome variable as
+
+if it is a continuous variable.
+
+This bounded scale problem also
+can lead to kind of spurious
+
+interactions, and that can
+happen in the following
+
+scenario. So if participants are
+already highly accurate, kind of
+
+more than 90% in one condition.
+
+But not in the other condition.
+And then they participate in an
+
+intervention and you would look
+at how accurate they were after
+
+they had taken part in this
+intervention. Then you can only
+
+go up so far from condition one
+right because they were already
+
+at 90% and before they even did
+the year the intervention. So in
+
+condition one, there's only very
+little room to kind of become
+
+better where because it is a better skill because you can't go
+
+beyond 100%. Accurate.
+
+Where is in condition B or in in
+the other condition where there
+
+were only 50% correct before the
+intervention. There's a lot of
+
+room for improvement, so you
+might get kind of spurious
+
+interaction effects if you treat
+a categorical variable as if it
+
+is a continuous variable. That
+could take any.
+
+Value.
+
+And therefore, if an interaction like that, occurs it is
+
+difficult to know whether any whether that interaction effect
+
+reflects something theoretically
+meaningful, or whether it's just
+
+an artifact of the band nature
+of the scale.
+
+Now the other fundamental
+problem with using analysis
+
+approaches like an ANOVA or regression to analyze
+
+categorical outcome variables
+like equity of responses is that
+
+we cannot assume that the
+variance in accuracy of
+
+responses will be homogeneous
+across different experimental
+
+conditions. So you might
+remember this these pictures on
+
+the slide here. So this shows homoscedasticity and these are patterns
+
+where this is not the case, so.
+
+The point basically is that it
+is unlikely that a categorical
+
+outcome variable will show this.
+
+And and that is illustrated in this figure as well, so
+
+this is the rainy days
+example from the interactive
+
+textbook by Dale Barr
+
+So here you are looking at the
+number of rainy days in four
+
+different European cities. So
+Barcelona has the lowest number
+
+and Brussels has the highest
+number, so this is about 55
+
+rainy days on average a year.
+And here you have almost 200
+
+rainy days a year and.
+
+You can see that this
+distribution is kind of thinner
+
+than this distribution, so the
+higher the mean, the fatter the
+
+distribution gets. So the variance is proportional to
+
+the mean, which suggests that there is no homogeneity of variance.
+
+So to summarize, kind of.
+
+In yeah, to summarize up for
+the things that we talked
+
+about up to now, linear models
+assume that outcomes are
+
+unbounded, so allow
+predictions that are
+
+impossible when outcomes are
+in fact bounded, as is the
+
+case for accuracy rather
+categorical variables.
+
+And Secondly. Linear models
+assume homogeneity of
+
+variance, but that is unlikely
+and anyway cannot be predicted
+
+in advance when outcomes are
+categorical variables.
+
+So you can think of the problem
+like this, so if you're using
+
+ANOVA or a regression to analyze
+the variation in the categorical
+
+outcome, measure like the
+accuracy of responses, it is
+
+basically only an approximation.
+
+So if you're lucky and the
+proportions of responses that
+
+are correct are on average kind
+of .5 or in different
+
+conditions, similar distances from .5, then your
+
+approximation will give you a reasonable estimate of the
+
+effect of your experimental conditions on your outcome
+
+measure. So if you're not interested in accuracy
+
+prediction of outcomes at the
+extremes are you do not mind
+
+if your regression.
+
+Or whatever you do in normal
+linear model of outcome accuracy
+
+can give you impossible
+predicted values as in below 0
+
+in above 1.
+
+And then again, the
+approximation is acceptable.
+
+However, it seems a little bit
+hard to justify that we should
+
+tolerate kind of the limitations
+in these traditional approaches
+
+when we have perfectly
+appropriate models available.
+
+To us to to analyze these data
+properly. So these are the
+
+generalized so generalized
+rather than general generalized
+
+linear linear models.
+
+OK. So now we're going to
+take a slight detour by
+
+talking about distributions.
+
+Now remember that if you fit a
+linear regression model, you
+
+need to check whether the
+residuals are normally
+
+distributed, doesn't matter
+whether the outcome variable
+
+itself is or is not normally
+distributed. It is all about the
+
+residuals. So I'm talking here.
+I'm talking about a perfectly
+
+normal linear model with a
+continuous outcome variable.
+
+So in the graph on the slide,
+you see a situation where the
+
+outcome variable, itself, is not normally distributed. So so
+
+just look at this solid black
+
+line here.
+
+It is. This is actually a
+histogram.
+
+Or it's a density plot, but it's
+the same shows the same thing as
+
+a as a histogram, and you can
+see that there are more
+
+observations here, kind of
+towards the left. Then there are
+
+towards the right, everything
+there is positive skew here.
+
+Now.
+
+So the outcome variable itself
+is not normally distributed.
+
+However, this distribution can
+arise from multiple normal
+
+distributions and that is shown
+by these dashed lines, so here.
+
+So if you fit a Model to this of the form kind of an Y as a
+
+function of group.
+
+Um? Then you will build
+a prediction for each
+
+of these groups, say.
+
+If these values are drawn from underlying normal
+
+distributions, then the
+residuals will also be normally
+
+distributed, so as long as.
+
+These individual distributions
+of these individual groups are
+
+normally distributed.
+Residuals will be normally
+
+distributed. That is kind of encapsulated on the
+
+right of the slide. So if you
+look at this formula here.
+
+It shows Y is assumed to be.
+
+Generated by normally
+distributed process with a mean
+
+of Mew and a standard deviation of Sigma.
+
+So.
+
+The idea is that Y that's this
+
+thing. Comes from normally the data that contribute to it
+
+had come from a kind of normal.
+
+Distribution.
+
+Now.
+
+The Y values change as a function of your predictor? That's the
+
+whole idea of kind of wanting to
+
+predict. Different values of Y based on certain predictors X
+
+so your Y values change as a
+function of predictors and
+
+predicting that basically
+predicting a shifting mean as a
+
+function of X.
+
+So how it shifts depends on the
+slope of course of this. This
+
+beta one, so we can try to
+predict Y values based on this
+
+equation that's used to linear
+
+regression equation. And it is the job off regression to
+
+supply the corresponding estimates rightful beta's
+
+zero and beta one.
+
+Now this is all just about
+linear regression. Everything as
+
+we have been using it. The only
+difference is that we've started
+
+to think about the process that
+has generated the data.
+
+OK, now let's talk about the
+situation where the process
+
+that has generated data
+wasn't normally distributed.
+
+And that is what the generalized
+linear framework does.
+
+So it generalizes the linear
+model framework to incorporate
+
+data generation generation. Generating processes that
+
+follow any distribution.
+
+So an and a type of generalized
+linear model that we will look
+
+at today is logistic regression.
+
+So that's it within the
+generalized linear framework and
+
+the generalized linear framework
+generalizes the linear model
+
+framework to incorporate data
+generating processes that follow
+
+any distribution, rather than
+just a normal distribution.
+
+OK. Now, logistic regression is
+
+assumed. For logistic regression that this assumed
+
+that the response Y has been generated by a process that
+
+follows a binomial
+distribution.
+
+So the binomial distribution has two parameters N and p.
+
+And so P is the probability
+parameter and describes the
+
+probability that Y is either
+zero or one.
+
+It being binary.
+
+N is the trial parameter, so how many trials have been
+
+conducted and for our
+purposes we will only use
+
+logistic regression
+exclusively to model data at
+
+the individual trial level.
+So we set and to one. So in
+
+that case binomial
+distribution characterizes
+
+the probability of observing
+a single event, such as
+
+whether a participant correctly identify the face
+
+on that trial.
+
+Now the binomial distribution
+with N set to one has a
+
+special name. It is called the Bernoullie distribution.
+
+So the way we're going to use logistic regression 
+
+assumes that Y is generated by process that follows the
+
+Bernouille distribution.
+
+Now in this figure you see what the Bernoullie distribution
+
+assigns to the values of zero
+and one for three different
+
+parameters P. Say P .8.
+
+It's much the probability of something of an event
+
+occurring. It's much more likely
+than if not occurring at the
+
+probability of .2.
+
+It's much more likely that event
+does not occur, and if it does
+
+occur and you can see at P. .5,
+it is kind of a 5050 chance.
+
+Now, in the context of logistic
+regression, you are generally
+
+interested in modeling P as a
+function of one or more
+
+predictors. So, for example,
+you might want to model the
+
+probability of recognizing face
+as a function of the number of
+
+presentations during training.
+Or you might want to model the
+
+probability of passing a second
+language test as a function of
+
+language, background, age, and
+educational background.
+
+So ultimately you want something
+like the probability of
+
+something. Equals. Beta 0
+plus beta 1 * X So you want your
+
+predictor with its slope. And of
+course there will be an
+
+intercept as well.
+
+So you want to use
+that to predict.
+
+A certain probability of
+something.
+
+You want different probabilities
+for different, so you basically
+
+want different probabilities for
+different values of your X.
+
+Now here's the problem. The equation beta 0 plus beta 1 *
+
+X. Can predict any continuous
+
+value. But probabilities have to
+be between zero and one, so that
+
+means that you need to find a
+way of constraining what
+
+regression can predict.
+
+So you need to kind of crunch
+the output of the predictive
+
+equation to fit into the
+interval between zero and one.
+
+So we want. To do something to this predicted feq.
+
+So that's its outcome can only
+vary between zero and one.
+
+Now to go to mathematical
+function for that is the
+
+logistic function, which is
+why it is called logistic
+
+regression.
+
+So rather than modeling the
+probability P directly as a
+
+function of the predictors,
+the output of the predictive
+
+equation is transformed via
+the logistic.
+
+Now on this slide you see the
+effects of the logistic
+
+function. So notice how negative
+numbers. So this is kind of just
+
+the normal scale, so here minus
+
+one. After you've applied the
+
+logistic function. But the
+number will be positive and
+
+it will be.
+
+Between zero and one.
+
+So applying the logistic
+function to the numerical value
+
+0 yields .5.
+
+And etc etc. So you kind of crunch it all. The numbers from
+
+what was a continuous variable
+within this limited range.
+
+And in order, logistic function
+is implemented in command
+
+plogis(), so that's good.
+
+Show me that later.
+
+Now before we start fitting
+logistic regression models, we
+
+need to talk about one other
+kind of bit of math.
+
+And you need to know about log odds. Also called logits.
+
+So. The odds of something
+expresses the probability of an
+
+event occurring divided by that event, not occuring or a bit more
+
+formally. So probability of the
+event event happening divided by
+
+1 minus the prompt that
+probability and you can express
+
+that an. You can express this
+statement by kind of plugging.
+
+.5 P is .5 in here, so if you
+put in .5 here and.
+
+Then here you get 1 - .5 = .5 / .5 = 1.
+
+And so that that you have heard, maybe the expression the odds are
+
+one to one which describes there
+kind of a 50% chance of an event
+
+occurring. And if that's what I
+what I meant to say first. So
+
+let me start again.
+
+The odds are defined like this.
+
+You will have heard of this
+expression an the odds are one
+
+to one, and that describes a
+5050 chance of something
+
+happening and you can express
+this by putting .5 into this
+
+equation. So if you put .5 in
+here and .5 there, you get .5 /
+
+.5 = 1. So the odds are kind of
+1 to one.
+
+Now odds range from zero to Infinity and that it's a
+
+continuous scale, which is good
+because we need to. It makes it
+
+much more amenable to something
+like regression, but we don't
+
+need to apply and and at the
+
+natural logarithm. And so that
+it ranges from negative to
+
+positive Infinity rather than
+from zero to Infinity.
+
+So the point of using the log
+term form is that you get a
+
+continuous scale that ranges
+from negative Infinity to
+
+positive Infinity.
+
+So these are steps that you kind
+of have to take to ask to be
+
+able to estimate effect over
+bound with outcome that is.
+
+Between zero and one and when we transform it odds and then to log
+
+odds so we can make sure that we crunch it into that we use what
+
+was between zero and one. We
+transform into something that is
+
+actually continuous and.
+
+Varies from minus or negative Infinity to positive
+
+Infinity and that is much
+more useful if you're doing
+
+regression.
+
+So in this table you can see how
+the different probabilities
+
+correspond to odds.
+Probabilities here correspond to
+
+odds here and how these in turn respond to log odds.
+
+So log odds take quite a bit of time to get used to really
+
+but a good thing to remember to start out with are bound log odds
+
+is that a log odd of 0.
+
+That corresponds to probability
+of .5 points one to one.
+
+odds
+
+And a positive log odds.
+
+Corresponds to probabilities
+larger than .5.
+
+And negative log odds correspond to probabilities
+
+smaller than .5.
+
+So for example, if you're modeling face recognition then a
+
+positive log odds so here.
+
+Indicates that the face is more
+likely to be recognized.
+
+Now as I said the the whole point of talking about log odds is
+
+that it puts probabilities onto
+a continuous scale, which is
+
+more amenable to being modeled
+
+with regression. So logistic
+regression actually predicts the
+
+log odds or logits.
+
+So here we have our predicted
+part of the equation and what
+
+you are actually predicting is
+not the probability P what the
+
+logit of their probability.
+
+So um those relationships between logits or log odds and
+
+probabilities you see on there
+on the right here as well. So
+
+the logistic function.
+
+Crunches logits onto and into the range between zero and one
+
+and the logit function
+expresses probability on a
+
+scale that ranges from negative Infinity to positive
+
+Infinity. So these kind of
+opposite or inverse
+
+transformations.
+
+Now important thing for now is
+to remember this so when we're
+
+doing logistic regression with
+trying to estimate and we're
+
+trying to predict.
+
+What probability of something is
+going to be? But we're not
+
+actually predicting the
+probability because of solving
+
+this. This bounded skill problem. We are predicting the
+
+logit of that probability.
+
+So a second summary, if you have a categorical outcome
+
+variable, there's two problems
+we have that it has an
+
+intrinsically bounded skill
+because it varies between zero
+
+and one. And the second problem
+is that the homogeneity of
+
+variance assumption is not met.
+So these two things an are the
+
+reasons that it is not a good
+idea to use ANOVA or any simple
+
+or a multiple linear regression
+model to analyze these types of
+
+data. Instead you should be
+using generalized linear model
+
+and a bernouille distribution is a special case of that. It's
+
+actually a special case.
+
+Using a binomial distribution to fit the model.
+
+And to make kind of move from
+a situation where you have
+
+probabilities to something that you can analyze in a
+
+regression you need to
+transform these probabilities
+
+to odds to put him on a
+continuous scale, and then you
+
+have to transform these odds to log odds and so that they
+
+can vary between minus and
+negative and positive. And
+
+that is what you're then using for you for your modeling.
+
+OK, now let's look at an example
+and hopefully that will make
+
+things a bit clearer.
+
+So this is an example that is
+inspired by some real data,
+
+but the data and you see here actually artificial data
+
+and it is data with a
+categorical outcome variable
+
+or speech error. So whether
+or not somebody makes a
+
+speech error on that
+particular trial as a
+
+function of blood alcohol
+concentration. So how drunk
+
+you are?
+
+Each dot here is a data point and you can see them less.
+
+Lower levels of blood alcohol
+concentration make it more
+
+likely that don't make a
+mistake and higher levels
+
+make it more likely that you do make a speech error
+
+So that is, that's just the data
+that we are going to fit. The
+
+logistic regression model to
+
+Now these.
+
+Data we can come read and you
+know that's just the name of the
+
+file. We read it in and that is
+what the table looks like. So we
+
+have the column called BAC. That
+is the blood alcohol
+
+concentration predictor variable and we have a column called
+
+speech error which contains the information about the presence
+
+or absence of a speech error. So 0 means no speech
+
+error, one means there was a speech error so that speech
+
+error is our outcome variable.
+
+Now the function for fitting a
+logistic regression model is
+
+called GLM. So here for
+generalized linear model.
+
+And you specify your model
+formula as before, but in
+
+addition you need to specify the
+assumed distribution of the data
+
+generation process. So here we
+have our outcome.
+
+variable here we have a predictors modelling speech error as a
+
+function of blood alcohol concentration. We've told R
+
+what our data are.
+
+And in addition, have to
+specify this.
+
+Arguments here.
+
+So.
+
+Here we tell R which.
+
+Distribution, we think that the data generation process
+
+has come from.
+
+So this is done in the family
+argument and the named family
+
+comes from the fact that you
+can think of any basic
+
+distribution's shape, whether its gaussian or
+
+binomial or whatever. As a
+family of distributions. That
+
+is this because you get by
+changing the parameters allows
+
+you to create lots of versions
+of that same distribution.
+
+Now you specify the family to be binomial. Remember the bernouille
+
+distribution is a special case
+of the binomial distribution.
+
+So, and we're storing all of
+that into an object that we
+
+call alcohol model.
+
+Now we can use tidy from the broom package to retrieve
+
+the coefficients table, and as
+always it is important to
+
+define sometime to
+interpreting yes the estimate
+
+column here so that column.
+
+And in this case, in the case of
+logistic regression, these
+
+estimates are log odds or logits
+
+So the first thing to look for is the sign of its
+
+Coefficient, so here we have to slope for BAC and that is
+
+positive, which means that an
+increase in blood alcohol
+
+concentration corresponds to an
+increase in the log odds of
+
+observing a speech error.
+
+Then the other thing to notice
+
+that the. The Intercept is
+negative, so that indicates that
+
+for Axis zero it is the case
+that the probability of making
+
+this speech error is smaller
+
+than .5. In other words, sober
+people make a speech error less
+
+than 50% of the time.
+
+Now, the fact that the P value here for BAC coefficient is
+
+significant can be translated
+into something like.
+
+Obtaining a slope of 16.11 or
+more extreme than that is quite
+
+unlikely if the null hypothesis
+is true. So therefore you can
+
+reject the null hypothesis.
+
+So finally this statistic here actually is
+
+Z rather than T. So when you fit a linear model, it is
+
+the statistic for your
+coefficients is T, But if you
+
+fit a generalized linear model the statistic for your
+
+coefficients is Z
+
+We won't go into the reasons why
+that is the case here. Just
+
+remember that because it's
+relevant when you report it, so
+
+you could report this along with
+something like this, so blood
+
+blood alcohol concentration
+significantly predicted the
+
+occurrence of a speech error,
+and then the logit coefficient
+
+is that it's standard deviation
+is that in there?
+
+Z is 3.3 and P value is that.
+
+OK, now. To get rid of
+those confusing log odds, let's
+
+calculate some probabilities. So first we'll extract the
+
+coefficients. So what we're just
+we're doing here, we have a
+
+model. I'm and we ask R to put the estimate that is in
+
+the first location into.
+
+An object that we call
+
+intercept. And yes the second estimate, so I just
+
+go back to the previous slide
+
+First estimate second
+estimate. So for estimate,
+
+first location, second
+location.
+
+We put that into something that we call slope. If we don't just
+
+call it, we say intercept. That
+will tell us that it is minus
+
+3.64. An and the slope is 16.11.
+
+So now we can compute the log odds values for a blood alcohol
+
+concentration, or say 0 so
+completely sober and for a blood
+
+alcohol concentration level of
+.3, which is pretty drunk.
+
+So we use our predictive
+equation. So that's the
+
+intercept. What's the slope multiplied by the value of X
+
+So in case that is 0, so that's
+just the Intercept basically,
+
+and in the other case it is the
+Intercept plus the slope
+
+multiplied by .3.
+
+Value of X is .3 and that gives
+us this value so.
+
+Minus 3.64 and 1.19 are the
+predicted log odds for the
+
+corresponding blood alcohol
+
+concentrations.
+
+And from there we can.
+
+Predict calculates predicted
+
+probabilities. So to get the
+predicted probabilities rather
+
+than the log odds of making a speech error, you have to apply
+
+the logistic function. Plogis() to these logg odds so we're saying
+
+OK use. Give me use this. The
+logistic function on this whole
+
+thing and then we get a number.
+So this number.
+
+Means that for sober people.
+
+Remember value X, value of X is zero. You expect speech errors
+
+to occur on average, about 2.5%,
+so we get this value here
+
+.025. I'm so given this model
+you expect speech errors to
+
+occur on average about 2 1/2%
+of the time. If people are
+
+completely sober.
+
+Now for drunk people and the
+predicted probability is .77.
+
+So this er, so given this model, you expect speech
+
+errors to occur on average about 77% of the time.
+
+Now, it's quite a lot to get your head around.
+
+But yeah, well, we'll get some
+practice in in the lab.
+
+And yeah, I hope this has given
+you some sort of introduction
+
+and to make some sort of sense
+of all this logistic regression
+
+business. Thank you very much
+for your attention.

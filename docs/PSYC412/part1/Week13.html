@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../PSYC412/part1/Week14.html" rel="next">
 <link href="../../PSYC412/part1/Week12.html" rel="prev">
 <link href="../../Images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -310,6 +311,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../PSYC412/part1/Week13.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 13. More on interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14. Logistic regression</span></a>
   </div>
 </li>
       </ul>
@@ -1129,7 +1136,7 @@ Hint
 <!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
 <p>You can download the R-script that includes the relevant code here: <a href="Week13-files/412_wk13_labAct1_withAnswers.R">412_wk13_labAct1_withAnswers.R</a>.</p>
 <ol type="1">
-<li><p>Do you notice anything about the name of one of the variables and the name of the data table? <strong>Both the data table and one of the variables are called ‘beauty’. Not a problem, as such as long as you don’t get confused.</strong></p></li>
+<li><p>Do you notice anything about the name of one of the variables and the name of the data table? <strong>Both the data table and one of the variables are called ‘beauty’. The code works, but it is not good practice. It would be better to have different names for the data table and the variable, to you or R getting confused.</strong></p></li>
 <li><p>Go back to the research question (see under ‘Background’ above), which of these three variables is the outcome variable? Which ones are the predictors? <strong>The research question is ‘Do professors’ beauty score and age predict how students evaluate their teaching?’ From this we can deduct that the outcome variable is teaching evaluation score and that the predictors are age and beauty score.</strong></p></li>
 <li><p>Can you write an interpretation of the above plots in plain English? <strong>A moderate negative association seems present between beauty score and age: with increasing age, beauty score decreases. A moderate positive association seems present between beauty score and teaching evaluation: professors with higher beauty scores also receive higher teaching evaluations. Not much of a association seems present between age and teaching evaluation (the line is pretty horizontal).</strong></p></li>
 <li><p>What is the difference between the scatterplots plotting the raw data and the ones plotting the centered and standardised data? <strong>The units of the x-axis have changed from years (for age) and scores (for beauty) to standard units, with zero in the middle.</strong></p></li>
@@ -1574,6 +1581,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../PSYC412/part1/Week14.html" class="pagination-link" aria-label="Week 14. Logistic regression">
+        <span class="nav-page-text">Week 14. Logistic regression</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
