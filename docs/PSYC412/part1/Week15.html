@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 14. Logistic regression – Statistics for Psychologists</title>
+<title>5. Poisson regression – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../PSYC412/part1/Week15.html" rel="next">
-<link href="../../PSYC412/part1/Week13.html" rel="prev">
+<link href="../../PSYC412/part1/Week14.html" rel="prev">
 <link href="../../Images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -162,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week11.html">PSYC412</a></li><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week14.html">Week 14. Logistic regression</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week11.html">PSYC412</a></li><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week15.html">5. Poisson regression</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -286,13 +285,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../PSYC412/part1/Week14.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../PSYC412/part1/Week14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 14. Logistic regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../PSYC412/part1/Week15.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part1/Week15.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">5. Poisson regression</span></a>
   </div>
 </li>
@@ -308,32 +307,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sec-wk14-lectures" id="toc-sec-wk14-lectures" class="nav-link active" data-scroll-target="#sec-wk14-lectures">Lectures</a></li>
-  <li><a href="#sec-wk14-reading" id="toc-sec-wk14-reading" class="nav-link" data-scroll-target="#sec-wk14-reading">Reading</a>
+  <li><a href="#lectures" id="toc-lectures" class="nav-link active" data-scroll-target="#lectures">Lectures</a></li>
+  <li><a href="#reading" id="toc-reading" class="nav-link" data-scroll-target="#reading">Reading</a>
   <ul class="collapse">
-  <li><a href="#barr-2020" id="toc-barr-2020" class="nav-link" data-scroll-target="#barr-2020">Barr (2020)</a></li>
   <li><a href="#winter-2020" id="toc-winter-2020" class="nav-link" data-scroll-target="#winter-2020">Winter (2020)</a></li>
   </ul></li>
-  <li><a href="#sec-wk14-pre-lab-activities" id="toc-sec-wk14-pre-lab-activities" class="nav-link" data-scroll-target="#sec-wk14-pre-lab-activities">Pre-lab activities</a>
+  <li><a href="#pre-lab-activities" id="toc-pre-lab-activities" class="nav-link" data-scroll-target="#pre-lab-activities">Pre-lab activities</a>
   <ul class="collapse">
-  <li><a href="#pre-lab-activity-1-getting-ready" id="toc-pre-lab-activity-1-getting-ready" class="nav-link" data-scroll-target="#pre-lab-activity-1-getting-ready">Pre-lab activity 1: Getting ready</a></li>
-  <li><a href="#pre-lab-activity-2-rainy-days" id="toc-pre-lab-activity-2-rainy-days" class="nav-link" data-scroll-target="#pre-lab-activity-2-rainy-days">Pre-lab activity 2: Rainy days</a></li>
-  <li><a href="#pre-lab-activity-3-gesture-perception" id="toc-pre-lab-activity-3-gesture-perception" class="nav-link" data-scroll-target="#pre-lab-activity-3-gesture-perception">Pre-lab activity 3: Gesture perception</a></li>
+  <li><a href="#pre-lab-activity-1-getting-a-feel-for-poisson-data" id="toc-pre-lab-activity-1-getting-a-feel-for-poisson-data" class="nav-link" data-scroll-target="#pre-lab-activity-1-getting-a-feel-for-poisson-data">Pre-lab activity 1: Getting a feel for Poisson data</a></li>
+  <li><a href="#pre-lab-activity-2-getting-ready" id="toc-pre-lab-activity-2-getting-ready" class="nav-link" data-scroll-target="#pre-lab-activity-2-getting-ready">Pre-lab activity 2: Getting ready</a></li>
   </ul></li>
-  <li><a href="#sec-wk14-lab-activities" id="toc-sec-wk14-lab-activities" class="nav-link" data-scroll-target="#sec-wk14-lab-activities">Lab activities</a>
+  <li><a href="#lab-activities" id="toc-lab-activities" class="nav-link" data-scroll-target="#lab-activities">Lab activities</a>
   <ul class="collapse">
-  <li><a href="#lab-activity-1-more-work-on-gesture-perception" id="toc-lab-activity-1-more-work-on-gesture-perception" class="nav-link" data-scroll-target="#lab-activity-1-more-work-on-gesture-perception">Lab activity 1: More work on gesture perception</a></li>
+  <li><a href="#lab-activity-1-visual-dominance" id="toc-lab-activity-1-visual-dominance" class="nav-link" data-scroll-target="#lab-activity-1-visual-dominance">Lab activity 1: Visual dominance</a></li>
   </ul></li>
+  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">Answers</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week11.html">PSYC412</a></li><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week14.html">Week 14. Logistic regression</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week11.html">PSYC412</a></li><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week15.html">5. Poisson regression</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Week 14. Logistic regression</h1>
-<p class="subtitle lead">Written by Margriet Groen (partly adapted from materials developed by the PsyTeachR team at the University of Glasgow)</p>
+<h1 class="title">5. Poisson regression</h1>
+<p class="subtitle lead">Written by Margriet Groen (partly adapted from Winter (2020)</p>
 </div>
 
 
@@ -350,35 +348,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>All of the models considered up to this point dealt with continuous response/dependent/outcome variables. Previously we looked at categorical predictors, but what if the response itself is categorical? For instance, whether the participant has made an accurate or inaccurate selection or whether a job candidate gets hired or not. Another common type of data is count data, where values are also discrete. Often with count data, the number of opportunities for something to occur is not well-defined. For instance, the number of speech error in a corpus, the number of turn shifts between speakers in a conversation or the number of visits to the doctor. Logistic regression allows us to model a categorical response variable.</p>
-<section id="sec-wk14-lectures" class="level2">
-<h2 class="anchored" data-anchor-id="sec-wk14-lectures">Lectures</h2>
+<p>Previously, we looked at logistic regression in the context of a binomial outcome variable, that is, a two-level variable such as correct vs.&nbsp;incorrect, or looking to the left vs.&nbsp;the right. Poisson regression is another type of generalized linear model that is particularly useful for count data.</p>
+<section id="lectures" class="level2">
+<h2 class="anchored" data-anchor-id="lectures">Lectures</h2>
 <p>The lecture material for this week follows the recommended chapters in Winter (2020) – see under ‘Reading’ below – and is presented below:</p>
-<p><strong>Logistic regression (~38 min)</strong></p>
-<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61351&amp;code=dY~VkSwFvqTnJNkn0kHODUR8p6LrBWPF6&amp;cc=1" frameborder="0" allowfullscreen=""></iframe>
-<p><a href="Week14-files/stats_logisticRegression_theory_dis_1pp.pdf">Slides</a> <a href="Week14-files/statslogisticRegressiontheory.txt">Transcript</a></p>
+<p><strong>Poisson regression (~28 min)</strong></p>
+<iframe allow="autoplay; fullscreen" height="282" width="500" src="https://estream.lancaster.ac.uk/Embed.aspx?id=61614&amp;code=e0~6vwx9wNCiyzNhykSayGUxAACLB7L9e&amp;cc=1" frameborder="0" allowfullscreen=""></iframe>
+<p><a href="Week15-files/stats_poissonRegression_theory_dis_1pp.pdf">Slides</a> <a href="Week15-files/statsPoissonRegressiontheory.txt">Transcript</a></p>
 </section>
-<section id="sec-wk14-reading" class="level2">
-<h2 class="anchored" data-anchor-id="sec-wk14-reading">Reading</h2>
-<section id="barr-2020" class="level3">
-<h3 class="anchored" data-anchor-id="barr-2020">Barr (2020)</h3>
-<p><a href="https://psyteachr.github.io/stat-models-v1/generalized-linear-mixed-effects-models.html"><strong>Link</strong></a></p>
-<p>This online textbook provides a useful overview of logistic regression. It does talk about modelling multi-level data and random effects. Don’t worry about that for now, those will be covered in the second half of 412. This week we’ll focus on ‘single-level’ data.</p>
-</section>
+<section id="reading" class="level2">
+<h2 class="anchored" data-anchor-id="reading">Reading</h2>
 <section id="winter-2020" class="level3">
 <h3 class="anchored" data-anchor-id="winter-2020">Winter (2020)</h3>
 <p><a href="https://eu.alma.exlibrisgroup.com/leganto/public/44LAN_INST/citation/83408786230001221?auth=SAML"><strong>Link</strong></a></p>
-<p><strong>Chapter 12</strong> provides a comprehensive introduction to logistic regression and its implementation in R.</p>
+<p><strong>Chapter 13</strong> provides a clear introduction to Poisson regression and its implementation in R.</p>
 </section>
 </section>
-<section id="sec-wk14-pre-lab-activities" class="level2">
-<h2 class="anchored" data-anchor-id="sec-wk14-pre-lab-activities">Pre-lab activities</h2>
+<section id="pre-lab-activities" class="level2">
+<h2 class="anchored" data-anchor-id="pre-lab-activities">Pre-lab activities</h2>
 <p>After having watched the lectures and read the textbook chapters you’ll be in a good position to try these activities. Completing them before you attend your lab session will help you to consolidate your learning and help move through the lab activities more smoothly.</p>
-<section id="pre-lab-activity-1-getting-ready" class="level3">
-<h3 class="anchored" data-anchor-id="pre-lab-activity-1-getting-ready">Pre-lab activity 1: Getting ready</h3>
+<section id="pre-lab-activity-1-getting-a-feel-for-poisson-data" class="level3">
+<h3 class="anchored" data-anchor-id="pre-lab-activity-1-getting-a-feel-for-poisson-data">Pre-lab activity 1: Getting a feel for Poisson data</h3>
+<p>To get a feel for Poisson data, we’ll use the <code>rpois()</code> function to generate random data that is Poisson-distributed. <code>rpois()</code> needs two bits of information: lambda, and how many numbers you want to generate.</p>
+<p>As usual, before we get stuck in we need to set up a few things.</p>
+<blockquote class="blockquote">
+<p><strong>TASK</strong>: Add code to clear the environment. <strong>HINT</strong>: <code>rm(list=ls())</code></p>
+</blockquote>
+<p>Next we need to tell R which libraries to use. For this pre-lab activity, we just need the <code>tidyverse</code> library.</p>
+<blockquote class="blockquote">
+<p><strong>TASK</strong>: Add code to load relevant libraries. <strong>HINT</strong>: <code>library()</code></p>
+</blockquote>
+<p>Ok, now let’s play around with different lambdas to get a feel for the Poisson distribution.</p>
+<blockquote class="blockquote">
+<p><strong>TASK</strong>: Copy the code below to your script and run it. Then change the value of <code>lambda</code> in the <code>rpois()</code> function and see how the distribution changes.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>lambda2 <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">lambda =</span> <span class="dv">2</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>lambda2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(lambda2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> lambda2, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> lambda2)) <span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>QUESTION</strong>: What do you notice about the Poisson distribution if you choose a high value for lambda?</p>
+</section>
+<section id="pre-lab-activity-2-getting-ready" class="level3">
+<h3 class="anchored" data-anchor-id="pre-lab-activity-2-getting-ready">Pre-lab activity 2: Getting ready</h3>
 <section id="get-your-files-ready" class="level4">
 <h4 class="anchored" data-anchor-id="get-your-files-ready">Get your files ready</h4>
-<p>Download the <a href="Week14-files/412_week14_forStudents.zip">412_week14_forStudents.zip</a> file and upload it into a new folder in RStudio Server.</p>
+<p>Download the <a href="Week15-files/412_week15_forStudents.zip">412_week15_forStudents.zip</a> file and upload it into a new folder in RStudio Server.</p>
 </section>
 <section id="remind-yourself-of-how-to-access-and-work-with-the-rstudio-server." class="level4">
 <h4 class="anchored" data-anchor-id="remind-yourself-of-how-to-access-and-work-with-the-rstudio-server.">Remind yourself of how to access and work with the RStudio Server.</h4>
@@ -407,32 +425,19 @@ If you have difficulty uploading files to the server
 </div>
 </section>
 </section>
-<section id="pre-lab-activity-2-rainy-days" class="level3">
-<h3 class="anchored" data-anchor-id="pre-lab-activity-2-rainy-days">Pre-lab activity 2: Rainy days</h3>
-<p>Try running the code mentioned in the online textbook by Barr. If you find it easier, use the <strong><code>rainy_days.R</code> script</strong> (in the ‘412_week14_forStudents folder you were asked to download in ’Pre-lab activity 1’). It illustrates the point that for discrete data, the variance is often not independent from the mean. In addition, it introduces some very useful R functions: What do the <code>rep()</code> function, the <code>c()</code> function and the <code>facet_wrap()</code> function do? Remember, you can type <code>?function name()</code> (e.g., <code>?rep()</code>) in the Console to get more information about a function. Finally, can you add a graph for rainy days in Lancaster?</p>
 </section>
-<section id="pre-lab-activity-3-gesture-perception" class="level3">
-<h3 class="anchored" data-anchor-id="pre-lab-activity-3-gesture-perception">Pre-lab activity 3: Gesture perception</h3>
-<p>Please go through the example described in section 12.6 of the chapter on logistic regression in Bodo Winter’s book (link under ‘Reading’). Read the section and (simultaneously) work through the script (<code>chapter12_6.R</code>; in the ‘412_week14_forStudents folder you were asked to download in ’Pre-lab activity 1’). We’ll be working more with this dataset during the lab, so it is helpful if you get a feel for it now.</p>
-</section>
-</section>
-<section id="sec-wk14-lab-activities" class="level2">
-<h2 class="anchored" data-anchor-id="sec-wk14-lab-activities">Lab activities</h2>
+<section id="lab-activities" class="level2">
+<h2 class="anchored" data-anchor-id="lab-activities">Lab activities</h2>
 <p>In this lab, you’ll gain understanding of and practice with:</p>
 <ul>
-<li>when and why to apply logistic regression to answer questions in psychological science</li>
-<li>conducting logistic regression in R</li>
-<li>interpreting the R output of logistic regression</li>
-<li>reporting results for logistic regression following APA guidelines</li>
+<li>when and why to apply Poisson regression to answer questions in psychological science</li>
+<li>conducting Poisson regression in R</li>
+<li>interpreting the R output of Poisson regression</li>
+<li>reporting results for Poisson regression following APA guidelines</li>
 </ul>
-<p>More info will be uploaded soon.</p>
-<section id="lab-activity-1-more-work-on-gesture-perception" class="level3">
-<h3 class="anchored">Lab activity 1: More work on gesture perception</h3>
-<section id="background" class="level4">
-<h4 class="anchored" data-anchor-id="background">Background</h4>
-<p>The dataset we’ll be working with is described in section 12.6 of the chapter on logistic regression in Bodo Winter’s book (link under ‘Reading’). In the pre-lab activity, we explored the dataset and fitted a first logistic regression model assessing whether participants’ perception of a gesture (expressed as a categorical decision between a ‘shape’ vs.&nbsp;a ‘height’ interpretation of the gesture) was affected by the extent of ‘pinkie curl’. In this lab activity, we’ll be building on that analysis by: 1) Repeating the analysis with a centered pinkie curl variable, and 2) by adding a second predictor: index_curve.</p>
-<p>Our research question: Is gesture perception associated with different aspects of hand shape?</p>
-</section>
+<section id="lab-activity-1-visual-dominance" class="level3">
+<h3 class="anchored" data-anchor-id="lab-activity-1-visual-dominance">Lab activity 1: Visual dominance</h3>
+<p><a href="https://www.sciencedirect.com/science/article/abs/pii/S0010027718301288"><strong>Winter et al.&nbsp;(2018)</strong></a> showed that, on average, English words that were rated as strongly associated with the visual modality are more frequent than words more strongly associated with other sensory modalities. In this week’s lab activity we will retrace that analysis focusing on the subset of adjectives (the paper also included verbs and nouns). We’ll use sensory modality ratings as reported by Lynott and Connell (2009; see <a href="https://link.springer.com/article/10.3758/BRM.41.2.558"><strong>here</strong></a> for more info; data file: <code>lynott_connell_2009_modality.csv</code>) and word frequencies as reported by the English Lexicon Project (data file: <code>ELP_full_length_frequency.csv</code>). The <strong>research question</strong> is: Do English speakers use ‘visual’ adjectives more frequently than adjectives more strongly associated with other sensory modalities?</p>
 <section id="step-1-set-up" class="level4">
 <h4 class="anchored" data-anchor-id="step-1-set-up">Step 1: Set up</h4>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -445,7 +450,7 @@ Set your working directory
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The folder you were asked to download under ‘Pre-lab activity 1: Getting ready for the lab class’ contains the data files we’ll need. Make sure you have set your working directory to this folder by right-clicking on it and selecting ‘Set as working directory’.</p>
+<p>The folder you were asked to download under ‘Pre-lab activity 2: Getting ready for the lab class’ contains the data files we’ll need. Make sure you have set your working directory to this folder by right-clicking on it and selecting ‘Set as working directory’.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -461,7 +466,7 @@ Empty the R environment
 <p>Before you do anything else, when starting a new analysis, it is a good idea to empty the R environment. This prevents objects and variables from previous analyses interfering with the current one. To do this, you can click on the little broom icon in the top right of the Environment pane, or you can use <code>rm(list=ls())</code>.</p>
 </div>
 </div>
-<p>Before we can get started we need to tell R which libraries to use. For this analysis we’ll need <code>broom</code> and <code>tidyverse</code>.</p>
+<p>Before we can get started we need to tell R which libraries to use. For this analysis we’ll need <code>broom</code>, <code>tidyverse</code>, <code>MASS</code> and <code>pscl</code>.</p>
 <blockquote class="blockquote">
 <p><strong>TASK</strong>: Load the relevant libraries. If you are unsure how to do that, you can look at the ‘Hint’ below for a clue by expanding it. After that, if you are still unsure, you can view the code by expanding the ‘Code’ section below.</p>
 </blockquote>
@@ -494,8 +499,10 @@ Code
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The code to do this is below.</p>
-<pre><code>library(broom)
-library(tidyverse)</code></pre>
+<pre><code>library(tidyverse)
+library(broom)
+library(MASS)
+library(pscl)</code></pre>
 </div>
 </div>
 </div>
@@ -513,10 +520,13 @@ If you couldn’t upload files to the server, do this:
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://github.com/mg78/2324_PSYC402/blob/main/data/week14/hassemer_winter_2016_gesture.csv?raw=true"</span>, <span class="at">destfile =</span> <span class="st">"hassemer_winter_2016_gesture.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://github.com/mg78/2324_PSYC402/blob/main/data/week15/402_week15_forStudents/ELP_full_length_frequency.csv?raw=true"</span>, <span class="at">destfile =</span> <span class="st">"ELP_full_length_frequency.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://github.com/mg78/2324_PSYC402/blob/main/data/week15/402_week15_forStudents/lynott_connell_2009_modality.csv?raw=true"</span>, <span class="at">destfile =</span> <span class="st">"lynott_connell_2009_modality.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<p><strong>TASK</strong>: Finally, read in the data file (<code>hassemer_winter_2016_gesture.csv</code>), and familiarise yourself with its structure.</p>
+<p><strong>TASK</strong>: Finally, read in the two data files (<code>lynott_connell_2009_modality.csv</code> and <code>ELP_full_length_frequency.csv</code>) and have a look at them.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -547,29 +557,21 @@ Code
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The code to do this is below.</p>
-<pre><code>ges &lt;- read_csv("hassemer_winter_2016_gesture.csv")
-head(ges)</code></pre>
+<pre><code>lyn &lt;- read_csv('lynott_connell_2009_modality.csv')
+ELP &lt;- read_csv('ELP_full_length_frequency.csv')
+head(lyn)
+head(ELP)</code></pre>
 </div>
 </div>
 </div>
+<p><strong>QUESTION 1</strong>: Which variables do you need to address the research question?</p>
 </section>
-<section id="step-2-descriptive-statistics-and-distributions" class="level4">
-<h4 class="anchored" data-anchor-id="step-2-descriptive-statistics-and-distributions">Step 2: Descriptive statistics and distributions</h4>
-<p>As part of the pre-lab activities, you’ve already familiarised yourself with the dataset by looking at:</p>
-<ul>
-<li>how participants were distributed across the pinkie curl conditions;</li>
-<li>which response option was chosen more frequently in total and across pinkie curl conditions;</li>
-<li>proportions of response options across pinkie curl conditions</li>
-</ul>
+<section id="step-2-a-bit-of-data-wrangling" class="level4">
+<h4 class="anchored" data-anchor-id="step-2-a-bit-of-data-wrangling">Step 2: A bit of data wrangling</h4>
+<p>We need to combine the information in the data files to be able to do any analyses. We can use a ‘join’ to do this. Have a look at the online book by Hadley Wickam and Gareth Grolemund (<a href="https://r4ds.hadley.nz/joins.html"><strong>here</strong></a>) to remind yourself what a ‘join’ is. In particular, have a look at the <code>inner_join()</code> and the <code>left_join()</code>.</p>
+<p><strong>QUESTION 2</strong>: Which ‘join’ is most appropriate, the <code>inner_join()</code> or the <code>left_join()</code>? Also, does it matter which data file you specify as x and which one as y? If so, why does it matter?</p>
 <blockquote class="blockquote">
-<p><strong>TASK:</strong> Please remind yourself of these stages if necessary by revisiting the <a href="Week14-files/chapter12_6.R"><strong><code>chaper12_6.R</code> script</strong></a>.</p>
-</blockquote>
-</section>
-<section id="step-3-data-wrangling" class="level4">
-<h4 class="anchored" data-anchor-id="step-3-data-wrangling">Step 3: Data wrangling</h4>
-<p>For logistic regression, the outcome variable needs to either be coded as 0 or 1, or it needs to be coded as a factor.</p>
-<blockquote class="blockquote">
-<p><strong>TASK:</strong> Write the code to convert the outcome variable to a factor.</p>
+<p><strong>TASK</strong>: Add code to join the two data files and store the resulting table in an object called <code>both</code>. Try out the different joins and use <code>head()</code> to inspect the result.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -583,7 +585,7 @@ Hint
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Use <code>mutate()</code> and <code>factor()</code>.</p>
+<p>You should end up with a table that has 423 observations of at least 8 variables.</p>
 </div>
 </div>
 </div>
@@ -599,13 +601,32 @@ Code
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<pre><code>ges &lt;- mutate(ges, choice = factor(choice))</code></pre>
+<pre><code>both &lt;- left_join(x = lyn, y = ELP, by = 'Word')</code></pre>
 </div>
 </div>
 </div>
-<p>As with linear regression, centering your predictor makes it easier to interpret the output of a logistic regression.</p>
+<p>Next, we want to select only the variables we need. We want to use the <code>select()</code> function from <code>dplyr</code>. Because the MASS library is also loaded and that library also contains a <code>select()</code> function, we need to tell R specifically to use the one from <code>dplyr</code>. You can do this by using <code>dplyr::</code>, like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>both <span class="ot">&lt;-</span> both <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Word, DominantModality<span class="sc">:</span>Smell, Log10Freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <blockquote class="blockquote">
-<p><strong>TASK:</strong> Write the code to center the pinkie curl predictor.</p>
+<p><strong>TASK</strong>: Add the code above to your script and run it.</p>
+</blockquote>
+<p>Finally, to apply Poisson regression, we need the frequency variable as positive integers.</p>
+<blockquote class="blockquote">
+<p><strong>TASK</strong>: Use the code below to transform the frequency variable to raw values. Don’t forget to add it to your script and run it.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>both <span class="ot">&lt;-</span> <span class="fu">mutate</span>(both, <span class="at">Freq =</span> <span class="dv">10</span> <span class="sc">^</span> Log10Freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>QUESTION 3</strong>: What does this line of code do. Write a comment to summarise its function.</p>
+</section>
+<section id="step-3-visualise-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="step-3-visualise-the-data">Step 3: Visualise the data</h4>
+<p>To get a better feel for the data, let’s make some scatterplots.</p>
+<blockquote class="blockquote">
+<p><strong>TASK</strong>: Add code to make scatterplots with Freq on the y axis and each of the sensory modality ratings on the respective x axis. To be able to see more easily what is going on, limit the y-axis to values between 0 and 20000.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -619,7 +640,7 @@ Hint
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><em>Centering</em> involves subtracting the mean.</p>
+<p>Make 5 different scatterplots using <code>ggplot()</code> with<code>geom_point()</code> and <code>geom_smooth()</code>. You can use <code>ylim()</code> to limit the values on the y-axis.</p>
 </div>
 </div>
 </div>
@@ -635,17 +656,45 @@ Code
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<pre><code>ges &lt;- mutate(ges,
-    pinkie_c = pinkie_curl - mean(pinkie_curl))</code></pre>
+<pre><code>ggplot(both, aes(x = Sight, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  ylim(c(0, 20000))
+
+ggplot(both, aes(x = Touch, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw()  +
+  ylim(c(0, 20000))  
+
+ggplot(both, aes(x = Sound, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  ylim(c(0, 20000))
+
+ggplot(both, aes(x = Taste, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  ylim(c(0, 20000))
+
+ggplot(both, aes(x = Smell, y = Freq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_bw() +
+  ylim(c(0, 20000))</code></pre>
 </div>
 </div>
 </div>
+<p><strong>QUESTION 4</strong>: What do you conclude from the scatterplots?</p>
 </section>
-<section id="step-5-fit-the-regression-model-with-the-centered-variable" class="level4">
-<h4 class="anchored" data-anchor-id="step-5-fit-the-regression-model-with-the-centered-variable">Step 5: Fit the regression model with the centered variable</h4>
-<p>Now let’s re-fit choice (height vs.&nbsp;shape) as a function of pinkie curl, but using the centered variable.</p>
+<section id="step-4-the-regression-model" class="level4">
+<h4 class="anchored" data-anchor-id="step-4-the-regression-model">Step 4: The regression model</h4>
+<p>We are going to fit a Poisson regression model with <code>Taste</code>, <code>Smell</code>, <code>Touch</code>, <code>Sight</code> and <code>Sound</code> as predictors (all of these are continuous rating scales).</p>
 <blockquote class="blockquote">
-<p><strong>TASK:</strong> Write the code to fit the model and check the coefficients.</p>
+<p><strong>TASK</strong>: Fit a Poisson regression model for ‘Freq’ as a function of ‘Taste’, ‘Smell’, ‘Touch’, ‘Sight’ and ‘Sound’.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -659,7 +708,7 @@ Hint
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Use the <code>glm()</code> function and remember you need to specify the ‘family’ argument. To check the coefficients, you can use the <code>tidy()</code> function.</p>
+<p>Use the <code>glm()</code> function with <code>family = poisson</code>.</p>
 </div>
 </div>
 </div>
@@ -675,32 +724,21 @@ Code
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<pre><code>ges_mdl_c &lt;- glm(choice ~ pinkie_c,
-               data = ges, family = 'binomial')
-tidy(ges_mdl_c)</code></pre>
+<pre><code>freqMod &lt;- glm(Freq ~ Sight + Taste + Smell + Sound + Touch,
+               data = both,
+               family = poisson)
+
+summary(freqMod)</code></pre>
 </div>
 </div>
 </div>
-<p><strong>QUESTION 1</strong>: How does the coefficient table differ from the model fitted earlier where you used the pinkie curl predictor before you centered it?</p>
-<p><strong>QUESTION 2</strong>: How should you now (using the model with the centered pinkie curl predictor) interpret the intercept?</p>
-<p>The average pinkie curl is step 5 on the 9 step continuum. From our previous analysis (pre-lab activity), we know that the predicted log odds of ‘shape’ at that step was 0.38 and the probability was 0.59. So if we extract the intercept from the coefficient table of the model using the centered predictor, we should get those values. Use the code below to do so and compare the values to the ones from the pre-lab activity.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracting the estimate for the intercept and storing it in an object called intercept:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>intercept_logOdds <span class="ot">&lt;-</span> <span class="fu">tidy</span>(ges_mdl_c)<span class="sc">$</span>estimate[<span class="dv">1</span>]</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting the predicted probability by applying the logistic:</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>intercept_prob <span class="ot">&lt;-</span> <span class="fu">plogis</span>(intercept_logOdds)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>intercept_logOdds</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>intercept_prob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The values are roughly the same!</p>
+<p><strong>QUESTION 5</strong>: How do you interpret the output of the Poisson regression?</p>
 </section>
-<section id="step-6-incorporating-a-second-predictor" class="level4">
-<h4 class="anchored">Step 6: Incorporating a second predictor</h4>
-<p>In addition to the ‘pinkie curl’, the extent to which the index finger is curved may also affect gesture perception. This is quantified in the ‘index_curve’ variable. Before we fit the model, we need to center both predictors.</p>
+<section id="step-5-overdispersion" class="level4">
+<h4 class="anchored" data-anchor-id="step-5-overdispersion">Step 5: Overdispersion</h4>
+<p>In the lecture we saw that it is possible that the variance is larger than theoretically expected for a given lambda. If this happens, we are dealing with what’s called ‘overdispersion’. You can compensate for this by using a variant of Poisson regression that is called ‘negative binomial regression’. In negative binomial regression the variance is uncouples from the mean.</p>
 <blockquote class="blockquote">
-<p><strong>TASK:</strong> Write the code to center the second predictor.</p>
+<p><strong>TASK</strong>: Fit a negative binomial regression model for ‘Freq’ as a function of ‘Taste’, ‘Smell’, ‘Touch’, ‘Sight’ and ‘Sound’.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
@@ -714,7 +752,7 @@ Hint
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><em>Centering</em> involves subtracting the mean.</p>
+<p>Use the <code>glm.nb()</code> function.</p>
 </div>
 </div>
 </div>
@@ -730,13 +768,15 @@ Code
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<pre><code>ges &lt;- mutate(ges,
-              index_c = index_curve - mean(index_curve))</code></pre>
+<pre><code>freqMod_nb &lt;- glm.nb(Freq ~ Sight + Taste + Smell + Sound + Touch,
+    data = both)
+summary(freqMod_nb)</code></pre>
 </div>
 </div>
 </div>
+<p>Next, check whether there is significant overdispersion by performing a likelihood ratio test, comparing the likelihood of the negative binomial model against the likelihood of the corresponding Poisson model.</p>
 <blockquote class="blockquote">
-<p><strong>TASK:</strong> Write the code to fit model with both pinkie curl and index curve and check the coefficients.</p>
+<p><strong>TASK</strong>: Use the <code>odTest()</code> function to perform an ‘overdispersion’ test.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
@@ -750,7 +790,7 @@ Hint
 </div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Use the <code>glm()</code> function and remember you need to specify the ‘family’ argument. To check the coefficients, you can use the <code>tidy()</code> function.</p>
+<p>Use the <code>odTest()</code> function and pass object that identifies your model as the argument.</p>
 </div>
 </div>
 </div>
@@ -766,34 +806,33 @@ Code
 </div>
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<pre><code>both_mdl &lt;- glm(choice ~ pinkie_c + index_c,
-    data = ges, family = 'binomial')
-tidy(both_mdl)</code></pre>
-<p><strong>QUESTION 3:</strong> How does the index_curve predictor affect the proportion of shape responses?</p>
-<p>We can see this more easily if we compare the descriptive proportions:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>index_tab <span class="ot">&lt;-</span> <span class="fu">with</span>(ges, <span class="fu">table</span>(index_curve, choice))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>index_tab</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(index_tab, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>odTest(freqMod_nb)</code></pre>
 </div>
-<p>The “1” in here stands for row-wise proportions.”2” would compute column-wise proportions.</p>
-<section id="sec-wk14-answers" class="level2">
-<h2 class="anchored" data-anchor-id="sec-wk14-answers">Answers</h2>
+</div>
+</div>
+<p><strong>QUESTION 6</strong>: What do you conclude from the results of the overdispersion test?</p>
+<p><strong>QUESTION 7</strong>: How do you interpret the negative binomial regression output? Do English speakers use visual adjectives more frequently? What about smell adjectives in comparison?</p>
+</section>
+</section>
+</section>
+<section id="answers" class="level2">
+<h2 class="anchored" data-anchor-id="answers">Answers</h2>
 <p>When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. <strong>Remember</strong>, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. <strong>Actively engaging</strong> with the material is the way to learn these analysis skills, not by looking at someone else’s completed code…</p>
-<!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
-<p>You can download the R-script that includes the relevant code here: <a href="Week14-files/412_wk14_labAct1_withAnswers.R">412_wk14_labAct1_withAnswers.R</a>.</p>
-<p><strong>QUESTION 1</strong>: How does the coefficient table differ from the model fitted earlier where you used the pinkie curl predictor before you centered it? # ANSWER: The intercept has changed from 1.065 to 0.397.</p>
-<p><strong>QUESTION 2</strong>: How should you now (using the model with the centered pinkie curl predictor) interpret the intercept? # ANSWER: The intercept is now the predicted log odds of ‘shape’ for a gesture with # average pinkie curl.</p>
-<p><strong>QUESTION 3:</strong> How does the index_curve predictor affect the proportion of shape responses? # ANSWER: The slope is positive, so more index-curved fingers results in more # shape responses.</p>
+<p>The answers to the questions and the script containing the code will be available after the lab session has taken place.</p>
+<!-- You can download the R-script that includes the relevant code here: [412_wk15_labAct1_withAnswers.R](Week15-files/412_wk15_labAct1_withAnswers.R). -->
+<!-- 1. Which variables do you need to address the research question? **Our dependent variable is word frequency, so we need a variable that tells us how frequent words are. This information is contained in the English Lexicon Project data file, variable Log10Freq. The sensory modality ratings as reported in the in the data file supplied by Lynott and Connell (2009) are our predictors. That means we need the variables 'Sight', 'Touch', 'Sound', 'Taste', and 'Smell'. You also need a variable that is common across the two files to help with merging them together (i.e., `by  =` ), this would be 'Word'.** -->
+<!-- 2. Which 'join' is most appropriate, the `inner_join()` or the `left_join()`? Also, does it matter which datafile you specify as x and which one as y? If so, why does it matter? **A `left_join()` keeps all observations in table x, adding the information from table y for those observations. That means that it does matter which table you specify as x and which one as y. ELP contains word frequencies for many more words than we have sensory modality ratings for (in lyn). When specifying ELP as x, you keep 33075 rows, adding a lot of NAs for words we do not have sensory modality ratings for. Therefore it makes more sense to specify lyn as x, and add the word frequency information for the words we have sensory modality ratings for. An `inner_join()` matches pairs of observations whenever their keys are equal, and unmatched rows are not included in the result. This means that generally inner joins are not appropriate because it is too easy to lose observations.** -->
+<!-- 3. What does this line of code do. Write a comment to summarise its function. -->
+<!-- ```{r eval=FALSE} -->
+<!-- both <- mutate(both, Freq = 10 ^ Log10Freq) -->
+<!-- ``` -->
+<!-- **Use the `mutate()` function to add a variable `Freq` to the table `both`. `Freq` is derived from the variable `Log10Freq` by taking it to the power of 10. We do this because that reverses the log transformation and will therefore give us the raw values, all positive integers that we need for Poisson regression.** -->
+<!-- 4. What do you conclude from the scatterplots? ***Sight*: moderate positive association - the visual rating is higher for more frequent words. *Smell*: weak negative association - when word frequency goes up, the smell rating goes down. There are a* lot of low smell ratings for adjectives (lots of dots clode to 0). *Sound*: weak positive association - when word frequency goes up, so does the sound rating. *Touch*: weak positive association - when word frequency goes up, so does the touch rating. *Taste*: no assocation - line is pretty much horizontal; similar to smell, there are a lot of low taste ratings (cluster of rating scores around 0).** -->
+<!-- 5. How do you interpret the output of the Poisson regression? **Estimate for Sight is indeed positive and largest (compared to the other predictors), while the estimate for Smell is negative and the estimate for Taste is very close to 0. All predictors are significant.** -->
+<!-- 6. What do you conclude from the results of the overdispersion test? **The result of the overdispersion test is significant (*p* < 2.2e-16), indicating that there is significant overdispersion. The negative binomial regression model is therefore more appropriate.** -->
+<!-- 7. How do you interpret the negative binomial regression output? Do English speakers use visual adjectives more frequently? What about smell adjectives in comparison? **The estimates for all predictors have now changed and not all of them are now significant. Also note that the standard errors of the estimates have increased substantially. Sight still shows a significant positive relationship with word frequency and has by far the largest estimate suggesting it contributes most. So, yes, English speakers use visual adjectives more frequently. For smell adjectives the estimate is negative and significant, suggesting that for more frequent words, the Smell ratings are smaller.** -->
 
 
-</section>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1219,14 +1258,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../PSYC412/part1/Week13.html" class="pagination-link" aria-label="Week 13. More on interactions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 13. More on interactions</span>
+      <a href="../../PSYC412/part1/Week14.html" class="pagination-link" aria-label="Week 14. Logistic regression">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 14. Logistic regression</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../PSYC412/part1/Week15.html" class="pagination-link" aria-label="5. Poisson regression">
-        <span class="nav-page-text">5. Poisson regression</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
