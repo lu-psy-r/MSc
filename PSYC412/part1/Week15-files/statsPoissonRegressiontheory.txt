@@ -1,0 +1,1057 @@
+﻿Hi, it's Margriet. So last week we looked
+
+at logistic regression and logistic
+
+regression is an example of a generalized
+
+linear model that you can use if
+
+your outcome variable is categorical.
+
+Now we specifically looked at logistic
+
+regression in the context of a
+
+binomial outcome variable that is,
+
+a two level variable such
+
+as correct versus incorrect,
+
+or looking to the left versus
+
+looking to the right.
+
+Now this week we will look
+
+at Poisson progression.
+
+And that is another type of
+
+generalized linear model that is
+
+particularly useful for count data.
+
+OK, so what is count data?
+
+Now, many researchers in psychology
+
+and behavioral scientists more
+
+generally have theoretical questions
+
+that involve count variables.
+
+Now an account variable is a variable
+
+that takes on discrete values reflecting
+
+the number of occurrences of a particular
+
+event in a fixed period of time.
+
+So some sort of event might
+
+happen none of the time,
+
+once, twice, three times, four times, etc.
+
+Now, accountable can only take on
+
+a positive integer values or zero,
+
+because an event cannot occur,
+
+a negative number of times.
+
+Better some examples on the slide here.
+
+So for instance,
+
+the number of depressive symptoms that
+
+are child exhibits or the number of
+
+alcoholic drinks consumed per day,
+
+or the number of re-admissions to
+
+alcohol detoxification programs.
+
+Or the number of disciplinary incidents
+
+among a group of prison inmates or the
+
+number of fillers such as ur and awe
+
+as a function of politeness context.
+
+If you want kind of a linguistic example.
+
+The the figure on the slide actually
+
+shows and artificial data set where
+
+speech error counts are related
+
+to blood alcohol concentration,
+
+and in the last in last week's lecture,
+
+these speech errors were
+
+treated in a binary fashion.
+
+So present or absent and here
+
+they are treated as a count variable.
+
+OK, so in this figure you can see
+
+the Poisson distribution and for two,
+
+representative parameters.
+
+So the height of the bars indicates
+
+the probability of particular cans.
+
+And the present distribution only
+
+really has one parameter Lambda.
+
+And that specifies the rate
+
+of the counter process.
+
+So if Lambda is high,
+
+then the rate of observing an event
+
+such as speech errors is high.
+
+And so you can see that here
+
+Lambda is 5, then the rate is
+
+higher than for a Lambda that is 2.
+
+The average rate is smaller, right?
+
+Now, the Poisson distribution is
+
+bounded by zero because, as we already
+
+said, counts cannot be negative, right?
+
+So this is the lowest value
+
+that you could ever get 0.
+
+The distribution is discrete, right?
+
+So we only have positive integers.
+
+And. So it was zero one or two
+
+and you can't have like 1 1/2.
+
+Or anything in between.
+
+Now, another peculiar property
+
+of the Poisson distribution
+
+is that the variance, the spread,
+
+of the distribution is
+
+linked to the Lambda.
+
+It's kind of married to the Lambda,
+
+and this is very different
+
+from the normal distribution.
+
+In a normal distribution,
+
+you have a standard deviation,
+
+sigma, as an independent parameter
+
+that needs to be estimated, right?
+
+So you can see in the figure that
+
+the distribution for Lambda that is 5,
+
+so the dark grey lines here,
+
+is wider than the distribution
+
+for Lambda is two,
+
+so this is more scrunched up basically.
+
+So for low low rates the variance
+
+is slow because the distribution
+
+is bounded by zero and with no way
+
+of extending beyond that boundary.
+
+And for high rates the distribution
+
+can extend in both directions towards
+
+the lower and the higher counts.
+
+You can think of this as heteroscedasticity.
+
+So that's so does unequal variance as
+
+being build into this distribution.
+
+OK, so Poisson regression models
+
+the parameter parameter Lambda
+
+as a function of some predictors.
+
+That the problem is that
+
+our familiar equation,
+
+can predict any value, right?
+
+So, our familiar linear predictor equation, here,
+
+can predict any value. Uhm?
+
+But Lambda can only be positive.
+
+Now that means that we need a function
+
+that restricts the output of our
+
+linear predictor to positive values.
+
+And the function that achieves
+
+this is the exponential function.
+
+So in the figure on the slide,
+
+you see a linear relation
+
+between X&Y on the left.
+
+And when you transform the Y
+
+with the exponential function,
+
+the values of Y become restricted to
+
+the positive range, that's on the right.
+
+And the dashed line shows that when
+
+zero is exponentially transformed,
+
+it becomes one.
+
+So here we have our familiar
+
+linear predictor equation.
+
+And around that you have
+
+this exponential function.
+
+So wrapping the exponential function
+
+around the linear predictor of beta
+
+0 plus beta 1 * X will ensure that
+
+no negative values can be predicted.
+
+Now you might remember from last
+
+week that the logarithm is the
+
+inverse of the exponential function.
+
+So if we take the logarithm of both sides
+
+of this equation and it becomes this.
+
+So we've taken the logarithm of
+
+the right side of the equation.
+
+Now that kind of undo's the exponential,
+
+so that's why you can't see it here.
+
+But that means we also have to take the
+
+logarithm of the lambda. So here we have
+
+the logarithm of the lambda.
+
+So, the familiar equation of
+
+beta 0 plus beta 1 * X, that familiar
+
+equation will actually predict log lambda.
+
+Now, similar to logistic regression,
+
+that means that we'll have to be
+
+careful in interpreting the output.
+
+Now let's look at an example.
+
+In this example,
+
+we'll look at the data from
+
+somebody called Nettle,
+
+who looked at linguistic diversity.
+
+So the number of languages that
+
+exist in a particular country.
+
+Nettle's hypothesis was that countries
+
+with low ecological risk, so more
+
+fertile environments, are predicted
+
+to have higher linguistic diversity -
+
+so more languages.
+
+Now on this slide you can see data
+
+for five variables for 74 countries.
+
+So population and area contain
+
+the log 10 of population size
+
+and area of the country.
+
+Then we have MGS or mean growing
+
+season and that is the measure of
+
+ecological risk, that is our predictor.
+
+That variable indicates how many months
+
+per year one can grow crops in a country.
+
+Then we have Langs and that is the
+
+number of languages within a country.
+
+Now, as always, it is a good idea
+
+to get a feel for the data set.
+
+So by for example, checking the range
+
+of values for the MGS variable,
+
+- our predictor.
+
+And if we do that by using
+
+the range function as,
+
+you can see on the slide,
+
+it shows us that there are some countries
+
+in which one cannot grow crops at all.
+
+They have zero months and others where
+
+you can grow crops the entire year,
+
+so 12 months.
+
+So the countries Guyana,
+
+the Solomon Islands,
+
+Suriname and Vanuatu have mean
+
+growing seasons of 12, indicating
+
+kind of minimal ecological risk.
+
+And on the other hand,
+
+countries like Yemen and
+
+Oman have an MGS of zero,
+
+which means maximal ecological risk.
+
+You can already see that
+
+the number of languages in those
+
+countries, is quite a bit lower,
+
+which suggests that Nettle's
+
+hypothesis might actually be correct.
+
+OK, now to model linguistic diversity
+
+as a function of ecological risk
+
+with Poisson regression, we
+
+use that GLM function.
+
+The generalised linear model function,
+
+so the same one as we used last
+
+week for logistic regression.
+
+So, as was the case for logistic regression,
+
+the argument family needs to be specified.
+
+In this case it is Poisson,
+
+not binomial.
+
+So, here we have the estimates of our model.
+
+These represent logarithms,
+
+so we must use exponentiation
+
+to report the predicted mean rates.
+
+If we do that,
+
+Here we have the logarithm for
+
+each of the 12 months.
+
+So or each of the 13 values for MGS
+
+(so 0, 1, 2, 3 months, four months,
+
+five months, etc.)
+
+we've got the intercept and the slope
+
+So for each of the values of MGS,
+
+we have kind of a predicted value.
+
+And now you need to take the
+
+exponential of those to be able
+
+to say something about the rates.
+
+That's what  those logarithms represent.
+
+Based on that, we expect a
+
+country with zero months MGS,
+
+so that's the first location,
+
+zero months, to have about 30 languages
+
+and a country with an MGS of 12,
+
+we would expect a value of 166 languages.
+
+Now in this figure you can see the predicted
+
+Rates on a predicted number of
+
+languages as a function of MGS.
+
+So we have 'number of languages' on
+
+the Y axis, and MGS on the X axis.
+
+And instead of points, we have
+
+told GGplot to use
+
+the names of the countries.
+
+And this thick line
+
+is the Poisson regression fit.
+
+OK, there's something else that
+
+we need to take into account here.
+
+So, in order for the regression of
+
+languages as a function of mean
+
+growing season to be meaningful,
+
+you need to control for country size.
+
+Because larger countries tend to
+
+have a higher number of different languages.
+
+So, in this case a country's area
+
+determines what in Poisson regression
+
+is called 'exposure'.
+
+More area means more opportunities
+
+for observing high counts.
+
+So you can adjust a rate
+
+by an exposure variable,
+
+which in this case is area,
+
+but in another model it could be
+
+something like time. So for example,
+
+if you were to conduct an experiment
+
+where you're counting speech errors
+
+in trials with varying durations,
+
+there are naturally going to be
+
+higher counts for longer trials,
+
+so you would want to control
+
+for trial duration,
+
+so trial duration would be the
+
+exposure variable in that context.
+
+Now, for exposure variables the rate
+
+lambda is split into 2 components.
+
+Those are the mean number of events, mu,
+
+per unit of exposure, tau.
+
+So for example, here we would have...
+
+So here we have a lambda,
+
+here we have mu,
+
+so that is the mean number of events.
+
+And here we have tau, the exposure variable.
+
+So we could have the mean
+
+number of languages
+
+per square mile.
+
+Or to take the speech error example:
+
+the number of speech errors, per second.
+
+Now in R this is easy to do.
+
+You simply wrap the offset function, here,
+
+around the exposure variable of interest.
+
+Let's look at this here.
+
+We have the model that we used previously,
+
+right,
+
+the number of languages as a function
+
+of the mean growing season. I'm using
+
+the Poisson regression.
+
+Now what we're doing now, to take this
+
+exposure variable area into account,
+
+we add it to the model by saying: offset,
+
+brackets, area.
+
+Now, the first thing to notice is that
+
+there is no beta for the exposure
+
+variable in the output or anything.
+
+So the output in terms of the
+
+terms present is the same.
+
+So the exposure variable, the term
+
+doesn't have a coefficient and nothing is
+
+actually being estimated for it, right?
+
+But what you can see is that
+
+compared to the original model...
+
+So this is the original model and
+
+this is the new model that takes
+
+the exposure variable into account.
+
+So compared to the original model,
+
+the slope of the MGS variable, here,
+
+has increased considerably, right?
+
+So after controlling for a country size,
+
+the relationship between ecological
+
+risk and linguistic diversity is
+
+estimated to be even stronger.
+
+So here we have .21 rather than .14.
+
+OK, here's another thing that
+
+we need to talk about in the
+
+context of Poisson regression,
+
+and that is overdispersion.
+
+So as we saw at the start of
+
+this lecture that the variance
+
+of the Poisson distribution
+
+scales with the mean.
+
+So the higher the mean rate,
+
+the more variable the count.
+
+Now it is possible that
+
+in an actual data set,
+
+the variance is larger than it's
+
+theoretically expected for a given Lambda.
+
+Now, if that happens,
+
+you're dealing with what is called
+
+overdispersion or excess variance.
+
+Now you can compensate for
+
+overdispersion by using a variant
+
+of Poisson regression that is
+
+called negative binomial regression.
+
+Now, negative binomial regression
+
+is essentially a variant of
+
+Poisson regression where the variance
+
+is kind of freed from the mean.
+
+So in other words,
+
+the constraints that the mean is
+
+equal to the variance is relaxed.
+
+Other than that,
+
+everything stays the same.
+
+So let's re-fit the
+
+model that we've used previously,
+
+so
+
+with the exposure variable.
+
+So let's refit that,
+
+but this time use a negative
+
+binomial regression.
+
+Now for this you we wanted
+
+to use the glm.nb for
+
+negative binomial function.
+
+So here we have exactly the same model,
+
+so this was a model with the
+
+exposure variable, right?
+
+So here we use the GLM to model language
+
+as a function of MGS plus
+
+ise the offset function to take
+
+our exposure variable into account.
+
+Here we'll be doing exactly the same thing,
+
+except that we use glm.nb
+
+The glm.nb function
+
+is from the mass package. That's why
+
+we have to call that package here.
+
+Now, first thing to notice
+
+is that the standard error,
+
+so here the standard error of our estimate,
+
+so the standard error of the MGS
+
+slope, has increased quite a bit.
+
+compared to the Poisson model.
+
+So here we had a standard error of .0047,
+
+and if we use the negative
+
+binomial regression,
+
+we have a standard error of .034.
+
+So that's substantially
+
+larger than for the Poisson model.
+
+So negative binomial models are generally
+
+the more conservative option if there
+
+actually is overdispersion in the data.
+
+Now you can test whether
+
+there is a significant degree
+
+of overdispersion using what is
+
+called an overdispersion test.
+
+Now in one implementation of
+
+this in R is the odTest.
+
+Here, the odTest function,
+
+from the PSCL package.
+
+Now what this function does is that
+
+it performs a likelihood ratio test
+
+comparing the likelihood of the
+
+negative binomial model against the
+
+likelihood of the corresponding Poisson model.
+
+So if you run that on on our data here,
+
+you would see that in this case
+
+the difference in likelihood here
+
+between the two models significant.
+
+So here we have a P value
+
+that is way smaller than .05.
+
+So that indicates that you
+
+should use a negative binomial
+
+model rather than a Poisson model.
+
+OK, now. This figure summarizes the
+
+different aspects of the generalized
+
+linear model framework that we have
+
+been speaking about last week and
+
+this week well and before actually.
+
+Now there is one bit that you haven't been
+
+exposed to so far, and that is the I
+
+function wrapped around the
+
+predictor of linear regression.
+
+So this bit should look familiar by now.
+
+I'm sure it does: Beta 0 plus beta 1 * X.
+
+That is our linear predictor.
+
+Now here for linear regression,
+
+all of a sudden we have is I function
+
+wrapped around it. What is it?
+
+This is called the identity function.
+
+And that is just a mathematical term
+
+for a function that preserves identity.
+
+Or in other words,
+
+this function does nothing.
+
+It can be translated as:
+
+take this predictor,
+
+'as is', without transformations.
+
+Now you might ask why on Earth do
+
+you add it if it does nothing?
+
+The reason for adding it
+
+is that
+
+in the figure in this way shows
+
+that the parallelism
+
+between the different types of model.
+
+So you can see how all of these different
+
+models that we've looked at are really
+
+kind of versions of the same thing.
+
+So it allows you to see that linear
+
+regression is actually a specific
+
+case of the generalized linear model.
+
+So that is,
+
+a general generalized linear model where
+
+the output of the predictive equation
+
+is not transformed.
+
+Whereas for logistic regression,
+
+it is transformed and for
+
+the Poisson regression it is
+
+transformed in a different way.
+
+Now I'm showing you this to
+
+highlight that each generalized
+
+linear model has three components.
+
+So we have: a distribution for
+
+the data generating process.
+
+We have the normal distribution or the
+
+Bernoulli distribution, or the Poisson distribution.
+
+We have a predictive equation or what
+
+is called the linear predictor, here,
+
+and that is the same in each case.
+
+And then we have a link function.
+
+Which links the linear predictor
+
+to the parameter of interest.
+
+So that function,
+
+(so here and here and here)
+
+makes sure that the linear
+
+predictor predicts sensible
+
+values for each parameter, right?
+
+So the link function makes sure that,
+
+for logistic regression the values fall
+
+between zero and one, the values of
+
+(the probability). Or in case of Poisson
+
+regression, the link function makes
+
+sure that values of the predictor
+
+are only positive so we only
+
+get positive values for Lambda.
+
+Now, maybe somewhat confusingly,
+
+these link functions are named
+
+after their inverses, right?
+
+So logistic regression
+
+uses the logit to log odd link and
+
+Poison regression uses the log link.
+
+And it is because of these link functions,
+
+that you need to do these transformations,
+
+right? So for logistic regression,
+
+it returns a log.
+
+It returns log odds predictions and you
+
+need the logistic function
+
+to transform those to probabilities.
+
+For the Poisson regression,
+
+it returns log predictions and
+
+you needs the exponential
+
+function to transform
+
+those log predictions into rates.
+
+OK, in summary. Today we have spoken
+
+about how to model count data with
+
+Poisson regression and its extension
+
+negative binomial regression.
+
+Coefficients of a Poisson model
+
+are shown as log coefficients,
+
+which means that after calculating
+
+the log predictions, you need to use
+
+exponentiation to interpret your
+
+model in terms of average rates.
+
+Now to control for differential
+
+exposure you can add exposure
+
+variables to the model.
+
+And negative binomial regression:
+
+we use that to account for
+
+something called overdispersion.
+
+Finally, we talked about the
+
+fact that each generalized linear
+
+model has three components,
+
+a distribution for the data generating
+
+process, a linear predictor,
+
+and a link function.
+
+That is it for now.
+
+Thank you very much for your attention.
