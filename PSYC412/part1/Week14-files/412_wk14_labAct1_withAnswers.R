@@ -46,6 +46,8 @@ ges <- mutate(ges, choice = factor(choice))
 ges <- mutate(ges,
 	pinkie_c = pinkie_curl - mean(pinkie_curl))
 
+hist(ges$pinkie_curl)
+hist(ges$pinkie_c)
 
 # Step 4: Fit the regression model ----------------------------------------
 # Now let's re-fit choice (height vs. shape) as a function of pinkie curl,
