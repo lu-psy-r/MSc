@@ -274,13 +274,11 @@ When you have completed all of the lab content, you may want to check your answe
 
 You can download the R-script that includes the relevant code here: [412_wk14_labAct1_withAnswers.R](Week14-files/412_wk14_labAct1_withAnswers.R).
 
-**QUESTION 1**:  How does the coefficient table differ from the model fitted earlier where you used the pinkie curl predictor before you centered it?
-# ANSWER: The intercept has changed from 1.065 to 0.397.
+1.  How does the coefficient table differ from the model fitted earlier where you used the pinkie curl predictor before you centered it?
+**The intercept has changed from 1.065 to 0.397.**
 
-**QUESTION 2**: How should you now (using the model with the centered pinkie curl predictor) interpret the intercept?
-# ANSWER: The intercept is now the predicted log odds of 'shape' for a gesture with
-# average pinkie curl.
+2. How should you now (using the model with the centered pinkie curl predictor) interpret the intercept?
+**The intercept is now the predicted log odds of 'shape' for a gesture with average pinkie curl.**
 
-**QUESTION 3:** How does the index_curve predictor affect the proportion of shape responses?
-# ANSWER: The slope is positive, so more index-curved fingers results in more
-# shape responses.
+3. How does the index_curve predictor affect the proportion of shape responses?
+**The slope is positive, so more index-curved fingers results in more shape responses.**
