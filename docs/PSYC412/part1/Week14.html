@@ -324,6 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#lab-activity-1-more-work-on-gesture-perception" id="toc-lab-activity-1-more-work-on-gesture-perception" class="nav-link" data-scroll-target="#lab-activity-1-more-work-on-gesture-perception">Lab activity 1: More work on gesture perception</a></li>
   </ul></li>
+  <li><a href="#sec-wk14-answers" id="toc-sec-wk14-answers" class="nav-link" data-scroll-target="#sec-wk14-answers">Answers</a></li>
   </ul>
 </nav>
     </div>
@@ -427,7 +428,7 @@ If you have difficulty uploading files to the server
 </ul>
 <p>More info will be uploaded soon.</p>
 <section id="lab-activity-1-more-work-on-gesture-perception" class="level3">
-<h3 class="anchored">Lab activity 1: More work on gesture perception</h3>
+<h3 class="anchored" data-anchor-id="lab-activity-1-more-work-on-gesture-perception">Lab activity 1: More work on gesture perception</h3>
 <section id="background" class="level4">
 <h4 class="anchored" data-anchor-id="background">Background</h4>
 <p>The dataset we’ll be working with is described in section 12.6 of the chapter on logistic regression in Bodo Winter’s book (link under ‘Reading’). In the pre-lab activity, we explored the dataset and fitted a first logistic regression model assessing whether participants’ perception of a gesture (expressed as a categorical decision between a ‘shape’ vs.&nbsp;a ‘height’ interpretation of the gesture) was affected by the extent of ‘pinkie curl’. In this lab activity, we’ll be building on that analysis by: 1) Repeating the analysis with a centered pinkie curl variable, and 2) by adding a second predictor: index_curve.</p>
@@ -697,7 +698,7 @@ tidy(ges_mdl_c)</code></pre>
 <p>The values are roughly the same!</p>
 </section>
 <section id="step-6-incorporating-a-second-predictor" class="level4">
-<h4 class="anchored">Step 6: Incorporating a second predictor</h4>
+<h4 class="anchored" data-anchor-id="step-6-incorporating-a-second-predictor">Step 6: Incorporating a second predictor</h4>
 <p>In addition to the ‘pinkie curl’, the extent to which the index finger is curved may also affect gesture perception. This is quantified in the ‘index_curve’ variable. Before we fit the model, we need to center both predictors.</p>
 <blockquote class="blockquote">
 <p><strong>TASK:</strong> Write the code to center the second predictor.</p>
@@ -769,6 +770,9 @@ Code
 <pre><code>both_mdl &lt;- glm(choice ~ pinkie_c + index_c,
     data = ges, family = 'binomial')
 tidy(both_mdl)</code></pre>
+</div>
+</div>
+</div>
 <p><strong>QUESTION 3:</strong> How does the index_curve predictor affect the proportion of shape responses?</p>
 <p>We can see this more easily if we compare the descriptive proportions:</p>
 <div class="cell">
@@ -778,27 +782,19 @@ tidy(both_mdl)</code></pre>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(index_tab, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The “1” in here stands for row-wise proportions.”2” would compute column-wise proportions.</p>
+</section>
+</section>
+</section>
 <section id="sec-wk14-answers" class="level2">
 <h2 class="anchored" data-anchor-id="sec-wk14-answers">Answers</h2>
 <p>When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. <strong>Remember</strong>, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. <strong>Actively engaging</strong> with the material is the way to learn these analysis skills, not by looking at someone else’s completed code…</p>
-<p>The answers to the questions and the script containing the code will be available after the lab session has taken place.</p>
-<!-- You can download the R-script that includes the relevant code here: [412_wk14_labAct1_withAnswers.R](Week14-files/412_wk14_labAct1_withAnswers.R). -->
-<!-- **QUESTION 1**:  How does the coefficient table differ from the model fitted earlier where you used the pinkie curl predictor before you centered it? -->
-<!-- # ANSWER: The intercept has changed from 1.065 to 0.397. -->
-<!-- **QUESTION 2**: How should you now (using the model with the centered pinkie curl predictor) interpret the intercept? -->
-<!-- # ANSWER: The intercept is now the predicted log odds of 'shape' for a gesture with -->
-<!-- # average pinkie curl. -->
-<!-- **QUESTION 3:** How does the index_curve predictor affect the proportion of shape responses? -->
-<!-- # ANSWER: The slope is positive, so more index-curved fingers results in more -->
-<!-- # shape responses. -->
+<!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
+<p>You can download the R-script that includes the relevant code here: <a href="Week14-files/412_wk14_labAct1_withAnswers.R">412_wk14_labAct1_withAnswers.R</a>.</p>
+<p><strong>QUESTION 1</strong>: How does the coefficient table differ from the model fitted earlier where you used the pinkie curl predictor before you centered it? # ANSWER: The intercept has changed from 1.065 to 0.397.</p>
+<p><strong>QUESTION 2</strong>: How should you now (using the model with the centered pinkie curl predictor) interpret the intercept? # ANSWER: The intercept is now the predicted log odds of ‘shape’ for a gesture with # average pinkie curl.</p>
+<p><strong>QUESTION 3:</strong> How does the index_curve predictor affect the proportion of shape responses? # ANSWER: The slope is positive, so more index-curved fingers results in more # shape responses.</p>
 
 
-</section>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
