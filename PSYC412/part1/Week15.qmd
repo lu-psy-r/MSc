@@ -1,6 +1,6 @@
 ---
 title: Week 15. Poisson regression
-subtitle: Written by Margriet Groen (partly adapted from Winter (2020)
+subtitle: Written by Margriet Groen (partly adapted from Winter (2020))
 order: 6
 ---
 
