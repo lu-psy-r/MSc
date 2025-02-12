@@ -85,17 +85,28 @@ The slides presented in the videos can be downloaded here:
 The high resolution version is the version delivered for the lecture recordings. Because the images are produced to be high resolution, the file size is quite big (4 MB) so, to make the slides easier to download, I produced low resolution versions: 1pp and 6pp. These should be easier to download and print out if that is what you want to do.
 :::
 
-<!-- ### 10.4 Practical materials: data and R-Studio {#sec-lm-dev-practical} -->
+### Practical materials: data and R-Studio {#sec-multilevel-workbook-practical}
 
-<!-- We will work with one data file which you can download by clicking on its name (below): -->
+We will be working with data taken from a study on education outcomes in Brazilian children, reported by @golino2014.
 
-<!-- -   [`2022-12-08_all-studies-subject-scores.csv`](files/2022-12-08_all-studies-subject-scores.csv). -->
+You can read more about these data in [Conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel).
 
-<!-- Once you have downloaded the file, you will need to upload it to the R-Studio server to access it so that you can do the practical exercises. -->
+::: callout-important
+**Get the data**: get the data file and the .R script you can use to do the exercises that will support your learning.
 
-<!-- ::: callout-important -->
-<!-- Here is a link to the sign-in page for [R-Studio Server](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F) -->
-<!-- ::: -->
+- You can download the files folder for this chapter by clicking on the link [01-multilevel.zip](files/01-multilevel.zip).
+:::
+
+The practical materials folder includes:
+
+- `BAFACALO_DATASET.RData`
+-  `402-01-multilevel-workbook.R` the workbook you can use to do the practical exercises.
+
+The data file is in the `.RData` format: `.RData` is R's own file format so the code you use to load and access the data for analysis is a bit simpler than you are used to, as we will see.
+
+::: callout-important
+Here is a link to the sign-in page for [R-Studio Server](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
+:::
 
 <!-- ### 10.4.1 Practical materials guide {#sec-lm-dev-practical-guide} -->
 
