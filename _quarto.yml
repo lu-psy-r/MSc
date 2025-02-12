@@ -13,7 +13,7 @@ website:
       - section: "PSYC412"
         contents: 
           - auto: PSYC412/part1/*
-#          - auto: PSYC412/part2/*
+          - auto: PSYC412/part2/*
   
 format:
   html: 
