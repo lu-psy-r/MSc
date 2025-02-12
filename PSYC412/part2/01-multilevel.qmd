@@ -173,10 +173,10 @@ You can also access the data from the link associated with the @golino2014 artic
 ::: callout-important
 **Get the answers**: get the data file and the .R script with answers.
 
-- You can download the files folder for this chapter by clicking on the link [01-multilevel-answers.zip](files/01-multilevel-answers.zip).
+<!-- - You can download the files folder for this chapter by clicking on the link [01-multilevel-answers.zip](files/01-multilevel-answers.zip). -->
 :::
 
-The link to this folder will not work until after a session has finished.
+The link to this folder will not be provided until after a session has finished.
 
 When the link is live, you will be able to download a folder including:
 
