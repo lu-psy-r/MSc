@@ -1,7 +1,7 @@
 ---
-title: Week 16. Introduction to multilevel data
+title: Week 16. Conceptual introduction to multilevel data
 subtitle: Written by Rob Davies
-order: 7
+order: 8
 bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
