@@ -123,41 +123,34 @@ The aims of the practical work are to:
 - Exercise skills by varying code -- changing variables, changing options -- so that you can see how the code works.
 - Use the opportunity to reflect on and evaluate results -- so that we can support growth in development of understanding of main ideas.
 
-<!-- #### 10.4.3 The practical exercises {#sec-lm-dev-practical-workbook} -->
+#### The practical exercises {#sec-multilevel-workbook-practical-workbook}
 
-<!-- Now you will progress through a series of tasks, and challenges, to test what you have learnt. -->
+Now you will progress through a series of tasks, and challenges, to aid your learning.
 
-<!-- ::: callout-warning -->
-<!-- We will continue to work with the data file -->
+::: callout-warning
+We will work with the data file:
 
-<!-- -   `2022-12-08_all-studies-subject-scores.csv` -->
-<!-- ::: -->
+-   `AFACALO_DATASET.RData`
+:::
 
-<!-- We again split the steps into into parts, tasks and questions. -->
+We again split the steps into into parts, tasks and questions.
 
-<!-- We are going to work through the following workflow steps: **each step is labelled as a practical part**. -->
+We are going to work through the following workflow steps: **each step is labelled as a practical part**.
 
-<!-- 1. Set-up -->
-<!-- 2. Load the data -->
-<!-- 3. **Revision**: using a linear model to answer research questions -- one predictor. -->
-<!-- 4. **New**: using a linear model to answer research questions -- multiple predictors. -->
-<!-- 5. **New**: plot predictions from linear models. -->
-<!-- 6. **New**: estimate the effects of factors as well as numeric variables. -->
-<!-- 7. **New**: examine associations comparing data from different samples. -->
+1. Set-up
+2. Load the data
+3. Inspect the data
+4. Visualize relationships
+5. Analyze relationships using linear models
+6. Visualize relationships for each class
+7. Mixed-effects analysis
+8. Optional exercises: extensions
 
-<!-- ::: callout-tip -->
-<!-- - The `how-to` guide showed you what functions you needed and how you should write the function code. -->
-<!-- - Use the code structure you have seen and *change* it to use the data required for these `practical exercises`: you will need to change the data-set name, the variable names, to get the code to work for the following exercises. -->
-<!-- - Identify what code elements must change, and what code elements have to stay the same. -->
-<!-- ::: -->
+In the following, we will guide you through the tasks and questions step by step.
 
-<!-- Note that, for Part 5, we focus on using the `ggpredict()` tools you saw in the `how-to` guide but, for the practical exercises, use these tools to better understand what linear models (generally) do when we use them. -->
-
-<!-- In the following, we will guide you through the tasks and questions step by step. -->
-
-<!-- ::: callout-important -->
-<!-- An answers version of the workbook will be provided after the practical class. -->
-<!-- ::: -->
+::: callout-important
+An answers version of the workbook will be provided after the practical class.
+:::
 
 <!-- #### 10.4.3.1 Practical Part 1: Set-up -->
 
