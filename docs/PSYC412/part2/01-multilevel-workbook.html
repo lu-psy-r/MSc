@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -295,7 +349,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-multilevel-workbook-overview" id="toc-sec-multilevel-workbook-overview" class="nav-link active" data-scroll-target="#sec-multilevel-workbook-overview">Week 16 Multilevel data workbook overview</a>
   <ul class="collapse">
   <li><a href="#sec-multilevel-workbook-targets" id="toc-sec-multilevel-workbook-targets" class="nav-link" data-scroll-target="#sec-multilevel-workbook-targets">Targets</a></li>
-  <li><a href="#sec-multilevel-workbook-resources" id="toc-sec-multilevel-workbook-resources" class="nav-link" data-scroll-target="#sec-multilevel-workbook-resources">Learning resources</a></li>
+  <li><a href="#sec-multilevel-workbook-resources" id="toc-sec-multilevel-workbook-resources" class="nav-link" data-scroll-target="#sec-multilevel-workbook-resources">Learning resources</a>
+  <ul class="collapse">
+  <li><a href="#sec-multilevel-workbook-lectures" id="toc-sec-multilevel-workbook-lectures" class="nav-link" data-scroll-target="#sec-multilevel-workbook-lectures">Lectures</a></li>
+  <li><a href="#sec-multilevel-workbook-slides" id="toc-sec-multilevel-workbook-slides" class="nav-link" data-scroll-target="#sec-multilevel-workbook-slides">Lecture slides</a></li>
+  <li><a href="#sec-multilevel-workbook-practical" id="toc-sec-multilevel-workbook-practical" class="nav-link" data-scroll-target="#sec-multilevel-workbook-practical">Practical materials: data and R-Studio</a></li>
+  <li><a href="#the-answers" id="toc-the-answers" class="nav-link" data-scroll-target="#the-answers">The answers</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -374,1002 +434,1620 @@ Linked resources
 <p><a href="../../PSYC412/part2/01-multilevel.html#sec-intro-multilevel">The chapter: Conceptual introduction to multilevel data</a></p>
 </div>
 </div>
-<!-- ### 10.3.1 Lectures {#sec-lm-dev-lectures} -->
-<!-- The lecture materials for this week are presented in four short parts.  -->
-<!-- Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part. -->
-<!-- 1. Part 1 (20 minutes) **Developing the linear model**: The concepts and skills we will learn about in week 10: our aims, the research questions we can answer with linear models, making the move to working with linear models with multiple predictors, why the main challenge is not the coding but the *choices* over which predictors to include in a model. -->
-<!-- ```{=html} -->
-<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=14284d6d-f17d-4c0a-a827-b23d00bda67f&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-1" ></iframe> -->
-<!-- ``` -->
-<!-- 2. Part 2 (13 minutes): Coding, thinking about, and reporting linear models with multiple predictors. -->
-<!-- ```{=html} -->
-<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=cce303a1-392c-4607-aecd-af63010c4070&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-2" ></iframe> -->
-<!-- ``` -->
-<!-- 3. Part 3 (21 minutes): Critically evaluating the results of analyses involving linear models. -->
-<!-- ```{=html} -->
-<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5f02f90d-5a7f-4742-9638-af63011046b8&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-3" ></iframe> -->
-<!-- ``` -->
-<!-- 4. Part 4 (19 minutes): The linear model is very flexible, powerful and general. -->
-<!-- ```{=html} -->
-<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b559ac42-6752-4eaa-b3a9-af630116c7e8&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-4" ></iframe> -->
-<!-- ``` -->
-<!-- ### 10.3.2 Lecture slides {#sec-lm-dev-lectures-slides} -->
-<!-- ::: callout-tip -->
-<!-- ## Download the lecture slides -->
-<!-- The slides presented in the videos can be downloaded here: -->
-<!-- - [The slides](files/411-linear-model-develop.html) exactly as presented (11 MB).  -->
-<!-- You can download the web page `.html` file and click on it to open it in any browser (e.g., Chrome, Edge or Safari). The slide images are high quality so the file is quite big and may take a few seconds to download. -->
-<!-- ::: -->
-<!-- We are going to work through some practical exercises, next, to develop your critical thinking and practical skills for working with linear models. -->
-<!-- ### 10.4 Practical materials: data and R-Studio {#sec-lm-dev-practical} -->
-<!-- We will work with one data file which you can download by clicking on its name (below): -->
-<!-- -   [`2022-12-08_all-studies-subject-scores.csv`](files/2022-12-08_all-studies-subject-scores.csv). -->
-<!-- Once you have downloaded the file, you will need to upload it to the R-Studio server to access it so that you can do the practical exercises. -->
-<!-- ::: callout-important -->
-<!-- Here is a link to the sign-in page for [R-Studio Server](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F) -->
-<!-- ::: -->
-<!-- ### 10.4.1 Practical materials guide {#sec-lm-dev-practical-guide} -->
-<!-- As usual, you will find that the practical exercises are simpler to do if you follow these steps in order. -->
-<!-- 1. **The data** --- We will take a quick look at what is inside the data files so you know what everything means. -->
-<!-- 2. **The `how-to` guide** --- We will go through the practical analysis and visualization coding steps, showing all the code required for each step. -->
-<!-- 3. **The `practical` exercises** --- We will set out the tasks, questions and challenges that you should complete to learn the practical skills we target this week. -->
-<!-- This week --- **Week 10** --- we aim to *further* develop skills in working with the linear model, and in visualizing and testing the associations between variables in psychological data. -->
-<!-- - While we build on everything you have learned so far, the skills you learn in this class unlock your capacity to analyse most kinds of data you will encounter in most situations: **a big expansion in the scope** of your capacities. -->
-<!-- ::: callout-tip -->
-<!-- ## Week 10 parts -->
-<!-- 1. Set-up -->
-<!-- 2. Load the data -->
-<!-- 3. **Revision**: using a linear model to answer research questions -- one predictor. -->
-<!-- 4. **New**: using a linear model to answer research questions -- multiple predictors. -->
-<!-- 5. **New**: plot predictions from linear models with multiple predictors. -->
-<!-- 6. **New**: estimate the effects of factors as well as numeric variables. -->
-<!-- 7. **New**: examine associations comparing data from different samples. -->
-<!-- ::: -->
-<!-- We learn these skills so that we can answer research questions like: -->
-<!-- 1. What person attributes predict success in understanding? -->
-<!-- Questions like this are often answered by analyzing psychological data using some form of linear model. -->
-<!-- As usual, when we do these analyses, we need to think about how we report the results, so part of the learning you will complete will enable you to:   -->
-<!-- - report information about the kind of model you specify; -->
-<!-- - report the nature of the associations (or effects) estimated in your model; -->
-<!-- - evaluate the results, making decisions about (i.) the significance of effects (ii.) whether estimates of effects suggest a positive or negative relationship between outcome and predictor (iii.) whether estimates of effects suggest a strong or a weak relationship. -->
-<!-- We will really strengthen your ability to produce professional visualizations by learning how to translate model results into plots that help you and your audience to translate what your model tells you into accurate understanding and plain language. -->
-<!-- #### 10.4.1.1 The data files {#sec-lm-dev-practical-data} -->
-<!-- Each of the data files we have worked with has had a similar structure. This week, that continuity remains. But, this week, we move on to working with a *big* data-set similar to the data you may encounter in real-world situations. -->
-<!-- - **What is new** about this data-set is that it holds data from multiple studies in which the same methods were used -- these are *replication* studies -- enabling us to look the questions about *results reproducibility* across studies that you have been hearing about. -->
-<!-- Here are what the first few rows in the data file `all.studies.subjects` looks like: -->
-<!-- ```{r summary} -->
-<!-- #| warning: false -->
-<!-- #| echo: false -->
-<!-- kable(head(all.studies.subjects)) -->
-<!-- ``` -->
-<!-- ::: callout-tip -->
-<!-- The webpage has a slider under the data table window, so you can scroll across the columns: move your cursor over the window to show the slider. -->
-<!-- ::: -->
-<!-- When you look at the data table, you can see the columns: -->
-<!-- -   `ResponseId` participant code -->
-<!-- -   `mean.acc` average accuracy of response to questions testing understanding of health guidance -->
-<!-- -   `mean.self` average self-rated accuracy of understanding of health guidance -->
-<!-- -   `study` variable coding for what study the data were collected in -->
-<!-- -   `AGE` age in years -->
-<!-- -   `HLVA` health literacy test score -->
-<!-- -   `SHIPLEY` vocabulary knowledge test score -->
-<!-- -   `FACTOR3` reading strategy survey score -->
-<!-- -   `GENDER` gender code -->
-<!-- -   `EDUCATION` education level code -->
-<!-- -   `ETHNICITY` ethnicity (Office National Statistics categories) code -->
-<!-- You can now see a new column: -->
-<!-- - `NATIVE.LANGUAGE` which codes for what language study participants grew up speaking (`English, Other`) -->
-<!-- #### 10.4.2 The how-to guide {#sec-lm-dev-practical-how-to} -->
-<!-- We will take things *step-by-step*. -->
-<!-- Make sure you complete each part, task and question, in order, before you move on to the next one. -->
-<!-- #### 10.4.2.1 How-to Part 1: Set-up -->
-<!-- To begin, we set up our environment in R. -->
-<!-- ##### How-to Task 1 -- Run code to empty the R environment -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- rm(list=ls())                             -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##### How-to Task 2 -- Run code to load libraries -->
-<!-- Load libraries using `library()`. -->
-<!-- - Notice that we are working with libraries that may be new to you here. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- library("ggeffects") -->
-<!-- library("patchwork") -->
-<!-- library("psych") -->
-<!-- library("tidyverse") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- #### 10.4.2.2 How-to Part 2: Load the data -->
-<!-- ##### How-to Task 3 -- Read in the data file we will be using -->
-<!-- We will be working with the data file: -->
-<!-- - `2022-12-08_all-studies-subject-scores.csv`. -->
-<!-- Read in the file -- using `read_csv()`. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ```{r} -->
-<!-- all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##### How-to Task 4 -- Inspect the data file -->
-<!-- In previous classes, we have used the `summary()` function to inspect the data. -->
-<!-- Now, let's do something new. -->
-<!-- We use the `describe()` function from the `{psych}` library to produce descriptive statistics for the variables in the data-set. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ```{r} -->
-<!-- describe(all.studies.subjects) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- In the reports you write -- whether as a student or, later, in your professional work -- you may often be required to present table summaries of the variables in your data, incorporating descriptive statistics. -->
-<!-- - You can use the `describe()` function to get R to do the work for you. -->
-<!-- We want to get just the descriptive statistics we want.  -->
-<!-- We are going to do this in two steps:  -->
-<!-- 1. we select the variables we care about; -->
-<!-- 2. we get just the descriptive statistics we want for those variables -->
-<!-- We will do this using *two different* but equivalent methods. -->
-<!-- First, we are going to do this using the `%>%` pipes that you saw previously (in week 5): -->
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   select(mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3) %>% -->
-<!--   describe(skew = FALSE) -->
-<!-- ``` -->
-<!-- These are the code elements and what they do: -->
-<!-- 1. `all.studies.subjects %>%` -- you tell R to use the `all.studies.subjects` dataset, then use `%>%` to ask R to take those data to the next step. -->
-<!-- 2. `select(mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3) %>%` -- you tell R to select just those variables in `all.studies.subjects` that you name and `%>%` pipe them to the next step. -->
-<!-- 3. `describe(...)` -- you tell R to give you descriptive statistics for the variables you have selected. -->
-<!-- 4. `describe(skew = FALSE)` -- critically, you add the argument `skew = FALSE` to *turn off* the option in `describe()` to report skew, kurtosis: because we do not typically see these statistics reported in psychology. -->
-<!-- ::: callout-tip -->
-<!-- Modern R coding often uses the pipe. When you see it, you see it used in a process involving a series of steps. -->
-<!-- - Do this thing, then send the results `%>` to the next step, do the next thing then send the results `%>%` to the next step... -->
-<!-- - When you look at `ggplot()` code, the `+` at the end of each line of plotting code is doing a similar job to the pipe. -->
-<!-- ::: -->
-<!-- Not everyone is comfortable coding this way so next we will do the same thing in an *old style*. -->
-<!-- ```{r} -->
-<!-- all.studies.subjects.select <- select(all.studies.subjects,  -->
-<!--                            mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3) -->
-<!-- describe(all.studies.subjects.select, skew = FALSE) -->
-<!-- ``` -->
-<!-- These are the code elements and what they do: -->
-<!-- 1. `all.studies.subjects.select <- ...(all.studies.subjects, ...)` -- you tell R to create a new dataset `all.studies.subjects.select` from the original `all.studies.subjects` -- the new dataset will include just the variables we select from the original. -->
-<!-- 2. `select(all.studies.subjects, ...)` -- you tell R to select the variables you want using the `select(...)` function: telling R to select variables from `all.studies.subjects`. -->
-<!-- 3. `... select(..., mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3)` -- you tell R to select the variables you want by entering the variable names, separated by commas, after you have named the dataset. -->
-<!-- 4. `describe(...)` -- you tell R to give you descriptive statistics. -->
-<!-- 5. `describe(all.studies.subjects.select, ...)` -- you name the dataset with the selection of variables you have created, telling the `describe()` function what data to work with. -->
-<!-- 5. `describe(skew = FALSE)` -- critically, you add the argument `skew = FALSE` to turn off the option to report skew, kurtosis to keep the descriptive statistics short. -->
-<!-- **What are we learning here?** -->
-<!-- First, we can do exactly the same thing in two different but related ways: -->
-<!-- - Use the way that (1.) works and (2.) you prefer. -->
-<!-- - Which should you prefer? You may reflect on how easy the code is to write, read, understand and use -->
-<!-- Second, we modify how the function `describe()` works by adding an argument: `describe(skew = FALSE)`. -->
-<!-- - We have been doing this kind of move, already, by adding arguments to, e.g., specify point colour in `ggplot()` code. -->
-<!-- As your skills advance, so your preferences on how you want R to work for you will become more specific. -->
-<!-- - You can modify the outputs from functions so that you get exactly what you want *in the way that you want it*. -->
-<!-- The information on the options available to you for any argument can be found in different kinds of places, see the further information box, below. -->
-<!-- ::: callout-tip -->
-<!-- ## Further information you can explore -->
-<!-- 1. Here is an explanation for how to use pipes `%>%` when you code and why it may be helpful to do so: -->
-<!-- <https://r4ds.had.co.nz/pipes.html> -->
-<!-- Note that we do not *require* the use of pipes in PSYC411: we are showing you this to expand your knowledge. -->
-<!-- 2. You can get a guide to the `{psych}` library here: -->
-<!-- <http://personality-project.org/r/psych/vignettes/intro.pdf> -->
-<!-- Every "official" R library has a technical manual on the central R resource CRAN, and the manual for 'psych' can be found here: -->
-<!-- <https://cran.r-project.org/web/packages/psych/psych.pdf> -->
-<!-- - where you can see information on the functions the library provides, and how you can use each function. -->
-<!-- This is how you ask for help in R for a function, e.g., just type: `?describe` or -->
-<!-- `help(describe)`. -->
-<!-- The `{psych}` library is written by William Revelle who provides a lot of useful resources here: -->
-<!-- <http://personality-project.org/r/psych/> -->
-<!-- ::: -->
-<!-- #### 10.4.2.3 How-to Part 3: Using a linear model to answer research questions -- one predictor -->
-<!-- ##### How-to Task 5 -- Examine the relation between outcome mean accuracy (`mean.acc`) and health literacy (`HLVA`) -->
-<!-- One of our research questions is: -->
-<!-- 1. What person attributes predict success in understanding? -->
-<!-- Here, we can address the question directly because we have information on an outcome, mean accuracy (`mean.acc`), and information on a predictor, health literacy (`HLVA`). -->
-<!-- - Given the theoretical account outlined in [the chapter for week 7](../part2/hypotheses-associations.qmd#sec-associations-overview), our hypothesis is that people who possess a higher level of background knowledge, measured here using the health literacy (`HLVA`) test, will be more likely to accurately understand health information when they read it, with understanding tested to calculate the mean accuracy (`mean.acc`). -->
-<!-- - This hypothesis translates into a statistical prediction: if people in our sample have higher `HLVA` scores, we predict that, on average, they will also have higher `mean.acc` scores. -->
-<!-- To address the research question, we test the statistical prediction using the linear model: -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ HLVA, data = all.studies.subjects) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- If you look at the model summary you can answer the following questions   -->
-<!-- > Q.1. What is the estimate for the coefficient of the effect of the predictor, HLVA? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.1. 0.041188  -->
-<!-- ::: -->
-<!-- > Q.2. Is the effect significant? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.2. It is significant because p < .05 -->
-<!-- ::: -->
-<!-- > Q.3. What are the values for t and p for the significance test for the coefficient? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.3. t = 12.94, p <2e-16 -->
-<!-- ::: -->
-<!-- > Q.4. What do you conclude is the answer to the research question, given the linear model results? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.4. The model slope estimate suggests that as `HLVA` scores increase so also do `mean.acc` scores. -->
-<!-- ::: -->
-<!-- > Q.5. What is the F-statistic for the regression? Report F, DF and the p-value. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.5. F-statistic: 167.5 on 1 and 559 DF,  p-value: < 2.2e-16 -->
-<!-- ::: -->
-<!-- > Q.6. Is the regression significant? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.6. Yes: the regression is significant. -->
-<!-- ::: -->
-<!-- > Q.7. What is the Adjusted R-squared? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.7. Adjusted R-squared:  0.2292 -->
-<!-- ::: -->
-<!-- > Q.8. Explain in words what this R-squared value indicates? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.8. The R-squared suggests that 23% of outcome variance can be explained  -->
-<!-- # by the model -->
-<!-- ::: -->
-<!-- **What are we learning here?** -->
-<!-- It is worth your time reflecting, here, on how statistical analyses are incorporated in research work. -->
-<!-- 1. We have ideas about a psychological process: e.g., reading comprehension. -->
-<!-- 2. We have assumptions of a theoretical account of that process: e.g., we use background knowledge to understand what we read. -->
-<!-- 3. Given those assumptions, we derive hypotheses that we translate into statistical predictions: e.g., higher health literacy predicts higher accuracy of understanding. -->
-<!-- 4. We test a statistical prediction using a method like `lm()`, specifying a model that aligns with the prediction terms: the outcome, the predictor(s). -->
-<!-- ::: callout-tip -->
-<!-- Thinking ahead to your dissertation project, can you reflect on the research question you will hope to answer, how you will address that question through measurement, then data analysis to test a statistical prediction? -->
-<!-- ::: -->
-<!-- #### 10.4.2.4 How-to Part 4: Using a linear model to answer research questions -- multiple predictors -->
-<!-- ##### How-to Task 6 --Examine the relation between outcome mean accuracy (`mean.acc`) and multiple predictors including: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`) -->
-<!-- We saw that our research question is: -->
-<!-- 1. What person attributes predict success in understanding? -->
-<!-- In the previous task, we tried to model success in understanding using just one predictor variable but it is unrealistic that a person's capacity to understand health information will be predicted by just one thing, their background knowledge. -->
-<!-- It is more likely that variation on multiple dimensions will predict understanding. -->
-<!-- What could those variables be? -->
-<!-- We can examine the relation between outcome mean accuracy (`mean.acc`) and multiple predictors simultaneously. -->
-<!-- Here, the candidate predictor variables include: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`). -->
-<!-- We can incorporate all predictors together in a linear model: we use `lm()`, as before, but now specify each variable listed here by variable name. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE, data = all.studies.subjects) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- If we look closely at this code example, we can first identify the working elements in the linear model code, but then we can identify some general properties that it will be useful to you to learn about. -->
-<!-- First, let's work through the elements of the linear model code so we can see what everything does: -->
-<!-- 1. `model <- lm(...)` -- tell R you want to fit the model using `lm(...)`, and give the model a name: here, we call it "model". -->
-<!-- 2. `...lm(mean.acc ~ HLVA...)` -- tell R you want a model of the outcome `mean.acc` predicted `~` by the predictors: `HLVA`, `SHIPLEY`, `FACTOR3`, `AGE`. -->
-<!-- - Note that we use the variable names as they appear in the dataset, and that each predictor variable is separated from the next by a plus sign. -->
-<!-- 3. `...data = all.studies.subjects)` -- tell R that the variables you name in the formula are in the `all.studies.subjects` data-set. -->
-<!-- 4. `summary(model)` -- ask R for a summary of the model you called "model": **this is how you get the results**. -->
-<!-- ::: callout-tip -->
-<!-- Notice that R has a general formula syntax: `outcome ~ predictor` *or* `y ~ x` -->
-<!-- - and uses the same format across a number of different functions; -->
-<!-- - each time, on the left of the tilde symbol `~` you identify the output or outcome variable; -->
-<!-- - here, **what is new** is that you see on the right of the tilde `~` multiple predictor variables: `y ~ x1 + x2 + ...` -->
-<!-- ::: -->
-<!-- If you look at the model summary you can answer the following questions. -->
-<!-- (We have hidden the answers -- so that you can test yourself -- but you can reveal each answer by clicking on the box.) -->
-<!-- > Q.7. What is the estimate for the coefficient of the effect of the predictor `HLVA` in *this* model? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Answer -->
-<!-- > A.7. 0.0274954  -->
-<!-- ::: -->
-<!-- > Q.8. Is the effect significant? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Answer -->
-<!-- > A.8. It is significant because p < .05. -->
-<!-- ::: -->
-<!-- > Q.9. What are the values for t and p for the significance test for the coefficient? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Answer -->
-<!-- > A.9. t = 8.470, p < 2e-16 -->
-<!-- ::: -->
-<!-- > Q.10. What do you conclude is the answer to the research question, given the linear model results? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Answer -->
-<!-- > A.10. The model slope estimate 0.0274954 suggests that as HLVA scores  -->
-<!-- # increase so also do mean.acc scores -->
-<!-- ::: -->
-<!-- > Q.11. How is the coefficient estimate for the HLVA slope similar or different, comparing this model with multiple predictors to the previous model with one predictor? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Answer -->
-<!-- > A.11. It can be seen that the HLVA estimate in the two models is different in that it is a bit smaller in the model with multiple predictors compared to the model with one predictor. The HLVA estimate is similar in that it remains positive, and it is about the same size. -->
-<!-- ::: -->
-<!-- **What are we learning here?** -->
-<!-- The estimate of the coefficient of any one predictor can be expected to vary depending on the presence of other predictors. -->
-<!-- - This is one reason why we need to be transparent about why we choose to use the predictors we include in our model. -->
-<!-- - The lecture for this week discusses this concern in relation to the motivation for good open science practices. -->
-<!-- > Q.12. Can you report the estimated effect of `SHIPLEY` (the measure of vocabulary)? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Answer -->
-<!-- > A.12. The effect of vocabulary knowledge (`SHIPLEY`) on mean accuracy of understanding is significant (estimate = 0.01, t = 7.30, p < .001), indicating that increasing skill is associated with increasing accuracy. -->
-<!-- ::: -->
-<!-- > Q.13. Can you report the model and the model fit statistics? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Answer -->
-<!-- > A.13. We fitted a linear model with mean comprehension accuracy as the outcome and health literacy (`HLVA`),  reading strategy (`FACTOR3`), vocabulary (`SHIPLEY`) and `AGE` (in years) as predictors. The model is significant overall, with F(4, 556) = 85.17, p < .001, and explains 38% of variance (adjusted R2 = 0.38). -->
-<!-- ::: -->
-<!-- #### 10.4.2.5 How-to Part 5: Plot predictions from linear models with multiple predictors -->
-<!-- ##### How-to Task 7 -- Produce and plot model results using R functions that make the process easier -->
-<!-- We can begin by plotting linear model predictions for one of the predictors in the multiple predictors model we have been working with. -->
-<!-- - Previously, we used `geom_abline()`, specifying intercept and slope estimates, to produce and plot model predictions. -->
-<!-- - Here, we use functions that are very helpful when we need to plot model predictions for a predictor, for models where we have multiple predictors. -->
-<!-- We do this in three steps: -->
-<!-- 1. We first fit a linear model of the outcome, given our predictors, and we save information about the model. -->
-<!-- 2. We use the `ggpredict()` function from the `{ggeffects}` library to take the information about the model and create a set of predictions we can use for plotting. -->
-<!-- 3. We plot the model predictions, producing what are also called *marginal effects* plots. -->
-<!-- We write the code to do the work as follows. -->
-<!-- 1. We first fit a linear model of the outcome, given our predictors: -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE,  -->
-<!--                          data = all.studies.subjects) -->
-<!-- ``` -->
-<!-- - `model <- lm(...)` -- we fit the model using `lm(...)`, giving the model a name: "model". -->
-<!-- - `...lm(mean.acc ~ HLVA + ... + ...)` -- this model estimates how the outcome `mean.acc` changes, is predicted `~` given information about the predictors `HLVA`, `SHIPLEY`, `FACTOR3`, and `AGE`. -->
-<!-- - Notice: when we use `lm()` to fit the model, R creates a set of information about the model, including estimates. -->
-<!-- - We give that set of information a name ("model"), and we use that name, next, to call on and use the model information to make the plot. -->
-<!-- 2. We use the `ggpredict()` function from the `{ggeffects}` library to take the information about the model and create a set of predictions we can use for plotting: -->
-<!-- ```{r} -->
-<!-- dat <- ggpredict(model, "HLVA") -->
-<!-- ``` -->
-<!-- - `dat <- ggpredict(...)` -- we ask R to create a set of predictions, and we give that set of predictions a name `dat`. -->
-<!-- - `... ggpredict(model, "HLVA")` -- we tell R what model information it should use (from "model"), and which predictor variable we need predictions for: `HLVA`. -->
-<!-- 3. We plot the model predictions (marginal effects plots): -->
-<!-- ```{r} -->
-<!-- plot(dat) -->
-<!-- ``` -->
-<!-- ::: callout-tip -->
-<!-- ## Further information you can explore -->
-<!-- In producing prediction plots, we are using functions from the `{ggeffects}` library. Can you locate online information about working with the library functions? -->
-<!-- - Try doing a search with the key words: `in r ggeffects`. -->
-<!-- If you do that, you will see links to the website: -->
-<!-- <https://strengejacke.github.io/ggeffects/> -->
-<!-- In the `{ggeffects}` online information, you can see links to practical examples. Can you use the information under `Practical examples` to adjust the appearance of the prediction plots? -->
-<!-- ::: -->
-<!-- ##### How-to Task 8 -- *Optional* -- Edit the appearance of the marginal effect (prediction) plot as you can with any `ggplot` object -->
-<!-- Once we have created the model predictions plot, we can edit it like we would edit any other `ggplot` object. -->
-<!-- - This is clearly advanced but it helps you to see just how powerful your capabilities can be if you aim to develop skills in this kind of work. -->
-<!-- ```{r} -->
-<!-- p.model <- plot(dat) -->
-<!-- p.model + -->
-<!--   geom_point(data = all.studies.subjects,  -->
-<!--              aes(x = HLVA, y = mean.acc), size = 1.5, alpha = .75, colour = "lightgreen") + -->
-<!--   geom_line(linewidth = 1.5) + -->
-<!--   ylim(0, 1.1) + xlim(0, 16) + -->
-<!--   theme_bw() + -->
-<!--   theme( -->
-<!--     axis.text = element_text(size = rel(1.15)), -->
-<!--     axis.title = element_text(size = rel(1.25)), -->
-<!--     plot.title = element_text(size = rel(1.4)) -->
-<!--   ) + -->
-<!--   xlab("Health literacy (HLVA)") + ylab("Mean accuracy") + -->
-<!--   ggtitle("Effect of health literacy on mean comprehension accuracy") -->
-<!-- ``` -->
-<!-- We do this in stages, as we have done for other kinds of plots: -->
-<!-- 1. `p.model <- plot(dat)` -- we create a plot object, which we call 'p.model'. -->
-<!-- 2. `p.model +` -- we then set up the first line of a series of code lines, starting with the name of the plot, `p.model` and a `+` to show we are going to add some edits. -->
-<!-- 3. `geom_point(data = all.studies.subjects, aes(x = HLVA, y = mean.acc) ...)` -- we first add the raw data points showing the observed `HLVA` and `mean.acc` for each person in our sample. -->
-<!-- 4. `geom_point(... size = 1.5, alpha = .75, colour = "lightgreen") +` -- we modify the appearance of the points, then -->
-<!-- 5. `geom_line(size = 1.5) +` -- we add the prediction line, using the predictions created earlier, then -->
-<!-- 6. `ylim(0, 1.1) + xlim(0, 16) +` -- we set axis limits to show the full potential range of variation in each variable, then -->
-<!-- 7. `theme_bw()` -- we set the theme to black and white, then -->
-<!-- 8. `theme(axis.text = element_text(size = rel(1.15)), ...)` -- we modify the relative size of x-axis, y-axis and plot title label font, then -->
-<!-- 9. `xlab("Health literacy (HLVA)") + ylab("Mean accuracy") +` -- we edit labels to make them easier to understand, then -->
-<!-- 10. `ggtitle("Effect of health literacy on mean comprehension accuracy")` -- we give the plot a title -->
-<!-- Notice that we are constructing a complex plot from two datasets: -->
-<!-- - We use `plot(dat)` to construct a plot from (1.) the set of predictions, showing the prediction line using `geom_line(size = 1.5) + `  -->
-<!-- - We then add a layer to the plot to show (2.) the raw sample data, using -->
-<!-- `geom_point(data = all.studies.subjects, ...)` -- to tell R to work with the sample data-set `all.studies.subjects`, and to show points representing the (aesthetic mappings) values, given that sample data, for (`x = HLVA, y = mean.acc`). -->
-<!-- **What are we learning here?** -->
-<!-- This complex plot is a good example of: -->
-<!-- 1. How we can plot summary of prediction data plus observed outcomes, and this connects to the classes on visualization. -->
-<!-- 2. How we can add layers of edits, or geometric objects, together to create complex plots that can show our audience messages like, here, that there is an average trend (shown by the line) but that individual outcomes vary quite a bit from the average. -->
-<!-- ::: callout-tip -->
-<!-- No model will be perfect. -->
-<!-- - It is often useful to compare model estimates -- here, the slopes -- with the raw data observations. -->
-<!-- - Visualizing the difference between what we observe and what we predict helps to make sense of how our prediction model could be improved. -->
-<!-- ::: -->
-<!-- ##### How-to Task 9 -- *Optional* -- Now produce plots that show the predictions for all the predictor variables in the model -->
-<!-- This is optional but we offer the task as an opportunity for practice with these notes. -->
-<!-- 1. The code may get pretty lengthy. -->
-<!-- 2. You will need to adjust axis labels so for each plot we see the correct predictor as the x-axis label -->
-<!-- 3. You will give the plot titles as letters a-e so that, if you put this plot in a report, you can refer to each plot by letter in comments in a report. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- We will use the `{Patchwork}` library: -->
-<!-- ```{r} -->
-<!-- library(patchwork) -->
-<!-- ``` -->
-<!-- First, fit the model and get the model information: -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE,  -->
-<!--                          data = all.studies.subjects) -->
-<!-- ``` -->
-<!-- Second, get the predictions, given the model information, for two different predictor variables. -->
-<!-- - Notice that I use different names for different sets of predictors. -->
-<!-- ```{r} -->
-<!-- dat.HLVA <- ggpredict(model, "HLVA") -->
-<!-- dat.SHIPLEY <- ggpredict(model, "SHIPLEY") -->
-<!-- ``` -->
-<!-- Third, produce plots of the predictions, giving each *plot object* a different plot name. -->
-<!-- - Notice that I use different names for different sets of predictors. -->
-<!-- ```{r} -->
-<!-- plot.HLVA <- plot(dat.HLVA) -->
-<!-- plot.SHIPLEY <- plot(dat.SHIPLEY) -->
-<!-- ```   -->
-<!-- Last, put the two plots together by calling their names. -->
-<!-- ```{r} -->
-<!-- plot.HLVA + plot.SHIPLEY -->
-<!-- ``` -->
-<!-- The `{Patchwork}` library functions are *really* powerful and the documentation information is *really* helpful: -->
-<!-- <https://patchwork.data-imaginist.com/articles/patchwork.html> -->
-<!-- ::: -->
-<!-- **What are we learning here?** -->
-<!-- If you follow the code example, and learn how to: -->
-<!-- 1. complete a linear model analysis with multiple predictors and  -->
-<!-- 2. present the model results, for all effects (estimates of the impact of all predictors) simultaneously -->
-<!-- - then *this* is a big deal, as a skill development learning achievement -->
-<!-- - because knowing about this process, and knowing how to do it, *unlocks* an important advanced analysis and visualization skill. -->
-<!-- ::: callout-tip -->
-<!-- Knowing how to follow this model $\rightarrow$ visualization workflow gives you a competitive advantage in future professional settings (job applications, interviews, workplace) because not many Psychology graduates can do it, yet. -->
-<!-- ::: -->
-<!-- #### 10.4.2.6 How-to Part 6: **New**: estimate the effects of factors as well as numeric variables -->
-<!-- As we have seen, one of our research questions is: -->
-<!-- 1. What person attributes predict success in understanding? -->
-<!-- We have not yet included any categorical or nominal variables as predictors but we can, and should: `lm()` can cope with any kind of variable as a predictor. -->
-<!-- ::: callout-tip -->
-<!-- In Part 4 of the Week 10 lectures, I explain that fundamentally every kind of analysis you have learnt before (t-test, ANOVA, etc.) can be understood as a kind of linear model. This part shows how that works. -->
-<!-- - In a (two groups) t-test, you are comparing the average outcome between two different groups. -->
-<!-- - To do that analysis, you need an outcome variable (like `mean.acc`) and a categorical variable or factor (like, say, experimental condition: condition 1 versus condition 2).  -->
-<!-- - Here, we see how you can do the same kind of group comparison using a linear model. -->
-<!-- ::: -->
-<!-- There are different ways to do this, here we look at one. Extra information about the second can be found in the drop-down box, following. -->
-<!-- ##### How-to Task 10 -- Fit a linear model including both numeric variables and categorical variables as predictors model including both numeric variables and categorical variables as predictors -->
-<!-- We begin by inspecting the data to check what variables are categorical or nominal variables -- factors -- using `summary()`. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- summary(all.studies.subjects) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- `summary()` gives you the information you need because R shows factors with a count of the number of observations for each level. -->
-<!-- We can build on our previous work by including the factor `NATIVE.LANGUAGE` as a predictor: -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE + NATIVE.LANGUAGE,  -->
-<!--             data = all.studies.subjects) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- Now, take a look at the results to answer the following questions. -->
-<!-- > Q.14. Can you report the estimated effect of `NATIVE.LANGUAGE` (the coding of participant language status: `English` versus `Other`)? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.14. The effect of language status (`NATIVE.LANGUAGE`) on mean accuracy of  -->
-<!--  understanding is significant (estimate = -0.09, t = -6.37, p < .001) indicating that not being a native speaker of English ('Other') is associated with lower accuracy. -->
-<!-- ::: -->
-<!-- > Q.15. Can you report the model and the model fit statistics? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.15. We fitted a linear model with mean comprehension accuracy as the outcome and health literacy (`HLVA`), reading strategy (`FACTOR3`), vocabulary (`SHIPLEY`) and `AGE` (years), as well as language status as predictors. The model is significant overall, with F(5, 555) = 81.09, p < .001, and explains 42% of variance (adjusted R2 = 0.42). -->
-<!-- ::: -->
-<!-- > Q.16. What changes, when you compare the models with versus without `NATIVE.LANGUAGE`? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > A.16. If you compare the summaries, for the last two models, you can see that the proportion of variance explained, `R-sq`, increases to 42% (0.4221), suggesting that knowing about participant language background helps to account for their response accuracy in tests of comprehension of health advice. -->
-<!-- ::: -->
-<!-- **What are we learning here?** -->
-<!-- What are factors? -->
-<!-- - A *factor* is a categorical variable. -->
-<!-- - Categorical variables have a "fixed and known set of possible values", for example, maybe you are working with the factor `EDUCATION`: in the data collection process, answers to the question "What is your education level?" can have only one of three possible values (`further, higher, secondary`). -->
-<!-- - For any factor, different values of the variable are called `levels` so, for `EDUCATION` the different levels are: `further, higher, secondary` -->
-<!-- R treats factors differently from other kinds of variables: -->
-<!-- 1. R *will not* give you summary statistics (e.g., a mean) for values of a factor. It can't because: what is the mean of education? -->
-<!-- 2. R *will* count the number of times each `level` in a `factor` appears in a sample. -->
-<!-- 3. If you are plotting a bar chart or a boxplot to show outcomes for different groups or conditions then the group or condition coding variable (e.g., `aes(x = group)`) has to be a factor. -->
-<!-- R handles factors, by default, by picking one level (e.g., `English`) as the reference level (or baseline) and comparing outcomes to that baseline, for each other factor level (here, `Other`). -->
-<!-- - This is why, in the summary of estimates for this model, the effect of `NATIVE.LANGUAGE` is estimated as the average difference in `mean.acc` outcome for `English` compared to `Other` participants. -->
-<!-- - This is why the effect is listed as: `NATIVE.LANGUAGEOther` in the summary table for the model -->
-<!-- ::: callout-tip -->
-<!-- ## Further information you can explore -->
-<!-- Note that I quote, here, from the powerful `{forcats}` library of tools for working with factors: -->
-<!-- <https://forcats.tidyverse.org/> -->
-<!-- You can read more about factor coding schemes here: -->
-<!-- <https://talklab.psy.gla.ac.uk/tvw/catpred/> -->
-<!-- and here: -->
-<!-- <https://phillipalday.com/stats/coding.html> -->
-<!-- ::: -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Extra information for students interested in ANOVAs -->
-<!-- There are different ways to code factors for analysis: -->
-<!-- - If you are doing an analysis where your data come from, say, a factorial design (e.g. a 2 x 2 study design) then you will want to use a different coding scheme: *sum* or *effect* coding. -->
-<!-- It is easy to do this, in two steps, proceeding as follows. -->
-<!-- 1. We first change the coding scheme. -->
-<!-- - Get the `{memisc}` library: -->
-<!-- ```{r} -->
-<!-- #| warning: false -->
-<!-- library(memisc) -->
-<!-- ``` -->
-<!-- - Make sure that the variable is being treated as a factor: -->
-<!-- ```{r} -->
-<!-- #| warning: false -->
-<!-- all.studies.subjects$NATIVE.LANGUAGE <- as.factor(all.studies.subjects$NATIVE.LANGUAGE) -->
-<!-- ``` -->
-<!-- - Check the coding: -->
-<!-- ```{r} -->
-<!-- contrasts(all.studies.subjects$NATIVE.LANGUAGE) -->
-<!-- ``` -->
-<!-- - Change the coding -->
-<!-- ```{r} -->
-<!-- contrasts(all.studies.subjects$NATIVE.LANGUAGE) <- contr.sum(2, base = 1) -->
-<!-- ``` -->
-<!-- The arguments in `contr.sum(2, base = 1)` tell R which level we want to be the reference level. -->
-<!-- - Check the coding to show you got what you want: -->
-<!-- ```{r} -->
-<!-- contrasts(all.studies.subjects$NATIVE.LANGUAGE) -->
-<!-- ``` -->
-<!-- 2. We then fit a linear model of the outcome, given our predictors: -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE + NATIVE.LANGUAGE,  -->
-<!--             data = all.studies.subjects) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- > Optional.Q.1. What changes, when you compare the models with versus without sum coding of `NATIVE.LANGUAGE`? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- > Optional.A.1. If you compare the summaries, for the last two models, you can see that the estimate for the coefficient of `NATIVE.LANGUAGE` changes in two ways:  -->
-<!-- > 1. the name changes, from `NATIVE.LANGUAGEOther` to `NATIVE.LANGUAGE2`, reflecting the change in coding; -->
-<!-- > 2. the slope estimate changes, from `-0.0900035` to `-0.0450018`. -->
-<!-- > Note: the change in the estimate happens because we go from estimating the average difference in level between 0 (`English`) versus 1 (`Other`), a change of one unit to estimating the average difference in level between -1 (`English`) versus 1 (`Other`), a change of 2 units. -->
-<!-- Being able to change the coding of nominal or categorical variables is very useful. -->
-<!-- And enables you to do ANOVA style analyses given factorial study designs e.g. -->
-<!-- ```{r} -->
-<!-- model <- aov(lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE + NATIVE.LANGUAGE,  -->
-<!--        data = all.studies.subjects)) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- Notice: we use `aov()` to get an ANOVA summary for the model. -->
-<!-- As before, you can fit a linear model including both numeric variables and categorical variables as predictors: and then plot the predicted effect of the factor. -->
-<!-- - We first fit the model, including `NATIVE.LANGUAGE` then use the ggpredict() function to get the predictions. -->
-<!-- ```{r} -->
-<!-- dat <- ggpredict(model, "NATIVE.LANGUAGE") -->
-<!-- plot(dat) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- #### 10.4.2.7 How-to Part 7: **New**: examine associations comparing data from different samples -->
-<!-- The lecture for developing the linear model includes a discussion of the ways in which the observed associations between variables or the estimated effects of predictor variables on some outcome may differ between different studies, different samples of data. -->
-<!-- To draw the plots, I used the `{ggplot2}` library function `facet_wrap()`: -->
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   ggplot(aes(x = SHIPLEY, y = mean.acc)) + -->
-<!--   geom_point(size = 2, alpha = .5, colour = "darkgrey") + -->
-<!--   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) + -->
-<!--   xlim(0, 40) + -->
-<!--   ylim(0, 1.1)+ -->
-<!--   theme_bw() + -->
-<!--   theme( -->
-<!--     axis.text = element_text(size = rel(1.15)), -->
-<!--     axis.title = element_text(size = rel(1.5)) -->
-<!--   ) + -->
-<!--   xlab("Vocabulary (Shipley)") + ylab("Mean accuracy") + -->
-<!--   facet_wrap(~ study) -->
-<!-- ``` -->
-<!-- What is new here is this bit: `facet_wrap(~ study)` -->
-<!-- This is how it works: -->
-<!-- 1. `facet_wrap()` -- the function asks R to take the data-set and split it into subsets. -->
-<!-- 2. `facet_wrap(~ study)` -- tells the function to split the data-set according to the different levels of a named factor: `study`. -->
-<!-- So: you need to identify a factor to do this work. -->
-<!-- ##### How-to Task 11 -- *Optional* -- Fit a linear model and plot the model predictions, for different study samples, all together, to enable comparisons of effects between studies -->
-<!-- Change the factor in `facet_wrap()` to show how the vocabulary effect may vary between English monolinguals versus non-native speakers of English. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   ggplot(aes(x = SHIPLEY, y = mean.acc)) + -->
-<!--   geom_point(size = 2, alpha = .5, colour = "darkgrey") + -->
-<!--   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) + -->
-<!--   xlim(0, 40) + -->
-<!--   ylim(0, 1.1)+ -->
-<!--   theme_bw() + -->
-<!--   theme( -->
-<!--     axis.text = element_text(size = rel(1.15)), -->
-<!--     axis.title = element_text(size = rel(1.5)) -->
-<!--   ) + -->
-<!--   xlab("Vocabulary (Shipley)") + ylab("Mean accuracy") + -->
-<!--   facet_wrap(~ NATIVE.LANGUAGE) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- **What are we learning here?** -->
-<!-- We can work with factors to split data-sets up by group or condition, or combinations of groups or conditions. We can then compare patterns, like outcomes, or the ways that outcomes are affected by predictors, in different groups or in different combinations. -->
-<!-- ::: callout-important -->
-<!-- But the *critical lesson* is that, when we visualize trends or differences between groups or, as here, between different studies, then we often see that the effects of variables *varies* between samples. -->
-<!-- - This variation between samples in the effects we observe is a key insight into what working with people involves: variation. -->
-<!-- ::: -->
-<!-- ::: callout-tip -->
-<!-- ## Further information you can explore -->
-<!-- You can read more about faceting here: -->
-<!-- <https://ggplot2.tidyverse.org/reference/facet_wrap.html> -->
-<!-- ::: -->
-<!-- #### 10.4.3 The practical exercises {#sec-lm-dev-practical-workbook} -->
-<!-- Now you will progress through a series of tasks, and challenges, to test what you have learnt. -->
-<!-- ::: callout-warning -->
-<!-- We will continue to work with the data file -->
-<!-- -   `2022-12-08_all-studies-subject-scores.csv` -->
-<!-- ::: -->
-<!-- We again split the steps into into parts, tasks and questions. -->
-<!-- We are going to work through the following workflow steps: **each step is labelled as a practical part**. -->
-<!-- 1. Set-up -->
-<!-- 2. Load the data -->
-<!-- 3. **Revision**: using a linear model to answer research questions -- one predictor. -->
-<!-- 4. **New**: using a linear model to answer research questions -- multiple predictors. -->
-<!-- 5. **New**: plot predictions from linear models. -->
-<!-- 6. **New**: estimate the effects of factors as well as numeric variables. -->
-<!-- 7. **New**: examine associations comparing data from different samples. -->
-<!-- ::: callout-tip -->
-<!-- - The `how-to` guide showed you what functions you needed and how you should write the function code. -->
-<!-- - Use the code structure you have seen and *change* it to use the data required for these `practical exercises`: you will need to change the data-set name, the variable names, to get the code to work for the following exercises. -->
-<!-- - Identify what code elements must change, and what code elements have to stay the same. -->
-<!-- ::: -->
-<!-- Note that, for Part 5, we focus on using the `ggpredict()` tools you saw in the `how-to` guide but, for the practical exercises, use these tools to better understand what linear models (generally) do when we use them. -->
-<!-- In the following, we will guide you through the tasks and questions step by step. -->
-<!-- ::: callout-important -->
-<!-- An answers version of the workbook will be provided after the practical class. -->
-<!-- ::: -->
-<!-- #### 10.4.3.1 Practical Part 1: Set-up -->
-<!-- To begin, we set up our environment in R. -->
-<!-- ##### Practical Task 1 -- Run code to empty the R environment -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- rm(list=ls()) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##### Practical Task 2 -- Run code to load relevant libraries -->
-<!-- Notice that in Week 10 we need to work with the libraries `ggeffects`, `patchwork` and `tidyverse`. -->
-<!-- Use the `library()` function to make these libraries available to you. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- library("ggeffects") -->
-<!-- library("patchwork") -->
-<!-- library("psych") -->
-<!-- library("tidyverse") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- #### 10.4.3.2 Practical Part 2: Load the data -->
-<!-- ##### Practical Task 3 -- Read in the data file we will be using -->
-<!-- The data file is called: -->
-<!-- - `2022-12-08_all-studies-subject-scores.csv` -->
-<!-- Use the `read_csv()` function to read the data files into R: -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##### Practical Task 4 -- Get summary statistics for *only* the numeric variables: `AGE` and `HLVA` -->
-<!-- Use the `{psych}` library `describe()` function to get a table summary of descriptive statistics for these variables. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Here, we can do this in two steps: -->
-<!-- 1. we select the variables we care about -->
-<!-- 2. we get just the descriptive statistics we want for those variables -->
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   dplyr::select(AGE, HLVA) %>% -->
-<!--   describe(skew = FALSE) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- >**Pract.Q.1.** What is the mean health literacy (HLVA) score in this sample? -->
-<!-- > Pract.A.1. 7.22 -->
-<!-- >**Pract.Q.2.** What are the minimum and maximum ages in this sample? -->
-<!-- > Pract.A.2. 18-100 -->
-<!-- >**Pract.Q.3.** Do you see any reason to be concerned about the data in this sample? -->
-<!-- > Hint: It is always a good idea to use your visualization skills to examine the distribution of variable values in a dataset: -->
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   ggplot(aes(x = AGE)) + -->
-<!--   geom_histogram() -->
-<!-- ``` -->
-<!-- > Pract.A.3. It looks like the `AGE` of 100 is maybe an error, or an extreme outlier. -->
-<!-- #### 10.4.3.3 Practical Part 3: Revision -- using a linear model to answer research questions -- one predictor. -->
-<!-- One of our research questions is: -->
-<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
-<!-- We can address this question by examining whether someone's rated evaluation of their own understanding matches their performance on a test of that understanding, and by investigating what variables predict variation in mean self-rated accuracy. -->
-<!-- ::: callout-tip -->
-<!-- Note that ratings of accuracy are ordinal (categorical ordered) data but that, here, we may choose to examine the average of participants' ratings of their own understanding of health information for the purposes of this example. -->
-<!-- - We learn about ordinal models for ordinal data in PSYC412. -->
-<!-- ::: -->
-<!-- For these data, participants were asked to respond to questions about health information to get `mean.acc` scores and were asked to rate their own understanding of the same information. -->
-<!-- - If you *can* evaluate your own understanding then ratings of understanding *should* be associated with performance on tests of understanding. -->
-<!-- ##### Practical Task 5 -- Estimate the relation between outcome mean self-rated accuracy (`mean.self`) and tested accuracy of understanding (`mean.acc`) -->
-<!-- We can use `lm()` to estimate whether the ratings of accuracy actually predict the outcome tested accuracy levels. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- If you first fit the appropriate model, then read the model summary, you can answer the following questions. -->
-<!-- >**Pract.Q.4.** What is the estimate for the coefficient of the effect of the predictor `mean.self` on the outcome `mean.acc` in this model? -->
-<!-- > Pract.A.4. 0.058613 -->
-<!-- >**Pract.Q.5.** Is the effect significant? -->
-<!-- > Pract.A.5. It is significant, p < .05 -->
-<!-- >**Pract.Q.6.** What are the values for t and p for the significance test for the coefficient? -->
-<!-- > Pract.A.6. t = 12.90, p <2e-16 -->
-<!-- >**Pract.Q.7.** What do you conclude is the answer to the research question, given the linear model results? -->
-<!-- > Pract.A.7. The model slope estimate suggests that higher levels of rated understanding can predict higher levels of tested understanding so, yes: it does appear that people can evaluate their own understanding. -->
-<!-- >**Pract.Q.8.** What is the F-statistic for the regression? Report F, DF and the p-value. -->
-<!-- > Pract.A.8. F-statistic: 166.4 on 1 and 559 DF,  p-value: < 2.2e-16 -->
-<!-- >**Pract.Q.9.** Is the regression significant? -->
-<!-- > Pract.A.9. Yes: the regression is significant. -->
-<!-- >**Pract.Q.10.** What is the Adjusted R-squared? -->
-<!-- > Pract.A.10. Adjusted R-squared:  0.228 -->
-<!-- >**Pract.Q.11.** Explain in words what this R-squared value indicates? -->
-<!-- > Pract.A.11. The R-squared suggests that 23% of outcome variance can be explained by the model -->
-<!-- #### 10.4.3.4 Practical Part 4: New -- using a linear model to answer research questions -- multiple predictors -->
-<!-- One of our research questions is: -->
-<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
-<!-- We have already looked at this question by asking whether ratings of understanding predict performance on tests of understanding. But there is a problem with that analysis -- it leaves open the question:  -->
-<!-- - What actually predicts ratings of understanding? -->
-<!-- We can look at that follow-up question through the analysis we do next. -->
-<!-- ##### Practical Task 6 -- Examine the relation between outcome mean self-rated accuracy (`mean.self`) and  multiple predictors including: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc` -->
-<!-- We use `lm()`, as before, but now specify each variable listed here by variable name -->
-<!-- - outcome: mean self-rated accuracy (`mean.self`) -->
-<!-- - predictors: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc`. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc, -->
-<!--             data = all.studies.subjects) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- If you look at the model summary you can answer the following questions   -->
-<!-- >**Pract.Q.12.** What predictors are significant in this model? -->
-<!-- > Pract.A.12. Health literacy ('HLVA'), reading strategy ('FACTOR3') and performance on tests of accuracy of understanding ('mean.acc') all appear to significantly predict variation in mean ratings of understanding ('mean.self'). -->
-<!-- >**Pract.Q.13.** What is the estimate for the coefficient of the effect of the predictor, `mean.acc`, in this model? -->
-<!-- > Pract.A.13. 2.502024 -->
-<!-- >**Pract.Q.14.** Is the effect significant? -->
-<!-- > Pract.A.14. It is significant because p < .05 -->
-<!-- >**Pract.Q.15.** What are the values for t and p for the significance test for the coefficient? -->
-<!-- > Pract.A.15. t = 6.929, p = 1.18e-11 -->
-<!-- >**Pract.Q.16.** What do you conclude is the answer to the follow-up question, what actually predicts ratings of understanding? -->
-<!-- > Pract.A.16. Ratings of understanding appear to be predicted by performance on tests of accuracy of understanding, together with variation in health literacy and reading strategy. -->
-<!-- #### 10.4.3.5 Practical Part 5: New -- plot predictions from linear models -->
-<!-- In this part, the practical work involves plotting the predictions from two linear models but the benefit from this practical work is to better your understanding of what linear models are doing. -->
-<!-- So, our research questions is: -->
-<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
-<!-- We can look at this question in two ways: -->
-<!-- - we can focus on whether `mean.self` predicts `mean.acc`? -->
-<!-- - or, in reverse, whether `mean.acc` predicts `mean.self`? -->
-<!-- People could (1.) be good at understanding accurately what they read (measured as `mean.acc`), so that that accurate understanding results in accurate evaluation of their own understanding (measured as `mean.self`). Or people could (2.) be good at judging their own understanding (`mean.self`) so that they can then be accurate in their understanding of what they read. This is not just a tricksy way of talking: it could be that people who are good at evaluating if they understand what they read are able to work more effectively at that understanding, or the opposite could be the case.  -->
-<!-- The *direction of cause-and-effect* is just unclear, here.  -->
-<!-- ##### Practical Task 7 -- We cannot actually resolve the question of causality but we can learn a lot if we look at two models incorporating the same variables -->
-<!-- 1. If we focus on whether (predictor) `mean.self` predicts (outcome) `mean.acc` then the model should be: `mean.acc ~ mean.self` -->
-<!-- 2. If we focus on whether (predictor) `mean.acc` predicts (outcome) `mean.self` then the model should be: `mean.self ~ mean.acc` -->
-<!-- The two models involve the same variables but arrange the variables differently, in the code, depending on which variable is specified as the outcome versus which variable is specified as the predictor. -->
-<!-- ::: callout-tip -->
-<!-- Note that the comparison between these models teaches us something about *what* it is that linear models predict. -->
-<!-- - You want to focus on the estimate of the coefficient of the predictor variable, for each model, presented in the model summary results. -->
-<!-- ::: -->
-<!-- >**Pract.Q.17.** Can you write the code for the two models? Can you give each model a distinctive name? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
-<!-- summary(model.1) -->
-<!-- model.2 <- lm(mean.self ~ mean.acc, -->
-<!--               data = all.studies.subjects) -->
-<!-- summary(model.2) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- Take a look at the summary for each model.   -->
-<!-- >**Pract.Q.18.** Why do you think it appears that the slope coefficient estimate is different if you compare: -->
-<!-- > (1.) the model, mean.acc ~ mean.self -->
-<!-- > versus -->
-<!-- > (2.) the model, mean.self ~ mean.acc? -->
-<!-- > Hint: You may benefit by reflecting on the lectures and practical materials in [the chapter for week 8](../part2/lm-intro.qmd#sec-lm-intro-overview), especially where they concern predictions. -->
-<!-- > Pract.A.18. Linear models are prediction models. We use them to predict variation in *outcomes* given some set of predictor variables. Because of this, predictions *must* be scaled in the same way as the *outcome variable*. -->
-<!-- > So: -->
-<!-- > (1.) the model `mean.acc ~ mean.self` identifies `mean.acc` as the outcome so if we are predicting change in `mean.acc` (scaled 0-1) then we are looking at coefficients that will lie somewhere on the same scale (also 0-1). -->
-<!-- > Here: the model suggests that unit change in `mean.self` predicts increase of 0.058613 in `mean.acc`. -->
-<!-- > Versus: -->
-<!-- > (2.) the model, `mean.self ~ mean.acc` identifies `mean.self` as the outcome so if we are predicting change in `mean.self` (scaled 1-9) then we are looking at coefficients that will lie somewhere on the same scale (also 1-9). -->
-<!-- > Here: the model suggests that unit change in `mean.acc` predicts increase of 3.9135 in `mean.self`. -->
-<!-- >**Pract.Q.19.** Can you plot the predictions from each model? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- > Pract.A.19. Here is the code to plot the predictions from both models: -->
-<!-- First fit the models -- give the model objects distinct names: -->
-<!-- ```{r} -->
-<!-- model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
-<!-- summary(model.1) -->
-<!-- model.2 <- lm(mean.self ~ mean.acc, -->
-<!--             data = all.studies.subjects) -->
-<!-- summary(model.2) -->
-<!-- ``` -->
-<!-- Then get the predictions: -->
-<!-- ```{r} -->
-<!-- dat.1 <- ggpredict(model.1, "mean.self") -->
-<!-- dat.2 <- ggpredict(model.2, "mean.acc") -->
-<!-- ``` -->
-<!-- Then make the plots, and arrange them for easy comparison, side-by-side: -->
-<!-- ```{r} -->
-<!-- plot.1 <- plot(dat.1) -->
-<!-- plot.2 <- plot(dat.2) -->
-<!-- plot.1 + plot.2 -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- >**Pract.Q.20.** Look at the two plots side-by-side: what do you see? -->
-<!-- Hint: Look at changes in height of the prediction line, given changes in x-axis position of the line. -->
-<!-- > Pract.A.20. A side-by-side comparison shows that for (1.) `mean.acc ~ mean.self,` increases in `mean.self` from about 2-8 are associated with a change in `mean.acc` from about .4 to about .85, while for (2.) `mean.self ~ mean.acc`, increases in `mean.self` from about .2-1.0 are associated with a change in `mean.acc` from about 4 to about 8. -->
-<!-- **What are we learning here?** -->
-<!-- Linear models are prediction models. We use them to predict variation in outcomes given some set of predictor variables.  -->
-<!-- ::: callout-important -->
-<!-- Predictions *must* be scaled in the same way as the outcome variable. -->
-<!-- ::: -->
-<!-- #### 10.4.3.6 Practical Part 6: New -- estimate the effects of factors as well as numeric variables -->
-<!-- ##### Practical Task 8 -- Fit a linear model to examine what variables predict outcome mean self-rated accuracy of `mean.self` -->
-<!-- Include in the model both numeric variables and categorical variables as predictors: -->
-<!-- - health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc` and `NATIVE.LANGUAGE`. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc + -->
-<!--                         NATIVE.LANGUAGE, -->
-<!--             data = all.studies.subjects) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- >**Pract.Q.21.** Can you report the estimated effect of `NATIVE.LANGUAGE` (the coding of participant language status: `English` versus `other`)? -->
-<!-- Hint: you will need to get a summary of the model you have coded. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- > Pract.A.21. The effect of language status (`NATIVE.LANGUAGE`) on mean accuracy of understanding is not significant (estimate = -0.225432, t = -1.750, p = .081) indicating that not being a native speaker of English (`Other`) is not associated with lower self-rated accuracy. -->
-<!-- >**Pract.Q.22.** Can you report the overall model and model fit statistics? -->
-<!-- > Pract.A.22. We fitted a linear model with mean self-rated accuracy as the outcome and with the predictors: health literacy (HLVA),  reading strategy (FACTOR3), vocabulary (SHIPLEY) and AGE (years), as well as mean accuracy (mean.acc) and language status. The model is significant overall, with F(6, 554) = 45.82, p < .001, and explains 32% of variance (adjusted R2 = 0.32). -->
-<!-- >**Pract.Q.23.** Can you plot the predicted effect of `NATIVE.LANGUAGE` given your model? -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- We first fit the model, including `NATIVE.LANGUAGE`: -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc + -->
-<!--               NATIVE.LANGUAGE, -->
-<!--             data = all.studies.subjects) -->
-<!-- ``` -->
-<!-- Then use the `ggpredict()` function to get the predictions -->
-<!-- ```{r} -->
-<!-- dat <- ggpredict(model, "NATIVE.LANGUAGE") -->
-<!-- plot(dat) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- >**Pract.Q.24.** The plot should give you dot-and-whisker representations of the estimated `mean.self` for `English` versus `Other` participants in the dataset. What is the difference in the estimated `mean.self` between these groups? -->
-<!-- Hint: The effect or prediction plot will show you dot-and-whisker representations of predicted outcome `mean.self`. In these plots, the dots represent the estimated `mean.self` while the lines (whiskers) represent confidence intervals. -->
-<!-- > Pract.A.24. The difference in the estimated 'mean.self' between these groups is about .2. -->
-<!-- >**Pract.Q.25.** Compare the difference in the estimated `mean.self` between these groups, given the plot, with the coefficient estimate from the model summary: what do you see? -->
-<!-- > Pract.A.25. The coefficient estimate = -0.225432. This matches the difference shown in the plot. -->
-<!-- #### 10.4.3.7 Practical Part 7: New -- examine associations comparing data from different samples -->
-<!-- ##### Practical Task 8 -- Use `facet_wrap()` to show how the association between `mean.self` and `mean.acc` can vary between the different studies in the data-set -->
-<!-- Change the factor in `facet_wrap()` to show how the association between `mean.self` and `mean.acc` can vary between the different studies -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   ggplot(aes(x = mean.self, y = mean.acc)) + -->
-<!--   geom_point(size = 2, alpha = .5, colour = "darkgrey") + -->
-<!--   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) + -->
-<!--   xlim(0, 10) + -->
-<!--   ylim(0, 1.1)+ -->
-<!--   theme_bw() + -->
-<!--   theme( -->
-<!--     axis.text = element_text(size = rel(1.15)), -->
-<!--     axis.title = element_text(size = rel(1.5)) -->
-<!--   ) + -->
-<!--   xlab("Mean self-rated accuracy") + ylab("Mean accuracy") + -->
-<!--   facet_wrap(~ study) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- You may need to edit the x-axis labeling to make it readable -->
-<!-- - Can you work out how to do that, given `ggplot()` help information? -->
-<!-- Hint: check out the continuous scale information in: -->
-<!-- <https://ggplot2.tidyverse.org/reference/scale_continuous.html> -->
-<!-- #### 10.4.3.8 Practical Part Optional: New -- save or export plots so that you can insert them in reports -->
-<!-- Learning how to export plots from R will help you later with reports. -->
-<!-- The task is to save or export a plot that you produce, so that you can insert it in a report or presentation. -->
-<!-- There are different ways to do this, we can look at one simple example. -->
-<!-- - We can save the last plot we produce using the `{tidyverse}` function `ggsave()`: -->
-<!-- ```{r} -->
-<!-- ggsave("facet-plots.png") -->
-<!-- ``` -->
-<!-- Notice, here, that: -->
-<!-- - `ggsave("facet-plots...")` -- we need to give the plot a name; -->
-<!-- - `ggsave("...png")` -- and we need to tell R what format we require. -->
-<!-- The plot is saved as a file with the name you specify, in the working directory (folder) you are using. -->
-<!-- R will save the plot in the format you specify: here, I choose .png because .png image files can be imported into Microsoft Word documents easily. -->
-<!-- - Notice that `ggsave()` will use pretty good defaults but that you can over-ride the defaults, by adding arguments to specify the plot width, height and resolution (in dpi). -->
-<!-- ::: callout-tip -->
-<!-- ## Further information you can explore -->
-<!-- Check out reference information here: -->
-<!-- <https://ggplot2.tidyverse.org/reference/ggsave.html> -->
-<!-- and -->
-<!-- <http://www.cookbook-r.com/Graphs/Output_to_a_file/> -->
-<!-- ::: -->
-<!-- #### Practical Task Optional: Now try it for yourself: make a plot, and save it, using what you have learnt so far -->
-<!-- You will need to: -->
-<!-- 1. Fit a model -->
-<!-- 2. Create a set of predictions we can use for plotting -->
-<!-- 3. Make a plot -->
-<!-- 4. Save it -->
-<!-- Then, you can import the saved plot into Word. -->
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Fit a model: -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE, -->
-<!--             data = all.studies.subjects) -->
-<!-- ``` -->
-<!-- Create a set of predictions we can use for plotting -->
-<!-- ```{r} -->
-<!-- dat <- ggpredict(model, "FACTOR3") -->
-<!-- ``` -->
-<!-- Make a plot -->
-<!-- ```{r} -->
-<!-- p.model <- plot(dat) -->
-<!-- p.model + -->
-<!--   geom_point(data = all.studies.subjects, -->
-<!--              aes(x = FACTOR3, y = mean.acc), size = 1.5, alpha = .75, colour = "darkgrey") + -->
-<!--   geom_line(size = 1.5) + -->
-<!--   theme_bw() + -->
-<!--   theme( -->
-<!--     axis.text = element_text(size = rel(1.15)), -->
-<!--     axis.title = element_text(size = rel(1.25)), -->
-<!--     plot.title = element_text(size = rel(1.4)) -->
-<!--   ) + -->
-<!--   xlab("Reading strategy (FACTOR3)") + ylab("Mean accuracy") + -->
-<!--   ggtitle("Effect of reading strategy on \n mean comprehension accuracy") -->
-<!-- ``` -->
-<!-- Save it -->
-<!-- ```{r} -->
-<!-- ggsave("reading-strategy-prediction.png", width = 10, height = 10, units = "cm") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- Some advice: -->
-<!-- - It is often helpful to present plots that are almost square i.e. height about = width. -->
-<!-- - This helps to present the best fit line in scatterplots in a way that is easier to perceive. -->
-<!-- - We may experiment with width-height (aspect ratio) until we get something that "looks" right.  -->
-<!-- - Notice also that different presentation venues will require different levels if image resolution e.g. journals may require .tiff file plots at dpi = 180 or greater. -->
-<!-- ### The answers -->
-<!-- After the practical class, we will reveal the answers that are currently hidden. -->
-<!-- The answers version of the webpage will present my answers for questions, and some extra information where that is helpful. -->
-<!-- ### Look ahead: growing in independence -->
-<!-- #### General advice -->
-<!-- An old saying goes: -->
-<!-- > All models are wrong but some are useful -->
-<!-- (attributed to George Box). -->
-<!-- ::: callout-tip -->
-<!-- -   Sometimes, it can be useful to adopt a simpler approach as a way to approximate *get closer to* better methods -->
-<!-- -   Box also advises: -->
-<!-- > Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad. -->
-<!-- -   Here, we focus on validity, measurement, generalizability and *critical thinking* -->
-<!-- ::: -->
-<!-- ### Summary -->
-<!-- 1.  Linear models -->
-<!-- -   Linear models are a very general, flexible, and powerful analysis method -->
-<!-- -   We can use assuming that prediction outcomes (residuals) are normally distributed -->
-<!-- -   With potentially multiple predictor variables -->
-<!-- 2.  Thinking about linear models -->
-<!-- -   Closing the loop: when we plan an analysis we should try to use contextual information -- theory and measurement understanding -- to specify our model -->
-<!-- -   Closing the loop: when we critically evaluate our or others' findings, we should consider validity, measurement, and generalizability -->
-<!-- 3.  Reporting linear models -->
-<!-- -   When we report an analysis, we should report: -->
-<!-- 1.  Explain what I did, specifying the method (linear model), the outcome variable (accuracy) and the predictor variables (health literacy, reading strategy, reading skill and vocabulary) -->
-<!-- 2.  Report the model fit statistics overall ($F, R^2$) -->
-<!-- 3.  Report the significant effects ($\beta, t, p$) and describe the nature of the effects (does the outcome increase or decrease?) -->
+<section id="sec-multilevel-workbook-lectures" class="level3">
+<h3 class="anchored" data-anchor-id="sec-multilevel-workbook-lectures">Lectures</h3>
+<p>The lecture materials for this week are presented in three short parts.</p>
+<p>Click on a link and your browser should open a tab showing the <em>Panopto</em> video for the lecture part.</p>
+<ol type="1">
+<li>Part 1 (17 minutes) <strong>Multilevel data</strong>: What do we mean when we talk about multilevel structured data and why it matters.</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=66e89421-4491-4eb9-b1c8-acd4012a183d&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-1-of-3"></iframe>
+<ol start="2" type="1">
+<li>Part 2 (13 minutes): Getting started in learning, working with an example from education, children clustered in classes, analyzing data using linear models, seeing the differences between different classes.</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=22361165-636b-424c-9e28-acd4012efd6f&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-2-of-3"></iframe>
+<ol start="3" type="1">
+<li>Part 3 (13 minutes): Doing multilevel models in practice, coding models using <code>lmer()</code>, a first look at analysis results.</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5942b084-457f-4687-aa3d-acd401332b44&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-3-of-3"></iframe>
+</section>
+<section id="sec-multilevel-workbook-slides" class="level3">
+<h3 class="anchored" data-anchor-id="sec-multilevel-workbook-slides">Lecture slides</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Download the lecture slides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The slides presented in the videos can be downloaded here:</p>
+<ul>
+<li><a href="files/402-week-17-LME-1.pdf">402-week-17-LME-1.pdf</a>: high resolution .pdf, exactly as delivered [4 MB];</li>
+<li><a href="files/402-week-17-LME-1_1pp.pdf">402-week-17-LME-1_1pp.pdf</a>: low resolution .pdf, printable version, one-slide-per-page [359 KB];</li>
+<li><a href="files/402-week-17-LME-1_6pp.pdf">402-week-17-LME-1_6pp.pdf</a>: low resolution .pdf, printable version, six-slides-per-page [359 KB].</li>
+</ul>
+<p>The high resolution version is the version delivered for the lecture recordings. Because the images are produced to be high resolution, the file size is quite big (4 MB) so, to make the slides easier to download, I produced low resolution versions: 1pp and 6pp. These should be easier to download and print out if that is what you want to do.</p>
+</div>
+</div>
+</section>
+<section id="sec-multilevel-workbook-practical" class="level3">
+<h3 class="anchored" data-anchor-id="sec-multilevel-workbook-practical">Practical materials: data and R-Studio</h3>
+<p>We will be working with data taken from a study on education outcomes in Brazilian children, reported by <span class="citation" data-cites="golino2014">Golino &amp; Gomes (<a href="#ref-golino2014" role="doc-biblioref">2014</a>)</span>.</p>
+<p>You can read more about these data in <a href="../../PSYC412/part2/01-multilevel.html#sec-intro-multilevel">Conceptual introduction to multilevel data</a>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Get the data</strong>: get the data file and the .R script you can use to do the exercises that will support your learning.</p>
+<ul>
+<li>You can download the files folder for this chapter by clicking on the link <a href="files/01-multilevel.zip">01-multilevel.zip</a>.</li>
+</ul>
+</div>
+</div>
+<p>The practical materials folder includes:</p>
+<ul>
+<li><code>BAFACALO_DATASET.RData</code></li>
+<li><code>402-01-multilevel-workbook.R</code> the workbook you can use to do the practical exercises.</li>
+</ul>
+<p>The data file is in the <code>.RData</code> format: <code>.RData</code> is R’s own file format so the code you use to load and access the data for analysis is a bit simpler than you are used to, as we will see.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can access the sign-in page for <a href="https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F">R-Studio Server here</a></p>
+</div>
+</div>
+<section id="sec-multilevel-workbook-practical-guide" class="level4">
+<h4 class="anchored" data-anchor-id="sec-multilevel-workbook-practical-guide">Practical materials guide</h4>
+<p>Here, our learning targets are:</p>
+<ul>
+<li>concepts: multilevel data and multilevel modeling</li>
+<li>skills: visualization – examine overall and within-class trends</li>
+<li>skills: run linear models over all data – and within each class</li>
+<li>skills: use the lmer() function to fit models of multilevel data</li>
+</ul>
+<p>The aims of the practical work are to:</p>
+<ul>
+<li>Get practice running the code so that you can reproduce the figures and results from the lecture and in the book chapter.</li>
+<li>Exercise skills by varying code – changing variables, changing options – so that you can see how the code works.</li>
+<li>Use the opportunity to reflect on and evaluate results – so that we can support growth in development of understanding of main ideas.</li>
+</ul>
+</section>
+<section id="sec-multilevel-workbook-practical-workbook" class="level4">
+<h4 class="anchored" data-anchor-id="sec-multilevel-workbook-practical-workbook">The practical exercises</h4>
+<p>Now you will progress through a series of tasks, and challenges, to aid your learning.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We will work with the data file:</p>
+<ul>
+<li><code>AFACALO_DATASET.RData</code></li>
+</ul>
+</div>
+</div>
+<p>We again split the steps into into parts, tasks and questions.</p>
+<p>We are going to work through the following workflow steps: <strong>each step is labelled as a practical part</strong>.</p>
+<ol type="1">
+<li>Set-up</li>
+<li>Load the data</li>
+<li>Inspect the data</li>
+<li>Visualize relationships</li>
+<li>Analyze relationships using linear models</li>
+<li>Visualize relationships for each class</li>
+<li>Mixed-effects analysis</li>
+<li>Optional exercises: extensions</li>
+</ol>
+<p>In the following, we will guide you through the tasks and questions step by step.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An answers version of the workbook will be provided after the practical class.</p>
+</div>
+</div>
+</section>
+<section id="practical-part-1-set-up" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-1-set-up">Practical Part 1: Set-up</h4>
+<p>To begin, we set up our environment in R.</p>
+<section id="practical-task-1-run-code-to-load-relevant-libraries" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-1-run-code-to-load-relevant-libraries">Practical Task 1 – Run code to load relevant libraries</h5>
+<p>Use the <code>library()</code> function to make the functions we need available to you.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'Matrix' was built under R version 4.1.1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.1.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.1.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.1.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::combine() masks gridExtra::combine()
+✖ tidyr::expand()  masks Matrix::expand()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+✖ tidyr::pack()    masks Matrix::pack()
+✖ tidyr::unpack()  masks Matrix::unpack()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="practical-part-2-load-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-2-load-the-data">Practical Part 2: Load the data</h4>
+<section id="practical-task-2-read-in-the-data-file-we-will-be-using" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-2-read-in-the-data-file-we-will-be-using">Practical Task 2 – Read in the data file we will be using</h5>
+<p>The data file is called:</p>
+<ul>
+<li><code>BAFACALO_DATASET.RData</code></li>
+</ul>
+<p>Use the <code>load()</code> function to read the data files into R:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"BAFACALO_DATASET.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Get summary statistics to inspect what you have got.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(BAFACALO_DATASET)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> participant_id   scholarity_father scholarity_mother household_income
+ Min.   :  1.00   Min.   :0.000     Min.   :0.000     Min.   :1.000   
+ 1st Qu.: 73.75   1st Qu.:1.000     1st Qu.:1.000     1st Qu.:1.000   
+ Median :146.50   Median :2.000     Median :2.000     Median :2.000   
+ Mean   :146.50   Mean   :1.838     Mean   :1.879     Mean   :1.663   
+ 3rd Qu.:219.25   3rd Qu.:2.000     3rd Qu.:3.000     3rd Qu.:2.000   
+ Max.   :292.00   Max.   :3.000     Max.   :3.000     Max.   :3.000   
+                  NA's   :20        NA's   :19        NA's   :19      
+  class_number previous_school_type      sex              age       
+ M11    : 21   Min.   :2            Min.   :0.0000   Min.   :14.00  
+ M15    : 20   1st Qu.:2            1st Qu.:0.0000   1st Qu.:15.00  
+ M14    : 19   Median :2            Median :1.0000   Median :16.00  
+ M36    : 19   Mean   :2            Mean   :0.5348   Mean   :15.71  
+ M18    : 18   3rd Qu.:2            3rd Qu.:1.0000   3rd Qu.:16.00  
+ (Other):133   Max.   :2            Max.   :1.0000   Max.   :20.00  
+ NA's   : 62   NA's   :62           NA's   :62       NA's   :83     
+     VZi01            VZi02            VZi03            VZi04       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.9308   Mean   :0.9062   Mean   :0.8252   Mean   :0.9158  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :3        NA's   :4        NA's   :6        NA's   :7       
+     VZi05            VZi06            VZi07            VZi08       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.8576   Mean   :0.9094   Mean   :0.5445   Mean   :0.8362  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :4        NA's   :5        NA's   :11       NA's   :5       
+     VZi09            VZi10            VZi11            VZi12       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.8403   Mean   :0.9303   Mean   :0.8433   Mean   :0.9041  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :4        NA's   :5        NA's   :24       NA's   :21      
+     VZi13            VZi14            VZi15            VZi16       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :0.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.4749   Mean   :0.5039   Mean   :0.8593   Mean   :0.9032  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :33       NA's   :38       NA's   :29       NA's   :44      
+     VZi17            VZi18           VZi19            VZi20       
+ Min.   :0.0000   Min.   :0.000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:1.000   1st Qu.:1.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.000   Median :1.0000   Median :1.0000  
+ Mean   :0.7207   Mean   :0.902   Mean   :0.9422   Mean   :0.6911  
+ 3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :45       NA's   :47      NA's   :50       NA's   :46      
+     VZi21            VZi22            VZi23            VZi24       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.7811   Mean   :0.9412   Mean   :0.7788   Mean   :0.9021  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :59       NA's   :54       NA's   :66       NA's   :57      
+     VZi25            VZi26            VZi27            VZi28       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.9788   Mean   :0.8426   Mean   :0.7944   Mean   :0.9673  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :56       NA's   :76       NA's   :78       NA's   :78      
+     VZi29            VZi30            CFi01            CFi02       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.8841   Mean   :0.8889   Mean   :0.8694   Mean   :0.9021  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :85       NA's   :76       NA's   :1        NA's   :6       
+     CFi03            CFi04            CFi05            CFi06      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.000  
+ Mean   :0.8905   Mean   :0.8298   Mean   :0.6629   Mean   :0.747  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ NA's   :9        NA's   :10       NA's   :28       NA's   :39     
+     CFi07            CFi08            CFi09            CFi10       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.7234   Mean   :0.7696   Mean   :0.9072   Mean   :0.8397  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :57       NA's   :62       NA's   :1        NA's   :5       
+     CFi11            CFi12            CFi13            CFi14       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.9537   Mean   :0.5933   Mean   :0.6877   Mean   :0.9733  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :11       NA's   :24       NA's   :23       NA's   :30      
+     CFi15            CFi16            CFi17            CFi18       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.7406   Mean   :0.8455   Mean   :0.6926   Mean   :0.9683  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :53       NA's   :59       NA's   :9        NA's   :8       
+     CFi19            CFi20            CFi21            CFi22       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.7782   Mean   :0.5927   Mean   :0.7546   Mean   :0.7683  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :17       NA's   :17       NA's   :23       NA's   :46      
+     CFi23            CFi24            CFi25            CFi26       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.7956   Mean   :0.6453   Mean   :0.8662   Mean   :0.8794  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :67       NA's   :58       NA's   :8        NA's   :10      
+     CFi27            CFi28            CFi29            CFi30      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.000  
+ Mean   :0.7319   Mean   :0.6444   Mean   :0.6279   Mean   :0.753  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ NA's   :16       NA's   :22       NA's   :34       NA's   :45     
+     CFi31            CFi32            V1i01          V1i02       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.00   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.75   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :1.00   Median :1.0000  
+ Mean   :0.7902   Mean   :0.7061   Mean   :0.75   Mean   :0.6667  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.00   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.00   Max.   :1.0000  
+ NA's   :68       NA's   :64                      NA's   :40      
+     V1i03            V1i04            V1i05            V1i06       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.6329   Mean   :0.5548   Mean   :0.9821   Mean   :0.6667  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :85       NA's   :146      NA's   :13       NA's   :175     
+     V1i07            V1i08            V1i09            V1i10      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.000  
+ Median :1.0000   Median :0.0000   Median :0.0000   Median :1.000  
+ Mean   :0.6371   Mean   :0.4663   Mean   :0.4351   Mean   :0.668  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ NA's   :168      NA's   :84       NA's   :138      NA's   :51     
+     V1i11            V1i12            V1i13            V1i14      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :1.000  
+ Mean   :0.4675   Mean   :0.4074   Mean   :0.3582   Mean   :0.964  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ NA's   :138      NA's   :130      NA's   :225      NA's   :14     
+     V1i15            V1i16            V1i17           V1i18      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.000   Min.   :0.000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:1.000   1st Qu.:0.000  
+ Median :1.0000   Median :0.0000   Median :1.000   Median :1.000  
+ Mean   :0.9819   Mean   :0.3636   Mean   :0.799   Mean   :0.659  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.000   Max.   :1.000  
+ NA's   :15       NA's   :215      NA's   :88      NA's   :75     
+     V1i19            V1i20            V1i21           V1i22       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.000   1st Qu.:0.0000  
+ Median :1.0000   Median :0.0000   Median :0.000   Median :0.0000  
+ Mean   :0.8473   Mean   :0.4466   Mean   :0.181   Mean   :0.0885  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.000   3rd Qu.:0.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.000   Max.   :1.0000  
+ NA's   :17       NA's   :189      NA's   :187     NA's   :66      
+     V1i23            V1i24           V2i01            V2i02       
+ Min.   :0.0000   Min.   :0.000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.000   Median :0.0000   Median :1.0000  
+ Mean   :0.7012   Mean   :0.587   Mean   :0.4536   Mean   :0.7056  
+ 3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :118      NA's   :200     NA's   :109      NA's   :95      
+     V2i03            V2i04            V2i05            V2i06      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.000  
+ Median :1.0000   Median :0.0000   Median :0.0000   Median :0.000  
+ Mean   :0.6078   Mean   :0.4796   Mean   :0.3387   Mean   :0.336  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ NA's   :60       NA's   :194      NA's   :230      NA's   :167    
+     V2i07            V2i08            V2i09            V2i10       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:0.0000  
+ Median :0.0000   Median :1.0000   Median :1.0000   Median :0.0000  
+ Mean   :0.3333   Mean   :0.7644   Mean   :0.8122   Mean   :0.3735  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :166      NA's   :101      NA's   :63       NA's   :209     
+     V2i11            V2i12            V2i13            V2i14       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :0.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.6455   Mean   :0.3617   Mean   :0.5645   Mean   :0.6035  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :103      NA's   :104      NA's   :168      NA's   :65      
+     V2i15            V2i16            V2i17            V2i18       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.0000  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :1.0000  
+ Mean   :0.2807   Mean   :0.4789   Mean   :0.2206   Mean   :0.7716  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :178      NA's   :221      NA's   :224      NA's   :130     
+     V3i01            V3i02            V3i03            V3i04       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.7717   Mean   :0.8007   Mean   :0.6917   Mean   :0.8783  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :16       NA's   :6        NA's   :39       NA's   :29      
+     V3i05            V3i06            V3i07            V3i08       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :0.0000   Median :0.0000  
+ Mean   :0.6637   Mean   :0.7143   Mean   :0.4083   Mean   :0.3417  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :69       NA's   :110      NA's   :172      NA's   :172     
+     V3i09            V3i10            V3i11            V3i12       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.0000  
+ Median :0.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.1497   Mean   :0.5728   Mean   :0.6528   Mean   :0.8421  
+ 3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :145      NA's   :189      NA's   :76       NA's   :64      
+     V3i13            V3i14            V3i15            V3i16       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :0.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.2333   Mean   :0.8537   Mean   :0.6475   Mean   :0.5361  
+ 3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :172      NA's   :169      NA's   :153      NA's   :29      
+     V3i17            V3i18            MA1i01          MA1i02      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:1.000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :1.000   Median :1.0000  
+ Mean   :0.8112   Mean   :0.5151   Mean   :0.766   Mean   :0.7143  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.000   Max.   :1.0000  
+ NA's   :43       NA's   :94       NA's   :104     NA's   :117     
+     MA1i03           MA1i04           MA1i05           MA1i06      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.7299   Mean   :0.7989   Mean   :0.7333   Mean   :0.6835  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :118      NA's   :103      NA's   :142      NA's   :134     
+     MA1i07           MA1i08           MA1i09         MA1i10      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.00   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.00   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :1.00   Median :1.0000  
+ Mean   :0.8133   Mean   :0.8589   Mean   :0.85   Mean   :0.6835  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.00   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.00   Max.   :1.0000  
+ NA's   :142      NA's   :51       NA's   :92     NA's   :153     
+     MA1i11          MA1i12           MA1i13           MA1i14      
+ Min.   :0.000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:0.0000  
+ Median :1.000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.698   Mean   :0.9123   Mean   :0.8664   Mean   :0.7321  
+ 3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :143     NA's   :64       NA's   :60       NA's   :124     
+     MA1i15           MA2i01           MA2i02          MA2i03    
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.000   Min.   :0.00  
+ 1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:1.000   1st Qu.:1.00  
+ Median :1.0000   Median :1.0000   Median :1.000   Median :1.00  
+ Mean   :0.7429   Mean   :0.8374   Mean   :0.934   Mean   :0.88  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:1.00  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.000   Max.   :1.00  
+ NA's   :117      NA's   :126      NA's   :80      NA's   :167   
+     MA2i04           MA2i05           MA2i06           MA2i07      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.9118   Mean   :0.8705   Mean   :0.8919   Mean   :0.9264  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :122      NA's   :153      NA's   :144      NA's   :129     
+     MA2i08           MA2i09           MA2i10          MVi01       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.000   Median :1.0000  
+ Mean   :0.9522   Mean   :0.8676   Mean   :0.872   Mean   :0.9084  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.000   Max.   :1.0000  
+ NA's   :83       NA's   :141      NA's   :128     NA's   :19      
+     MViO2            MViO3            MVi02            MViO4      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.000  
+ Mean   :0.8851   Mean   :0.9137   Mean   :0.8881   Mean   :0.876  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ NA's   :31       NA's   :14       NA's   :24       NA's   :34     
+     MViO5            MVi03            MViO6            MViO7      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.000  
+ Mean   :0.9504   Mean   :0.8606   Mean   :0.9825   Mean   :0.875  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ NA's   :10       NA's   :41       NA's   :6        NA's   :20     
+     MVi04            MViO8            MViO9            RGi01       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.8705   Mean   :0.8476   Mean   :0.8835   Mean   :0.7845  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :14       NA's   :23       NA's   :26       NA's   :9       
+     RGi02            RGi03            RGi04            RGi05       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.8143   Mean   :0.8185   Mean   :0.6392   Mean   :0.6875  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :12       NA's   :11       NA's   :37       NA's   :68      
+     RGi06            RGi07           RGi08            RGi09       
+ Min.   :0.0000   Min.   :0.000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.000   Median :1.0000   Median :1.0000  
+ Mean   :0.7579   Mean   :0.628   Mean   :0.8389   Mean   :0.8544  
+ 3rd Qu.:1.0000   3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :69       NA's   :85      NA's   :81       NA's   :86      
+     RGi10           RGi11            RGi12            RGi13       
+ Min.   :0.000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.500   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.000   Median :1.0000   Median :1.0000   Median :0.0000  
+ Mean   :0.748   Mean   :0.8261   Mean   :0.7027   Mean   :0.4324  
+ 3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :169     NA's   :154      NA's   :181      NA's   :255     
+     RGi14            RGi15         RLi01            RLi02       
+ Min.   :0.0000   Min.   :0.0   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0   Median :1.0000   Median :1.0000  
+ Mean   :0.9474   Mean   :0.8   Mean   :0.8897   Mean   :0.8828  
+ 3rd Qu.:1.0000   3rd Qu.:1.0   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0   Max.   :1.0000   Max.   :1.0000  
+ NA's   :197      NA's   :222   NA's   :2        NA's   :2       
+     RLi03            RLi04            RLi05            RLi06       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :0.0000   Median :1.0000  
+ Mean   :0.8625   Mean   :0.6862   Mean   :0.4688   Mean   :0.8815  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :1        NA's   :2        NA's   :4        NA's   :5       
+     RLi07            RLi08            RLi09            RLi10       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.7042   Mean   :0.7163   Mean   :0.8505   Mean   :0.6725  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :8        NA's   :10       NA's   :11       NA's   :8       
+     RLi11            RLi12            RLi13            RLi14       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :0.0000   Median :1.0000   Median :0.0000  
+ Mean   :0.6559   Mean   :0.4562   Mean   :0.6277   Mean   :0.2321  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:0.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :13       NA's   :18       NA's   :10       NA's   :12      
+     RLi15            RLi16            RLi17            RLi18       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :0.0000   Median :1.0000  
+ Mean   :0.6431   Mean   :0.9381   Mean   :0.2962   Mean   :0.8676  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :9        NA's   :1        NA's   :5        NA's   :5       
+     RLi19           RLi20           RLi21            RLi22       
+ Min.   :0.000   Min.   :0.000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.000   1st Qu.:0.000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.000   Median :0.000   Median :1.0000   Median :0.0000  
+ Mean   :0.617   Mean   :0.259   Mean   :0.7367   Mean   :0.4488  
+ 3rd Qu.:1.000   3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.000   Max.   :1.000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :10      NA's   :14      NA's   :11       NA's   :9       
+     RLi23            RLi24            RLi25            RLi26       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :0.0000   Median :0.0000  
+ Mean   :0.8269   Mean   :0.5632   Mean   :0.3885   Mean   :0.3971  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :9        NA's   :15       NA's   :14       NA's   :15      
+     RLi27            RLi28            RLi29            RLi30       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.8885   Mean   :0.7201   Mean   :0.7426   Mean   :0.6527  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :14       NA's   :24       NA's   :20       NA's   :30      
+      Ii01             Ii02             Ii03             Ii04       
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.9618   Mean   :0.8635   Mean   :0.7658   Mean   :0.8561  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :4        NA's   :43       NA's   :23       NA's   :21      
+      Ii05             Ii06             Ii07             Ii08      
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.000  
+ 1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:1.0000   1st Qu.:0.000  
+ Median :1.0000   Median :1.0000   Median :1.0000   Median :1.000  
+ Mean   :0.7961   Mean   :0.8352   Mean   :0.9299   Mean   :0.737  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.000  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.000  
+ NA's   :37       NA's   :31       NA's   :21       NA's   :41     
+      Ii09            Ii10             Ii11             Ii12       
+ Min.   :0.000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:1.000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :1.000   Median :1.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.786   Mean   :0.6161   Mean   :0.6284   Mean   :0.5353  
+ 3rd Qu.:1.000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+ NA's   :35      NA's   :68       NA's   :74       NA's   :122     
+      Ii13             Ii14             Ii15              N        
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :13.00  
+ 1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:27.00  
+ Median :0.0000   Median :0.0000   Median :0.0000   Median :32.00  
+ Mean   :0.2229   Mean   :0.4938   Mean   :0.4724   Mean   :31.59  
+ 3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:36.00  
+ Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :58.00  
+ NA's   :126      NA's   :130      NA's   :165      NA's   :62     
+       P1             P2              P3           FI1             FI2        
+ Min.   : 6.0   Min.   : 3.00   48     : 14   Min.   : 0.00   Min.   : 1.000  
+ 1st Qu.:22.0   1st Qu.:17.00   42     : 12   1st Qu.: 9.00   1st Qu.: 7.000  
+ Median :26.5   Median :19.00   32     : 11   Median :12.00   Median : 9.000  
+ Mean   :27.6   Mean   :19.36   40     : 10   Mean   :12.85   Mean   : 9.461  
+ 3rd Qu.:33.0   3rd Qu.:22.00   39     :  9   3rd Qu.:15.00   3rd Qu.:12.000  
+ Max.   :50.0   Max.   :32.00   (Other):174   Max.   :38.00   Max.   :22.000  
+ NA's   :62     NA's   :62      NA's   : 62   NA's   :62      NA's   :62      
+       FF           portuguese     english         math        biology   
+ Min.   : 2.000   60     : 10   100    : 17   60     : 13   80     : 15  
+ 1st Qu.: 6.000   76     :  9   79     : 11   69     :  9   60     : 13  
+ Median : 8.000   65     :  8   96     :  8   70     :  9   70     : 10  
+ Mean   : 9.061   73     :  8   81     :  7   62     :  8   68.5   :  4  
+ 3rd Qu.:11.750   74     :  7   89     :  7   71     :  7   75     :  4  
+ Max.   :20.000   (Other):188   (Other):180   (Other):184   (Other):184  
+ NA's   :62       NA's   : 62   NA's   : 62   NA's   : 62   NA's   : 62  
+    physics      chimestry     geography      history   
+ 60     : 16   79.9   :  3   60     :  7   87     :  5  
+ 60.1   :  5   84.1   :  3   63.5   :  5   88.5   :  4  
+ 0      :  4   85     :  3   66     :  5   71     :  3  
+ 61.8   :  4   85.6   :  3   0      :  3   75.5   :  3  
+ 66     :  4   89     :  3   64     :  3   79.5   :  3  
+ (Other):197   (Other):215   (Other): 98   (Other): 91  
+ NA's   : 62   NA's   : 62   NA's   :171   NA's   :183  </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="practical-part-3-tidy-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-3-tidy-the-data">Practical Part 3: Tidy the data</h4>
+<section id="practical-task-3-tidy-the-data" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-3-tidy-the-data">Practical Task 3 – Tidy the data</h5>
+<p>Tidying the data involves a number of tasks, some essential and some things we do for our convenience.</p>
+<p>We start by selecting the variables we want:</p>
+<ul>
+<li><code>class_number</code>, <code>participant_id</code>, <code>portuguese</code>, <code>english</code>, <code>math</code>, <code>physics</code></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>We use the <code>{dplyr}</code> function <code>select()</code> to pick just the variables needed.</li>
+<li>We create a new data-set (call it what you like), from the original, to hold just the selection of variables we want to use in the analysis steps, following.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>brazil <span class="ot">&lt;-</span> BAFACALO_DATASET <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">select</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                              class_number, participant_id,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                              portuguese, english, math, physics</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.1.</strong> Do you know what you are doing with <code>select()</code>? Can you select a different set of variables?</p>
+</blockquote>
+<!-- > Pract.A.1. You can exercise your skill by checking that you can view the `BAFACALO_DATASET` and select any variable you like. Be careful and make sure you go back to select the variables shown in the given code chunk: we will need them later. -->
+</section>
+<section id="practical-task-4-take-missing-values-out-of-the-brazil-data" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-4-take-missing-values-out-of-the-brazil-data">Practical Task 4 – Take missing values out of the brazil data</h5>
+<p>There are several rows in the data-set with missing values. You need to remove these from the data before you get started with any calculations.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>brazil <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(brazil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>What have you got?</p>
+<p>You should always check the results of a tidying operation, to make sure that what you have got matches what you expected to get.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(brazil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  class_number participant_id    portuguese     english         math    
+ M11    : 21   Min.   :  3.0   60     : 10   100    : 17   60     : 13  
+ M15    : 20   1st Qu.: 77.5   76     :  9   79     : 11   69     :  9  
+ M14    : 19   Median :144.5   65     :  8   96     :  8   70     :  9  
+ M36    : 19   Mean   :146.6   73     :  8   81     :  7   62     :  8  
+ M18    : 18   3rd Qu.:222.8   74     :  7   89     :  7   71     :  7  
+ M21    : 17   Max.   :291.0   82     :  7   86     :  6   66     :  6  
+ (Other):116                   (Other):181   (Other):174   (Other):178  
+    physics   
+ 60     : 16  
+ 60.1   :  5  
+ 0      :  4  
+ 61.8   :  4  
+ 66     :  4  
+ 74.2   :  4  
+ (Other):193  </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.2.</strong> Do you see the difference between the summary of the brazil data shown before and after you run <code>na.omit()</code>? What is it?</p>
+</blockquote>
+<!-- > Pract.A.2. You should see that `NA`s are listed in some columns in the data before but not after you run `na.omit()`. -->
+</section>
+<section id="practical-task-5-get-r-to-treat-a-variable-as-a-type-object-of-the-kind-required-using-the-as.numeric-or-as.factor-functions" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-5-get-r-to-treat-a-variable-as-a-type-object-of-the-kind-required-using-the-as.numeric-or-as.factor-functions">Practical Task 5 – Get R to treat a variable as a type object of the kind required – using the <code>as.numeric()</code> or <code>as.factor()</code> functions</h5>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>brazil<span class="sc">$</span>portuguese <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(brazil<span class="sc">$</span>portuguese)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>brazil<span class="sc">$</span>english <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(brazil<span class="sc">$</span>english)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>brazil<span class="sc">$</span>math <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(brazil<span class="sc">$</span>math)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>brazil<span class="sc">$</span>physics <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(brazil<span class="sc">$</span>physics)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>brazil<span class="sc">$</span>class_number <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(brazil<span class="sc">$</span>class_number)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>brazil<span class="sc">$</span>participant_id <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(brazil<span class="sc">$</span>participant_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>What have you got?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(brazil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  class_number participant_id   portuguese       english           math       
+ M11    : 21   3      :  1    Min.   : 1.00   Min.   : 1.00   Min.   :  1.00  
+ M15    : 20   4      :  1    1st Qu.:26.25   1st Qu.:29.00   1st Qu.: 39.00  
+ M14    : 19   5      :  1    Median :42.00   Median :55.00   Median : 58.00  
+ M36    : 19   6      :  1    Mean   :43.55   Mean   :50.25   Mean   : 58.17  
+ M18    : 18   7      :  1    3rd Qu.:58.75   3rd Qu.:73.00   3rd Qu.: 79.75  
+ M21    : 17   9      :  1    Max.   :83.00   Max.   :93.00   Max.   :104.00  
+ (Other):116   (Other):224                                                    
+    physics      
+ Min.   :  1.00  
+ 1st Qu.: 34.00  
+ Median : 71.50  
+ Mean   : 71.57  
+ 3rd Qu.:107.75  
+ Max.   :148.00  
+                 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.3.</strong> Do you see the difference between the summary of the brazil data shown before and after you run <code>as.numeric()</code> or <code>as.factor()</code> function lines? What is it?</p>
+</blockquote>
+<!-- > Pract.A.3. You should see that numeric variables like portuguese are listed with summary statistics like the mean after but not before you coerce the variables. -->
+</section>
+<section id="practical-task-6-exercise-experiment-with-coercion" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-6-exercise-experiment-with-coercion">Practical Task 6 – Exercise – experiment with coercion</h5>
+<ol type="1">
+<li>Test out variable type using the <code>is...()</code> function for some of the variables</li>
+<li>Test out coercion – and its results – using the <code>as...()</code> function for some of the variables</li>
+<li>Look at the results using <code>summary()</code></li>
+</ol>
+</section>
+</section>
+<section id="practical-part-4-visualize-the-relationship" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-4-visualize-the-relationship">Practical Part 4: Visualize the relationship</h4>
+<p>Here, we are interested in the relationship between school grades, for the sample of Brazilian children for whom we have data.</p>
+<ul>
+<li>What is the relationship between portuguese and english grades?</li>
+</ul>
+<section id="practical-task-7-visualize-the-relationship-between-portuguese-and-english-grades-using-a-scatterplot" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-7-visualize-the-relationship-between-portuguese-and-english-grades-using-a-scatterplot">Practical Task 7 – Visualize the relationship between portuguese and english grades using a scatterplot</h5>
+<p>This should be a revision exercise for you.</p>
+<ul>
+<li>Do you notice any changes in the way in which the plotting code is laid out?</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>brazil <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> portuguese, <span class="at">y =</span> english)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Portuguese"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"English"</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-multilevel-workbook_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="practical-task-8-exercise-edit-plots" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-8-exercise-edit-plots">Practical Task 8 – Exercise – edit plots</h5>
+<ol type="1">
+<li>Change the x and y variables to math and physics</li>
+<li>Change the theme from <code>theme_bw()</code> to something different</li>
+<li>Change the appearance of the points, try different colour, shape, size</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the ggplot reference documentation to help you make choices:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/reference/" class="uri">https://ggplot2.tidyverse.org/reference/</a></li>
+</ul>
+<p>You should be using webpages like the reference page often in your work.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="practical-part-5-visualize-the-relationship" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-5-visualize-the-relationship">Practical Part 5: Visualize the relationship</h4>
+<p>We move next to analyzing the relationship between variation in grades in different subjects, across the children in our sample.</p>
+<section id="practical-task-9-analyze-the-relationship-between-english-and-portuguese-grades-in-the-brazil-data" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-9-analyze-the-relationship-between-english-and-portuguese-grades-in-the-brazil-data">Practical Task 9 – Analyze the relationship between english and portuguese grades in the brazil data</h5>
+<p>You should be able to reproduce the results shown in the slides and the book chapter.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(english <span class="sc">~</span> portuguese, <span class="at">data =</span> brazil))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = english ~ portuguese, data = brazil)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-64.909 -17.573   2.782  20.042  53.292 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 29.77780    3.81426   7.807 2.11e-13 ***
+portuguese   0.47001    0.07897   5.952 9.91e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 25.02 on 228 degrees of freedom
+Multiple R-squared:  0.1345,    Adjusted R-squared:  0.1307 
+F-statistic: 35.43 on 1 and 228 DF,  p-value: 9.906e-09</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="practical-task-10-exercise-adapt-the-lm-code-to-do-a-different-analysis" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-10-exercise-adapt-the-lm-code-to-do-a-different-analysis">Practical Task 10 – Exercise – adapt the <code>lm()</code> code to do a different analysis</h5>
+<p>Change the outcome and predictor variables to math and physics.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">lm</span>(physics <span class="sc">~</span> math, <span class="at">data =</span> brazil))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = physics ~ math, data = brazil)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-70.360 -14.265   0.437  14.797  78.784 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.83703    3.71858  -0.494    0.622    
+math         1.26202    0.05795  21.777   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 23.81 on 228 degrees of freedom
+Multiple R-squared:  0.6753,    Adjusted R-squared:  0.6739 
+F-statistic: 474.2 on 1 and 228 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.4.</strong> What is the estimated coefficient of the “effect” of math ability (grade) on physics grade?</p>
+</blockquote>
+<!-- > Pract.A.4. The summary shows that physics grades are on average 1.3 higher for unit increase in math grade. -->
+<blockquote class="blockquote">
+<p><strong>Pract.Q.5.</strong> Draw a scatterplot showing the relationship between math and physics grades. Does the trend you see in the plot reflect the coefficient you see in the linear model summary?</p>
+</blockquote>
+<!-- > Pract.A.5. The plot shows the positive association between math and physics grade also indicated by the estimated coefficient of the math effect. -->
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>brazil <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> math, <span class="at">y =</span> physics)) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-multilevel-workbook_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.6.</strong> How does the strength of the math-physics relationship compare with the english-portuguese relationship?</p>
+</blockquote>
+<!-- > Pract.A.6. Both the linear model and the plots indicate that the math-physics relationship is much stronger. -->
+</section>
+</section>
+<section id="practical-part-6-visualize-the-relationship-for-each-class" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-6-visualize-the-relationship-for-each-class">Practical Part 6: Visualize the relationship for each class</h4>
+<section id="practical-task-11-plot-the-relationship-between-english-and-portuguese-grades-separately-for-each-class-using-facet_wrap" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-11-plot-the-relationship-between-english-and-portuguese-grades-separately-for-each-class-using-facet_wrap">Practical Task 11 – Plot the relationship between english and portuguese grades separately for each class using <code>facet_wrap()</code></h5>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil, <span class="fu">aes</span>(<span class="at">x =</span> portuguese, <span class="at">y =</span> english)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Portuguese"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"English"</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">25</span>,<span class="dv">50</span>,<span class="dv">75</span>)) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">50</span>,<span class="dv">100</span>)) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> class_number) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-multilevel-workbook_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="practical-task-12-exercises-to-practice-your-facet_wrap-skills" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-12-exercises-to-practice-your-facet_wrap-skills">Practical Task 12 – Exercises to practice your <code>facet_wrap()</code> skills</h5>
+<ol type="1">
+<li>Change the x and y variables to math and physics and draw a facetted scatterplot again</li>
+<li>Experiment with showing the differences between classes in a different way: instead of using <code>facet_wrap()</code>, in <code>aes()</code> add <code>colour = class_number</code>, and remove colour from <code>geom_point</code> and <code>geom_smooth</code></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil, <span class="fu">aes</span>(<span class="at">x =</span> math, <span class="at">y =</span> physics)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> class_number) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-multilevel-workbook_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> brazil, <span class="fu">aes</span>(<span class="at">x =</span> math, <span class="at">y =</span> physics, <span class="at">colour =</span> class_number)) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-multilevel-workbook_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.8.</strong> Evaluate the consistency between classes of the relationship between math and physics grades: what do the plots show? how does this compare with what you see of the relationship between english and portuguese grades?</p>
+</blockquote>
+<!-- > Pract.A.8. The plots show that the relationship between math and physics is very consistent between classes, and more consistent than the relationship between english and portuguese grades appears to be. -->
+</section>
+</section>
+<section id="practical-part-7-mixed-effects-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-7-mixed-effects-analysis">Practical Part 7: Mixed-effects analysis</h4>
+<section id="practical-task-13-run-a-linear-mixed-effects-analysis-of-the-relationship-between-english-and-portuguese-grades-using-lmer" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-13-run-a-linear-mixed-effects-analysis-of-the-relationship-between-english-and-portuguese-grades-using-lmer">Practical Task 13 – Run a linear mixed-effects analysis of the relationship between english and portuguese grades using <code>lmer()</code></h5>
+<p>You should be able to replicate the results shown in the slides and the book chapter.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>porto.lmer1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(english <span class="sc">~</span> portuguese <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>                      (portuguese <span class="sc">+</span> <span class="dv">1</span><span class="sc">|</span>class_number),</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> brazil)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: english ~ portuguese + (portuguese + 1 | class_number)
+   Data: brazil
+
+REML criterion at convergence: 2104.3
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.81321 -0.59584  0.04359  0.60018  2.23722 
+
+Random effects:
+ Groups       Name        Variance Std.Dev. Corr 
+ class_number (Intercept) 341.4803 18.479        
+              portuguese    0.3295  0.574   -0.98
+ Residual                 493.1009 22.206        
+Number of obs: 230, groups:  class_number, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)  25.2837     6.2669   4.034
+portuguese    0.6590     0.1729   3.811
+
+Correlation of Fixed Effects:
+           (Intr)
+portuguese -0.943</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="practical-task-14---exercise-mixed-effects-model-coding" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-14---exercise-mixed-effects-model-coding">Practical Task 14 - Exercise mixed-effects model coding</h5>
+<ol type="1">
+<li>Vary the random effects part of the model, while keeping this bit the same: <code>lmer(english ~ portuguese + ...)</code></li>
+<li>Change the random effect from <code>(portuguese + 1 | class_number)</code> to <code>(1 | class_number)</code>: what you are doing is asking R to ignore the differences in the slope of the effect of Portuguese grades.</li>
+<li>Change the random effect from <code>(portuguese + 1 | class_number)</code> to <code>(portuguese + 0 | class_number)</code>: what you are doing is asking R to ignore the differences in the intercept</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>porto.lmer1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(english <span class="sc">~</span> portuguese <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>                      (portuguese <span class="sc">+</span> <span class="dv">1</span><span class="sc">|</span>class_number),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> brazil)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: english ~ portuguese + (portuguese + 1 | class_number)
+   Data: brazil
+
+REML criterion at convergence: 2104.3
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.81321 -0.59584  0.04359  0.60018  2.23722 
+
+Random effects:
+ Groups       Name        Variance Std.Dev. Corr 
+ class_number (Intercept) 341.4803 18.479        
+              portuguese    0.3295  0.574   -0.98
+ Residual                 493.1009 22.206        
+Number of obs: 230, groups:  class_number, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)  25.2837     6.2669   4.034
+portuguese    0.6590     0.1729   3.811
+
+Correlation of Fixed Effects:
+           (Intr)
+portuguese -0.943</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>porto.lmer2 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(english <span class="sc">~</span> portuguese <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>                      (<span class="dv">1</span><span class="sc">|</span>class_number),</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> brazil)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: english ~ portuguese + (1 | class_number)
+   Data: brazil
+
+REML criterion at convergence: 2129.2
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.55966 -0.68483  0.08471  0.77210  2.51034 
+
+Random effects:
+ Groups       Name        Variance Std.Dev.
+ class_number (Intercept)  47.59    6.899  
+ Residual                 588.91   24.267  
+Number of obs: 230, groups:  class_number, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept) 26.02493    4.60799   5.648
+portuguese   0.55060    0.08995   6.121
+
+Correlation of Fixed Effects:
+           (Intr)
+portuguese -0.856</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>porto.lmer3 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(english <span class="sc">~</span> portuguese <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>                      (portuguese <span class="sc">+</span> <span class="dv">0</span><span class="sc">|</span>class_number),</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> brazil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+Model failed to converge with max|grad| = 0.00236563 (tol = 0.002, component 1)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: english ~ portuguese + (portuguese + 0 | class_number)
+   Data: brazil
+
+REML criterion at convergence: 2116.1
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-2.74726 -0.65271  0.03263  0.64709  2.71650 
+
+Random effects:
+ Groups       Name       Variance Std.Dev.
+ class_number portuguese   0.053   0.2302 
+ Residual                535.157  23.1335 
+Number of obs: 230, groups:  class_number, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)  22.0168     4.0359   5.455
+portuguese    0.6813     0.1087   6.266
+
+Correlation of Fixed Effects:
+           (Intr)
+portuguese -0.778
+optimizer (nloptwrap) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.00236563 (tol = 0.002, component 1)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.9.</strong> Compare the results of the different versions of the model. Can you identify where the results are different?</p>
+</blockquote>
+<!-- > Pract.A.9. It can be seen that Rhe estimated effect of portuguese varies between the models but the estimate is more similar, around .65, where the random effect is specified as  -->
+<!--  `(portuguese + 1|class_number)` or `(portuguese + 0|class_number)`. -->
+<!-- > The residual variance term is different between the models. -->
+<!-- > Which random effects variances are shown is also different. -->
+<!-- > There is a convergence warning for: -->
+<!-- `english ~ portuguese + (portuguese + 0 | class_number)` -->
+</section>
+<section id="practical-task-15---exercise-mixed-effects-model-coding" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-15---exercise-mixed-effects-model-coding">Practical Task 15 - Exercise mixed-effects model coding</h5>
+<p>Change the outcome (from english) and the predictor (from portuguese) – this is about changing the fixed effect part of the model.</p>
+<ul>
+<li>Note that you will need to change the random effect part as well.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>porto.lmer1 <span class="ot">&lt;-</span> <span class="fu">lmer</span>(physics <span class="sc">~</span> math <span class="sc">+</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                      (math <span class="sc">+</span> <span class="dv">1</span><span class="sc">|</span>class_number),</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> brazil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>boundary (singular) fit: see help('isSingular')</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear mixed model fit by REML ['lmerMod']
+Formula: physics ~ math + (math + 1 | class_number)
+   Data: brazil
+
+REML criterion at convergence: 2066
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.9688 -0.5956  0.0461  0.6276  3.4865 
+
+Random effects:
+ Groups       Name        Variance  Std.Dev. Corr
+ class_number (Intercept) 8.827e+01  9.39523     
+              math        3.892e-03  0.06238 1.00
+ Residual                 4.118e+02 20.29397     
+Number of obs: 230, groups:  class_number, 18
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)  1.46514    4.10294   0.357
+math         1.19196    0.05564  21.423
+
+Correlation of Fixed Effects:
+     (Intr)
+math -0.570
+optimizer (nloptwrap) convergence code: 0 (OK)
+boundary (singular) fit: see help('isSingular')</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.10.</strong> What elements of the model summary stand out for you? It will help to see what you should notice if you compare the math-physics model with the first english-portuguese model.</p>
+</blockquote>
+<!-- > Pract.A.10. You may notice that: -->
+<!-- - The summary comes with a fit is singular? warning. -->
+<!-- - The variance terms for intercept or the math effect by class number and the residual are very very small: much smaller than for the english-portuguese model. -->
+</section>
+</section>
+<section id="practical-part-8-extension" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-8-extension">Practical Part 8: Extension</h4>
+<section id="practical-task-optional" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-optional">Practical Task Optional</h5>
+<p>In the lecture materials, I display a plot showing the estimated intercept and coefficient for each class, estimated using separate models for different classes.</p>
+<ul>
+<li>Some of you may be interested in how I did that, you can run the following code to see.</li>
+</ul>
+<ol type="1">
+<li>Use the <code>{dplyr}</code> <code>%&gt;%</code> syntax to run a model for each class separately, collect together the results into a dataframe.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>brazlm <span class="ot">&lt;-</span> brazil <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(class_number) <span class="sc">%&gt;%</span> <span class="fu">do</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(english <span class="sc">~</span> portuguese, <span class="at">data=</span>.)))</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>brazlm<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(brazlm<span class="sc">$</span>term)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Extract the per-class estimates of the intercepts and the ‘portuguese’ effect coefficient estimates.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>brazlmint <span class="ot">&lt;-</span> <span class="fu">filter</span>(brazlm, term <span class="sc">==</span> <span class="st">'(Intercept)'</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>brazlmport <span class="ot">&lt;-</span> <span class="fu">filter</span>(brazlm, term <span class="sc">==</span> <span class="st">'portuguese'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Plot the estimates.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>pbrazlmint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(brazlmint, <span class="fu">aes</span>(<span class="at">x =</span> class_number, <span class="at">y =</span> estimate, <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error))</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>pbrazlmint <span class="ot">&lt;-</span> pbrazlmint <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">geom_linerange</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() </span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>pbrazlmint <span class="ot">&lt;-</span> pbrazlmint <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Intercept"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Estimated coefficient +/- SE"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Class"</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>pbrazlmint <span class="ot">&lt;-</span> pbrazlmint <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pbrazlmint</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>pbrazlmport <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(brazlmport, <span class="fu">aes</span>(<span class="at">x =</span> class_number, <span class="at">y =</span> estimate, <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error))</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>pbrazlmport <span class="ot">&lt;-</span> pbrazlmport <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">geom_linerange</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() </span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>pbrazlmport <span class="ot">&lt;-</span> pbrazlmport <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Portuguese effect"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Estimated coefficient +/- SE"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Class"</span>)</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>pbrazlmport <span class="ot">&lt;-</span> pbrazlmport <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co"># pbrazlmport</span></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="co"># -- ask R to make a grid:</span></span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(pbrazlmint, pbrazlmport,</span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_segment()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_segment()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="01-multilevel-workbook_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Challenge: Can you change the code to show the estimates for the relationship between physics and math grades?</p>
+</section>
+</section>
+</section>
+<section id="the-answers" class="level3">
+<h3 class="anchored" data-anchor-id="the-answers">The answers</h3>
+<p>After the practical class, we will reveal the answers that are currently hidden.</p>
+<p>The answers version of the webpage will present my answers for questions, and some extra information where that is helpful.</p>
+
 
 
 </section>
 </section>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-golino2014" class="csl-entry" role="listitem">
+Golino, H., &amp; Gomes, C. (2014). Psychology data from the <span>“</span>BAFACALO project: The Brazilian Intelligence Battery based on two state-of-the-art models <span></span> Carroll<span>’</span>s Model and the CHC model<span>”</span>. <em>Journal of Open Psychology Data</em>, <em>2</em>(1), e6. <a href="https://doi.org/10.5334/jopd.af">https://doi.org/10.5334/jopd.af</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
