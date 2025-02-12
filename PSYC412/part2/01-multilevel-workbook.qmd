@@ -41,14 +41,14 @@ You will see, next, the lectures we share to explain the concepts you will learn
 Every week, you will learn best if you *first* watch the lectures *then* do the practical exercises.
 
 ::: callout-tip
-## Linked resources
+### Linked resources
 
 To help your learning, you can read about the ideas and the practical coding required for analyses in the chapters I wrote for this course.
 
 [The chapter: Conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) 
 :::
 
-### 10.3.1 Lectures {#sec-lm-dev-lectures}
+### Lectures {#sec-multilevel-workbook-lectures}
 
 The lecture materials for this week are presented in three short parts.
 
@@ -72,18 +72,18 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5942b084-457f-4687-aa3d-acd401332b44&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-3-of-3" ></iframe>
 ```
 
-<!-- ### 10.3.2 Lecture slides {#sec-lm-dev-lectures-slides} -->
+### Lecture slides {#sec-multilevel-workbook-slides}
 
-<!-- ::: callout-tip -->
-<!-- ## Download the lecture slides -->
-<!-- The slides presented in the videos can be downloaded here: -->
+::: callout-tip
+## Download the lecture slides
+The slides presented in the videos can be downloaded here:
 
-<!-- - [The slides](files/411-linear-model-develop.html) exactly as presented (11 MB).  -->
+- [402-week-17-LME-1.pdf](files/402-week-17-LME-1.pdf): high resolution .pdf, exactly as delivered [4 MB];
+- [402-week-17-LME-1_1pp.pdf](files/402-week-17-LME-1_1pp.pdf): low resolution .pdf, printable version, one-slide-per-page [359 KB];
+- [402-week-17-LME-1_6pp.pdf](files/402-week-17-LME-1_6pp.pdf): low resolution .pdf, printable version, six-slides-per-page [359 KB].
 
-<!-- You can download the web page `.html` file and click on it to open it in any browser (e.g., Chrome, Edge or Safari). The slide images are high quality so the file is quite big and may take a few seconds to download. -->
-<!-- ::: -->
-
-<!-- We are going to work through some practical exercises, next, to develop your critical thinking and practical skills for working with linear models. -->
+The high resolution version is the version delivered for the lecture recordings. Because the images are produced to be high resolution, the file size is quite big (4 MB) so, to make the slides easier to download, I produced low resolution versions: 1pp and 6pp. These should be easier to download and print out if that is what you want to do.
+:::
 
 <!-- ### 10.4 Practical materials: data and R-Studio {#sec-lm-dev-practical} -->
 
