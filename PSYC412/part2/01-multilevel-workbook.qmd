@@ -152,555 +152,403 @@ In the following, we will guide you through the tasks and questions step by step
 An answers version of the workbook will be provided after the practical class.
 :::
 
-<!-- #### 10.4.3.1 Practical Part 1: Set-up -->
+#### Practical Part 1: Set-up
 
-<!-- To begin, we set up our environment in R. -->
+To begin, we set up our environment in R.
 
-<!-- ##### Practical Task 1 -- Run code to empty the R environment -->
+##### Practical Task 1 -- Run code to load relevant libraries
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- rm(list=ls()) -->
-<!-- ``` -->
-<!-- ::: -->
+Use the `library()` function to make the functions we need available to you.
 
-<!-- ##### Practical Task 2 -- Run code to load relevant libraries -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+library(broom)
+library(gridExtra)
+library(lme4)
+library(tidyverse)
+```
+:::
 
-<!-- Notice that in Week 10 we need to work with the libraries `ggeffects`, `patchwork` and `tidyverse`. -->
-<!-- Use the `library()` function to make these libraries available to you. -->
+#### Practical Part 2: Load the data
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- library("ggeffects") -->
-<!-- library("patchwork") -->
-<!-- library("psych") -->
-<!-- library("tidyverse") -->
-<!-- ``` -->
-<!-- ::: -->
+##### Practical Task 2 -- Read in the data file we will be using
 
-<!-- #### 10.4.3.2 Practical Part 2: Load the data -->
+The data file is called:
 
-<!-- ##### Practical Task 3 -- Read in the data file we will be using -->
+- `BAFACALO_DATASET.RData`
 
-<!-- The data file is called: -->
+Use the `load()` function to read the data files into R:
 
-<!-- - `2022-12-08_all-studies-subject-scores.csv` -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+load("BAFACALO_DATASET.RData")
+```
+:::
 
-<!-- Use the `read_csv()` function to read the data files into R: -->
+Get summary statistics to inspect what you have got.
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+summary(BAFACALO_DATASET)
+```
+:::
 
-<!-- ##### Practical Task 4 -- Get summary statistics for *only* the numeric variables: `AGE` and `HLVA` -->
+#### Practical Part 3: Tidy the data
 
-<!-- Use the `{psych}` library `describe()` function to get a table summary of descriptive statistics for these variables. -->
+##### Practical Task 3 -- Tidy the data
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Here, we can do this in two steps: -->
+Tidying the data involves a number of tasks, some essential and some things we do for our convenience.
 
-<!-- 1. we select the variables we care about -->
-<!-- 2. we get just the descriptive statistics we want for those variables -->
+We start by selecting the variables we want: 
 
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   dplyr::select(AGE, HLVA) %>% -->
-<!--   describe(skew = FALSE) -->
-<!-- ``` -->
-<!-- ::: -->
+- `class_number`, `participant_id`, `portuguese`, `english`, `math`, `physics`
 
-<!-- >**Pract.Q.1.** What is the mean health literacy (HLVA) score in this sample? -->
+:::{.callout-tip collapse="true"}
+## Hint
+- We use the `{dplyr}` function `select()` to pick just the variables needed.
+- We create a new data-set (call it what you like), from the original, to hold just the selection of variables we want to use in the analysis steps, following.
+:::
 
-<!-- > Pract.A.1. 7.22 -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+brazil <- BAFACALO_DATASET %>%
+                              select(
+                              class_number, participant_id,
+                              portuguese, english, math, physics
+                              )
+```
+:::
 
-<!-- >**Pract.Q.2.** What are the minimum and maximum ages in this sample? -->
+>**Pract.Q.1.** Do you know what you are doing with `select()`? Can you select a different set of variables?
 
-<!-- > Pract.A.2. 18-100 -->
+<!-- > Pract.A.1. You can exercise your skill by checking that you can view the `BAFACALO_DATASET` and select any variable you like. Be careful and make sure you go back to select the variables shown in the given code chunk: we will need them later. -->
 
-<!-- >**Pract.Q.3.** Do you see any reason to be concerned about the data in this sample? -->
+##### Practical Task 4 -- Take missing values out of the brazil data
 
-<!-- > Hint: It is always a good idea to use your visualization skills to examine the distribution of variable values in a dataset: -->
+There are several rows in the data-set with missing values.
+You need to remove these from the data before you get started with any calculations.
 
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   ggplot(aes(x = AGE)) + -->
-<!--   geom_histogram() -->
-<!-- ``` -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+brazil <- na.omit(brazil)
+```
+:::
 
-<!-- > Pract.A.3. It looks like the `AGE` of 100 is maybe an error, or an extreme outlier. -->
+What have you got?
 
-<!-- #### 10.4.3.3 Practical Part 3: Revision -- using a linear model to answer research questions -- one predictor. -->
+You should always check the results of a tidying operation, to make sure that what you have got matches what you expected to get.
 
-<!-- One of our research questions is: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+summary(brazil)
+```
+:::
 
-<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
+>**Pract.Q.2.** Do you see the difference between the summary of the brazil data shown before and after you run `na.omit()`? What is it?
 
-<!-- We can address this question by examining whether someone's rated evaluation of their own understanding matches their performance on a test of that understanding, and by investigating what variables predict variation in mean self-rated accuracy. -->
+<!-- > Pract.A.2. You should see that `NA`s are listed in some columns in the data before but not after you run `na.omit()`. -->
 
-<!-- ::: callout-tip -->
-<!-- Note that ratings of accuracy are ordinal (categorical ordered) data but that, here, we may choose to examine the average of participants' ratings of their own understanding of health information for the purposes of this example. -->
+##### Practical Task 5 -- Get R to treat a variable as a type object of the kind required -- using the `as.numeric()` or `as.factor()` functions
 
-<!-- - We learn about ordinal models for ordinal data in PSYC412. -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+brazil$portuguese <- as.numeric(brazil$portuguese)
+brazil$english <- as.numeric(brazil$english)
+brazil$math <- as.numeric(brazil$math)
+brazil$physics <- as.numeric(brazil$physics)
 
-<!-- For these data, participants were asked to respond to questions about health information to get `mean.acc` scores and were asked to rate their own understanding of the same information. -->
+brazil$class_number <- as.factor(brazil$class_number)
+brazil$participant_id <- as.factor(brazil$participant_id)
+```
+:::
 
-<!-- - If you *can* evaluate your own understanding then ratings of understanding *should* be associated with performance on tests of understanding. -->
+What have you got?
 
-<!-- ##### Practical Task 5 -- Estimate the relation between outcome mean self-rated accuracy (`mean.self`) and tested accuracy of understanding (`mean.acc`) -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+summary(brazil)
+```
+:::
 
-<!-- We can use `lm()` to estimate whether the ratings of accuracy actually predict the outcome tested accuracy levels. -->
+>**Pract.Q.3.** Do you see the difference between the summary of the brazil data shown before and after you run `as.numeric()` or `as.factor()` function lines? What is it?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- ::: -->
+<!-- > Pract.A.3. You should see that numeric variables like portuguese are listed with summary statistics like the mean after but not before you coerce the variables. -->
 
-<!-- If you first fit the appropriate model, then read the model summary, you can answer the following questions. -->
+##### Practical Task 6 -- Exercise -- experiment with coercion
 
-<!-- >**Pract.Q.4.** What is the estimate for the coefficient of the effect of the predictor `mean.self` on the outcome `mean.acc` in this model? -->
+1. Test out variable type using the `is...()` function for some of the variables
+2. Test out coercion -- and its results -- using the `as...()` function for some of the variables
+3. Look at the results using `summary()`
 
-<!-- > Pract.A.4. 0.058613 -->
+#### Practical Part 4: Visualize the relationship
 
-<!-- >**Pract.Q.5.** Is the effect significant? -->
+Here, we are interested in the relationship between school grades, for the sample of Brazilian children for whom we have data.
 
-<!-- > Pract.A.5. It is significant, p < .05 -->
+- What is the relationship between portuguese and english grades?
 
-<!-- >**Pract.Q.6.** What are the values for t and p for the significance test for the coefficient? -->
+##### Practical Task 7 -- Visualize the relationship between portuguese and english grades using a scatterplot
 
-<!-- > Pract.A.6. t = 12.90, p <2e-16 -->
+This should be a revision exercise for you.
 
-<!-- >**Pract.Q.7.** What do you conclude is the answer to the research question, given the linear model results? -->
+- Do you notice any changes in the way in which the plotting code is laid out?
 
-<!-- > Pract.A.7. The model slope estimate suggests that higher levels of rated understanding can predict higher levels of tested understanding so, yes: it does appear that people can evaluate their own understanding. -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+brazil %>%
+  ggplot(aes(x = portuguese, y = english)) +
+  geom_point(colour = "black", size = 2.5, alpha = .5) +
+  geom_smooth(method = "lm", size = 1.5, se = FALSE, colour = "red") +
+  xlab("Portuguese") + ylab("English") + theme_bw() 
+```
+:::
 
-<!-- >**Pract.Q.8.** What is the F-statistic for the regression? Report F, DF and the p-value. -->
+##### Practical Task 8 -- Exercise -- edit plots
 
-<!-- > Pract.A.8. F-statistic: 166.4 on 1 and 559 DF,  p-value: < 2.2e-16 -->
+1. Change the x and y variables to math and physics
+2. Change the theme from `theme_bw()` to something different
+3. Change the appearance of the points, try different colour, shape, size
 
-<!-- >**Pract.Q.9.** Is the regression significant? -->
+:::{.callout-tip collapse="true"}
+## Hint
+Use the ggplot reference documentation to help you make choices:
 
-<!-- > Pract.A.9. Yes: the regression is significant. -->
+- <https://ggplot2.tidyverse.org/reference/>
 
-<!-- >**Pract.Q.10.** What is the Adjusted R-squared? -->
+You should be using webpages like the reference page often in your work.
+:::
 
-<!-- > Pract.A.10. Adjusted R-squared:  0.228 -->
+#### Practical Part 5: Visualize the relationship
 
-<!-- >**Pract.Q.11.** Explain in words what this R-squared value indicates? -->
+We move next to analyzing the relationship between variation in grades in different subjects, across the children in our sample.
 
-<!-- > Pract.A.11. The R-squared suggests that 23% of outcome variance can be explained by the model -->
+##### Practical Task 9 -- Analyze the relationship between english and portuguese grades in the brazil data
 
-<!-- #### 10.4.3.4 Practical Part 4: New -- using a linear model to answer research questions -- multiple predictors -->
+You should be able to reproduce the results shown in the slides and the book chapter.
 
-<!-- One of our research questions is: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+summary(lm(english ~ portuguese, data = brazil))
+```
+:::
 
-<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
+##### Practical Task 10 -- Exercise -- adapt the `lm()` code to do a different analysis
 
-<!-- We have already looked at this question by asking whether ratings of understanding predict performance on tests of understanding. But there is a problem with that analysis -- it leaves open the question:  -->
+Change the outcome and predictor variables to math and physics.
 
-<!-- - What actually predicts ratings of understanding? -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+summary(lm(physics ~ math, data = brazil))
+```
+:::
 
-<!-- We can look at that follow-up question through the analysis we do next. -->
+>**Pract.Q.4.** What is the estimated coefficient of the "effect" of math ability (grade) on physics grade?
 
-<!-- ##### Practical Task 6 -- Examine the relation between outcome mean self-rated accuracy (`mean.self`) and  multiple predictors including: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc` -->
+<!-- > Pract.A.4. The summary shows that physics grades are on average 1.3 higher for unit increase in math grade. -->
 
-<!-- We use `lm()`, as before, but now specify each variable listed here by variable name -->
+>**Pract.Q.5.** Draw a scatterplot showing the relationship between math and physics grades. Does the trend you see in the plot reflect the coefficient you see in the linear model summary?
 
-<!-- - outcome: mean self-rated accuracy (`mean.self`) -->
-<!-- - predictors: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc`. -->
+<!-- > Pract.A.5. The plot shows the positive association between math and physics grade also indicated by the estimated coefficient of the math effect. -->
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc, -->
-<!--             data = all.studies.subjects) -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+brazil %>%
+  ggplot(aes(x = math, y = physics)) +
+  geom_point(colour = "black", size = 2.5, alpha = .5) +
+  geom_smooth(method = "lm", size = 1.5, se = FALSE, colour = "red") +
+  theme_bw() 
+```
+:::
 
-<!-- If you look at the model summary you can answer the following questions   -->
+>**Pract.Q.6.** How does the strength of the math-physics relationship compare with the english-portuguese relationship?
 
-<!-- >**Pract.Q.12.** What predictors are significant in this model? -->
+<!-- > Pract.A.6. Both the linear model and the plots indicate that the math-physics relationship is much stronger. -->
 
-<!-- > Pract.A.12. Health literacy ('HLVA'), reading strategy ('FACTOR3') and performance on tests of accuracy of understanding ('mean.acc') all appear to significantly predict variation in mean ratings of understanding ('mean.self'). -->
+#### Practical Part 6: Visualize the relationship for each class
 
-<!-- >**Pract.Q.13.** What is the estimate for the coefficient of the effect of the predictor, `mean.acc`, in this model? -->
+##### Practical Task 11 -- Plot the relationship between english and portuguese grades separately for each class using `facet_wrap()`
 
-<!-- > Pract.A.13. 2.502024 -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ggplot(data = brazil, aes(x = portuguese, y = english)) +
+  geom_point(colour = "darkgrey") + 
+  geom_smooth(method = "lm", se = FALSE, colour = "black") +
+  xlab("Portuguese") + ylab("English") + theme_bw() +
+  scale_x_continuous(breaks=c(25,50,75)) + scale_y_continuous(breaks=c(0,50,100)) +
+  facet_wrap(~ class_number) 
+```
+:::
 
-<!-- >**Pract.Q.14.** Is the effect significant? -->
+##### Practical Task 12 -- Exercises to practice your `facet_wrap()` skills
 
-<!-- > Pract.A.14. It is significant because p < .05 -->
+1. Change the x and y variables to math and physics and draw a facetted scatterplot again
+2. Experiment with showing the differences between classes in a different way: instead of using `facet_wrap()`, in `aes()` add `colour = class_number`, and remove colour from `geom_point` and `geom_smooth`
 
-<!-- >**Pract.Q.15.** What are the values for t and p for the significance test for the coefficient? -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ggplot(data = brazil, aes(x = math, y = physics)) +
+  geom_point(colour = "darkgrey") + 
+  geom_smooth(method = "lm", se = FALSE, colour = "black") +
+  facet_wrap(~ class_number) 
 
-<!-- > Pract.A.15. t = 6.929, p = 1.18e-11 -->
+ggplot(data = brazil, aes(x = math, y = physics, colour = class_number)) +
+  geom_point() + geom_smooth(method = "lm", se = FALSE)
+```
+:::
 
-<!-- >**Pract.Q.16.** What do you conclude is the answer to the follow-up question, what actually predicts ratings of understanding? -->
+>**Pract.Q.8.** Evaluate the consistency between classes of the relationship between math and physics grades: what do the plots show? how does this compare with what you see of the relationship between english and portuguese grades?
 
-<!-- > Pract.A.16. Ratings of understanding appear to be predicted by performance on tests of accuracy of understanding, together with variation in health literacy and reading strategy. -->
+<!-- > Pract.A.8. The plots show that the relationship between math and physics is very consistent between classes, and more consistent than the relationship between english and portuguese grades appears to be. -->
 
-<!-- #### 10.4.3.5 Practical Part 5: New -- plot predictions from linear models -->
+#### Practical Part 7: Mixed-effects analysis
 
-<!-- In this part, the practical work involves plotting the predictions from two linear models but the benefit from this practical work is to better your understanding of what linear models are doing. -->
+##### Practical Task 13 -- Run a linear mixed-effects analysis of the relationship between english and portuguese grades using `lmer()`
 
-<!-- So, our research questions is: -->
+You should be able to replicate the results shown in the slides and the book chapter.
 
-<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+porto.lmer1 <- lmer(english ~ portuguese +
+                      (portuguese + 1|class_number),
+                      data = brazil)
+summary(porto.lmer1)
+```
+:::
 
-<!-- We can look at this question in two ways: -->
+##### Practical Task 14 - Exercise mixed-effects model coding
 
-<!-- - we can focus on whether `mean.self` predicts `mean.acc`? -->
-<!-- - or, in reverse, whether `mean.acc` predicts `mean.self`? -->
+1. Vary the random effects part of the model, while keeping this bit the same: `lmer(english ~ portuguese + ...)`
+2. Change the random effect from `(portuguese + 1 | class_number)` to `(1 | class_number)`: what you are doing is asking R to ignore the differences in the slope of the effect of Portuguese grades.
+3. Change the random effect from `(portuguese + 1 | class_number)` to `(portuguese + 0 | class_number)`: what you are doing is asking R to ignore the differences  in the intercept
 
-<!-- People could (1.) be good at understanding accurately what they read (measured as `mean.acc`), so that that accurate understanding results in accurate evaluation of their own understanding (measured as `mean.self`). Or people could (2.) be good at judging their own understanding (`mean.self`) so that they can then be accurate in their understanding of what they read. This is not just a tricksy way of talking: it could be that people who are good at evaluating if they understand what they read are able to work more effectively at that understanding, or the opposite could be the case.  -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+porto.lmer1 <- lmer(english ~ portuguese +
+                      (portuguese + 1|class_number),
+                    data = brazil)
+summary(porto.lmer1)
 
-<!-- The *direction of cause-and-effect* is just unclear, here.  -->
+#
 
-<!-- ##### Practical Task 7 -- We cannot actually resolve the question of causality but we can learn a lot if we look at two models incorporating the same variables -->
+porto.lmer2 <- lmer(english ~ portuguese +
+                      (1|class_number),
+                    data = brazil)
+summary(porto.lmer2)
 
-<!-- 1. If we focus on whether (predictor) `mean.self` predicts (outcome) `mean.acc` then the model should be: `mean.acc ~ mean.self` -->
-<!-- 2. If we focus on whether (predictor) `mean.acc` predicts (outcome) `mean.self` then the model should be: `mean.self ~ mean.acc` -->
+#
 
-<!-- The two models involve the same variables but arrange the variables differently, in the code, depending on which variable is specified as the outcome versus which variable is specified as the predictor. -->
+porto.lmer3 <- lmer(english ~ portuguese +
+                      (portuguese + 0|class_number),
+                    data = brazil)
+summary(porto.lmer3)
+```
+:::
 
-<!-- ::: callout-tip -->
-<!-- Note that the comparison between these models teaches us something about *what* it is that linear models predict. -->
+>**Pract.Q.9.** Compare the results of the different versions of the model. Can you identify where the results are different?
 
-<!-- - You want to focus on the estimate of the coefficient of the predictor variable, for each model, presented in the model summary results. -->
-<!-- ::: -->
+<!-- > Pract.A.9. It can be seen that Rhe estimated effect of portuguese varies between the models but the estimate is more similar, around .65, where the random effect is specified as  -->
+<!--  `(portuguese + 1|class_number)` or `(portuguese + 0|class_number)`. -->
+<!-- > The residual variance term is different between the models. -->
+<!-- > Which random effects variances are shown is also different. -->
+<!-- > There is a convergence warning for: -->
 
-<!-- >**Pract.Q.17.** Can you write the code for the two models? Can you give each model a distinctive name? -->
+<!-- `english ~ portuguese + (portuguese + 0 | class_number)` -->
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
-<!-- summary(model.1) -->
+##### Practical Task 15 - Exercise mixed-effects model coding
 
-<!-- model.2 <- lm(mean.self ~ mean.acc, -->
-<!--               data = all.studies.subjects) -->
-<!-- summary(model.2) -->
-<!-- ``` -->
-<!-- ::: -->
+Change the outcome (from english) and the predictor (from portuguese) -- this is about changing the fixed effect part of the model.
 
-<!-- Take a look at the summary for each model.   -->
+- Note that you will need to change the random effect part as well.
 
-<!-- >**Pract.Q.18.** Why do you think it appears that the slope coefficient estimate is different if you compare: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+porto.lmer1 <- lmer(physics ~ math +
+                      (math + 1|class_number),
+                    data = brazil)
+summary(porto.lmer1)
+```
+:::
 
-<!-- > (1.) the model, mean.acc ~ mean.self -->
+>**Pract.Q.10.** What elements of the model summary stand out for you? It will help to see what you should notice if you compare the math-physics model with the first english-portuguese model.
 
-<!-- > versus -->
+<!-- > Pract.A.10. You may notice that: -->
 
-<!-- > (2.) the model, mean.self ~ mean.acc? -->
+<!-- - The summary comes with a fit is singular? warning. -->
+<!-- - The variance terms for intercept or the math effect by class number and the residual are very very small: much smaller than for the english-portuguese model. -->
 
-<!-- > Hint: You may benefit by reflecting on the lectures and practical materials in [the chapter for week 8](../part2/lm-intro.qmd#sec-lm-intro-overview), especially where they concern predictions. -->
+#### Practical Part 8: Extension
 
-<!-- > Pract.A.18. Linear models are prediction models. We use them to predict variation in *outcomes* given some set of predictor variables. Because of this, predictions *must* be scaled in the same way as the *outcome variable*. -->
+##### Practical Task Optional
 
-<!-- > So: -->
+In the lecture materials, I display a plot showing the estimated intercept and coefficient for  each class, estimated using separate models for different classes.
 
-<!-- > (1.) the model `mean.acc ~ mean.self` identifies `mean.acc` as the outcome so if we are predicting change in `mean.acc` (scaled 0-1) then we are looking at coefficients that will lie somewhere on the same scale (also 0-1). -->
+- Some of you may be interested in how I did that, you can run the following code to see.
 
-<!-- > Here: the model suggests that unit change in `mean.self` predicts increase of 0.058613 in `mean.acc`. -->
+1. Use the `{dplyr}` `%>%` syntax to run a model for each class separately, collect together the results into a dataframe.
 
-<!-- > Versus: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+brazlm <- brazil %>% group_by(class_number) %>% do(tidy(lm(english ~ portuguese, data=.)))
+brazlm$term <- as.factor(brazlm$term)
+```
+:::
 
-<!-- > (2.) the model, `mean.self ~ mean.acc` identifies `mean.self` as the outcome so if we are predicting change in `mean.self` (scaled 1-9) then we are looking at coefficients that will lie somewhere on the same scale (also 1-9). -->
+2. Extract the per-class estimates of the intercepts and the 'portuguese' effect coefficient estimates.
 
-<!-- > Here: the model suggests that unit change in `mean.acc` predicts increase of 3.9135 in `mean.self`. -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+brazlmint <- filter(brazlm, term == '(Intercept)')
+brazlmport <- filter(brazlm, term == 'portuguese')
+```
+:::
 
-<!-- >**Pract.Q.19.** Can you plot the predictions from each model? -->
+3. Plot the estimates.
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- > Pract.A.19. Here is the code to plot the predictions from both models: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+pbrazlmint <- ggplot(brazlmint, aes(x = class_number, y = estimate, ymin = estimate - std.error, ymax = estimate + std.error))
+pbrazlmint <- pbrazlmint + geom_point(size = 2) + geom_linerange() + theme_bw() 
+pbrazlmint <- pbrazlmint + ggtitle("Intercept") + ylab("Estimated coefficient +/- SE") + xlab("Class")
+pbrazlmint <- pbrazlmint + theme(axis.title.y = element_text(size = 10), axis.text.x = element_blank(), panel.grid = element_blank())
+# pbrazlmint
 
-<!-- First fit the models -- give the model objects distinct names: -->
+pbrazlmport <- ggplot(brazlmport, aes(x = class_number, y = estimate, ymin = estimate - std.error, ymax = estimate + std.error))
+pbrazlmport <- pbrazlmport + geom_point(size = 2) + geom_linerange() + theme_bw() 
+pbrazlmport <- pbrazlmport + ggtitle("Portuguese effect") + ylab("Estimated coefficient +/- SE") + xlab("Class")
+pbrazlmport <- pbrazlmport + theme(axis.title.y = element_text(size = 10), axis.text.x = element_blank(), panel.grid = element_blank())
+# pbrazlmport
 
-<!-- ```{r} -->
-<!-- model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
-<!-- summary(model.1) -->
+# -- ask R to make a grid:
 
-<!-- model.2 <- lm(mean.self ~ mean.acc, -->
-<!--             data = all.studies.subjects) -->
-<!-- summary(model.2) -->
-<!-- ``` -->
+grid.arrange(pbrazlmint, pbrazlmport,
+             ncol = 2)
+```
+:::
 
-<!-- Then get the predictions: -->
+Challenge: Can you change the code to show the estimates for the relationship between physics and math grades?
 
-<!-- ```{r} -->
-<!-- dat.1 <- ggpredict(model.1, "mean.self") -->
-<!-- dat.2 <- ggpredict(model.2, "mean.acc") -->
-<!-- ``` -->
+### The answers
 
-<!-- Then make the plots, and arrange them for easy comparison, side-by-side: -->
+After the practical class, we will reveal the answers that are currently hidden.
 
-<!-- ```{r} -->
-<!-- plot.1 <- plot(dat.1) -->
-<!-- plot.2 <- plot(dat.2) -->
+The answers version of the webpage will present my answers for questions, and some extra information where that is helpful.
 
-<!-- plot.1 + plot.2 -->
-<!-- ``` -->
-<!-- ::: -->
-
-<!-- >**Pract.Q.20.** Look at the two plots side-by-side: what do you see? -->
-
-<!-- Hint: Look at changes in height of the prediction line, given changes in x-axis position of the line. -->
-
-<!-- > Pract.A.20. A side-by-side comparison shows that for (1.) `mean.acc ~ mean.self,` increases in `mean.self` from about 2-8 are associated with a change in `mean.acc` from about .4 to about .85, while for (2.) `mean.self ~ mean.acc`, increases in `mean.self` from about .2-1.0 are associated with a change in `mean.acc` from about 4 to about 8. -->
-
-<!-- **What are we learning here?** -->
-
-<!-- Linear models are prediction models. We use them to predict variation in outcomes given some set of predictor variables.  -->
-
-<!-- ::: callout-important -->
-<!-- Predictions *must* be scaled in the same way as the outcome variable. -->
-<!-- ::: -->
-
-<!-- #### 10.4.3.6 Practical Part 6: New -- estimate the effects of factors as well as numeric variables -->
-
-<!-- ##### Practical Task 8 -- Fit a linear model to examine what variables predict outcome mean self-rated accuracy of `mean.self` -->
-
-<!-- Include in the model both numeric variables and categorical variables as predictors: -->
-
-<!-- - health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc` and `NATIVE.LANGUAGE`. -->
-
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc + -->
-<!--                         NATIVE.LANGUAGE, -->
-<!--             data = all.studies.subjects) -->
-<!-- ``` -->
-<!-- ::: -->
-
-<!-- >**Pract.Q.21.** Can you report the estimated effect of `NATIVE.LANGUAGE` (the coding of participant language status: `English` versus `other`)? -->
-
-<!-- Hint: you will need to get a summary of the model you have coded. -->
-
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- summary(model) -->
-<!-- ``` -->
-<!-- ::: -->
-
-<!-- > Pract.A.21. The effect of language status (`NATIVE.LANGUAGE`) on mean accuracy of understanding is not significant (estimate = -0.225432, t = -1.750, p = .081) indicating that not being a native speaker of English (`Other`) is not associated with lower self-rated accuracy. -->
-
-<!-- >**Pract.Q.22.** Can you report the overall model and model fit statistics? -->
-
-<!-- > Pract.A.22. We fitted a linear model with mean self-rated accuracy as the outcome and with the predictors: health literacy (HLVA),  reading strategy (FACTOR3), vocabulary (SHIPLEY) and AGE (years), as well as mean accuracy (mean.acc) and language status. The model is significant overall, with F(6, 554) = 45.82, p < .001, and explains 32% of variance (adjusted R2 = 0.32). -->
-
-<!-- >**Pract.Q.23.** Can you plot the predicted effect of `NATIVE.LANGUAGE` given your model? -->
-
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- We first fit the model, including `NATIVE.LANGUAGE`: -->
-
-<!-- ```{r} -->
-<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc + -->
-<!--               NATIVE.LANGUAGE, -->
-<!--             data = all.studies.subjects) -->
-<!-- ``` -->
-
-<!-- Then use the `ggpredict()` function to get the predictions -->
-
-<!-- ```{r} -->
-<!-- dat <- ggpredict(model, "NATIVE.LANGUAGE") -->
-<!-- plot(dat) -->
-<!-- ``` -->
-<!-- ::: -->
-
-<!-- >**Pract.Q.24.** The plot should give you dot-and-whisker representations of the estimated `mean.self` for `English` versus `Other` participants in the dataset. What is the difference in the estimated `mean.self` between these groups? -->
-
-<!-- Hint: The effect or prediction plot will show you dot-and-whisker representations of predicted outcome `mean.self`. In these plots, the dots represent the estimated `mean.self` while the lines (whiskers) represent confidence intervals. -->
-
-<!-- > Pract.A.24. The difference in the estimated 'mean.self' between these groups is about .2. -->
-
-<!-- >**Pract.Q.25.** Compare the difference in the estimated `mean.self` between these groups, given the plot, with the coefficient estimate from the model summary: what do you see? -->
-
-<!-- > Pract.A.25. The coefficient estimate = -0.225432. This matches the difference shown in the plot. -->
-
-<!-- #### 10.4.3.7 Practical Part 7: New -- examine associations comparing data from different samples -->
-
-<!-- ##### Practical Task 8 -- Use `facet_wrap()` to show how the association between `mean.self` and `mean.acc` can vary between the different studies in the data-set -->
-
-<!-- Change the factor in `facet_wrap()` to show how the association between `mean.self` and `mean.acc` can vary between the different studies -->
-
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- all.studies.subjects %>% -->
-<!--   ggplot(aes(x = mean.self, y = mean.acc)) + -->
-<!--   geom_point(size = 2, alpha = .5, colour = "darkgrey") + -->
-<!--   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) + -->
-<!--   xlim(0, 10) + -->
-<!--   ylim(0, 1.1)+ -->
-<!--   theme_bw() + -->
-<!--   theme( -->
-<!--     axis.text = element_text(size = rel(1.15)), -->
-<!--     axis.title = element_text(size = rel(1.5)) -->
-<!--   ) + -->
-<!--   xlab("Mean self-rated accuracy") + ylab("Mean accuracy") + -->
-<!--   facet_wrap(~ study) -->
-<!-- ``` -->
-<!-- ::: -->
-
-<!-- You may need to edit the x-axis labeling to make it readable -->
-
-<!-- - Can you work out how to do that, given `ggplot()` help information? -->
-
-<!-- Hint: check out the continuous scale information in: -->
-
-<!-- <https://ggplot2.tidyverse.org/reference/scale_continuous.html> -->
-
-<!-- #### 10.4.3.8 Practical Part Optional: New -- save or export plots so that you can insert them in reports -->
-
-<!-- Learning how to export plots from R will help you later with reports. -->
-
-<!-- The task is to save or export a plot that you produce, so that you can insert it in a report or presentation. -->
-
-<!-- There are different ways to do this, we can look at one simple example. -->
-
-<!-- - We can save the last plot we produce using the `{tidyverse}` function `ggsave()`: -->
-
-<!-- ```{r} -->
-<!-- ggsave("facet-plots.png") -->
-<!-- ``` -->
-
-<!-- Notice, here, that: -->
-
-<!-- - `ggsave("facet-plots...")` -- we need to give the plot a name; -->
-<!-- - `ggsave("...png")` -- and we need to tell R what format we require. -->
-
-<!-- The plot is saved as a file with the name you specify, in the working directory (folder) you are using. -->
-
-<!-- R will save the plot in the format you specify: here, I choose .png because .png image files can be imported into Microsoft Word documents easily. -->
-
-<!-- - Notice that `ggsave()` will use pretty good defaults but that you can over-ride the defaults, by adding arguments to specify the plot width, height and resolution (in dpi). -->
-
-<!-- ::: callout-tip -->
-<!-- ## Further information you can explore -->
-<!-- Check out reference information here: -->
-
-<!-- <https://ggplot2.tidyverse.org/reference/ggsave.html> -->
-
-<!-- and -->
-
-<!-- <http://www.cookbook-r.com/Graphs/Output_to_a_file/> -->
-<!-- ::: -->
-
-<!-- #### Practical Task Optional: Now try it for yourself: make a plot, and save it, using what you have learnt so far -->
-
-<!-- You will need to: -->
-
-<!-- 1. Fit a model -->
-<!-- 2. Create a set of predictions we can use for plotting -->
-<!-- 3. Make a plot -->
-<!-- 4. Save it -->
-
-<!-- Then, you can import the saved plot into Word. -->
-
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Fit a model: -->
-
-<!-- ```{r} -->
-<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE, -->
-<!--             data = all.studies.subjects) -->
-<!-- ``` -->
-
-<!-- Create a set of predictions we can use for plotting -->
-
-<!-- ```{r} -->
-<!-- dat <- ggpredict(model, "FACTOR3") -->
-<!-- ``` -->
-
-<!-- Make a plot -->
-
-<!-- ```{r} -->
-<!-- p.model <- plot(dat) -->
-<!-- p.model + -->
-<!--   geom_point(data = all.studies.subjects, -->
-<!--              aes(x = FACTOR3, y = mean.acc), size = 1.5, alpha = .75, colour = "darkgrey") + -->
-<!--   geom_line(size = 1.5) + -->
-<!--   theme_bw() + -->
-<!--   theme( -->
-<!--     axis.text = element_text(size = rel(1.15)), -->
-<!--     axis.title = element_text(size = rel(1.25)), -->
-<!--     plot.title = element_text(size = rel(1.4)) -->
-<!--   ) + -->
-<!--   xlab("Reading strategy (FACTOR3)") + ylab("Mean accuracy") + -->
-<!--   ggtitle("Effect of reading strategy on \n mean comprehension accuracy") -->
-<!-- ``` -->
-
-<!-- Save it -->
-
-<!-- ```{r} -->
-<!-- ggsave("reading-strategy-prediction.png", width = 10, height = 10, units = "cm") -->
-<!-- ``` -->
-<!-- ::: -->
-
-<!-- Some advice: -->
-
-<!-- - It is often helpful to present plots that are almost square i.e. height about = width. -->
-<!-- - This helps to present the best fit line in scatterplots in a way that is easier to perceive. -->
-<!-- - We may experiment with width-height (aspect ratio) until we get something that "looks" right.  -->
-<!-- - Notice also that different presentation venues will require different levels if image resolution e.g. journals may require .tiff file plots at dpi = 180 or greater. -->
-
-<!-- ### The answers -->
-
-<!-- After the practical class, we will reveal the answers that are currently hidden. -->
-
-<!-- The answers version of the webpage will present my answers for questions, and some extra information where that is helpful. -->
-
-<!-- ### Look ahead: growing in independence -->
-
-<!-- #### General advice -->
-
-<!-- An old saying goes: -->
-
-<!-- > All models are wrong but some are useful -->
-
-<!-- (attributed to George Box). -->
-
-<!-- ::: callout-tip -->
-<!-- -   Sometimes, it can be useful to adopt a simpler approach as a way to approximate *get closer to* better methods -->
-<!-- -   Box also advises: -->
-
-<!-- > Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad. -->
-
-<!-- -   Here, we focus on validity, measurement, generalizability and *critical thinking* -->
-<!-- ::: -->
-
-<!-- ### Summary -->
-
-<!-- 1.  Linear models -->
-
-<!-- -   Linear models are a very general, flexible, and powerful analysis method -->
-<!-- -   We can use assuming that prediction outcomes (residuals) are normally distributed -->
-<!-- -   With potentially multiple predictor variables -->
-
-<!-- 2.  Thinking about linear models -->
-
-<!-- -   Closing the loop: when we plan an analysis we should try to use contextual information -- theory and measurement understanding -- to specify our model -->
-<!-- -   Closing the loop: when we critically evaluate our or others' findings, we should consider validity, measurement, and generalizability -->
-
-<!-- 3.  Reporting linear models -->
-
-<!-- -   When we report an analysis, we should report: -->
-
-<!-- 1.  Explain what I did, specifying the method (linear model), the outcome variable (accuracy) and the predictor variables (health literacy, reading strategy, reading skill and vocabulary) -->
-<!-- 2.  Report the model fit statistics overall ($F, R^2$) -->
-<!-- 3.  Report the significant effects ($\beta, t, p$) and describe the nature of the effects (does the outcome increase or decrease?) -->
