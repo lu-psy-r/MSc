@@ -1,4 +1,12 @@
-# Introduction to multilevel data {#sec-intro-multilevel}
+---
+title: Week 16. Introduction to multilevel data
+subtitle: Written by Rob Davies
+order: 7
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
+
+# Introduction {#sec-intro-multilevel}
 
 ```{r libraries-hide}
 #| warning: false
@@ -12,6 +20,10 @@ library(patchwork)
 library(sjPlot)
 library(tidyverse)
 ```
+
+::: callout-warning
+This page is currently under construction: come back soon!
+:::
 
 ## Motivations {#sec-multi-motivations}
 
@@ -891,3 +903,8 @@ We used the `summary()` function to get model results for both linear models and
 @Snijders2004a present a helpful overview of multilevel modelling. Readers familiar with the book will see that I rely on it to construct the formal presentation of the models.
 
 @Gelman2007g present a more in-depth treatment of multilevel models.
+
+### References
+
+::: {#refs}
+:::
