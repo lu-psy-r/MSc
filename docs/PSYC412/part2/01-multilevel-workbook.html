@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.54">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 16. Workbook introduction to multilevel data – Statistics for Psychologists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../PSYC412/part2/01-multilevel.html" rel="next">
+<link href="../../PSYC412/part1/Week15.html" rel="prev">
+<link href="../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="https://lu-psy-r.github.io/">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week11.html">PSYC412</a></li><li class="breadcrumb-item"><a href="../../PSYC412/part2/01-multilevel-workbook.html">Week 16. Workbook introduction to multilevel data</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">PSYC411</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1. Introducing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2. Manipulating data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3. Drawing graphs from data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4. Testing nominal data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5. Testing differences between groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/report-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. The structured research report – Quick start</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. How you can do the analysis work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. Why we are asking you to do this</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/hypotheses-associations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 7. Hypotheses and associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/lm-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8. Introduction to the linear model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/visualization-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 9. Data visualization practices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/lm-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10. Developing the linear model</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">PSYC412</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11. Recap of the linear model and practising data-wrangling in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12. Categorical predictors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 13. More on interactions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 14. Logistic regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 15. Poisson regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/01-multilevel-workbook.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 16. Workbook introduction to multilevel data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/01-multilevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 16. Conceptual introduction to multilevel data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/LICENSE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LICENSE</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-multilevel-workbook-overview" id="toc-sec-multilevel-workbook-overview" class="nav-link active" data-scroll-target="#sec-multilevel-workbook-overview">Week 16 Multilevel data workbook overview</a>
+  <ul class="collapse">
+  <li><a href="#sec-multilevel-workbook-targets" id="toc-sec-multilevel-workbook-targets" class="nav-link" data-scroll-target="#sec-multilevel-workbook-targets">Targets</a></li>
+  <li><a href="#sec-multilevel-workbook-resources" id="toc-sec-multilevel-workbook-resources" class="nav-link" data-scroll-target="#sec-multilevel-workbook-resources">Learning resources</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week11.html">PSYC412</a></li><li class="breadcrumb-item"><a href="../../PSYC412/part2/01-multilevel-workbook.html">Week 16. Workbook introduction to multilevel data</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Week 16. Workbook introduction to multilevel data</h1>
+<p class="subtitle lead">Written by Rob Davies</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This page is currently under construction: come back soon!</p>
+</div>
+</div>
+<section id="sec-multilevel-workbook-overview" class="level1">
+<h1>Week 16 Multilevel data workbook overview</h1>
+<p>Welcome to your overview of the work we will do together in <strong>Week 16</strong>.</p>
+<p>We are going to learn about a method or approach that is essential in modern data analysis: <strong>multilevel modeling</strong>.</p>
+<p>We are going to invest the next few weeks in working on this approach.</p>
+<p>We are going to do this because multilevel modeling is a very powerful and very flexible technique, and because you will learn best if you take the time to build up and deepen your understanding step-by-step.</p>
+<section id="sec-multilevel-workbook-targets" class="level2">
+<h2 class="anchored" data-anchor-id="sec-multilevel-workbook-targets">Targets</h2>
+<p>Our learning objectives include the development of key concepts and skills.</p>
+<ol type="1">
+<li><strong>concepts</strong> – how data can have multilevel structures and what this requires in models</li>
+<li><strong>skills</strong> – where skills comprise the capacity to:</li>
+</ol>
+<ul>
+<li>use visualization to examine observations within groups</li>
+<li>run linear models over all data and within each class</li>
+<li>use the <code>lmer()</code> function to fit models of multilevel data</li>
+</ul>
+<p>We are just getting started this week. Our plan will be to build depth and breadth in understanding as we progress over the next few weeks.</p>
+</section>
+<section id="sec-multilevel-workbook-resources" class="level2">
+<h2 class="anchored" data-anchor-id="sec-multilevel-workbook-resources">Learning resources</h2>
+<p>You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop. Then you will see information about the practical materials you can use to build and practise your skills.</p>
+<p>Every week, you will learn best if you <em>first</em> watch the lectures <em>then</em> do the practical exercises.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Linked resources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To help your learning, you can read about the ideas and the practical coding required for analyses in the chapters I wrote for this course.</p>
+<p><a href="../../PSYC412/part2/01-multilevel.html#sec-intro-multilevel">The chapter: Conceptual introduction to multilevel data</a></p>
+</div>
+</div>
+<!-- ### 10.3.1 Lectures {#sec-lm-dev-lectures} -->
+<!-- The lecture materials for this week are presented in four short parts.  -->
+<!-- Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part. -->
+<!-- 1. Part 1 (20 minutes) **Developing the linear model**: The concepts and skills we will learn about in week 10: our aims, the research questions we can answer with linear models, making the move to working with linear models with multiple predictors, why the main challenge is not the coding but the *choices* over which predictors to include in a model. -->
+<!-- ```{=html} -->
+<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=14284d6d-f17d-4c0a-a827-b23d00bda67f&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-1" ></iframe> -->
+<!-- ``` -->
+<!-- 2. Part 2 (13 minutes): Coding, thinking about, and reporting linear models with multiple predictors. -->
+<!-- ```{=html} -->
+<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=cce303a1-392c-4607-aecd-af63010c4070&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-2" ></iframe> -->
+<!-- ``` -->
+<!-- 3. Part 3 (21 minutes): Critically evaluating the results of analyses involving linear models. -->
+<!-- ```{=html} -->
+<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5f02f90d-5a7f-4742-9638-af63011046b8&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-3" ></iframe> -->
+<!-- ``` -->
+<!-- 4. Part 4 (19 minutes): The linear model is very flexible, powerful and general. -->
+<!-- ```{=html} -->
+<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=b559ac42-6752-4eaa-b3a9-af630116c7e8&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-lm-dev-4" ></iframe> -->
+<!-- ``` -->
+<!-- ### 10.3.2 Lecture slides {#sec-lm-dev-lectures-slides} -->
+<!-- ::: callout-tip -->
+<!-- ## Download the lecture slides -->
+<!-- The slides presented in the videos can be downloaded here: -->
+<!-- - [The slides](files/411-linear-model-develop.html) exactly as presented (11 MB).  -->
+<!-- You can download the web page `.html` file and click on it to open it in any browser (e.g., Chrome, Edge or Safari). The slide images are high quality so the file is quite big and may take a few seconds to download. -->
+<!-- ::: -->
+<!-- We are going to work through some practical exercises, next, to develop your critical thinking and practical skills for working with linear models. -->
+<!-- ### 10.4 Practical materials: data and R-Studio {#sec-lm-dev-practical} -->
+<!-- We will work with one data file which you can download by clicking on its name (below): -->
+<!-- -   [`2022-12-08_all-studies-subject-scores.csv`](files/2022-12-08_all-studies-subject-scores.csv). -->
+<!-- Once you have downloaded the file, you will need to upload it to the R-Studio server to access it so that you can do the practical exercises. -->
+<!-- ::: callout-important -->
+<!-- Here is a link to the sign-in page for [R-Studio Server](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F) -->
+<!-- ::: -->
+<!-- ### 10.4.1 Practical materials guide {#sec-lm-dev-practical-guide} -->
+<!-- As usual, you will find that the practical exercises are simpler to do if you follow these steps in order. -->
+<!-- 1. **The data** --- We will take a quick look at what is inside the data files so you know what everything means. -->
+<!-- 2. **The `how-to` guide** --- We will go through the practical analysis and visualization coding steps, showing all the code required for each step. -->
+<!-- 3. **The `practical` exercises** --- We will set out the tasks, questions and challenges that you should complete to learn the practical skills we target this week. -->
+<!-- This week --- **Week 10** --- we aim to *further* develop skills in working with the linear model, and in visualizing and testing the associations between variables in psychological data. -->
+<!-- - While we build on everything you have learned so far, the skills you learn in this class unlock your capacity to analyse most kinds of data you will encounter in most situations: **a big expansion in the scope** of your capacities. -->
+<!-- ::: callout-tip -->
+<!-- ## Week 10 parts -->
+<!-- 1. Set-up -->
+<!-- 2. Load the data -->
+<!-- 3. **Revision**: using a linear model to answer research questions -- one predictor. -->
+<!-- 4. **New**: using a linear model to answer research questions -- multiple predictors. -->
+<!-- 5. **New**: plot predictions from linear models with multiple predictors. -->
+<!-- 6. **New**: estimate the effects of factors as well as numeric variables. -->
+<!-- 7. **New**: examine associations comparing data from different samples. -->
+<!-- ::: -->
+<!-- We learn these skills so that we can answer research questions like: -->
+<!-- 1. What person attributes predict success in understanding? -->
+<!-- Questions like this are often answered by analyzing psychological data using some form of linear model. -->
+<!-- As usual, when we do these analyses, we need to think about how we report the results, so part of the learning you will complete will enable you to:   -->
+<!-- - report information about the kind of model you specify; -->
+<!-- - report the nature of the associations (or effects) estimated in your model; -->
+<!-- - evaluate the results, making decisions about (i.) the significance of effects (ii.) whether estimates of effects suggest a positive or negative relationship between outcome and predictor (iii.) whether estimates of effects suggest a strong or a weak relationship. -->
+<!-- We will really strengthen your ability to produce professional visualizations by learning how to translate model results into plots that help you and your audience to translate what your model tells you into accurate understanding and plain language. -->
+<!-- #### 10.4.1.1 The data files {#sec-lm-dev-practical-data} -->
+<!-- Each of the data files we have worked with has had a similar structure. This week, that continuity remains. But, this week, we move on to working with a *big* data-set similar to the data you may encounter in real-world situations. -->
+<!-- - **What is new** about this data-set is that it holds data from multiple studies in which the same methods were used -- these are *replication* studies -- enabling us to look the questions about *results reproducibility* across studies that you have been hearing about. -->
+<!-- Here are what the first few rows in the data file `all.studies.subjects` looks like: -->
+<!-- ```{r summary} -->
+<!-- #| warning: false -->
+<!-- #| echo: false -->
+<!-- kable(head(all.studies.subjects)) -->
+<!-- ``` -->
+<!-- ::: callout-tip -->
+<!-- The webpage has a slider under the data table window, so you can scroll across the columns: move your cursor over the window to show the slider. -->
+<!-- ::: -->
+<!-- When you look at the data table, you can see the columns: -->
+<!-- -   `ResponseId` participant code -->
+<!-- -   `mean.acc` average accuracy of response to questions testing understanding of health guidance -->
+<!-- -   `mean.self` average self-rated accuracy of understanding of health guidance -->
+<!-- -   `study` variable coding for what study the data were collected in -->
+<!-- -   `AGE` age in years -->
+<!-- -   `HLVA` health literacy test score -->
+<!-- -   `SHIPLEY` vocabulary knowledge test score -->
+<!-- -   `FACTOR3` reading strategy survey score -->
+<!-- -   `GENDER` gender code -->
+<!-- -   `EDUCATION` education level code -->
+<!-- -   `ETHNICITY` ethnicity (Office National Statistics categories) code -->
+<!-- You can now see a new column: -->
+<!-- - `NATIVE.LANGUAGE` which codes for what language study participants grew up speaking (`English, Other`) -->
+<!-- #### 10.4.2 The how-to guide {#sec-lm-dev-practical-how-to} -->
+<!-- We will take things *step-by-step*. -->
+<!-- Make sure you complete each part, task and question, in order, before you move on to the next one. -->
+<!-- #### 10.4.2.1 How-to Part 1: Set-up -->
+<!-- To begin, we set up our environment in R. -->
+<!-- ##### How-to Task 1 -- Run code to empty the R environment -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- rm(list=ls())                             -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ##### How-to Task 2 -- Run code to load libraries -->
+<!-- Load libraries using `library()`. -->
+<!-- - Notice that we are working with libraries that may be new to you here. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- library("ggeffects") -->
+<!-- library("patchwork") -->
+<!-- library("psych") -->
+<!-- library("tidyverse") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- #### 10.4.2.2 How-to Part 2: Load the data -->
+<!-- ##### How-to Task 3 -- Read in the data file we will be using -->
+<!-- We will be working with the data file: -->
+<!-- - `2022-12-08_all-studies-subject-scores.csv`. -->
+<!-- Read in the file -- using `read_csv()`. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ```{r} -->
+<!-- all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ##### How-to Task 4 -- Inspect the data file -->
+<!-- In previous classes, we have used the `summary()` function to inspect the data. -->
+<!-- Now, let's do something new. -->
+<!-- We use the `describe()` function from the `{psych}` library to produce descriptive statistics for the variables in the data-set. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ```{r} -->
+<!-- describe(all.studies.subjects) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- In the reports you write -- whether as a student or, later, in your professional work -- you may often be required to present table summaries of the variables in your data, incorporating descriptive statistics. -->
+<!-- - You can use the `describe()` function to get R to do the work for you. -->
+<!-- We want to get just the descriptive statistics we want.  -->
+<!-- We are going to do this in two steps:  -->
+<!-- 1. we select the variables we care about; -->
+<!-- 2. we get just the descriptive statistics we want for those variables -->
+<!-- We will do this using *two different* but equivalent methods. -->
+<!-- First, we are going to do this using the `%>%` pipes that you saw previously (in week 5): -->
+<!-- ```{r} -->
+<!-- all.studies.subjects %>% -->
+<!--   select(mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3) %>% -->
+<!--   describe(skew = FALSE) -->
+<!-- ``` -->
+<!-- These are the code elements and what they do: -->
+<!-- 1. `all.studies.subjects %>%` -- you tell R to use the `all.studies.subjects` dataset, then use `%>%` to ask R to take those data to the next step. -->
+<!-- 2. `select(mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3) %>%` -- you tell R to select just those variables in `all.studies.subjects` that you name and `%>%` pipe them to the next step. -->
+<!-- 3. `describe(...)` -- you tell R to give you descriptive statistics for the variables you have selected. -->
+<!-- 4. `describe(skew = FALSE)` -- critically, you add the argument `skew = FALSE` to *turn off* the option in `describe()` to report skew, kurtosis: because we do not typically see these statistics reported in psychology. -->
+<!-- ::: callout-tip -->
+<!-- Modern R coding often uses the pipe. When you see it, you see it used in a process involving a series of steps. -->
+<!-- - Do this thing, then send the results `%>` to the next step, do the next thing then send the results `%>%` to the next step... -->
+<!-- - When you look at `ggplot()` code, the `+` at the end of each line of plotting code is doing a similar job to the pipe. -->
+<!-- ::: -->
+<!-- Not everyone is comfortable coding this way so next we will do the same thing in an *old style*. -->
+<!-- ```{r} -->
+<!-- all.studies.subjects.select <- select(all.studies.subjects,  -->
+<!--                            mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3) -->
+<!-- describe(all.studies.subjects.select, skew = FALSE) -->
+<!-- ``` -->
+<!-- These are the code elements and what they do: -->
+<!-- 1. `all.studies.subjects.select <- ...(all.studies.subjects, ...)` -- you tell R to create a new dataset `all.studies.subjects.select` from the original `all.studies.subjects` -- the new dataset will include just the variables we select from the original. -->
+<!-- 2. `select(all.studies.subjects, ...)` -- you tell R to select the variables you want using the `select(...)` function: telling R to select variables from `all.studies.subjects`. -->
+<!-- 3. `... select(..., mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3)` -- you tell R to select the variables you want by entering the variable names, separated by commas, after you have named the dataset. -->
+<!-- 4. `describe(...)` -- you tell R to give you descriptive statistics. -->
+<!-- 5. `describe(all.studies.subjects.select, ...)` -- you name the dataset with the selection of variables you have created, telling the `describe()` function what data to work with. -->
+<!-- 5. `describe(skew = FALSE)` -- critically, you add the argument `skew = FALSE` to turn off the option to report skew, kurtosis to keep the descriptive statistics short. -->
+<!-- **What are we learning here?** -->
+<!-- First, we can do exactly the same thing in two different but related ways: -->
+<!-- - Use the way that (1.) works and (2.) you prefer. -->
+<!-- - Which should you prefer? You may reflect on how easy the code is to write, read, understand and use -->
+<!-- Second, we modify how the function `describe()` works by adding an argument: `describe(skew = FALSE)`. -->
+<!-- - We have been doing this kind of move, already, by adding arguments to, e.g., specify point colour in `ggplot()` code. -->
+<!-- As your skills advance, so your preferences on how you want R to work for you will become more specific. -->
+<!-- - You can modify the outputs from functions so that you get exactly what you want *in the way that you want it*. -->
+<!-- The information on the options available to you for any argument can be found in different kinds of places, see the further information box, below. -->
+<!-- ::: callout-tip -->
+<!-- ## Further information you can explore -->
+<!-- 1. Here is an explanation for how to use pipes `%>%` when you code and why it may be helpful to do so: -->
+<!-- <https://r4ds.had.co.nz/pipes.html> -->
+<!-- Note that we do not *require* the use of pipes in PSYC411: we are showing you this to expand your knowledge. -->
+<!-- 2. You can get a guide to the `{psych}` library here: -->
+<!-- <http://personality-project.org/r/psych/vignettes/intro.pdf> -->
+<!-- Every "official" R library has a technical manual on the central R resource CRAN, and the manual for 'psych' can be found here: -->
+<!-- <https://cran.r-project.org/web/packages/psych/psych.pdf> -->
+<!-- - where you can see information on the functions the library provides, and how you can use each function. -->
+<!-- This is how you ask for help in R for a function, e.g., just type: `?describe` or -->
+<!-- `help(describe)`. -->
+<!-- The `{psych}` library is written by William Revelle who provides a lot of useful resources here: -->
+<!-- <http://personality-project.org/r/psych/> -->
+<!-- ::: -->
+<!-- #### 10.4.2.3 How-to Part 3: Using a linear model to answer research questions -- one predictor -->
+<!-- ##### How-to Task 5 -- Examine the relation between outcome mean accuracy (`mean.acc`) and health literacy (`HLVA`) -->
+<!-- One of our research questions is: -->
+<!-- 1. What person attributes predict success in understanding? -->
+<!-- Here, we can address the question directly because we have information on an outcome, mean accuracy (`mean.acc`), and information on a predictor, health literacy (`HLVA`). -->
+<!-- - Given the theoretical account outlined in [the chapter for week 7](../part2/hypotheses-associations.qmd#sec-associations-overview), our hypothesis is that people who possess a higher level of background knowledge, measured here using the health literacy (`HLVA`) test, will be more likely to accurately understand health information when they read it, with understanding tested to calculate the mean accuracy (`mean.acc`). -->
+<!-- - This hypothesis translates into a statistical prediction: if people in our sample have higher `HLVA` scores, we predict that, on average, they will also have higher `mean.acc` scores. -->
+<!-- To address the research question, we test the statistical prediction using the linear model: -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ HLVA, data = all.studies.subjects) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- If you look at the model summary you can answer the following questions   -->
+<!-- > Q.1. What is the estimate for the coefficient of the effect of the predictor, HLVA? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.1. 0.041188  -->
+<!-- ::: -->
+<!-- > Q.2. Is the effect significant? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.2. It is significant because p < .05 -->
+<!-- ::: -->
+<!-- > Q.3. What are the values for t and p for the significance test for the coefficient? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.3. t = 12.94, p <2e-16 -->
+<!-- ::: -->
+<!-- > Q.4. What do you conclude is the answer to the research question, given the linear model results? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.4. The model slope estimate suggests that as `HLVA` scores increase so also do `mean.acc` scores. -->
+<!-- ::: -->
+<!-- > Q.5. What is the F-statistic for the regression? Report F, DF and the p-value. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.5. F-statistic: 167.5 on 1 and 559 DF,  p-value: < 2.2e-16 -->
+<!-- ::: -->
+<!-- > Q.6. Is the regression significant? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.6. Yes: the regression is significant. -->
+<!-- ::: -->
+<!-- > Q.7. What is the Adjusted R-squared? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.7. Adjusted R-squared:  0.2292 -->
+<!-- ::: -->
+<!-- > Q.8. Explain in words what this R-squared value indicates? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.8. The R-squared suggests that 23% of outcome variance can be explained  -->
+<!-- # by the model -->
+<!-- ::: -->
+<!-- **What are we learning here?** -->
+<!-- It is worth your time reflecting, here, on how statistical analyses are incorporated in research work. -->
+<!-- 1. We have ideas about a psychological process: e.g., reading comprehension. -->
+<!-- 2. We have assumptions of a theoretical account of that process: e.g., we use background knowledge to understand what we read. -->
+<!-- 3. Given those assumptions, we derive hypotheses that we translate into statistical predictions: e.g., higher health literacy predicts higher accuracy of understanding. -->
+<!-- 4. We test a statistical prediction using a method like `lm()`, specifying a model that aligns with the prediction terms: the outcome, the predictor(s). -->
+<!-- ::: callout-tip -->
+<!-- Thinking ahead to your dissertation project, can you reflect on the research question you will hope to answer, how you will address that question through measurement, then data analysis to test a statistical prediction? -->
+<!-- ::: -->
+<!-- #### 10.4.2.4 How-to Part 4: Using a linear model to answer research questions -- multiple predictors -->
+<!-- ##### How-to Task 6 --Examine the relation between outcome mean accuracy (`mean.acc`) and multiple predictors including: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`) -->
+<!-- We saw that our research question is: -->
+<!-- 1. What person attributes predict success in understanding? -->
+<!-- In the previous task, we tried to model success in understanding using just one predictor variable but it is unrealistic that a person's capacity to understand health information will be predicted by just one thing, their background knowledge. -->
+<!-- It is more likely that variation on multiple dimensions will predict understanding. -->
+<!-- What could those variables be? -->
+<!-- We can examine the relation between outcome mean accuracy (`mean.acc`) and multiple predictors simultaneously. -->
+<!-- Here, the candidate predictor variables include: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`). -->
+<!-- We can incorporate all predictors together in a linear model: we use `lm()`, as before, but now specify each variable listed here by variable name. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE, data = all.studies.subjects) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- If we look closely at this code example, we can first identify the working elements in the linear model code, but then we can identify some general properties that it will be useful to you to learn about. -->
+<!-- First, let's work through the elements of the linear model code so we can see what everything does: -->
+<!-- 1. `model <- lm(...)` -- tell R you want to fit the model using `lm(...)`, and give the model a name: here, we call it "model". -->
+<!-- 2. `...lm(mean.acc ~ HLVA...)` -- tell R you want a model of the outcome `mean.acc` predicted `~` by the predictors: `HLVA`, `SHIPLEY`, `FACTOR3`, `AGE`. -->
+<!-- - Note that we use the variable names as they appear in the dataset, and that each predictor variable is separated from the next by a plus sign. -->
+<!-- 3. `...data = all.studies.subjects)` -- tell R that the variables you name in the formula are in the `all.studies.subjects` data-set. -->
+<!-- 4. `summary(model)` -- ask R for a summary of the model you called "model": **this is how you get the results**. -->
+<!-- ::: callout-tip -->
+<!-- Notice that R has a general formula syntax: `outcome ~ predictor` *or* `y ~ x` -->
+<!-- - and uses the same format across a number of different functions; -->
+<!-- - each time, on the left of the tilde symbol `~` you identify the output or outcome variable; -->
+<!-- - here, **what is new** is that you see on the right of the tilde `~` multiple predictor variables: `y ~ x1 + x2 + ...` -->
+<!-- ::: -->
+<!-- If you look at the model summary you can answer the following questions. -->
+<!-- (We have hidden the answers -- so that you can test yourself -- but you can reveal each answer by clicking on the box.) -->
+<!-- > Q.7. What is the estimate for the coefficient of the effect of the predictor `HLVA` in *this* model? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Answer -->
+<!-- > A.7. 0.0274954  -->
+<!-- ::: -->
+<!-- > Q.8. Is the effect significant? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Answer -->
+<!-- > A.8. It is significant because p < .05. -->
+<!-- ::: -->
+<!-- > Q.9. What are the values for t and p for the significance test for the coefficient? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Answer -->
+<!-- > A.9. t = 8.470, p < 2e-16 -->
+<!-- ::: -->
+<!-- > Q.10. What do you conclude is the answer to the research question, given the linear model results? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Answer -->
+<!-- > A.10. The model slope estimate 0.0274954 suggests that as HLVA scores  -->
+<!-- # increase so also do mean.acc scores -->
+<!-- ::: -->
+<!-- > Q.11. How is the coefficient estimate for the HLVA slope similar or different, comparing this model with multiple predictors to the previous model with one predictor? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Answer -->
+<!-- > A.11. It can be seen that the HLVA estimate in the two models is different in that it is a bit smaller in the model with multiple predictors compared to the model with one predictor. The HLVA estimate is similar in that it remains positive, and it is about the same size. -->
+<!-- ::: -->
+<!-- **What are we learning here?** -->
+<!-- The estimate of the coefficient of any one predictor can be expected to vary depending on the presence of other predictors. -->
+<!-- - This is one reason why we need to be transparent about why we choose to use the predictors we include in our model. -->
+<!-- - The lecture for this week discusses this concern in relation to the motivation for good open science practices. -->
+<!-- > Q.12. Can you report the estimated effect of `SHIPLEY` (the measure of vocabulary)? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Answer -->
+<!-- > A.12. The effect of vocabulary knowledge (`SHIPLEY`) on mean accuracy of understanding is significant (estimate = 0.01, t = 7.30, p < .001), indicating that increasing skill is associated with increasing accuracy. -->
+<!-- ::: -->
+<!-- > Q.13. Can you report the model and the model fit statistics? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Answer -->
+<!-- > A.13. We fitted a linear model with mean comprehension accuracy as the outcome and health literacy (`HLVA`),  reading strategy (`FACTOR3`), vocabulary (`SHIPLEY`) and `AGE` (in years) as predictors. The model is significant overall, with F(4, 556) = 85.17, p < .001, and explains 38% of variance (adjusted R2 = 0.38). -->
+<!-- ::: -->
+<!-- #### 10.4.2.5 How-to Part 5: Plot predictions from linear models with multiple predictors -->
+<!-- ##### How-to Task 7 -- Produce and plot model results using R functions that make the process easier -->
+<!-- We can begin by plotting linear model predictions for one of the predictors in the multiple predictors model we have been working with. -->
+<!-- - Previously, we used `geom_abline()`, specifying intercept and slope estimates, to produce and plot model predictions. -->
+<!-- - Here, we use functions that are very helpful when we need to plot model predictions for a predictor, for models where we have multiple predictors. -->
+<!-- We do this in three steps: -->
+<!-- 1. We first fit a linear model of the outcome, given our predictors, and we save information about the model. -->
+<!-- 2. We use the `ggpredict()` function from the `{ggeffects}` library to take the information about the model and create a set of predictions we can use for plotting. -->
+<!-- 3. We plot the model predictions, producing what are also called *marginal effects* plots. -->
+<!-- We write the code to do the work as follows. -->
+<!-- 1. We first fit a linear model of the outcome, given our predictors: -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE,  -->
+<!--                          data = all.studies.subjects) -->
+<!-- ``` -->
+<!-- - `model <- lm(...)` -- we fit the model using `lm(...)`, giving the model a name: "model". -->
+<!-- - `...lm(mean.acc ~ HLVA + ... + ...)` -- this model estimates how the outcome `mean.acc` changes, is predicted `~` given information about the predictors `HLVA`, `SHIPLEY`, `FACTOR3`, and `AGE`. -->
+<!-- - Notice: when we use `lm()` to fit the model, R creates a set of information about the model, including estimates. -->
+<!-- - We give that set of information a name ("model"), and we use that name, next, to call on and use the model information to make the plot. -->
+<!-- 2. We use the `ggpredict()` function from the `{ggeffects}` library to take the information about the model and create a set of predictions we can use for plotting: -->
+<!-- ```{r} -->
+<!-- dat <- ggpredict(model, "HLVA") -->
+<!-- ``` -->
+<!-- - `dat <- ggpredict(...)` -- we ask R to create a set of predictions, and we give that set of predictions a name `dat`. -->
+<!-- - `... ggpredict(model, "HLVA")` -- we tell R what model information it should use (from "model"), and which predictor variable we need predictions for: `HLVA`. -->
+<!-- 3. We plot the model predictions (marginal effects plots): -->
+<!-- ```{r} -->
+<!-- plot(dat) -->
+<!-- ``` -->
+<!-- ::: callout-tip -->
+<!-- ## Further information you can explore -->
+<!-- In producing prediction plots, we are using functions from the `{ggeffects}` library. Can you locate online information about working with the library functions? -->
+<!-- - Try doing a search with the key words: `in r ggeffects`. -->
+<!-- If you do that, you will see links to the website: -->
+<!-- <https://strengejacke.github.io/ggeffects/> -->
+<!-- In the `{ggeffects}` online information, you can see links to practical examples. Can you use the information under `Practical examples` to adjust the appearance of the prediction plots? -->
+<!-- ::: -->
+<!-- ##### How-to Task 8 -- *Optional* -- Edit the appearance of the marginal effect (prediction) plot as you can with any `ggplot` object -->
+<!-- Once we have created the model predictions plot, we can edit it like we would edit any other `ggplot` object. -->
+<!-- - This is clearly advanced but it helps you to see just how powerful your capabilities can be if you aim to develop skills in this kind of work. -->
+<!-- ```{r} -->
+<!-- p.model <- plot(dat) -->
+<!-- p.model + -->
+<!--   geom_point(data = all.studies.subjects,  -->
+<!--              aes(x = HLVA, y = mean.acc), size = 1.5, alpha = .75, colour = "lightgreen") + -->
+<!--   geom_line(linewidth = 1.5) + -->
+<!--   ylim(0, 1.1) + xlim(0, 16) + -->
+<!--   theme_bw() + -->
+<!--   theme( -->
+<!--     axis.text = element_text(size = rel(1.15)), -->
+<!--     axis.title = element_text(size = rel(1.25)), -->
+<!--     plot.title = element_text(size = rel(1.4)) -->
+<!--   ) + -->
+<!--   xlab("Health literacy (HLVA)") + ylab("Mean accuracy") + -->
+<!--   ggtitle("Effect of health literacy on mean comprehension accuracy") -->
+<!-- ``` -->
+<!-- We do this in stages, as we have done for other kinds of plots: -->
+<!-- 1. `p.model <- plot(dat)` -- we create a plot object, which we call 'p.model'. -->
+<!-- 2. `p.model +` -- we then set up the first line of a series of code lines, starting with the name of the plot, `p.model` and a `+` to show we are going to add some edits. -->
+<!-- 3. `geom_point(data = all.studies.subjects, aes(x = HLVA, y = mean.acc) ...)` -- we first add the raw data points showing the observed `HLVA` and `mean.acc` for each person in our sample. -->
+<!-- 4. `geom_point(... size = 1.5, alpha = .75, colour = "lightgreen") +` -- we modify the appearance of the points, then -->
+<!-- 5. `geom_line(size = 1.5) +` -- we add the prediction line, using the predictions created earlier, then -->
+<!-- 6. `ylim(0, 1.1) + xlim(0, 16) +` -- we set axis limits to show the full potential range of variation in each variable, then -->
+<!-- 7. `theme_bw()` -- we set the theme to black and white, then -->
+<!-- 8. `theme(axis.text = element_text(size = rel(1.15)), ...)` -- we modify the relative size of x-axis, y-axis and plot title label font, then -->
+<!-- 9. `xlab("Health literacy (HLVA)") + ylab("Mean accuracy") +` -- we edit labels to make them easier to understand, then -->
+<!-- 10. `ggtitle("Effect of health literacy on mean comprehension accuracy")` -- we give the plot a title -->
+<!-- Notice that we are constructing a complex plot from two datasets: -->
+<!-- - We use `plot(dat)` to construct a plot from (1.) the set of predictions, showing the prediction line using `geom_line(size = 1.5) + `  -->
+<!-- - We then add a layer to the plot to show (2.) the raw sample data, using -->
+<!-- `geom_point(data = all.studies.subjects, ...)` -- to tell R to work with the sample data-set `all.studies.subjects`, and to show points representing the (aesthetic mappings) values, given that sample data, for (`x = HLVA, y = mean.acc`). -->
+<!-- **What are we learning here?** -->
+<!-- This complex plot is a good example of: -->
+<!-- 1. How we can plot summary of prediction data plus observed outcomes, and this connects to the classes on visualization. -->
+<!-- 2. How we can add layers of edits, or geometric objects, together to create complex plots that can show our audience messages like, here, that there is an average trend (shown by the line) but that individual outcomes vary quite a bit from the average. -->
+<!-- ::: callout-tip -->
+<!-- No model will be perfect. -->
+<!-- - It is often useful to compare model estimates -- here, the slopes -- with the raw data observations. -->
+<!-- - Visualizing the difference between what we observe and what we predict helps to make sense of how our prediction model could be improved. -->
+<!-- ::: -->
+<!-- ##### How-to Task 9 -- *Optional* -- Now produce plots that show the predictions for all the predictor variables in the model -->
+<!-- This is optional but we offer the task as an opportunity for practice with these notes. -->
+<!-- 1. The code may get pretty lengthy. -->
+<!-- 2. You will need to adjust axis labels so for each plot we see the correct predictor as the x-axis label -->
+<!-- 3. You will give the plot titles as letters a-e so that, if you put this plot in a report, you can refer to each plot by letter in comments in a report. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- We will use the `{Patchwork}` library: -->
+<!-- ```{r} -->
+<!-- library(patchwork) -->
+<!-- ``` -->
+<!-- First, fit the model and get the model information: -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE,  -->
+<!--                          data = all.studies.subjects) -->
+<!-- ``` -->
+<!-- Second, get the predictions, given the model information, for two different predictor variables. -->
+<!-- - Notice that I use different names for different sets of predictors. -->
+<!-- ```{r} -->
+<!-- dat.HLVA <- ggpredict(model, "HLVA") -->
+<!-- dat.SHIPLEY <- ggpredict(model, "SHIPLEY") -->
+<!-- ``` -->
+<!-- Third, produce plots of the predictions, giving each *plot object* a different plot name. -->
+<!-- - Notice that I use different names for different sets of predictors. -->
+<!-- ```{r} -->
+<!-- plot.HLVA <- plot(dat.HLVA) -->
+<!-- plot.SHIPLEY <- plot(dat.SHIPLEY) -->
+<!-- ```   -->
+<!-- Last, put the two plots together by calling their names. -->
+<!-- ```{r} -->
+<!-- plot.HLVA + plot.SHIPLEY -->
+<!-- ``` -->
+<!-- The `{Patchwork}` library functions are *really* powerful and the documentation information is *really* helpful: -->
+<!-- <https://patchwork.data-imaginist.com/articles/patchwork.html> -->
+<!-- ::: -->
+<!-- **What are we learning here?** -->
+<!-- If you follow the code example, and learn how to: -->
+<!-- 1. complete a linear model analysis with multiple predictors and  -->
+<!-- 2. present the model results, for all effects (estimates of the impact of all predictors) simultaneously -->
+<!-- - then *this* is a big deal, as a skill development learning achievement -->
+<!-- - because knowing about this process, and knowing how to do it, *unlocks* an important advanced analysis and visualization skill. -->
+<!-- ::: callout-tip -->
+<!-- Knowing how to follow this model $\rightarrow$ visualization workflow gives you a competitive advantage in future professional settings (job applications, interviews, workplace) because not many Psychology graduates can do it, yet. -->
+<!-- ::: -->
+<!-- #### 10.4.2.6 How-to Part 6: **New**: estimate the effects of factors as well as numeric variables -->
+<!-- As we have seen, one of our research questions is: -->
+<!-- 1. What person attributes predict success in understanding? -->
+<!-- We have not yet included any categorical or nominal variables as predictors but we can, and should: `lm()` can cope with any kind of variable as a predictor. -->
+<!-- ::: callout-tip -->
+<!-- In Part 4 of the Week 10 lectures, I explain that fundamentally every kind of analysis you have learnt before (t-test, ANOVA, etc.) can be understood as a kind of linear model. This part shows how that works. -->
+<!-- - In a (two groups) t-test, you are comparing the average outcome between two different groups. -->
+<!-- - To do that analysis, you need an outcome variable (like `mean.acc`) and a categorical variable or factor (like, say, experimental condition: condition 1 versus condition 2).  -->
+<!-- - Here, we see how you can do the same kind of group comparison using a linear model. -->
+<!-- ::: -->
+<!-- There are different ways to do this, here we look at one. Extra information about the second can be found in the drop-down box, following. -->
+<!-- ##### How-to Task 10 -- Fit a linear model including both numeric variables and categorical variables as predictors model including both numeric variables and categorical variables as predictors -->
+<!-- We begin by inspecting the data to check what variables are categorical or nominal variables -- factors -- using `summary()`. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- summary(all.studies.subjects) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- `summary()` gives you the information you need because R shows factors with a count of the number of observations for each level. -->
+<!-- We can build on our previous work by including the factor `NATIVE.LANGUAGE` as a predictor: -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE + NATIVE.LANGUAGE,  -->
+<!--             data = all.studies.subjects) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- Now, take a look at the results to answer the following questions. -->
+<!-- > Q.14. Can you report the estimated effect of `NATIVE.LANGUAGE` (the coding of participant language status: `English` versus `Other`)? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.14. The effect of language status (`NATIVE.LANGUAGE`) on mean accuracy of  -->
+<!--  understanding is significant (estimate = -0.09, t = -6.37, p < .001) indicating that not being a native speaker of English ('Other') is associated with lower accuracy. -->
+<!-- ::: -->
+<!-- > Q.15. Can you report the model and the model fit statistics? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.15. We fitted a linear model with mean comprehension accuracy as the outcome and health literacy (`HLVA`), reading strategy (`FACTOR3`), vocabulary (`SHIPLEY`) and `AGE` (years), as well as language status as predictors. The model is significant overall, with F(5, 555) = 81.09, p < .001, and explains 42% of variance (adjusted R2 = 0.42). -->
+<!-- ::: -->
+<!-- > Q.16. What changes, when you compare the models with versus without `NATIVE.LANGUAGE`? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > A.16. If you compare the summaries, for the last two models, you can see that the proportion of variance explained, `R-sq`, increases to 42% (0.4221), suggesting that knowing about participant language background helps to account for their response accuracy in tests of comprehension of health advice. -->
+<!-- ::: -->
+<!-- **What are we learning here?** -->
+<!-- What are factors? -->
+<!-- - A *factor* is a categorical variable. -->
+<!-- - Categorical variables have a "fixed and known set of possible values", for example, maybe you are working with the factor `EDUCATION`: in the data collection process, answers to the question "What is your education level?" can have only one of three possible values (`further, higher, secondary`). -->
+<!-- - For any factor, different values of the variable are called `levels` so, for `EDUCATION` the different levels are: `further, higher, secondary` -->
+<!-- R treats factors differently from other kinds of variables: -->
+<!-- 1. R *will not* give you summary statistics (e.g., a mean) for values of a factor. It can't because: what is the mean of education? -->
+<!-- 2. R *will* count the number of times each `level` in a `factor` appears in a sample. -->
+<!-- 3. If you are plotting a bar chart or a boxplot to show outcomes for different groups or conditions then the group or condition coding variable (e.g., `aes(x = group)`) has to be a factor. -->
+<!-- R handles factors, by default, by picking one level (e.g., `English`) as the reference level (or baseline) and comparing outcomes to that baseline, for each other factor level (here, `Other`). -->
+<!-- - This is why, in the summary of estimates for this model, the effect of `NATIVE.LANGUAGE` is estimated as the average difference in `mean.acc` outcome for `English` compared to `Other` participants. -->
+<!-- - This is why the effect is listed as: `NATIVE.LANGUAGEOther` in the summary table for the model -->
+<!-- ::: callout-tip -->
+<!-- ## Further information you can explore -->
+<!-- Note that I quote, here, from the powerful `{forcats}` library of tools for working with factors: -->
+<!-- <https://forcats.tidyverse.org/> -->
+<!-- You can read more about factor coding schemes here: -->
+<!-- <https://talklab.psy.gla.ac.uk/tvw/catpred/> -->
+<!-- and here: -->
+<!-- <https://phillipalday.com/stats/coding.html> -->
+<!-- ::: -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Extra information for students interested in ANOVAs -->
+<!-- There are different ways to code factors for analysis: -->
+<!-- - If you are doing an analysis where your data come from, say, a factorial design (e.g. a 2 x 2 study design) then you will want to use a different coding scheme: *sum* or *effect* coding. -->
+<!-- It is easy to do this, in two steps, proceeding as follows. -->
+<!-- 1. We first change the coding scheme. -->
+<!-- - Get the `{memisc}` library: -->
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- library(memisc) -->
+<!-- ``` -->
+<!-- - Make sure that the variable is being treated as a factor: -->
+<!-- ```{r} -->
+<!-- #| warning: false -->
+<!-- all.studies.subjects$NATIVE.LANGUAGE <- as.factor(all.studies.subjects$NATIVE.LANGUAGE) -->
+<!-- ``` -->
+<!-- - Check the coding: -->
+<!-- ```{r} -->
+<!-- contrasts(all.studies.subjects$NATIVE.LANGUAGE) -->
+<!-- ``` -->
+<!-- - Change the coding -->
+<!-- ```{r} -->
+<!-- contrasts(all.studies.subjects$NATIVE.LANGUAGE) <- contr.sum(2, base = 1) -->
+<!-- ``` -->
+<!-- The arguments in `contr.sum(2, base = 1)` tell R which level we want to be the reference level. -->
+<!-- - Check the coding to show you got what you want: -->
+<!-- ```{r} -->
+<!-- contrasts(all.studies.subjects$NATIVE.LANGUAGE) -->
+<!-- ``` -->
+<!-- 2. We then fit a linear model of the outcome, given our predictors: -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE + NATIVE.LANGUAGE,  -->
+<!--             data = all.studies.subjects) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- > Optional.Q.1. What changes, when you compare the models with versus without sum coding of `NATIVE.LANGUAGE`? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- > Optional.A.1. If you compare the summaries, for the last two models, you can see that the estimate for the coefficient of `NATIVE.LANGUAGE` changes in two ways:  -->
+<!-- > 1. the name changes, from `NATIVE.LANGUAGEOther` to `NATIVE.LANGUAGE2`, reflecting the change in coding; -->
+<!-- > 2. the slope estimate changes, from `-0.0900035` to `-0.0450018`. -->
+<!-- > Note: the change in the estimate happens because we go from estimating the average difference in level between 0 (`English`) versus 1 (`Other`), a change of one unit to estimating the average difference in level between -1 (`English`) versus 1 (`Other`), a change of 2 units. -->
+<!-- Being able to change the coding of nominal or categorical variables is very useful. -->
+<!-- And enables you to do ANOVA style analyses given factorial study designs e.g. -->
+<!-- ```{r} -->
+<!-- model <- aov(lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE + NATIVE.LANGUAGE,  -->
+<!--        data = all.studies.subjects)) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- Notice: we use `aov()` to get an ANOVA summary for the model. -->
+<!-- As before, you can fit a linear model including both numeric variables and categorical variables as predictors: and then plot the predicted effect of the factor. -->
+<!-- - We first fit the model, including `NATIVE.LANGUAGE` then use the ggpredict() function to get the predictions. -->
+<!-- ```{r} -->
+<!-- dat <- ggpredict(model, "NATIVE.LANGUAGE") -->
+<!-- plot(dat) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- #### 10.4.2.7 How-to Part 7: **New**: examine associations comparing data from different samples -->
+<!-- The lecture for developing the linear model includes a discussion of the ways in which the observed associations between variables or the estimated effects of predictor variables on some outcome may differ between different studies, different samples of data. -->
+<!-- To draw the plots, I used the `{ggplot2}` library function `facet_wrap()`: -->
+<!-- ```{r} -->
+<!-- all.studies.subjects %>% -->
+<!--   ggplot(aes(x = SHIPLEY, y = mean.acc)) + -->
+<!--   geom_point(size = 2, alpha = .5, colour = "darkgrey") + -->
+<!--   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) + -->
+<!--   xlim(0, 40) + -->
+<!--   ylim(0, 1.1)+ -->
+<!--   theme_bw() + -->
+<!--   theme( -->
+<!--     axis.text = element_text(size = rel(1.15)), -->
+<!--     axis.title = element_text(size = rel(1.5)) -->
+<!--   ) + -->
+<!--   xlab("Vocabulary (Shipley)") + ylab("Mean accuracy") + -->
+<!--   facet_wrap(~ study) -->
+<!-- ``` -->
+<!-- What is new here is this bit: `facet_wrap(~ study)` -->
+<!-- This is how it works: -->
+<!-- 1. `facet_wrap()` -- the function asks R to take the data-set and split it into subsets. -->
+<!-- 2. `facet_wrap(~ study)` -- tells the function to split the data-set according to the different levels of a named factor: `study`. -->
+<!-- So: you need to identify a factor to do this work. -->
+<!-- ##### How-to Task 11 -- *Optional* -- Fit a linear model and plot the model predictions, for different study samples, all together, to enable comparisons of effects between studies -->
+<!-- Change the factor in `facet_wrap()` to show how the vocabulary effect may vary between English monolinguals versus non-native speakers of English. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ```{r} -->
+<!-- all.studies.subjects %>% -->
+<!--   ggplot(aes(x = SHIPLEY, y = mean.acc)) + -->
+<!--   geom_point(size = 2, alpha = .5, colour = "darkgrey") + -->
+<!--   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) + -->
+<!--   xlim(0, 40) + -->
+<!--   ylim(0, 1.1)+ -->
+<!--   theme_bw() + -->
+<!--   theme( -->
+<!--     axis.text = element_text(size = rel(1.15)), -->
+<!--     axis.title = element_text(size = rel(1.5)) -->
+<!--   ) + -->
+<!--   xlab("Vocabulary (Shipley)") + ylab("Mean accuracy") + -->
+<!--   facet_wrap(~ NATIVE.LANGUAGE) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- **What are we learning here?** -->
+<!-- We can work with factors to split data-sets up by group or condition, or combinations of groups or conditions. We can then compare patterns, like outcomes, or the ways that outcomes are affected by predictors, in different groups or in different combinations. -->
+<!-- ::: callout-important -->
+<!-- But the *critical lesson* is that, when we visualize trends or differences between groups or, as here, between different studies, then we often see that the effects of variables *varies* between samples. -->
+<!-- - This variation between samples in the effects we observe is a key insight into what working with people involves: variation. -->
+<!-- ::: -->
+<!-- ::: callout-tip -->
+<!-- ## Further information you can explore -->
+<!-- You can read more about faceting here: -->
+<!-- <https://ggplot2.tidyverse.org/reference/facet_wrap.html> -->
+<!-- ::: -->
+<!-- #### 10.4.3 The practical exercises {#sec-lm-dev-practical-workbook} -->
+<!-- Now you will progress through a series of tasks, and challenges, to test what you have learnt. -->
+<!-- ::: callout-warning -->
+<!-- We will continue to work with the data file -->
+<!-- -   `2022-12-08_all-studies-subject-scores.csv` -->
+<!-- ::: -->
+<!-- We again split the steps into into parts, tasks and questions. -->
+<!-- We are going to work through the following workflow steps: **each step is labelled as a practical part**. -->
+<!-- 1. Set-up -->
+<!-- 2. Load the data -->
+<!-- 3. **Revision**: using a linear model to answer research questions -- one predictor. -->
+<!-- 4. **New**: using a linear model to answer research questions -- multiple predictors. -->
+<!-- 5. **New**: plot predictions from linear models. -->
+<!-- 6. **New**: estimate the effects of factors as well as numeric variables. -->
+<!-- 7. **New**: examine associations comparing data from different samples. -->
+<!-- ::: callout-tip -->
+<!-- - The `how-to` guide showed you what functions you needed and how you should write the function code. -->
+<!-- - Use the code structure you have seen and *change* it to use the data required for these `practical exercises`: you will need to change the data-set name, the variable names, to get the code to work for the following exercises. -->
+<!-- - Identify what code elements must change, and what code elements have to stay the same. -->
+<!-- ::: -->
+<!-- Note that, for Part 5, we focus on using the `ggpredict()` tools you saw in the `how-to` guide but, for the practical exercises, use these tools to better understand what linear models (generally) do when we use them. -->
+<!-- In the following, we will guide you through the tasks and questions step by step. -->
+<!-- ::: callout-important -->
+<!-- An answers version of the workbook will be provided after the practical class. -->
+<!-- ::: -->
+<!-- #### 10.4.3.1 Practical Part 1: Set-up -->
+<!-- To begin, we set up our environment in R. -->
+<!-- ##### Practical Task 1 -- Run code to empty the R environment -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- rm(list=ls()) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ##### Practical Task 2 -- Run code to load relevant libraries -->
+<!-- Notice that in Week 10 we need to work with the libraries `ggeffects`, `patchwork` and `tidyverse`. -->
+<!-- Use the `library()` function to make these libraries available to you. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- library("ggeffects") -->
+<!-- library("patchwork") -->
+<!-- library("psych") -->
+<!-- library("tidyverse") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- #### 10.4.3.2 Practical Part 2: Load the data -->
+<!-- ##### Practical Task 3 -- Read in the data file we will be using -->
+<!-- The data file is called: -->
+<!-- - `2022-12-08_all-studies-subject-scores.csv` -->
+<!-- Use the `read_csv()` function to read the data files into R: -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ##### Practical Task 4 -- Get summary statistics for *only* the numeric variables: `AGE` and `HLVA` -->
+<!-- Use the `{psych}` library `describe()` function to get a table summary of descriptive statistics for these variables. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- Here, we can do this in two steps: -->
+<!-- 1. we select the variables we care about -->
+<!-- 2. we get just the descriptive statistics we want for those variables -->
+<!-- ```{r} -->
+<!-- all.studies.subjects %>% -->
+<!--   dplyr::select(AGE, HLVA) %>% -->
+<!--   describe(skew = FALSE) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- >**Pract.Q.1.** What is the mean health literacy (HLVA) score in this sample? -->
+<!-- > Pract.A.1. 7.22 -->
+<!-- >**Pract.Q.2.** What are the minimum and maximum ages in this sample? -->
+<!-- > Pract.A.2. 18-100 -->
+<!-- >**Pract.Q.3.** Do you see any reason to be concerned about the data in this sample? -->
+<!-- > Hint: It is always a good idea to use your visualization skills to examine the distribution of variable values in a dataset: -->
+<!-- ```{r} -->
+<!-- all.studies.subjects %>% -->
+<!--   ggplot(aes(x = AGE)) + -->
+<!--   geom_histogram() -->
+<!-- ``` -->
+<!-- > Pract.A.3. It looks like the `AGE` of 100 is maybe an error, or an extreme outlier. -->
+<!-- #### 10.4.3.3 Practical Part 3: Revision -- using a linear model to answer research questions -- one predictor. -->
+<!-- One of our research questions is: -->
+<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
+<!-- We can address this question by examining whether someone's rated evaluation of their own understanding matches their performance on a test of that understanding, and by investigating what variables predict variation in mean self-rated accuracy. -->
+<!-- ::: callout-tip -->
+<!-- Note that ratings of accuracy are ordinal (categorical ordered) data but that, here, we may choose to examine the average of participants' ratings of their own understanding of health information for the purposes of this example. -->
+<!-- - We learn about ordinal models for ordinal data in PSYC412. -->
+<!-- ::: -->
+<!-- For these data, participants were asked to respond to questions about health information to get `mean.acc` scores and were asked to rate their own understanding of the same information. -->
+<!-- - If you *can* evaluate your own understanding then ratings of understanding *should* be associated with performance on tests of understanding. -->
+<!-- ##### Practical Task 5 -- Estimate the relation between outcome mean self-rated accuracy (`mean.self`) and tested accuracy of understanding (`mean.acc`) -->
+<!-- We can use `lm()` to estimate whether the ratings of accuracy actually predict the outcome tested accuracy levels. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- If you first fit the appropriate model, then read the model summary, you can answer the following questions. -->
+<!-- >**Pract.Q.4.** What is the estimate for the coefficient of the effect of the predictor `mean.self` on the outcome `mean.acc` in this model? -->
+<!-- > Pract.A.4. 0.058613 -->
+<!-- >**Pract.Q.5.** Is the effect significant? -->
+<!-- > Pract.A.5. It is significant, p < .05 -->
+<!-- >**Pract.Q.6.** What are the values for t and p for the significance test for the coefficient? -->
+<!-- > Pract.A.6. t = 12.90, p <2e-16 -->
+<!-- >**Pract.Q.7.** What do you conclude is the answer to the research question, given the linear model results? -->
+<!-- > Pract.A.7. The model slope estimate suggests that higher levels of rated understanding can predict higher levels of tested understanding so, yes: it does appear that people can evaluate their own understanding. -->
+<!-- >**Pract.Q.8.** What is the F-statistic for the regression? Report F, DF and the p-value. -->
+<!-- > Pract.A.8. F-statistic: 166.4 on 1 and 559 DF,  p-value: < 2.2e-16 -->
+<!-- >**Pract.Q.9.** Is the regression significant? -->
+<!-- > Pract.A.9. Yes: the regression is significant. -->
+<!-- >**Pract.Q.10.** What is the Adjusted R-squared? -->
+<!-- > Pract.A.10. Adjusted R-squared:  0.228 -->
+<!-- >**Pract.Q.11.** Explain in words what this R-squared value indicates? -->
+<!-- > Pract.A.11. The R-squared suggests that 23% of outcome variance can be explained by the model -->
+<!-- #### 10.4.3.4 Practical Part 4: New -- using a linear model to answer research questions -- multiple predictors -->
+<!-- One of our research questions is: -->
+<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
+<!-- We have already looked at this question by asking whether ratings of understanding predict performance on tests of understanding. But there is a problem with that analysis -- it leaves open the question:  -->
+<!-- - What actually predicts ratings of understanding? -->
+<!-- We can look at that follow-up question through the analysis we do next. -->
+<!-- ##### Practical Task 6 -- Examine the relation between outcome mean self-rated accuracy (`mean.self`) and  multiple predictors including: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc` -->
+<!-- We use `lm()`, as before, but now specify each variable listed here by variable name -->
+<!-- - outcome: mean self-rated accuracy (`mean.self`) -->
+<!-- - predictors: health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc`. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc, -->
+<!--             data = all.studies.subjects) -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- If you look at the model summary you can answer the following questions   -->
+<!-- >**Pract.Q.12.** What predictors are significant in this model? -->
+<!-- > Pract.A.12. Health literacy ('HLVA'), reading strategy ('FACTOR3') and performance on tests of accuracy of understanding ('mean.acc') all appear to significantly predict variation in mean ratings of understanding ('mean.self'). -->
+<!-- >**Pract.Q.13.** What is the estimate for the coefficient of the effect of the predictor, `mean.acc`, in this model? -->
+<!-- > Pract.A.13. 2.502024 -->
+<!-- >**Pract.Q.14.** Is the effect significant? -->
+<!-- > Pract.A.14. It is significant because p < .05 -->
+<!-- >**Pract.Q.15.** What are the values for t and p for the significance test for the coefficient? -->
+<!-- > Pract.A.15. t = 6.929, p = 1.18e-11 -->
+<!-- >**Pract.Q.16.** What do you conclude is the answer to the follow-up question, what actually predicts ratings of understanding? -->
+<!-- > Pract.A.16. Ratings of understanding appear to be predicted by performance on tests of accuracy of understanding, together with variation in health literacy and reading strategy. -->
+<!-- #### 10.4.3.5 Practical Part 5: New -- plot predictions from linear models -->
+<!-- In this part, the practical work involves plotting the predictions from two linear models but the benefit from this practical work is to better your understanding of what linear models are doing. -->
+<!-- So, our research questions is: -->
+<!-- 2. Can people accurately evaluate whether they correctly understand written health information? -->
+<!-- We can look at this question in two ways: -->
+<!-- - we can focus on whether `mean.self` predicts `mean.acc`? -->
+<!-- - or, in reverse, whether `mean.acc` predicts `mean.self`? -->
+<!-- People could (1.) be good at understanding accurately what they read (measured as `mean.acc`), so that that accurate understanding results in accurate evaluation of their own understanding (measured as `mean.self`). Or people could (2.) be good at judging their own understanding (`mean.self`) so that they can then be accurate in their understanding of what they read. This is not just a tricksy way of talking: it could be that people who are good at evaluating if they understand what they read are able to work more effectively at that understanding, or the opposite could be the case.  -->
+<!-- The *direction of cause-and-effect* is just unclear, here.  -->
+<!-- ##### Practical Task 7 -- We cannot actually resolve the question of causality but we can learn a lot if we look at two models incorporating the same variables -->
+<!-- 1. If we focus on whether (predictor) `mean.self` predicts (outcome) `mean.acc` then the model should be: `mean.acc ~ mean.self` -->
+<!-- 2. If we focus on whether (predictor) `mean.acc` predicts (outcome) `mean.self` then the model should be: `mean.self ~ mean.acc` -->
+<!-- The two models involve the same variables but arrange the variables differently, in the code, depending on which variable is specified as the outcome versus which variable is specified as the predictor. -->
+<!-- ::: callout-tip -->
+<!-- Note that the comparison between these models teaches us something about *what* it is that linear models predict. -->
+<!-- - You want to focus on the estimate of the coefficient of the predictor variable, for each model, presented in the model summary results. -->
+<!-- ::: -->
+<!-- >**Pract.Q.17.** Can you write the code for the two models? Can you give each model a distinctive name? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
+<!-- summary(model.1) -->
+<!-- model.2 <- lm(mean.self ~ mean.acc, -->
+<!--               data = all.studies.subjects) -->
+<!-- summary(model.2) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- Take a look at the summary for each model.   -->
+<!-- >**Pract.Q.18.** Why do you think it appears that the slope coefficient estimate is different if you compare: -->
+<!-- > (1.) the model, mean.acc ~ mean.self -->
+<!-- > versus -->
+<!-- > (2.) the model, mean.self ~ mean.acc? -->
+<!-- > Hint: You may benefit by reflecting on the lectures and practical materials in [the chapter for week 8](../part2/lm-intro.qmd#sec-lm-intro-overview), especially where they concern predictions. -->
+<!-- > Pract.A.18. Linear models are prediction models. We use them to predict variation in *outcomes* given some set of predictor variables. Because of this, predictions *must* be scaled in the same way as the *outcome variable*. -->
+<!-- > So: -->
+<!-- > (1.) the model `mean.acc ~ mean.self` identifies `mean.acc` as the outcome so if we are predicting change in `mean.acc` (scaled 0-1) then we are looking at coefficients that will lie somewhere on the same scale (also 0-1). -->
+<!-- > Here: the model suggests that unit change in `mean.self` predicts increase of 0.058613 in `mean.acc`. -->
+<!-- > Versus: -->
+<!-- > (2.) the model, `mean.self ~ mean.acc` identifies `mean.self` as the outcome so if we are predicting change in `mean.self` (scaled 1-9) then we are looking at coefficients that will lie somewhere on the same scale (also 1-9). -->
+<!-- > Here: the model suggests that unit change in `mean.acc` predicts increase of 3.9135 in `mean.self`. -->
+<!-- >**Pract.Q.19.** Can you plot the predictions from each model? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- > Pract.A.19. Here is the code to plot the predictions from both models: -->
+<!-- First fit the models -- give the model objects distinct names: -->
+<!-- ```{r} -->
+<!-- model.1 <- lm(mean.acc ~ mean.self, data = all.studies.subjects) -->
+<!-- summary(model.1) -->
+<!-- model.2 <- lm(mean.self ~ mean.acc, -->
+<!--             data = all.studies.subjects) -->
+<!-- summary(model.2) -->
+<!-- ``` -->
+<!-- Then get the predictions: -->
+<!-- ```{r} -->
+<!-- dat.1 <- ggpredict(model.1, "mean.self") -->
+<!-- dat.2 <- ggpredict(model.2, "mean.acc") -->
+<!-- ``` -->
+<!-- Then make the plots, and arrange them for easy comparison, side-by-side: -->
+<!-- ```{r} -->
+<!-- plot.1 <- plot(dat.1) -->
+<!-- plot.2 <- plot(dat.2) -->
+<!-- plot.1 + plot.2 -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- >**Pract.Q.20.** Look at the two plots side-by-side: what do you see? -->
+<!-- Hint: Look at changes in height of the prediction line, given changes in x-axis position of the line. -->
+<!-- > Pract.A.20. A side-by-side comparison shows that for (1.) `mean.acc ~ mean.self,` increases in `mean.self` from about 2-8 are associated with a change in `mean.acc` from about .4 to about .85, while for (2.) `mean.self ~ mean.acc`, increases in `mean.self` from about .2-1.0 are associated with a change in `mean.acc` from about 4 to about 8. -->
+<!-- **What are we learning here?** -->
+<!-- Linear models are prediction models. We use them to predict variation in outcomes given some set of predictor variables.  -->
+<!-- ::: callout-important -->
+<!-- Predictions *must* be scaled in the same way as the outcome variable. -->
+<!-- ::: -->
+<!-- #### 10.4.3.6 Practical Part 6: New -- estimate the effects of factors as well as numeric variables -->
+<!-- ##### Practical Task 8 -- Fit a linear model to examine what variables predict outcome mean self-rated accuracy of `mean.self` -->
+<!-- Include in the model both numeric variables and categorical variables as predictors: -->
+<!-- - health literacy (`HLVA`); vocabulary (`SHIPLEY`); `AGE`; reading strategy (`FACTOR3`); as well as `mean.acc` and `NATIVE.LANGUAGE`. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc + -->
+<!--                         NATIVE.LANGUAGE, -->
+<!--             data = all.studies.subjects) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- >**Pract.Q.21.** Can you report the estimated effect of `NATIVE.LANGUAGE` (the coding of participant language status: `English` versus `other`)? -->
+<!-- Hint: you will need to get a summary of the model you have coded. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- summary(model) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- > Pract.A.21. The effect of language status (`NATIVE.LANGUAGE`) on mean accuracy of understanding is not significant (estimate = -0.225432, t = -1.750, p = .081) indicating that not being a native speaker of English (`Other`) is not associated with lower self-rated accuracy. -->
+<!-- >**Pract.Q.22.** Can you report the overall model and model fit statistics? -->
+<!-- > Pract.A.22. We fitted a linear model with mean self-rated accuracy as the outcome and with the predictors: health literacy (HLVA),  reading strategy (FACTOR3), vocabulary (SHIPLEY) and AGE (years), as well as mean accuracy (mean.acc) and language status. The model is significant overall, with F(6, 554) = 45.82, p < .001, and explains 32% of variance (adjusted R2 = 0.32). -->
+<!-- >**Pract.Q.23.** Can you plot the predicted effect of `NATIVE.LANGUAGE` given your model? -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- We first fit the model, including `NATIVE.LANGUAGE`: -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.self ~ HLVA + SHIPLEY + FACTOR3 + AGE + mean.acc + -->
+<!--               NATIVE.LANGUAGE, -->
+<!--             data = all.studies.subjects) -->
+<!-- ``` -->
+<!-- Then use the `ggpredict()` function to get the predictions -->
+<!-- ```{r} -->
+<!-- dat <- ggpredict(model, "NATIVE.LANGUAGE") -->
+<!-- plot(dat) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- >**Pract.Q.24.** The plot should give you dot-and-whisker representations of the estimated `mean.self` for `English` versus `Other` participants in the dataset. What is the difference in the estimated `mean.self` between these groups? -->
+<!-- Hint: The effect or prediction plot will show you dot-and-whisker representations of predicted outcome `mean.self`. In these plots, the dots represent the estimated `mean.self` while the lines (whiskers) represent confidence intervals. -->
+<!-- > Pract.A.24. The difference in the estimated 'mean.self' between these groups is about .2. -->
+<!-- >**Pract.Q.25.** Compare the difference in the estimated `mean.self` between these groups, given the plot, with the coefficient estimate from the model summary: what do you see? -->
+<!-- > Pract.A.25. The coefficient estimate = -0.225432. This matches the difference shown in the plot. -->
+<!-- #### 10.4.3.7 Practical Part 7: New -- examine associations comparing data from different samples -->
+<!-- ##### Practical Task 8 -- Use `facet_wrap()` to show how the association between `mean.self` and `mean.acc` can vary between the different studies in the data-set -->
+<!-- Change the factor in `facet_wrap()` to show how the association between `mean.self` and `mean.acc` can vary between the different studies -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- all.studies.subjects %>% -->
+<!--   ggplot(aes(x = mean.self, y = mean.acc)) + -->
+<!--   geom_point(size = 2, alpha = .5, colour = "darkgrey") + -->
+<!--   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) + -->
+<!--   xlim(0, 10) + -->
+<!--   ylim(0, 1.1)+ -->
+<!--   theme_bw() + -->
+<!--   theme( -->
+<!--     axis.text = element_text(size = rel(1.15)), -->
+<!--     axis.title = element_text(size = rel(1.5)) -->
+<!--   ) + -->
+<!--   xlab("Mean self-rated accuracy") + ylab("Mean accuracy") + -->
+<!--   facet_wrap(~ study) -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- You may need to edit the x-axis labeling to make it readable -->
+<!-- - Can you work out how to do that, given `ggplot()` help information? -->
+<!-- Hint: check out the continuous scale information in: -->
+<!-- <https://ggplot2.tidyverse.org/reference/scale_continuous.html> -->
+<!-- #### 10.4.3.8 Practical Part Optional: New -- save or export plots so that you can insert them in reports -->
+<!-- Learning how to export plots from R will help you later with reports. -->
+<!-- The task is to save or export a plot that you produce, so that you can insert it in a report or presentation. -->
+<!-- There are different ways to do this, we can look at one simple example. -->
+<!-- - We can save the last plot we produce using the `{tidyverse}` function `ggsave()`: -->
+<!-- ```{r} -->
+<!-- ggsave("facet-plots.png") -->
+<!-- ``` -->
+<!-- Notice, here, that: -->
+<!-- - `ggsave("facet-plots...")` -- we need to give the plot a name; -->
+<!-- - `ggsave("...png")` -- and we need to tell R what format we require. -->
+<!-- The plot is saved as a file with the name you specify, in the working directory (folder) you are using. -->
+<!-- R will save the plot in the format you specify: here, I choose .png because .png image files can be imported into Microsoft Word documents easily. -->
+<!-- - Notice that `ggsave()` will use pretty good defaults but that you can over-ride the defaults, by adding arguments to specify the plot width, height and resolution (in dpi). -->
+<!-- ::: callout-tip -->
+<!-- ## Further information you can explore -->
+<!-- Check out reference information here: -->
+<!-- <https://ggplot2.tidyverse.org/reference/ggsave.html> -->
+<!-- and -->
+<!-- <http://www.cookbook-r.com/Graphs/Output_to_a_file/> -->
+<!-- ::: -->
+<!-- #### Practical Task Optional: Now try it for yourself: make a plot, and save it, using what you have learnt so far -->
+<!-- You will need to: -->
+<!-- 1. Fit a model -->
+<!-- 2. Create a set of predictions we can use for plotting -->
+<!-- 3. Make a plot -->
+<!-- 4. Save it -->
+<!-- Then, you can import the saved plot into Word. -->
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- Fit a model: -->
+<!-- ```{r} -->
+<!-- model <- lm(mean.acc ~ HLVA + SHIPLEY + FACTOR3 + AGE, -->
+<!--             data = all.studies.subjects) -->
+<!-- ``` -->
+<!-- Create a set of predictions we can use for plotting -->
+<!-- ```{r} -->
+<!-- dat <- ggpredict(model, "FACTOR3") -->
+<!-- ``` -->
+<!-- Make a plot -->
+<!-- ```{r} -->
+<!-- p.model <- plot(dat) -->
+<!-- p.model + -->
+<!--   geom_point(data = all.studies.subjects, -->
+<!--              aes(x = FACTOR3, y = mean.acc), size = 1.5, alpha = .75, colour = "darkgrey") + -->
+<!--   geom_line(size = 1.5) + -->
+<!--   theme_bw() + -->
+<!--   theme( -->
+<!--     axis.text = element_text(size = rel(1.15)), -->
+<!--     axis.title = element_text(size = rel(1.25)), -->
+<!--     plot.title = element_text(size = rel(1.4)) -->
+<!--   ) + -->
+<!--   xlab("Reading strategy (FACTOR3)") + ylab("Mean accuracy") + -->
+<!--   ggtitle("Effect of reading strategy on \n mean comprehension accuracy") -->
+<!-- ``` -->
+<!-- Save it -->
+<!-- ```{r} -->
+<!-- ggsave("reading-strategy-prediction.png", width = 10, height = 10, units = "cm") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- Some advice: -->
+<!-- - It is often helpful to present plots that are almost square i.e. height about = width. -->
+<!-- - This helps to present the best fit line in scatterplots in a way that is easier to perceive. -->
+<!-- - We may experiment with width-height (aspect ratio) until we get something that "looks" right.  -->
+<!-- - Notice also that different presentation venues will require different levels if image resolution e.g. journals may require .tiff file plots at dpi = 180 or greater. -->
+<!-- ### The answers -->
+<!-- After the practical class, we will reveal the answers that are currently hidden. -->
+<!-- The answers version of the webpage will present my answers for questions, and some extra information where that is helpful. -->
+<!-- ### Look ahead: growing in independence -->
+<!-- #### General advice -->
+<!-- An old saying goes: -->
+<!-- > All models are wrong but some are useful -->
+<!-- (attributed to George Box). -->
+<!-- ::: callout-tip -->
+<!-- -   Sometimes, it can be useful to adopt a simpler approach as a way to approximate *get closer to* better methods -->
+<!-- -   Box also advises: -->
+<!-- > Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad. -->
+<!-- -   Here, we focus on validity, measurement, generalizability and *critical thinking* -->
+<!-- ::: -->
+<!-- ### Summary -->
+<!-- 1.  Linear models -->
+<!-- -   Linear models are a very general, flexible, and powerful analysis method -->
+<!-- -   We can use assuming that prediction outcomes (residuals) are normally distributed -->
+<!-- -   With potentially multiple predictor variables -->
+<!-- 2.  Thinking about linear models -->
+<!-- -   Closing the loop: when we plan an analysis we should try to use contextual information -- theory and measurement understanding -- to specify our model -->
+<!-- -   Closing the loop: when we critically evaluate our or others' findings, we should consider validity, measurement, and generalizability -->
+<!-- 3.  Reporting linear models -->
+<!-- -   When we report an analysis, we should report: -->
+<!-- 1.  Explain what I did, specifying the method (linear model), the outcome variable (accuracy) and the predictor variables (health literacy, reading strategy, reading skill and vocabulary) -->
+<!-- 2.  Report the model fit statistics overall ($F, R^2$) -->
+<!-- 3.  Report the significant effects ($\beta, t, p$) and describe the nature of the effects (does the outcome increase or decrease?) -->
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../PSYC412/part1/Week15.html" class="pagination-link" aria-label="Week 15. Poisson regression">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 15. Poisson regression</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../PSYC412/part2/01-multilevel.html" class="pagination-link" aria-label="Week 16. Conceptual introduction to multilevel data">
+        <span class="nav-page-text">Week 16. Conceptual introduction to multilevel data</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../previous-content/index.html">
+<p>Previous Content</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
