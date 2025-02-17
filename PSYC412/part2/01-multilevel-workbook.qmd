@@ -6,9 +6,9 @@ bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
 
-::: callout-warning
-This page is currently under construction: come back soon!
-:::
+<!-- ::: callout-warning -->
+<!-- This page is currently under construction: come back soon! -->
+<!-- ::: -->
 
 # Week 16 Multilevel data workbook overview {#sec-multilevel-workbook-overview}
 

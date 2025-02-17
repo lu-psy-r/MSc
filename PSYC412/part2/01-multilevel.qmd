@@ -21,9 +21,9 @@ library(sjPlot)
 library(tidyverse)
 ```
 
-::: callout-warning
-This page is currently under construction: come back soon!
-:::
+<!-- ::: callout-warning -->
+<!-- This page is currently under construction: come back soon! -->
+<!-- ::: -->
 
 ## Motivations {#sec-multi-motivations}
 
