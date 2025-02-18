@@ -19,17 +19,11 @@ We use the same procedure we did for multilevel data but with **one significant 
 
 ## Targets {#sec-mixed-effects-workbook-targets}
 
-Our learning objectives include the development of key concepts and skills.
+Our learning objectives again include the development of both concepts and skills.
 
-1.  **concepts** -- how data can have multilevel structures and what this requires in models
-2.  **skills** -- where skills comprise the capacity to:
-
-- use visualization to examine observations within groups
-- run linear models over all data and within each class
-- use the `lmer()` function to fit models of multilevel data
-
-We are just getting started this week. 
-Our plan will be to build depth and breadth in understanding as we progress over the next few weeks.
+1.  **skills** -- practice how to tidy experimental data for mixed-effects analysis.
+2.  **concepts** -- begin to develop an understanding of crossed random effects of participants and stimuli.
+3.  **skills and concepts** -- practice fitting linear mixed-effects models incorporating random effects of participants and stimuli.
 
 ## Learning resources {#sec-mixed-effects-workbook-resources}
 
@@ -42,7 +36,7 @@ Every week, you will learn best if you *first* watch the lectures *then* do the 
 
 To help your learning, you can read about the ideas and the practical coding required for analyses in the chapters I wrote for this course.
 
-[The chapter: Conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) 
+[The chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed) 
 :::
 
 ### Lectures {#sec-mixed-effects-workbook-lectures}
@@ -51,22 +45,22 @@ The lecture materials for this week are presented in three short parts.
 
 Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
 
-1. Part 1 (17 minutes) **Multilevel data**: What do we mean when we talk about multilevel structured data and why it matters.
+1. Part 1 (17 minutes) **Mixed-effects models**: Repeated measures data and the what, when and how of mixed-effects models.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=66e89421-4491-4eb9-b1c8-acd4012a183d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-1-of-3" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=2fa60b12-2eca-4412-8672-acd60104da1d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="02-mixed-1-of-3" ></iframe>
 ```
 
-2. Part 2 (13 minutes): Getting started in learning, working with an example from education, children clustered in classes, analyzing data using linear models, seeing the differences between different classes.
+2. Part 2 (21 minutes): Working with an example from a study with a repeated measures design, recognizing how people or how stimuli vary, and identifying the motivation for using mixed-effects models, compared to alternative methods.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=22361175-636b-424c-9e28-acd4012efd6f&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-2-of-3" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7f31cef0-1e39-4712-b2a1-acd601195c78&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="02-mixed-2-of-3" ></iframe>
 ```
 
-3. Part 3 (13 minutes): Doing multilevel models in practice, coding models using `lmer()`, a first look at analysis results.
+3. Part 3 (15 minutes): What mixed-effects models can do for us, how we can describe the logic, how we code mixed-effects models, what the bits of code do, what the results look like, what the results tell us, and how we should report our models and our findings.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=5942b084-457f-4687-aa3d-acd401332b44&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-3-of-3" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=58ab0c0c-37be-491f-a9e5-acd6011c38dd&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="02-mixed-3-of-3" ></iframe>
 ```
 
 ### Lecture slides {#sec-mixed-effects-workbook-slides}
