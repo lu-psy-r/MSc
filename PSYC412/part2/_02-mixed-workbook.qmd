@@ -8,13 +8,14 @@ csl: psychological-bulletin.csl
 
 # Week 17 Mixed-effects models workbook overview {#sec-mixed-effects-workbook-overview}
 
-Welcome to your overview of the work we will do together in **Week 16**.
+Welcome to your overview of the work we will do together in **Week 17**.
 
-We are going to learn about a method or approach that is essential in modern data analysis: **multilevel modeling**. 
+Many Psychologists conduct studies with **repeated-measures designs** where the experimenter presents a sample of multiple stimuli, for response, to each participant in a sample of multiple participants.
+Studies with repeated-measures designs will produce data with a structure that requires the use of mixed-effects models.
 
-We are going to invest the next few weeks in working on this approach. 
+We are going to learn about this kind of data, and build on the analysis methods we learned about in the [Conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview) . 
 
-We are going to do this because multilevel modeling is a very powerful and very flexible technique, and because you will learn best if you take the time to build up and deepen your understanding step-by-step.
+We use the same procedure we did for multilevel data but with **one significant change** which we shall explore and seek to understand in-depth.
 
 ## Targets {#sec-mixed-effects-workbook-targets}
 
@@ -59,7 +60,7 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 2. Part 2 (13 minutes): Getting started in learning, working with an example from education, children clustered in classes, analyzing data using linear models, seeing the differences between different classes.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=22361165-636b-424c-9e28-acd4012efd6f&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-2-of-3" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=22361175-636b-424c-9e28-acd4012efd6f&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="01-multilevel-2-of-3" ></iframe>
 ```
 
 3. Part 3 (13 minutes): Doing multilevel models in practice, coding models using `lmer()`, a first look at analysis results.
