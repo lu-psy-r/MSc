@@ -421,45 +421,232 @@ The addition of observations from one database joining to those from another hap
 
 - You can read more about what we are doing here in [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-relational) and [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-join-functions).
 
-##### Practical Task 5 -- Get R to treat a variable as a type object of the kind required -- using the `as.numeric()` or `as.factor()` functions
+##### Practical Task 5 -- Select just the variables we need
+
+If the pivoting and joining steps have gone according to plan then we should now be looking at a big, long and wide, dataset. But we do not actually require all of the dataset for the analyses we are going to do.
+
+For our own convenience, we are going to want to select just the variables we need.
+
+We want the variables:
+
+- `item_name, subjectID, RT, accuracy`
+- `Lg.UK.CDcount, brookesIMG, AoA_Kup_lem`
+- `Ortho_N, regularity, Length, BG_Mean`
+- `Voice,	Nasal,	Fricative,	Liquid_SV`	
+- `Bilabials,	Labiodentals,	Alveolars`
+- `Palatals,	Velars,	Glottals, age.months`
+- `TOWREW_skill, TOWRENW_skill, spoonerisms, CART_score`
+
+>**Pract.Q.5.** How we get to a data-set with just these variables in it?
+
+:::{.callout-tip collapse="true"}
+## Hint
+We are going to select just the variables we need using the `select()` function.
+:::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-brazil$portuguese <- as.numeric(brazil$portuguese)
-brazil$english <- as.numeric(brazil$english)
-brazil$math <- as.numeric(brazil$math)
-brazil$physics <- as.numeric(brazil$physics)
+#| label: selectcols
+long.all.select <- long.all %>% 
+                        select(item_name, subjectID, RT, accuracy, 
+                               Lg.UK.CDcount, brookesIMG, AoA_Kup_lem, 
+                               Ortho_N, regularity, Length, BG_Mean, 
+                               Voice,	Nasal,	Fricative,	Liquid_SV,
+                               Bilabials,	Labiodentals,	Alveolars,
+                               Palatals,	Velars,	Glottals, 
+                               age.months, TOWREW_skill, TOWRENW_skill, 
+                               spoonerisms, CART_score)
 
-brazil$class_number <- as.factor(brazil$class_number)
-brazil$participant_id <- as.factor(brazil$participant_id)
 ```
 :::
 
-What have you got?
+>**Pract.Q.6.** What if you wanted to analyze a different set of variables, could you select different variables?
+
+##### Practical Task 6 -- Filter the observations
+
+The dataset includes missing values, designated `NA`. 
+
+- Here, every error (coded `0`, in `accuracy`) corresponds to an `NA` in the `RT` column.
+
+The dataset also includes outlier data. 
+
+- In this context, $RT < 200$ are probably response errors or equipment failures. We will want to analyse `accuracy` later, so we shall need to be careful about getting rid of `NAs`.
+
+>**Pract.Q.7.** How do we exclude `NA`s and outliers so that we can do our analysis
+
+:::{.callout-tip collapse="true"}
+## Hint
+We can exclude two sets of observations:
+
+-   observations corresponding to correct response reaction times that are too short: $RT < 200$.
+-   plus observations corresponding to the word *false* which (because of stupid Excel auto-formatting) dropped item attribute data.
+
+We can do this using the `filter()` function, setting conditions on rows, as arguments.
+
+:::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-summary(brazil)
+#| label: filterrows
+# step 1
+long.all.select.filter <- long.all.select %>% 
+                            filter(item_name != 'FALSE')
+
+# step 2
+long.all.select.filter <- long.all.select.filter %>%
+                            filter(RT >= 200)
+
 ```
 :::
 
->**Pract.Q.3.** Do you see the difference between the summary of the brazil data shown before and after you run `as.numeric()` or `as.factor()` function lines? What is it?
+>**Pract.Q.8.** Do you understand what is going on when you code R to exclude observations?
 
-<!-- > Pract.A.3. You should see that numeric variables like portuguese are listed with summary statistics like the mean after but not before you coerce the variables. -->
+:::{.callout-tip collapse="true"}
+## Hint
+We can do the exclusions we need to do using the `filter()` function, setting conditions on rows, as arguments.
 
-##### Practical Task 6 -- Exercise -- experiment with coercion
+```{r}
+#| label: filterrows
+# step 1
+long.all.select.filter <- long.all.select %>% 
+                            filter(item_name != 'FALSE')
 
-1. Test out variable type using the `is...()` function for some of the variables
-2. Test out coercion -- and its results -- using the `as...()` function for some of the variables
-3. Look at the results using `summary()`
+# step 2
+long.all.select.filter <- long.all.select.filter %>%
+                            filter(RT >= 200)
 
-#### Practical Part 4: Visualize the relationship
+```
 
-Here, we are interested in the relationship between school grades, for the sample of Brazilian children for whom we have data.
+Here, I am using the function `filter()` to ...
 
-- What is the relationship between portuguese and english grades?
+-   Create a new dataset `long.all.select.filter <- ...` by
+-   Using functions to work on the data named immediately to the right of the assignment arrow: `long.all.select`
+-   An observation is included in the new dataset if it matches the condition specified as an argument in the `filter()` function call, thus:
+
+1.  `filter(item_name !='FALSE')` means: include in the new dataset `long.all.select.filter` all observations from the old dataset `long.all.select` that are not `!=` (`!` not `=` equal to) the value `FALSE` in the variable `item_name`,
+2.  then recreate the `long.all.select.filter` as a version of itself (with no name change) by including in the new version only those observations where RT was greater than or equal to 200ms using `RT >= 200`.
+:::
+
+>**Pract.Q.9.** Do you understand what the difference is between `=` and `==`.
+
+:::{.callout-tip collapse="true"}
+## Hint
+You need to be careful to distinguish these signs.
+
+-   `=` assigns a value, so `x = 2` means "x equals 2"
+-   `==` tests a match so `x == 2` means: "is x equal to 2?"
+:::
+
+>**Pract.Q.10.** Can you vary the filter conditions: in different ways?
+
+1.  Change the threshold for including RTs from `RT >= 200` to something else?
+2.  Can you assess what impact the change has? Note that you can count the number of observations (rows) in a dataset using e.g. `length(data.set.name$variable.name)?`?
+
+##### Practical Task 7 -- Remove missing (`NA`) values
+
+The data-set includes missing values, designated `NA`. We have not yet dealt with these.
+
+>**Pract.Q.11.** How do you remove missing values?
+
+:::{.callout-tip collapse="true"}
+## Hint
+We can remove missing values before we go any further, using the `na.omit()` function.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| label: readinglongallc5
+long.all.noNAs <- na.omit(long.all.select.filter)
+```
+:::
+
+>**Pract.Q.12.** Can you explain how the code function works, when we exclude missing `NA` values?
+
+:::{.callout-tip collapse="true"}
+## Hint
+
+The `na.omit()` function is powerful.
+
+Look at the example code:
+
+```{r}
+#| eval: false
+long.all.noNAs <- na.omit(long.all.select.filter)
+```
+
+-   In using this function, I am asking R to create a new data-set `long.all.noNAs` from the old dataset `long.all.select.filter` in a process in which the new data-set will have *no* rows in which there is a missing value `NA` in *any* column.
+-   You need to be reasonably sure, when you use this function, where your `NAs` may be because, otherwise, you may end the process with a new filtered data-set that has many fewer rows in it than you expected.
+:::
+
+#### Practical Part 4: Read in pre-tidied data
+
+We have a learnt in following the process of tidying data, step-by-step.
+
+If we wanted to, we could complete the process, check that what we have done is correct, and then write the final version of the data-set out to a new `.csv` using the `write_csv()` function.
+
+```{r}
+#| eval: false
+write_csv(long.all.noNAs, "long.all.noNAs.csv")
+```
+
+##### Practical Task 8 -- Read in `.csv` of pre-tidied data
+
+>**Pract.Q.13.** If you want to skip the tidying process steps, assuming you have written the tidied data-set out to a new `.csv` file, what would you do?
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| label: readinglongallc5
+long.all.noNAs <- read_csv("long.all.noNAs.csv", 
+                           col_types = cols(
+                             subjectID = col_factor(),
+                             item_name = col_factor()
+                           )
+                          ) 
+```
+:::
+
+>**Pract.Q.14.** Take a look at the example code, can you explain what it is doing?
+
+:::{.callout-tip collapse="true"}
+## Hint
+```{r}
+#| eval: false
+long.all.noNAs <- read_csv("long.all.noNAs.csv", 
+                           col_types = cols(
+                             subjectID = col_factor(),
+                             item_name = col_factor()
+                           )
+                          ) 
+```
+
+Notice that I am using `read_csv()` with an additional argument `col_types = cols(...)`.
+
+-   Here, I am requesting that `read_csv()` treats `subjectID` and `item_name` as factors.
+-   We use `col_types = cols(...)` to control how `read_csv()` interprets specific column variables in the data.
+
+Controlling the way that `read_csv()` handles variables is a very useful capacity, and a more efficient way to work than, say, first reading in the data and then using *coercion* to ensure that variables are assigned appropriate types. You can read more about it [here](https://readr.tidyverse.org/articles/readr.html).
+:::
+
+#### Practical Part 5: Analyze data with lm
+
+We begin our data analysis by asking if reading reaction time (RT) varies in association with word frequency.
+
+- We ignore, here, the multilevel structure or clustering in the data.
+
+##### Practical Task 9 -- 
+
+
+
+
+
+
+
+
+
 
 ##### Practical Task 7 -- Visualize the relationship between portuguese and english grades using a scatterplot
 
