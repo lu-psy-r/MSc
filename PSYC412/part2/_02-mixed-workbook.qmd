@@ -165,12 +165,11 @@ We are going to work through the following workflow steps: **each step is labell
 
 1. Set-up
 2. Load the data
-3. Inspect the data
-4. Visualize relationships
-5. Analyze relationships using linear models
-6. Visualize relationships for each class
-7. Mixed-effects analysis
-8. Optional exercises: extensions
+3. Tidy the data
+4. Read in pre-tidied data
+5. Analyze data with lm
+6. Analyze data with lmer
+7. Optional: reproduce the plots in the chapter and slides
 
 In the following, we will guide you through the tasks and questions step by step.
 
@@ -191,7 +190,10 @@ Use the `library()` function to make the functions we need available to you.
 ```{r}
 library(broom)
 library(gridExtra)
+library(here)
 library(lme4)
+library(patchwork)
+library(sjPlot)
 library(tidyverse)
 ```
 :::
@@ -200,85 +202,224 @@ library(tidyverse)
 
 ##### Practical Task 2 -- Read in the data file we will be using
 
-The data file is called:
-
-- `BAFACALO_DATASET.RData`
-
-Use the `load()` function to read the data files into R:
+Read the data files into R:
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-load("BAFACALO_DATASET.RData")
+behaviour.rt <- read_tsv("CP study word naming rt 180211.dat", na = "-999")
+behaviour.acc <- read_tsv("CP study word naming acc 180211.dat", na = "-999")
+subjects <- read_csv("all.subjects 110614-050316-290518.csv", na = "-999")
+words <- read_csv("words.items.5 120714 150916.csv", na = "-999")
 ```
 :::
 
-Get summary statistics to inspect what you have got.
+>**Pract.Q.1.** Can you identify the differences between the functions used to read different kinds of data files?
 
 :::{.callout-tip collapse="true"}
-## Code
+## Hint
+These different functions respect the different ways in which the `.dat` and `.csv` file formats work. 
+
+- We need `read_tsv()` when data files consist of tab separated values. 
+- We need `read_csv()` when data files consist of comma separated values.
+
+You can read more about the `{tidyverse}` `{readr}` library of helpful functions [here](https://readr.tidyverse.org/).
+
+It is *very* common to get experimental data in all sorts of different formats. Learning to use **tidyverse** functions will make it easier to cope with this when you do research.
+:::
+
+>**Pract.Q.2.** Can you explain what the `read_` functions are doing, or what you are doing with them when you code them?
+
+:::{.callout-tip collapse="true"}
+## Hint
+It will help your understanding to examine an example. Take a look at what this line of code includes, element by element.
+
 ```{r}
-summary(BAFACALO_DATASET)
+#| label: readin-demo
+#| eval: false
+#| warning: false
+#| message: false
+behaviour.rt <- read_tsv("CP study word naming rt 180211.dat", na = "-999")
 ```
+
+1.  We write `behaviour.rt <- read_tsv(...)` to create an object in the R environment, which we call `behaviour.rt`: the object with this name is the dataset we read into R using `read_tsv(...)`.
+2.  When we write the function `read_tsv(...)` we include two arguments inside it.
+3.  `read_tsv("CP study word naming rt 180211.dat", ...` first, the name of the file, given in quotes `""` and then a comma.
+4.  `read_tsv(..., na = "-999")` second, we tell R that there are some missing values `na` which are coded with the value `"-999"`.
 :::
 
 #### Practical Part 3: Tidy the data
 
-##### Practical Task 3 -- Tidy the data
-
 Tidying the data involves a number of tasks, some essential and some things we do for our convenience.
 
-We start by selecting the variables we want: 
+##### Practical Task 3 -- Transform the `rt` and `acc` data from wide to long using `pivot_longer()`
 
-- `class_number`, `participant_id`, `portuguese`, `english`, `math`, `physics`
+To get ready for later analyses, we need to ensure that reaction time (`rt`) and accuracy (`acc`) observations are in *tidy* format. 
+
+When we first encounter the data files, the data are untidy because, here, the reaction time (`rt`) and accuracy (`acc`) observations are in separate multiple columns.
+We *pivot* the data to solve this problem.
+
+- You can read more about what we are doing and why, here, in the [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-restructure).
+
+>**Pract.Q.3.** How do we do this?
+
+- You can try out some solutions, based on what you have done before.
+- You can open the `Hint` box for a detailed walk-through of the process, and then adapt the hint information.
+- And you can open the `Code` box for the example code.
 
 :::{.callout-tip collapse="true"}
 ## Hint
-- We use the `{dplyr}` function `select()` to pick just the variables needed.
-- We create a new data-set (call it what you like), from the original, to hold just the selection of variables we want to use in the analysis steps, following.
+We use a function you may have seen before: `pivot_longer()`.
+
+```{r}
+#| label: widetolong-demo
+#| eval: false
+rt.long <- behaviour.rt %>%
+             pivot_longer(2:62, names_to = "subjectID", values_to = "RT")
+```
+
+The name of the function comes from the fact that we are starting with data in wide format e.g. `behaviour.rt` where we have what should be a single variable of observations (RTs) arranged in a wide series of multiple columns, side-by-side (one column for each participant). But we want to take those wide data and *lengthen* the dataset, increasing the number of rows and decreasing the number of columns.
+
+Let's look at this line of code bit by bit.
+
+1.  `rt.long <- behaviour.rt %>%`
+
+-   At the start, I tell R that I am going to create a new longer dataset (more rows, fewer columns) that I shall call `rt.long`.
+-   I will create this longer dataset from `<-` the original wide dataset `behaviour.rt`.
+-   and I will create the new longer dataset by taking the original wide dataset and piping it `%>%` to the pivot function coded on the next line:
+
+2.  `pivot_longer(2:62, names_to = "subjectID", values_to = "RT")`
+
+-   On this next line, I tell R how to do the pivoting by using three arguments.
+
+a.  `pivot_longer(2:62...)`
+
+-   First, I tell R that I want to re-arrange all the columns that can be found in the dataset from the second column to the sixty-second column.
+-   In a spreadsheet, we have a number of columns.
+-   Columns can be identified by their position in the spreadsheet.
+-   The position of a column in a spreadsheet can be identified by number, from the leftmost column (column number 1) to the rightmost column (here, column number 62) in our dataset.
+-   So this argument tells R exactly which columns I want to pivot.
+
+b.  `pivot_longer(..., names_to = "subjectID", ...)`
+
+-   Second, I tell R that I want it to take the column labels and put them into a new column, called `subjectID`.
+-   In the wide dataset `behaviour.rt`, each column holds a list of numbers (RTs) but begins with a word in the topmost cell, the name code for a participant, in the column label position.
+-   We want to keep the information about which participant produces which response when we pivot the wide data to a longer structure.
+-   We do this by asking R to take the column labels (the participant names) and listing them in a new column, called `subjectID` which now holds the names as participant ID codes.
+
+c.  `pivot_longer(...values_to = "RT")`
+
+-   Third, we tell R that all the RT values should be put in a single column.
+-   We can understand that this new column `RT` will hold RT observations in a vertical stack, one cell for each response by a person to a word, with rows ordered by `subjectID`.
+
+There are 61 columns of data listed by participant though 62 children were tested because we lost one child's data through an administrative error. As a result, in the wide data sets there are 62 columns, with the first column holding `item_name` data.
+
+You can find more information about pivoting data [here](https://tidyr.tidyverse.org/articles/pivot.html)
+
+And you can find more information specifically about the `pivot_longer()` operation [here](https://tidyr.tidyverse.org/articles/pivot.html)
 :::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-brazil <- BAFACALO_DATASET %>%
-                              select(
-                              class_number, participant_id,
-                              portuguese, english, math, physics
-                              )
+#| label: widetolong
+#| warning: false
+#| message: false
+rt.long <- behaviour.rt %>%
+             pivot_longer(2:62, names_to = "subjectID", values_to = "RT")
+
+acc.long <- behaviour.acc %>%
+              pivot_longer(2:62, names_to = "subjectID", values_to = "accuracy")
 ```
 :::
 
->**Pract.Q.1.** Do you know what you are doing with `select()`? Can you select a different set of variables?
+##### Practical Task 4 -- Join data from different sources
 
-<!-- > Pract.A.1. You can exercise your skill by checking that you can view the `BAFACALO_DATASET` and select any variable you like. Be careful and make sure you go back to select the variables shown in the given code chunk: we will need them later. -->
+To answer our research question, we next need to combine the **RT** with the **accuracy** data, and then the combined behavioural data with **participant** information and with **stimulus** information. 
 
-##### Practical Task 4 -- Take missing values out of the brazil data
+In common practice, in psychological research, we have to deal with the fact that information about behavioural responses, and about participant attributes or stimulus word properties, are located in separate files.
+This is a problem where we need, as here, to analyse outcome behavioural responses using information about participant attributes or stimulus word properties.
 
-There are several rows in the data-set with missing values.
-You need to remove these from the data before you get started with any calculations.
+>**Pract.Q.4.** How do we solve this problem?
+
+:::{.callout-tip collapse="true"}
+## Hint
+We need to join the data from the different sources: 
+
+1. join RT with accuracy then
+2. join those response data with data about subject attributes
+3. then join those response plus subjects data
+4. with item properties data
+
+We can combine the datasets, in the way that we need, using the `{tidyverse}` `full_join()` function.
+:::
 
 :::{.callout-tip collapse="true"}
 ## Code
+First, we join RT and accuracy data together.
+
 ```{r}
-brazil <- na.omit(brazil)
+#| label: gatherall
+#| message: false
+#| warning: false
+long <- rt.long %>% 
+          full_join(acc.long)
+
 ```
 :::
-
-What have you got?
-
-You should always check the results of a tidying operation, to make sure that what you have got matches what you expected to get.
 
 :::{.callout-tip collapse="true"}
 ## Code
+Then, we join subject and item information to the behavioural data.
+
 ```{r}
-summary(brazil)
+#| label: gathersubjects
+#| message: false
+#| warning: false
+long.subjects <- long %>% 
+                   full_join(subjects, by = "subjectID")
+
+long.all <- long.subjects %>%
+              full_join(words, by = "item_name")
+
 ```
 :::
 
->**Pract.Q.2.** Do you see the difference between the summary of the brazil data shown before and after you run `na.omit()`? What is it?
+>**Pract.Q.4.** Can you explain what you are doing, or what the code you use is doing, to solve the problem of putting the separate sets of data together?
 
-<!-- > Pract.A.2. You should see that `NA`s are listed in some columns in the data before but not after you run `na.omit()`. -->
+:::{.callout-tip collapse="true"}
+## Hint
+Here, in a series of steps, we take one dataset and join it (merge it) with the second dataset. Let's look at an example element by element to better understand how this is accomplished.
+
+```{r}
+#| label: demo-join
+#| eval: false
+long <- rt.long %>% 
+           full_join(acc.long)
+```
+
+The code work as follows.
+
+1.  `long <- rt.long %>%`
+
+-   We create a new dataset we call `long`.
+-   We do this by taking one original dataset `rt.long` and `%>%` piping it to the operation defined in the second step.
+
+2.  `full_join(acc.long)`
+
+-   In this second step, we use the function `full_join()` to add observations from a second original dataset `acc.long` to those already from `rt.long`
+
+The addition of observations from one database joining to those from another happens through a matching process.
+
+-   R looks at the datasets being merged.
+-   It identifies if the two datasets have columns in common. Here, the datasets have `subjectID` and `item_name` in common).
+-   R can use these common columns to identify rows of data. Here, each row of data will be identified by both `subjectID` and `item_name` i.e. as data about the response made by a participant to a word.
+-   R will then do a series of identity checks, comparing one dataset with the other and, row by row, looking for matching values in the columns that are common to both datasets.
+-   If there is a match then R joins the corresponding rows of data together.
+-   If there isn't a match then it creates `NAs` where there are missing entries in one row for one dataset which cannot be matched to a row from the joining dataset.
+:::
+
+- You can read more about what we are doing here in [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-relational) and [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-join-functions).
 
 ##### Practical Task 5 -- Get R to treat a variable as a type object of the kind required -- using the `as.numeric()` or `as.factor()` functions
 
