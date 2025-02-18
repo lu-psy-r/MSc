@@ -134,25 +134,29 @@ You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.l
 
 Here, our learning targets are:
 
-- concepts: multilevel data and multilevel modeling
-- skills: visualization -- examine overall and within-class trends
-- skills: run linear models over all data -- and within each class
-- skills: use the lmer() function to fit models of multilevel data
+- Practice how to tidy experimental data for mixed-effects analysis.
+- Begin to develop an understanding of crossed random effects of subjects and stimuli.
+- Practice fitting linear mixed-effects models incorporating random effects of subjects and stimuli.
 
-The aims of the practical work are to:
+The aims of the lab session work are:
 
-- Get practice running the code so that you can reproduce the figures and results from the lecture and in the book chapter.
-- Exercise skills by varying code -- changing variables, changing options -- so that you can see how the code works.
+- Get practice running the code required to tidy and prepare experimental data for analysis.
+- Exercise skills by varying model code -- changing variables, changing options -- so that you can see how the code works.
 - Use the opportunity to reflect on and evaluate results -- so that we can support growth in development of understanding of main ideas.
+- Optional -- get practice running the code: so that you can reproduce the figures and results from the lecture and in the book chapter.
 
 #### The practical exercises {#sec-mixed-effects-workbook-practical-workbook}
 
 Now you will progress through a series of tasks, and challenges, to aid your learning.
 
 ::: callout-warning
-We will work with the data file:
+We will work with the data files:
 
--   `AFACALO_DATASET.RData`
+-   `CP study word naming rt 180211.dat`
+-   `CP study word naming acc 180211.dat`
+-   `words.items.5 120714 150916.csv`
+-   `all.subjects 110614-050316-290518.csv`
+-   `long.all.noNAs.csv`
 :::
 
 We again split the steps into into parts, tasks and questions.
