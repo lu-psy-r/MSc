@@ -633,218 +633,259 @@ Controlling the way that `read_csv()` handles variables is a very useful capacit
 
 #### Practical Part 5: Analyze data with lm
 
-We begin our data analysis by asking if reading reaction time (RT) varies in association with word frequency.
+We begin our data analysis by asking if reading reaction time **RT** varies in association with the estimated **frequency** of occurrence in language experience of the words we ask participants to read.
 
-- We ignore, here, the multilevel structure or clustering in the data.
+- We ignore, at first, the multilevel structure or clustering in the data.
 
-##### Practical Task 9 -- 
+##### Practical Task 9 -- Visualize the relationship between frequency and RT, ignoring participant differences
 
+You need to do three things, here:
 
-
-
-
-
-
-
-
-
-##### Practical Task 7 -- Visualize the relationship between portuguese and english grades using a scatterplot
-
-This should be a revision exercise for you.
-
-- Do you notice any changes in the way in which the plotting code is laid out?
+1. Draw a scatterplot.
+2. Remember to map the outcome reaction time variable to the heights of points.
+3. Remember in this data-set, word frequency information is located in the `Lg.UK.CDcount` variable.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-brazil %>%
-  ggplot(aes(x = portuguese, y = english)) +
-  geom_point(colour = "black", size = 2.5, alpha = .5) +
-  geom_smooth(method = "lm", size = 1.5, se = FALSE, colour = "red") +
-  xlab("Portuguese") + ylab("English") + theme_bw() 
+#| label: fig-freq-all
+#| fig-cap: "Reading reaction time compared to word frequency, all data"
+#| fig-alt: "The figure shows a scatterplot: each point represents the lexical frequency (on the x-axis) and the reaction time (RT, on the y-axis) of responses made by children to a set of words. A red line is drawn through the points, indicating that RT decreases for higher values of frequency."
+#| warning: false
+#| message: false
+#| fig-height: 4.5
+#| fig-width: 4.5
+long.all.noNAs %>%
+ggplot(aes(x = Lg.UK.CDcount, y = RT)) +
+  geom_point(alpha = .2) + 
+  geom_smooth(method = "lm", se = FALSE, size = 1.5, colour="red") + 
+  theme_bw() + 
+  xlab("Word frequency: log context distinctiveness (CD) count")
+
 ```
 :::
 
-##### Practical Task 8 -- Exercise -- edit plots
-
-1. Change the x and y variables to math and physics
-2. Change the theme from `theme_bw()` to something different
-3. Change the appearance of the points, try different colour, shape, size
+##### Practical Task 10 -- Estimate the relationship between frequency and RT, ignoring participant differences
 
 :::{.callout-tip collapse="true"}
 ## Hint
-Use the ggplot reference documentation to help you make choices:
+You can use `lm()` to do this.
 
-- <https://ggplot2.tidyverse.org/reference/>
-
-You should be using webpages like the reference page often in your work.
+- Remember, we are ignoring random differences between participants or stimuli, at this point.
 :::
-
-#### Practical Part 5: Visualize the relationship
-
-We move next to analyzing the relationship between variation in grades in different subjects, across the children in our sample.
-
-##### Practical Task 9 -- Analyze the relationship between english and portuguese grades in the brazil data
-
-You should be able to reproduce the results shown in the slides and the book chapter.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-summary(lm(english ~ portuguese, data = brazil))
+# label: lm-all-freq
+lm.all.freq <- lm(RT ~  Lg.UK.CDcount, data = long.all.noNAs)
+
+summary(lm.all.freq)
 ```
 :::
 
-##### Practical Task 10 -- Exercise -- adapt the `lm()` code to do a different analysis
+##### Practical Task 11 -- Estimate the relationship between length and RT, ignoring participant differences
 
-Change the outcome and predictor variables to math and physics.
+Vary the linear model using different outcomes or predictors: now fit a model in which the outcome RT and the predictor is word length.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-summary(lm(physics ~ math, data = brazil))
+# label: lm-all-length
+lm.all.length <- lm(RT ~  Length,
+
+                 data = long.all.noNAs)
+
+summary(lm.all.length)
 ```
 :::
 
->**Pract.Q.4.** What is the estimated coefficient of the "effect" of math ability (grade) on physics grade?
+>**Pract.Q.15.** What is the estimate of the effect of Length on RT?
 
-<!-- > Pract.A.4. The summary shows that physics grades are on average 1.3 higher for unit increase in math grade. -->
+<!-- >**Pract.A.15.** The estimate for the Length effect is 18.369. -->
 
->**Pract.Q.5.** Draw a scatterplot showing the relationship between math and physics grades. Does the trend you see in the plot reflect the coefficient you see in the linear model summary?
+>**Pract.Q.16.** What does the estimate tell you about how RT varies in relation to word length?
 
-<!-- > Pract.A.5. The plot shows the positive association between math and physics grade also indicated by the estimated coefficient of the math effect. -->
+<!-- >**Pract.A.16.** This tells us that RT increases by about 18ms for each increase in word length by one letter. -->
+
+>**Pract.Q.17.** What is the R-squared for the model?
+
+<!-- >**Pract.A.17.** The R-sq is .01. -->
+
+Change the predictor from frequency to something else: you choose.
+
+>**Pract.Q.18.** Produce a scatterplot to visualize the relationship between the two variables: does the relationship you see in the plot match the coefficient you see in the model estimates?
+
+:::{.callout-tip collapse="true"}
+## Hint
+You need to look at the model summary to do this. Specifically, you need to think about:
+
+- The coefficients for the effect of the predictor variable you include in your model: focus on the sign and the magnitude of the effect coefficient.
+- Whether or how that sign and that magnitude do or do not match the slopes you see in the plot.
+:::
+
+##### Practical Task 12 -- Visualize the relationship between frequency and RT, separately for each participant
+
+:::{.callout-tip collapse="true"}
+## Hint
+You can Use `facet_wrap()` to do this.
+
+- We can visualizde the frequency effect for each child in a grid of plots, with each plot representing the $\text{RT} \sim \text{frequency}$ relationship for the data for a child (@fig-freqperchildtrellis).
+:::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-brazil %>%
-  ggplot(aes(x = math, y = physics)) +
-  geom_point(colour = "black", size = 2.5, alpha = .5) +
-  geom_smooth(method = "lm", size = 1.5, se = FALSE, colour = "red") +
-  theme_bw() 
+## Code
+#| label: fig-freqperchildtrellis
+#| fig-cap: "RT vs. word frequency, considered separately for data for each child"
+#| fig-alt: "The figure shows a grid of scatterplots. In each plot, each point represents the lexical frequency (on the x-axis) and the reaction time (RT, on the y-axis) of responses made by children to a set of words. A red line is drawn through the points, indicating that RT decreases for higher values of frequency. A different plot is shown to represent the data for each child. Between plots, we can see that the potential association between RT and frequency can vary."
+#| warning: false
+#| message: false
+#| fig-height: 10
+#| fig-width: 7.5
+long.all.noNAs %>%
+  ggplot(aes(x = Lg.UK.CDcount, y = RT)) +
+    geom_point(alpha = .2) + 
+    geom_smooth(method = "lm", se = FALSE, size = 1.25, colour = "red") + 
+    theme_bw() + 
+    xlab("Word frequency (log10 UK SUBTLEX CD count)") + 
+    facet_wrap(~ subjectID)
 ```
 :::
 
->**Pract.Q.6.** How does the strength of the math-physics relationship compare with the english-portuguese relationship?
-
-<!-- > Pract.A.6. Both the linear model and the plots indicate that the math-physics relationship is much stronger. -->
-
-#### Practical Part 6: Visualize the relationship for each class
-
-##### Practical Task 11 -- Plot the relationship between english and portuguese grades separately for each class using `facet_wrap()`
+>**Pract.Q.19.** Can you visualize the relationship between RT and Length, also, separately for each participant?
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-ggplot(data = brazil, aes(x = portuguese, y = english)) +
-  geom_point(colour = "darkgrey") + 
-  geom_smooth(method = "lm", se = FALSE, colour = "black") +
-  xlab("Portuguese") + ylab("English") + theme_bw() +
-  scale_x_continuous(breaks=c(25,50,75)) + scale_y_continuous(breaks=c(0,50,100)) +
-  facet_wrap(~ class_number) 
+## Code
+#| label: fig-lengthperchildtrellis
+#| fig-cap: "RT vs. word length, considered separately for data for each child"
+#| fig-alt: "The figure shows a grid of scatterplots. In each plot, each point represents the word length (on the x-axis) and the reaction time (RT, on the y-axis) of responses made by children to a set of words. A red line is drawn through the points, indicating that RT increases for higher values of length. A different plot is shown to represent the data for each child. Between plots, we can see that the potential association between RT and length can vary."
+#| warning: false
+#| message: false
+#| fig-height: 10
+#| fig-width: 7.5
+long.all.noNAs %>%
+  ggplot(aes(x = Length, y = RT)) +
+  geom_point(alpha = .2) +
+  geom_smooth(method = "lm", se = FALSE, size = 1.25, colour = "red") +
+  theme_bw() +
+  facet_wrap(~ subjectID)
 ```
 :::
 
-##### Practical Task 12 -- Exercises to practice your `facet_wrap()` skills
+>**Pract.Q.19.** What do you conclude from this plot about the Length effect, and about how the effect varies?
 
-1. Change the x and y variables to math and physics and draw a facetted scatterplot again
-2. Experiment with showing the differences between classes in a different way: instead of using `facet_wrap()`, in `aes()` add `colour = class_number`, and remove colour from `geom_point` and `geom_smooth`
+<!-- >**Pract.A.19.** We can conclude that the length effect is small and really only apparent for some participants. -->
+
+#### Practical Part 6: Analyze data with lmer
+
+##### Practical Task 13 -- Fit a linear mixed-effects model, including the random effect of participants on intercepts and on the slope of the frequency effect
+
+:::{.callout-tip collapse="true"}
+## Hint
+You need to specify:
+
+- the `lmer()` function;
+- `RT` as the outcome;
+- frequency (`Lg.UK.CDcount`) as the fixed effects predictor;
+- plus random effects including the effect of participants (`subjectID`) on intercepts and on the slopes of the frequency effect (`Lg.UK.CDcount`).
+
+Check the chapter code examples if you need help, see also the explanations and examples in [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#ssec-intro-mixed-lmer).
+:::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-ggplot(data = brazil, aes(x = math, y = physics)) +
-  geom_point(colour = "darkgrey") + 
-  geom_smooth(method = "lm", se = FALSE, colour = "black") +
-  facet_wrap(~ class_number) 
+lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID),
+             
+             data = long.all.noNAs)
 
-ggplot(data = brazil, aes(x = math, y = physics, colour = class_number)) +
-  geom_point() + geom_smooth(method = "lm", se = FALSE)
+summary(lmer.all.1)
 ```
 :::
 
->**Pract.Q.8.** Evaluate the consistency between classes of the relationship between math and physics grades: what do the plots show? how does this compare with what you see of the relationship between english and portuguese grades?
+>**Pract.Q.20.** What are the differences between the `lm()` and the `lmer()` model results?
 
-<!-- > Pract.A.8. The plots show that the relationship between math and physics is very consistent between classes, and more consistent than the relationship between english and portuguese grades appears to be. -->
+<!-- >**Pract.A.20.** The differences include: -->
 
-#### Practical Part 7: Mixed-effects analysis
+<!-- - The estimate for the coefficient of the frequency (Lg.UK.CDcount) effect changes from (lm) -53.375 to (lmer) -67.980. -->
+<!-- - The (lm) model includes just an estimate of residuals. -->
+<!-- - The (lmer) model includes estimates of the `Residual` variance plus the `subjectID` `(Intercept)` variance and the `subjectID` `(Lg.UK.CDcount)` variance. -->
 
-##### Practical Task 13 -- Run a linear mixed-effects analysis of the relationship between english and portuguese grades using `lmer()`
-
-You should be able to replicate the results shown in the slides and the book chapter.
+##### Practical Task 14 -- Fit a linear mixed-effects model, including the random effects of participants on intercepts and on the slope of the frequency effect, as well as the random effect of items on intercepts
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-porto.lmer1 <- lmer(english ~ portuguese +
-                      (portuguese + 1|class_number),
-                      data = brazil)
-summary(porto.lmer1)
+lmer.all.si <- lmer(RT ~  Lg.UK.CDcount + 
+                         (Lg.UK.CDcount + 1||subjectID) +
+                         (1|item_name),
+             
+             data = long.all.noNAs)
+
+summary(lmer.all.si)
 ```
 :::
 
-##### Practical Task 14 - Exercise mixed-effects model coding
+>**Pract.Q.21.** Can you describe the differences between the models with vs. without the item term?
 
-1. Vary the random effects part of the model, while keeping this bit the same: `lmer(english ~ portuguese + ...)`
-2. Change the random effect from `(portuguese + 1 | class_number)` to `(1 | class_number)`: what you are doing is asking R to ignore the differences in the slope of the effect of Portuguese grades.
-3. Change the random effect from `(portuguese + 1 | class_number)` to `(portuguese + 0 | class_number)`: what you are doing is asking R to ignore the differences  in the intercept
+1. How do the random effects differ?
+2. How do the fixed effects estimates differ?
+
+<!-- >**Pract.A.21.** We can compare models: -->
+
+<!-- ```{} -->
+<!-- lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID), -->
+
+<!--                     data = long.all.noNAs) -->
+<!-- ``` -->
+
+<!-- ```{} -->
+<!-- lmer.all.si <- lmer(RT ~  Lg.UK.CDcount +  -->
+<!--                       (Lg.UK.CDcount + 1||subjectID) + -->
+<!--                       (1|item_name), -->
+
+<!--                     data = long.all.noNAs) -->
+<!-- ``` -->
+
+<!-- 1. The models differ, obviously, in the inclusion of a random term corresponding to the effect of items on intercepts. We can also see that the residual variance is smaller where we include the item random effect. -->
+<!-- 2. The estimate for the `Lg.UK.CDcount` is now -72.33. -->
+
+##### Practical Task 15 -- Now fit a mixed-effects model for the effect of Length on RT. Include the random effects of participants on intercepts and on the slope of the length effect, as well as the random effect of items on intercepts.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-porto.lmer1 <- lmer(english ~ portuguese +
-                      (portuguese + 1|class_number),
-                    data = brazil)
-summary(porto.lmer1)
+lmer.all.2 <- lmer(RT ~  Length + 
+                     (Length + 1||subjectID) +
+                     (1|item_name),
+                   
+                   data = long.all.noNAs)
 
-#
-
-porto.lmer2 <- lmer(english ~ portuguese +
-                      (1|class_number),
-                    data = brazil)
-summary(porto.lmer2)
-
-#
-
-porto.lmer3 <- lmer(english ~ portuguese +
-                      (portuguese + 0|class_number),
-                    data = brazil)
-summary(porto.lmer3)
+summary(lmer.all.2)
 ```
 :::
 
->**Pract.Q.9.** Compare the results of the different versions of the model. Can you identify where the results are different?
+>**Pract.Q.22.** What are the random effects estimates: the variances?
 
-<!-- > Pract.A.9. It can be seen that Rhe estimated effect of portuguese varies between the models but the estimate is more similar, around .65, where the random effect is specified as  -->
-<!--  `(portuguese + 1|class_number)` or `(portuguese + 0|class_number)`. -->
-<!-- > The residual variance term is different between the models. -->
-<!-- > Which random effects variances are shown is also different. -->
-<!-- > There is a convergence warning for: -->
+<!-- >**Pract.A.22.** We see: `items/intercepts` variance of 4751, `subjects/Length` of 757, `subjects/intercept`s of 4994 and `residuals` of 21440.
 
-<!-- `english ~ portuguese + (portuguese + 0 | class_number)` -->
+>**Pract.Q.23.** What is the estimate of the effect of length?
 
-##### Practical Task 15 - Exercise mixed-effects model coding
+<!-- >**Pract.A.23.** The estimate is 28.361.
 
-Change the outcome (from english) and the predictor (from portuguese) -- this is about changing the fixed effect part of the model.
+>**Pract.Q.24.** What does the estimate tell you about how RT varies as Length varies?
 
-- Note that you will need to change the random effect part as well.
+<!-- >**Pract.A.24.** That RT increases by about 28ms for unit increase in word length.
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-porto.lmer1 <- lmer(physics ~ math +
-                      (math + 1|class_number),
-                    data = brazil)
-summary(porto.lmer1)
-```
-:::
 
->**Pract.Q.10.** What elements of the model summary stand out for you? It will help to see what you should notice if you compare the math-physics model with the first english-portuguese model.
 
-<!-- > Pract.A.10. You may notice that: -->
 
-<!-- - The summary comes with a fit is singular? warning. -->
-<!-- - The variance terms for intercept or the math effect by class number and the residual are very very small: much smaller than for the english-portuguese model. -->
+
+
 
 #### Practical Part 8: Extension
 
