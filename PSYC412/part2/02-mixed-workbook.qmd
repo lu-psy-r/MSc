@@ -559,7 +559,7 @@ We can remove missing values before we go any further, using the `na.omit()` fun
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| label: readinglongallc5
+#| label: longall-na-omit
 long.all.noNAs <- na.omit(long.all.select.filter)
 ```
 :::
