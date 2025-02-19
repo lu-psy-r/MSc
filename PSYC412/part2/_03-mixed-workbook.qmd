@@ -1,7 +1,7 @@
 ---
-title: Week 17. Workbook introduction to mixed-effects models
+title: Week 18. Developing linear mixed-effects models
 subtitle: Written by Rob Davies
-order: 9
+order: 10
 bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
