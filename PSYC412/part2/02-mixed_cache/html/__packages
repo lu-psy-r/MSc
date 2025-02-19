@@ -1,6 +1,7 @@
 broom
 gridExtra
 here
+kableExtra
 Matrix
 lme4
 lattice
@@ -17,3 +18,4 @@ purrr
 dplyr
 stringr
 forcats
+lubridate
