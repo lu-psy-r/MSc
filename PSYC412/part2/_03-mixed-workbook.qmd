@@ -175,13 +175,9 @@ We have reached the stage where our learning targets can be detailed -- here, we
 Now you will progress through a series of tasks, and challenges, to aid your learning.
 
 ::: callout-warning
-We will work with the data files:
+We will work with the data file:
 
--   `CP study word naming rt 180211.dat`
--   `CP study word naming acc 180211.dat`
--   `words.items.5 120714 150916.csv`
--   `all.subjects 110614-050316-290518.csv`
--   `long.all.noNAs.csv`
+-   `subjects.behaviour.words-310114.csv`
 :::
 
 We again split the steps into into parts, tasks and questions.
