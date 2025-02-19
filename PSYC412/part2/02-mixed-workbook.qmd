@@ -13,7 +13,7 @@ Welcome to your overview of the work we will do together in **Week 17**.
 Many Psychologists conduct studies with **repeated-measures designs** where the experimenter presents a sample of multiple stimuli, for response, to each participant in a sample of multiple participants.
 Studies with repeated-measures designs will produce data with a structure that requires the use of mixed-effects models.
 
-We are going to learn about this kind of data, and build on the analysis methods we learned about in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview) . 
+We are going to learn about this kind of data, and build on the analysis methods we learned about in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview). 
 
 We use the same procedure we did for multilevel data but with **one significant change** which we shall explore and seek to understand in-depth.
 
