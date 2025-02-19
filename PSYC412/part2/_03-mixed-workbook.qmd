@@ -187,10 +187,12 @@ We are going to work through the following workflow steps: **each step is labell
 1. Set-up
 2. Load the data
 3. Tidy the data
-4. Read in pre-tidied data
-5. Analyze data with lm
-6. Analyze data with lmer
-7. Optional: reproduce the plots in the chapter and slides
+4. Analyze data with lm
+5. Analyze data with lmer
+6. Compare models with different random effects
+7. p-values and significance using `lmerTest`
+8. Run your own sequence of lmer models
+9. Optional: reproduce the plots in the chapter and slides
 
 In the following, we will guide you through the tasks and questions step by step.
 
