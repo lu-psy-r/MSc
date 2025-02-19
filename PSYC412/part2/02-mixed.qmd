@@ -736,7 +736,7 @@ It is a mistake to think of data tidying or wrangling as an inconvenience or as 
 3.  The process of data tidying is frequently instructive of your data recording quality: you find things out about your field measurements or your instrument integrity or quality of your recordings, when you pay attention, when you process your data.
 :::
 
-It is wise to see data tidying or processing as a key part of the data analysis workflow because, as I discuss in @sec-multiversedata, the choices you make or the integrity or quality of the actions you take, will have consequences for your analysis results or, more generally, for the quality of the evidence you share with others.
+It is wise to see data tidying or processing as a key part of the data analysis workflow because, as I examine in the [PSYC411 discussion of the data multiverse](../PSYC411/part2/intro.qmd#sec-multiversedata), the choices you make or the integrity or quality of the actions you take, will have consequences for your analysis results or, more generally, for the quality of the evidence you share with others.
 
 [Here](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt) is a nice substack post that links to some scholarly writing and makes some excellent points.
 
