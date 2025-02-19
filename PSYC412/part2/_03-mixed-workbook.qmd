@@ -158,18 +158,17 @@ You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.l
 
 #### Practical materials guide {#sec-dev-mixed-workbook-practical-guide}
 
-Here, our learning targets are to:
+We have reached the stage where our learning targets can be detailed -- here, we are concerned with:
 
-- Practice how to tidy experimental data for mixed-effects analysis.
-- Begin to develop an understanding of crossed random effects of subjects and stimuli.
-- Practice fitting linear mixed-effects models incorporating random effects of subjects and stimuli.
+- being able to specify a mixed-effects model in `lmer()` code;
+- being able to identify how the mixed-effects model code varies depending on the kinds of random effects;
 
-The aims of the lab session work are to:
+- being able to identify the elements of the output or results that come from an `lmer()` mixed-effects analysis;
+- being able to interpret the fixed-effects estimates;
+- being able to interpret the random effects estimates, variance, covariance;
 
-- Get practice running the code required to tidy and prepare experimental data for analysis.
-- Exercise skills by varying model code -- changing variables, changing options -- so that you can see how the code works.
-- Use the opportunity to reflect on and evaluate results -- so that we can support growth in development of understanding of main ideas.
-- Optional -- get practice running the code: so that you can reproduce the figures and results from the lecture and in the book chapter.
+- being able to describe in words and summary tables the results of a mixed-effects model;
+- being able to visualise the effects estimates from a mixed-effects model.
 
 #### The practical exercises {#sec-dev-mixed-workbook-practical-workbook}
 
