@@ -24,7 +24,7 @@ library(tidyverse)
 
 ## Motivations: repeated measures designs and crossed random effects {#sec-intro-motivations}
 
-In the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview) chapters, we looked at a multilevel structured dataset in which there were observations about children's grades, and it became evident that those children can be grouped by or under classes. As we discussed, this kind of data structure will come from studies with a very common design in which, for example, the researcher records observations about a sample of children who are members of a sample of classes. In working with these kind of data, it is common to say that the observations of children's grades are *nested* within classes in a hierarchy.
+In the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview) chapters, we looked at a multilevel structured data-set in which there were observations about children's grades, and it became evident that those children can be grouped by or under classes. As we discussed, this kind of data structure will come from studies with a very common design in which, for example, the researcher records observations about a sample of children who are members of a sample of classes. In working with these kind of data, it is common to say that the observations of children's grades are *nested* within classes in a hierarchy.
 
 Many Psychologists conduct studies where observations are properly understood to be structured in groups of some form but where, nevertheless, it is inappropriate to think of the observations as being nested [@baayen2008]. We are talking, here, about **repeated-measures designs** where the experimenter presents a sample of multiple stimuli for response to each participant in a sample of multiple participants. This is another *very* common experimental design in psychological science.
 
@@ -87,7 +87,7 @@ The high resolution version is the version delivered for the lecture recordings.
 
 2.3. You can read the chapter, run the code, and do the exercises.
 
--   Read in the example **CP reading study** datasets.
+-   Read in the example **CP reading study** data-sets.
 -   Identify how the data are structured by both participant and stimulus differences.
 -   Use visualizations to explore the impact of the structure.
 -   Run analyses using linear mixed-effects models involving multiple random effects.
@@ -99,7 +99,7 @@ The high resolution version is the version delivered for the lecture recordings.
 
 ## The data we will work with: CP reading study {#sec-intro-mixed-data}
 
-In this chapter, we will be working with the **CP reading study** dataset. CP tested 62 children (aged 116-151 months) on reading aloud in English. In the experimental reading task, she presented 160 words as stimuli. The same 160 words were presented to all children. The words were presented one at a time on a computer screen. Each time a word was shown, each child had to read the word out loud and their response was recorded. Thus, the CP reading study dataset comprised observations about the responses made by 62 children to 160 words.
+In this chapter, we will be working with the **CP reading study** data-set. CP tested 62 children (aged 116-151 months) on reading aloud in English. In the experimental reading task, she presented 160 words as stimuli. The same 160 words were presented to all children. The words were presented one at a time on a computer screen. Each time a word was shown, each child had to read the word out loud and their response was recorded. Thus, the CP reading study data-set comprised observations about the responses made by 62 children to 160 words.
 
 In addition to the reading task, CP administered tests of reading skill [TOWRE sight word and phonemic tests, @torgesen1999towre], reading experience [CART, @stainthorp1997children], the Spoonerisms sub-test of the Phonological Awareness test Battery [PhAB, @Frederickson1997a], and an orthographic choice test measure of orthographic knowledge. She also recorded the gender and the handedness of the children.
 
@@ -111,7 +111,7 @@ We are going to use the CP study data to examine the answers to a research quest
 
 We can look at the answers to this question while also taking into account the impacts of random differences -- between sampled participants or between sampled words -- using mixed-effects models.
 
-Ultimately, the CP dataset were incorporated in an analysis of the impact of age on reading skills over the life-span, reported by @davies2017. You can find more details on the data and the methods in that paper. (Data and analysis code are shared through the journal article webpage \[paywalled\] [here](https://psycnet.apa.org/doiLanding?doi=10.1037%2Fxlm0000366), and a preprint version of the article can be accessed [here](https://eprints.lancs.ac.uk/id/eprint/86453/1/individual_differences_in_reading_subm_accepted.pdf).)
+Ultimately, the CP data-set were incorporated in an analysis of the impact of age on reading skills over the life-span, reported by @davies2017. You can find more details on the data and the methods in that paper. (Data and analysis code are shared through the journal article webpage \[paywalled\] [here](https://psycnet.apa.org/doiLanding?doi=10.1037%2Fxlm0000366), and a preprint version of the article can be accessed [here](https://eprints.lancs.ac.uk/id/eprint/86453/1/individual_differences_in_reading_subm_accepted.pdf).)
 
 The CP study resembles many studies in psychological science. The critical features of the study are that:
 
@@ -147,7 +147,7 @@ The `all.subjects` file holds information about the 62 participants who voluntee
 
 So: we will be working with multiple data files located in a .zip folder called `02-mixed`. And, in this folder, we have got four files that we will need to import or read in to R.
 
-In the following, I will describe a series of steps through which we get the data ready for analysis. However, as we shall see, you can avoid these steps by using the pre-tidied dataset:
+In the following, I will describe a series of steps through which we get the data ready for analysis. However, as we shall see, you can avoid these steps by using the pre-tidied data-set:
 
 -   `long.all.noNAs.csv`
 
@@ -207,7 +207,7 @@ Typical of the output from data collection software, we can see a data table wit
 4.  for each column, we see values equal to the RTs observed for each person (listed in the column labels);
 5.  and at each intersection of row and column (for each cell), we see the RT observed for a response made by a participant to a stimulus.
 
-Data laid out like this are sometimes said to be in *wide* format. You can see that the data are *wide* because at least one variable -- here, reading reaction time -- is held not in one column but spread out over several columns, side-by-side. Thus, the dataset is wide with fewer rows and many columns.
+Data laid out like this are sometimes said to be in *wide* format. You can see that the data are *wide* because at least one variable -- here, reading reaction time -- is held not in one column but spread out over several columns, side-by-side. Thus, the data-set is wide with fewer rows and many columns.
 
 We want the data in what is called the *tidy* format.
 
@@ -229,7 +229,7 @@ For our purposes, the reason we want the data in *tidy* format is that it is req
 
 ## Tidy the data {#sec-intro-mixed-tidy-data}
 
-To answer our research question, we will need to combine the behavioural data with information about the participants (age, gender ...) and about the words (word, frequency ...) We will need to ensure that the dataset we construct will be in *tidy* format. We will need to *select* variables (columns) to get just those required for our later analyses. And we will need to *filter* cases (rows), excluding errors or outliers.
+To answer our research question, we will need to combine the behavioural data with information about the participants (age, gender ...) and about the words (word, frequency ...) We will need to ensure that the data-set we construct will be in *tidy* format. We will need to *select* variables (columns) to get just those required for our later analyses. And we will need to *filter* cases (rows), excluding errors or outliers.
 
 We shall need to do this work in a series of processing steps:
 
@@ -284,14 +284,14 @@ It will help your understanding to examine an example. Take a look at what this 
 behaviour.rt <- read_tsv("CP study word naming rt 180211.dat", na = "-999")
 ```
 
-1.  We write `behaviour.rt <- read_tsv(...)` to create an object in the R environment, which we call `behaviour.rt`: the object with this name is the dataset we read into R using `read_tsv(...)`.
+1.  We write `behaviour.rt <- read_tsv(...)` to create an object in the R environment, which we call `behaviour.rt`: the object with this name is the data-set we read into R using `read_tsv(...)`.
 2.  When we write the function `read_tsv(...)` we include two arguments inside it.
 3.  `read_tsv("CP study word naming rt 180211.dat", ...` first, the name of the file, given in quotes `""` and then a comma.
 4.  `read_tsv(..., na = "-999")` second, we tell R that there are some missing values `na` which are coded with the value `"-999"`.
 
 ### A quick lesson about missing value codes {#sec-intro-missing}
 
-In the datasets -- typically, the spreadsheets -- we create in our research, we will have values missing for different reasons. Take another look at the data spreadsheet you saw earlier, @fig-CP-study-RTs.
+In the data-sets -- typically, the spreadsheets -- we create in our research, we will have values missing for different reasons. Take another look at the data spreadsheet you saw earlier, @fig-CP-study-RTs.
 
 ::: callout-tip
 In R, a missing value is said to be "not available": `NA`.
@@ -313,7 +313,7 @@ I use `-999` to code for missing values because you should never see a value lik
 
 ### Reshape the data from wide to long using the pivot_longer() function {#sec-intro-mixed-data-restructure}
 
-We are going to need to restructure these data from a wide format to a longer format. We need to restructure both behavioural datasets, accuracy and RT. We do this using the `pivot_longer()` function.
+We are going to need to restructure these data from a wide format to a longer format. We need to restructure both behavioural data-sets, accuracy and RT. We do this using the `pivot_longer()` function.
 
 ```{r}
 #| label: widetolong
@@ -329,7 +329,7 @@ acc.long <- behaviour.acc %>%
 Researchers used to have to do this sort of thing by hand, using copying and pasting, in Excel or SPSS. Doing the process by hand takes many hours or days. And you *always* make errors.
 
 ::: callout-tip
-Doing dataset construction programmatically, using R functions, is generally faster and more reliable than doing it by hand.
+Doing data-set construction programmatically, using R functions, is generally faster and more reliable than doing it by hand.
 :::
 
 Here, we use a function you may have seen before: `pivot_longer()`. It will help your understanding to examine the code carefully.
@@ -341,15 +341,15 @@ rt.long <- behaviour.rt %>%
              pivot_longer(2:62, names_to = "subjectID", values_to = "RT")
 ```
 
-The name of the function comes from the fact that we are starting with data in wide format e.g. `behaviour.rt` where we have what should be a single variable of observations (RTs) arranged in a wide series of multiple columns, side-by-side (one column for each participant). But we want to take those wide data and *lengthen* the dataset, increasing the number of rows and decreasing the number of columns.
+The name of the function comes from the fact that we are starting with data in wide format e.g. `behaviour.rt` where we have what should be a single variable of observations (RTs) arranged in a wide series of multiple columns, side-by-side (one column for each participant). But we want to take those wide data and *lengthen* the data-set, increasing the number of rows and decreasing the number of columns.
 
 Let's look at this line of code bit by bit. It includes a powerful function that accomplishes a lot of tasks, so it is worth explaining this function in some detail.
 
 1.  `rt.long <- behaviour.rt %>%`
 
--   At the start, I tell R that I am going to create a new longer dataset (more rows, fewer columns) that I shall call `rt.long`.
--   I will create this longer dataset from `<-` the original wide dataset `behaviour.rt`.
--   and I will create the new longer dataset by taking the original wide dataset and piping it `%>%` to the pivot function coded on the next line:
+-   At the start, I tell R that I am going to create a new longer data-set (more rows, fewer columns) that I shall call `rt.long`.
+-   I will create this longer data-set from `<-` the original wide data-set `behaviour.rt`.
+-   and I will create the new longer data-set by taking the original wide data-set and piping it `%>%` to the pivot function coded on the next line:
 
 2.  `pivot_longer(2:62, names_to = "subjectID", values_to = "RT")`
 
@@ -357,16 +357,16 @@ Let's look at this line of code bit by bit. It includes a powerful function that
 
 a.  `pivot_longer(2:62...)`
 
--   First, I tell R that I want to re-arrange all the columns that can be found in the dataset from the second column to the sixty-second column.
+-   First, I tell R that I want to re-arrange all the columns that can be found in the data-set from the second column to the sixty-second column.
 -   In a spreadsheet, we have a number of columns.
 -   Columns can be identified by their position in the spreadsheet.
--   The position of a column in a spreadsheet can be identified by number, from the leftmost column (column number 1) to the rightmost column (here, column number 62) in our dataset.
+-   The position of a column in a spreadsheet can be identified by number, from the leftmost column (column number 1) to the rightmost column (here, column number 62) in our data-set.
 -   So this argument tells R exactly which columns I want to pivot.
 
 b.  `pivot_longer(..., names_to = "subjectID", ...)`
 
 -   Second, I tell R that I want it to take the column labels and put them into a new column, called `subjectID`.
--   In the wide dataset `behaviour.rt`, each column holds a list of numbers (RTs) but begins with a word in the topmost cell, the name code for a participant, in the column label position.
+-   In the wide data-set `behaviour.rt`, each column holds a list of numbers (RTs) but begins with a word in the topmost cell, the name code for a participant, in the column label position.
 -   We want to keep the information about which participant produces which response when we pivot the wide data to a longer structure.
 -   We do this by asking R to take the column labels (the participant names) and listing them in a new column, called `subjectID` which now holds the names as participant ID codes.
 
@@ -383,13 +383,13 @@ And you can find more information specifically about the `pivot_longer()` operat
 
 ### Why we restructure the data {#sec-intro-mixed-data-restructure-why}
 
-As I noted, one problem with the wide format is that the data are structured so that the column names are not names of variables. In our example wide format dataset, `behaviour.rt`, the columns are headed by a participant identity code or name but a participant code is not the name of a variable, it is a value of the variable I call `subjectID`.
+As I noted, one problem with the wide format is that the data are structured so that the column names are not names of variables. In our example wide format data-set, `behaviour.rt`, the columns are headed by a participant identity code or name but a participant code is not the name of a variable, it is a value of the variable I call `subjectID`.
 
 In the design of the CP reading study, we want to take into account the impact of differences between participants on response RT (so, we need to identify which participant makes which response). But we do not see the responses made by a participant as a predictor variable.
 
 A second problem is that, in a wide format file like `behaviour.rt`, information about the responses made to each stimulus word is all on the same row (that seems good) but in different columns. Each person responded to all the words. But the response made to a word e.g. `act` made by one participant is in a different column (e.g., 594.8ms, for `AislingoC`) from the response made to the same word by a different participant (e.g., 586ms, for `AlexB`). This means that information about the responses made to each stimulus word are spread out as values across multiple columns.
 
-You can see this for yourself if you inspect the source rt data using `head()` to view the top four rows of the dataset.
+You can see this for yourself if you inspect the source rt data using `head()` to view the top four rows of the data-set.
 
 ```{r}
 #| label: headcheck-wide
@@ -444,14 +444,14 @@ This is a big part of data tidying now done. However, these data are *incomplete
 
 <!-- In `{tidyverse}` the functions designed to enable you to restructure data have evolved through a series of different forms. This change is one of the real benefits of using open software like R. In my experience, the newer functions can be useful for *really* untidy data. I expect things will continue to evolve and improve over time. -->
 
-### Merging data from different datasets using \_join() functions {#sec-intro-mixed-data-join}
+### Merging data from different data-sets using \_join() functions {#sec-intro-mixed-data-join}
 
 To answer our research question, we next need to combine the **RT** with the **accuracy** data, and then the combined behavioural data with **participant** information and **stimulus** information. This is because, as we have seen, information about behavioural responses, about participant attributes or stimulus word properties, are located in separate files.
 
 Many researchers have completed this kind of operation by hand. This involves copying and pasting bits of data in a spreadsheet. It can take hours or days. I know because I have done it, and I have seen others do it.
 
 ::: callout-warning
-Please do not try to combine datasets through manual operations e.g. in Excel. I guarantee that:
+Please do not try to combine data-sets through manual operations e.g. in Excel. I guarantee that:
 
 1.  You will make mistakes.
 2.  You will not know when or where those mistakes are in your data.
@@ -459,7 +459,7 @@ Please do not try to combine datasets through manual operations e.g. in Excel. I
 There are better ways to spend your time.
 :::
 
-We can combine the datasets, in the way that we need, using the `{tidyverse}` `full_join()` function. This gets the job done quickly, and accurately.
+We can combine the data-sets, in the way that we need, using the `{tidyverse}` `full_join()` function. This gets the job done quickly, and accurately.
 
 First, we join RT and accuracy data together.
 
@@ -486,9 +486,9 @@ long.all <- long.subjects %>%
 
 ```
 
-Notice, we can let R figure out how to join the pieces of data together. If we were doing this by hand then we would need to check *very carefully* the correspondences between observations in different datasets.
+Notice, we can let R figure out how to join the pieces of data together. If we were doing this by hand then we would need to check *very carefully* the correspondences between observations in different data-sets.
 
-Here, in a series of steps, we take one dataset and join it (merge it) with the second dataset. Let's look at an example element by element to better understand how this is accomplished.
+Here, in a series of steps, we take one data-set and join it (merge it) with the second data-set. Let's look at an example element by element to better understand how this is accomplished.
 
 ```{r}
 #| label: demo-join
@@ -501,21 +501,21 @@ The code work as follows.
 
 1.  `long <- rt.long %>%`
 
--   We create a new dataset we call `long`.
--   We do this by taking one original dataset `rt.long` and `%>%` piping it to the operation defined in the second step.
+-   We create a new data-set we call `long`.
+-   We do this by taking one original data-set `rt.long` and `%>%` piping it to the operation defined in the second step.
 
 2.  `full_join(acc.long)`
 
--   In this second step, we use the function `full_join()` to add observations from a second original dataset `acc.long` to those already from `rt.long`
+-   In this second step, we use the function `full_join()` to add observations from a second original data-set `acc.long` to those already from `rt.long`
 
 The addition of observations from one database joining to those from another happens through a matching process.
 
--   R looks at the datasets being merged.
--   It identifies if the two datasets have columns in common. Here, the datasets have `subjectID` and `item_name` in common).
+-   R looks at the data-sets being merged.
+-   It identifies if the two data-sets have columns in common. Here, the data-sets have `subjectID` and `item_name` in common).
 -   R can use these common columns to identify rows of data. Here, each row of data will be identified by both `subjectID` and `item_name` i.e. as data about the response made by a participant to a word.
--   R will then do a series of identity checks, comparing one dataset with the other and, row by row, looking for matching values in the columns that are common to both datasets.
+-   R will then do a series of identity checks, comparing one data-set with the other and, row by row, looking for matching values in the columns that are common to both data-sets.
 -   If there is a match then R joins the corresponding rows of data together.
--   If there isn't a match then it creates `NAs` where there are missing entries in one row for one dataset which cannot be matched to a row from the joining dataset.
+-   If there isn't a match then it creates `NAs` where there are missing entries in one row for one data-set which cannot be matched to a row from the joining data-set.
 
 ::: callout-tip
 Note that in one example, the example of code I discuss here, I did not specify identifying columns in common, allowing the function to do the work. In the other code chunks I did: `long.all <- long.subjects %>% full_join(words, by = "item_name")` using the `by = ...` argument.
@@ -526,7 +526,7 @@ Note that in one example, the example of code I discuss here, I did not specify 
 
 #### Relational data {#sec-intro-mixed-data-relational}
 
-In the `{tidyverse}` family of `dplyr` functions, when you work with multiple datasets (tables of data), we call the datasets [relational data](http://r4ds.had.co.nz/relational-data.html#relational-data).
+In the `{tidyverse}` family of `dplyr` functions, when you work with multiple data-sets (tables of data), we call the data-sets [relational data](http://r4ds.had.co.nz/relational-data.html#relational-data).
 
 There are three families of functions (like verbs) designed to work with relational data:
 
@@ -534,19 +534,19 @@ There are three families of functions (like verbs) designed to work with relatio
 -   Filtering joins, which filter observations from one data frame based on whether or not they match an observation in the other table.
 -   Set operations, which treat observations as if they were set elements.
 
-We can connect datasets -- relate them -- according to shared variables like `subjectID, item_name` (for our data). In `{tidyverse}`, the variables that connect pairs of tables are called keys where, and this is what counts, *key(-s) are variable(-s) that uniquely identify an observation*.
+We can connect data-sets -- relate them -- according to shared variables like `subjectID, item_name` (for our data). In `{tidyverse}`, the variables that connect pairs of tables are called keys where, and this is what counts, *key(-s) are variable(-s) that uniquely identify an observation*.
 
 For the experimental reading data, we have observations about each response made by a participant (one of 61 subjects) to an item (one of 160 words). For these data, we can match up a pair of RT and accuracy observations for each (unique) `subjectID-item_name` combination.
-If you reflect, we could not combine the RT and accuracy data correctly if we did not have both identifying variables in both datasets, because both column variables are required to uniquely identify each observation.
+If you reflect, we could not combine the RT and accuracy data correctly if we did not have both identifying variables in both data-sets, because both column variables are required to uniquely identify each observation.
 
 Further, we could not combine the RT and accuracy data correctly if there were mismatches in values of the identifying variable.
-Sometimes, I have done this operation and it has gone wrong because a subjectID has been spelled one way in one dataset e.g. `hugh` and another way in the other dataset e.g. `HughH`. This leads me to share some advice.
+Sometimes, I have done this operation and it has gone wrong because a subjectID has been spelled one way in one data-set e.g. `hugh` and another way in the other data-set e.g. `HughH`. This leads me to share some advice.
 
 ::: callout-tip
 - Be careful about spelling identifiers.
 - Always check your work after merger operations. 
 
-You can check your work by calculating dataset lengths to ensure the number of rows in the new dataset matches your expectations, given the study design and data collection procedure.
+You can check your work by calculating data-set lengths to ensure the number of rows in the new data-set matches your expectations, given the study design and data collection procedure.
 :::
 
 #### \_join functions {#sec-intro-mixed-data-join-functions}
@@ -559,30 +559,30 @@ There are three kinds of joins.
 -   A right join keeps all observations in y.
 -   A full join keeps all observations in x and y.
 
-I used `full_join()` because I wanted to retain all observations from both datasets, whether there was a match (as assumed) or not, in the identifying variables, between observations in each dataset.
+I used `full_join()` because I wanted to retain all observations from both data-sets, whether there was a match (as assumed) or not, in the identifying variables, between observations in each data-set.
 
 #### Exercise {#sec-intro-mixed-data-exx-join}
 
 -   Break the join: You can examine how the `full_join()` works by experimenting with stopping it from working.
 
-As I discuss, you need to have matches in values on key (common) variables. If the `subjectID` is different on different datasets, you will lose data that would otherwise be merged to form the merged or composite dataset.
+As I discuss, you need to have matches in values on key (common) variables. If the `subjectID` is different on different data-sets, you will lose data that would otherwise be merged to form the merged or composite data-set.
 
 Check what happens if you deliberately misspell one of the `subjectID` values in one of the original source wide behavioural data files.
 
 To be safe, you might want to do this exercise with copies of the source files kept in a folder you create for this purpose. If it goes wrong, you can always re-access the source files and read them in again.
 
-You can check what happens before and after you break the match by counting the number of rows in the dataset that results from the merger. We can count the number of rows in a dataset with:
+You can check what happens before and after you break the match by counting the number of rows in the data-set that results from the merger. We can count the number of rows in a data-set with:
 
 ```{r}
 #| label: check-length
 length(long.all$RT)
 ```
 
-This bit of code takes the length of the vector (i.e. variable column `RT` in dataset `long.all`), thus counting the number of rows in the dataset.
+This bit of code takes the length of the vector (i.e. variable column `RT` in data-set `long.all`), thus counting the number of rows in the data-set.
 
 ### Select or transform the variables {#sec-intro-mixed-data-transform}
 
-OK, now we have all the data about everything all in one big, long and wide, dataset. But we do not actually require all of the dataset for the analyses we are going to do.
+OK, now we have all the data about everything all in one big, long and wide, data-set. But we do not actually require all of the data-set for the analyses we are going to do.
 
 We next need to do two things. First, we need to get rid of variables we will not use: we do that by using `select()`. Then, we need to remove errors and outlying short RT observations: we do that by using `filter()` in Section @sec-intro-mixed-data-filter.
 
@@ -618,11 +618,11 @@ What if you wanted to analyze a different set of variables, could you select dif
 
 ### Filter observations {#sec-intro-mixed-data-filter}
 
-We now have a tidy dataset `long.all.select` with `r length(long.all.select)` columns and `r length(long.all.select$RT)` rows.
+We now have a tidy data-set `long.all.select` with `r length(long.all.select)` columns and `r length(long.all.select$RT)` rows.
 
-The dataset includes missing values, designated `NA`. Here, every error (coded `0`, in `accuracy`) corresponds to an `NA` in the `RT` column.
+The data-set includes missing values, designated `NA`. Here, every error (coded `0`, in `accuracy`) corresponds to an `NA` in the `RT` column.
 
-The dataset also includes outlier data. In this context, $RT < 200$ are probably response errors or equipment failures. We will want to analyse `accuracy` later, so we shall need to be careful about getting rid of `NAs`.
+The data-set also includes outlier data. In this context, $RT < 200$ are probably response errors or equipment failures. We will want to analyse `accuracy` later, so we shall need to be careful about getting rid of `NAs`.
 
 At this point, I am going to exclude two sets of observations only.
 
@@ -645,11 +645,11 @@ long.all.select.filter <- long.all.select.filter %>%
 
 Here, I am using the function `filter()` to ...
 
--   Create a new dataset `long.all.select.filter <- ...` by
+-   Create a new data-set `long.all.select.filter <- ...` by
 -   Using functions to work on the data named immediately to the right of the assignment arrow: `long.all.select`
--   An observation is included in the new dataset if it matches the condition specified as an argument in the `filter()` function call, thus:
+-   An observation is included in the new data-set if it matches the condition specified as an argument in the `filter()` function call, thus:
 
-1.  `filter(item_name !='FALSE')` means: include in the new dataset `long.all.select.filter` all observations from the old dataset `long.all.select` that are not `!=` (`!` not `=` equal to) the value `FALSE` in the variable `item_name`,
+1.  `filter(item_name !='FALSE')` means: include in the new data-set `long.all.select.filter` all observations from the old data-set `long.all.select` that are not `!=` (`!` not `=` equal to) the value `FALSE` in the variable `item_name`,
 2.  then recreate the `long.all.select.filter` as a version of itself (with no name change) by including in the new version only those observations where RT was greater than or equal to 200ms using `RT >= 200`.
 
 ::: callout-warning
@@ -672,7 +672,7 @@ You can read more about using multiple arguments to filter observations [here](h
 -   Vary the filter conditions: in different ways
 
 1.  Change the threshold for including RTs from `RT >= 200` to something else
-2.  Can you assess what impact the change has? Note that you can count the number of observations (rows) in a dataset using e.g. `length(data.set.name$variable.name)`
+2.  Can you assess what impact the change has? Note that you can count the number of observations (rows) in a data-set using e.g. `length(data.set.name$variable.name)`
 
 Filtering or re-coding observations is an important element of the research workflow in psychological science, as I discuss in @sec-multiversedata. How we do or do not remove observations from original data may have an impact on our results (as explored by, e.g., Steegen et al., 2014). It is important, therefore, that we learn how to do this reproducibly using R scripts that we can share with our research reports.
 
@@ -680,7 +680,7 @@ You can read further information about filtering [here](https://r4ds.had.co.nz/t
 
 ### Remove missing values {#sec-intro-mixed-data-omit-na}
 
-We will be working with the `long.all.select.filter.csv` dataset collated from the experimental, subject ability scores, and item property data collected for the CP word naming study.
+We will be working with the `long.all.select.filter.csv` data-set collated from the experimental, subject ability scores, and item property data collected for the CP word naming study.
 
 For convenience, I am going to remove missing values before we go any further, using the `na.omit()` function.
 
@@ -692,8 +692,8 @@ long.all.noNAs <- na.omit(long.all.select.filter)
 ::: callout-tip
 The `na.omit()` function is powerful.
 
--   In using this function, I am asking R to create a new dataset `long.all.noNAs` from the old dataset `long.all.select.filter` in a process in which the new dataset will have *no* rows in which there is a missing value `NA` in *any* column.
--   You need to be reasonably sure, when you use this function, where your `NAs` may be because, otherwise, you may end the process with a new filtered dataset that has many fewer rows in it than you expected.
+-   In using this function, I am asking R to create a new data-set `long.all.noNAs` from the old data-set `long.all.select.filter` in a process in which the new data-set will have *no* rows in which there is a missing value `NA` in *any* column.
+-   You need to be reasonably sure, when you use this function, where your `NAs` may be because, otherwise, you may end the process with a new filtered data-set that has many fewer rows in it than you expected.
 :::
 
 ### Now we have some tidy data {#sec-intro-mixed-data-tidy-conclusions}
@@ -703,7 +703,7 @@ The `na.omit()` function is powerful.
 head(long.all.noNAs, n = 10)
 ```
 
-If we inspect `long.all.noNAs`, we can see that we have now got a tidy dataset with all the data we need for our analyses:
+If we inspect `long.all.noNAs`, we can see that we have now got a tidy data-set with all the data we need for our analyses:
 
 -   One observation per row, corresponding to data about a response made by a participant to a stimulus in an experimental trial
 -   One variable per column
@@ -714,7 +714,7 @@ We have removed the missing values and we have filtered outliers.
 
 ### We can output the data as a .csv file {#sec-intro-mixed-data-output-csv}
 
-Having produced the tidy dataset, we may wish to share it, or save ourselves the trouble of going through the process again. We can do this by creating a .csv file.
+Having produced the tidy data-set, we may wish to share it, or save ourselves the trouble of going through the process again. We can do this by creating a .csv file.
 
 ```{r}
 #| label: write-csv
@@ -722,7 +722,7 @@ Having produced the tidy dataset, we may wish to share it, or save ourselves the
 write_csv(long.all.noNAs, "long.all.noNAs.csv")
 ```
 
-This function will create a `.csv` file from the dataset you name `long.all.noNAs` which R will put in your working directory.
+This function will create a `.csv` file from the data-set you name `long.all.noNAs` which R will put in your working directory.
 
 ### Data tidying -- conclusions {#sec-intro-mixed-data-conclusions}
 
@@ -853,7 +853,7 @@ The model does not explain much variance, as $Adjusted \space R^2 = .03$ but, no
 
 -   Vary the linear model: using different outcomes or different predictor variables.
 
-The CP study dataset is rich with possibility. It would be useful to experiment with it.
+The CP study data-set is rich with possibility. It would be useful to experiment with it.
 
 1.  Change the predictor from frequency to something else: what do you see when you visualize the relationship between variables using scatterplots?
 2.  Specify linear models with different predictors: do the relationships you see in plots match the coefficients you see in the model estimates?
@@ -1011,7 +1011,7 @@ First, we have a chunk of code mostly similar to what we do when we do a regress
 
 1.  `lmer.all.1 <- lmer(...)` creates a *linear mixed-effects model* object using the `lmer()` function.
 2.  `RT ~  Lg.UK.CDcount` is a formula expressing the model in which we estimate the fixed effect on the outcome or dependent variable `RT` (reaction time, in milliseconds) as predicted $\sim$ by the independent or predictor variable `Lg.UK.CDcount` (word frequency).
-3.  `...(..., data = long.all.noNAs)` specifies the dataset in which you can find the variables named in the model fitting code.
+3.  `...(..., data = long.all.noNAs)` specifies the data-set in which you can find the variables named in the model fitting code.
 4.  `summary(lmer.all.1)` gets a summary of the fitted model object, showing you the results.
 
 Second, we have the bit that is specific to multilevel or mixed-effects models.
@@ -1024,7 +1024,7 @@ Second, we have the bit that is specific to multilevel or mixed-effects models.
 
 It will help your learning if you now go back and compare this model with the model you saw in @sec-multi-lmer.
 
--   Identify what is different: dataset, variable names, and model formula.
+-   Identify what is different: data-set, variable names, and model formula.
 -   Identify what stays the same: function name ... the specification of both model and random effects.
 
 If you can see what is different versus what stays the same then you learn what *you can change* when the time comes for your analysis with your data.
@@ -1196,7 +1196,7 @@ Now notice how, in @fig-BLUPS-prediction (b.):
 
 -   Strikingly, you can see that a few children have frequency effects that are as much as 200ms larger (see plot (b.) around $x = -200$) than the population-level or average effect.
 
-When a mixed-effects model is fitted to a dataset, its set of estimated parameters includes the coefficients for the fixed effects as well as the standard deviations for the random effects [@baayen2008]. If you read the literature on mixed-effects models, you will see that the adjustments are called *Best Linear Unbiased Predictors* (BLUPs).
+When a mixed-effects model is fitted to a data-set, its set of estimated parameters includes the coefficients for the fixed effects as well as the standard deviations for the random effects [@baayen2008]. If you read the literature on mixed-effects models, you will see that the adjustments are called *Best Linear Unbiased Predictors* (BLUPs).
 
 #### Exercise: Random effects in mixed-effects models {#sec-intro-mixed-exx-lmer-random-effects}
 
@@ -1524,7 +1524,7 @@ This is why it would often make sense to specify, among the random effects of th
 -   $covar(U_{0i}, U_{1i}X_j)$
 
 ::: callout-warning
-Remember we excluded random effects covariance {#sec-intro-mixed-exclude-covariance}
+Remember we excluded random effects covariance, see @sec-intro-mixed-exclude-covariance.
 :::
 
 In @sec-intro-mixed-double-bar, I noted how we used the `||` notation to stop the model estimating the covariance between differences between participants in intercepts and in slopes. The reason I did this is that if I had requested that the model estimate the covariance the model would have failed to converge. What this means depends on understanding how mixed-effects models are estimated. We shall have to return to a development of that understanding later. For now, it is enough to note that mixed-effects models fitted with `lmer()` often have more difficulty with random effects covariance estimates.
@@ -1621,7 +1621,7 @@ We used a number of functions to tidy and visualize the CP study data.
 
 -   `read_csv()` and `read_csv()` to load source data files into the R workspace
 -   `pivot_longer()` to restructure data from wide to long
--   `full_join()` to put together data from separate datasets; in our example, from datasets holding information about participant attributes, stimulus word properties, and participant behaviours
+-   `full_join()` to put together data from separate data-sets; in our example, from data-sets holding information about participant attributes, stimulus word properties, and participant behaviours
 -   `select()` to select the variables we need
 -   `filter()` to filter observations based on conditions
 -   `na.omit()` to remove missing values
