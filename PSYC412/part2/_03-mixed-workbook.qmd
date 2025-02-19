@@ -8,22 +8,55 @@ csl: psychological-bulletin.csl
 
 # Week 18 Developing linear mixed-effects models: workbook overview {#sec-dev-mixed-workbook-overview}
 
-Welcome to your overview of the work we will do together in **Week 17**.
+Welcome to your overview of the work we will do together in **Week 18**.
 
-Many Psychologists conduct studies with **repeated-measures designs** where the experimenter presents a sample of multiple stimuli, for response, to each participant in a sample of multiple participants.
-Studies with repeated-measures designs will produce data with a structure that requires the use of mixed-effects models.
+We have been learning to:
 
-We are going to learn about this kind of data, and build on the analysis methods we learned about in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview). 
+-   **To recognize** the situations where we shall see multilevel structured data and therefore where we will need to apply multilevel or mixed-effects models.
+-   **To understand** the nature and the advantages of these models: what they are, and why they work better than other kinds of models, given multilevel data.
+-   **To practice** how we code for mixed-effects models, and how we read or write about the results.
 
-We use the same procedure we did for multilevel data but with **one significant change** which we shall explore and seek to understand in-depth.
+We now need to develop our understanding and skills further. And we now need to examine some of the complexities that we may face when we work with mixed-effects models.
+
+::: callout-important
+## The key idea
+Shrinkage or regularization means that models of data should be excited by the data but *not too* excited.
+:::
 
 ## Targets {#sec-dev-mixed-workbook-targets}
 
-Our learning objectives again include the development of both concepts and skills.
+We have three capacities that we are seeking to develop this week:
 
-1.  **skills** -- practice how to tidy experimental data for mixed-effects analysis.
-2.  **concepts** -- begin to develop an understanding of crossed random effects of participants and stimuli.
-3.  **skills and concepts** -- practice fitting linear mixed-effects models incorporating random effects of participants and stimuli.
+1.  to understand mixed-effects models;
+2.  to work with these models practically or efficiently in R;
+3.  and to communicate their results effectively (to ourselves and others).
+
+### Targets {#sec-dev-mixed-workbook-targets-checklist}
+
+You can test your development against this checklist of targets for learning.
+
+1.  We want to develop the capacity to **understand** mixed-effects models, the capacity to:
+
+-   recognize where data have a multilevel structure;
+-   recognize where multilevel or mixed-effects models are required;
+-   distinguish the elements of a mixed-effects model, including fixed effects and random effects;
+-   explain how random effects can be understood in terms of random differences (or deviations) between groups or classes or individuals, in intercepts or slopes;
+-   explain how random effects can be understood in terms of variances, as a means to account for random differences between groups or classes or individuals in intercepts or slopes;
+-   explain how mixed-effects models work better than linear models, for multilevel structured data;
+-   explain how mixed-effects models work better because they allow partial-pooling of estimates.
+
+2.  We want to develop the capacity to **work practically** with mixed-effects models in R, the capacity to:
+
+-   specify a mixed-effects model in `lmer()` code;
+-   identify how the mixed-effects model code varies, depending on the kinds of random effects that are assumed;
+-   identify the elements of the output or results that come from an `lmer()` mixed-effects analysis;
+-   interpret the fixed-effects estimates;
+-   interpret the random effects estimates, including both the variance and covariance estimates.
+
+3.  We want to develop the capacity to **communicate** the results of mixed-effects models effectively, to ourselves and to others, the capacity to:
+
+-   describe in words and summary tables the results of a mixed-effects model;
+-   visualize the effects estimates or predictions from a mixed-effects model.
 
 ## Learning resources {#sec-dev-mixed-workbook-resources}
 
