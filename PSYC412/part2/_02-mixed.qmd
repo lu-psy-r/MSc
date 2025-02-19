@@ -1,3 +1,11 @@
+---
+title: Week 17. Conceptual introduction to mixed-effects models
+subtitle: Written by Rob Davies
+order: 10
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
+
 # Introduction to linear mixed-effects models {#sec-intro-mixed}
 
 ```{r libraries-hide}
@@ -1623,3 +1631,8 @@ We used the `summary()` function to get model results for both linear models and
 [@baayen2008; see also @Barr2013a; @judd2012] discuss mixed-effects models with crossed random effects in a variety of contexts in psychological science. The explanations are clear and the examples are often helpful.
 
 I wrote a tutorial article on mixed-effects models with Lotte Meteyard [@meteyard2020a]. We discuss how important the approach now is for psychological science, what researchers worry about when they use it, and what they should do and report when they use the method.
+
+### References
+
+::: {#refs}
+:::
