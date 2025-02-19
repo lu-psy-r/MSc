@@ -24,13 +24,20 @@ library(tidyverse)
 
 ## Motivations: repeated measures designs and crossed random effects {#sec-intro-motivations}
 
-In @sec-intro-multilevel, we looked at a multilevel structured dataset in which there were observations about children's grades, and it became evident that those children can be grouped by or under classes. As we discussed, this kind of data structure will come from studies with a very common design in which, for example, the researcher records observations about a sample of children who are members of a sample of classes. In working with these kind of data, it is common to say that the observations of children's grades are *nested* within classes in a hierarchy.
+In the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview) chapters, we looked at a multilevel structured dataset in which there were observations about children's grades, and it became evident that those children can be grouped by or under classes. As we discussed, this kind of data structure will come from studies with a very common design in which, for example, the researcher records observations about a sample of children who are members of a sample of classes. In working with these kind of data, it is common to say that the observations of children's grades are *nested* within classes in a hierarchy.
 
 Many Psychologists conduct studies where observations are properly understood to be structured in groups of some form but where, nevertheless, it is inappropriate to think of the observations as being nested [@baayen2008]. We are talking, here, about **repeated-measures designs** where the experimenter presents a sample of multiple stimuli for response to each participant in a sample of multiple participants. This is another *very* common experimental design in psychological science.
 
-Studies with repeated-measures designs will produce data with a structure that, also, requires the use of mixed-effects models but, as we shall see, the way we think about the structure will be a bit more complicated. We could say that observations of the responses made by participants to each stimulus can be grouped by participant: each person will tend to respond in similar ways to different stimuli. Or, we could say that observations of responses can be grouped by stimulus because each stimulus will tend to evoke similar kinds of responses in different people. Or, we could say that both forms of grouping should be taken into account at the same time.
+Studies with repeated-measures designs will produce data with a structure that, also, requires the use of mixed-effects models but, as we shall see, the way we think about the structure will be a bit more complicated. We could say that observations of the responses made by participants to each stimulus can be grouped by participant: each person will tend to respond in similar ways to different stimuli. Or, we could say that observations of responses can be grouped by stimulus because each stimulus will tend to evoke similar kinds of responses in different people. Or, we could say that *both* forms of grouping should be taken into account at the same time.
 
 We shall take the third position and this chapter will concern why, and how we will adapt our thinking and practice.
+
+::: callout-tip
+## Quick start: Workbook introduction to mixed-effects models
+This chapter presents ideas and methods relating to the analysis of repeated-measures data using mixed-effects models in which we extend the ideas and the methods *in depth*.
+
+- You can find a quick start, focused on practical analysis steps, in the [workbook introduction to mixed-effects models](../part2/02-mixed-workbook.qmd#sec-mixed-effects-workbook-overview).
+:::
 
 ## The key idea to get us started {#sec-intro-key}
 
