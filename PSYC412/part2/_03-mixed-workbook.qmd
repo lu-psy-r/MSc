@@ -215,8 +215,6 @@ library(broom)
 library(gridExtra)
 library(here)
 library(lme4)
-library(patchwork)
-library(sjPlot)
 library(tidyverse)
 ```
 :::
@@ -230,45 +228,8 @@ Read the data files into R:
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-behaviour.rt <- read_tsv("CP study word naming rt 180211.dat", na = "-999")
-behaviour.acc <- read_tsv("CP study word naming acc 180211.dat", na = "-999")
-subjects <- read_csv("all.subjects 110614-050316-290518.csv", na = "-999")
-words <- read_csv("words.items.5 120714 150916.csv", na = "-999")
+ML.all <- read_csv("subjects.behaviour.words-310114.csv", na = "-999")
 ```
-:::
-
->**Pract.Q.1.** Can you identify the differences between the functions used to read different kinds of data files?
-
-:::{.callout-tip collapse="true"}
-## Hint
-These different functions respect the different ways in which the `.dat` and `.csv` file formats work. 
-
-- We need `read_tsv()` when data files consist of tab separated values. 
-- We need `read_csv()` when data files consist of comma separated values.
-
-You can read more about the `{tidyverse}` `{readr}` library of helpful functions [here](https://readr.tidyverse.org/).
-
-It is *very* common to get experimental data in all sorts of different formats. Learning to use **tidyverse** functions will make it easier to cope with this when you do research.
-:::
-
->**Pract.Q.2.** Can you explain what the `read_` functions are doing, or what you are doing with them when you code them?
-
-:::{.callout-tip collapse="true"}
-## Hint
-It will help your understanding to examine an example. Take a look at what this line of code includes, element by element.
-
-```{r}
-#| label: readin-demo
-#| eval: false
-#| warning: false
-#| message: false
-behaviour.rt <- read_tsv("CP study word naming rt 180211.dat", na = "-999")
-```
-
-1.  We write `behaviour.rt <- read_tsv(...)` to create an object in the R environment, which we call `behaviour.rt`: the object with this name is the data-set we read into R using `read_tsv(...)`.
-2.  When we write the function `read_tsv(...)` we include two arguments inside it.
-3.  `read_tsv("CP study word naming rt 180211.dat", ...` first, the name of the file, given in quotes `""` and then a comma.
-4.  `read_tsv(..., na = "-999")` second, we tell R that there are some missing values `na` which are coded with the value `"-999"`.
 :::
 
 #### Practical Part 3: Tidy the data
