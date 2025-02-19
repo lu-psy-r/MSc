@@ -679,7 +679,7 @@ You can use `lm()` to do this.
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-# label: lm-all-freq
+#| label: lm-all-freq
 lm.all.freq <- lm(RT ~  Lg.UK.CDcount, data = long.all.noNAs)
 
 summary(lm.all.freq)
@@ -693,7 +693,7 @@ Vary the linear model using different outcomes or predictors: now fit a model in
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-# label: lm-all-length
+#| label: lm-all-length
 lm.all.length <- lm(RT ~  Length,
 
                  data = long.all.noNAs)
@@ -738,7 +738,6 @@ You can Use `facet_wrap()` to do this.
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-## Code
 #| label: fig-freqperchildtrellis
 #| fig-cap: "RT vs. word frequency, considered separately for data for each child"
 #| fig-alt: "The figure shows a grid of scatterplots. In each plot, each point represents the lexical frequency (on the x-axis) and the reaction time (RT, on the y-axis) of responses made by children to a set of words. A red line is drawn through the points, indicating that RT decreases for higher values of frequency. A different plot is shown to represent the data for each child. Between plots, we can see that the potential association between RT and frequency can vary."
@@ -761,7 +760,6 @@ long.all.noNAs %>%
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-## Code
 #| label: fig-lengthperchildtrellis
 #| fig-cap: "RT vs. word length, considered separately for data for each child"
 #| fig-alt: "The figure shows a grid of scatterplots. In each plot, each point represents the word length (on the x-axis) and the reaction time (RT, on the y-axis) of responses made by children to a set of words. A red line is drawn through the points, indicating that RT increases for higher values of length. A different plot is shown to represent the data for each child. Between plots, we can see that the potential association between RT and length can vary."
