@@ -509,7 +509,7 @@ long.all.select.filter <- long.all.select.filter %>%
 We can do the exclusions we need to do using the `filter()` function, setting conditions on rows, as arguments.
 
 ```{r}
-#| label: filterrows
+#| eval: false
 # step 1
 long.all.select.filter <- long.all.select %>% 
                             filter(item_name != 'FALSE')
