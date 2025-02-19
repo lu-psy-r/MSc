@@ -70,7 +70,7 @@ To support your learning, you can read about the ideas and the practical coding 
 
 1. We learned about multilevel structured data in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview).
 2. We then deepened our understanding by looking at the analysis of data from studies with **repeated-measures designs** in the [conceptual introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed) and the [workbook introduction to mixed-effects models](../part2/02-mixed-workbook.qmd#sec-mixed-effects-workbook-overview).
-3. This week, you can find more in-depth explanations of analysis methods and key ideas in the [chapter on developing linear mixed-effects models](../part2/03-mixded.qmd#sec-dev-mixed).
+3. This week, you can find more in-depth explanations of analysis methods and key ideas in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed).
 :::
 
 ### Lectures {#sec-dev-mixed-workbook-lectures}
@@ -101,64 +101,56 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 
 ::: callout-tip
 ## Download the lecture slides
-The slides presented in the videos can be downloaded here:
+You can download the lecture slides in three different versions:
 
-- [402-week-18-LME-2.pdf](files/402-week-18-LME-2.pdf): high resolution .pdf, exactly as delivered [6 MB];
-- [402-week-18-LME-2_1pp-lo.pdf](files/402-week-18-LME-2_1pp-lo.pdf): lower resolution .pdf, printable version, one-slide-per-page [about 900 KB];
-- [402-week-18-LME-2_6pp-lo.pdf](files/402-week-18-LME-2_6pp-lo.pdf): lower resolution .pdf, printable version, six-slides-per-page [about 900 KB].
+- [402-week-19-LME-3.pdf](files/402-week-19-LME-3.pdf): high resolution .pdf, exactly as delivered [1.3 MB];
+- [402-week-19-LME-3_1pp.pdf](files/402-week-19-LME-3_1pp.pdf): printable version, one-slide-per-page [1.2 MB];
+- [402-week-19-LME-3_6pp.pdf](files/402-week-19-LME-3_6pp.pdf): printable version, six-slides-per-page [1.3 MB].
 
-The high resolution version is the version delivered for the lecture recordings. Because the images are produced to be high resolution, the file size is quite big (6 MB) so, to make the slides easier to download, I produced low resolution versions: 1pp and 6pp. These should be easier to download and print out if that is what you want to do.
+The high resolution version is the version delivered for the lecture recordings. To make the slides easier to download, I produced lower resolution versions: 1pp and 6pp. These should be easier to download and print out if that is what you want to do.
 :::
 
 ### Practical materials: data and R-Studio {#sec-dev-mixed-workbook-practical}
 
-We will be working with the **CP reading study** data-set. 
-CP tested 62 children (aged 116-151 months) on reading aloud in English. 
-In the experimental reading task, CP presented 160 words as stimuli. 
-The same 160 words were presented to all children. 
-The words were presented one at a time on a computer screen. 
-Each time a word was shown, each child had to read the word out loud and their response was recorded. 
-Thus, the CP reading study data-set comprised observations about the responses made by 62 children to 160 words.
+We will be working with the **ML word recognition study** dataset. ML examined *visual* word recognition in younger and older adults using the lexical decision task.
 
-You can read more about these data in the [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed).
+In lexical decision, participants are presented with a stimulus: a string of letters that is either a real word (e.g., 'car') or a made-up or non-word (e.g., 'cas'). Participants are required to respond to the stimulus by pressing a button to indicate either that they think the stimulus is a word or that they think it is a non-word. Each complete sequence of events, in which a stimulus is presented and a response is recorded, is known as a *trial*. In the lexical decision task implemented by ML, all study participants were presented with a mix of 160 word stimuli and 160 non-word stimuli, in random order, in a total of 320 trials.
 
-The critical features of the study are that:
+Each stimulus was presented one at a time on the computer screen. The critical outcome measure was the reaction time (RT) or latency for each response. Observed RT represents the interval of time from the moment the stimulus was first presented (the stimulus onset) to the moment the response was made (the response onset).
 
--   We have an outcome measure -- the reading response -- observed multiple times.
+The critical feature of the study, here, is that we have an outcome -- a decision response -- observed multiple times (for each stimulus) for each participant. We shall be analyzing the speed of response, reaction time (RT), measured in milliseconds (ms).
 
-1.  We have *multiple responses recorded for each participant*: they make one response to each stimulus (here, each stimulus word), for the multiple stimuli that they see in the experimental reading task.
-2.  And we have *multiple responses recorded for each stimulus*: one response is made to each stimulus by each participant, for all the participants who completed the task, in a sample of multiple participants.
+You can read more about these data in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed).
 
-The presence of these features is the reason why we need to use mixed-effects models in our analysis.
+Instead of posing a simple and general research question, we shall orient our work around a set of quite specific predictions. ML hypothesized:
+
+1.  Effects of stimulus attributes
+
+-   Predicting that words that are shorter, that look like more other words, and that appear frequently in the language will be easier to recognize.
+
+2.  Effects of participant attributes
+
+-   Predicting that older readers would be faster and more accurate than younger readers in word recognition.
+
+3.  Effects of interactions between the effects of word attributes and person attributes.
+
+-   Predicting that better (older) readers will show smaller effects of word attributes.
 
 ::: callout-important
 **Get the data**: get the data file and the .R script you can use to do the exercises that will support your learning.
 
-- You can download the files folder for this chapter by clicking on the link [02-mixed.zip](files/02-mixed.zip).
+- You can download the files folder for this chapter by clicking on the link [03-mixed.zip](files/03-mixed.zip).
 :::
 
-The practical materials folder includes data files and an `.R` script:
+The practical materials folder includes a data file and an `.R` script:
 
--   `CP study word naming rt 180211.dat`
--   `CP study word naming acc 180211.dat`
--   `words.items.5 120714 150916.csv`
--   `all.subjects 110614-050316-290518.csv`
--   `long.all.noNAs.csv`
--   `402-02-mixed-workbook.R` the workbook you will need to do the practical exercises.
+-   `subjects.behaviour.words-310114.csv` which holds information about the (word) stimuli, participants, and the responses recorded in the ML study.
 
-The `.dat` files are *tab delimited* files holding behavioural data: the latency or reaction time `rt` (in milliseconds) and the accuracy `acc` of response made by each participant to each stimulus.
+The `.csv` file is a *comma separated values* file and can be opened in Excel.
 
-The `.csv` files are *comma separated values* files.
-The `words.items` file holds information about the 160 stimulus words presented in the experimental reading (word naming) task. 
-The `all.subjects` file holds information about the 62 participants who volunteered to take part in the experiment.
+The data file is collected together with the .R script:
 
-In the following, I will describe a series of steps through which we get the data ready for analysis. However, as we shall see, you can avoid these steps by using the pre-tidied data-set:
-
--   `long.all.noNAs.csv`
-
-The data files are collected together through the steps set out in the .R script:
-
--   `402-02-mixed-workbook.R`.
+-   `402-03-mixed-workbook.R` the workbook you will need to do the practical exercises.
 
 ::: callout-important
 You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
