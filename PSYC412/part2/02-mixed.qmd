@@ -864,7 +864,7 @@ The problem is that, as we have discussed, we assume that observations are indep
 
 We can examine that variation by estimating the intercept and the slope of the frequency effect separately using the data for each participant alone. We can start by visualizing the frequency effect for each child in a grid of plots, with each plot representing the $\text{RT} \sim \text{frequency}$ relationship for the data for a child (@fig-freqperchildtrellis).
 
-We looked at how the plotting code works in @sec-multi-plot-lattice.
+We looked at how the plotting code works step-by-step in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-multi-plot-lattice).
 
 ```{r}
 #| label: fig-freqperchildtrellis
@@ -1022,7 +1022,7 @@ Second, we have the bit that is specific to multilevel or mixed-effects models.
 
 #### Exercise {#sec-intro-mixed-exx-lmer}
 
-It will help your learning if you now go back and compare this model with the model you saw in @sec-multi-lmer.
+It will help your learning if you now go back and compare this model with the model you saw in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-multi-lmer).
 
 -   Identify what is different: data-set, variable names, and model formula.
 -   Identify what stays the same: function name ... the specification of both model and random effects.
@@ -1110,7 +1110,7 @@ Further, we have not finished in our consideration of the random effects that th
 ::: callout-warning
 Why aren't there p-values?
 
-We will come back to this (@sec-dev-mixed-discussion-p-values) but note that if $t > 2$ we can suppose that an effect is significant at the $.05$ significance level.
+We will come back to this (in a week) but note that if $t > 2$ we can suppose that an effect is significant at the $.05$ significance level.
 :::
 
 ### What we estimate when we estimate random effects {#sec-intro-mixed-BLUPs}
@@ -1524,7 +1524,7 @@ This is why it would often make sense to specify, among the random effects of th
 -   $covar(U_{0i}, U_{1i}X_j)$
 
 ::: callout-warning
-Remember we excluded random effects covariance, see @sec-intro-mixed-exclude-covariance.
+Remember we excluded random effects covariance using `||`.
 :::
 
 In @sec-intro-mixed-double-bar, I noted how we used the `||` notation to stop the model estimating the covariance between differences between participants in intercepts and in slopes. The reason I did this is that if I had requested that the model estimate the covariance the model would have failed to converge. What this means depends on understanding how mixed-effects models are estimated. We shall have to return to a development of that understanding later. For now, it is enough to note that mixed-effects models fitted with `lmer()` often have more difficulty with random effects covariance estimates.
