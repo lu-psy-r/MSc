@@ -732,7 +732,7 @@ You need to look at the model summary to do this. Specifically, you need to thin
 ## Hint
 You can Use `facet_wrap()` to do this.
 
-- We can visualizde the frequency effect for each child in a grid of plots, with each plot representing the $\text{RT} \sim \text{frequency}$ relationship for the data for a child (@fig-freqperchildtrellis).
+- We can visualize the frequency effect for each child in a grid of plots, with each plot representing the $\text{RT} \sim \text{frequency}$ relationship for the data for a child (see the lattice or trellis plot, following).
 :::
 
 :::{.callout-tip collapse="true"}
