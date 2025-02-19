@@ -674,7 +674,7 @@ You can read more about using multiple arguments to filter observations [here](h
 1.  Change the threshold for including RTs from `RT >= 200` to something else
 2.  Can you assess what impact the change has? Note that you can count the number of observations (rows) in a data-set using e.g. `length(data.set.name$variable.name)`
 
-Filtering or re-coding observations is an important element of the research workflow in psychological science, as I discuss in @sec-multiversedata. How we do or do not remove observations from original data may have an impact on our results (as explored by, e.g., Steegen et al., 2014). It is important, therefore, that we learn how to do this reproducibly using R scripts that we can share with our research reports.
+Filtering or re-coding observations is an important element of the research workflow in psychological science, as I examine in the [PSYC411 discussion of the data multiverse](../PSYC411/part2/intro.qmd#sec-multiversedata). How we do or do not remove observations from original data may have an impact on our results (as explored by, e.g., Steegen et al., 2014). It is important, therefore, that we learn how to do this reproducibly using R scripts that we can share with our research reports.
 
 You can read further information about filtering [here](https://r4ds.had.co.nz/transform.html?q=filter#filter-rows-with-filter).
 
