@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Analysing and Interpreting Psychological Data II – Statistics for Psychologists</title>
+<title>Week 00. Writing reproducible reports using Quarto – Statistics for Psychologists</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,47 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../Images/favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../PSYC412/part2/LICENSE.html" rel="next">
+<link href="../../PSYC412/part2/02-mixed.html" rel="prev">
+<link href="../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -126,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Analysing and Interpreting Psychological Data II</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week11.html">PSYC412</a></li><li class="breadcrumb-item"><a href="../../PSYC412/part2/00-quarto.html">Week 00. Writing reproducible reports using Quarto</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -149,73 +170,73 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part1/Week1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part1/Week1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 1. Introducing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part1/Week2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part1/Week2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 2. Manipulating data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part1/Week3.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part1/Week3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 3. Drawing graphs from data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part1/Week4.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part1/Week4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 4. Testing nominal data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part1/Week5.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part1/Week5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 5. Testing differences between groups</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part2/report-preface.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part2/report-preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 6. The structured research report – Quick start</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part2/how.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part2/how.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 6. How you can do the analysis work</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part2/intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part2/intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 6. Why we are asking you to do this</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part2/hypotheses-associations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part2/hypotheses-associations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 7. Hypotheses and associations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part2/lm-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part2/lm-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 8. Introduction to the linear model</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part2/visualization-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part2/visualization-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 9. Data visualization practices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC411/part2/lm-dev.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC411/part2/lm-dev.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 10. Developing the linear model</span></a>
   </div>
 </li>
@@ -232,67 +253,67 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part1/Week11.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part1/Week11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 11. Recap of the linear model and practising data-wrangling in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part1/Week12.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part1/Week12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 12. Categorical predictors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part1/Week13.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part1/Week13.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 13. More on interactions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part1/Week14.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part1/Week14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 14. Logistic regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part1/Week15.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part1/Week15.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 15. Poisson regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part2/01-multilevel-workbook.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part2/01-multilevel-workbook.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 16. Workbook introduction to multilevel data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part2/01-multilevel.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part2/01-multilevel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 16. Conceptual introduction to multilevel data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part2/02-mixed-workbook.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part2/02-mixed-workbook.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 17. Workbook introduction to mixed-effects models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part2/02-mixed.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part2/02-mixed.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 17. Conceptual introduction to mixed-effects models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part2/00-quarto.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part2/00-quarto.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Week 00. Writing reproducible reports using Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../PSYC412/part2/LICENSE.html" class="sidebar-item-text sidebar-link">
+  <a href="../../PSYC412/part2/LICENSE.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">LICENSE</span></a>
   </div>
 </li>
@@ -308,19 +329,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
-  <li><a href="#asking-for-help" id="toc-asking-for-help" class="nav-link" data-scroll-target="#asking-for-help">Asking for help</a></li>
-  <li><a href="#course-contacts" id="toc-course-contacts" class="nav-link" data-scroll-target="#course-contacts">Course Contacts</a></li>
+  <li><a href="#sec-quarto-overview" id="toc-sec-quarto-overview" class="nav-link active" data-scroll-target="#sec-quarto-overview">Writing reproducible reports using Quarto</a>
+  <ul class="collapse">
+  <li><a href="#sec-quarto-overview-what" id="toc-sec-quarto-overview-what" class="nav-link" data-scroll-target="#sec-quarto-overview-what">What is this?</a>
+  <ul class="collapse">
+  <li><a href="#sec-quarto-overview-related" id="toc-sec-quarto-overview-related" class="nav-link" data-scroll-target="#sec-quarto-overview-related">Related materials</a></li>
+  <li><a href="#sec-quarto-overview-pre-requisites" id="toc-sec-quarto-overview-pre-requisites" class="nav-link" data-scroll-target="#sec-quarto-overview-pre-requisites">Pre-requisites</a></li>
+  </ul></li>
+  <li><a href="#sec-quarto-overview-why" id="toc-sec-quarto-overview-why" class="nav-link" data-scroll-target="#sec-quarto-overview-why">Motivations: why bother?</a>
+  <ul class="collapse">
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC412/part1/Week11.html">PSYC412</a></li><li class="breadcrumb-item"><a href="../../PSYC412/part2/00-quarto.html">Week 00. Writing reproducible reports using Quarto</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Analysing and Interpreting Psychological Data II</h1>
-<p class="subtitle lead">Course coordinators: Margriet Groen, Rob Davies</p>
+<h1 class="title">Week 00. Writing reproducible reports using Quarto</h1>
+<p class="subtitle lead">Written by Rob Davies</p>
 </div>
 
 
@@ -337,59 +367,81 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome" class="level1">
-<h1>Welcome</h1>
-<p>Welcome to PSYC412!</p>
-<p>This module builds on the knowledge and skills acquired in Statistics for Psychologists 1 (PSYC411). You will continue to practise data handling, data processing and data visualisation, using R and R Studio. In addition, you will extend your knowledge of the general linear model and learn how to adapt it when working with different types of data. Of course you’ll also learn how to implement those methods in R and R Studio.</p>
-<p>This page gives you access to all the materials that you will need. You will have timetabled lab classes during which you are expected to work through a series of exercises to practise that week’s material. Before you come to your lab session, you should watch the lectures for that week, read the relevant book chapter and complete the pre-lab activities.</p>
-</section>
-<section id="asking-for-help" class="level1">
-<h1>Asking for help</h1>
-<p>We have carefully prepared and refined the lab materials in this course over several years, and we feel that the pace of the materials is just right for our students. Some students will complete them more quickly, and others more slowly - both of these scenarios are absolutely fine. You should work at the pace that suits you best, making sure you understand the materials before you move forward.</p>
-<p>It is fairly inevitable that you will get stuck on the lab materials in this module at some point. This might be in Week 11, Week 12, or later. When you do, it’s important you reach out for help:</p>
+<section id="sec-quarto-overview" class="level1">
+<h1>Writing reproducible reports using Quarto</h1>
+<section id="sec-quarto-overview-what" class="level2">
+<h2 class="anchored" data-anchor-id="sec-quarto-overview-what">What is this?</h2>
+<p>I am sharing materials here to support the development of skills in producing reproducible reports using Quarto.</p>
+<p>These materials should provide a quick entry to the what, why and how.</p>
+<p>You can write in Quarto, in R-Studio (or any code editor), to produce:</p>
 <ul>
-<li><strong>Ask your friends on your table</strong>. We’ve designed this teaching space to help collaborative work. You are encouraged to work with other students. Make sure you ask others to explain how they’ve solved an exercise. Make sure you help out others where you can. Always make sure you understand the code and the exercise; don’t simply be satisfied that you’ve got the right answer.</li>
-<li><strong>Ask a GTA or Lecturer</strong>. Our teaching staff is there to help you. There are no “stupid questions” in statistics, so just ask the GTA or the lecturer any question about what you’re doing.</li>
-<li><strong>Ask on the Discussion Forum</strong>. On the PSYC402 moodle page you will find a <a href="https://modules.lancaster.ac.uk/mod/forum/view.php?id=2212548">Discussion Forum</a>. This is a great way to ask a question outside of the lab sessions. It might seem scary to ask a question in the forum, but please don’t be afraid to do this. If you have a question, you can bet other students also have the same question! So by asking the question on the forum, you help out many more people on the module. A friendly GTA or Lecturer will be along to answer the question as soon as possible (we aim for within 48 hours during the working week).</li>
-<li><strong>Ask on the module Q &amp; A session</strong>. Each week we hold a “Q&amp;A” online session where we will try and resolve any general queries and problems. It’s an ideal time to discuss things that students are struggling with or confused about, and can share ideas and answers. You can ask on the discussion forum above and then we might be able to pick up the issues and discuss them, but also you can ask in the session itself.</li>
+<li>reports or manuscripts;</li>
+<li>presentations;</li>
+<li>books;</li>
+<li>webpages.</li>
 </ul>
+<p>Here, we are going to focus on reports that will be output as <code>.docx</code>.</p>
+<section id="sec-quarto-overview-related" class="level3">
+<h3 class="anchored" data-anchor-id="sec-quarto-overview-related">Related materials</h3>
+<p>Quarto was developed by Posit (formerly: R-Studio).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can find the Posit guide to Quarto here:</p>
+<p><a href="https://quarto.org/docs/get-started/hello/rstudio.html" class="uri">https://quarto.org/docs/get-started/hello/rstudio.html</a></p>
+</div>
+</div>
 </section>
-<section id="course-contacts" class="level1">
-<h1>Course Contacts</h1>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th>Email Address</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Margriet Groen</td>
-<td><script type="text/javascript">
-<!--
-h='&#108;&#x61;&#110;&#x63;&#x61;&#x73;&#116;&#x65;&#114;&#46;&#x61;&#x63;&#46;&#x75;&#x6b;';a='&#64;';n='&#x6d;&#46;&#x67;&#114;&#x6f;&#x65;&#110;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>m.groen at lancaster dot ac dot uk</noscript></td>
-</tr>
-<tr class="even">
-<td>Rob Davies</td>
-<td><script type="text/javascript">
-<!--
-h='&#108;&#x61;&#110;&#x63;&#x61;&#x73;&#116;&#x65;&#114;&#46;&#x61;&#x63;&#46;&#x75;&#x6b;';a='&#64;';n='&#114;&#46;&#100;&#x61;&#118;&#x69;&#x65;&#x73;&#x31;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>r.davies1 at lancaster dot ac dot uk</noscript></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="sec-quarto-overview-pre-requisites" class="level3">
+<h3 class="anchored" data-anchor-id="sec-quarto-overview-pre-requisites">Pre-requisites</h3>
+<ol type="1">
+<li>Before you get started, you will need a local installation of R and R-Studio.</li>
+</ol>
+<ul>
+<li>Install R first, following the instructions here:</li>
+</ul>
+<p><a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></p>
+<ul>
+<li>Then install R, see:</li>
+</ul>
+<p><a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p>
+<p>You need to do the installation in that order because R-Studio is the interface (an <em>Interactive Development Editor (IDE)</em>) but R does the work.</p>
+<ol start="2" type="1">
+<li>It is probably worth your time having a skim of the “hello world” quick start guide:</li>
+</ol>
+<p><a href="https://quarto.org/docs/get-started/hello/rstudio.html" class="uri">https://quarto.org/docs/get-started/hello/rstudio.html</a></p>
+</section>
+</section>
+<section id="sec-quarto-overview-why" class="level2">
+<h2 class="anchored" data-anchor-id="sec-quarto-overview-why">Motivations: why bother?</h2>
+<p>There are at least the following justifications for investing time in this (in no particular order):</p>
+<ol type="1">
+<li>Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place so that you can avoid the risks of the standard workflow:</li>
+</ol>
+<ul>
+<li>Risks: lose track of what data underlie which calculations or plots or table summaries.</li>
+</ul>
+<ol start="2" type="1">
+<li><p>Automate the boring stuff: figure, table or section cross-referencing; producing documents in different formats; generating bibliographies.</p></li>
+<li><p>Make manuscripts or presentations or notes share-able: Quarto is free so removes barrier to entry presented by licensed software like MS Word.</p></li>
+<li><p>Make nice things: plots and tables will look better.</p></li>
+</ol>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<div id="refs" role="list">
+
+</div>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -813,6 +865,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../PSYC412/part2/02-mixed.html" class="pagination-link" aria-label="Week 17. Conceptual introduction to mixed-effects models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 17. Conceptual introduction to mixed-effects models</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../PSYC412/part2/LICENSE.html" class="pagination-link" aria-label="LICENSE">
+        <span class="nav-page-text">LICENSE</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -825,7 +889,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../previous-content/index.html">
+    <a class="nav-link" href="../../previous-content/index.html">
 <p>Previous Content</p>
 </a>
   </li>  

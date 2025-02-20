@@ -1603,5 +1603,41 @@
       "PSYC412",
       "Week 17. Workbook introduction to mixed-effects models"
     ]
+  },
+  {
+    "objectID": "PSYC412/part2/00-quarto.html",
+    "href": "PSYC412/part2/00-quarto.html",
+    "title": "Week 00. Writing reproducible reports using Quarto",
+    "section": "",
+    "text": "I am sharing materials here to support the development of skills in producing reproducible reports using Quarto.\nThese materials should provide a quick entry to the what, why and how.\nYou can write in Quarto, in R-Studio (or any code editor), to produce:\n\nreports or manuscripts;\npresentations;\nbooks;\nwebpages.\n\nHere, we are going to focus on reports that will be output as .docx.\n\n\nQuarto was developed by Posit (formerly: R-Studio).\n\n\n\n\n\n\nTip\n\n\n\nYou can find the Posit guide to Quarto here:\nhttps://quarto.org/docs/get-started/hello/rstudio.html\n\n\n\n\n\n\nBefore you get started, you will need a local installation of R and R-Studio.\n\n\nInstall R first, following the instructions here:\n\nhttps://cran.r-project.org/\n\nThen install R, see:\n\nhttps://posit.co/download/rstudio-desktop/\nYou need to do the installation in that order because R-Studio is the interface (an Interactive Development Editor (IDE)) but R does the work.\n\nIt is probably worth your time having a skim of the “hello world” quick start guide:\n\nhttps://quarto.org/docs/get-started/hello/rstudio.html\n\n\n\n\nThere are at least the following justifications for investing time in this (in no particular order):\n\nReproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place so that you can avoid the risks of the standard workflow:\n\n\nRisks: lose track of what data underlie which calculations or plots or table summaries.\n\n\nAutomate the boring stuff: figure, table or section cross-referencing; producing documents in different formats; generating bibliographies.\nMake manuscripts or presentations or notes share-able: Quarto is free so removes barrier to entry presented by licensed software like MS Word.\nMake nice things: plots and tables will look better.",
+    "crumbs": [
+      "Home",
+      "PSYC412",
+      "Week 00. Writing reproducible reports using Quarto"
+    ]
+  },
+  {
+    "objectID": "PSYC412/part2/00-quarto.html#sec-quarto-overview-what",
+    "href": "PSYC412/part2/00-quarto.html#sec-quarto-overview-what",
+    "title": "Week 00. Writing reproducible reports using Quarto",
+    "section": "",
+    "text": "I am sharing materials here to support the development of skills in producing reproducible reports using Quarto.\nThese materials should provide a quick entry to the what, why and how.\nYou can write in Quarto, in R-Studio (or any code editor), to produce:\n\nreports or manuscripts;\npresentations;\nbooks;\nwebpages.\n\nHere, we are going to focus on reports that will be output as .docx.\n\n\nQuarto was developed by Posit (formerly: R-Studio).\n\n\n\n\n\n\nTip\n\n\n\nYou can find the Posit guide to Quarto here:\nhttps://quarto.org/docs/get-started/hello/rstudio.html\n\n\n\n\n\n\nBefore you get started, you will need a local installation of R and R-Studio.\n\n\nInstall R first, following the instructions here:\n\nhttps://cran.r-project.org/\n\nThen install R, see:\n\nhttps://posit.co/download/rstudio-desktop/\nYou need to do the installation in that order because R-Studio is the interface (an Interactive Development Editor (IDE)) but R does the work.\n\nIt is probably worth your time having a skim of the “hello world” quick start guide:\n\nhttps://quarto.org/docs/get-started/hello/rstudio.html",
+    "crumbs": [
+      "Home",
+      "PSYC412",
+      "Week 00. Writing reproducible reports using Quarto"
+    ]
+  },
+  {
+    "objectID": "PSYC412/part2/00-quarto.html#sec-quarto-overview-why",
+    "href": "PSYC412/part2/00-quarto.html#sec-quarto-overview-why",
+    "title": "Week 00. Writing reproducible reports using Quarto",
+    "section": "",
+    "text": "There are at least the following justifications for investing time in this (in no particular order):\n\nReproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place so that you can avoid the risks of the standard workflow:\n\n\nRisks: lose track of what data underlie which calculations or plots or table summaries.\n\n\nAutomate the boring stuff: figure, table or section cross-referencing; producing documents in different formats; generating bibliographies.\nMake manuscripts or presentations or notes share-able: Quarto is free so removes barrier to entry presented by licensed software like MS Word.\nMake nice things: plots and tables will look better.",
+    "crumbs": [
+      "Home",
+      "PSYC412",
+      "Week 00. Writing reproducible reports using Quarto"
+    ]
   }
 ]
