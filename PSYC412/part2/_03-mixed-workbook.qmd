@@ -814,6 +814,8 @@ An alternative approach to doing significance tests of hypothesized effects, is 
 
 #### Practical Part 8: Run your own sequence of lmer models
 
+##### Practical Task 20 -- Pick your own predictors and compare the impact of specifying different sets of random effects
+
 It will be useful for you to examine model comparisons with a different set of models for the same data.
 
 You could try to run a series of models in which the fixed effects variable is something different, for example, the effect of word `Length` or the effect of orthographic neighbourhood size `Ortho_N`.
@@ -916,7 +918,7 @@ anova(ML.all.correct.lmer.REML.si, ML.all.correct.lmer.REML.slopes, refit=FALSE)
 ```
 :::
 
-#### Practical Part 7: Extension
+#### Practical Part 9: Optional -- reproduce the plots in the chapter and slides
 
 Reproduce the plots in the chapter and slides
 
@@ -924,255 +926,319 @@ This part is optional for you to view and work with.
 
 - Run the code, and consider the code steps *only* if you are interested in how the materials for the book chapter were created.
 
-##### Practical Task 15 -- Visualize the relationship between frequency and RT, separately for each participant
+##### Practical Task 21 -- Compare no versus complete versus partial pooling estimates
 
-What we aim to do is:
+In the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed-no-pooling) I talk about pooling, no pooling and partial pooling, and the impact on estimates.
 
-1. Model the effect of word frequency for each child, for their data considered separately.
-2. Extract the coefficient estimate for the frequency effect for each separate model (per child).
-3. Then plot these estimates, together with 
+To produce the plots I discuss there, I adapted Tristan Mahr's code, here:
 
-Can you figure out how to code these steps?
+- <https://www.tjmahr.com/plotting-partial-pooling-in-mixed-effects-models/>
+
+We work through a sequence of fitting models, getting estimates, and producing plots.
+
+1. Get no pooling estimates by running `lm()` for each participant.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-# -- First fit the model for each child
-freqperchildlm <- long.all.noNAs %>%
-  group_by(subjectID) %>% 
-  do(tidy(lm(RT ~ Lg.UK.CDcount, data=.)))
+df_no_pooling <- lmList(logrt ~
+                          
+                          LgSUBTLCD | subjectID, ML.all.correct) %>% 
+  coef() %>% 
+  # Subject IDs are stored as row-names. Make them an explicit column
+  rownames_to_column("subjectID") %>% 
+  rename(Intercept = `(Intercept)`, Slope_frequency = LgSUBTLCD) %>% 
+  add_column(Model = "No pooling")
 
-# -- What does freqperchildlm hold: take a look?
+# -- you can uncomment and inspect the tibble produced by these lines of code
+# summary(df_no_pooling)
+```
+:::
 
-# -- Make sure you can treat term as a factor
-freqperchildlm$term <- as.factor(freqperchildlm$term)
+2. Make the `subjectID` and `Model` label vectors a factor.
 
-# -- Get the intercept and frequency effect estimates
-freqperchildlmint <- filter(freqperchildlm, term == '(Intercept)')
-freqperchildlmfreq <- filter(freqperchildlm, term == 'Lg.UK.CDcount')
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+df_no_pooling$subjectID <- as.factor(df_no_pooling$subjectID)
+df_no_pooling$Model <- as.factor(df_no_pooling$Model)
+```
+:::
 
-# -- Make the intercepts plots: order by size
-pfreqperchildlmint <- freqperchildlmint %>%
-  ggplot(aes(x = fct_reorder(subjectID, estimate), y = estimate, ymin = estimate - std.error, ymax = estimate + std.error)) + 
-  geom_point() + geom_linerange() + 
+3. In contrast, we might consider a complete pooling model where all the information from the participants is combined together. 
+
+- Fit a single mdoel for all the data pooled together.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+m_pooled <- lm(logrt ~ LgSUBTLCD, ML.all.correct) 
+```
+:::
+
+4. Repeat the intercept and slope terms for each participant.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+df_pooled <- data_frame(
+  Model = "Complete pooling",
+  subjectID = unique(ML.all.correct$subjectID),
+  Intercept = coef(m_pooled)[1], 
+  Slope_frequency = coef(m_pooled)[2])
+
+# -- inspect
+# summary(df_pooled)
+```
+:::
+
+5. Make the model label vector a factor.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+df_pooled$Model <- as.factor(df_pooled$Model)
+```
+:::
+
+6. We can compare these two approaches: instead of calculating the regression lines with `stat_smooth()`, we can use `geom_abline()` to draw the lines from our dataframe of intercept and slope parameters.
+
+Join the raw data so we can use plot the points and the lines.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+df_models <- bind_rows(df_pooled, df_no_pooling) %>% 
+  left_join(ML.all.correct, by = "subjectID")
+```
+:::
+
+7. Produce the plot:
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+p_model_comparison <- ggplot(df_models) + 
+  aes(x = LgSUBTLCD, y = logrt) + 
+  # Set the color mapping in this layer so the points don't get a color
+  geom_point(alpha = .05) +
+  geom_abline(aes(intercept = Intercept, 
+                  slope = Slope_frequency, 
+                  color = Model),
+              size = .75) +
+  facet_wrap(~ subjectID) +
+  scale_x_continuous(breaks = 1.5:4 * 1) + 
   theme_bw() + 
-  xlab("Intercepts in order of size") +
-  ylab("Estimated intercept +/- SE") + 
-  theme(axis.title.y = element_text(size = 10), 
-        axis.text.y = element_text(size = 5), 
-        axis.text.x = element_blank(), 
-        panel.grid = element_blank())
+  theme(legend.position = "top")
 
-# -- Make the slopes plots: order by size
-pfreqperchildlmfreq <- freqperchildlmfreq %>%
-  ggplot(aes(x = fct_reorder(subjectID, estimate), y = estimate, ymin = estimate - std.error, ymax = estimate + std.error)) + 
-  geom_point() + geom_linerange() + 
+p_model_comparison
+```
+:::
+
+8. Compare no vs. complete  vs. partial pooling estimates
+
+- Mixed-effects models represent partial pooling of data.
+
+We fit a separate line for each cluster of data, one for each participant.
+
+- the `lmList()` function in `{lme4}` automates this process.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+df_no_pooling <- lmList(logrt ~
+                          
+                          LgSUBTLCD | subjectID, ML.all.correct) %>% 
+  coef() %>% 
+  # Subject IDs are stored as row-names. Make them an explicit column
+  rownames_to_column("subjectID") %>% 
+  rename(Intercept = `(Intercept)`, Slope_frequency = LgSUBTLCD) %>% 
+  add_column(Model = "No pooling")
+
+# -- inspect the tibble produced by these lines of code
+# summary(df_no_pooling)
+
+# -- make the subjectID and model label vectors a factor
+df_no_pooling$subjectID <- as.factor(df_no_pooling$subjectID)
+df_no_pooling$Model <- as.factor(df_no_pooling$Model)
+```
+:::
+
+In contrast, we might consider a complete pooling model where all the information from the participants is combined together.
+
+- We fit a single model on all the data pooled together.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+m_pooled <- lm(logrt ~ LgSUBTLCD, ML.all.correct) 
+
+# -- repeat the intercept and slope terms for each participant
+df_pooled <- data_frame(
+  Model = "Complete pooling",
+  subjectID = unique(ML.all.correct$subjectID),
+  Intercept = coef(m_pooled)[1], 
+  Slope_frequency = coef(m_pooled)[2])
+
+# -- inspect
+# summary(df_pooled)
+
+# -- make the model label vector a factor
+df_pooled$Model <- as.factor(df_pooled$Model)
+```
+:::
+
+We can fit a mixed-effects model including the fixed effects of the intercept and the frequency effect
+
+- as well as the random effects due to differences between participants (subject ID) in intercepts or in the slope of the frequency effect, as well as differences between items (item_name) in intercepts.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ML.all.correct.lmer  <- lmer(logrt ~
+                               
+                               LgSUBTLCD + (LgSUBTLCD + 1|subjectID) + (1|item_name),     
+                             
+                             data = ML.all.correct, REML = FALSE)
+# summary(ML.all.correct.lmer)
+```
+:::
+
+To visualize these estimates, we extract each participant’s intercept and slope using `coef()`.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+# -- make a dataframe with the fitted effects
+df_partial_pooling <- coef(ML.all.correct.lmer)[["subjectID"]] %>% 
+  rownames_to_column("subjectID") %>% 
+  as_tibble() %>% 
+  rename(Intercept = `(Intercept)`, Slope_frequency = LgSUBTLCD) %>% 
+  add_column(Model = "Partial pooling")
+
+# -- inspect the tibble produced by these lines of code
+# summary(df_partial_pooling)
+
+# -- make the subjectID and model label vectors both factors
+df_partial_pooling$subjectID <- as.factor(df_partial_pooling$subjectID)
+df_partial_pooling$Model <- as.factor(df_partial_pooling$Model)
+```
+:::
+
+Visualize the comparison by producing a plot using a data-set consisting of of all three sets of model estimates.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+df_models <- rbind(df_pooled, df_no_pooling, df_partial_pooling) %>%
+  left_join(ML.all.correct, by = "subjectID")
+
+# -- inspect the differences between the datasets
+# summary(df_pooled)
+# summary(df_no_pooling)
+# summary(df_partial_pooling)
+# summary(ML.all.correct)
+# summary(df_models)
+
+# -- we  produce a plot showing the no-pooling, complete-pooling and partial-pooling (mixed effects)
+# estimates
+
+p_model_comparison <- ggplot(df_models) +
+  aes(x = LgSUBTLCD, y = logrt) +
+  # Set the color mapping in this layer so the points don't get a color
+  geom_point(alpha = .05) +
+  geom_abline(aes(intercept = Intercept,
+                  slope = Slope_frequency,
+                  color = Model),
+              size = .75) +
+  facet_wrap(~ subjectID) +
+  scale_x_continuous(breaks = 1.5:4 * 1) +
+  theme_bw() +
+  theme(legend.position = "top")
+
+p_model_comparison
+```
+:::
+
+9. Zoom in on a few participants:
+
+- use `filter()` to select a small number of participants.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+df_zoom <- df_models %>% 
+  filter(subjectID %in% c("EB5", "JP3", "JL3", "AA1"))
+
+# -- re-generate the plot with this zoomed-in selection dataset
+
+p_model_comparison <- ggplot(df_zoom) + 
+  aes(x = LgSUBTLCD, y = logrt) + 
+  # Set the color mapping in this layer so the points don't get a color
+  geom_point(alpha = .05) +
+  geom_abline(aes(intercept = Intercept, 
+                  slope = Slope_frequency, 
+                  color = Model),
+              size = .75) +
+  facet_wrap(~ subjectID) +
+  scale_x_continuous(breaks = 1.5:4 * 1) + 
   theme_bw() + 
-  xlab("Frequency effect coefficient in order of size") +
-  ylab("Estimated coefficient for the frequency effect +/- SE") + 
-  theme(axis.title.y = element_text(size = 10), 
-        axis.text.y = element_text(size = 5), 
-        axis.text.x = element_blank(), 
-        panel.grid = element_blank())
+  theme(legend.position = "top")
 
-# -- Make a grid to show the plots side by side: in 2 columns
-grid.arrange(pfreqperchildlmint, pfreqperchildlmfreq,
-             ncol = 2) 
+p_model_comparison
 ```
 :::
 
-##### Practical Task 16 -- Take the linear mixed-effects model, and plot the model predicted differences in intercepts or slopes
+##### Practical Task 22 -- Illustrate shrinkage
 
-What we aim to do is:
+The partial pooling model pulls (or shrinks) more extreme estimates towards an overall average.
+We can visualize this shrinkage effect by plotting a scatterplot of intercept and slope  parameters from each model and connecting estimates for the same participant.
 
-1. Model the effect of word frequency for all the children, including random effects terms to take into account random differences between children in intercepts or in slopes.
-2. Get the random effects estimates -- the between-children differences -- and plot them.
-
-Can you figure out how to code these steps?
-
-First, fit the model.
+- We use arrows to connect the different estimates for each participant, different estimates from no-pooling (per-participant) compared to partial-pooling (mixed-effects) models.
+- The plot shows how more extreme estimates are shrunk towards the global average estimate.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID),
-                   
-                   data = long.all.noNAs)
-```
-:::
+df_fixef <- data_frame(
+  Model = "Partial pooling (average)",
+  Intercept = fixef(ML.all.correct.lmer)[1],
+  Slope_frequency = fixef(ML.all.correct.lmer)[2])
 
-Second, extract the random effects and plot them.
+# Complete pooling / fixed effects are center of gravity in the plot
+df_gravity <- df_pooled %>% 
+  distinct(Model, Intercept, Slope_frequency) %>% 
+  rbind(df_fixef)
+# df_gravity
+#> # A tibble: 2 x 3
+#>                       Model Intercept Slope_Days
+#>                       <chr>     <dbl>      <dbl>
+#> 1          Complete pooling  252.3207   10.32766
+#> 2 Partial pooling (average)  252.5426   10.45212
 
-:::{.callout-tip collapse="true"}
-## Hint
-Plot the distribution of random effects -- usually called conditional modes.
-:::
+df_pulled <- rbind(df_no_pooling, df_partial_pooling)
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-BLUPS <- ranef(lmer.all.1)$subjectID
-# summary(BLUPS)
-
-BLUPS.df <- data.frame(subjectID = rownames(BLUPS), 
-                       intercepts = BLUPS[,1], 
-                       frequency = BLUPS[,2])
-# summary(BLUPS.df)
-# str(BLUPS.df)
-
-p.BLUPS.intercepts <- BLUPS.df %>%
-  ggplot(aes(x = intercepts)) +
-  geom_histogram() + 
-  ggtitle("(a.) Adjustment by child") +
-  xlab("In the intercept") +
-  geom_vline(xintercept = 0, colour = "red", size = 1.5) +
+ggplot(df_pulled) + 
+  aes(x = Intercept, y = Slope_frequency, color = Model) + 
+  geom_point(size = 2) + 
+  geom_point(data = df_gravity, size = 5) + 
+  # Draw an arrow connecting the observations between models
+  geom_path(aes(group = subjectID, color = NULL), 
+            arrow = arrow(length = unit(.02, "npc"))) + 
+  # Use ggrepel to jitter the labels away from the points
+  ggrepel::geom_text_repel(
+    aes(label = subjectID, color = NULL),
+    data = df_no_pooling) +
+  # Don't forget 373
+  # ggrepel::geom_text_repel(
+  #   aes(label = subjectID, color = NULL), 
+  #   data = filter(df_partial_pooling, Subject == "373")) + 
+  theme(legend.position = "right") + 
+  # ggtitle("Pooling of regression parameters") + 
+  xlab("Intercept estimate") + 
+  ylab("Slope estimate") + 
+  scale_color_brewer(palette = "Dark2") +
   theme_bw()
-
-p.BLUPS.slopes <- BLUPS.df %>%
-  ggplot(aes(x = frequency)) +
-  geom_histogram() + 
-  ggtitle("(b.) Adjustment by child") +
-  xlab("In the frequency slope (coefficient)") +
-  geom_vline(xintercept = 0, colour = "red", size = 1.5) +
-  theme_bw()
-
-grid.arrange(p.BLUPS.intercepts, p.BLUPS.slopes,
-             ncol = 2
-)
-```
-:::
-
-##### Practical Task 17 -- Fit different kinds of mixed-effects model, then plot the resulting differences in model predictions
-
-What we aim to do is:
-
-1. Model the effect of word frequency for all the children, including (in different models) different random effects terms to take into account (in different ways) random differences between children in intercepts or in slopes.
-2. Get the random effects estimates -- the between-children differences -- and plot the model predictions.
-
-Can you figure out how to code these steps?
-
-First, fit the models. We want to compare models with:
-
-1. Random effects of participants on intercepts and on slopes.
-2. Random effects of participants on intercepts.
-3. Random effects of participants on slopes.
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-# -- Fit different kinds of mixed-effects model, then plot the resulting differences in model predictions
-
-lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID),
-                   
-                   data = long.all.noNAs)
-
-# summary(lmer.all.1)
-
-lmer.all.2 <- lmer(RT ~  Lg.UK.CDcount + (1|subjectID),
-                   
-                   data = long.all.noNAs)
-
-# summary(lmer.all.2)
-
-lmer.all.3 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 0|subjectID),
-                   
-                   data = long.all.noNAs)
-
-# summary(lmer.all.3)
-```
-:::
-
-Then derive predictions of the change in outcome, given variation in predictor values, assuming different random effects structures.
-
-:::{.callout-tip collapse="true"}
-## Hint
-Plot random effect -- per person predictions -- following:
-
-<https://bbolker.github.io/morelia_2018/notes/mixedlab.html>
-
-In lmer, predict has a `re.form` argument that specifies which random effects should be included (NA or ~0=none, population level; NULL (=all) or ~subject=prediction at the subject level; more complex models, might have additional nested levels).
-:::
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-# -- get predictions
-
-long.all.noNAs$pred1 <- predict(lmer.all.1) ## individual level
-long.all.noNAs$pred2 <- predict(lmer.all.2) ## individual level
-long.all.noNAs$pred3 <- predict(lmer.all.3) ## individual level
-
-# -- show predictions as slopes on top of raw data
-
-p.slopes.intercepts <- long.all.noNAs %>%
-  ggplot(aes(x = Lg.UK.CDcount, y = RT)) +
-  geom_point(alpha = .25, colour = "darkgrey") +
-  geom_line(aes(y = pred1, group = subjectID), colour="red", alpha = .4) +
-  ggtitle("(c.)\n(Lg.UK.CDcount + 1||subjectID)") +
-  xlab("Frequency (Lg.UK.CDcount)") +
-  xlim(0,5) +
-  theme_bw()
-
-p.intercepts <- long.all.noNAs %>%
-  ggplot(aes(x = Lg.UK.CDcount, y = RT)) +
-  geom_point(alpha = .25, colour = "darkgrey") +
-  geom_line(aes(y = pred2, group = subjectID), colour="red", alpha = .4) +
-  ggtitle("(a.)\n(1|subjectID)") +
-  xlab("Frequency (Lg.UK.CDcount)") +
-  xlim(0,5) +
-  theme_bw()
-
-p.slopes <- long.all.noNAs %>%
-  ggplot(aes(x = Lg.UK.CDcount, y = RT)) +
-  geom_point(alpha = .25, colour = "darkgrey") +
-  geom_line(aes(y = pred3, group = subjectID), colour="red", alpha = .4) +
-  ggtitle("(b.)\n(Lg.UK.CDcount + 0|subjectID)") +
-  xlab("Frequency (Lg.UK.CDcount)") +
-  xlim(0,5) +
-  theme_bw()
-
-grid.arrange(p.intercepts, p.slopes, p.slopes.intercepts, 
-             ncol = 3)
-```
-:::
-
-##### Practical Task 18 -- Visualize the variation between items in intercepts -- for each `itemname`, plots ordered by `meanRT`
-
-What we aim to do is:
-
-1. Create a model for each item, including just the intercept.
-2. Plot intercepts by-items -- ordering items by item_name by estimated intercept size.
-
-Can you figure out how to code these steps?
-
-First, create a model for each item, including just the intercept.
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-wperitemlm <- long.all.noNAs %>% 
-  group_by(item_name) %>% 
-  do(tidy(lm(RT ~ 1, data=.)))
-wperitemlm$term <- as.factor(wperitemlm$term)
-# wperitemlm
-```
-:::
-
-Then plot intercepts by-items -- ordering items by item_name by estimated intercept size.
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-pwperitemlmint <- ggplot(wperitemlm, aes(x = fct_reorder(item_name, estimate), y = estimate, ymin = estimate - std.error, ymax = estimate + std.error))
-pwperitemlmint + 
-  geom_point() +
-  geom_linerange() + 
-  theme_bw() + 
-  ylab("Estimated coefficient +/- SE") + 
-  xlab("Per-item estimates of intercept, ordered by intercept estimate size") +
-  theme(axis.title.y = element_text(size = 10), 
-        axis.text.y = element_text(size = 5), 
-        axis.text.x = element_blank(), panel.grid = element_blank())
 ```
 :::
 
