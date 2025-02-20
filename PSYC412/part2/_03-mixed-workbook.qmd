@@ -611,21 +611,138 @@ The random effects part of the model is then specified as follows.
 
 You can be guided by the in-depth explanation of how. to read the analysis results in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed-lmer-results).
 
+#### Practical Part 6: Compare models with different random effects
+
+##### Practical Task 16 -- Fit a linear mixed-effects model to estimate the effect of frequency on log RT while taking into account different sets of random effects
+
+You can specify models where the fixed effects part is the same (e.g., you assume $RT \sim $ word frequency) but, for various reasons, you may suppose different random effects structures.
+
+In this scenario --- the model fixed effects part is the same but the random effects are different --- you may be required to evaluate which model structure fits the data better, to the extent that that can be assessed, given your sample data.
+
+1. To begin, fit a model with just the fixed effects of intercept and frequency, and the random effects of participants or items on intercepts only. 
+
+- We exclude the `(LgSUBTLCD + ...|subjectID)` specification for the random effect of participants on the slope of the frequency `LgSUBTLCD` effect.
+
+We use REML fitting, if we want to compare (as we will) models with the same fixed effects but different random effects.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ML.all.correct.lmer.REML.si  <- lmer(logrt ~ LgSUBTLCD + 
+                                    
+                                          (1|subjectID) + (1|item_name),
+
+       data = ML.all.correct, REML = TRUE)
+
+summary(ML.all.correct.lmer.REML.si)
+```
+
+If you look at the code chunk, you can see that:
+
+-   `REML = TRUE` is the only change to the code: it specifies the change in model fitting method;
+-   also, I changed the model name to `ML.all.correct.lmer.REML.si` to be able to distinguish the maximum likelihood from the restricted maximum likelihood model.
+:::
+
+Following @baayen2008, we can then run a series of models with just one random effect. 
+
+2. Next, fit a model with just the random effect of items on intercepts.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ML.all.correct.lmer.REML.i  <- lmer(logrt ~
+
+       LgSUBTLCD + (1|item_name),
+
+       data = ML.all.correct, REML = TRUE)
+
+summary(ML.all.correct.lmer.REML.i)
+```
+:::
+
+3. Next, fit a model with just the random effect of participants on intercepts.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ML.all.correct.lmer.REML.s  <- lmer(logrt ~
+
+       LgSUBTLCD + (1|subjectID),
+
+       data = ML.all.correct, REML = TRUE)
+
+summary(ML.all.correct.lmer.REML.s)
+```
+:::
+
+::: callout-tip
+Notice how each different model has a distinct name.
+
+- We will use these different names to compare the models, next.
+:::
+
+##### Practical Task 17 -- Compare the different models using `anova()`
+
+If we now run Likelihood Ratio Test comparisons of these models, we are effectively examining if one of the random effects can be dispensed with: if its inclusion makes no difference to the likelihood of the model then it is not needed. 
+
+- Is the random effect of subjects on intercepts justified?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Compare models, first, with `ML.all.correct.lmer.REML.si` versus without `ML.all.correct.lmer.REML.i` the random effect of subjects on intercepts.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+anova(ML.all.correct.lmer.REML.si, ML.all.correct.lmer.REML.i, refit = FALSE)
+```
+:::
+
+- Is the random effect of items on intercepts justified?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Compare models with `ML.all.correct.lmer.REML.si` versus without `ML.all.correct.lmer.REML.s` the random effect of items on intercepts.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+anova(ML.all.correct.lmer.REML.si, ML.all.correct.lmer.REML.s, refit = FALSE)
+```
+:::
+
+We compare models using the `anova()` function.
+
+-   `anova()` does the model comparison, for the models named in the list in brackets.
+
+You can do this for the foregoing series of models but notice that in the code we specify:
+
+- `refit = FALSE`
+
+What happens if we do not add that bit?
+
+What you will see if you run the `anova()` function call, without the`refit = FALSE` argument -- try it -- is that you will then get the warning `refitting model(s) with ML (instead of REML)`. 
+
+Why? 
+The immediate reason for this warning is that we have to specify `refit = FALSE` because otherwise R will compare ML fitted models. The refitting occurs by default.
+
+What is the reason for the imposition of this default?
+
+@Pinheiro2000aa advise that if one is fitting models with random effects the estimates are more accurate if the models are fitted using Restricted Maximum Likelihood (REML). That is achieved in the `lmer()` function call by adding the argument `REML=TRUE`. 
+@Pinheiro2000aa further recommend (see, e.g., pp.82-) that if you compare models:
+
+- with the same fixed effects 
+- but with varying random effects
+- then the models *should be fitted using Restricted Maximum Likelihood*.
+
+Read a discussion of the issues, with references, in [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed-anova-advice).
+See that chapter, also, for an in-depth account of what the 'anova()` results tell you.
 
 
 
 
-
-
-
-
->**Pract.Q.20.** What are the differences between the `lm()` and the `lmer()` model results?
-
-<!-- >**Pract.A.20.** The differences include: -->
-
-<!-- - The estimate for the coefficient of the frequency (Lg.UK.CDcount) effect changes from (lm) -53.375 to (lmer) -67.980. -->
-<!-- - The (lm) model includes just an estimate of residuals. -->
-<!-- - The (lmer) model includes estimates of the `Residual` variance plus the `subjectID` `(Intercept)` variance and the `subjectID` `(Lg.UK.CDcount)` variance. -->
 
 ##### Practical Task 14 -- Fit a linear mixed-effects model, including the random effects of participants on intercepts and on the slope of the frequency effect, as well as the random effect of items on intercepts
 
