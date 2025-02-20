@@ -481,350 +481,143 @@ ML.all.correct %>%
 There are other log transformation functions and we often see researchers using the natural log instead of the log base 10 as discussed [here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/log)
 :::
 
+##### Practical Task 11 -- Produce a density plot showing log10 transformed reaction time, correct responses, separately for each participant
 
+ML asked all participants in a sample of people to read a selection of words, a sample of words from the language.
 
-##### Practical Task 6 -- Filter the observations
+For each participant, we will have multiple observations and these observations will not be independent. One participant will tend to be slower or less accurate compared to another. 
 
-The data-set includes missing values, designated `NA`. 
-
-- Here, every error (coded `0`, in `accuracy`) corresponds to an `NA` in the `RT` column.
-
-The data-set also includes outlier data. 
-
-- In this context, $RT < 200$ are probably response errors or equipment failures. We will want to analyse `accuracy` later, so we shall need to be careful about getting rid of `NAs`.
-
->**Pract.Q.7.** How do we exclude `NA`s and outliers so that we can do our analysis?
-
-:::{.callout-tip collapse="true"}
-## Hint
-We can exclude two sets of observations:
-
--   observations corresponding to correct response reaction times that are too short: $RT < 200$.
--   plus observations corresponding to the word *false* which (because of an Excel formatting problem) dropped item attribute data.
-
-We can do this using the `filter()` function, setting conditions on rows, as arguments.
-
-:::
+- What does this look like?
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| label: filterrows
-# step 1
-long.all.select.filter <- long.all.select %>% 
-                            filter(item_name != 'FALSE')
-
-# step 2
-long.all.select.filter <- long.all.select.filter %>%
-                            filter(RT >= 200)
-
-```
-:::
-
->**Pract.Q.8.** Can you explain what is going on when you code R to exclude observations?
-
-:::{.callout-tip collapse="true"}
-## Hint
-We can do the exclusions we need to do using the `filter()` function, setting conditions on rows, as arguments.
-
-```{r}
-#| eval: false
-# step 1
-long.all.select.filter <- long.all.select %>% 
-                            filter(item_name != 'FALSE')
-
-# step 2
-long.all.select.filter <- long.all.select.filter %>%
-                            filter(RT >= 200)
-
-```
-
-Here, I am using the function `filter()` to ...
-
--   Create a new data-set `long.all.select.filter <- ...` by
--   Using functions to work on the data named immediately to the right of the assignment arrow: `long.all.select`
--   An observation is included in the new data-set if it matches the condition specified as an argument in the `filter()` function call, thus:
-
-1.  `filter(item_name !='FALSE')` means: include in the new data-set `long.all.select.filter` all observations from the old data-set `long.all.select` that are not `!=` (`!` not `=` equal to) the value `FALSE` in the variable `item_name`,
-2.  then recreate the `long.all.select.filter` as a version of itself (with no name change) by including in the new version only those observations where RT was greater than or equal to 200ms using `RT >= 200`.
-:::
-
->**Pract.Q.9.** Do you understand what the difference is between `=` and `==`.
-
-:::{.callout-tip collapse="true"}
-## Hint
-You need to be careful to distinguish these signs.
-
--   `=` assigns a value, so `x = 2` means "x equals 2"
--   `==` tests a match so `x == 2` means: "is x equal to 2?"
-:::
-
->**Pract.Q.10.** Can you vary the filter conditions: in different ways?
-
-1.  Change the threshold for including RTs from `RT >= 200` to something else?
-2.  Can you assess what impact the change has? Note that you can count the number of observations (rows) in a data-set using e.g. `length(data.set.name$variable.name)?`?
-
-##### Practical Task 7 -- Remove missing (`NA`) values
-
-The data-set includes missing values, designated `NA`. We have not yet dealt with these.
-
->**Pract.Q.11.** How do you remove missing values?
-
-:::{.callout-tip collapse="true"}
-## Hint
-We can remove missing values before we go any further, using the `na.omit()` function.
-:::
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| label: longall-na-omit
-long.all.noNAs <- na.omit(long.all.select.filter)
-```
-:::
-
->**Pract.Q.12.** Can you explain how the code function works, when we exclude missing `NA` values?
-
-:::{.callout-tip collapse="true"}
-## Hint
-The `na.omit()` function is powerful.
-
-Look at the example code:
-
-```{r}
-#| eval: false
-long.all.noNAs <- na.omit(long.all.select.filter)
-```
-
--   In using this function, I am asking R to create a new data-set `long.all.noNAs` from the old data-set `long.all.select.filter` in a process in which the new data-set will have *no* rows in which there is a missing value `NA` in *any* column.
--   You need to be reasonably sure, when you use this function, where your `NAs` may be because, otherwise, you may end the process with a new filtered data-set that has many fewer rows in it than you expected.
-:::
-
-#### Practical Part 4: Read in pre-tidied data
-
-We have a learnt in following the process of tidying data, step-by-step.
-
-If we wanted to, we could complete the process, check that what we have done is correct, and then write the final version of the data-set out to a new `.csv` using the `write_csv()` function.
-
-```{r}
-#| eval: false
-write_csv(long.all.noNAs, "long.all.noNAs.csv")
-```
-
-##### Practical Task 8 -- Read in `.csv` of pre-tidied data
-
->**Pract.Q.13.** If you want to skip the tidying process steps, assuming you have written the tidied data-set out to a new `.csv` file, what would you do?
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| label: readinglongallc5
-long.all.noNAs <- read_csv("long.all.noNAs.csv", 
-                           col_types = cols(
-                             subjectID = col_factor(),
-                             item_name = col_factor()
-                           )
-                          ) 
-```
-:::
-
->**Pract.Q.14.** Take a look at the example code, can you explain what it is doing?
-
-:::{.callout-tip collapse="true"}
-## Hint
-```{r}
-#| eval: false
-long.all.noNAs <- read_csv("long.all.noNAs.csv", 
-                           col_types = cols(
-                             subjectID = col_factor(),
-                             item_name = col_factor()
-                           )
-                          ) 
-```
-
-Notice that I am using `read_csv()` with an additional argument `col_types = cols(...)`.
-
--   Here, I am requesting that `read_csv()` treats `subjectID` and `item_name` as factors.
--   We use `col_types = cols(...)` to control how `read_csv()` interprets specific column variables in the data.
-
-Controlling the way that `read_csv()` handles variables is a very useful capacity, and a more efficient way to work than, say, first reading in the data and then using *coercion* to ensure that variables are assigned appropriate types. 
-
-You can read more about it [here](https://readr.tidyverse.org/articles/readr.html).
-:::
-
-#### Practical Part 5: Analyze data with lm
-
-We begin our data analysis by asking if reading reaction time **RT** varies in association with the estimated **frequency** of occurrence in language experience of the words we ask participants to read.
-
-- We ignore, at first, the multilevel structure or clustering in the data.
-
-##### Practical Task 9 -- Visualize the relationship between frequency and RT, ignoring participant differences
-
-You need to do three things, here:
-
-1. Draw a scatterplot.
-2. Remember to map the outcome reaction time variable to the heights of points.
-3. Remember in this data-set, word frequency information is located in the `Lg.UK.CDcount` variable.
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| label: fig-freq-all
-#| fig-cap: "Reading reaction time compared to word frequency, all data"
-#| fig-alt: "The figure shows a scatterplot: each point represents the lexical frequency (on the x-axis) and the reaction time (RT, on the y-axis) of responses made by children to a set of words. A red line is drawn through the points, indicating that RT decreases for higher values of frequency."
-#| warning: false
-#| message: false
-#| fig-height: 4.5
-#| fig-width: 4.5
-long.all.noNAs %>%
-ggplot(aes(x = Lg.UK.CDcount, y = RT)) +
-  geom_point(alpha = .2) + 
-  geom_smooth(method = "lm", se = FALSE, size = 1.5, colour="red") + 
-  theme_bw() + 
-  xlab("Word frequency: log context distinctiveness (CD) count")
-
-```
-:::
-
-##### Practical Task 10 -- Estimate the relationship between frequency and RT, ignoring participant differences
-
-:::{.callout-tip collapse="true"}
-## Hint
-You can use `lm()` to do this.
-
-- Remember, we are ignoring random differences between participants or stimuli, at this point.
-:::
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| label: lm-all-freq
-lm.all.freq <- lm(RT ~  Lg.UK.CDcount, data = long.all.noNAs)
-
-summary(lm.all.freq)
-```
-:::
-
-##### Practical Task 11 -- Estimate the relationship between length and RT, ignoring participant differences
-
-Vary the linear model using different outcomes or predictors: now fit a model in which the outcome RT and the predictor is word length.
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| label: lm-all-length
-lm.all.length <- lm(RT ~  Length,
-
-                 data = long.all.noNAs)
-
-summary(lm.all.length)
-```
-:::
-
->**Pract.Q.15.** What is the estimate of the effect of Length on RT?
-
-<!-- >**Pract.A.15.** The estimate for the Length effect is 18.369. -->
-
->**Pract.Q.16.** What does the estimate tell you about how RT varies in relation to word length?
-
-<!-- >**Pract.A.16.** This tells us that RT increases by about 18ms for each increase in word length by one letter. -->
-
->**Pract.Q.17.** What is the R-squared for the model?
-
-<!-- >**Pract.A.17.** The R-sq is .01. -->
-
-Change the predictor from frequency to something else: you choose.
-
->**Pract.Q.18.** Produce a scatterplot to visualize the relationship between the two variables: does the relationship you see in the plot match the coefficient you see in the model estimates?
-
-:::{.callout-tip collapse="true"}
-## Hint
-You need to look at the model summary to do this. Specifically, you need to think about:
-
-- The coefficients for the effect of the predictor variable you include in your model: focus on the sign and the magnitude of the effect coefficient.
-- Whether or how that sign and that magnitude do or do not match the slopes you see in the plot.
-:::
-
-##### Practical Task 12 -- Visualize the relationship between frequency and RT, separately for each participant
-
-:::{.callout-tip collapse="true"}
-## Hint
-You can Use `facet_wrap()` to do this.
-
-- We can visualize the frequency effect for each child in a grid of plots, with each plot representing the $\text{RT} \sim \text{frequency}$ relationship for the data for a child (see the lattice or trellis plot, following).
-:::
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| label: fig-freqperchildtrellis
-#| fig-cap: "RT vs. word frequency, considered separately for data for each child"
-#| fig-alt: "The figure shows a grid of scatterplots. In each plot, each point represents the lexical frequency (on the x-axis) and the reaction time (RT, on the y-axis) of responses made by children to a set of words. A red line is drawn through the points, indicating that RT decreases for higher values of frequency. A different plot is shown to represent the data for each child. Between plots, we can see that the potential association between RT and frequency can vary."
+#| label: fig-rt-correct-log-den-by-subj
+#| fig-cap: "Density plot showing log10 transformed reaction time, correct responses, separately for each participant"
+#| fig-alt: "The figure presents a grid of density plots showing log10 transformed reaction time, correct responses, separately for each participant. A dashed red line is drawn through all plots, indicating the mean RT. The curves vary in both the location of the peak and in the shape of the curve."
 #| warning: false
 #| message: false
 #| fig-height: 10
-#| fig-width: 7.5
-long.all.noNAs %>%
-  ggplot(aes(x = Lg.UK.CDcount, y = RT)) +
-    geom_point(alpha = .2) + 
-    geom_smooth(method = "lm", se = FALSE, size = 1.25, colour = "red") + 
-    theme_bw() + 
-    xlab("Word frequency (log10 UK SUBTLEX CD count)") + 
-    facet_wrap(~ subjectID)
+#| fig-width: 8
+ML.all.correct %>%
+  group_by(subjectID) %>%
+  mutate(mean_logrt = mean(logrt, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(subjectID = fct_reorder(subjectID, mean_logrt)) %>%
+  ggplot(aes(x = logrt)) +
+  geom_density(size = 1.25) +
+  facet_wrap(~ subjectID) +
+  geom_vline(xintercept = 2.778807, colour = "red", linetype = 2) +
+  scale_x_continuous(breaks = c(2.5,3)) +
+  ggtitle("Plot showing distribution of logRT for each participant; red line shows mean log10 RT") +
+  theme_bw()
 ```
 :::
 
->**Pract.Q.19.** Can you visualize the relationship between RT and Length, also, separately for each participant?
+##### Practical Task 12 -- Can you work out how to adapt the plotting code to show a grid of histograms?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| label: fig-lengthperchildtrellis
-#| fig-cap: "RT vs. word length, considered separately for data for each child"
-#| fig-alt: "The figure shows a grid of scatterplots. In each plot, each point represents the word length (on the x-axis) and the reaction time (RT, on the y-axis) of responses made by children to a set of words. A red line is drawn through the points, indicating that RT increases for higher values of length. A different plot is shown to represent the data for each child. Between plots, we can see that the potential association between RT and length can vary."
-#| warning: false
-#| message: false
-#| fig-height: 10
-#| fig-width: 7.5
-long.all.noNAs %>%
-  ggplot(aes(x = Length, y = RT)) +
-  geom_point(alpha = .2) +
-  geom_smooth(method = "lm", se = FALSE, size = 1.25, colour = "red") +
-  theme_bw() +
-  facet_wrap(~ subjectID)
-```
-:::
+##### Practical Task 13 -- Can you work out how to adapt the code to show a grid of plots indicating the distribution of log RT by different items (instead of participants)?
 
->**Pract.Q.19.** What do you conclude from this plot about the Length effect, and about how the effect varies?
+For each stimulus word, there are multiple observations and these observations will not be independent. One stimulus may prove to be more challenging to all participants compared to another, eliciting slower or less accurate responses on average.
 
-<!-- >**Pract.A.19.** We can conclude that the length effect is small and really only apparent for some participants. -->
+- What does this look like?
 
-#### Practical Part 6: Analyze data with lmer
+#### Practical Part 4: Analyze data with lm
 
-##### Practical Task 13 -- Fit a linear mixed-effects model, including the random effect of participants on intercepts and on the slope of the frequency effect
+##### Practical Task 14 -- Fit a linear model with log10 RT as the outcome and word frequency (`LgSUBTLCD`) as the predictor
+
+We model the effects of interest, using all the data (hence, *complete pooling*) but ignoring the differences between participants. This means we can see something of the 'true' picture of our data through the linear model results though we should be aware that the linear model will miss important information, which the mixed-effects model will include, that would improve its performance.
 
 :::{.callout-tip collapse="true"}
 ## Hint
-You need to specify:
-
-- the `lmer()` function;
-- `RT` as the outcome;
-- frequency (`Lg.UK.CDcount`) as the fixed effects predictor;
-- plus random effects including the effect of participants (`subjectID`) on intercepts and on the slopes of the frequency effect (`Lg.UK.CDcount`).
-
-Check the chapter code examples if you need help, see also the explanations and examples in [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#ssec-intro-mixed-lmer).
+The linear model is fit in R using the `lm()` function.
 :::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID),
-             
-             data = long.all.noNAs)
+ML.all.correct.lm  <- lm(logrt ~
+                             
+                             LgSUBTLCD,     
+                           
+                           data = ML.all.correct)
 
-summary(lmer.all.1)
+summary(ML.all.correct.lm)
 ```
 :::
+
+Vary the linear model using different outcomes or predictors.
+
+-   The ML study data, like the CP study data, are rich with possibility. It would be useful to experiment with data like this because this will prepare you for similar analysis targets in future.
+- Change the predictor from frequency to something else: what do you see when you visualize the relationship between outcome and predictor variables using scatterplots?
+
+::: callout-tip
+Specify linear models with different predictors: do the relationships you see in plots match the coefficients you see in the model estimates?
+
+- You should both estimate the effects of variables *and* visualize the relationships between variables using scatterplots. 
+- If you combine reflection on the model estimates with evaluation of what the plots show you then you will be able to see how reading model results and reading plots can reveal the correspondences between the two ways of looking at your data.
+:::
+
+#### Practical Part 5: Analyze data with lmer
+
+##### Practical Task 15 -- Fit a linear mixed-effects model to estimate the effect of frequency on log RT while taking into account random effects
+
+You should specify, here, a model of the frequency effect that takes into account:
+
+- the random effect of participants on intercepts;
+- the random effect of participants on the slopes of the frequency (`LgSUBTLCD`) effect;
+- as well as the random effect of items on intercepts.
+
+You can specify the random effects of participants allowing for covariance between the random intercepts and the random slopes.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ML.all.correct.lmer  <- lmer(logrt ~
+
+                           LgSUBTLCD +
+
+                           (LgSUBTLCD + 1|subjectID) +
+
+                           (1|item_name),
+
+                         data = ML.all.correct)
+
+summary(ML.all.correct.lmer)
+```
+
+As will now be getting familiar, the code works as follows:
+
+1.  `ML.all.correct.lmer  <- lmer(...)` creates a *linear mixed-effects model* object using the `lmer()` function.
+2.  `logrt ~ LgSUBTLCD` the fixed effect in the model is expressed as a formula in which the outcome or dependent variable `logrt` is predicted `~` by the independent or predictor variable `LgSUBTLCD` word frequency.
+
+The random effects part of the model is then specified as follows.
+
+3.  We first have the random effects associated with random differences between participants:
+
+-   `(...|subjectID)` adds random effects corresponding to random differences between sample groups (participants subjects) coded by the `subjectID` variable.
+-   `(...1 |subjectID)` including random differences between sample groups (`subjectID`) in intercepts coded `1`.
+-   `(LgSUBTLCD... |subjectID)` and random differences between sample groups (`subjectID`) in the slopes of the frequency effect coded by using the`LgSUBTLCD` variable name.
+
+4.  Then, we have the random effects associated with random differences between stimuli:
+
+-   `(1|item_name)` adds a random effect to account for random differences between sample groups (`item_name`) in intercepts coded `1`.
+
+5.  `...(..., data = ML.all.correct)` specifies the dataset in which you can find the variables named in the model fitting code.
+6.  Lastly, we can then specify `summary(ML.all.correct.lmer)` to get a summary of the fitted model.
+:::
+
+- Can you explain the results shown in the model summary?
+
+You can be guided by the in-depth explanation of how. to read the analysis results in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed-lmer-results).
+
+
+
+
+
+
+
+
 
 >**Pract.Q.20.** What are the differences between the `lm()` and the `lmer()` model results?
 
