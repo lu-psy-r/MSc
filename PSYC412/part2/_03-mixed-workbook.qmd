@@ -740,75 +740,181 @@ What is the reason for the imposition of this default?
 Read a discussion of the issues, with references, in [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed-anova-advice).
 See that chapter, also, for an in-depth account of what the 'anova()` results tell you.
 
+##### Practical Task 18 -- Now examine whether random slopes are required
 
+Is it justified to add a random effect of participants on the slopes of the frequency effect?
 
+- How should you address this question?
 
+First, you will need to fit a model incorporating the random effect of participants on the slopes of the frequency effect.
 
-##### Practical Task 14 -- Fit a linear mixed-effects model, including the random effects of participants on intercepts and on the slope of the frequency effect, as well as the random effect of items on intercepts
+:::{.callout-tip collapse="true"}
+## Hint
+You will want to make sure that this random slopes model is comparable to the next-most complex model: `ML.all.correct.lmer.REML.si`.
+:::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-lmer.all.si <- lmer(RT ~  Lg.UK.CDcount + 
-                         (Lg.UK.CDcount + 1||subjectID) +
-                         (1|item_name),
-             
-             data = long.all.noNAs)
+ML.all.correct.lmer.REML.slopes  <- lmer(logrt ~ LgSUBTLCD + 
+                                           
+                                          (LgSUBTLCD + 1|subjectID) +
+                                          (1|item_name),
 
-summary(lmer.all.si)
+       data = ML.all.correct, REML = TRUE)
 ```
+
+Looking at the code:
+
+-   With `(LgSUBTLCD + 1 |subjectID)` we specify a random effect of subjects on intercepts and on the slope of the frequency effects.
+-   We do not specify -- it happens by default -- the estimation of the covariance of random differences among subjects in intercepts and random differences among subjects in the slope of the frequency effect.
 :::
 
->**Pract.Q.21.** Can you describe the differences between the models with vs. without the item term?
-
-1. How do the random effects differ?
-2. How do the fixed effects estimates differ?
-
-<!-- >**Pract.A.21.** We can compare models: -->
-
-<!-- ```{} -->
-<!-- lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID), -->
-
-<!--                     data = long.all.noNAs) -->
-<!-- ``` -->
-
-<!-- ```{} -->
-<!-- lmer.all.si <- lmer(RT ~  Lg.UK.CDcount +  -->
-<!--                       (Lg.UK.CDcount + 1||subjectID) + -->
-<!--                       (1|item_name), -->
-
-<!--                     data = long.all.noNAs) -->
-<!-- ``` -->
-
-<!-- 1. The models differ, obviously, in the inclusion of a random term corresponding to the effect of items on intercepts. We can also see that the residual variance is smaller where we include the item random effect. -->
-<!-- 2. The estimate for the `Lg.UK.CDcount` is now -72.33. -->
-
-##### Practical Task 15 -- Now fit a mixed-effects model for the effect of Length on RT. Include the random effects of participants on intercepts and on the slope of the length effect, as well as the random effect of items on intercepts.
+Then you will want to compare two models that are the same *except* for the incorporation of the the random effect of participants on the slopes of the frequency effect.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-lmer.all.2 <- lmer(RT ~  Length + 
-                     (Length + 1||subjectID) +
-                     (1|item_name),
-                   
-                   data = long.all.noNAs)
-
-summary(lmer.all.2)
+anova(ML.all.correct.lmer.REML.si, ML.all.correct.lmer.REML.slopes, 
+      refit = FALSE)
 ```
 :::
 
->**Pract.Q.22.** What are the random effects estimates: the variances?
+#### Practical Part 7: p-values and significance using `lmerTest`
 
-<!-- >**Pract.A.22.** We see: `items/intercepts` variance of 4751, `subjects/Length` of 757, `subjects/intercepts` of 4994 and `residuals` of 21440. -->
+If you look at the fixed effects summary, you can see that we do not get p-values by default. To calculate p-values, we need to count residual degrees of freedom. The authors of the `{lme4}` library that furnishes the `lmer()` function do not [as e.g. @Baayen2008 discuss] think that it is sensible to estimate the residual degrees of freedom for a model in terms of the number of observations. This is because the number of observations concerns one level of a multilevel dataset that might be structured with respect to some number of subjects, some number of items. This means that one cannot then accurately calculate p-values to go with the t-tests on the coefficients estimates; therefore they do not.
 
->**Pract.Q.23.** What is the estimate of the effect of length?
+##### Practical Task 19 -- Get p-values using lmerTest
 
-<!-- >**Pract.A.23.** The estimate is 28.361. -->
+We can run mixed-effects models with p-values from significance tests on the estimates of the fixed effects coefficients using the `library(lmerTest)`.
 
->**Pract.Q.24.** What does the estimate tell you about how RT varies as Length varies?
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| message: false
+#| warning: false
+library(lmerTest)
 
-<!-- >**Pract.A.24.** That RT increases by about 28ms for unit increase in word length. -->
+ML.all.correct.lmer.REML.slopes  <- lmer(logrt ~ LgSUBTLCD + 
+                                           
+                                            (LgSUBTLCD + 1|subjectID) +
+                                            (1|item_name),
+
+                                          data = ML.all.correct, REML = TRUE)
+
+summary(ML.all.correct.lmer.REML.slopes)
+```
+:::
+
+Basically, the call to access the `lmerTest` library ensures that when we run the `lmer()` function we get a calculation of an approximation to the denominator degrees of freedom that enables the calculation of the p-value for the t-test for the fixed effects coefficient.
+
+::: callout-tip
+An alternative approach to doing significance tests of hypothesized effects, is to compare models with versus without the effect of interest.
+:::
+
+#### Practical Part 8: Run your own sequence of lmer models
+
+It will be useful for you to examine model comparisons with a different set of models for the same data.
+
+You could try to run a series of models in which the fixed effects variable is something different, for example, the effect of word `Length` or the effect of orthographic neighbourhood size `Ortho_N`.
+
+- Run models with these variables or pick your own set of predictor variables to get estimates of fixed effects.
+
+In this series of models, specify a set of models where:
+
+- Each model has the same fixed effect e.g. `logrt ~ Length`;
+- But you vary the random effects components so that, at the end, you can assess what random effects are justified by better model fit to data.
+
+In the following, I set out another series of models as an example of what you can do.
+
+1. Random effects of participants on intercepts and slopes, random effect of items on intercepts
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| message: false
+#| warning: false
+ML.all.correct.lmer.REML.slopes  <- lmer(logrt ~ Length + 
+                                           
+                                           (Length + 1|subjectID) +
+                                           (1|item_name),
+                                         
+                                         data = ML.all.correct, REML = TRUE)
+
+summary(ML.all.correct.lmer.REML.slopes)
+```
+:::
+
+2. Random effect of participants on intercepts, random effect of items on intercepts
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| message: false
+#| warning: false
+ML.all.correct.lmer.REML.si  <- lmer(logrt ~ Length + 
+                                       
+                                       (1|subjectID) + 
+                                       (1|item_name),
+                                     
+                                     data = ML.all.correct, REML = TRUE)
+
+summary(ML.all.correct.lmer.REML.si)
+```
+:::
+
+3. Random effect of items on intercepts
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| message: false
+#| warning: false
+ML.all.correct.lmer.REML.i  <- lmer(logrt ~ Length + 
+                                       
+                                       (1|item_name),
+                                     
+                                     data = ML.all.correct, REML = TRUE)
+
+summary(ML.all.correct.lmer.REML.i)
+```
+:::
+
+4. Random effect of participants on intercepts
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| message: false
+#| warning: false
+ML.all.correct.lmer.REML.s  <- lmer(logrt ~ Length + 
+                                      
+                                      (1|subjectID),
+                                    
+                                    data = ML.all.correct, REML = TRUE)
+
+summary(ML.all.correct.lmer.REML.s)
+```
+:::
+
+5. Model comparisons
+
+I would compare the models in the sequence, shown in the foregoing, one pair of models at a time, to keep it simple.
+
+- When you look at the model comparison, ask: is the difference between the models a piece of complexity (an effect) whose inclusion in the more complex model is justified or warranted by improved model fit to data?
+
+:::{.callout-tip collapse="true"}
+## Code
+If we run model comparisons, we can see that random effects of subjects or of items on intercepts, as well as random effect of subjects on slopes, are justified by significantly improved model fit to data.
+
+```{r}
+#| message: false
+#| warning: false
+anova(ML.all.correct.lmer.REML.si, ML.all.correct.lmer.REML.s, refit=FALSE)
+anova(ML.all.correct.lmer.REML.si, ML.all.correct.lmer.REML.i, refit=FALSE)
+anova(ML.all.correct.lmer.REML.si, ML.all.correct.lmer.REML.slopes, refit=FALSE)
+```
+:::
 
 #### Practical Part 7: Extension
 
