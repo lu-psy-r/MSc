@@ -21,6 +21,7 @@ library(dotwhisker)
 library(GGally)
 library(ggcorrplot)
 library(ggdist)
+library(ggExtra)
 library(grateful)
 library(gt)
 library(here)
@@ -229,10 +230,130 @@ You can see the columns:
 - `EDUCATION` education level code;
 - `ETHNICITY` ethnicity (Office National Statistics categories) code.
 
+#### Data read-in {#sec-example-data-read-in}
 
+Download and read the data into the R environment.
 
+```{r}
+#| label: data-read-in
+#| echo: fenced
+study.two.gen <- read_csv("study-one-general-participants.csv")
+```
 
+### My first histogram {#sec-example-histogram}
 
+Let's take a look at the distribution of ages in this sample.
+
+You can do that by examining a histogram, see @fig-example-histogram.
+
+You can embed the code that does that work, together with your text, in a chunk like this:
+
+```{r}
+#| label: example-histogram
+#| echo: fenced
+study.two.gen %>%
+  ggplot(aes(x = AGE)) +
+  geom_histogram() +
+  labs(title = "Sample characteristics", x = "Age (years") +
+  theme_bw() 
+```
+
+### My first scatterplot: exerting a bit more control {#sec-example-scatterplot-control}
+
+In practice, unless you are teaching, or sharing your workings as part of your documentation, you are going to want to embed a chunk of code to produce a plot so that the plot is presented in your output document while the code chunk that does the work is invisible (at output).
+
+You may also want to add a figure caption and alt-text, and you will want to manipulate figure dimensions.
+
+We can learn how to do that stuff while producing a scatterplot, next.
+
+Let's do something a little fancy, see @fig-ggextra-demo-non-eval.
+
+To produce the plot, you will need to have installed the `{ggExtra}` library.
+
+Let's go through the control elements first.
+
+Take a look at the chunk of code:
+
+```{r}
+#| label: fig-ggextra-demo-non-eval
+#| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and health literacy"
+#| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable."
+#| warning: false
+#| echo: true
+#| eval: false
+#| fig-width: 4.5
+#| fig-height: 4.5
+# -- note that can use gridExtra
+# -- to show marginal distributions in scatterplots
+# https://github.com/daattali/ggExtra
+plot <- study.two.gen %>%
+  ggplot(aes(x = HLVA, y = mean.acc)) +
+  geom_point(size = 1.75, alpha = .5) +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  xlim(0, 15) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  labs(x = 'Health literacy (HLVA)', y = 'Mean accuracy')
+ggExtra::ggMarginal(plot, type = "histogram", colour = "lightgrey", fill = "lightgrey")
+```
+
+Notice the bits of text at the top of the chunk:
+
+- `#| label: fig-ggextra-demo-non-eval` labels the chunk. You need this for figure referencing.
+- `#| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and health literacy"` adds the caption that will be shown next to the plot.
+- `#| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable."` adds alt-text describing the plot for people who use screen readers.
+- `#| warning: false` stops R from producing the plot with warnings.
+- `#| echo: false` stops R from showing both the code and the plot.
+- `#| eval: false` here stops R from actually running the code.
+- `#| fig-width: 4.5` adjusts figure width.
+- `#| fig-height: 4.5` adjusts figure height.
+
+You can see that I have added comments: `# -- note that can use gridExtra` to make the chunk self-documenting.
+
+Now show the plot: @fig-ggextra-demo-eval.
+
+```{r}
+#| label: fig-ggextra-demo-eval
+#| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and health literacy"
+#| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable."
+#| warning: false
+#| echo: false
+#| eval: true
+#| fig-width: 4.5
+#| fig-height: 4.5
+# -- note that can use gridExtra
+# -- to show marginal distributions in scatterplots
+# https://github.com/daattali/ggExtra
+plot <- clearly.both.subjects %>%
+  ggplot(aes(x = HLVA, y = mean.acc)) +
+  geom_point(size = 1.75, alpha = .5) +
+  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
+  xlim(0, 15) +
+  ylim(0, 1.1)+
+  theme_bw() +
+  theme(
+    axis.text = element_text(size = rel(1.15)),
+    axis.title = element_text(size = rel(1.5))
+  ) +
+  labs(x = 'Health literacy (HLVA)', y = 'Mean accuracy')
+ggExtra::ggMarginal(plot, type = "histogram", colour = "lightgrey", fill = "lightgrey")
+```
+
+You can read more about chunk options here:
+
+<https://quarto.org/docs/computations/r.html#chunk-options>
+
+::: callout-tip
+Note that the figure reference is computed by Quarto:
+
+- If the code chunk has a label like `#| label: fig-ggextra-demo-eval` (notice the grammar `fig-...`)
+- and the text outside the chunk has the reference code `@fig-ggextra-demo-eval` then R will link the two objects, and write the reference in the rendered document.
+- Figure reference numbers will be automated tallied by R.
+:::
 
 
 
