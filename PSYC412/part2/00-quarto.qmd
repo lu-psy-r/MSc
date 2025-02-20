@@ -328,7 +328,7 @@ Now show the plot: @fig-ggextra-demo-eval.
 # -- note that can use gridExtra
 # -- to show marginal distributions in scatterplots
 # https://github.com/daattali/ggExtra
-plot <- clearly.both.subjects %>%
+plot <- study.two.gen %>%
   ggplot(aes(x = HLVA, y = mean.acc)) +
   geom_point(size = 1.75, alpha = .5) +
   geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +
