@@ -249,7 +249,7 @@ You can do that by examining a histogram, see @fig-example-histogram.
 You can embed the code that does that work, together with your text, in a chunk like this:
 
 ```{r}
-#| label: example-histogram
+#| label: fig-example-histogram
 #| echo: fenced
 study.two.gen %>%
   ggplot(aes(x = AGE)) +
@@ -304,8 +304,8 @@ ggExtra::ggMarginal(plot, type = "histogram", colour = "lightgrey", fill = "ligh
 Notice the bits of text at the top of the chunk:
 
 - `#| label: fig-ggextra-demo-non-eval` labels the chunk. You need this for figure referencing.
-- `#| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and health literacy"` adds the caption that will be shown next to the plot.
-- `#| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable."` adds alt-text describing the plot for people who use screen readers.
+- `#| fig-cap: "Scatterplot showing ..."` adds the caption that will be shown next to the plot.
+- `#| fig-alt: "The figure presents ..."` adds alt-text describing the plot for people who use screen readers.
 - `#| warning: false` stops R from producing the plot with warnings.
 - `#| echo: false` stops R from showing both the code and the plot.
 - `#| eval: false` here stops R from actually running the code.
@@ -355,15 +355,113 @@ Note that the figure reference is computed by Quarto:
 - Figure reference numbers will be automated tallied by R.
 :::
 
+Read more about alt-text here:
 
+<https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/28-fig-alt/>
 
+### My first model {#sec-example-model}
 
+Now let's fit a model and get some results.
 
+Let's assume we want to model the effect of health literacy on mean accuracy of understanding of health information.
 
+Let's say that our model assumes:
 
+$$
+y_i \sim \beta_0 + \beta_1X_1 + \epsilon_i
+$$
 
+where:
 
+1. Outcome mean accuracy of response $y_i$ is expected to vary, on average
+2. In relation to $\beta_0 + \beta_1X_1$
 
+where:
+
+$\beta_1X_1$ the coefficient of the effect of variation in health literacy.
+
+::: callout-tip
+I'm not writing the math because this is a serious model but to show off the equation writing capacities of Quarto.
+
+<https://quarto.org/docs/visual-editor/technical.html>
+
+It is *much, much* user friendly, and accurate, than MS Word equation builders.
+::::
+
+So fit the model and get a summary:
+
+```{r}
+model <- lm(mean.acc ~ HLVA, data = study.two.gen)
+summary(model)
+```
+
+Obviously, the summary is not formatted for presentation. We deal with that next.
+
+::: callout-tip
+We absolutely do not want to copy statistics from our model outputs because:
+
+- we will make copy-paste errors;
+- we will lose track of which model underlies the statistics;
+- it is slow and boring.
+
+We want to get R to do the work for us.
+:::
+
+### My first model summary table {#sec-example-model-summary}
+
+There are a variety of ways to produce tables.
+
+@tbl-model-summary illustrates one method.
+
+```{r}
+#| label: tbl-model-summary
+#| echo: true
+#| message: false
+#| warning: false
+#| cache: true
+#| tbl-cap: "Table summary of model"
+# -- tidy model information
+model.tidy <- tidy(model) %>%
+  filter(term != "(Intercept)") %>%
+  mutate(term = as.factor(term)) %>%
+  mutate(term = fct_recode(term,
+
+    "Health literacy (HLVA)" = "HLVA",
+    
+  )) %>%
+  rename(
+    "Predictor" = "term",
+    "Estimate" = "estimate",
+    "Standard error" = "std.error",
+    "t" = "statistic"
+  )
+
+# -- present table of model information
+kable(model.tidy, digits = 4) %>%
+  kable_styling(bootstrap_options = "striped")
+
+```
+
+But see also:
+
+- <https://vincentarelbundock.github.io/tinytable/#tutorial>
+- <https://modelsummary.com/index.html>
+- <https://www.danieldsjoberg.com/gtsummary/>
+- <https://broom.tidymodels.org/articles/broom.html>
+
+There is, however, a persuasive argument that model information (estimates, etc.) is best communicated visually, see:
+
+<https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034>
+
+and
+
+<https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034>
+
+### My first marginal effects plot {#sec-example-model-marginal-effects}
+
+I prefer to general marginal or conditional effects plots, see:
+
+<https://marginaleffects.com/>
 
 ### References
 
