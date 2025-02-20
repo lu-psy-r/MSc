@@ -121,6 +121,8 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -406,6 +408,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#sec-quarto-report-first" id="toc-sec-quarto-report-first" class="nav-link" data-scroll-target="#sec-quarto-report-first">Let’s write a report</a>
   <ul class="collapse">
+  <li><a href="#sec-example-data" id="toc-sec-example-data" class="nav-link" data-scroll-target="#sec-example-data">Our example data</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul></li>
@@ -604,7 +607,7 @@ editor: visual
 <li>Get sample data and show:</li>
 </ol>
 <ul>
-<li>Distributions or other preliminary information to characterise samples.</li>
+<li>Distributions or other preliminary information to characterize samples.</li>
 </ul>
 <ol start="2" type="1">
 <li>Fit a model.</li>
@@ -617,6 +620,111 @@ editor: visual
 <li>Cross-reference figures, tables and sections.</li>
 </ol>
 <p>We look at how to do these things next.</p>
+<section id="sec-example-data" class="level3">
+<h3 class="anchored" data-anchor-id="sec-example-data">Our example data</h3>
+<p>We will be working with an example data-set: click on <a href="files/study-one-general-participants.csv">the link</a> to download the example data file.</p>
+<ul>
+<li><code>study-one-general-participants.csv</code></li>
+</ul>
+<p>The file has the structure you can see in the extract below.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">participant_ID</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean.acc</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">mean.self</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">study</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">AGE</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">SHIPLEY</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">HLVA</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">FACTOR3</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">QRITOTAL</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">GENDER</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">EDUCATION</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ETHNICITY</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">studytwo.1</td>
+<td style="text-align: right;">0.4107143</td>
+<td style="text-align: right;">6.071429</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">Asian</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">studytwo.10</td>
+<td style="text-align: right;">0.6071429</td>
+<td style="text-align: right;">8.500000</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Secondary</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">studytwo.100</td>
+<td style="text-align: right;">0.8750000</td>
+<td style="text-align: right;">8.928571</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">studytwo.101</td>
+<td style="text-align: right;">0.9642857</td>
+<td style="text-align: right;">8.500000</td>
+<td style="text-align: left;">studytwo</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">White</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>You can use the <em>scroll bar</em> at the bottom of the data window to view different columns.</p>
+<p>You can see the columns:</p>
+<ul>
+<li><code>participant_ID</code> participant code;</li>
+<li><code>mean.acc</code> average accuracy of response to questions testing understanding of health guidance (varies between 0-1);</li>
+<li><code>mean.self</code> average self-rated accuracy of understanding of health guidance (varies between 1-9);</li>
+<li><code>study</code> variable coding for what study the data were collected in</li>
+<li><code>AGE</code> age in years;</li>
+<li><code>HLVA</code> health literacy test score (varies between 1-16);</li>
+<li><code>SHIPLEY</code> vocabulary knowledge test score (varies between 0-40);</li>
+<li><code>FACTOR3</code> reading strategy survey score (varies between 0-80);</li>
+<li><code>GENDER</code> gender code;</li>
+<li><code>EDUCATION</code> education level code;</li>
+<li><code>ETHNICITY</code> ethnicity (Office National Statistics categories) code.</li>
+</ul>
+</section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
 <div id="refs" role="list">
