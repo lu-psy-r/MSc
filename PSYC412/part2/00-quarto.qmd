@@ -6,8 +6,6 @@ bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
 
-# Writing reproducible reports using Quarto {#sec-quarto-overview}
-
 ```{r}
 #| label: get-libraries
 #| echo: false
@@ -32,6 +30,15 @@ library(psych)
 library(tidybayes)
 library(tidyverse)
 ```
+
+```{r}
+#| warning: false
+#| echo: false
+study.one.gen <- read_csv("study-one-general-participants.csv")  
+study.two.gen <- read_csv("study-two-general-participants.csv")
+```
+
+# Writing reproducible reports using Quarto {#sec-quarto-overview}
 
 ## What is this? {#sec-quarto-overview-what}
 
@@ -177,7 +184,7 @@ In writing reports, we are often going to want to do tasks like:
 
 1. Get sample data and show:
 
-- Distributions or other preliminary information to characterise samples.
+- Distributions or other preliminary information to characterize samples.
 
 2. Fit a model.
 
@@ -188,6 +195,39 @@ In writing reports, we are often going to want to do tasks like:
 
 We look at how to do these things next.
 
+### Our example data {#sec-example-data}
+
+We will be working with an example data-set: click on [the link](files/study-one-general-participants.csv) to download the example data file.
+
+- `study-one-general-participants.csv`
+
+The file has the structure you can see in the extract below.
+
+```{r}
+#| label: headcheck-wide
+#| echo: false
+study.two.gen %>%
+  filter(participant_ID == c('studytwo.1', 'studytwo.10', 'studytwo.100', 'studytwo.101')) %>%
+  as.data.frame() %>%
+  kable() %>%
+  kable_styling()
+```
+
+You can use the *scroll bar* at the bottom of the data window to view different columns.
+
+You can see the columns:
+
+- `participant_ID` participant code;
+- `mean.acc` average accuracy of response to questions testing understanding of health guidance (varies between 0-1);
+- `mean.self` average self-rated accuracy of understanding of health guidance (varies between 1-9);
+- `study` variable coding for what study the data were collected in
+- `AGE` age in years;
+- `HLVA` health literacy test score (varies between 1-16);
+- `SHIPLEY` vocabulary knowledge test score (varies between 0-40);
+- `FACTOR3` reading strategy survey score (varies between 0-80);
+- `GENDER` gender code;
+- `EDUCATION` education level code;
+- `ETHNICITY` ethnicity (Office National Statistics categories) code.
 
 
 
