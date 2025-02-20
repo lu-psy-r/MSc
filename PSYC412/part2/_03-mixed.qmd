@@ -24,7 +24,9 @@ library(tidyverse)
 
 ## Motivations: to grow in sophistication {#sec-dev-mixed-motivations}
 
-Linear mixed-effects models are important, interesting, and sometimes challenging. We have worked through two chapters (see @sec-intro-multilevel, @sec-intro-mixed) in which we have aimed to learn:
+Linear mixed-effects models are important, interesting, and sometimes challenging. 
+
+We have worked through a series of chapters in which we have aimed to learn:
 
 -   **To recognize** the situations where we shall see multilevel structured data and therefore where we will need to apply multilevel or mixed-effects models.
 -   **To understand** the nature and the advantages of these models: what they are, and why they work better than other kinds of models, given multilevel data.
@@ -85,7 +87,15 @@ For these reasons, I specify what we are aiming to develop in terms of what we c
 
 ## Study guide {#sec-dev-mixed-guide}
 
-I have provided a collection of materials you can use. Here, I explain what they are and how I suggest you use them.
+I have provided a collection of materials you can use. 
+
+Previously:
+
+1. We learned about multilevel structured data in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview).
+2. We then deepened our understanding by looking at the analysis of data from studies with **repeated-measures designs** in the [conceptual introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed) and the [workbook introduction to mixed-effects models](../part2/02-mixed-workbook.qmd#sec-mixed-effects-workbook-overview).
+3. This week, you can practical exercies in the [chapter on developing linear mixed-effects models](../part2/03-mixed-workbook.qmd#sec-dev-mixed-workbook-overview).
+
+Here, I explain what they are and how I suggest you use them.
 
 **1. Video recordings of lectures**
 
