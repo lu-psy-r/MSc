@@ -112,7 +112,7 @@ The high resolution version is the version delivered for the lecture recordings.
 
 ### Practical materials: data and R-Studio {#sec-dev-mixed-workbook-practical}
 
-We will be working with the **ML word recognition study** dataset. ML examined *visual* word recognition in younger and older adults using the lexical decision task.
+We will be working with the **ML word recognition study** data-set. ML examined *visual* word recognition in younger and older adults using the lexical decision task.
 
 In lexical decision, participants are presented with a stimulus: a string of letters that is either a real word (e.g., 'car') or a made-up or non-word (e.g., 'cas'). Participants are required to respond to the stimulus by pressing a button to indicate either that they think the stimulus is a word or that they think it is a non-word. Each complete sequence of events, in which a stimulus is presented and a response is recorded, is known as a *trial*. In the lexical decision task implemented by ML, all study participants were presented with a mix of 160 word stimuli and 160 non-word stimuli, in random order, in a total of 320 trials.
 
@@ -277,7 +277,7 @@ It is *always* a good idea to first inspect what you have got when you read a da
 
 ##### Practical Task 3 -- Produce a density plot showing word recognition reaction time, for both correct and incorrect responses
 
-We should examine the distribution of the outcome variable, lexical decision response reaction time (RT in ms). Observations about variable value distributions are a part of *Exploratory Data Analysis* and serve to catch errors in the dataset (e.g. incorrectly recorded scores) but also to inform the researcher's understanding of their own data.
+We should examine the distribution of the outcome variable, lexical decision response reaction time (RT in ms). Observations about variable value distributions are a part of *Exploratory Data Analysis* and serve to catch errors in the data-set (e.g. incorrectly recorded scores) but also to inform the researcher's understanding of their own data.
 
 :::{.callout-tip collapse="true"}
 ## Hint
@@ -306,7 +306,7 @@ ML.all %>%
 
 The code to produce @fig-rt-all-density works in a series of steps.
 
-1.  `ML.all %>%` takes the dataset, from the ML study, that we have read in to the R workspace and pipes it to the visualization code, next.
+1.  `ML.all %>%` takes the data-set, from the ML study, that we have read in to the R workspace and pipes it to the visualization code, next.
 2.  `ggplot(aes(x = RT)) +` creates a plot object in which the x-axis variable is specified as `RT`. The values of this variable will be mapped to geometric objects, i.e. plot features, that you can see, next.
 3.  `geom_density(size=1.5) +` first displays the distribution of values in the variable `RT` as a density curve. The argument `size=1.5` tells R to make the line $1.5 \times$ the thickness of the line used by default to show variation in density.
 
@@ -321,7 +321,7 @@ Notice that beneath the curve of the density plot, you can see a series of verti
 -   `geom_rug(alpha = .2)` reduces the opacity of each line, using `alpha`, to ensure the reader can see how the RT observations are denser in some places than others.
 :::
 
-##### Practical Task 4 -- You should try out alternative visualisation methods to reveal the patterns in the distribution of variables in the ML dataset (or in your own data).
+##### Practical Task 4 -- You should try out alternative visualisation methods to reveal the patterns in the distribution of variables in the ML data-set (or in your own data).
 
 1.  Take a look at the `geoms` documented in the `{ggplot2}` library reference section [here](https://ggplot2.tidyverse.org/reference/#section-layer-geoms).
 2.  Experiment with code to answer the following questions:
@@ -355,21 +355,21 @@ The filter code is written to subset the data by rows **using a condition** on t
 
 `ML.all.correct <- filter(ML.all, RT >= 200)` works as follows.
 
-1.  `ML.all.correct <- filter(ML.all ...)` creates a new dataset with a new name `ML.all.correct` from the old dataset `ML.all` using the `filter()` function.
+1.  `ML.all.correct <- filter(ML.all ...)` creates a new data-set with a new name `ML.all.correct` from the old data-set `ML.all` using the `filter()` function.
 2.  `filter(... RT >= 200)` specifies an argument for the `filter()` function.
 
 In effect, we are asking R to check every value in the `RT` column.
 
--   R will do a check through the `ML.all` dataset, row by row.
--   *If* a row includes an RT that is greater than or equal to 200 *then* that row will be included in the new dataset `ML.all.correct`. This is what I mean by **using a condition**.
+-   R will do a check through the `ML.all` data-set, row by row.
+-   *If* a row includes an RT that is greater than or equal to 200 *then* that row will be included in the new data-set `ML.all.correct`. This is what I mean by **using a condition**.
 -   *But if* a row includes an RT that is less than 200, then that row will not be included. We express this condition as `RT >= 200`.
 :::
 
-##### Practical Task 6 -- Check out the impact of filtering on the number of rows in the dataset
+##### Practical Task 6 -- Check out the impact of filtering on the number of rows in the data-set
 
 - How can we check that the filter operation worked in the way we should expect it to?
 
-After we have removed negative (error) RTs, we can check that the size of the dataset -- here, the number of rows -- matches our expectations.
+After we have removed negative (error) RTs, we can check that the size of the data-set -- here, the number of rows -- matches our expectations.
 
 - How do we do that?
 
@@ -390,7 +390,7 @@ length(ML.all$RT)
 length(ML.all.correct$RT)
 ```
 
-If you run the `length()` function calls then you should see that the *length* or number of observations or rows in the `ML.all.correct` dataset should be smaller than the number of observations in the `ML.all` dataset.
+If you run the `length()` function calls then you should see that the *length* or number of observations or rows in the `ML.all.correct` data-set should be smaller than the number of observations in the `ML.all` data-set.
 :::
 
 ::: callout-tip
@@ -448,7 +448,7 @@ ML.all.correct$logrt <- log10(ML.all.correct$RT)
 
 The `log10()` function works as follows:-
 
-1.  `ML.all.correct$logrt <- log10(...)` creates a a new variable `logrt`, adding it to the `ML.all.correct` dataset. The variable is created using the transformation function `log10()`.
+1.  `ML.all.correct$logrt <- log10(...)` creates a a new variable `logrt`, adding it to the `ML.all.correct` data-set. The variable is created using the transformation function `log10()`.
 2.  `log10(ML.all.correct$RT)` creates a the new variable by transforming (to log10) the values of the old variable, `RT`.
 :::
 
@@ -603,7 +603,7 @@ The random effects part of the model is then specified as follows.
 
 -   `(1|item_name)` adds a random effect to account for random differences between sample groups (`item_name`) in intercepts coded `1`.
 
-5.  `...(..., data = ML.all.correct)` specifies the dataset in which you can find the variables named in the model fitting code.
+5.  `...(..., data = ML.all.correct)` specifies the data-set in which you can find the variables named in the model fitting code.
 6.  Lastly, we can then specify `summary(ML.all.correct.lmer)` to get a summary of the fitted model.
 :::
 
@@ -782,7 +782,7 @@ anova(ML.all.correct.lmer.REML.si, ML.all.correct.lmer.REML.slopes,
 
 #### Practical Part 7: p-values and significance using `lmerTest`
 
-If you look at the fixed effects summary, you can see that we do not get p-values by default. To calculate p-values, we need to count residual degrees of freedom. The authors of the `{lme4}` library that furnishes the `lmer()` function do not [as e.g. @Baayen2008 discuss] think that it is sensible to estimate the residual degrees of freedom for a model in terms of the number of observations. This is because the number of observations concerns one level of a multilevel dataset that might be structured with respect to some number of subjects, some number of items. This means that one cannot then accurately calculate p-values to go with the t-tests on the coefficients estimates; therefore they do not.
+If you look at the fixed effects summary, you can see that we do not get p-values by default. To calculate p-values, we need to count residual degrees of freedom. The authors of the `{lme4}` library that furnishes the `lmer()` function do not [as e.g. @Baayen2008 discuss] think that it is sensible to estimate the residual degrees of freedom for a model in terms of the number of observations. This is because the number of observations concerns one level of a multilevel data-set that might be structured with respect to some number of subjects, some number of items. This means that one cannot then accurately calculate p-values to go with the t-tests on the coefficients estimates; therefore they do not.
 
 ##### Practical Task 19 -- Get p-values using lmerTest
 
@@ -1133,7 +1133,7 @@ Visualize the comparison by producing a plot using a data-set consisting of of a
 df_models <- rbind(df_pooled, df_no_pooling, df_partial_pooling) %>%
   left_join(ML.all.correct, by = "subjectID")
 
-# -- inspect the differences between the datasets
+# -- inspect the differences between the data-sets
 # summary(df_pooled)
 # summary(df_no_pooling)
 # summary(df_partial_pooling)
@@ -1170,7 +1170,7 @@ p_model_comparison
 df_zoom <- df_models %>% 
   filter(subjectID %in% c("EB5", "JP3", "JL3", "AA1"))
 
-# -- re-generate the plot with this zoomed-in selection dataset
+# -- re-generate the plot with this zoomed-in selection data-set
 
 p_model_comparison <- ggplot(df_zoom) + 
   aes(x = LgSUBTLCD, y = logrt) + 
