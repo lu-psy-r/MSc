@@ -411,6 +411,9 @@ window.Quarto = {
   <li><a href="#sec-example-data" id="toc-sec-example-data" class="nav-link" data-scroll-target="#sec-example-data">Our example data</a></li>
   <li><a href="#sec-example-histogram" id="toc-sec-example-histogram" class="nav-link" data-scroll-target="#sec-example-histogram">My first histogram</a></li>
   <li><a href="#sec-example-scatterplot-control" id="toc-sec-example-scatterplot-control" class="nav-link" data-scroll-target="#sec-example-scatterplot-control">My first scatterplot: exerting a bit more control</a></li>
+  <li><a href="#sec-example-model" id="toc-sec-example-model" class="nav-link" data-scroll-target="#sec-example-model">My first model</a></li>
+  <li><a href="#sec-example-model-summary" id="toc-sec-example-model-summary" class="nav-link" data-scroll-target="#sec-example-model-summary">My first model summary table</a></li>
+  <li><a href="#sec-example-model-marginal-effects" id="toc-sec-example-model-marginal-effects" class="nav-link" data-scroll-target="#sec-example-model-marginal-effects">My first marginal effects plot</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul></li>
@@ -750,11 +753,11 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <section id="sec-example-histogram" class="level3">
 <h3 class="anchored" data-anchor-id="sec-example-histogram">My first histogram</h3>
 <p>Let’s take a look at the distribution of ages in this sample.</p>
-<p>You can do that by examining a histogram, see <strong>?@fig-example-histogram</strong>.</p>
+<p>You can do that by examining a histogram, see <a href="#fig-example-histogram" class="quarto-xref">Figure&nbsp;1</a>.</p>
 <p>You can embed the code that does that work, together with your text, in a chunk like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: example-histogram</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-example-histogram</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">study.two.gen %&gt;%</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">  ggplot(aes(x = AGE)) +</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_histogram() +</span></span>
@@ -765,9 +768,13 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="00-quarto_files/figure-html/example-histogram-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-example-histogram" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-example-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="00-quarto_files/figure-html/fig-example-histogram-1.png" id="fig-example-histogram" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-example-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</figcaption>
 </figure>
 </div>
 </div>
@@ -803,8 +810,8 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <p>Notice the bits of text at the top of the chunk:</p>
 <ul>
 <li><code>#| label: fig-ggextra-demo-non-eval</code> labels the chunk. You need this for figure referencing.</li>
-<li><code>#| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and health literacy"</code> adds the caption that will be shown next to the plot.</li>
-<li><code>#| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable."</code> adds alt-text describing the plot for people who use screen readers.</li>
+<li><code>#| fig-cap: "Scatterplot showing ..."</code> adds the caption that will be shown next to the plot.</li>
+<li><code>#| fig-alt: "The figure presents ..."</code> adds alt-text describing the plot for people who use screen readers.</li>
 <li><code>#| warning: false</code> stops R from producing the plot with warnings.</li>
 <li><code>#| echo: false</code> stops R from showing both the code and the plot.</li>
 <li><code>#| eval: false</code> here stops R from actually running the code.</li>
@@ -812,7 +819,7 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <li><code>#| fig-height: 4.5</code> adjusts figure height.</li>
 </ul>
 <p>You can see that I have added comments: <code># -- note that can use gridExtra</code> to make the chunk self-documenting.</p>
-<p>Now show the plot: <a href="#fig-ggextra-demo-eval" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<p>Now show the plot: <a href="#fig-ggextra-demo-eval" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-ggextra-demo-eval" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable.">
@@ -821,7 +828,7 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <img src="00-quarto_files/figure-html/fig-ggextra-demo-eval-1.png" class="img-fluid figure-img" alt="The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable." width="432">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggextra-demo-eval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Scatterplot showing the potential association between accuracy of comprehension and health literacy
+Figure&nbsp;2: Scatterplot showing the potential association between accuracy of comprehension and health literacy
 </figcaption>
 </figure>
 </div>
@@ -847,6 +854,159 @@ Tip
 </ul>
 </div>
 </div>
+<p>Read more about alt-text here:</p>
+<p><a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/28-fig-alt/" class="uri">https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/28-fig-alt/</a></p>
+</section>
+<section id="sec-example-model" class="level3">
+<h3 class="anchored" data-anchor-id="sec-example-model">My first model</h3>
+<p>Now let’s fit a model and get some results.</p>
+<p>Let’s assume we want to model the effect of health literacy on mean accuracy of understanding of health information.</p>
+<p>Let’s say that our model assumes:</p>
+<p><span class="math display">\[
+y_i \sim \beta_0 + \beta_1X_1 + \epsilon_i
+\]</span></p>
+<p>where:</p>
+<ol type="1">
+<li>Outcome mean accuracy of response <span class="math inline">\(y_i\)</span> is expected to vary, on average</li>
+<li>In relation to <span class="math inline">\(\beta_0 + \beta_1X_1\)</span></li>
+</ol>
+<p>where:</p>
+<p><span class="math inline">\(\beta_1X_1\)</span> the coefficient of the effect of variation in health literacy.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I’m not writing the math because this is a serious model but to show off the equation writing capacities of Quarto.</p>
+<p><a href="https://quarto.org/docs/visual-editor/technical.html" class="uri">https://quarto.org/docs/visual-editor/technical.html</a></p>
+<p>It is <em>much, much</em> user friendly, and accurate, than MS Word equation builders.</p>
+</div>
+</div>
+<p>So fit the model and get a summary:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean.acc <span class="sc">~</span> HLVA, <span class="at">data =</span> study.two.gen)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = mean.acc ~ HLVA, data = study.two.gen)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.40848 -0.05304  0.01880  0.07608  0.19968 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.61399    0.03387  18.128  &lt; 2e-16 ***
+HLVA         0.02272    0.00369   6.158 5.31e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1068 on 167 degrees of freedom
+Multiple R-squared:  0.1851,    Adjusted R-squared:  0.1802 
+F-statistic: 37.92 on 1 and 167 DF,  p-value: 5.307e-09</code></pre>
+</div>
+</div>
+<p>Obviously, the summary is not formatted for presentation. We deal with that next.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We absolutely do not want to copy statistics from our model outputs because:</p>
+<ul>
+<li>we will make copy-paste errors;</li>
+<li>we will lose track of which model underlies the statistics;</li>
+<li>it is slow and boring.</li>
+</ul>
+<p>We want to get R to do the work for us.</p>
+</div>
+</div>
+</section>
+<section id="sec-example-model-summary" class="level3">
+<h3 class="anchored" data-anchor-id="sec-example-model-summary">My first model summary table</h3>
+<p>There are a variety of ways to produce tables.</p>
+<p><a href="#tbl-model-summary" class="quarto-xref">Table&nbsp;1</a> illustrates one method.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- tidy model information</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>model.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(model) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as.factor</span>(term)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">fct_recode</span>(term,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Health literacy (HLVA)"</span> <span class="ot">=</span> <span class="st">"HLVA"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Predictor"</span> <span class="ot">=</span> <span class="st">"term"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Estimate"</span> <span class="ot">=</span> <span class="st">"estimate"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Standard error"</span> <span class="ot">=</span> <span class="st">"std.error"</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"t"</span> <span class="ot">=</span> <span class="st">"statistic"</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># -- present table of model information</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(model.tidy, <span class="at">digits =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-model-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-model-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Table summary of model
+</figcaption>
+<div aria-describedby="tbl-model-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped do-not-create-environment cell caption-top table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Predictor</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Standard error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Health literacy (HLVA)</td>
+<td style="text-align: right;">0.0227</td>
+<td style="text-align: right;">0.0037</td>
+<td style="text-align: right;">6.1581</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>But see also:</p>
+<ul>
+<li><a href="https://vincentarelbundock.github.io/tinytable/#tutorial" class="uri">https://vincentarelbundock.github.io/tinytable/#tutorial</a></li>
+<li><a href="https://modelsummary.com/index.html" class="uri">https://modelsummary.com/index.html</a></li>
+<li><a href="https://www.danieldsjoberg.com/gtsummary/" class="uri">https://www.danieldsjoberg.com/gtsummary/</a></li>
+<li><a href="https://broom.tidymodels.org/articles/broom.html" class="uri">https://broom.tidymodels.org/articles/broom.html</a></li>
+</ul>
+<p>There is, however, a persuasive argument that model information (estimates, etc.) is best communicated visually, see:</p>
+<p><a href="https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034" class="uri">https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034</a></p>
+<p>and</p>
+<p><a href="https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034" class="uri">https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034</a></p>
+</section>
+<section id="sec-example-model-marginal-effects" class="level3">
+<h3 class="anchored" data-anchor-id="sec-example-model-marginal-effects">My first marginal effects plot</h3>
+<p>I prefer to general marginal or conditional effects plots, see:</p>
+<p><a href="https://marginaleffects.com/" class="uri">https://marginaleffects.com/</a></p>
 </section>
 <section id="references" class="level3">
 <h3 class="anchored" data-anchor-id="references">References</h3>
