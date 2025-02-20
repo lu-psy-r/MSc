@@ -171,8 +171,22 @@ The tick marks are at the top and bottom of the chunks tell R to read the code a
 
 Notice that you can specify the identity (for cross-referencing) and the behaviour or appearance of the code at the top of the chunk.
 
+## Let's write a report {#sec-quarto-report-first}
 
+In writing reports, we are often going to want to do tasks like:
 
+1. Get sample data and show:
+
+- Distributions or other preliminary information to characterise samples.
+
+2. Fit a model.
+
+- Present a table summary of the model estimates.
+- Present a plot showing model predictions.
+
+3. Cross-reference figures, tables and sections.
+
+We look at how to do these things next.
 
 
 
