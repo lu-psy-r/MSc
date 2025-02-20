@@ -232,221 +232,256 @@ ML.all <- read_csv("subjects.behaviour.words-310114.csv", na = "-999")
 ```
 :::
 
+The ML study data includes the following variables that we will work with (as well as some you can ignore):
+
+1.  Identifying variables
+
+-   `subjectID` -- identifying code for participants
+-   `item_name` -- words presented as stimuli
+-   `item_number` -- identifying code for words presented
+
+2.  Response variables
+
+-   `RT` -- response reaction time (ms), for responses to words, i.e., word recognition time
+
+3.  Participant attribute variables
+
+-   `Age` -- in years
+-   `Gender` -- coded M (male), F (female)
+-   `TOWRE_wordacc` -- word reading skill, words read correctly (out of 104)
+-   `TOWRE_nonwordacc` -- nonword reading skill, nonwords (made up words) read correctly (out of 63)
+-   `ART_HRminusFR` -- reading experience score
+
+4.  Stimulus property variables
+
+-   `Length` -- word length, in letters
+-   `Ortho_N` -- orthographic neighbourhood size, how many other words in English a stimulus word looks like
+-   `OLD` -- orthographic Levenshtein distance, how many letter edits (addition, deletion or substitution) it would take to make a stimulus word look like another English word (a measure of orthographic neighbourhood) [@Yarkoni2008b]
+-   `BG_Sum, BG_Mean, BG_Freq_By_Pos` -- measures of how common are pairs of letters that compose stimulus words
+-   `SUBTLWF, LgSUBTLWF, SUBTLCD, LgSUBTLCD` -- measures of how common stimulus words are, taken from the SUBTLEX corpus analysis of word frequency [@Brysbaert2009a]
+
 #### Practical Part 3: Tidy the data
 
 Tidying the data involves a number of tasks, some essential and some things we do for our convenience.
 
-##### Practical Task 3 -- Transform the `rt` and `acc` data from wide to long using `pivot_longer()`
+We are going to first filter the observations, then transform the outcome variable.
 
-To get ready for later analyses, we need to ensure that reaction time (`rt`) and accuracy (`acc`) observations are in *tidy* format. 
+- We do this work and use data visualization to examine the impacts of the actions.
 
-When we first encounter the data files, the data are untidy because, here, the reaction time (`rt`) and accuracy (`acc`) observations are in separate multiple columns.
-We *pivot* the data to solve this problem.
+::: callout-tip
+It is *always* a good idea to first inspect what you have got when you read a data file into R before you do anything more demanding.
 
-- You can read more about what we are doing and why, here, in the [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-restructure).
+-   You **cannot assume** that the data are what you think they are
+-   or that the data are structured or coded in the ways that you think (or have been told) they should be structured or coded.
+:::
 
->**Pract.Q.3.** How do we do this?
+##### Practical Task 3 -- Produce a density plot showing word recognition reaction time, for both correct and incorrect responses
 
-- You can try out some solutions, based on what you have done before.
-- You can open the `Hint` box for a detailed walk-through of the process, and then adapt the hint information.
-- And you can open the `Code` box for the example code.
+We should examine the distribution of the outcome variable, lexical decision response reaction time (RT in ms). Observations about variable value distributions are a part of *Exploratory Data Analysis* and serve to catch errors in the dataset (e.g. incorrectly recorded scores) but also to inform the researcher's understanding of their own data.
 
 :::{.callout-tip collapse="true"}
 ## Hint
-We use a function you may have seen before: `pivot_longer()`.
+We shall examine the distribution of the outcome variable, lexical decision response reaction time (RT in ms), using density plots. An alternative method would be to use histograms.
 
-```{r}
-#| label: widetolong-demo
-#| eval: false
-rt.long <- behaviour.rt %>%
-             pivot_longer(2:62, names_to = "subjectID", values_to = "RT")
-```
-
-The name of the function comes from the fact that we are starting with data in wide format e.g. `behaviour.rt` where we have what should be a single variable of observations (RTs) arranged in a wide series of multiple columns, side-by-side (one column for each participant). But we want to take those wide data and *lengthen* the data-set, increasing the number of rows and decreasing the number of columns.
-
-Let's look at this line of code bit by bit.
-
-1.  `rt.long <- behaviour.rt %>%`
-
--   At the start, I tell R that I am going to create a new longer data-set (more rows, fewer columns) that I shall call `rt.long`.
--   I will create this longer data-set from `<-` the original wide data-set `behaviour.rt`.
--   and I will create the new longer data-set by taking the original wide data-set and piping it `%>%` to the pivot function coded on the next line:
-
-2.  `pivot_longer(2:62, names_to = "subjectID", values_to = "RT")`
-
--   On this next line, I tell R how to do the pivoting by using three arguments.
-
-a.  `pivot_longer(2:62...)`
-
--   First, I tell R that I want to re-arrange all the columns that can be found in the data-set from the second column to the sixty-second column.
--   In a spreadsheet, we have a number of columns.
--   Columns can be identified by their position in the spreadsheet.
--   The position of a column in a spreadsheet can be identified by number, from the leftmost column (column number 1) to the rightmost column (here, column number 62) in our data-set.
--   So this argument tells R exactly which columns I want to pivot.
-
-b.  `pivot_longer(..., names_to = "subjectID", ...)`
-
--   Second, I tell R that I want it to take the column labels and put them into a new column, called `subjectID`.
--   In the wide data-set `behaviour.rt`, each column holds a list of numbers (RTs) but begins with a word in the topmost cell, the name code for a participant, in the column label position.
--   We want to keep the information about which participant produces which response when we pivot the wide data to a longer structure.
--   We do this by asking R to take the column labels (the participant names) and listing them in a new column, called `subjectID` which now holds the names as participant ID codes.
-
-c.  `pivot_longer(...values_to = "RT")`
-
--   Third, we tell R that all the RT values should be put in a single column.
--   We can understand that this new column `RT` will hold RT observations in a vertical stack, one cell for each response by a person to a word, with rows ordered by `subjectID`.
-
-There are 61 columns of data listed by participant though 62 children were tested because we lost one child's data through an administrative error. As a result, in the wide data sets there are 62 columns, with the first column holding `item_name` data.
-
-You can find more information about pivoting data [here](https://tidyr.tidyverse.org/articles/pivot.html)
-
-And you can find more information specifically about the `pivot_longer()` operation [here](https://tidyr.tidyverse.org/articles/pivot.html)
+A density plot shows a curve. You can say that the density corresponds to the height of the curve for a given value of the variable being depicted, and that it is related to the probability of observing values of the variable within some range of values [@howell2016fundamental].
 :::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| label: widetolong
+#| label: fig-rt-all-density
+#| fig-cap: "Density plot showing word recognition reaction time, correct and incorrect responses"
+#| fig-alt: "Density plot showing word recognition reaction time, correct and incorrect responses. The figure shows a black line, a curve peaking over RT = about 500 but ranging between -2000 and +2000. Under the curve, a series of black tick marks are shown under the x-axis border."
 #| warning: false
 #| message: false
-rt.long <- behaviour.rt %>%
-             pivot_longer(2:62, names_to = "subjectID", values_to = "RT")
-
-acc.long <- behaviour.acc %>%
-              pivot_longer(2:62, names_to = "subjectID", values_to = "accuracy")
+#| fig-height: 5
+#| fig-width: 5
+ML.all %>%
+  ggplot(aes(x = RT)) +
+  geom_density(size=1.5) +
+  geom_rug(alpha = .2) +
+  ggtitle("Raw RT") +
+  theme_bw()  
 ```
+
+The code to produce @fig-rt-all-density works in a series of steps.
+
+1.  `ML.all %>%` takes the dataset, from the ML study, that we have read in to the R workspace and pipes it to the visualization code, next.
+2.  `ggplot(aes(x = RT)) +` creates a plot object in which the x-axis variable is specified as `RT`. The values of this variable will be mapped to geometric objects, i.e. plot features, that you can see, next.
+3.  `geom_density(size=1.5) +` first displays the distribution of values in the variable `RT` as a density curve. The argument `size=1.5` tells R to make the line $1.5 \times$ the thickness of the line used by default to show variation in density.
+
+Some further information is added to the plot, next.
+
+4.  `geom_rug(alpha = .2) +` with a command that tells R to add a rug plot below the density curve.
+5.  `ggtitle("Raw RT")` makes a plot title.
+
+Notice that beneath the curve of the density plot, you can see a series of vertical lines. Each line represents the x-axis location of an RT observation in the ML study data set. This *rug plot* represents the distribution of RT observations in one dimension.
+
+-   `geom_rug()` draws a vertical line at each location on the x-axis that we observe a value of the variable, RT, named in `aes(x = RT)`.
+-   `geom_rug(alpha = .2)` reduces the opacity of each line, using `alpha`, to ensure the reader can see how the RT observations are denser in some places than others.
 :::
 
-##### Practical Task 4 -- Join data from different sources
+##### Practical Task 4 -- You should try out alternative visualisation methods to reveal the patterns in the distribution of variables in the ML dataset (or in your own data).
 
-To answer our research question, we next need to combine the **RT** with the **accuracy** data, and then the combined behavioural data with **participant** information and with **stimulus** information. 
+1.  Take a look at the `geoms` documented in the `{ggplot2}` library reference section [here](https://ggplot2.tidyverse.org/reference/#section-layer-geoms).
+2.  Experiment with code to answer the following questions:
 
-In common practice, in psychological research, we have to deal with the fact that information about behavioural responses, and about participant attributes or stimulus word properties, are located in separate files.
+-   Would a histogram or a frequency polygon provide a more informative view? Take a look [here for advice](https://ggplot2.tidyverse.org/reference/geom_histogram.html).
+-   What about a dotplot? Take a look [here for advice](https://ggplot2.tidyverse.org/reference/geom_dotplot.html)
 
-This is a problem where we need, as here, to analyse outcome behavioural responses using information about participant attributes or stimulus word properties.
+##### Practical Task 5 -- Filter out incorrect and outlier short RT observations
 
->**Pract.Q.4.** How do we solve this problem?
+The code example, shown above, delivers a plot (@fig-rt-all-density) showing three peaks in the distribution of RT values. You can see that there is a peak of RT observations around 500-1000ms, another smaller peak around -500ms, and a third smaller peak around -2000ms.
+
+The density plot shows the reaction times recorded for participants' button press 'yes' responses to word stimuli in the lexical decision task. The peaks of negative RTs represent observations that are *impossible*.
+
+- How do we deal with the impossible RT values?
 
 :::{.callout-tip collapse="true"}
 ## Hint
-We need to join the data from the different sources: 
+The density plot shows us that the raw ML lexical decision `RT` variable includes negative RT values corresponding to incorrect response. These have to be removed. 
 
-1. join RT with accuracy then
-2. join those response data with data about subject attributes
-3. then join those response plus subjects data
-4. with item properties data
-
-We can combine the data-sets, in the way that we need, using the `{tidyverse}` `full_join()` function.
+- We can do this quite efficiently by creating a subset of the original "raw" data, defined according to the RT variable using the `{dpyr}` library `filter()` function.
 :::
-
-First, we join RT and accuracy data together.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| label: gatherall
-#| message: false
+#| label: filter
+ML.all.correct <- filter(ML.all, RT >= 200)
+```
+
+The filter code is written to subset the data by rows **using a condition** on the values of the `RT` variable.
+
+`ML.all.correct <- filter(ML.all, RT >= 200)` works as follows.
+
+1.  `ML.all.correct <- filter(ML.all ...)` creates a new dataset with a new name `ML.all.correct` from the old dataset `ML.all` using the `filter()` function.
+2.  `filter(... RT >= 200)` specifies an argument for the `filter()` function.
+
+In effect, we are asking R to check every value in the `RT` column.
+
+-   R will do a check through the `ML.all` dataset, row by row.
+-   *If* a row includes an RT that is greater than or equal to 200 *then* that row will be included in the new dataset `ML.all.correct`. This is what I mean by **using a condition**.
+-   *But if* a row includes an RT that is less than 200, then that row will not be included. We express this condition as `RT >= 200`.
+:::
+
+##### Practical Task 6 -- Check out the impact of filtering on the number of rows in the dataset
+
+- How can we check that the filter operation worked in the way we should expect it to?
+
+After we have removed negative (error) RTs, we can check that the size of the dataset -- here, the number of rows -- matches our expectations.
+
+- How do we do that?
+
+:::{.callout-tip collapse="true"}
+## Hint
+The `length()` function will count the elements in whatever object is specified as an argument in the function call.
+
+-   This means that if you put a variable name into the function as in `length(data$variable)` it will count how long that variable is -- how many rows there are in the column.
+-   If that variable happens to be, as here, part of a data-set, the same calculation will tell you how many rows there are in the data-set as a whole.
+-   If you just enter `length(data)`, naming some data-set, then the function will return a count of the number of columns in the data-set.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| label: length-check
+length(ML.all$RT)
+length(ML.all.correct$RT)
+```
+
+If you run the `length()` function calls then you should see that the *length* or number of observations or rows in the `ML.all.correct` dataset should be smaller than the number of observations in the `ML.all` dataset.
+:::
+
+::: callout-tip
+It is wise to *check* that the operations you perform to tidy, process or wrangle data *actually do* do what you mean them to do. Checks can be performed, for each processing stage, by:
+
+1.  Forming expectations or predictions about what the operation is supposed to do e.g. filter out some rows by some number;
+2.  Check what you get against these predictions e.g. count the number of rows before versus after filtering.
+:::
+
+##### Practical Task 7 -- Produce a density plot showing word recognition reaction time, for correct responses only
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| label: fig-rt-correct-density
+#| fig-cap: "Density plot showing word recognition reaction time, correct responses only"
+#| fig-alt: "Density plot showing word recognition reaction time, correct and incorrect responses. The figure shows a black line, a curve peaking over RT = about 500 now ranging between 0 and +2000. Under the curve, a series of black tick marks are shown under the x-axis border. The skew towards high values is now more obvious."
 #| warning: false
-long <- rt.long %>% 
-          full_join(acc.long)
-
-```
-:::
-
-Then, we join subject and item information to the behavioural data.
-
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-#| label: gathersubjects
 #| message: false
-#| warning: false
-long.subjects <- long %>% 
-                   full_join(subjects, by = "subjectID")
-
-long.all <- long.subjects %>%
-              full_join(words, by = "item_name")
-
+#| fig-height: 5
+#| fig-width: 5
+ML.all.correct %>%
+  ggplot(aes(x = RT)) +
+  geom_density(size=1.5) + 
+  geom_rug(alpha = .2) +
+  ggtitle("Correct RTs") +
+  theme_bw()
 ```
 :::
 
->**Pract.Q.4.** Can you explain what you are doing, or what the code you use is doing, to solve the problem of putting the separate sets of data together?
+##### Practical Task 8 -- Vary the filter conditions in different ways:
+
+1.  Change the threshold for including RTs from `RT >= 200` to something else: you can change the number, or you can change the operator from `>=` to a different comparison (try `=, <, <=, >`.
+2.  Can you assess what impact the change has?
+
+##### Practical Task 9 -- Transform RT to log base 10 RT
+
+@fig-rt-correct-density shows that we have successfully removed all errors (negative RTs) but now we see just how skewed the RT distribution is. Note the *long tail* of longer RTs.
+
+Generally, we assume that departures from a model's predictions about our observations (the linear model residuals) are normally distributed, and we often assume that the relationship between outcome and predictor variables is linear [@Cohen2003c]. We can ensure that our data are compliant with both assumptions by transforming the RT distribution.
+
+- What transformation should we use?
 
 :::{.callout-tip collapse="true"}
 ## Hint
-Here, in a series of steps, we take one data-set and join it (merge it) with the second data-set. Let's look at an example element by element to better understand how this is accomplished.
-
-```{r}
-#| label: demo-join
-#| eval: false
-long <- rt.long %>% 
-           full_join(acc.long)
-```
-
-The code work as follows.
-
-1.  `long <- rt.long %>%`
-
--   We create a new data-set we call `long`.
--   We do this by taking one original data-set `rt.long` and `%>%` piping it to the operation defined in the second step.
-
-2.  `full_join(acc.long)`
-
--   In this second step, we use the function `full_join()` to add observations from a second original data-set `acc.long` to those already from `rt.long`
-
-The addition of observations from one data-set joining to those from another happens through a matching process.
-
--   R looks at the data-sets being merged.
--   It identifies if the two data-sets have columns in common. Here, the data-sets have `subjectID` and `item_name` in common).
--   R can use these common columns to identify rows of data. Here, each row of data will be identified by both `subjectID` and `item_name` i.e. as data about the response made by a participant to a word.
--   R will then do a series of identity checks, comparing one data-set with the other and, row by row, looking for matching values in the columns that are common to both data-sets.
--   If there is a match then R joins the corresponding rows of data together.
--   If there isn't a match then it creates `NAs` where there are missing entries in one row for one data-set which cannot be matched to a row from the joining data-set.
-:::
-
-- You can read more about what we are doing here in [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-relational) and [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-join-functions).
-
-##### Practical Task 5 -- Select just the variables we need
-
-If the pivoting and joining steps have gone according to plan then we should now be looking at a big, long and wide, data-set. But we do not actually require all of the data-set for the analyses we are going to do.
-
-For our own convenience, we are going to want to select just the variables we need.
-
-We want the variables:
-
-- `item_name, subjectID, RT, accuracy`
-- `Lg.UK.CDcount, brookesIMG, AoA_Kup_lem`
-- `Ortho_N, regularity, Length, BG_Mean`
-- `Voice,	Nasal,	Fricative,	Liquid_SV`	
-- `Bilabials,	Labiodentals,	Alveolars`
-- `Palatals,	Velars,	Glottals, age.months`
-- `TOWREW_skill, TOWRENW_skill, spoonerisms, CART_score`
-
->**Pract.Q.5.** How do we get to a data-set with just these variables in it?
-
-:::{.callout-tip collapse="true"}
-## Hint
-We are going to select just the variables we need using the `select()` function.
+Psychology researchers often take the log (often the log base 10) of RT values before performing an analysis. Transforming RTs to the log base 10 of RT values has the effect of correcting the skew -- bringing the larger RTs 'closer' (e.g., $1000 = 3$ in log10) to those near the middle which do not change as much (e.g. $500 = 2.7$ in log10).
 :::
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| label: selectcols
-long.all.select <- long.all %>% 
-                        select(item_name, subjectID, RT, accuracy, 
-                               Lg.UK.CDcount, brookesIMG, AoA_Kup_lem, 
-                               Ortho_N, regularity, Length, BG_Mean, 
-                               Voice,	Nasal,	Fricative,	Liquid_SV,
-                               Bilabials,	Labiodentals,	Alveolars,
-                               Palatals,	Velars,	Glottals, 
-                               age.months, TOWREW_skill, TOWRENW_skill, 
-                               spoonerisms, CART_score)
+#| label: log-transform
+ML.all.correct$logrt <- log10(ML.all.correct$RT)			
+```
 
+The `log10()` function works as follows:-
+
+1.  `ML.all.correct$logrt <- log10(...)` creates a a new variable `logrt`, adding it to the `ML.all.correct` dataset. The variable is created using the transformation function `log10()`.
+2.  `log10(ML.all.correct$RT)` creates a the new variable by transforming (to log10) the values of the old variable, `RT`.
+:::
+
+##### Practical Task 10 -- Produce a density plot showing log10 transformed reaction time, correct responses only
+
+We can see the effect of the transformation if we plot the log10 transformed RTs (see @fig-rt-correct-log-density). 
+
+- Do we arrive at a distribution that more closely approximates the normal distribution?
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| label: fig-rt-correct-log-density
+#| fig-cap: "Density plot showing log10 transformed reaction time, correct responses only"
+#| fig-alt: "Density plot showing word recognition reaction time, correct and incorrect responses. The figure shows a black line, a curve peaking over logrt = about 2.8 ranging between 2.4 and 3.5. Under the curve, a series of black tick marks are shown under the x-axis border. The skew towards high values is now considerably reduced."
+#| warning: false
+#| message: false
+#| fig-height: 5
+#| fig-width: 5
+ML.all.correct %>%
+  ggplot(aes(x = logrt)) +
+  geom_density(size = 1.5) + 
+  geom_rug(alpha = .2) +
+  ggtitle("Correct log10 RTs") +
+  theme_bw()
 ```
 :::
 
->**Pract.Q.6.** What if you wanted to analyze a different set of variables, could you select different variables?
+::: callout-tip
+There are other log transformation functions and we often see researchers using the natural log instead of the log base 10 as discussed [here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/log)
+:::
+
+
 
 ##### Practical Task 6 -- Filter the observations
 
