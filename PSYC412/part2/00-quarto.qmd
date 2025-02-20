@@ -48,6 +48,14 @@ You can write in Quarto, in R-Studio (or any code editor), to produce:
 
 Here, we are going to focus on reports that will be output as `.docx`.
 
+::: callout-tip
+What we are engaged in, here, is writing a combination of text and (here, R) code to generate a document.
+
+This idea is old --- see: e.g., Donald Knuth (who developed LaTex): <https://www-cs-faculty.stanford.edu/~knuth/lp.html>
+
+But Quarto is a modern, efficient, way to do a powerful thing easily and efficiently.
+:::
+
 ### Related materials {#sec-quarto-overview-related}
 
 Quarto was developed by Posit (formerly: R-Studio).
@@ -90,15 +98,78 @@ There are at least the following justifications for investing time in this (in n
 
 4. Make nice things: plots and tables will look better.
 
+## Quick start {#sec-quarto-quick-start}
 
+Open R-Studio.
 
+Click on the menu buttons: 
 
+1. `File` $\rightarrow$ `New File` $\rightarrow$ `Quarto Document...`
+2. A menu box will open: click on the `Word` radio button, and the `Create` button.
 
+![New Create Document menu box](file-create-document.png)
 
+If you do that, you will see this file open:
 
+![A new `.qmd` file](word-quarto.png)
 
+3. See that `Render` button at the top of the window? Click on it.
 
+- You will be asked to give the file a name. Name it.
 
+This action will create a Quarto script file, a `.qmd` and will generate a Word `.docx`.
+
+The whole script looks like this:
+
+![A new `.qmd` file: dummy file](dummy-qmd.png)
+
+And the `.docx` looks like this:
+
+![A new `.qmd` file: dummy file output](dummy-qmd-docx-output.png)
+
+### Basic anatomy {#sec-quarto-quick-start}
+
+This example shows you the main parts of a Quarto file. Let's identify these parts before we move on:
+
+1. The `yaml` at the top is where you set document options:
+
+```{}
+---
+title: "Untitled"
+format: docx
+editor: visual
+---
+```
+
+Usually, this will be where you specify what output formats you want, whether you want a ToC, and (for APA 7 documents) it will be where you add author, title and abstract information, see more information here:
+
+<https://quarto.org/docs/output-formats/ms-word.html>
+
+2. You have section titles:
+
+```{}
+## Quarto
+```
+
+Notice the `##` -- the more hash signs you add, the lower the section title in the section hierarchy.
+
+3. You have plain text:
+
+```{}
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+```
+
+4. And you have computing code --- *chunks*:
+
+```{r}
+#| echo: fenced
+#| label: example
+1 + 1
+```
+
+The tick marks are at the top and bottom of the chunks tell R to read the code and work with it.
+
+Notice that you can specify the identity (for cross-referencing) and the behaviour or appearance of the code at the top of the chunk.
 
 
 
