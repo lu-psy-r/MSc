@@ -72,56 +72,55 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 
 ::: callout-tip
 ## Download the lecture slides
-You can download the lecture slides in three different versions:
+You can download the lecture slides in two different versions:
 
-- [402-week-19-LME-3.pdf](files/402-week-19-LME-3.pdf): high resolution .pdf, exactly as delivered [1.3 MB];
-- [402-week-19-LME-3_1pp.pdf](files/402-week-19-LME-3_1pp.pdf): printable version, one-slide-per-page [1.2 MB];
-- [402-week-19-LME-3_6pp.pdf](files/402-week-19-LME-3_6pp.pdf): printable version, six-slides-per-page [1.3 MB].
+- [402-week-20-GLMM.pdf](files/402-week-20-GLMM.pdf): exactly as delivered [700 KB];
+- [402-week-20-GLMM_6pp.pdf](files/402-week-20-GLMM_6pp.pdf): printable version, six-slides-per-page [850 KB].
 
-The high resolution version is the version delivered for the lecture recordings. To make the slides easier to download, I produced lower resolution versions: 1pp and 6pp. These should be easier to download and print out if that is what you want to do.
+The `GLMM.pdf` version is the version delivered for the lecture recordings. To make the slides easier to download, I produced a six-slide-per-page version, `GLMM_6pp.pdf`. This should be easier to download and print out if that is what you want to do.
 :::
 
 ### Practical materials: data and R-Studio {#sec-glmm-workbook-practical}
 
-We will be working with the **ML word recognition study** data-set. ML examined *visual* word recognition in younger and older adults using the lexical decision task.
+We will be working with data collected for a study investigating word learning in children, reported by @ricketts2021. You will see that the study design has both a repeated measures aspect because each child is asked to respond to multiple stimuli, and a longitudinal aspect because responses are recorded at two time points. Because responses were observed to multiple stimuli for each child, and because responses were recorded at multiple time points, the data have a multilevel structure. These features require the use of mixed-effects models for analysis.
 
-In lexical decision, participants are presented with a stimulus: a string of letters that is either a real word (e.g., 'car') or a made-up or non-word (e.g., 'cas'). Participants are required to respond to the stimulus by pressing a button to indicate either that they think the stimulus is a word or that they think it is a non-word. Each complete sequence of events, in which a stimulus is presented and a response is recorded, is known as a *trial*. In the lexical decision task implemented by ML, all study participants were presented with a mix of 160 word stimuli and 160 non-word stimuli, in random order, in a total of 320 trials.
+We will see, also, that the study involves the factorial manipulation of learning conditions. This means that, when you see the description of the study design, you will see embedded in it a 2 x 2 factorial design. You will be able to generalize from our work here to many other research contexts where psychologists conduct experiments in which conditions are manipulated according to a factorial design.
 
-Each stimulus was presented one at a time on the computer screen. The critical outcome measure was the reaction time (RT) or latency for each response. Observed RT represents the interval of time from the moment the stimulus was first presented (the stimulus onset) to the moment the response was made (the response onset).
+However, our focus now is on the fact that the outcome for analysis is the accuracy of the responses made by children to word targets in a spelling task. The categorical nature of accuracy as an outcome is the reason why we now turn to use Generalized Linear Mixed-effects Models.
 
-The critical feature of the study, here, is that we have an outcome -- a decision response -- observed multiple times (for each stimulus) for each participant. We shall be analyzing the speed of response, reaction time (RT), measured in milliseconds (ms).
+You can read more about these data in the [chapter on GLMMs](../part2/04-glmm.qmd#sec-glmm-data-study).
 
-You can read more about these data in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed).
+We addressed three research questions and tested predictions in relation to each question.
 
-Instead of posing a simple and general research question, we shall orient our work around a set of quite specific predictions. ML hypothesized:
+1.  Does the presence of orthography promote greater word learning?
 
-1.  Effects of stimulus attributes
+-   We predicted that children would demonstrate greater orthographic learning for words that they had seen (orthography present condition) versus not seen (orthography absent condition).
 
--   Predicting that words that are shorter, that look like more other words, and that appear frequently in the language will be easier to recognize.
+2.  Will orthographic facilitation be greater when the presence of orthography is emphasized explicitly during teaching?
 
-2.  Effects of participant attributes
+-   We expected to observe an interaction between instructions and orthography, with the highest levels of learning when the orthography present condition was combined with explicit instructions.
 
--   Predicting that older readers would be faster and more accurate than younger readers in word recognition.
+3.  Does word consistency moderate the orthographic facilitation effect?
 
-3.  Effects of interactions between the effects of word attributes and person attributes.
-
--   Predicting that better (older) readers will show smaller effects of word attributes.
+-   For orthographic learning, we expected that the presence of orthography might be particularly beneficial for words with higher spelling-sound consistency, with learning highest when children saw and heard the word, and these codes provided overlapping information.
 
 ::: callout-important
 **Get the data**: get the data file and the .R script you can use to do the exercises that will support your learning.
 
-- You can download the files folder for this chapter by clicking on the link [03-mixed.zip](files/03-mixed.zip).
+- You can download the files folder for this chapter by clicking on the link [04-glmm.zip](files/04-glmm.zip).
 :::
 
-The practical materials folder includes a data file and an `.R` script:
+The practical materials folder includes data files and an `.R` script:
 
--   `subjects.behaviour.words-310114.csv` which holds information about the (word) stimuli, participants, and the responses recorded in the ML study.
+In this chapter, we will be working with the data about the orthographic post-test outcome for the Ricketts word learning study:
 
-The `.csv` file is a *comma separated values* file and can be opened in Excel.
+-   `long.orth_2020-08-11.csv`
 
 The data file is collected together with the .R script:
 
--   `402-03-mixed-workbook.R` the workbook you will need to do the practical exercises.
+-   `04-glmm-workbook.R` the workbook you will need to do the practical exercises.
+
+The data come from the @ricketts2021 study, and you can access the analysis code and data for that study, in full, at the OSF repository [here](https://osf.io/e5gzk/?view_only=038118528c7c426c9729983f54138c88)
 
 ::: callout-important
 You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
