@@ -128,17 +128,19 @@ You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.l
 
 #### Practical materials guide {#sec-glmm-workbook-practical-guide}
 
-We have reached the stage where our learning targets can be detailed -- here, we are concerned with:
+The aims of the practical work are to:
 
-- being able to specify a mixed-effects model in `lmer()` code;
-- being able to identify how the mixed-effects model code varies depending on the kinds of random effects;
+- Understand the reasons for using Generalized Linear Mixed-effects models (GLMMs) when we analyze discrete outcome variables.
+- Recognize the limitations of alternative methods for analyzing such outcomes.
+- Practice running GLMMs with varying random effects structures.
+- Practice reporting the results of GLMMs, including through the use of model plots.
 
-- being able to identify the elements of the output or results that come from an `lmer()` mixed-effects analysis;
-- being able to interpret the fixed-effects estimates;
-- being able to interpret the random effects estimates, variance, covariance;
+My recommendations for learning are that you should aim to:
 
-- being able to describe in words and summary tables the results of a mixed-effects model;
-- being able to visualise the effects estimates from a mixed-effects model.
+- run generalized linear mixed-effects models of demonstration data;
+- run generalized linear mixed-effects models of alternate data sets;
+- play with the `.R` code used to create examples for the lecture;
+- and edit example code to create alternate visualizations.
 
 #### The practical exercises {#sec-glmm-workbook-practical-workbook}
 
@@ -147,7 +149,7 @@ Now you will progress through a series of tasks, and challenges, to aid your lea
 ::: callout-warning
 We will work with the data file:
 
--   `subjects.behaviour.words-310114.csv`
+-   `long.orth_2020-08-11.csv`
 :::
 
 We again split the steps into into parts, tasks and questions.
