@@ -1,14 +1,14 @@
 ---
-title: Week 18. Developing linear mixed-effects models
+title: Week 19. Introduction to Generalized Linear Mixed-effects Models
 subtitle: Written by Rob Davies
-order: 10
+order: 12
 bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
 
-# Week 18 Developing linear mixed-effects models: workbook overview {#sec-dev-mixed-workbook-overview}
+# Week 19 Introduction to Generalized Linear Mixed-effects Models {#sec-glmm-workbook-overview}
 
-Welcome to your overview of the work we will do together in **Week 18**.
+Welcome to your overview of the work we will do together in **Week 19**.
 
 We have been learning to:
 
@@ -23,7 +23,7 @@ We now need to develop our understanding and skills further. And we now need to 
 Shrinkage or regularization means that models of data should be excited by the data but *not too* excited.
 :::
 
-## Targets {#sec-dev-mixed-workbook-targets}
+## Targets {#sec-glmm-workbook-targets}
 
 We have three capacities that we are seeking to develop this week:
 
@@ -31,7 +31,7 @@ We have three capacities that we are seeking to develop this week:
 2.  to work with these models practically or efficiently in R;
 3.  and to communicate their results effectively (to ourselves and others).
 
-### Targets {#sec-dev-mixed-workbook-targets-checklist}
+### Targets {#sec-glmm-workbook-targets-checklist}
 
 You can test your development against this checklist of targets for learning.
 
@@ -58,7 +58,7 @@ You can test your development against this checklist of targets for learning.
 -   describe in words and summary tables the results of a mixed-effects model;
 -   visualize the effects estimates or predictions from a mixed-effects model.
 
-## Learning resources {#sec-dev-mixed-workbook-resources}
+## Learning resources {#sec-glmm-workbook-resources}
 
 You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop. Then you will see information about the practical materials you can use to build and practise your skills.
 
@@ -73,7 +73,7 @@ To support your learning, you can read about the ideas and the practical coding 
 3. This week, you can find more in-depth explanations of analysis methods and key ideas in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed).
 :::
 
-### Lectures {#sec-dev-mixed-workbook-lectures}
+### Lectures {#sec-glmm-workbook-lectures}
 
 The lecture materials for this week are presented in three short parts.
 
@@ -97,7 +97,7 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ddde4efb-2975-4347-b255-ace401328b39&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="03-mixed-3-of-3" ></iframe>
 ```
 
-### Lecture slides {#sec-dev-mixed-workbook-slides}
+### Lecture slides {#sec-glmm-workbook-slides}
 
 ::: callout-tip
 ## Download the lecture slides
@@ -110,7 +110,7 @@ You can download the lecture slides in three different versions:
 The high resolution version is the version delivered for the lecture recordings. To make the slides easier to download, I produced lower resolution versions: 1pp and 6pp. These should be easier to download and print out if that is what you want to do.
 :::
 
-### Practical materials: data and R-Studio {#sec-dev-mixed-workbook-practical}
+### Practical materials: data and R-Studio {#sec-glmm-workbook-practical}
 
 We will be working with the **ML word recognition study** data-set. ML examined *visual* word recognition in younger and older adults using the lexical decision task.
 
@@ -156,7 +156,7 @@ The data file is collected together with the .R script:
 You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
 :::
 
-#### Practical materials guide {#sec-dev-mixed-workbook-practical-guide}
+#### Practical materials guide {#sec-glmm-workbook-practical-guide}
 
 We have reached the stage where our learning targets can be detailed -- here, we are concerned with:
 
@@ -170,7 +170,7 @@ We have reached the stage where our learning targets can be detailed -- here, we
 - being able to describe in words and summary tables the results of a mixed-effects model;
 - being able to visualise the effects estimates from a mixed-effects model.
 
-#### The practical exercises {#sec-dev-mixed-workbook-practical-workbook}
+#### The practical exercises {#sec-glmm-workbook-practical-workbook}
 
 Now you will progress through a series of tasks, and challenges, to aid your learning.
 
