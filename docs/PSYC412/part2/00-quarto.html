@@ -414,8 +414,9 @@ window.Quarto = {
   <li><a href="#sec-example-model" id="toc-sec-example-model" class="nav-link" data-scroll-target="#sec-example-model">My first model</a></li>
   <li><a href="#sec-example-model-summary" id="toc-sec-example-model-summary" class="nav-link" data-scroll-target="#sec-example-model-summary">My first model summary table</a></li>
   <li><a href="#sec-example-model-marginal-effects" id="toc-sec-example-model-marginal-effects" class="nav-link" data-scroll-target="#sec-example-model-marginal-effects">My first marginal effects plot</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
+  <li><a href="#todo-list" id="toc-todo-list" class="nav-link" data-scroll-target="#todo-list">TODO list</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -790,22 +791,31 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <p>Let’s go through the control elements first.</p>
 <p>Take a look at the chunk of code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- note that can use gridExtra</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -- to show marginal distributions in scatterplots</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/daattali/ggExtra</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> study.two.gen <span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.75</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">1.1</span>)<span class="sc">+</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.15</span>)),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.5</span>))</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Health literacy (HLVA)'</span>, <span class="at">y =</span> <span class="st">'Mean accuracy'</span>)</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>ggExtra<span class="sc">::</span><span class="fu">ggMarginal</span>(plot, <span class="at">type =</span> <span class="st">"histogram"</span>, <span class="at">colour =</span> <span class="st">"lightgrey"</span>, <span class="at">fill =</span> <span class="st">"lightgrey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-ggextra-demo-non-eval</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and health literacy"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable."</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| warning: false</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-width: 4.5</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-height: 4.5</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="in"># -- note that can use gridExtra</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="in"># -- to show marginal distributions in scatterplots</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="in"># https://github.com/daattali/ggExtra</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="in">plot &lt;- study.two.gen %&gt;%</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="in">  ggplot(aes(x = HLVA, y = mean.acc)) +</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(size = 1.75, alpha = .5) +</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(size = 1.5, colour = "red", method = "lm", se = FALSE) +</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="in">  xlim(0, 15) +</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="in">  ylim(0, 1.1)+</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_bw() +</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="in">    axis.text = element_text(size = rel(1.15)),</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="in">    axis.title = element_text(size = rel(1.5))</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="in">  ) +</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(x = 'Health literacy (HLVA)', y = 'Mean accuracy')</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="in">ggExtra::ggMarginal(plot, type = "histogram", colour = "lightgrey", fill = "lightgrey")</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Notice the bits of text at the top of the chunk:</p>
 <ul>
@@ -872,6 +882,10 @@ y_i \sim \beta_0 + \beta_1X_1 + \epsilon_i
 </ol>
 <p>where:</p>
 <p><span class="math inline">\(\beta_1X_1\)</span> the coefficient of the effect of variation in health literacy.</p>
+<p>This is how you write math in Quarto (notice the dollar signs):</p>
+<ul>
+<li><code>$y_i \sim \beta_0 + \beta_1X_1 + \epsilon_i$</code></li>
+</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -885,6 +899,8 @@ Tip
 <p>I’m not writing the math because this is a serious model but to show off the equation writing capacities of Quarto.</p>
 <p><a href="https://quarto.org/docs/visual-editor/technical.html" class="uri">https://quarto.org/docs/visual-editor/technical.html</a></p>
 <p>It is <em>much, much</em> user friendly, and accurate, than MS Word equation builders.</p>
+<p>You can read more about writing equations in:</p>
+<p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#Operators" class="uri">https://en.wikibooks.org/wiki/LaTeX/Mathematics#Operators</a></p>
 </div>
 </div>
 <p>So fit the model and get a summary:</p>
@@ -991,6 +1007,22 @@ Table&nbsp;1: Table summary of model
 </figure>
 </div>
 </div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I can probably fix the p-value presentation but I’ll leave that there for now. The general principle is what counts:</p>
+<ul>
+<li>You can programmatically fit a model <span class="math inline">\(\rightarrow\)</span> get the statistics <span class="math inline">\(\rightarrow\)</span> produce a table.</li>
+</ul>
+</div>
+</div>
 <p>But see also:</p>
 <ul>
 <li><a href="https://vincentarelbundock.github.io/tinytable/#tutorial" class="uri">https://vincentarelbundock.github.io/tinytable/#tutorial</a></li>
@@ -1008,14 +1040,24 @@ Table&nbsp;1: Table summary of model
 <p>I prefer to general marginal or conditional effects plots, see:</p>
 <p><a href="https://marginaleffects.com/" class="uri">https://marginaleffects.com/</a></p>
 </section>
-<section id="references" class="level3">
-<h3 class="anchored" data-anchor-id="references">References</h3>
+</section>
+<section id="todo-list" class="level2">
+<h2 class="anchored" data-anchor-id="todo-list">TODO list</h2>
+<ul>
+<li>APA formatted manuscripts</li>
+<li>descriptive statistics tables</li>
+<li>bibliographies</li>
+<li>inline computing</li>
+<li>format to multiple outputs</li>
+</ul>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
 <div id="refs" role="list">
 
 </div>
 
 
-</section>
 </section>
 </section>
 
