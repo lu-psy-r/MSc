@@ -37,11 +37,11 @@ Every week, you will learn best if you *first* watch the lectures *then* do the 
 
 ::: callout-tip
 ### Linked resources
-To support your learning, you can read about the ideas and the practical coding required for analyses in the chapters I wrote for this course.
-
 1. We learned about multilevel structured data in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview).
 2. We then deepened our understanding by looking at the analysis of data from studies with **repeated-measures designs** in the [conceptual introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed) and the [workbook introduction to mixed-effects models](../part2/02-mixed-workbook.qmd#sec-mixed-effects-workbook-overview).
-3. This week, you can find more in-depth explanations of analysis methods and key ideas in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed).
+3. We further extended our understanding and practice skills in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed) and the [corresponding workbook](../part2/03-mixed-workbook.qmd#sec-dev-mixed-workbook-overview).
+
+This workbook introduction on **Generalized Linear Mixed-effects Models (GLMMs)** is linked to the corresponding [chapter](../part2/04-glmm.qmd#sec-glmm-intro) where the explanation of ideas or of practical analysis steps is set out more extensively or in more depth.
 :::
 
 ### Lectures {#sec-glmm-workbook-lectures}
@@ -50,22 +50,22 @@ The lecture materials for this week are presented in three short parts.
 
 Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
 
-1. Part 1 (13 minutes) Developing the capacity to understand and work with mixed-effects models: what we want to be able to do, and why; our working example data, and the study.
+1. Part 1 (20 minutes): Understand the reasons for using Generalized Linear Mixed-effects Models (GLMMs); categorical outcomes like response accuracy and the bad compromises involved in (traditional methods) not using GLMMs to analyze them;  understanding what the *generalized* part of this involves.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=6ee1618c-ced2-425b-9213-ace4011ea856&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="03-mixed-1-of-3" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bbf38d0e-90e5-4285-82ea-acec012a2f77&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-1-of-3" ></iframe>
 ```
 
-2. Part 2 (13 minutes): Data tidying, data transformation, and why we do this work; sample data, variation and the benefits of pooling.
+2. Part 2 (16 minutes): The questions, design and methods of the working data example study; category coding practicalities; specifying a GLMM appropriate to the design; the GLMM results summary, reading the results, visualizing the results.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=01dccf63-8b1e-406c-8694-ace401229f10&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="03-mixed-2-of-3" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=93c898ce-8009-47c6-ad43-acec0130b2ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-2-of-3" ></iframe>
 ```
 
-3. Part 3 (24 minutes): The elements and the logic of mixed-effects models; the impact of including random effects, pooling, shrinkage and regularisation; how mixed-effects models are estimated.
+3. Part 3 (19 minutes): What random effects should we include; recognizing when a model has got into trouble, and what to do about it; general approaches to model specification; reporting model results.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ddde4efb-2975-4347-b255-ace401328b39&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="03-mixed-3-of-3" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=078770df-47d0-4a25-9fdd-acec0135f5ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-3-of-3" ></iframe>
 ```
 
 ### Lecture slides {#sec-glmm-workbook-slides}
