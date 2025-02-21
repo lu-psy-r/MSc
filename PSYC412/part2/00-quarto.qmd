@@ -521,9 +521,15 @@ It is a hard habit to break but you never have to calculate things and enter val
 
 This is the bit of code that does the calculation in the sentence:
 
-```{}
-`r length(study.two.gen$participant_ID)`
-```
+- What is the number of observations in the example data? It is: `` r length(study.two.gen$participant_ID)` ``.
+
+::: callout-tip
+For people contributing to this tutorial, this:
+
+<https://bookdown.org/yihui/rmarkdown-cookbook/verbatim-code-chunks.html>
+
+is handy.
+:::
 
 ### Format to multiple outputs {#sec-format-multiple}
 
