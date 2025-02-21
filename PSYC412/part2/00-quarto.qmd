@@ -279,7 +279,7 @@ Take a look at the chunk of code:
 #| fig-cap: "Scatterplot showing the potential association between accuracy of comprehension and health literacy"
 #| fig-alt: "The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable."
 #| warning: false
-#| echo: true
+#| echo: fenced
 #| eval: false
 #| fig-width: 4.5
 #| fig-height: 4.5
@@ -380,12 +380,20 @@ where:
 
 $\beta_1X_1$ the coefficient of the effect of variation in health literacy.
 
+This is how you write math in Quarto (notice the dollar signs): 
+
+- `$y_i \sim \beta_0 + \beta_1X_1 + \epsilon_i$`
+
 ::: callout-tip
 I'm not writing the math because this is a serious model but to show off the equation writing capacities of Quarto.
 
 <https://quarto.org/docs/visual-editor/technical.html>
 
 It is *much, much* user friendly, and accurate, than MS Word equation builders.
+
+You can read more about writing equations in:
+
+<https://en.wikibooks.org/wiki/LaTeX/Mathematics#Operators>
 ::::
 
 So fit the model and get a summary:
@@ -442,6 +450,12 @@ kable(model.tidy, digits = 4) %>%
 
 ```
 
+::: callout-warning
+I can probably fix the p-value presentation but I'll leave that there for now. The general principle is what counts:
+
+- You can programmatically fit a model $\rightarrow$ get the statistics $\rightarrow$ produce a table.
+:::
+
 But see also:
 
 - <https://vincentarelbundock.github.io/tinytable/#tutorial>
@@ -463,7 +477,15 @@ I prefer to general marginal or conditional effects plots, see:
 
 <https://marginaleffects.com/>
 
-### References
+## TODO list
+
+- APA formatted manuscripts
+- descriptive statistics tables
+- bibliographies
+- inline computing
+- format to multiple outputs
+
+## References
 
 ::: {#refs}
 :::
