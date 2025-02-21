@@ -137,8 +137,8 @@ The aims of the practical work are to:
 
 My recommendations for learning are that you should aim to:
 
-- run generalized linear mixed-effects models of demonstration data;
-- run generalized linear mixed-effects models of alternate data sets;
+- run GLMMs of demonstration data;
+- run GLMMs of alternate data sets;
 - play with the `.R` code used to create examples for the lecture;
 - and edit example code to create alternate visualizations.
 
@@ -158,13 +158,11 @@ We are going to work through the following workflow steps: **each step is labell
 
 1. Set-up
 2. Load the data
-3. Tidy the data
-4. Analyze data with lm
-5. Analyze data with lmer
-6. Compare models with different random effects
-7. p-values and significance using `lmerTest`
-8. Run your own sequence of lmer models
-9. Optional: reproduce the plots in the chapter and slides
+3. Tidy data 
+4. Analyze the data: random intercepts
+5. Analyze the data: model comparisons
+6. Exercise analyses
+7. Optional: reproduce the plots in the chapter and slides
 
 In the following, we will guide you through the tasks and questions step by step.
 
@@ -184,9 +182,14 @@ Use the `library()` function to make the functions we need available to you.
 ## Code
 ```{r}
 library(broom)
+library(effects)
 library(gridExtra)
 library(here)
+library(lattice)
+library(knitr)
 library(lme4)
+library(MuMIn)
+library(sjPlot)
 library(tidyverse)
 ```
 :::
@@ -195,42 +198,52 @@ library(tidyverse)
 
 ##### Practical Task 2 -- Read in the data file we will be using
 
-Read the data files into R:
+Read the data file into R:
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-ML.all <- read_csv("subjects.behaviour.words-310114.csv", na = "-999")
+#| label: readinall
+#| message: false
+long.orth <- read_csv("long.orth_2020-08-11.csv", 
+                      col_types = cols(
+                        Participant = col_factor(),
+                        Time = col_factor(),
+                        Study = col_factor(),
+                        Instructions = col_factor(),
+                        Version = col_factor(),
+                        Word = col_factor(),
+                        Orthography = col_factor(),
+                        Measure = col_factor(),
+                        Spelling.transcription = col_factor()
+                      )
+                    )
 ```
 :::
 
-The ML study data includes the following variables that we will work with (as well as some you can ignore):
+You can see, here, that within the `read_csv()` function call, I specify `col_types`, instructing R how to treat a number of different variables. 
 
-1.  Identifying variables
+- You can read more about this convenient way to control the read-in process [here](https://readr.tidyverse.org/articles/readr.html).
 
--   `subjectID` -- identifying code for participants
--   `item_name` -- words presented as stimuli
--   `item_number` -- identifying code for words presented
+It is always a good to inspect what you have got when you read a data file in to R.
 
-2.  Response variables
+```{r}
+#| label: data-summary
+#| eval: false
+summary(long.orth)
+```
 
--   `RT` -- response reaction time (ms), for responses to words, i.e., word recognition time
+Some of the variables included in the `.csv` file are listed, following, with information about value coding or calculation.
 
-3.  Participant attribute variables
+-   `Participant` -- Participant identity codes were used to anonymize participation.
+-   `Time` -- Test time was coded 1 (time 1) or 2 (time 2). For the Study 1 longitudinal data, it can be seen that each participant identity code is associated with observations taken at test times 1 and 2.
+-   `Instructions` -- Variable coding for whether participants undertook training in the explicit} or incidental} conditions.
+-   `Word` -- Letter string values showing the words presented as stimuli to the children.
+-   `Orthography` -- Variable coding for whether participants had seen a word in training in the orthography absent or present conditions.
+-   `Consistency-H` -- Calculated orthography-to-phonology consistency value for each word. -`zConsistency-H` -- Standardized Consistency H scores
+-   `Score` -- Outcome variable -- for the orthographic post-test, responses were scored as `1` (correct, if the target spelling was produced in full) or `0` (incorrect, if the target spelling was not produced).
 
--   `Age` -- in years
--   `Gender` -- coded M (male), F (female)
--   `TOWRE_wordacc` -- word reading skill, words read correctly (out of 104)
--   `TOWRE_nonwordacc` -- nonword reading skill, nonwords (made up words) read correctly (out of 63)
--   `ART_HRminusFR` -- reading experience score
-
-4.  Stimulus property variables
-
--   `Length` -- word length, in letters
--   `Ortho_N` -- orthographic neighbourhood size, how many other words in English a stimulus word looks like
--   `OLD` -- orthographic Levenshtein distance, how many letter edits (addition, deletion or substitution) it would take to make a stimulus word look like another English word (a measure of orthographic neighbourhood) [@Yarkoni2008b]
--   `BG_Sum, BG_Mean, BG_Freq_By_Pos` -- measures of how common are pairs of letters that compose stimulus words
--   `SUBTLWF, LgSUBTLWF, SUBTLCD, LgSUBTLCD` -- measures of how common stimulus words are, taken from the SUBTLEX corpus analysis of word frequency [@Brysbaert2009a]
+The summary will show you that we have a number of other variables available, including measures of individual differences in reading or reading-related abilities or knowledge, but we do not need to pay attention to them, for our exercises.
 
 #### Practical Part 3: Tidy the data
 
