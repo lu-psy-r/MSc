@@ -58,6 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -404,7 +405,7 @@ window.Quarto = {
   <li><a href="#sec-quarto-overview-why" id="toc-sec-quarto-overview-why" class="nav-link" data-scroll-target="#sec-quarto-overview-why">Motivations: why bother?</a></li>
   <li><a href="#sec-quarto-quick-start" id="toc-sec-quarto-quick-start" class="nav-link" data-scroll-target="#sec-quarto-quick-start">Quick start</a>
   <ul class="collapse">
-  <li><a href="#sec-quarto-quick-start" id="toc-sec-quarto-quick-start" class="nav-link" data-scroll-target="#sec-quarto-quick-start">Basic anatomy</a></li>
+  <li><a href="#basic-anatomy" id="toc-basic-anatomy" class="nav-link" data-scroll-target="#basic-anatomy">Basic anatomy</a></li>
   </ul></li>
   <li><a href="#sec-quarto-report-first" id="toc-sec-quarto-report-first" class="nav-link" data-scroll-target="#sec-quarto-report-first">Let’s write a report</a>
   <ul class="collapse">
@@ -415,7 +416,14 @@ window.Quarto = {
   <li><a href="#sec-example-model-summary" id="toc-sec-example-model-summary" class="nav-link" data-scroll-target="#sec-example-model-summary">My first model summary table</a></li>
   <li><a href="#sec-example-model-marginal-effects" id="toc-sec-example-model-marginal-effects" class="nav-link" data-scroll-target="#sec-example-model-marginal-effects">My first marginal effects plot</a></li>
   </ul></li>
-  <li><a href="#todo-list" id="toc-todo-list" class="nav-link" data-scroll-target="#todo-list">TODO list</a></li>
+  <li><a href="#todo-list" id="toc-todo-list" class="nav-link" data-scroll-target="#todo-list">TODO list</a>
+  <ul class="collapse">
+  <li><a href="#sec-apa" id="toc-sec-apa" class="nav-link" data-scroll-target="#sec-apa">APA formatted manuscripts</a></li>
+  <li><a href="#sec-apa" id="toc-sec-apa" class="nav-link" data-scroll-target="#sec-apa">Cross-referencing</a></li>
+  <li><a href="#sec-bibliographies" id="toc-sec-bibliographies" class="nav-link" data-scroll-target="#sec-bibliographies">Bibliographies</a></li>
+  <li><a href="#sec-inline" id="toc-sec-inline" class="nav-link" data-scroll-target="#sec-inline">Inline computing</a></li>
+  <li><a href="#sec-format-multiple" id="toc-sec-format-multiple" class="nav-link" data-scroll-target="#sec-format-multiple">Format to multiple outputs</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
@@ -568,8 +576,8 @@ Tip
 <figcaption>A new <code>.qmd</code> file: dummy file output</figcaption>
 </figure>
 </div>
-<section id="sec-quarto-quick-start" class="level3">
-<h3 class="anchored" data-anchor-id="sec-quarto-quick-start">Basic anatomy</h3>
+<section id="basic-anatomy" class="level3">
+<h3 class="anchored" data-anchor-id="basic-anatomy">Basic anatomy</h3>
 <p>This example shows you the main parts of a Quarto file. Let’s identify these parts before we move on:</p>
 <ol type="1">
 <li>The <code>yaml</code> at the top is where you set document options:</li>
@@ -786,7 +794,7 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <p>In practice, unless you are teaching, or sharing your workings as part of your documentation, you are going to want to embed a chunk of code to produce a plot so that the plot is presented in your output document while the code chunk that does the work is invisible (at output).</p>
 <p>You may also want to add a figure caption and alt-text, and you will want to manipulate figure dimensions.</p>
 <p>We can learn how to do that stuff while producing a scatterplot, next.</p>
-<p>Let’s do something a little fancy, see <strong>?@fig-ggextra-demo-non-eval</strong>.</p>
+<p>Let’s do something a little fancy, as in <a href="#fig-ggextra-demo-eval" class="quarto-xref">Figure&nbsp;2</a>: a scatterplot with marginal histograms.</p>
 <p>To produce the plot, you will need to have installed the <code>{ggExtra}</code> library.</p>
 <p>Let’s go through the control elements first.</p>
 <p>Take a look at the chunk of code:</p>
@@ -831,6 +839,22 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <p>You can see that I have added comments: <code># -- note that can use gridExtra</code> to make the chunk self-documenting.</p>
 <p>Now show the plot: <a href="#fig-ggextra-demo-eval" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- note that can use gridExtra</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -- to show marginal distributions in scatterplots</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># https://github.com/daattali/ggExtra</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> study.two.gen <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.75</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">1.1</span>)<span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.15</span>)),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.5</span>))</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Health literacy (HLVA)'</span>, <span class="at">y =</span> <span class="st">'Mean accuracy'</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>ggExtra<span class="sc">::</span><span class="fu">ggMarginal</span>(plot, <span class="at">type =</span> <span class="st">"histogram"</span>, <span class="at">colour =</span> <span class="st">"lightgrey"</span>, <span class="at">fill =</span> <span class="st">"lightgrey"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-ggextra-demo-eval" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of scatterplots indicating the association between variables mean accuracy (on y-axis) and health literacy (x-axis) scores. The points are shown in black, and clustered such that higher health literacy scores tend to be associated with higher accuracy scores. The trend is indicated by a thick red line. Marginal histograms indicates the distributio of data on each variable.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -898,15 +922,15 @@ Tip
 <div class="callout-body-container callout-body">
 <p>I’m not writing the math because this is a serious model but to show off the equation writing capacities of Quarto.</p>
 <p><a href="https://quarto.org/docs/visual-editor/technical.html" class="uri">https://quarto.org/docs/visual-editor/technical.html</a></p>
-<p>It is <em>much, much</em> user friendly, and accurate, than MS Word equation builders.</p>
+<p>It is <em>much, much</em> more user friendly, and accurate, than MS Word equation builders.</p>
 <p>You can read more about writing equations in:</p>
 <p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics#Operators" class="uri">https://en.wikibooks.org/wiki/LaTeX/Mathematics#Operators</a></p>
 </div>
 </div>
 <p>So fit the model and get a summary:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean.acc <span class="sc">~</span> HLVA, <span class="at">data =</span> study.two.gen)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(mean.acc <span class="sc">~</span> HLVA, <span class="at">data =</span> study.two.gen)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -954,25 +978,25 @@ Tip
 <p>There are a variety of ways to produce tables.</p>
 <p><a href="#tbl-model-summary" class="quarto-xref">Table&nbsp;1</a> illustrates one method.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- tidy model information</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>model.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(model) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as.factor</span>(term)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">fct_recode</span>(term,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Health literacy (HLVA)"</span> <span class="ot">=</span> <span class="st">"HLVA"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Predictor"</span> <span class="ot">=</span> <span class="st">"term"</span>,</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Estimate"</span> <span class="ot">=</span> <span class="st">"estimate"</span>,</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Standard error"</span> <span class="ot">=</span> <span class="st">"std.error"</span>,</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"t"</span> <span class="ot">=</span> <span class="st">"statistic"</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># -- present table of model information</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(model.tidy, <span class="at">digits =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- tidy model information</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>model.tidy <span class="ot">&lt;-</span> <span class="fu">tidy</span>(model) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">!=</span> <span class="st">"(Intercept)"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as.factor</span>(term)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">fct_recode</span>(term,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Health literacy (HLVA)"</span> <span class="ot">=</span> <span class="st">"HLVA"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Predictor"</span> <span class="ot">=</span> <span class="st">"term"</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Estimate"</span> <span class="ot">=</span> <span class="st">"estimate"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Standard error"</span> <span class="ot">=</span> <span class="st">"std.error"</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"t"</span> <span class="ot">=</span> <span class="st">"statistic"</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># -- present table of model information</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(model.tidy, <span class="at">digits =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="st">"striped"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-model-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-model-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1030,9 +1054,7 @@ Warning
 <li><a href="https://www.danieldsjoberg.com/gtsummary/" class="uri">https://www.danieldsjoberg.com/gtsummary/</a></li>
 <li><a href="https://broom.tidymodels.org/articles/broom.html" class="uri">https://broom.tidymodels.org/articles/broom.html</a></li>
 </ul>
-<p>There is, however, a persuasive argument that model information (estimates, etc.) is best communicated visually, see:</p>
-<p><a href="https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034" class="uri">https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034</a></p>
-<p>and</p>
+<p>There is, however, a persuasive argument that model information (estimates, etc.) is best communicated visually, see the discussion in <span class="citation" data-cites="kastellec2007">(e.g., <a href="#ref-kastellec2007" role="doc-biblioref">Kastellec &amp; Leoni, 2007</a>)</span></p>
 <p><a href="https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034" class="uri">https://www.cambridge.org/core/journals/perspectives-on-politics/article/abs/using-graphs-instead-of-tables-in-political-science/9FD63E9EE686AF046732191EE8A68034</a></p>
 </section>
 <section id="sec-example-model-marginal-effects" class="level3">
@@ -1045,16 +1067,57 @@ Warning
 <h2 class="anchored" data-anchor-id="todo-list">TODO list</h2>
 <ul>
 <li>APA formatted manuscripts</li>
-<li>descriptive statistics tables</li>
+<li>cross-referencing</li>
 <li>bibliographies</li>
 <li>inline computing</li>
 <li>format to multiple outputs</li>
 </ul>
+<section id="sec-apa" class="level3">
+<h3 class="anchored" data-anchor-id="sec-apa">APA formatted manuscripts</h3>
+<p>There a bunch of resources to get APA formatted manuscripts:</p>
+<p><a href="https://github.com/wjschne/apaquarto" class="uri">https://github.com/wjschne/apaquarto</a></p>
+<p><a href="https://wjschne.github.io/apaquarto/writing.html" class="uri">https://wjschne.github.io/apaquarto/writing.html</a></p>
+</section>
+<section id="sec-apa" class="level3">
+<h3 class="anchored" data-anchor-id="sec-apa">Cross-referencing</h3>
+<p>You can cross-reference:</p>
+<ul>
+<li>figures</li>
+<li>tables</li>
+<li>equations</li>
+<li>sections</li>
+<li>footnotes</li>
+</ul>
+<p>In output documents, the cross references appear as numbered hyperlinks, which is nice</p>
+<p>From the writer’s perspective, the main benefit is that you no longer have to try to keep track of object numbering. If you make an edit, the tallying will change automatically, e.g., remove or move a figure, and all the figure reference numbers will be re-calculated automatically.</p>
+</section>
+<section id="sec-bibliographies" class="level3">
+<h3 class="anchored" data-anchor-id="sec-bibliographies">Bibliographies</h3>
+<p>It’s easy to do citations and build bibliographies:</p>
+<p><a href="https://quarto.org/docs/visual-editor/technical.html#citations" class="uri">https://quarto.org/docs/visual-editor/technical.html#citations</a></p>
+<p>And you can have the references styled using any style with a <code>.csl</code> (Citation Style Language):</p>
+<p><a href="https://www.zotero.org/styles?q=psychological%20bulletin" class="uri">https://www.zotero.org/styles?q=psychological%20bulletin</a></p>
+</section>
+<section id="sec-inline" class="level3">
+<h3 class="anchored" data-anchor-id="sec-inline">Inline computing</h3>
+<p>It is a hard habit to break but you never have to calculate things and enter values by hand again e.g.</p>
+<ul>
+<li>What is the number of observations in the example data? It is: 169.</li>
+</ul>
+<p>This is the bit of code that does the calculation in the sentence:</p>
+<pre><code>169</code></pre>
+</section>
+<section id="sec-format-multiple" class="level3">
+<h3 class="anchored" data-anchor-id="sec-format-multiple">Format to multiple outputs</h3>
+<p>You can generate webpages, books, .pdf or .docx outputs from Quarto source files.</p>
+</section>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-kastellec2007" class="csl-entry" role="listitem">
+Kastellec, J. P., &amp; Leoni, E. L. (2007). Using Graphs Instead of Tables in Political Science. <em>Perspectives on Politics</em>, <em>5</em>(4), 755–771. <a href="https://doi.org/10.1017/S1537592707072209">https://doi.org/10.1017/S1537592707072209</a>
+</div>
 </div>
 
 
