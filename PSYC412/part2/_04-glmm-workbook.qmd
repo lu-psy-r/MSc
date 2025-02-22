@@ -161,7 +161,6 @@ We are going to work through the following workflow steps: **each step is labell
 3. Tidy data 
 4. Analyze the data: random intercepts
 5. Analyze the data: model comparisons
-6. Optional: reproduce the plots in the chapter and slides
 
 In the following, we will guide you through the tasks and questions step by step.
 
@@ -933,10 +932,6 @@ summary(long.orth.3.glmer.check)
 
 <!-- - a convergence warning   -->
 <!-- - random effects variances and covariances that we did not ask for: including some bad signs -->
-
-#### Practical Part 6: Optional -- reproduce the plots in the chapter and slides
-
-
 
 ### The answers
 
