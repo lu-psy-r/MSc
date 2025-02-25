@@ -82,7 +82,7 @@ You can find the Posit guide to Quarto here:
 
 <https://cran.r-project.org/>
 
--   Then install R, see:
+-   Then install RStudio, see:
 
 <https://posit.co/download/rstudio-desktop/>
 
@@ -96,9 +96,7 @@ You need to do the installation in that order because R-Studio is the interface 
 
 There are at least the following justifications for investing time in this (in no particular order):
 
-1.  Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place so that you can avoid the risks of the standard workflow:
-
--   Risks: lose track of what data underlie which calculations or plots or table summaries.
+1.  Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place. By doing do you avoid the risk of losing track of what data underlie which calculations or plots or table summaries. Copy and pasting statistical results will inevitably lead to errors.
 
 2.  Automate the boring stuff: figure, table or section cross-referencing; producing documents in different formats; generating bibliographies.
 
@@ -473,9 +471,32 @@ I prefer to general marginal or conditional effects plots, see:
 
 <https://marginaleffects.com/>
 
+## APA formatted manuscripts
+
+As you generate a full manuscript you'll begin to wish there was an easy way to make it compatible with APA format, enabling easy submission to a journal. Thankfully there is a wonderful "extension" for doing just that: <https://wjschne.github.io/apaquarto/>. As the creator of this extension notes, "I wrote apaquarto so that I would never have to worry about APA style ever again.". It is easy to intall and works well, plus the creator is extremely responsive to requests and bug reports on github.
+
+Detailed instructions for installing and using the extension are given on the main github page:
+
+<https://github.com/wjschne/apaquarto>
+
+You can either convert an old article or you can create a new one using the extension.
+
+See here for a list of the options you can control in this extension: <https://wjschne.github.io/apaquarto/options.html>
+
+## Adding references
+
+Adding references to a quarto document is easy. In the visual editor you can click Insert -\> Citation. You can also just type "\@" which will bring up a list of references contained in any ".bib" file you have in the current folder. **bib** files are common methods for storing bibliographic information about publications. You can export references in bib format from common referencing management systems such as Endnote, Mendeley, Zotero etc.
+
+Once you have an exported bib file in your working directory, the citations will appear when you type "\@". Each item in the bib file has a "key", which is typically the first author name, followed by a year. If you want the reference to appear in parentheses in your generated document, put the key in square parentheses in your document. Separate multiple references in the usual way with a semicolon.
+
+Even more useful is if you link RStudio to a reference manager. [Zotero](https://www.zotero.org/) is a popular and open source reference manager and plays well with quarto manuscripts. If you have Zotero installed, then the latest version of RStudio will detect it and import the library. This saves you creating the bib file, as RStudio will automatically add any references you type into a new bib file.
+
+References are then assembled in apa format in a final reference list at the end of the document.
+
+More info on this process here: <https://posit.co/blog/rstudio-1-4-preview-citations/>
+
 ## TODO list
 
--   APA formatted manuscripts
 -   cross-referencing
 -   bibliographies
 -   inline computing
@@ -489,15 +510,15 @@ There a bunch of resources to get APA formatted manuscripts:
 
 <https://wjschne.github.io/apaquarto/writing.html>
 
-### Cross-referencing {#sec-apa}
+### Cross-referencing
 
 You can cross-reference:
 
-- figures
-- tables
-- equations
-- sections
-- footnotes
+-   figures
+-   tables
+-   equations
+-   sections
+-   footnotes
 
 In output documents, the cross references appear as numbered hyperlinks, which is nice
 
@@ -517,11 +538,11 @@ And you can have the references styled using any style with a `.csl` (Citation S
 
 It is a hard habit to break but you never have to calculate things and enter values by hand again e.g.
 
-- What is the number of observations in the example data? It is: `r length(study.two.gen$participant_ID)`.
+-   What is the number of observations in the example data? It is: `r length(study.two.gen$participant_ID)`.
 
 This is the bit of code that does the calculation in the sentence:
 
-- What is the number of observations in the example data? It is: `` r length(study.two.gen$participant_ID)` ``.
+-   What is the number of observations in the example data? It is: `` r length(study.two.gen$participant_ID)` ``.
 
 ::: callout-tip
 For people contributing to this tutorial, this:
