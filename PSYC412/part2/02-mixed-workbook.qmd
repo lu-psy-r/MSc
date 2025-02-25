@@ -420,7 +420,7 @@ The addition of observations from one data-set joining to those from another hap
 -   If there isn't a match then it creates `NAs` where there are missing entries in one row for one data-set which cannot be matched to a row from the joining data-set.
 :::
 
-- You can read more about what we are doing here in [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-relational) and [chapter: Introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed-data-join-functions).
+- You can read more about what we are doing here in [the Introduction to linear mixed-effects models chapter section on relational data](../part2/02-mixed.qmd#sec-intro-mixed-data-relational) and [the same chapter section on join functions](../part2/02-mixed.qmd#sec-intro-mixed-data-join-functions).
 
 ##### Practical Task 5 -- Select just the variables we need
 
