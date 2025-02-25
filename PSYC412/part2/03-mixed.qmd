@@ -413,9 +413,9 @@ It is wise to *check* that the operations you perform to tidy, process or wrangl
 
 The `length()` function will count the elements in whatever object is specified as an argument in the function call.
 
--   This means that if you put a variable name into the function as in `length(data-set$variable)` it will count how long that variable is -- how many rows there are in the column.
+-   This means that if you put a variable name into the function as in `length(data$variable)` it will count how long that variable is -- how many rows there are in the column.
 -   If that variable happens to be, as here, part of a data-set, the same calculation will tell you how many rows there are in the data-set as a whole.
--   If you just enter `length(data-set)`, naming some data-set, then the function will return a count of the number of columns in the data-set.
+-   If you just enter `length(data)`, naming some data-set, then the function will return a count of the number of columns in the data-set.
 
 Having obtained a new data frame with data on just those trials where responses were correct, we can plot the distribution of RTs for just the correct responses (@fig-rt-correct-density).
 
