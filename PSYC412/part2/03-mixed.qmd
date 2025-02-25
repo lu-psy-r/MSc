@@ -1,5 +1,5 @@
 ---
-title: Week 18. Developing linear mixed-effects models: conceptual introduction
+title: Week 18. Conceptual introduction to developing linear mixed-effects models
 subtitle: Written by Rob Davies
 order: 12
 bibliography: references.bib
