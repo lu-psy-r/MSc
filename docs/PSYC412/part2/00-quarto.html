@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-052754da5edda02e8295a3d9f31723fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,7 +123,9 @@ div.csl-indent {
   }
 }</script>
 <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -416,10 +418,12 @@ window.Quarto = {
   <li><a href="#sec-example-model-summary" id="toc-sec-example-model-summary" class="nav-link" data-scroll-target="#sec-example-model-summary">My first model summary table</a></li>
   <li><a href="#sec-example-model-marginal-effects" id="toc-sec-example-model-marginal-effects" class="nav-link" data-scroll-target="#sec-example-model-marginal-effects">My first marginal effects plot</a></li>
   </ul></li>
+  <li><a href="#apa-formatted-manuscripts" id="toc-apa-formatted-manuscripts" class="nav-link" data-scroll-target="#apa-formatted-manuscripts">APA formatted manuscripts</a></li>
+  <li><a href="#adding-references" id="toc-adding-references" class="nav-link" data-scroll-target="#adding-references">Adding references</a></li>
   <li><a href="#todo-list" id="toc-todo-list" class="nav-link" data-scroll-target="#todo-list">TODO list</a>
   <ul class="collapse">
   <li><a href="#sec-apa" id="toc-sec-apa" class="nav-link" data-scroll-target="#sec-apa">APA formatted manuscripts</a></li>
-  <li><a href="#sec-apa" id="toc-sec-apa" class="nav-link" data-scroll-target="#sec-apa">Cross-referencing</a></li>
+  <li><a href="#cross-referencing" id="toc-cross-referencing" class="nav-link" data-scroll-target="#cross-referencing">Cross-referencing</a></li>
   <li><a href="#sec-bibliographies" id="toc-sec-bibliographies" class="nav-link" data-scroll-target="#sec-bibliographies">Bibliographies</a></li>
   <li><a href="#sec-inline" id="toc-sec-inline" class="nav-link" data-scroll-target="#sec-inline">Inline computing</a></li>
   <li><a href="#sec-format-multiple" id="toc-sec-format-multiple" class="nav-link" data-scroll-target="#sec-format-multiple">Format to multiple outputs</a></li>
@@ -509,7 +513,7 @@ Tip
 </ul>
 <p><a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></p>
 <ul>
-<li>Then install R, see:</li>
+<li>Then install RStudio, see:</li>
 </ul>
 <p><a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p>
 <p>You need to do the installation in that order because R-Studio is the interface (an <em>Interactive Development Editor (IDE)</em>) but R does the work.</p>
@@ -523,12 +527,7 @@ Tip
 <h2 class="anchored" data-anchor-id="sec-quarto-overview-why">Motivations: why bother?</h2>
 <p>There are at least the following justifications for investing time in this (in no particular order):</p>
 <ol type="1">
-<li>Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place so that you can avoid the risks of the standard workflow:</li>
-</ol>
-<ul>
-<li>Risks: lose track of what data underlie which calculations or plots or table summaries.</li>
-</ul>
-<ol start="2" type="1">
+<li><p>Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place. By doing do you avoid the risk of losing track of what data underlie which calculations or plots or table summaries. Copy and pasting statistical results will inevitably lead to errors.</p></li>
 <li><p>Automate the boring stuff: figure, table or section cross-referencing; producing documents in different formats; generating bibliographies.</p></li>
 <li><p>Make manuscripts or presentations or notes share-able: Quarto is free so removes barrier to entry presented by licensed software like MS Word.</p></li>
 <li><p>Make nice things: plots and tables will look better.</p></li>
@@ -783,6 +782,7 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <img src="00-quarto_files/figure-html/fig-example-histogram-1.png" id="fig-example-histogram" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-example-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
 </figcaption>
 </figure>
 </div>
@@ -1063,10 +1063,25 @@ Warning
 <p><a href="https://marginaleffects.com/" class="uri">https://marginaleffects.com/</a></p>
 </section>
 </section>
+<section id="apa-formatted-manuscripts" class="level2">
+<h2 class="anchored" data-anchor-id="apa-formatted-manuscripts">APA formatted manuscripts</h2>
+<p>As you generate a full manuscript you’ll begin to wish there was an easy way to make it compatible with APA format, enabling easy submission to a journal. Thankfully there is a wonderful “extension” for doing just that: <a href="https://wjschne.github.io/apaquarto/" class="uri">https://wjschne.github.io/apaquarto/</a>. As the creator of this extension notes, “I wrote apaquarto so that I would never have to worry about APA style ever again.”. It is easy to intall and works well, plus the creator is extremely responsive to requests and bug reports on github.</p>
+<p>Detailed instructions for installing and using the extension are given on the main github page:</p>
+<p><a href="https://github.com/wjschne/apaquarto" class="uri">https://github.com/wjschne/apaquarto</a></p>
+<p>You can either convert an old article or you can create a new one using the extension.</p>
+<p>See here for a list of the options you can control in this extension: <a href="https://wjschne.github.io/apaquarto/options.html" class="uri">https://wjschne.github.io/apaquarto/options.html</a></p>
+</section>
+<section id="adding-references" class="level2">
+<h2 class="anchored" data-anchor-id="adding-references">Adding references</h2>
+<p>Adding references to a quarto document is easy. In the visual editor you can click Insert -&gt; Citation. You can also just type “@” which will bring up a list of references contained in any “.bib” file you have in the current folder. <strong>bib</strong> files are common methods for storing bibliographic information about publications. You can export references in bib format from common referencing management systems such as Endnote, Mendeley, Zotero etc.</p>
+<p>Once you have an exported bib file in your working directory, the citations will appear when you type “@”. Each item in the bib file has a “key”, which is typically the first author name, followed by a year. If you want the reference to appear in parentheses in your generated document, put the key in square parentheses in your document. Separate multiple references in the usual way with a semicolon.</p>
+<p>Even more useful is if you link RStudio to a reference manager. <a href="https://www.zotero.org/">Zotero</a> is a popular and open source reference manager and plays well with quarto manuscripts. If you have Zotero installed, then the latest version of RStudio will detect it and import the library. This saves you creating the bib file, as RStudio will automatically add any references you type into a new bib file.</p>
+<p>References are then assembled in apa format in a final reference list at the end of the document.</p>
+<p>More info on this process here: <a href="https://posit.co/blog/rstudio-1-4-preview-citations/" class="uri">https://posit.co/blog/rstudio-1-4-preview-citations/</a></p>
+</section>
 <section id="todo-list" class="level2">
 <h2 class="anchored" data-anchor-id="todo-list">TODO list</h2>
 <ul>
-<li>APA formatted manuscripts</li>
 <li>cross-referencing</li>
 <li>bibliographies</li>
 <li>inline computing</li>
@@ -1078,8 +1093,8 @@ Warning
 <p><a href="https://github.com/wjschne/apaquarto" class="uri">https://github.com/wjschne/apaquarto</a></p>
 <p><a href="https://wjschne.github.io/apaquarto/writing.html" class="uri">https://wjschne.github.io/apaquarto/writing.html</a></p>
 </section>
-<section id="sec-apa" class="level3">
-<h3 class="anchored" data-anchor-id="sec-apa">Cross-referencing</h3>
+<section id="cross-referencing" class="level3">
+<h3 class="anchored" data-anchor-id="cross-referencing">Cross-referencing</h3>
 <p>You can cross-reference:</p>
 <ul>
 <li>figures</li>
@@ -1224,8 +1239,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1336,7 +1349,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
