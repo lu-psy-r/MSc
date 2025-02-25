@@ -125,7 +125,7 @@ The high resolution version is the version delivered for the lecture recordings.
 
 2.3. You can read the chapter, run the code, and do the exercises.
 
--   Read in the example **ML word recognition study** dataset.
+-   Read in the example **ML word recognition study** data-set.
 -   Edit example code to create alternate visualizations of variable distributions and of the relationships between critical variables.
 -   Experiment with the .R code used to work with the example data.
 -   Run linear mixed-effects models of demonstration data.
@@ -138,7 +138,7 @@ The high resolution version is the version delivered for the lecture recordings.
 
 ## The data we will work with: ML word recognition study {#sec-dev-mixed-data}
 
-In this chapter, we will be working with the **ML word recognition study** dataset. ML examined *visual* word recognition in younger and older adults using the lexical decision task.
+In this chapter, we will be working with the **ML word recognition study** data-set. ML examined *visual* word recognition in younger and older adults using the lexical decision task.
 
 In lexical decision, participants are presented with a stimulus: a string of letters that is either a real word (e.g., 'car') or a made-up or non-word (e.g., 'cas'). Participants are required to respond to the stimulus by pressing a button to indicate either that they think the stimulus is a word or that they think it is a non-word. Each complete sequence of events, in which a stimulus is presented and a response is recorded, is known as a *trial*. In the lexical decision task implemented by ML, all study participants were presented with a mix of 160 word stimuli and 160 non-word stimuli, in random order, in a total of 320 trials.
 
@@ -244,7 +244,7 @@ When the link is live, you will be able to download a folder including:
 
 ## Tidy the data {#sec-dev-mixed-tidy}
 
-In @sec-intro-mixed-tidy-data, we saw how we may need to tidy the data we collect in experimental studies: combining data about responses with data about participant attributes or stimulus properties, and restructuring the data so that they are in a tidy format. For this class, many steps in the process of data tidying were completed previously. Thus, we only need to perform steps 1, 3 and 4 of the usual *data tidying* process:
+In [the Introduction to linear mixed-effects models chapter section on data tidying](../part2/02-mixed.qmd#sec-intro-mixed-tidy-data), we saw how we may need to tidy the data we collect in experimental studies: combining data about responses with data about participant attributes or stimulus properties, and restructuring the data so that they are in a tidy format. For this class, many steps in the process of data tidying were completed previously. Thus, we only need to perform steps 1, 3 and 4 of the usual *data tidying* process:
 
 1.  Import the data or read the data into R, see @sec-dev-mixed-import;
 2.  Restructure the data;
@@ -281,7 +281,7 @@ It is *always* a good idea to first inspect what you have got when you read a da
 -   or that the data are structured or coded in the ways that you think (or have been told) they should be structured or coded.
 :::
 
-You can inspect the first few rows of the dataset using `head()`.
+You can inspect the first few rows of the data-set using `head()`.
 
 ```{r}
 #| label: headcheck-wide
@@ -303,20 +303,20 @@ You can examine all the variables using `summary()`.
 summary(ML.all)
 ```
 
-The summary shows some features of the dataset, or of how R interprets the dataset, that are of immediate interest to us, though we do not necessarily have to do anything about them.
+The summary shows some features of the data-set, or of how R interprets the data-set, that are of immediate interest to us, though we do not necessarily have to do anything about them.
 
 1.  We can see statistical summaries -- showing the mean, median, minimum and maximum, etc. -- of numeric variables like the outcome variable `RT`.
 2.  We can see statistical summaries, also, of variables that comprise number values but which we do not want to be treated as numbers, e.g., the word stimulus coding variable `item_number`.
 3.  We can see that some variables are simply listed as `Class: character`. That tells us that one or more values in the columns in the datasheet that correspond to these variables are words or strings of letters or alphanumeric characters.
-4.  There is no sign of the presence of missing values in this dataset, no counts of `NAs`.
+4.  There is no sign of the presence of missing values in this data-set, no counts of `NAs`.
 
-We do not really want R to treat a coding variable like `item_number` as numeric: it functions as a categorical or nominal variable, a factor. And we want R to treat coding variables like `subjectID` as factors. In @sec-multi-data-coerce, we saw how we can require R to handle variables exactly as we require it to using *coercion*. In @sec-intro-mixed-data-load, we saw how we can determine how R treats variables at the read-in stage, using `col_types()` specification. We are going to do neither here because we do not have to do this work; not doing it will have no impact on our analyses at this point.
+We do not really want R to treat a coding variable like `item_number` as numeric: it functions as a categorical or nominal variable, a factor. And we want R to treat coding variables like `subjectID` as factors. In [the Introduction to multilevel data chapter section on *coercion*](../part2/01-multilevel.qmd#sec-multi-data-coerce), we saw how we can require R to handle variables exactly as we require it to using *coercion*. In [the Introduction to linear mixed-effects models chapter section on data loading](../part2/02-mixed.qmd#sec-intro-mixed-data-load), we saw how we can determine how R treats variables at the read-in stage, using `col_types()` specification. We are going to do neither here because we do not have to do this work; not doing it will have no impact on our analyses at this point.
 
 What we **do need to do** is deal with a problem that is already apparent in the summary statistics -- did you spot it? If we look at the summary, we can see that `RT` includes values as low as `-2000`. That cannot be right.
 
 ### Examine the distribution of raw RT data using density plots {#sec-dev-mixed-EDA}
 
-We should examine the distribution of the outcome variable, lexical decision response reaction time (RT in ms). Observations about variable value distributions are a part of *Exploratory Data Analysis* and serve to catch errors in the dataset (e.g. incorrectly recorded scores) but also to inform the researcher's understanding of their own data.
+We should examine the distribution of the outcome variable, lexical decision response reaction time (RT in ms). Observations about variable value distributions are a part of *Exploratory Data Analysis* and serve to catch errors in the data-set (e.g. incorrectly recorded scores) but also to inform the researcher's understanding of their own data.
 
 We shall examine the distribution of the outcome variable, lexical decision response reaction time (RT in ms), using density plots. An alternative method would be to use histograms. I choose to use density plots because they allow the easy comparison of the distributions of values of a continuous numeric variable like reaction time. A density plot shows a curve. You can say that the density corresponds to the height of the curve for a given value of the variable being depicted, and that it is related to the probability of observing values of the variable within some range of values [@howell2016fundamental].
 
@@ -346,7 +346,7 @@ Remember that reaction time, in a task like lexical decision, represents the int
 
 The code to produce @fig-rt-all-density works in a series of steps.
 
-1.  `ML.all %>%` takes the dataset, from the ML study, that we have read in to the R workspace and pipes it to the visualization code, next.
+1.  `ML.all %>%` takes the data-set, from the ML study, that we have read in to the R workspace and pipes it to the visualization code, next.
 2.  `ggplot(aes(x = RT)) +` creates a plot object in which the x-axis variable is specified as `RT`. The values of this variable will be mapped to geometric objects, i.e. plot features, that you can see, next.
 3.  `geom_density(size=1.5) +` first displays the distribution of values in the variable `RT` as a density curve. The argument `size=1.5` tells R to make the line $1.5 \times$ the thickness of the line used by default to show variation in density.
 
@@ -364,7 +364,7 @@ You can see that we have many more observations of RTs from around 250ms to 1250
 
 #### Exercise {#sec-dev-mixed-exx-viz}
 
-You should try out alternative visualisation methods to reveal the patterns in the distribution of variables in the ML dataset (or in your own data).
+You should try out alternative visualisation methods to reveal the patterns in the distribution of variables in the ML data-set (or in your own data).
 
 1.  Take a look at the `geoms` documented in the `{ggplot2}` library reference section [here](https://ggplot2.tidyverse.org/reference/#section-layer-geoms).
 2.  Experiment with code to answer the following questions:
@@ -385,16 +385,16 @@ The filter code is written to subset the data by rows **using a condition** on t
 
 `ML.all.correct <- filter(ML.all, RT >= 200)` works as follows.
 
-1.  `ML.all.correct <- filter(ML.all ...)` creates a new dataset with a new name `ML.all.correct` from the old dataset `ML.all` using the `filter()` function.
+1.  `ML.all.correct <- filter(ML.all ...)` creates a new data-set with a new name `ML.all.correct` from the old data-set `ML.all` using the `filter()` function.
 2.  `filter(... RT >= 200)` specifies an argument for the `filter()` function.
 
 In effect, we are asking R to check every value in the `RT` column.
 
--   R will do a check through the `ML.all` dataset, row by row.
--   *If* a row includes an RT that is greater than or equal to 200 *then* that row will be included in the new dataset `ML.all.correct`. This is what I mean by **using a condition**.
+-   R will do a check through the `ML.all` data-set, row by row.
+-   *If* a row includes an RT that is greater than or equal to 200 *then* that row will be included in the new data-set `ML.all.correct`. This is what I mean by **using a condition**.
 -   *But if* a row includes an RT that is less than 200, then that row will not be included. We express this condition as `RT >= 200`.
 
-After we have removed negative (error) RTs, we check that the size of the dataset -- here, the number of rows -- matches our expectations. We do this to make sure that we did the filter operation correctly.
+After we have removed negative (error) RTs, we check that the size of the data-set -- here, the number of rows -- matches our expectations. We do this to make sure that we did the filter operation correctly.
 
 ```{r}
 #| label: length-check
@@ -402,7 +402,7 @@ length(ML.all$RT)
 length(ML.all.correct$RT)
 ```
 
-If you run the `length()` function calls then you should see that the *length* or number of observations or rows in the `ML.all.correct` dataset should be smaller than the number of observations in the `ML.all` dataset.
+If you run the `length()` function calls then you should see that the *length* or number of observations or rows in the `ML.all.correct` data-set should be smaller than the number of observations in the `ML.all` data-set.
 
 ::: callout-tip
 It is wise to *check* that the operations you perform to tidy, process or wrangle data *actually do* do what you mean them to do. Checks can be performed, for each processing stage, by:
@@ -413,9 +413,9 @@ It is wise to *check* that the operations you perform to tidy, process or wrangl
 
 The `length()` function will count the elements in whatever object is specified as an argument in the function call.
 
--   This means that if you put a variable name into the function as in `length(dataset$variable)` it will count how long that variable is -- how many rows there are in the column.
--   If that variable happens to be, as here, part of a dataset, the same calculation will tell you how many rows there are in the dataset as a whole.
--   If you just enter `length(dataset)`, naming some dataset, then the function will return a count of the number of columns in the dataset.
+-   This means that if you put a variable name into the function as in `length(data-set$variable)` it will count how long that variable is -- how many rows there are in the column.
+-   If that variable happens to be, as here, part of a data-set, the same calculation will tell you how many rows there are in the data-set as a whole.
+-   If you just enter `length(data-set)`, naming some data-set, then the function will return a count of the number of columns in the data-set.
 
 Having obtained a new data frame with data on just those trials where responses were correct, we can plot the distribution of RTs for just the correct responses (@fig-rt-correct-density).
 
@@ -442,7 +442,7 @@ Vary the filter conditions in different ways.
 1.  Change the threshold for including RTs from `RT >= 200` to something else: you can change the number, or you can change the operator from `>=` to a different comparison (try `=, <, <=, >`.
 2.  Can you assess what impact the change has?
 
-Note that you can count the number of observations (rows) in a dataset using e.g. `length()`.
+Note that you can count the number of observations (rows) in a data-set using e.g. `length()`.
 
 #### Filtering observations as a decision in the psychological research workflow {#sec-dev-mixed-workflow-filter}
 
@@ -465,7 +465,7 @@ I would argue that, at minimum, a researcher should report their research includ
 
 You can read further information about the practicalities of using R to do filtering [here](https://r4ds.had.co.nz/transform.html?q=filter#filter-rows-with-filter).
 
-You can read a brief discussion of the impacts of researcher choices in dataset construction in @sec-multiversedata and in @steegen2016.
+You can read a brief discussion of the impacts of researcher choices in data-set construction in @steegen2016.
 
 ### Select or transform the variables: the log10 transformation of RT {#sec-dev-mixed-data-transform}
 
@@ -488,7 +488,7 @@ ML.all.correct$logrt <- log10(ML.all.correct$RT)
 
 The `log10()` function works as follows:-
 
-1.  `ML.all.correct$logrt <- log10(...)` creates a a new variable `logrt`, adding it to the `ML.all.correct` dataset. The variable is created using the transformation function `log10()`.
+1.  `ML.all.correct$logrt <- log10(...)` creates a a new variable `logrt`, adding it to the `ML.all.correct` data-set. The variable is created using the transformation function `log10()`.
 2.  `log10(ML.all.correct$RT)` creates a the new variable by transforming (to log10) the values of the old variable, `RT`.
 
 We can see the effect of the transformation if we plot the log10 transformed RTs (see @fig-rt-correct-log-density). We arrive at a distribution that more closely approximates the normal distribution.
@@ -521,7 +521,7 @@ Even when data have been structured appropriately, we will still, often, need to
 
 ## Repeated measures designs and crossed random effects {#sec-dev-mixed-crossed-random}
 
-As we saw in @sec-intro-mixed, many Psychologists conduct studies where it is not sensible to think of observations as being nested [@baayen2008]. In this chapter, we turn to the ML word recognition study dataset, which has a structure similar to the CP study data that we worked with previously. Again, the core concern is that the data come from a study with a **repeated-measures design** where the experimenter presented multiple stimuli for response to each participant, for several participants, so that we have multiple observations for each participant and multiple observations for each stimulus. Getting practice with this kind of data will help you to easily recognize what you have got when you see it in your own work.
+As we saw in [the Introduction to linear mixed-effects models chapter](../part2/02-mixed.qmd#sec-intro-mixed), many Psychologists conduct studies where it is not sensible to think of observations as being nested [@baayen2008]. In this chapter, we turn to the ML word recognition study data-set, which has a structure similar to the CP study data that we worked with previously. Again, the core concern is that the data come from a study with a **repeated-measures design** where the experimenter presented multiple stimuli for response to each participant, for several participants, so that we have multiple observations for each participant and multiple observations for each stimulus. Getting practice with this kind of data will help you to easily recognize what you have got when you see it in your own work.
 
 ML asked all participants in a sample of people to read a selection of words, a sample of words from the language.
 
@@ -566,7 +566,7 @@ ML.all.correct %>%
   theme_bw()
 ```
 
-@fig-rt-correct-log-den-by-subj shows that RT distributions vary considerably between people. The plot imposes a dashed red line to indicate where the mean log10 RT is, calculated over all observations in the dataset. The plot shows the distribution of log RT for each participant, as a density drawn separately for each person. The individual plots are ordered by the mean log RT calculated per person, so plots appear in order from the fastest to the slowest.
+@fig-rt-correct-log-den-by-subj shows that RT distributions vary considerably between people. The plot imposes a dashed red line to indicate where the mean log10 RT is, calculated over all observations in the data-set. The plot shows the distribution of log RT for each participant, as a density drawn separately for each person. The individual plots are ordered by the mean log RT calculated per person, so plots appear in order from the fastest to the slowest.
 
 The grid of plots illustrates some interesting features about the data in the ML study sample. You can see how the distribution of log RT varies between individuals: some people show widely spread reaction times; some people show quite tight or narrow distributions. You can see how the shapes of the distributions varies: some people show skew; others do not. I do not see that the variation in the shapes of the distributions is related to the average speed of the person's responses.
 
@@ -594,7 +594,7 @@ ML.all.correct %>%
   theme_bw()
 ```
 
-You will see that we present the distribution of RTs using `geom_density()` and that we present a separate plot for each person's data using `facet_wrap()`. To these elements, we add some pre-processing steps to calculate the average response speed of each individual, and to reorder the dataset by those averages.
+You will see that we present the distribution of RTs using `geom_density()` and that we present a separate plot for each person's data using `facet_wrap()`. To these elements, we add some pre-processing steps to calculate the average response speed of each individual, and to reorder the data-set by those averages.
 
 It will make it easier to understand what is going on if we consider the code in chunks.
 
@@ -610,14 +610,14 @@ ML.all.correct %>%
   ...
 ```
 
-1.  `ML.all.correct %>%` takes the selected filtered dataset `ML.all.correct` and pipes it `%>%` to the next step.
+1.  `ML.all.correct %>%` takes the selected filtered data-set `ML.all.correct` and pipes it `%>%` to the next step.
 2.  `group_by(subjectID) %>%` tells R to group the data by `subject ID`. We have a set of multiple log RT observations for each `subjectID` because each participant was asked to respond to multiple word stimuli.
 3.  `mutate(mean_logrt = mean(logrt, na.rm = TRUE))` next calculates and stores the mean log RT for each person. We create a new variable `mean_logrt`. We calculate the average of the set of log RTs recorded for each `subjectID` and construct the new variable `mean_logrt` from these averages.
 
 We do not need to treat the data in groups so we remove the grouping, next.
 
-4.  Using `ungroup() %>%` means that, having grouped the data to calculate the mean log RTs, we `ungroup` the dataset so that R can look at all observations in the next step.
-5.  `mutate(subjectID = fct_reorder(subjectID, mean_logrt)) %>%` asks R to look at all log RT observations in the dataset, and change the top-to-bottom order of the rows.
+4.  Using `ungroup() %>%` means that, having grouped the data to calculate the mean log RTs, we `ungroup` the data-set so that R can look at all observations in the next step.
+5.  `mutate(subjectID = fct_reorder(subjectID, mean_logrt)) %>%` asks R to look at all log RT observations in the data-set, and change the top-to-bottom order of the rows.
 
 We ask R to order observations -- using `subjectID` in `fct_reorder()` -- so that each person's data are listed by their average speed, `mean_logrt` from the fastest to the slowest. We then pipe these ordered data to the plotting code, next.
 
@@ -643,7 +643,7 @@ The key functions that create a grid of density plots are the following.
 2.  `geom_density(...)` draws a density plot to show the distribution of log RT, using a thicker line `size = 1.25`
 3.  `facet_wrap(~ subjectID)` creates a different plot for each level of the `subjectID` factor: we want to see a separate plot for each participant.
 
--   `facet_wrap(~ subjectID)` works to split the dataset up by participant, with observations corresponding to each participant identified by their `subjectID`, and to then split the plotting to show the distribution of log RT separately for each participant.
+-   `facet_wrap(~ subjectID)` works to split the data-set up by participant, with observations corresponding to each participant identified by their `subjectID`, and to then split the plotting to show the distribution of log RT separately for each participant.
 
 I wanted to present the plots in order of the average speed of response of participants. If you look at @fig-rt-correct-log-den-by-subj, you can see that the position of the peak of the log RT distribution for each participant moves, from the fastest plots where the peak is around $log RT = 2.5$ (shown from the top left of the grid), to the slowest plots where the peak is around $log RT = 2.75$ (shown towards the bottom right of the grid)
 
@@ -658,7 +658,7 @@ We can then use further `ggplot` functions to edit the appearance of the plot, t
   theme_bw()
 ```
 
-1.  `geom_vline(xintercept = 2.778807, colour = "red", linetype = 2)` draws a vertical red dashed line at the location of the mean log RT, the average of all log RTs over all participants in the dataset.
+1.  `geom_vline(xintercept = 2.778807, colour = "red", linetype = 2)` draws a vertical red dashed line at the location of the mean log RT, the average of all log RTs over all participants in the data-set.
 2.  `scale_x_continuous(breaks = c(2.5,3))` adjusts the x-axis labeling. The `ggplot` default might draw too many x-axis labels i.e. showing possible log RT values as tick marks on the bottom line of the plot. I want to avoid this as sometimes all the labels can be crowded together, making them harder to read.
 
 -   Drawing a vertical line at the mean calculated overall is designed to help the reader (you) calibrate their comparison of the data from different people.
@@ -688,7 +688,7 @@ A linear model of multilevel structured data can be regarded as an **approximati
 
 We model the effects of interest, using all the data (hence, *complete pooling*) but ignoring the differences between participants. This means we can see something of the 'true' picture of our data through the linear model results but the linear model misses important information, which the mixed-effects model will include, that would improve its performance.
 
-As we saw, in a similar analysis in @sec-intro-mixed, we can estimate the relationship between reading reaction times (here, lexical decision RTs) and word frequency using a linear model:
+As we saw, in a similar analysis in [the Introduction to linear mixed-effects models chapter](../part2/02-mixed.qmd#sec-intro-mixed), we can estimate the relationship between reading reaction times (here, lexical decision RTs) and word frequency using a linear model:
 
 $$
 Y_{ij} = \beta_0 + \beta_1X_j + e_{ij} 
@@ -894,7 +894,7 @@ Where the outcome $Y_{ij}$ is related to:
 
 ### Variance and covariance {#sec-dev-mixed-variance-covariance}
 
-As we first saw in @sec-intro-mixed, in conducting mixed-effects analyses, we do not aim to examine the specific deviation (here, for each participant) from the average intercept or the average effect or slope. We estimate just the spread of deviations by-participants.
+As we first saw in [the Introduction to linear mixed-effects models chapter](../part2/02-mixed.qmd#sec-intro-mixed), in conducting mixed-effects analyses, we do not aim to examine the specific deviation (here, for each participant) from the average intercept or the average effect or slope. We estimate just the spread of deviations by-participants.
 
 A mixed-effects model like our final model actually includes fixed effects corresponding to the intercept and the slope of the word frequency effect plus the variances:
 
@@ -908,7 +908,8 @@ We may expect the random effects of participants or items to *covary*: for examp
 
 ### Random effects of differences between stimuli {#sec-dev-mixed-random-stimulus-effects}
 
-As we know, some words elicit slower and some elicit faster responses on average. As we discussed in the last chapter (@sec-intro-mixed-fixed-effect-fallacy), if we did not take such variation into account, we might spuriously identify an experimental effect actually due just to unexplained between-items differences in intercepts [@clark1973; @raaijmakers1999] committing an error: *the language as fixed effect fallacy*.
+As we know, some words elicit slower and some elicit faster responses on average. As we discussed in the last chapter,
+in [the Introduction to linear mixed-effects models chapter section on the impact of stimulus variation](../part2/02-mixed.qmd#sec-intro-mixed-fixed-effect-fallacy), if we did not take such variation into account, we might spuriously identify an experimental effect actually due just to unexplained between-items differences in intercepts [@clark1973; @raaijmakers1999] committing an error: *the language as fixed effect fallacy*.
 
 We can model the random effect of items on intercepts by modeling the intercept as two terms:
 
@@ -986,7 +987,7 @@ The random effects part of the model is then specified as follows.
 
 -   `(1|item_name)` adds a random effect to account for random differences between sample groups (`item_name`) in intercepts coded `1`.
 
-5.  `...(..., data = ML.all.correct)` specifies the dataset in which you can find the variables named in the model fitting code.
+5.  `...(..., data = ML.all.correct)` specifies the data-set in which you can find the variables named in the model fitting code.
 6.  Lastly, we can then specify `summary(ML.all.correct.lmer)` to get a summary of the fitted model.
 
 ### Reading the lmer() results {#sec-dev-mixed-lmer-results}
@@ -1037,12 +1038,12 @@ The estimate is different, a bit smaller. While the change in the estimate is al
 Note that we see coefficient estimates, as in a linear model summary but no p-values.
 
 -   We will come back to this, see @sec-dev-mixed-discussion-p-values.
--   However, note that if $t >= 2$ we can suppose that (for a large dataset) an effect is significant at the $.05$ significance level.
+-   However, note that if $t >= 2$ we can suppose that (for a large data-set) an effect is significant at the $.05$ significance level.
 :::
 
 ## Mixed-effects models, partial pooling, and shrinkage or regularisation of estimates {#sec-dev-mixed-regularisation}
 
-What is the impact of the incorporation of random effects -- the variance and covariance terms -- in mixed-effects models? Mixed-effects models can be understood, in general, as a method to compromise between ignoring the differences between groups (here, participants constitute groups of data) as in *complete pooling* or focusing entirely on each group (participant) as in *no pooling* [@Gelman2007ga]. In this discussion, I am going to refer to the differences between participants but you can assume that the lesson applies generally to any situation in which you have different units in a multilevel structured dataset in which the units correspond to groups or clusters of data.
+What is the impact of the incorporation of random effects -- the variance and covariance terms -- in mixed-effects models? Mixed-effects models can be understood, in general, as a method to compromise between ignoring the differences between groups (here, participants constitute groups of data) as in *complete pooling* or focusing entirely on each group (participant) as in *no pooling* [@Gelman2007ga]. In this discussion, I am going to refer to the differences between participants but you can assume that the lesson applies generally to any situation in which you have different units in a multilevel structured data-set in which the units correspond to groups or clusters of data.
 
 ### Overfitting {#sec-dev-mixed-overfitting}
 
@@ -1155,11 +1156,11 @@ df_partial_pooling <- coef(ML.all.correct.lmer)[["subjectID"]] %>%
 df_partial_pooling$subjectID <- as.factor(df_partial_pooling$subjectID)
 df_partial_pooling$Model <- as.factor(df_partial_pooling$Model)
 
-# -- update the previous plot by using a dataset consisting of of all three models’ estimates
+# -- update the previous plot by using a data-set consisting of of all three models’ estimates
 df_models <- rbind(df_pooled, df_no_pooling, df_partial_pooling) %>%
   left_join(ML.all.correct, by = "subjectID")
 
-# -- inspect the differences between the datasets
+# -- inspect the differences between the data-sets
 # summary(df_pooled)
 # summary(df_no_pooling)
 # summary(df_partial_pooling)
@@ -1204,7 +1205,7 @@ df_zoom <- df_models %>%
   filter(subjectID %in% c("EB5", "JP3", "JL3", "AA1"))
 
 # -- replace the data-set of the last plot
-# -- re-generate the plot with this zoomed-in selection dataset
+# -- re-generate the plot with this zoomed-in selection data-set
 p_model_comparison <- ggplot(df_zoom) + 
   aes(x = LgSUBTLCD, y = logrt) + 
   # Set the color mapping in this layer so the points don't get a color
@@ -1312,13 +1313,13 @@ In mixed-effects models, the things that are estimated are the fixed effects (th
 
 Mostly, our main concern, in working with mixed-effects models, is over what effects we should include, what model we should specify. But we should prepare for the fact sometimes happens that models *fail to converge*, which is to say, the model fitting algorithm fails to settle on some set of parameter estimates but has reached the limit in the number of iterations over which it has attempted to find a satisfactory set of estimates.
 
-In my experience, convergence problems do arise, typically, if one is analyzing categorical outcome data (e.g accuracy) where there may be not enough observations to distinguish satisfactory estimates given a quite complex hypothesized model. In other words, you might run into convergence problems but it will not happen often and only where you are already dealing with quite a complex situation. We take a look at this concern in more depth, in the next chapter [@sec-glmm-intro].
+In my experience, convergence problems do arise, typically, if one is analyzing categorical outcome data (e.g accuracy) where there may be not enough observations to distinguish satisfactory estimates given a quite complex hypothesized model. In other words, you might run into convergence problems but it will not happen often and only where you are already dealing with quite a complex situation. We take a look at this concern in more depth, in the next class.
 
 ## Fitting and evaluating Linear Mixed-effects models {#sec-dev-mixed-evaluating}
 
 Up to this point, we have discussed the empirical or conceptual reasons we should expect to take into account, in our model, the effects on the outcome due to systematic differences in the experimental variables, e.g., in stimulus word frequency frequency, or to random differences between participants or between stimuli. We can now think about how we should statistically evaluate the relative usefulness of these different fixed effects or random effects, where usefulness is judged in relation to our capacity to explain outcome variance, or to improve model fit to sample data. We shall take an approach that follows the approach set out by Baayen, Bates and others [@Baayen2008; @bates2015parsimonious; @matuschek2017].
 
-In this approach, we shall look at the choices that psychology researchers have to make. Researchers using statistical models are always faced with choices. As we have seen, these choices begin even before we start to do analyses, as when we make decisions about dataset construction [@steegen2016]. The need to make choices is always present for all the kinds of models we work with (as I discuss in @sec-multiverse). This may not always be obvious because, for example, in using some data analysis software, researchers may rely on defaults with limited indication that that is what they are doing.
+In this approach, we shall look at the choices that psychology researchers have to make. Researchers using statistical models are always faced with choices. As we have seen, these choices begin even before we start to do analyses, as when we make decisions about data-set construction [@steegen2016]. The need to make choices is always present for all the kinds of models we work with. This may not always be obvious because, for example, in using some data analysis software, researchers may rely on defaults with limited indication that that is what they are doing.
 
 ::: callout-important
 Just because we are making choices does not mean we are operating subjectively in a non-scientific fashion. Rather, provided we work in an appropriate mode of transparency or reflexiveness, we can work with an awareness of our options and the context for the data analysis [see the very helpful discussion in @gelman2017].
@@ -1468,7 +1469,7 @@ In an exploratory study, I would keep things simple by comparing a series of mod
 Note: if you are running mixed-effects models in R you cannot run `lmer()` models with just fixed effects.
 :::
 
-What I do is this: for a dataset like the ML study data, where the data were collected using a repeated-measures design:
+What I do is this: for a data-set like the ML study data, where the data were collected using a repeated-measures design:
 
 -   so that all participants saw all stimuli,
 -   and both participants and stimuli were sampled (from the wider populations of readers or words),
@@ -1497,7 +1498,7 @@ Having established a model with some set of sensible fixed effects (guided by in
 
 What I do is this:
 
--   For a dataset like ML's, I examine firstly if both random effects of subjects *and* items on intercepts are required.
+-   For a data-set like ML's, I examine firstly if both random effects of subjects *and* items on intercepts are required.
 -   I then check if random effects of subjects or items on slopes are *additionally* required in the model.
 
 The distinction between *exploratory* and *confirmatory* studies breaks down, in my experience, when we start thinking about what random effects should be included in a model. It will be useful to review, here, @Barr2013a and @matuschek2017 for an interesting discussion, and contrasting approaches.
@@ -1724,7 +1725,7 @@ Inspection of the results shows us that, here, adjusting the model to include ra
 
 ### Effects estimates and *significance* or p-values {#sec-dev-mixed-discussion-p-values}
 
-If you look at the fixed effects summary, you can see that we do not get p-values by default. To calculate p-values, we need to count residual degrees of freedom. The authors of the `{lme4}` library that furnishes the `lmer()` function do not [as e.g. @Baayen2008 discuss] think that it is sensible to estimate the residual degrees of freedom for a model in terms of the number of observations. This is because the number of observations concerns one level of a multilevel dataset that might be structured with respect to some number of subjects, some number of items. This means that one cannot then accurately calculate p-values to go with the t-tests on the coefficients estimates; therefore they do not.
+If you look at the fixed effects summary, you can see that we do not get p-values by default. To calculate p-values, we need to count residual degrees of freedom. The authors of the `{lme4}` library that furnishes the `lmer()` function do not [as e.g. @Baayen2008 discuss] think that it is sensible to estimate the residual degrees of freedom for a model in terms of the number of observations. This is because the number of observations concerns one level of a multilevel data-set that might be structured with respect to some number of subjects, some number of items. This means that one cannot then accurately calculate p-values to go with the t-tests on the coefficients estimates; therefore they do not.
 
 While this makes sense to me (see comments earlier on Bayesian methods), Psychologists will often need p-values. This is now relatively easy.
 
@@ -1784,7 +1785,7 @@ I want you to notice something more, concerning the predictors included in each 
 -   I do not include predictors one at a time, I include predictors in sets.
 :::
 
-For the @Davies2013b dataset, I include first the set of phonetic coding variables then the set of psycholinguistic variables (see the paper for details).
+For the @Davies2013b data-set, I include first the set of phonetic coding variables then the set of psycholinguistic variables (see the paper for details).
 I include linear effects then additional terms allowing the effects to be curvilinear.
 
 Finally, you can see that I report model comparisons in terms of Likelihood Ratio Tests. I do this, firstly, in order to report comparisons conducted to examine the basis for selecting one model out of a set of possible models varying in fixed effects:
@@ -1813,11 +1814,11 @@ I also think it helps the reader to know *what* model is the basis for any estim
 
 ## Summary {#sec-dev-mixed-summary}
 
-We examined another example of data from a repeated measures design study, this time, from a study involving adults responding to the lexical decision task, the ML study dataset.
+We examined another example of data from a repeated measures design study, this time, from a study involving adults responding to the lexical decision task, the ML study data-set.
 
 We explored in more depth why linear mixed-effects models are more effective than other kinds of models when we are analyzing data with multilevel or crossed random effects structure. We discussed the critical ideas: pooling, and shrinkage. And we looked at how mixed-effects models employ partial-pooling so as to be more effective than alternative approaches dependent on complete pooling or no pooling estimates. 
 
-Mixed-effects models work better because they use both information from the whole dataset and information about each group (item or participant). This ensures that model estimates take into account random differences but are regularized so that they are not dominated by less reliable group-level information.
+Mixed-effects models work better because they use both information from the whole data-set and information about each group (item or participant). This ensures that model estimates take into account random differences but are regularized so that they are not dominated by less reliable group-level information.
 
 We considered, briefly, how mixed-effects models are estimated. 
 
