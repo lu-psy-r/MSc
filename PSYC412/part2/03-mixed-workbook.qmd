@@ -1,7 +1,7 @@
 ---
 title: Week 18. Developing linear mixed-effects models
 subtitle: Written by Rob Davies
-order: 10
+order: 11
 bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
