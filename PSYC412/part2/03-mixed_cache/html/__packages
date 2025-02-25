@@ -1,6 +1,7 @@
 broom
 gridExtra
 here
+kableExtra
 Matrix
 lme4
 lattice
@@ -17,7 +18,5 @@ purrr
 dplyr
 stringr
 forcats
-kableExtra
 lubridate
-webexercises
-timechange
+lmerTest

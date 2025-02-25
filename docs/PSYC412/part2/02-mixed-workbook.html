@@ -351,6 +351,18 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/03-mixed-workbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 18. Developing linear mixed-effects models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/03-mixed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 18. Conceptual introduction to developing linear mixed-effects models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../PSYC412/part2/00-quarto.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 00. Writing reproducible reports using Quarto</span></a>
   </div>
@@ -645,7 +657,7 @@ Code
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Install package "strengejacke" from GitHub (`devtools::install_github("strengejacke/strengejacke")`) to load all sj-packages at once!</code></pre>
+<pre><code>Learn more about sjPlot with 'browseVignettes("sjPlot")'.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1029,7 +1041,7 @@ Hint
 </div>
 </div>
 <ul>
-<li>You can read more about what we are doing here in <a href="../../PSYC412/part2/02-mixed.html#sec-intro-mixed-data-relational">chapter: Introduction to linear mixed-effects models</a> and <a href="../../PSYC412/part2/02-mixed.html#sec-intro-mixed-data-join-functions">chapter: Introduction to linear mixed-effects models</a>.</li>
+<li>You can read more about what we are doing here in <a href="../../PSYC412/part2/02-mixed.html#sec-intro-mixed-data-relational">the Introduction to linear mixed-effects models chapter section on relational data</a> and <a href="../../PSYC412/part2/02-mixed.html#sec-intro-mixed-data-join-functions">the same chapter section on join functions</a>.</li>
 </ul>
 </section>
 <section id="practical-task-5-select-just-the-variables-we-need" class="level5">
@@ -1522,15 +1534,21 @@ F-statistic: 46.09 on 1 and 9083 DF,  p-value: 1.198e-11</code></pre>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.15.</strong> What is the estimate of the effect of Length on RT?</p>
 </blockquote>
-<!-- >**Pract.A.15.** The estimate for the Length effect is 18.369. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.15.</strong> The estimate for the Length effect is 18.369.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.16.</strong> What does the estimate tell you about how RT varies in relation to word length?</p>
 </blockquote>
-<!-- >**Pract.A.16.** This tells us that RT increases by about 18ms for each increase in word length by one letter. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.16.</strong> This tells us that RT increases by about 18ms for each increase in word length by one letter.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.17.</strong> What is the R-squared for the model?</p>
 </blockquote>
-<!-- >**Pract.A.17.** The R-sq is .01. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.17.</strong> The R-sq is .01.</p>
+</blockquote>
 <p>Change the predictor from frequency to something else: you choose.</p>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.18.</strong> Produce a scatterplot to visualize the relationship between the two variables: does the relationship you see in the plot match the coefficient you see in the model estimates?</p>
@@ -1654,7 +1672,9 @@ Figure&nbsp;3: RT vs.&nbsp;word length, considered separately for data for each 
 <blockquote class="blockquote">
 <p><strong>Pract.Q.19.</strong> What do you conclude from this plot about the Length effect, and about how the effect varies?</p>
 </blockquote>
-<!-- >**Pract.A.19.** We can conclude that the length effect is small and really only apparent for some participants. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.19.</strong> We can conclude that the length effect is small and really only apparent for some participants.</p>
+</blockquote>
 </section>
 </section>
 <section id="practical-part-6-analyze-data-with-lmer" class="level4">
@@ -1737,10 +1757,14 @@ Lg.UK.CDcnt -0.093</code></pre>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.20.</strong> What are the differences between the <code>lm()</code> and the <code>lmer()</code> model results?</p>
 </blockquote>
-<!-- >**Pract.A.20.** The differences include: -->
-<!-- - The estimate for the coefficient of the frequency (Lg.UK.CDcount) effect changes from (lm) -53.375 to (lmer) -67.980. -->
-<!-- - The (lm) model includes just an estimate of residuals. -->
-<!-- - The (lmer) model includes estimates of the `Residual` variance plus the `subjectID` `(Intercept)` variance and the `subjectID` `(Lg.UK.CDcount)` variance. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.20.</strong> The differences include:</p>
+</blockquote>
+<ul>
+<li>The estimate for the coefficient of the frequency (Lg.UK.CDcount) effect changes from (lm) -53.375 to (lmer) -67.980.</li>
+<li>The (lm) model includes just an estimate of residuals.</li>
+<li>The (lmer) model includes estimates of the <code>Residual</code> variance plus the <code>subjectID</code> <code>(Intercept)</code> variance and the <code>subjectID</code> <code>(Lg.UK.CDcount)</code> variance.</li>
+</ul>
 </section>
 <section id="practical-task-14-fit-a-linear-mixed-effects-model-including-the-random-effects-of-participants-on-intercepts-and-on-the-slope-of-the-frequency-effect-as-well-as-the-random-effect-of-items-on-intercepts" class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-14-fit-a-linear-mixed-effects-model-including-the-random-effects-of-participants-on-intercepts-and-on-the-slope-of-the-frequency-effect-as-well-as-the-random-effect-of-items-on-intercepts">Practical Task 14 – Fit a linear mixed-effects model, including the random effects of participants on intercepts and on the slope of the frequency effect, as well as the random effect of items on intercepts</h5>
@@ -1804,19 +1828,21 @@ Lg.UK.CDcnt -0.388</code></pre>
 <li>How do the random effects differ?</li>
 <li>How do the fixed effects estimates differ?</li>
 </ol>
-<!-- >**Pract.A.21.** We can compare models: -->
-<!-- ```{} -->
-<!-- lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID), -->
-<!--                     data = long.all.noNAs) -->
-<!-- ``` -->
-<!-- ```{} -->
-<!-- lmer.all.si <- lmer(RT ~  Lg.UK.CDcount +  -->
-<!--                       (Lg.UK.CDcount + 1||subjectID) + -->
-<!--                       (1|item_name), -->
-<!--                     data = long.all.noNAs) -->
-<!-- ``` -->
-<!-- 1. The models differ, obviously, in the inclusion of a random term corresponding to the effect of items on intercepts. We can also see that the residual variance is smaller where we include the item random effect. -->
-<!-- 2. The estimate for the `Lg.UK.CDcount` is now -72.33. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.21.</strong> We can compare models:</p>
+</blockquote>
+<pre><code>lmer.all.1 &lt;- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID),
+
+                    data = long.all.noNAs)</code></pre>
+<pre><code>lmer.all.si &lt;- lmer(RT ~  Lg.UK.CDcount +
+                      (Lg.UK.CDcount + 1||subjectID) +
+                      (1|item_name),
+
+                    data = long.all.noNAs)</code></pre>
+<ol type="1">
+<li>The models differ, obviously, in the inclusion of a random term corresponding to the effect of items on intercepts. We can also see that the residual variance is smaller where we include the item random effect.</li>
+<li>The estimate for the <code>Lg.UK.CDcount</code> is now -72.33.</li>
+</ol>
 </section>
 <section id="practical-task-15-now-fit-a-mixed-effects-model-for-the-effect-of-length-on-rt.-include-the-random-effects-of-participants-on-intercepts-and-on-the-slope-of-the-length-effect-as-well-as-the-random-effect-of-items-on-intercepts." class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-15-now-fit-a-mixed-effects-model-for-the-effect-of-length-on-rt.-include-the-random-effects-of-participants-on-intercepts-and-on-the-slope-of-the-length-effect-as-well-as-the-random-effect-of-items-on-intercepts.">Practical Task 15 – Now fit a mixed-effects model for the effect of Length on RT. Include the random effects of participants on intercepts and on the slope of the length effect, as well as the random effect of items on intercepts.</h5>
@@ -1833,13 +1859,13 @@ Code
 <div id="callout-39" class="callout-39-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Length <span class="sc">+</span> </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>                     (Length <span class="sc">+</span> <span class="dv">1</span><span class="sc">||</span>subjectID) <span class="sc">+</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>                     (<span class="dv">1</span><span class="sc">|</span>item_name),</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>                   </span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lmer.all<span class="fl">.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Length <span class="sc">+</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>                     (Length <span class="sc">+</span> <span class="dv">1</span><span class="sc">||</span>subjectID) <span class="sc">+</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>                     (<span class="dv">1</span><span class="sc">|</span>item_name),</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>                   </span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lmer.all<span class="fl">.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML ['lmerMod']
 Formula: RT ~ Length + ((1 | subjectID) + (0 + Length | subjectID)) +  
@@ -1876,15 +1902,21 @@ Length -0.867</code></pre>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.22.</strong> What are the random effects estimates: the variances?</p>
 </blockquote>
-<!-- >**Pract.A.22.** We see: `items/intercepts` variance of 4751, `subjects/Length` of 757, `subjects/intercepts` of 4994 and `residuals` of 21440. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.22.</strong> We see: <code>items/intercepts</code> variance of 4751, <code>subjects/Length</code> of 757, <code>subjects/intercepts</code> of 4994 and <code>residuals</code> of 21440.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.23.</strong> What is the estimate of the effect of length?</p>
 </blockquote>
-<!-- >**Pract.A.23.** The estimate is 28.361. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.23.</strong> The estimate is 28.361.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.24.</strong> What does the estimate tell you about how RT varies as Length varies?</p>
 </blockquote>
-<!-- >**Pract.A.24.** That RT increases by about 28ms for unit increase in word length. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.24.</strong> That RT increases by about 28ms for unit increase in word length.</p>
+</blockquote>
 </section>
 </section>
 <section id="practical-part-7-extension" class="level4">
@@ -1916,47 +1948,47 @@ Code
 <div id="callout-40" class="callout-40-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- First fit the model for each child</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>freqperchildlm <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subjectID) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(RT <span class="sc">~</span> Lg.UK.CDcount, <span class="at">data=</span>.)))</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="co"># -- What does freqperchildlm hold: take a look?</span></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Make sure you can treat term as a factor</span></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>freqperchildlm<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(freqperchildlm<span class="sc">$</span>term)</span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Get the intercept and frequency effect estimates</span></span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>freqperchildlmint <span class="ot">&lt;-</span> <span class="fu">filter</span>(freqperchildlm, term <span class="sc">==</span> <span class="st">'(Intercept)'</span>)</span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>freqperchildlmfreq <span class="ot">&lt;-</span> <span class="fu">filter</span>(freqperchildlm, term <span class="sc">==</span> <span class="st">'Lg.UK.CDcount'</span>)</span>
-<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Make the intercepts plots: order by size</span></span>
-<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>pfreqperchildlmint <span class="ot">&lt;-</span> freqperchildlmint <span class="sc">%&gt;%</span></span>
-<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(subjectID, estimate), <span class="at">y =</span> estimate, <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error)) <span class="sc">+</span> </span>
-<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_linerange</span>() <span class="sc">+</span> </span>
-<span id="cb49-19"><a href="#cb49-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb49-20"><a href="#cb49-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Intercepts in order of size"</span>) <span class="sc">+</span></span>
-<span id="cb49-21"><a href="#cb49-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Estimated intercept +/- SE"</span>) <span class="sc">+</span> </span>
-<span id="cb49-22"><a href="#cb49-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
-<span id="cb49-23"><a href="#cb49-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>), </span>
-<span id="cb49-24"><a href="#cb49-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb49-25"><a href="#cb49-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb49-26"><a href="#cb49-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-27"><a href="#cb49-27" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Make the slopes plots: order by size</span></span>
-<span id="cb49-28"><a href="#cb49-28" aria-hidden="true" tabindex="-1"></a>pfreqperchildlmfreq <span class="ot">&lt;-</span> freqperchildlmfreq <span class="sc">%&gt;%</span></span>
-<span id="cb49-29"><a href="#cb49-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(subjectID, estimate), <span class="at">y =</span> estimate, <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error)) <span class="sc">+</span> </span>
-<span id="cb49-30"><a href="#cb49-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_linerange</span>() <span class="sc">+</span> </span>
-<span id="cb49-31"><a href="#cb49-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb49-32"><a href="#cb49-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Frequency effect coefficient in order of size"</span>) <span class="sc">+</span></span>
-<span id="cb49-33"><a href="#cb49-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Estimated coefficient for the frequency effect +/- SE"</span>) <span class="sc">+</span> </span>
-<span id="cb49-34"><a href="#cb49-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
-<span id="cb49-35"><a href="#cb49-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>), </span>
-<span id="cb49-36"><a href="#cb49-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb49-37"><a href="#cb49-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb49-38"><a href="#cb49-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-39"><a href="#cb49-39" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Make a grid to show the plots side by side: in 2 columns</span></span>
-<span id="cb49-40"><a href="#cb49-40" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(pfreqperchildlmint, pfreqperchildlmfreq,</span>
-<span id="cb49-41"><a href="#cb49-41" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- First fit the model for each child</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>freqperchildlm <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subjectID) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(RT <span class="sc">~</span> Lg.UK.CDcount, <span class="at">data=</span>.)))</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># -- What does freqperchildlm hold: take a look?</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Make sure you can treat term as a factor</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>freqperchildlm<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(freqperchildlm<span class="sc">$</span>term)</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Get the intercept and frequency effect estimates</span></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>freqperchildlmint <span class="ot">&lt;-</span> <span class="fu">filter</span>(freqperchildlm, term <span class="sc">==</span> <span class="st">'(Intercept)'</span>)</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>freqperchildlmfreq <span class="ot">&lt;-</span> <span class="fu">filter</span>(freqperchildlm, term <span class="sc">==</span> <span class="st">'Lg.UK.CDcount'</span>)</span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Make the intercepts plots: order by size</span></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>pfreqperchildlmint <span class="ot">&lt;-</span> freqperchildlmint <span class="sc">%&gt;%</span></span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(subjectID, estimate), <span class="at">y =</span> estimate, <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error)) <span class="sc">+</span> </span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_linerange</span>() <span class="sc">+</span> </span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Intercepts in order of size"</span>) <span class="sc">+</span></span>
+<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Estimated intercept +/- SE"</span>) <span class="sc">+</span> </span>
+<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
+<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>), </span>
+<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Make the slopes plots: order by size</span></span>
+<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a>pfreqperchildlmfreq <span class="ot">&lt;-</span> freqperchildlmfreq <span class="sc">%&gt;%</span></span>
+<span id="cb51-29"><a href="#cb51-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(subjectID, estimate), <span class="at">y =</span> estimate, <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error)) <span class="sc">+</span> </span>
+<span id="cb51-30"><a href="#cb51-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_linerange</span>() <span class="sc">+</span> </span>
+<span id="cb51-31"><a href="#cb51-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb51-32"><a href="#cb51-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Frequency effect coefficient in order of size"</span>) <span class="sc">+</span></span>
+<span id="cb51-33"><a href="#cb51-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Estimated coefficient for the frequency effect +/- SE"</span>) <span class="sc">+</span> </span>
+<span id="cb51-34"><a href="#cb51-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
+<span id="cb51-35"><a href="#cb51-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>), </span>
+<span id="cb51-36"><a href="#cb51-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb51-37"><a href="#cb51-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb51-38"><a href="#cb51-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-39"><a href="#cb51-39" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Make a grid to show the plots side by side: in 2 columns</span></span>
+<span id="cb51-40"><a href="#cb51-40" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(pfreqperchildlmint, pfreqperchildlmfreq,</span>
+<span id="cb51-41"><a href="#cb51-41" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1991,9 +2023,9 @@ Code
 <div id="callout-41" class="callout-41-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Lg.UK.CDcount <span class="sc">+</span> (Lg.UK.CDcount <span class="sc">+</span> <span class="dv">1</span><span class="sc">||</span>subjectID),</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>                   </span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Lg.UK.CDcount <span class="sc">+</span> (Lg.UK.CDcount <span class="sc">+</span> <span class="dv">1</span><span class="sc">||</span>subjectID),</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>                   </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2028,34 +2060,34 @@ Code
 <div id="callout-43" class="callout-43-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>BLUPS <span class="ot">&lt;-</span> <span class="fu">ranef</span>(lmer.all<span class="fl">.1</span>)<span class="sc">$</span>subjectID</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(BLUPS)</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>BLUPS.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">subjectID =</span> <span class="fu">rownames</span>(BLUPS), </span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">intercepts =</span> BLUPS[,<span class="dv">1</span>], </span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">frequency =</span> BLUPS[,<span class="dv">2</span>])</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(BLUPS.df)</span></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co"># str(BLUPS.df)</span></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>p.BLUPS.intercepts <span class="ot">&lt;-</span> BLUPS.df <span class="sc">%&gt;%</span></span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> intercepts)) <span class="sc">+</span></span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(a.) Adjustment by child"</span>) <span class="sc">+</span></span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"In the intercept"</span>) <span class="sc">+</span></span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>p.BLUPS.slopes <span class="ot">&lt;-</span> BLUPS.df <span class="sc">%&gt;%</span></span>
-<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> frequency)) <span class="sc">+</span></span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
-<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(b.) Adjustment by child"</span>) <span class="sc">+</span></span>
-<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"In the frequency slope (coefficient)"</span>) <span class="sc">+</span></span>
-<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p.BLUPS.intercepts, p.BLUPS.slopes,</span>
-<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span></span>
-<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>BLUPS <span class="ot">&lt;-</span> <span class="fu">ranef</span>(lmer.all<span class="fl">.1</span>)<span class="sc">$</span>subjectID</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(BLUPS)</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>BLUPS.df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">subjectID =</span> <span class="fu">rownames</span>(BLUPS), </span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">intercepts =</span> BLUPS[,<span class="dv">1</span>], </span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>                       <span class="at">frequency =</span> BLUPS[,<span class="dv">2</span>])</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(BLUPS.df)</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="co"># str(BLUPS.df)</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>p.BLUPS.intercepts <span class="ot">&lt;-</span> BLUPS.df <span class="sc">%&gt;%</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> intercepts)) <span class="sc">+</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(a.) Adjustment by child"</span>) <span class="sc">+</span></span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"In the intercept"</span>) <span class="sc">+</span></span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a>p.BLUPS.slopes <span class="ot">&lt;-</span> BLUPS.df <span class="sc">%&gt;%</span></span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> frequency)) <span class="sc">+</span></span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(b.) Adjustment by child"</span>) <span class="sc">+</span></span>
+<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"In the frequency slope (coefficient)"</span>) <span class="sc">+</span></span>
+<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb53-25"><a href="#cb53-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-26"><a href="#cb53-26" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p.BLUPS.intercepts, p.BLUPS.slopes,</span>
+<span id="cb53-27"><a href="#cb53-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span></span>
+<span id="cb53-28"><a href="#cb53-28" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
@@ -2099,25 +2131,25 @@ Code
 <div id="callout-44" class="callout-44-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Fit different kinds of mixed-effects model, then plot the resulting differences in model predictions</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Lg.UK.CDcount <span class="sc">+</span> (Lg.UK.CDcount <span class="sc">+</span> <span class="dv">1</span><span class="sc">||</span>subjectID),</span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>                   </span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lmer.all.1)</span></span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Lg.UK.CDcount <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>subjectID),</span>
-<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>                   </span>
-<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span>
-<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lmer.all.2)</span></span>
-<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.3</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Lg.UK.CDcount <span class="sc">+</span> (Lg.UK.CDcount <span class="sc">+</span> <span class="dv">0</span><span class="sc">|</span>subjectID),</span>
-<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a>                   </span>
-<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span>
-<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lmer.all.3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- Fit different kinds of mixed-effects model, then plot the resulting differences in model predictions</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Lg.UK.CDcount <span class="sc">+</span> (Lg.UK.CDcount <span class="sc">+</span> <span class="dv">1</span><span class="sc">||</span>subjectID),</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>                   </span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lmer.all.1)</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Lg.UK.CDcount <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>subjectID),</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>                   </span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lmer.all.2)</span></span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>lmer.all<span class="fl">.3</span> <span class="ot">&lt;-</span> <span class="fu">lmer</span>(RT <span class="sc">~</span>  Lg.UK.CDcount <span class="sc">+</span> (Lg.UK.CDcount <span class="sc">+</span> <span class="dv">0</span><span class="sc">|</span>subjectID),</span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a>                   </span>
+<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> long.all.noNAs)</span>
+<span id="cb55-18"><a href="#cb55-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-19"><a href="#cb55-19" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(lmer.all.3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2154,43 +2186,43 @@ Code
 <div id="callout-46" class="callout-46-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- get predictions</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>long.all.noNAs<span class="sc">$</span>pred1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmer.all<span class="fl">.1</span>) <span class="do">## individual level</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>long.all.noNAs<span class="sc">$</span>pred2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmer.all<span class="fl">.2</span>) <span class="do">## individual level</span></span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>long.all.noNAs<span class="sc">$</span>pred3 <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmer.all<span class="fl">.3</span>) <span class="do">## individual level</span></span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># -- show predictions as slopes on top of raw data</span></span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>p.slopes.intercepts <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span></span>
-<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Lg.UK.CDcount, <span class="at">y =</span> RT)) <span class="sc">+</span></span>
-<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">25</span>, <span class="at">colour =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
-<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred1, <span class="at">group =</span> subjectID), <span class="at">colour=</span><span class="st">"red"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(c.)</span><span class="sc">\n</span><span class="st">(Lg.UK.CDcount + 1||subjectID)"</span>) <span class="sc">+</span></span>
-<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Frequency (Lg.UK.CDcount)"</span>) <span class="sc">+</span></span>
-<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>p.intercepts <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span></span>
-<span id="cb54-19"><a href="#cb54-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Lg.UK.CDcount, <span class="at">y =</span> RT)) <span class="sc">+</span></span>
-<span id="cb54-20"><a href="#cb54-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">25</span>, <span class="at">colour =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
-<span id="cb54-21"><a href="#cb54-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred2, <span class="at">group =</span> subjectID), <span class="at">colour=</span><span class="st">"red"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb54-22"><a href="#cb54-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(a.)</span><span class="sc">\n</span><span class="st">(1|subjectID)"</span>) <span class="sc">+</span></span>
-<span id="cb54-23"><a href="#cb54-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Frequency (Lg.UK.CDcount)"</span>) <span class="sc">+</span></span>
-<span id="cb54-24"><a href="#cb54-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb54-25"><a href="#cb54-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb54-26"><a href="#cb54-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-27"><a href="#cb54-27" aria-hidden="true" tabindex="-1"></a>p.slopes <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span></span>
-<span id="cb54-28"><a href="#cb54-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Lg.UK.CDcount, <span class="at">y =</span> RT)) <span class="sc">+</span></span>
-<span id="cb54-29"><a href="#cb54-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">25</span>, <span class="at">colour =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
-<span id="cb54-30"><a href="#cb54-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred3, <span class="at">group =</span> subjectID), <span class="at">colour=</span><span class="st">"red"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb54-31"><a href="#cb54-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(b.)</span><span class="sc">\n</span><span class="st">(Lg.UK.CDcount + 0|subjectID)"</span>) <span class="sc">+</span></span>
-<span id="cb54-32"><a href="#cb54-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Frequency (Lg.UK.CDcount)"</span>) <span class="sc">+</span></span>
-<span id="cb54-33"><a href="#cb54-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb54-34"><a href="#cb54-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb54-35"><a href="#cb54-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-36"><a href="#cb54-36" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p.intercepts, p.slopes, p.slopes.intercepts, </span>
-<span id="cb54-37"><a href="#cb54-37" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- get predictions</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>long.all.noNAs<span class="sc">$</span>pred1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmer.all<span class="fl">.1</span>) <span class="do">## individual level</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>long.all.noNAs<span class="sc">$</span>pred2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmer.all<span class="fl">.2</span>) <span class="do">## individual level</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>long.all.noNAs<span class="sc">$</span>pred3 <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmer.all<span class="fl">.3</span>) <span class="do">## individual level</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co"># -- show predictions as slopes on top of raw data</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>p.slopes.intercepts <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Lg.UK.CDcount, <span class="at">y =</span> RT)) <span class="sc">+</span></span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">25</span>, <span class="at">colour =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred1, <span class="at">group =</span> subjectID), <span class="at">colour=</span><span class="st">"red"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(c.)</span><span class="sc">\n</span><span class="st">(Lg.UK.CDcount + 1||subjectID)"</span>) <span class="sc">+</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Frequency (Lg.UK.CDcount)"</span>) <span class="sc">+</span></span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>p.intercepts <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span></span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Lg.UK.CDcount, <span class="at">y =</span> RT)) <span class="sc">+</span></span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">25</span>, <span class="at">colour =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred2, <span class="at">group =</span> subjectID), <span class="at">colour=</span><span class="st">"red"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(a.)</span><span class="sc">\n</span><span class="st">(1|subjectID)"</span>) <span class="sc">+</span></span>
+<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Frequency (Lg.UK.CDcount)"</span>) <span class="sc">+</span></span>
+<span id="cb56-24"><a href="#cb56-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a>p.slopes <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span></span>
+<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Lg.UK.CDcount, <span class="at">y =</span> RT)) <span class="sc">+</span></span>
+<span id="cb56-29"><a href="#cb56-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">25</span>, <span class="at">colour =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
+<span id="cb56-30"><a href="#cb56-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred3, <span class="at">group =</span> subjectID), <span class="at">colour=</span><span class="st">"red"</span>, <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb56-31"><a href="#cb56-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"(b.)</span><span class="sc">\n</span><span class="st">(Lg.UK.CDcount + 0|subjectID)"</span>) <span class="sc">+</span></span>
+<span id="cb56-32"><a href="#cb56-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Frequency (Lg.UK.CDcount)"</span>) <span class="sc">+</span></span>
+<span id="cb56-33"><a href="#cb56-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb56-34"><a href="#cb56-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb56-35"><a href="#cb56-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-36"><a href="#cb56-36" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p.intercepts, p.slopes, p.slopes.intercepts, </span>
+<span id="cb56-37"><a href="#cb56-37" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2225,11 +2257,11 @@ Code
 <div id="callout-47" class="callout-47-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>wperitemlm <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span> </span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(item_name) <span class="sc">%&gt;%</span> </span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(RT <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data=</span>.)))</span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>wperitemlm<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(wperitemlm<span class="sc">$</span>term)</span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co"># wperitemlm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>wperitemlm <span class="ot">&lt;-</span> long.all.noNAs <span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(item_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">do</span>(<span class="fu">tidy</span>(<span class="fu">lm</span>(RT <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data=</span>.)))</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>wperitemlm<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(wperitemlm<span class="sc">$</span>term)</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co"># wperitemlm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2248,16 +2280,16 @@ Code
 <div id="callout-48" class="callout-48-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>pwperitemlmint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(wperitemlm, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(item_name, estimate), <span class="at">y =</span> estimate, <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error))</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>pwperitemlmint <span class="sc">+</span> </span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>() <span class="sc">+</span> </span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Estimated coefficient +/- SE"</span>) <span class="sc">+</span> </span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Per-item estimates of intercept, ordered by intercept estimate size"</span>) <span class="sc">+</span></span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
-<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>), </span>
-<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>pwperitemlmint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(wperitemlm, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">fct_reorder</span>(item_name, estimate), <span class="at">y =</span> estimate, <span class="at">ymin =</span> estimate <span class="sc">-</span> std.error, <span class="at">ymax =</span> estimate <span class="sc">+</span> std.error))</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>pwperitemlmint <span class="sc">+</span> </span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_linerange</span>() <span class="sc">+</span> </span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Estimated coefficient +/- SE"</span>) <span class="sc">+</span> </span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Per-item estimates of intercept, ordered by intercept estimate size"</span>) <span class="sc">+</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>), </span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>), </span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
