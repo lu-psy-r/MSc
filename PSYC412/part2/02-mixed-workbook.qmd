@@ -704,15 +704,15 @@ summary(lm.all.length)
 
 >**Pract.Q.15.** What is the estimate of the effect of Length on RT?
 
-<!-- >**Pract.A.15.** The estimate for the Length effect is 18.369. -->
+>**Pract.A.15.** The estimate for the Length effect is 18.369.
 
 >**Pract.Q.16.** What does the estimate tell you about how RT varies in relation to word length?
 
-<!-- >**Pract.A.16.** This tells us that RT increases by about 18ms for each increase in word length by one letter. -->
+>**Pract.A.16.** This tells us that RT increases by about 18ms for each increase in word length by one letter.
 
 >**Pract.Q.17.** What is the R-squared for the model?
 
-<!-- >**Pract.A.17.** The R-sq is .01. -->
+>**Pract.A.17.** The R-sq is .01.
 
 Change the predictor from frequency to something else: you choose.
 
@@ -778,7 +778,7 @@ long.all.noNAs %>%
 
 >**Pract.Q.19.** What do you conclude from this plot about the Length effect, and about how the effect varies?
 
-<!-- >**Pract.A.19.** We can conclude that the length effect is small and really only apparent for some participants. -->
+>**Pract.A.19.** We can conclude that the length effect is small and really only apparent for some participants.
 
 #### Practical Part 6: Analyze data with lmer
 
@@ -809,11 +809,11 @@ summary(lmer.all.1)
 
 >**Pract.Q.20.** What are the differences between the `lm()` and the `lmer()` model results?
 
-<!-- >**Pract.A.20.** The differences include: -->
+>**Pract.A.20.** The differences include:
 
-<!-- - The estimate for the coefficient of the frequency (Lg.UK.CDcount) effect changes from (lm) -53.375 to (lmer) -67.980. -->
-<!-- - The (lm) model includes just an estimate of residuals. -->
-<!-- - The (lmer) model includes estimates of the `Residual` variance plus the `subjectID` `(Intercept)` variance and the `subjectID` `(Lg.UK.CDcount)` variance. -->
+- The estimate for the coefficient of the frequency (Lg.UK.CDcount) effect changes from (lm) -53.375 to (lmer) -67.980.
+- The (lm) model includes just an estimate of residuals.
+- The (lmer) model includes estimates of the `Residual` variance plus the `subjectID` `(Intercept)` variance and the `subjectID` `(Lg.UK.CDcount)` variance.
 
 ##### Practical Task 14 -- Fit a linear mixed-effects model, including the random effects of participants on intercepts and on the slope of the frequency effect, as well as the random effect of items on intercepts
 
@@ -835,24 +835,24 @@ summary(lmer.all.si)
 1. How do the random effects differ?
 2. How do the fixed effects estimates differ?
 
-<!-- >**Pract.A.21.** We can compare models: -->
+>**Pract.A.21.** We can compare models:
 
-<!-- ```{} -->
-<!-- lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID), -->
+```{}
+lmer.all.1 <- lmer(RT ~  Lg.UK.CDcount + (Lg.UK.CDcount + 1||subjectID),
 
-<!--                     data = long.all.noNAs) -->
-<!-- ``` -->
+                    data = long.all.noNAs)
+```
 
-<!-- ```{} -->
-<!-- lmer.all.si <- lmer(RT ~  Lg.UK.CDcount +  -->
-<!--                       (Lg.UK.CDcount + 1||subjectID) + -->
-<!--                       (1|item_name), -->
+```{}
+lmer.all.si <- lmer(RT ~  Lg.UK.CDcount +
+                      (Lg.UK.CDcount + 1||subjectID) +
+                      (1|item_name),
 
-<!--                     data = long.all.noNAs) -->
-<!-- ``` -->
+                    data = long.all.noNAs)
+```
 
-<!-- 1. The models differ, obviously, in the inclusion of a random term corresponding to the effect of items on intercepts. We can also see that the residual variance is smaller where we include the item random effect. -->
-<!-- 2. The estimate for the `Lg.UK.CDcount` is now -72.33. -->
+1. The models differ, obviously, in the inclusion of a random term corresponding to the effect of items on intercepts. We can also see that the residual variance is smaller where we include the item random effect.
+2. The estimate for the `Lg.UK.CDcount` is now -72.33.
 
 ##### Practical Task 15 -- Now fit a mixed-effects model for the effect of Length on RT. Include the random effects of participants on intercepts and on the slope of the length effect, as well as the random effect of items on intercepts.
 
@@ -871,15 +871,15 @@ summary(lmer.all.2)
 
 >**Pract.Q.22.** What are the random effects estimates: the variances?
 
-<!-- >**Pract.A.22.** We see: `items/intercepts` variance of 4751, `subjects/Length` of 757, `subjects/intercepts` of 4994 and `residuals` of 21440. -->
+>**Pract.A.22.** We see: `items/intercepts` variance of 4751, `subjects/Length` of 757, `subjects/intercepts` of 4994 and `residuals` of 21440.
 
 >**Pract.Q.23.** What is the estimate of the effect of length?
 
-<!-- >**Pract.A.23.** The estimate is 28.361. -->
+>**Pract.A.23.** The estimate is 28.361.
 
 >**Pract.Q.24.** What does the estimate tell you about how RT varies as Length varies?
 
-<!-- >**Pract.A.24.** That RT increases by about 28ms for unit increase in word length. -->
+>**Pract.A.24.** That RT increases by about 28ms for unit increase in word length.
 
 #### Practical Part 7: Extension
 
