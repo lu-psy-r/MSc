@@ -1,6 +1,6 @@
 ---
 title: Week 00. Writing reproducible reports using Quarto
-subtitle: Written by Rob Davies
+subtitle: Written by Rob Davies and Tom Beesley
 order: 14
 bibliography: references.bib
 csl: psychological-bulletin.csl
