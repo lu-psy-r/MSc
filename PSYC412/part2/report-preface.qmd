@@ -12,12 +12,19 @@ The **structured research report** assignment: We want you to analyse previously
 
 Here, we present a guide in five parts:
 
-::: callout-tip
 1. **What** you have to write.
 2. **How** you can do the analysis work.
 3. **Why** we are asking you to do this.
 4. Where you can get **in-depth** information.
 5. How you can expect us to **grade** your work.
+
+::: callout-warning
+This **structured research report** assignment has the *same* requirements or targets --- and coursework should be submitted in the same format --- as the **structured research report** assignment for **PSYC411**, therefore, here, what we are doing is:
+
+- providing, for your convenience, a repeat presentation of the information you can find in the [previous guide](https://lu-psy-r.github.io/MSc/PSYC411/part2/report-preface.html)
+- and making edits to PSYC412-specific information *like the deadline*.
+
+Obviously, this means that sometimes (e.g., in the lecture) I am going to reference *PSYC411* when the information remains relevant to *PSYC412*.
 :::
 
 We provide a *summary* guide to [What you have to write](../part2/report-preface.qmd#sec-report-quick-what) next, and then a quick guide to [How you can do the analysis work](../part2/report-preface.qmd#sec-report-quick-how) you need to do, so that you can do the writing.
@@ -26,19 +33,20 @@ We share a lecture on [Why we are asking you to do this work](../part2/report-pr
 
 At the end of this page, in [How we will mark your work](../part2/report-preface.qmd#sec-report-quick-how-mark), we detail what work of different grades looks like, so that you can both understand what we want you to do, and how you can do it.
 
-If you want more in-depth guidance or support, we provide detailed *step-by-step* notes on the work you can plan to do in a chapter we have written to support you: [How you can do the analysis work](../part2/how.qmd#sec-how).
-If you want an explanation of *why* we are asking you to do this work, so you can think about best practice in science, we have got that for you in our chapter: [Why we are asking you to do this](../part2/intro.qmd#sec-intro-why).
+If you want more in-depth guidance or support, we provide detailed *step-by-step* notes on the work you can plan to do in [the PSYC411 How chapter](https://lu-psy-r.github.io/MSc/PSYC411/part2/how.html).
+
+If you want an explanation of *why* we are asking you to do this work, so you can think about best practice in science, we have got that for you in [the PSYC411 Why chapter](https://lu-psy-r.github.io/MSc/PSYC411/part2/intro.html).
 
 ## What you have to write {#sec-report-quick-what} 
 
 Let's begin with what you need to write to complete this coursework.
 
-1. **Submission deadline: On Friday 17th January 2025**
+1. **Submission deadline: On Wednesday 14th May 2025**
 2. You will submit a structured report.
 3. Presenting an analysis: what you did; what you found; the context; and the implications.
 
 ::: callout-tip
-You will be able to find the submission point on Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=2530759) when it is revealed.
+You will be able to find the submission point on Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=2512662) when it is revealed.
 :::
 
 **What is a structured report?** 
@@ -76,19 +84,11 @@ These data will usually be associated with a published report in a journal like 
 We expect students to use one of the analysis methods taught in the module. 
 
 ::: callout-tip
-If you want to know more about **how** to do this work, you can read in-depth step-by-step guidance in [the how-to chapter](../part2/how.qmd#sec-how).
+If you want to know more about **how** to do this work, you can read in-depth step-by-step guidance in [the PSYC411 How chapter](https://lu-psy-r.github.io/MSc/PSYC411/part2/how.html).
 :::
 
 You can see information on APA formatting of statistics and numbers in the [OWL Purdue guide](https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/apa_numbers_statistics.html).
 Though the APA guidelines are the authoritative guide.
-
-### Report checklist {#sec-report-quick-how-checklist}  
-
-::: callout-tip
-## Checklist
-To help you organize your work in preparing for the research report assignment, we share a downloadable checklist:
-[PSYC411-research-report-checklist](files/PSYC411-research-report-checklist.docx).
-:::
 
 ## Why we are asking you to do this {#sec-report-quick-why} 
 
