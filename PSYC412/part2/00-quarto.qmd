@@ -30,6 +30,7 @@ library(patchwork)
 library(psych)
 library(tidybayes)
 library(tidyverse)
+library(apa)
 ```
 
 ```{r}
@@ -96,7 +97,7 @@ You need to do the installation in that order because R-Studio is the interface 
 
 There are at least the following justifications for investing time in this (in no particular order):
 
-1.  Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place. By doing do you avoid the risk of losing track of what data underlie which calculations or plots or table summaries. Copy and pasting statistical results will inevitably lead to errors.
+1.  Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place. By doing so you avoid the risk of losing track of what data underlie which calculations or plots or table summaries. Copy and pasting statistical results will inevitably lead to errors.
 
 2.  Automate the boring stuff: figure, table or section cross-referencing; producing documents in different formats; generating bibliographies.
 
@@ -357,6 +358,26 @@ Read more about alt-text here:
 
 <https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/28-fig-alt/>
 
+### Inline computing {#sec-inline}
+
+It is a hard habit to break but you never have to calculate things and enter values by hand again e.g.
+
+-   What is the number of observations in the example data? It is: `r length(study.two.gen$participant_ID)`.
+
+This is the bit of code that does the calculation in the sentence:
+
+-   What is the number of observations in the example data? It is: `` r length(study.two.gen$participant_ID)` ``.
+
+For some statistical tests (t, cor, anovas, etc) there is a handy package and function, `apa::apa` that will render the statistical result in the correct apa format:
+
+For example, you can wrap the `apa()` function around this `cor.test()` command. If you wrote the following:
+
+`` There was a positive correlation between HLVA and accuracy, `r apa(cor.test(study.two.gen$HLVA, study.two.gen$mean.acc))` ``
+
+...it will show in text as:
+
+There was a positive correlation between HLVA and accuracy, `r apa(cor.test(study.two.gen$HLVA, study.two.gen$mean.acc))`
+
 ### My first model {#sec-example-model}
 
 Now let's fit a model and get some results.
@@ -533,16 +554,6 @@ It's easy to do citations and build bibliographies:
 And you can have the references styled using any style with a `.csl` (Citation Style Language):
 
 <https://www.zotero.org/styles?q=psychological%20bulletin>
-
-### Inline computing {#sec-inline}
-
-It is a hard habit to break but you never have to calculate things and enter values by hand again e.g.
-
--   What is the number of observations in the example data? It is: `r length(study.two.gen$participant_ID)`.
-
-This is the bit of code that does the calculation in the sentence:
-
--   What is the number of observations in the example data? It is: `` r length(study.two.gen$participant_ID)` ``.
 
 ::: callout-tip
 For people contributing to this tutorial, this:
