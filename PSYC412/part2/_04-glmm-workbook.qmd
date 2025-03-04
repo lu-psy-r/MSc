@@ -1,7 +1,7 @@
 ---
 title: Week 19. Introduction to Generalized Linear Mixed-effects Models
 subtitle: Written by Rob Davies
-order: 12
+order: 13
 bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
@@ -88,7 +88,7 @@ We will see, also, that the study involves the factorial manipulation of learnin
 
 However, our focus now is on the fact that the outcome for analysis is the accuracy of the responses made by children to word targets in a spelling task. The categorical nature of accuracy as an outcome is the reason why we now turn to use Generalized Linear Mixed-effects Models.
 
-You can read more about these data in the [chapter on GLMMs](../part2/04-glmm.qmd#sec-glmm-data-study).
+You can read more about these data in the [conceptual introduction chapter on GLMMs](../part2/04-glmm.qmd#sec-glmm-data-study).
 
 We addressed three research questions and tested predictions in relation to each question.
 
