@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-052754da5edda02e8295a3d9f31723fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,7 +123,9 @@ div.csl-indent {
   }
 }</script>
 <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 <script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
 <script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -430,6 +432,7 @@ window.Quarto = {
   <li><a href="#sec-example-data" id="toc-sec-example-data" class="nav-link" data-scroll-target="#sec-example-data">Our example data</a></li>
   <li><a href="#sec-example-histogram" id="toc-sec-example-histogram" class="nav-link" data-scroll-target="#sec-example-histogram">My first histogram</a></li>
   <li><a href="#sec-example-scatterplot-control" id="toc-sec-example-scatterplot-control" class="nav-link" data-scroll-target="#sec-example-scatterplot-control">My first scatterplot: exerting a bit more control</a></li>
+  <li><a href="#sec-inline" id="toc-sec-inline" class="nav-link" data-scroll-target="#sec-inline">Inline computing</a></li>
   <li><a href="#sec-example-model" id="toc-sec-example-model" class="nav-link" data-scroll-target="#sec-example-model">My first model</a></li>
   <li><a href="#sec-example-model-summary" id="toc-sec-example-model-summary" class="nav-link" data-scroll-target="#sec-example-model-summary">My first model summary table</a></li>
   <li><a href="#sec-example-model-marginal-effects" id="toc-sec-example-model-marginal-effects" class="nav-link" data-scroll-target="#sec-example-model-marginal-effects">My first marginal effects plot</a></li>
@@ -441,7 +444,6 @@ window.Quarto = {
   <li><a href="#sec-apa" id="toc-sec-apa" class="nav-link" data-scroll-target="#sec-apa">APA formatted manuscripts</a></li>
   <li><a href="#cross-referencing" id="toc-cross-referencing" class="nav-link" data-scroll-target="#cross-referencing">Cross-referencing</a></li>
   <li><a href="#sec-bibliographies" id="toc-sec-bibliographies" class="nav-link" data-scroll-target="#sec-bibliographies">Bibliographies</a></li>
-  <li><a href="#sec-inline" id="toc-sec-inline" class="nav-link" data-scroll-target="#sec-inline">Inline computing</a></li>
   <li><a href="#sec-format-multiple" id="toc-sec-format-multiple" class="nav-link" data-scroll-target="#sec-format-multiple">Format to multiple outputs</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -543,7 +545,7 @@ Tip
 <h2 class="anchored" data-anchor-id="sec-quarto-overview-why">Motivations: why bother?</h2>
 <p>There are at least the following justifications for investing time in this (in no particular order):</p>
 <ol type="1">
-<li><p>Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place. By doing do you avoid the risk of losing track of what data underlie which calculations or plots or table summaries. Copy and pasting statistical results will inevitably lead to errors.</p></li>
+<li><p>Reproducible manuscripts: create documents that incorporate text, computation or plotting code, and bibliographic information in one place. By doing so you avoid the risk of losing track of what data underlie which calculations or plots or table summaries. Copy and pasting statistical results will inevitably lead to errors.</p></li>
 <li><p>Automate the boring stuff: figure, table or section cross-referencing; producing documents in different formats; generating bibliographies.</p></li>
 <li><p>Make manuscripts or presentations or notes share-able: Quarto is free so removes barrier to entry presented by licensed software like MS Word.</p></li>
 <li><p>Make nice things: plots and tables will look better.</p></li>
@@ -798,6 +800,7 @@ dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
 <img src="00-quarto_files/figure-html/fig-example-histogram-1.png" id="fig-example-histogram" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-example-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
 </figcaption>
 </figure>
 </div>
@@ -905,6 +908,22 @@ Tip
 </div>
 <p>Read more about alt-text here:</p>
 <p><a href="https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/28-fig-alt/" class="uri">https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/28-fig-alt/</a></p>
+</section>
+<section id="sec-inline" class="level3">
+<h3 class="anchored" data-anchor-id="sec-inline">Inline computing</h3>
+<p>It is a hard habit to break but you never have to calculate things and enter values by hand again e.g.</p>
+<ul>
+<li>What is the number of observations in the example data? It is: 169.</li>
+</ul>
+<p>This is the bit of code that does the calculation in the sentence:</p>
+<ul>
+<li>What is the number of observations in the example data? It is: <code>r length(study.two.gen$participant_ID)`</code>.</li>
+</ul>
+<p>For some statistical tests (t, cor, anovas, etc) there is a handy package and function, <code>apa::apa</code> that will render the statistical result in the correct apa format:</p>
+<p>For example, you can wrap the <code>apa()</code> function around this <code>cor.test()</code> command. If you wrote the following:</p>
+<p><code>There was a positive correlation between HLVA and accuracy, *r*(167) = .43, *p* &lt; .001</code></p>
+<p>…it will show in text as:</p>
+<p>There was a positive correlation between HLVA and accuracy, <em>r</em>(167) = .43, <em>p</em> &lt; .001</p>
 </section>
 <section id="sec-example-model" class="level3">
 <h3 class="anchored" data-anchor-id="sec-example-model">My first model</h3>
@@ -1127,17 +1146,6 @@ Warning
 <p><a href="https://quarto.org/docs/visual-editor/technical.html#citations" class="uri">https://quarto.org/docs/visual-editor/technical.html#citations</a></p>
 <p>And you can have the references styled using any style with a <code>.csl</code> (Citation Style Language):</p>
 <p><a href="https://www.zotero.org/styles?q=psychological%20bulletin" class="uri">https://www.zotero.org/styles?q=psychological%20bulletin</a></p>
-</section>
-<section id="sec-inline" class="level3">
-<h3 class="anchored" data-anchor-id="sec-inline">Inline computing</h3>
-<p>It is a hard habit to break but you never have to calculate things and enter values by hand again e.g.</p>
-<ul>
-<li>What is the number of observations in the example data? It is: 169.</li>
-</ul>
-<p>This is the bit of code that does the calculation in the sentence:</p>
-<ul>
-<li>What is the number of observations in the example data? It is: <code>r length(study.two.gen$participant_ID)`</code>.</li>
-</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1254,8 +1262,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1366,7 +1372,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
