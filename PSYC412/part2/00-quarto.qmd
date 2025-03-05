@@ -30,7 +30,6 @@ library(patchwork)
 library(psych)
 library(tidybayes)
 library(tidyverse)
-library(apa)
 ```
 
 ```{r}
@@ -370,13 +369,11 @@ This is the bit of code that does the calculation in the sentence:
 
 For some statistical tests (t, cor, anovas, etc) there is a handy package and function, `apa::apa` that will render the statistical result in the correct apa format:
 
-For example, you can wrap the `apa()` function around this `cor.test()` command. If you wrote the following:
+For example, you can wrap the `apa()` function around this `cor.test()` command. You can write the following:
 
 `` There was a positive correlation between HLVA and accuracy, `r apa(cor.test(study.two.gen$HLVA, study.two.gen$mean.acc))` ``
 
-...it will show in text as:
-
-There was a positive correlation between HLVA and accuracy, `r apa(cor.test(study.two.gen$HLVA, study.two.gen$mean.acc))`
+To get automatically formatted statistical reports.
 
 ### My first model {#sec-example-model}
 
