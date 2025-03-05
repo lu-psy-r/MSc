@@ -75,7 +75,7 @@ The `GLMM.pdf` version is the version delivered for the lecture recordings. To m
 
 2.3. You can read the chapter, run the code, and do the exercises.
 
--   Read in the example **word learning** dataset.
+-   Read in the example **word learning** data-set.
 -   Experiment with the .R code used to work with the example data.
 -   Run GLMMs of demonstration data.
 -   Run GLMMs of alternate data sets.
@@ -167,7 +167,7 @@ The data file is collected together with the .R script:
 
 The data come from the @ricketts2021 study, and you can access the analysis code and data for that study, in full, at the OSF repository [here](https://osf.io/e5gzk/?view_only=038118528c7c426c9729983f54138c88)
 
-In addition to these data, you will notice that I refer, @sec-glmm-bounded-outcomes, to another dataset analyzed by @monaghan2015. I enclose the data referenced:
+In addition to these data, you will notice that I refer, @sec-glmm-bounded-outcomes, to another data-set analyzed by @monaghan2015. I enclose the data referenced:
 
 -   `noun-verb-learning-study.csv`
 
@@ -239,7 +239,7 @@ Some of the variables included in the `.csv` file are listed, following, with in
 -   `Consistency-H` -- Calculated orthography-to-phonology consistency value for each word. -`zConsistency-H` -- Standardized Consistency H scores
 -   `Score` -- Outcome variable -- for the orthographic post-test, responses were scored as `1` (correct, if the target spelling was produced in full) or `0` (incorrect, if the target spelling was not produced).
 
-The summary will show you that we have a number of other variables available, including measures of individual differences in reading or reading-related abilities or knowledge, but we do not need to pay attention to them, for our exercises. If you are interested in the dataset, you can find more information about the variables in the Appendix for this chapter (@sec-glmm-appendix) and, of course, in @ricketts2021.
+The summary will show you that we have a number of other variables available, including measures of individual differences in reading or reading-related abilities or knowledge, but we do not need to pay attention to them, for our exercises. If you are interested in the data-set, you can find more information about the variables in the Appendix for this chapter (@sec-glmm-appendix) and, of course, in @ricketts2021.
 
 ## Tidy the data {#sec-glmm-data-tidy}
 
@@ -384,7 +384,7 @@ Why can't we follow these examples, and save ourselves the effort of learning ho
 
 #### Accuracy is bounded between 1 and 0, linear model model predictions or confidence intervals are not {#sec-glmm-bounded-outcomes}
 
-To illustrate the problems associated with using traditional analysis methods (like ANOVA or multiple regression), when working with accuracy as an outcome, we start by looking at data from an artificial vocabulary learning study [reported by @monaghan2015]. @monaghan2015 recorded responses made by participants to stimuli in a test where the response was correct (coded `1`) or incorrect (coded `0`). In our study, we directly compared learning of noun-object pairings, verb-motion pairings, and learning of both noun and verb pairings simultaneously, using a cross-situational learning task. (Those interested in this dataset can read more about it at the online repository associated with this chapter.) The data will have a multilevel structure because you will have multiple responses recorded for each person, and for each stimulus. But what concerns us is that if you attempt to use a linear model to analyze the effects of the experimental variables then you will see some paradoxical results that are easily demonstrated.
+To illustrate the problems associated with using traditional analysis methods (like ANOVA or multiple regression), when working with accuracy as an outcome, we start by looking at data from an artificial vocabulary learning study [reported by @monaghan2015]. @monaghan2015 recorded responses made by participants to stimuli in a test where the response was correct (coded `1`) or incorrect (coded `0`). In our study, we directly compared learning of noun-object pairings, verb-motion pairings, and learning of both noun and verb pairings simultaneously, using a cross-situational learning task. (Those interested in this data-set can read more about it at the online repository associated with this chapter.) The data will have a multilevel structure because you will have multiple responses recorded for each person, and for each stimulus. But what concerns us is that if you attempt to use a linear model to analyze the effects of the experimental variables then you will see some paradoxical results that are easily demonstrated.
 
 Let's imagine that we wish to estimate the effects of experimental variables like learning condition: learning trial block (1-12); or vocabulary condition (noun-only, noun-verb, verb-only). We can calculate the proportion of responses correct made by each person for each condition and learning trial block. We can then plot the regression best fit lines indicating how proportion of responses correct varies by person and condition. @fig-word-learning-lm-per-subject-for-report shows the results.
 
@@ -1072,7 +1072,7 @@ The $\chi^2$ alpha level cannot be interpreted as the expected model selection T
 
 ### Addressing convergence problems {#sec-glmm-addressing-convergence}
 
-Sometimes `(g)lmer()` has difficulty finding estimates for effects in a model given a dataset. If it encounters problems, the problems are expressed as warnings about convergence failures. Convergence failures typically arise when the model is too complicated for the data [see the discussion in @bates2015parsimonious; @eager; @matuschek2017; and @meteyard2020a]. As we have seen, problems can occur if you are trying to estimate (or predict) random effects terms that are very small -- that do not really explain much variance in performance. Problems can also occur if variables have very large or very small ranges.
+Sometimes `(g)lmer()` has difficulty finding estimates for effects in a model given a data-set. If it encounters problems, the problems are expressed as warnings about convergence failures. Convergence failures typically arise when the model is too complicated for the data [see the discussion in @bates2015parsimonious; @eager; @matuschek2017; and @meteyard2020a]. As we have seen, problems can occur if you are trying to estimate (or predict) random effects terms that are very small -- that do not really explain much variance in performance. Problems can also occur if variables have very large or very small ranges.
 
 We can detect and address these problems in a number of ways:
 
@@ -1215,9 +1215,9 @@ Can be found [here](https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html).
 
 Other helpful online advice by Ben Bolker (besides his numerous helpful interventions on StackOverflow) can be found [here](https://bbolker.github.io/mixedmodels-misc/ecostats_chap.html) and [here](https://rstudio-pubs-static.s3.amazonaws.com/33653_57fc7b8e5d484c909b615d8633c01d51.html).
 
-## Appendix: Example dataset variable information {#sec-glmm-appendix}
+## Appendix: Example data-set variable information {#sec-glmm-appendix}
 
-Further information about the variables in the `long.orth_2020-08-11.csv` dataset is listed following.
+Further information about the variables in the `long.orth_2020-08-11.csv` data-set is listed following.
 
 -   `Participant`
 
