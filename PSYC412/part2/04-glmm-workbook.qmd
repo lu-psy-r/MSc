@@ -442,6 +442,7 @@ Run the code to fit the model and get a summary of results.
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
+#| cache: true
 long.orth.min.glmer <- glmer(Score ~ 
                                
                           Time + Orthography + Instructions + zConsistency_H + 
@@ -470,6 +471,7 @@ summary(long.orth.min.glmer)
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
+#| cache: true
 long.orth.min.glmer.expt <- glmer(Score ~ mean_z_read +
 
                                (1 | Participant) +
@@ -499,6 +501,7 @@ Fit the first model you were asked to fit.
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
+#| cache: true
 long.orth.min.glmer <- glmer(Score ~ 
                                
                           Time + Orthography + Instructions + zConsistency_H + 
@@ -647,6 +650,7 @@ Specify a model with:
 Run the code to fit the model and get a summary of results, as shown in the chapter
 
 ```{r}
+#| cache: true
 long.orth.min.glmer <- glmer(Score ~ 
                                
                             Time + Orthography + Instructions + zConsistency_H + 
@@ -702,6 +706,7 @@ Specify a model with:
 Run the code to fit the model and get a summary of results, as shown in the chapter
 
 ```{r}
+#| cache: true
 long.orth.max.glmer <- glmer(Score ~ 
                            
                       Time + Orthography + Instructions + zConsistency_H + 
@@ -735,6 +740,7 @@ Add code to include a random effect of participants on the slopes of the effect 
 Run the code to fit the model and get a summary of results, as shown in the chapter
 
 ```{r}
+#| cache: true
 long.orth.2.glmer <- glmer(Score ~ 
                              Time + Orthography + Instructions + zConsistency_H + 
                              
@@ -763,6 +769,7 @@ Add code to include a random effect of items on the slopes of the effect of `Ins
 Run the code to fit the model and get a summary of results, as shown in the chapter
 
 ```{r}
+#| cache: true
 long.orth.3.glmer <- glmer(Score ~ 
                              Time + Orthography + Instructions + zConsistency_H + 
                              
@@ -791,6 +798,7 @@ Add code to include a random effect of participants on the slopes of the effect 
 Run the code to fit the model and get a summary of results, as shown in the chapter
 
 ```{r}
+#| cache: true
 long.orth.4.a.glmer <- glmer(Score ~ 
                              Time + Orthography + Instructions + zConsistency_H + 
                              
@@ -821,6 +829,7 @@ Add code to include a random effect of participants on the slopes of the effect 
 Run the code to fit the model and get a summary of results, as shown in the chapter
 
 ```{r}
+#| cache: true
 long.orth.4.b.glmer <- glmer(Score ~ 
                              Time + Orthography + Instructions + zConsistency_H + 
                              
@@ -857,6 +866,7 @@ summary(long.orth.4.b.glmer)
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
+#| cache: true
 anova(long.orth.min.glmer, long.orth.2.glmer)
 anova(long.orth.min.glmer, long.orth.3.glmer)
 ```
@@ -871,6 +881,7 @@ anova(long.orth.min.glmer, long.orth.3.glmer)
 Run the code to fit the model and get a summary of results
 
 ```{r}
+#| cache: true
 long.orth.3.glmer.check <- glmer(Score ~
                             
                             Time + Orthography + Instructions + zConsistency_H +
@@ -902,6 +913,7 @@ summary(long.orth.3.glmer.check)
 Run the code to fit the model and get a summary of results
 
 ```{r}
+#| cache: true
 long.orth.3.glmer.check <- glmer(Score ~
                              Time + Orthography + Instructions + zConsistency_H +
 
