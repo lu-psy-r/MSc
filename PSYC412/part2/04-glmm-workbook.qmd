@@ -234,7 +234,7 @@ It is always a good to inspect what you have got when you read a data file in to
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| label: data-summary
+#| label: data-summary-1
 #| eval: false
 summary(long.orth)
 ```
@@ -285,7 +285,7 @@ Fit a simple Generalized Linear Model with outcome (accuracy of response) `Score
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| label: data-summary
+#| label: data-summary-2
 #| eval: false
 summary(glm(Score ~ Instructions, family = "binomial", data = long.orth))
 ```
