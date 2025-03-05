@@ -190,7 +190,7 @@ The @monaghan2015 paper can be accessed [here](https://onlinelibrary.wiley.com/d
 
 #### The answers version {#sec-dev-mixed-answers-download}
 
-*After* practical sessions, you will be able to download an answers version of the workbook .R so check back here after the session.
+*After* practical sessions, you can download an answers version of the workbook .R to check what you did against how I would approach tasks.
 
 ::: callout-important
 **Get the answers**: get the data file and the .R script with answers.
@@ -198,9 +198,7 @@ The @monaghan2015 paper can be accessed [here](https://onlinelibrary.wiley.com/d
 - You can download the files folder for this chapter by clicking on the link [04-glmm-answers.zip](files/04-glmm-answers.zip).
 :::
 
-The link to this folder will not work until after a session has finished.
-
-When the link is live, you will be able to download a folder including:
+You will be able to download a folder including:
 
 -   `402-04-glmm-workbook-with-answers.R` with answers to questions and example code for doing the exercises.
 
