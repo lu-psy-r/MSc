@@ -1,3 +1,11 @@
+---
+title: Week 19. Conceptual introduction to Generalized Linear Mixed-effects Models
+subtitle: Written by Rob Davies
+order: 14
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
+
 # Introduction to Generalized Linear Mixed-effects Models {#sec-glmm-intro}
 
 ```{r libraries-hide}
@@ -1284,3 +1292,7 @@ Observations taken for children included in studies 1 and 2 -- participants in t
 -   `zWASIvRS` Standardized WASIvRS scores
 
 -   `zBPVSRS`Standardized BPVSRS scores
+
+### References
+
+::: {#refs}

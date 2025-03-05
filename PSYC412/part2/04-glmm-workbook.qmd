@@ -1,5 +1,5 @@
 ---
-title: Week 19. Introduction to Generalized Linear Mixed-effects Models
+title: Week 19. Workbook introduction to Generalized Linear Mixed-effects Models
 subtitle: Written by Rob Davies
 order: 13
 bibliography: references.bib
