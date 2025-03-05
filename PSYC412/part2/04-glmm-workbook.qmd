@@ -22,10 +22,10 @@ You need to do something about the categorical nature of the outcome.
 
 Here, we look at **Generalized Linear Mixed-effects Models (GLMMs)**: we can use these models to analyze outcome variables of different kinds, including outcome variables like response accuracy that are coded using discrete categories (e.g. correct vs. incorrect). 
 
-Our aims are to:
+In this workbook, and in [our conceptual introduction](../part2/04-glmm.qmd#sec-glmm-intro), our aims are to:
 
-1.  Recognize the limitations of alternative methods for analyzing such outcomes, @sec-tradition-limitations.
-2.  Understand practically the reasons for using GLMMs when we analyze discrete outcome variables, @sec-glmm-practical-understanding.
+1.  Recognize the [limitations of alternative (traditional) methods for analyzing such outcomes](../part2/04-glmm.qmd#sec-tradition-limitations).
+2.  Understand the [practical reasons for using GLMMs when we analyze discrete outcome variables](../part2/04-glmm.qmd#sec-glmm-practical-understanding).
 3.  Practice running GLMMs with varying random effects structures.
 4.  Practice reporting the results of GLMMs, including through the use of model plots.
 

@@ -48,6 +48,15 @@ In this chapter, we look at **Generalized Linear Mixed-effects Models (GLMMs)**:
 
 I have provided a collection of materials you can use. Here, I explain what they are and how I suggest you use them.
 
+::: callout-tip
+### Linked resources
+1. We learned about multilevel structured data in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview).
+2. We then deepened our understanding by looking at the analysis of data from studies with **repeated-measures designs** in the [conceptual introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed) and the [workbook introduction to mixed-effects models](../part2/02-mixed-workbook.qmd#sec-mixed-effects-workbook-overview).
+3. We further extended our understanding and practice skills in the [conceptual introduction to developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed) and the [corresponding workbook](../part2/03-mixed-workbook.qmd#sec-dev-mixed-workbook-overview).
+
+We present [the workbook introduction to **Generalized Linear Mixed-effects Models](../part2/04-glmm-workbook.qmd#sec-glmm-workbook-overview) where the explanation of ideas or of practical analysis steps is cut down, to focus attention on practical action steps.
+:::
+
 **1. Video recordings of lectures**
 
 1.1. I have recorded a lecture in three parts. The lectures should be accessible by anyone who has the link.
