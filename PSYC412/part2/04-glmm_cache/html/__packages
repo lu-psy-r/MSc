@@ -17,8 +17,4 @@ purrr
 dplyr
 stringr
 forcats
-carData
-effects
-knitr
-MuMIn
-webexercises
+lubridate
