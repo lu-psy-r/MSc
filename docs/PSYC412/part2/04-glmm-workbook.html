@@ -836,8 +836,10 @@ Hint
 </div>
 </div>
 </div>
-<!-- >**Pract.A.1.** The summary shows:  -->
-<!-- `Time (1, 655; 2, 608); Instructions (explicit, 592; incidental, 671); and Orthography (absent, 631; present, 632).` -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.1.</strong> The summary shows:</p>
+</blockquote>
+<p><code>Time (1, 655; 2, 608); Instructions (explicit, 592; incidental, 671); and Orthography (absent, 631; present, 632).</code></p>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.2.</strong> Are there any surprises in the summary of factors?</p>
 </blockquote>
@@ -857,7 +859,9 @@ Hint
 </div>
 </div>
 </div>
-<!-- >**Pract.A.2.** It should be surprising that we do not have equal numbers of observations. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.2.</strong> It should be surprising that we do not have equal numbers of observations.</p>
+</blockquote>
 </section>
 <section id="practical-task-4-fit-a-generalized-linear-model" class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-4-fit-a-generalized-linear-model">Practical Task 4 – Fit a Generalized Linear Model</h5>
@@ -886,11 +890,15 @@ Code
 <blockquote class="blockquote">
 <p><strong>Pract.Q.3.</strong> What is the estimated effect of <code>Instructions</code> on <code>Score</code>?</p>
 </blockquote>
-<!-- >**Pract.A.3.** The estimate is: `Instructionsincidental -0.05932` -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.3.</strong> The estimate is: <code>Instructionsincidental -0.05932</code></p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.4.</strong> Can you briefly explain in words what the estimate says about how log odds <code>Score</code> (response correct vs.&nbsp;incorrect) changes in association with different <code>Instructions</code> conditions?</p>
 </blockquote>
-<!-- >**Pract.A.4.** We can say, simply, that the log odds that a response would be correct were lower in the `incidental` compared to the `explicit` `Instructions` condition. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.4.</strong> We can say, simply, that the log odds that a response would be correct were lower in the <code>incidental</code> compared to the <code>explicit</code> <code>Instructions</code> condition.</p>
+</blockquote>
 <p>This task and these questions are designed to alert you to the challenges involved in estimating the effect of categorical variables, and of interpreting the effects estimates.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1034,7 +1042,9 @@ incidental -1</code></pre>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(long.orth<span class="sc">$</span>Time) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">3</span>, <span class="at">base =</span> <span class="dv">1</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(long.orth<span class="sc">$</span>Time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<!-- >**Pract.A.6.** Changing the first number from 2 will result in warnings, showing that the number must match the number of factor levels for the factor. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.6.</strong> Changing the first number from 2 will result in warnings, showing that the number must match the number of factor levels for the factor.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.7.</strong> Experiment: what happens if you change the base number for one of the factors?</p>
 </blockquote>
@@ -1043,7 +1053,9 @@ incidental -1</code></pre>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(long.orth<span class="sc">$</span>Time) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">2</span>, <span class="at">base =</span> <span class="dv">1</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(long.orth<span class="sc">$</span>Time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<!-- >**Pract.A.7.** Changing the base number changes which level gets coded as -1 vs. 1. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.7.</strong> Changing the base number changes which level gets coded as -1 vs.&nbsp;1.</p>
+</blockquote>
 </section>
 </section>
 <section id="practical-part-4-analyze-the-data-random-intercepts" class="level4">
@@ -1219,11 +1231,15 @@ mean_z_read -0.121</code></pre>
 </div>
 </div>
 </div>
-<!-- >**Pract.A.8.** The estimate is: `mean_z_read   1.5090` -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.8.</strong> The estimate is: <code>mean_z_read   1.5090</code></p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.9.</strong> Can you briefly indicate in words what the estimate says about how log odds <code>Score</code> (response correct vs.&nbsp;incorrect) changes in association with <code>mean_z_read</code> score?</p>
 </blockquote>
-<!-- >**Pract.A.9.** We can say, simply, that log odds that a response would be correct were higher for increasing values of `mean_z_read`. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.9.</strong> We can say, simply, that log odds that a response would be correct were higher for increasing values of <code>mean_z_read</code>.</p>
+</blockquote>
 </section>
 <section id="practical-task-7-visualize-the-significant-effects-of-the-orthography-and-consistency-factors" class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-7-visualize-the-significant-effects-of-the-orthography-and-consistency-factors">Practical Task 7 – Visualize the significant effects of the <code>Orthography</code> and <code>Consistency</code> factors</h5>
@@ -2112,13 +2128,17 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.10.</strong> Which models converge and which models do not converge?</p>
 </blockquote>
-<!-- >**Pract.A.10.** Models 4.a. (consistency) and 4.b. (time) should not converge. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.10.</strong> Models 4.a. (consistency) and 4.b. (time) should not converge.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.11.</strong> How can you tell?</p>
 </blockquote>
-<!-- >**Pract.A.11.** Convergence warnings are presented for models that do not converge:
-`optimizer (bobyqa) convergence code: 0 (OK)`
-`boundary (singular) fit: see help('isSingular')  -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.11.</strong> Convergence warnings are presented for models that do not converge:</p>
+</blockquote>
+<p><code>optimizer (bobyqa) convergence code: 0 (OK)</code></p>
+<p><code>boundary (singular) fit: see help('isSingular')</code></p>
 </section>
 <section id="practical-task-11-now-compare-the-models-that-do-converge-min-vs.-2-vs.-3" class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-11-now-compare-the-models-that-do-converge-min-vs.-2-vs.-3">Practical Task 11 – Now compare the models that do converge: min vs.&nbsp;2, vs.&nbsp;3</h5>
@@ -2249,7 +2269,9 @@ Orthgr2:C_H -0.030  0.002  0.182  0.002 -0.026 -0.018</code></pre>
 </div>
 </div>
 </div>
-<!-- >**Pract.A.12.** Deleting the bobyqa requirement seems to have no impact on models that converge. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.12.</strong> Deleting the <code>bobyqa</code> requirement seems to have no impact on models that converge.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.13.</strong> What does using <code>dummy()</code> in the random effects coding do?</p>
 </blockquote>
@@ -2346,12 +2368,16 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 </div>
 </div>
 </div>
-<!-- >**Pract.A.13.** If we refit model 3 but with the random effects: -->
-<!-- `(Orthography + 1 || Participant) +` -->
-<!-- `Orthography + Instructions + 1 || Word),` -->
-<!-- We get: -->
-<!-- - a convergence warning   -->
-<!-- - random effects variances and covariances that we did not ask for: including some bad signs -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.13.</strong> If we refit model 3 but with the random effects:</p>
+</blockquote>
+<p><code>(Orthography + 1 || Participant) +</code></p>
+<p><code>Orthography + Instructions + 1 || Word),</code></p>
+<p>We get:</p>
+<ul>
+<li>a convergence warning</li>
+<li>random effects variances and covariances that we did not ask for: including some bad signs</li>
+</ul>
 </section>
 </section>
 </section>
