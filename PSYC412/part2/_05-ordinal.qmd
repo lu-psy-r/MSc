@@ -1,5 +1,9 @@
 ---
+title: Week 20. Conceptual introduction to Ordinal (Mixed-effects) Models
+subtitle: Written by Rob Davies
+order: 15
 bibliography: references.bib
+csl: psychological-bulletin.csl
 ---
 
 # Introduction to Ordinal Models {#sec-ordinal-intro}
@@ -808,3 +812,7 @@ The published example studies referred to in this chapter are published in [@ric
 Both @liddell2018 and @bürkner2019 work from a Bayesian perspective but the insights are generally applicable.
 
 Guides to the `{ordinal}` model functions `clm()` and `clmm()` are presented in [@christensen2022; @christensen2015].
+
+### References
+
+::: {#refs}
