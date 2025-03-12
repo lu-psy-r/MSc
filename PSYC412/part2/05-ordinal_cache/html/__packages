@@ -17,6 +17,6 @@ purrr
 dplyr
 stringr
 forcats
+lubridate
 viridisLite
 viridis
-webexercises
