@@ -53,29 +53,81 @@ health.subjects <- health %>%
 
 ## Motivations: working with ordinal outcomes {#sec-ordinal-motivations}
 
-Ordinal data are very common in psychological science. Often, we will encounter ordinal data recorded as responses to Likert-style items in which the participant is asked to indicate a response on an ordered scale ranging between two end points [@bürkner2019; @liddell2018]. An example of a Likert question item might be: *How well do you think you have understood this text? (Please check one response)* where the participant must respond by checking an option, given 5 options ranging from 1 (not well at all) to 5 (very well). The critical characteristics of such responses are that:
+Ordinal data are very common in psychological science.
 
--   The responses are ordered, as indicated by the number labels;
--   Response types are categorical or qualitative, not numeric.
+Often, we will encounter ordinal data recorded as responses to Likert-style items in which the participant is asked to indicate a response on an ordered scale ranging between two end points [@bürkner2019; @liddell2018]. An example of a Likert item is: *How well do you think you have understood this text? (Please check one response)* where the participant must respond by producing a rating, by checking one option, given nine different response options ranging from 1 (not well at all) to 5 (very well).
 
-We will be working with study data in which the outcome that is the target for our analyses comprise responses to questions designed to elicit ratings. Ordinal data may, however, also derive from situations in which ordered categorical responses do not derive from ratings items [we will look briefly at sequential responses, @bürkner2019].
+The critical characteristics of ordinal data values (like the responses recorded to ratings scale, Likert-style, items) are that:
+
+-   The responses are discrete or categorical --- you must pick one (e.g., `1`), you cannot pick more than one at the same time (e.g., `1` and `2`), and you cannot have part or fractional values (e.g., you can't choose the rating `1.5`).
+-   The responses are ordered --- ranging from some minimum value up to some maximum value (e.g., `1` $\rightarrow$ `2` $\rightarrow$ `3` $\rightarrow$ `4` $\rightarrow$ `5`).
+
+In these materials, we are going to keep things simple by focusing on data comprising responses recorded to ratings scale Likert items.
+As we discuss, following, we often suppose that the response a participant produces to a rating question corresponds to a value on an underlying dimension that indirectly informs the participant response production process.
+But we should be aware that ordinal data can come from a variety of possible psychological mechanisms
+Ordinal data can also reflect processes in which participants have worked their way through a progression or sequence of decisions [see, e.g., @ricketts2021].
+
+::: callout-note
+Ordinal models: *why* do we need to do this? 
+
+- We are aiming to develop skills and understanding of an approach to modeling that enables us to more accurately capture, in principle, the psychological processes that produce the data we analyse.
+:::
+
+## Challenges {#sec-ordinal-challenges}
+
+At first, we face two main challenges when working with ordinal data. The challenges are conceptual and social, more than statistical or computational. 
+
+The first challenge is conceptual because ordinal data values look like numbers but we cannot treat them like the numbers we are used to when we measure things like reaction time (RT), heat energy (temperature) or distance (e.g., height).
+
+1. We typically encounter ordinal data (e.g., from Likert-style items, given rating scales) in contexts in which the response values that we observe *look like* numbers (e.g., `1`) just like the numbers we handle in other contexts (e.g., RT or temperature or height). But those other numbers have what is known as **metric** properties [@liddell2018]: Metric measurement scales assume that the numbers we observe are on *interval* or *ratio* scales. 
+
+- Interval scales define the distances between points somehow. 
+- Ratio scales incorporate a zero point.
+
+Whereas ordinal data (e.g., responses to a rating question) have neither of these properties. 
+
+This means that, for ordinal data:
+
+- We cannot assume that the distances are equal between different values of the range of possible values, for example, for the rating scale: `1` $\rightarrow$ `2` $\rightarrow$ `3` $\rightarrow$ `4` $\rightarrow$ `5`. This means that we do not know or cannot assume that the distance between, e.g., `1` $\rightarrow$ `2` is the same as the distance between, e.g., `3` $\rightarrow$ `4`.
+- We do assume that all observed responses will take one of the categorical values between the minimum and the maximum values on the scale (e.g., between `1` and `5` on a 5-point rating scale ranging from 1-5).
+
+The second challenge is social because, most of the time, Psychologists *do* in practice treat ordinal data like numeric data from measurement scales with metric properties. This is a mistake though it is very very common.
+
+2. @liddell2018 analyzed a sample of papers from a set of top Psychology journals. They found that whenever an article mentioned Likert data (i.e., ratings data), the authors of that article analyzed the Likert-scale *ordinal* data as if they were metric, using analysis methods (like ANOVA, correlation, ordinary least squares regression (linear models), and t-tests) that assume metric properties. 
+
+This means that:
+
+- Most Psychologists will assume that it is correct to analyse ordinal data using methods that assume metric properties.
+- Most Psychologists will fail to look for, or to see, the problems associated with this conventional approach.
+- The results from many reports in the literature will be difficult to evaluate or interpret, where the authors have analysed ordinal data using methods assuming metric properties in outcome measurement scales.
 
 The challenge we face is that we will aim to develop skills in using *ordinal models* when, in contrast, most psychological research articles will report analyses of ordinal data using conventional methods like ANOVA or linear regression. We will work to understand why ordinal models are better. We will learn that applying conventional methods to ordinal data will, in principle, involve a poor account of the data and, in practice, will create the risk of producing misleading results. And we will learn how to work with and interpret the results from ordinal models with or without random effects.
 
-In our work in this chapter, we will rely extensively on the ideas set out by @liddell2018, see @sec-ordinal-recommended-reading.
+In our work in this chapter, we will rely extensively on the ideas set out by @bürkner2019 and @liddell2018, see @sec-ordinal-recommended-reading.
 
 ## The key idea to get us started {#sec-ordinal-ideas}
 
 ::: callout-important
-Ordinal responses are labelled with numbers but ordinal data are *not* numeric.
+The point is that observed outcome response values, given ordinal data, look like numbers but it is best to understand ordinal data values as numeric labels for ordered categories.
+
+- What the different categories correspond to --- what dimension, or what data generating processing mechanism --- depends on your psychological theory for the processes that drive response production for the task you constructed to collect or observe your data.
 :::
 
-Ordinal responses are coded with numeric labels. These number labels may indicate order but we do not know that the difference between e.g. response options `1` versus `2` is the same as the difference between `2` versus `3` or `3` versus `4`. Ordinal data contrast with *metric* data [@liddell2018] which are recorded on scales for which we assume *both* order and equal intervals. When researchers apply metric models to ordinal data, they incorrectly assume that the response options e.g. in ratings are separated by equal intervals. Yet, in a review of the 68 recently articles that mentioned the term "Likert" in a sample of highly ranked Psychology journals, @liddell2018 found that ordinal data were treated as metric and the articles presented results from metric models.
+## What we think we are doing with ordinal data: ratings {#sec-ordinal-ideas-ratings}
 
-One way to think about ordinal data is that often (but not always) ratings may be understood to come from psychological processes in which the participant, in response to the Likert question, divides some latent (unobserved) psychological continuum or scale into categories in order to select a response option. 
+In the context of a study in which we have asked participants to produce a rating response to a Likert-style item, we may assume that the ratings responses are produced (in participants' minds) by psychological processes in which the participant, in response to the Likert question, divides some latent (unobserved) psychological continuum or dimension into categories (or cut-points or thresholds) so that they can select a response option. 
 
-Imagine, for example, that you have been asked the question "How well do you understand this text? (on a scale from 1-5)". Presumably, to answer this question, you will have to choose a response based on where you think you are on your unobserved measure of your understanding.
-You may be able to evaluate the cohesion, or some other internal measure, of your understanding of the text. Simplifying a bit, we might assume that your internal measure of understanding is associated with a normal probability distribution so that it peaks over some value (e.g., `3`) of the strength of understanding though other values are possible. As @fig-latent-normal-splits suggests, a participant in this common situation will have to map the internal measure (the latent scale, e.g., of understanding) to a number from the response options you are given (e.g., rating scale values ranging 1-5). But there is no reason to suppose that your internal measure of your understanding is divided into an ordered metric scale.
+Imagine, for example, that you are a participant in a study on reading comprehension, and that you have been asked to read a text (giving information on some health condition) and have then been asked to respond to the question:
+
+*How well do you think you have understood this text? (Please check one response)* (on the scale 1-5)
+
+In theory, to answer this question, you will have to choose a response based on where you think you are on your unobserved (internal to you) measure of your understanding of the information in the text you have been asked to read.
+You may be able to evaluate the cohesion, or some other internal measure, of your understanding of the text. 
+Simplifying a bit, we might assume that your internal measure of understanding is associated with a normal probability distribution so that it peaks over some value (e.g., `3`) of the strength of understanding, though other values are possible. 
+
+As @fig-latent-normal-splits suggests, a participant in this  situation will have to map where they are on the internal measure (the unobserved latent dimension of their understanding) to a number from the response options they are given (e.g., rating scale values ranging 1-5). 
+They must cut or divide into categories (using unobserved threshold values) where they are on this unobserved internal dimension (this sense of their own understanding). 
+And there is no reason to suppose that their internal measure of their understanding is divided into an ordered metric scale: we cannot assume that in a participant's mind, e.g., the distance `1` $\rightarrow$ `2` is the same as the distance between, e.g., `3` $\rightarrow$ `4`.
 
 ```{r}
 #| label: fig-latent-normal-splits
@@ -102,10 +154,87 @@ ggplot(data = data.frame(x = c(-6, 6)), aes(x)) +
         panel.grid.minor.x = element_blank())
 ```
 
-In conducting analyses of ordinal data with ordinal models, we often fit models that describe the cumulative probability that a rating response is located at some value (typically, understood in terms of threshold) on an underlying latent continuum. In ordinal models, we do not assume that the ordinal responses map to equally spaced intervals on the latent scale: the values or thresholds at which the continuum are split are to be estimated.
+In conducting analyses of ordinal data with ordinal models, we often fit models that describe the cumulative probability that a rating response maps to some value (typically, understood in terms of thresholds) on an underlying latent continuum. 
 
-In applying metric models to ordinal data, we *do* assume that intervals are equal though this assumption is unlikely to be true or, at least, is unlikely to be verifiable. This faulty assumption has consequences because the mis-application of metric models (e.g. ANOVA, linear models) to ordinal data is both commonplace and *risky*. As @liddell2018 demonstrate, mis-applying metric models to ordinal data can result in false positives (detecting a difference when none is present), false negatives (missing a difference that is present) and inversions (swapping the difference so that it appears to be positive instead of negative or vice versa).
-These kinds of misrepresentions cannot be avoided and are not fixed by, for example, averaging ratings scales data together.
+This is a very common situation, and that is why we focus in this chapter on the corresponding class of parametric ordinal models: **cumulative models**.
+@bürkner2019 provide a nice account of cumulative models, and we walk through that account here but note, before we go on, that this account is spelled out in the context of an example data-set and an example model that supposes some simplifying assumptions: we are talking about one example from a class of possible models; other models, with alternate assumptions, are possible, and you can expand your understanding by reading the papers referenced in @sec-ordinal-recommended-reading.
+
+Let's assume we have observed a set of responses to the question:
+
+*How well do you think you have understood this text? (Please check one response)* (on the scale 1-5)
+
+Our cumulative model assumes that the observed ordinal data --- the column of values, the rating responses we recorded from participants --- variable $Y$ are produced (by the participants) given categorization of a latent (not observed) continuous variable  $\tilde{Y}$ into a set of different categories, using a set of threshold values.
+
+In our analysis, we model the categorization process.
+
+We assume that there are $K$ thresholds $\tau_k$ which cut $\tilde{Y}$ into $K+1$ observable ordered categories of $Y$, where $Y$ comprises the values of the response a participant can make (given the rating scale response options we give them).
+
+For the latent variable we see in @fig-latent-normal-splits, there are five ($K+1 = 5$) response categories so we need $K = 4$ thresholds.
+
+Because we can assume that $\tilde{Y}$ values derive from a specific probability distribution (e.g., a normal distribution, though there are alternatives), we can suppose that the probability that $Y$ (the observed rating) has some value (e.g., a rating of `5`), that is, the probability that $Y$ is equal to category $k$ as:
+
+$$
+Pr(Y=k) = F(\tau_k) - F(\tau_k-1)
+$$
+
+You can understand this probability we are targeting, in our analysis, as the probability that a rating response (made by a participant to our Likert-style item) is equal to $k$ (e.g., a rating of `5`) rather than some other value (e.g., on our 5-point example scale, a rating of `4` or `3` or `2` or `1`), given the probability function $F$.
+
+- If you reflect: this resembles the target for analysis when we are working with accuracy outcome data, and we wish to estimate the effects of factors that may predict the probability that the response a participant makes is correct (not incorrect).
+
+In our model, we can aim to predict $\tilde{Y}$, given information about predictor variables.
+Let's say, for our example, that we think that people who know more about health (so: score higher on measures of health literacy), are more likely to produce a high rating of their understanding of the information in a health text (maybe because they do understand the text better).
+If so, our model might look like this:
+
+$$
+\tilde{Y} = \beta_X + \varepsilon
+$$
+
+where
+
+- $\tilde{Y}$ is our latent (not observed) continuous variable,  
+- $\beta_X$ is the coefficient $\beta$ corresponding the average rate of change in the outcome, given different values in the predictor $X$,
+- and $\varepsilon$ is the random error of the model, the variance that cannot be explained by the model.
+
+For short, we can identify $\eta = \beta_X + \varepsilon$.
+
+(Broadly the same model structure will apply, as we will see, for multilevel data or for nonlinear relationships.)
+
+Given the probability function $F$ we assumed, we model the probability of (observed) $Y$ being equal to category $k$ (some rating value versus other values), based on our prediction model $\eta$. 
+
+$$
+Pr(Y=k | \eta) = F(\tau_k - \eta) - F(\tau_k-1 - \eta)
+$$
+
+What cumulative models do is to take the observed ratings values $Y$ and, for the prediction model $\beta_X + \varepsilon$, use that information to estimate the thresholds $\tau_k$ (for our example, thresholds $tau_1$ to $\tau_4$) and the coefficient $\beta$.
+
+In doing this, we assume for simplicity that the effect of the predictors in the model $\eta = \beta_X + \varepsilon$ is constant across response categories though we can relax this assumption (if a predictor has different impacts on different categories).
+
+## What psychologists are doing with ordinal data: ratings {#sec-nonordinal-ratings-problems}
+
+As I referenced earlier, we cannot just fit a linear model to ordinal data like ratings: we should not use methods like ANOVA, correlation, t-test, or regression.
+
+- Why not?
+
+The short answer [@bürkner2019] is that we should not use methods like ANOVA, correlation, t-test, or regression to analyze ordinal data because:
+
+1. these methods assume metric properties for outcome variables but ordinal data do not possess metric properties (equal intervals, zero points);
+2. the distribution of ordinal responses may be non-normal (if low or high ratings are often chosen);
+3. and variances of the unobserved latent variable or dimension ($\tilde{Y}$) that informs (we hope) observed ratings may be different for different groups or conditions.
+
+The long answer *Why not?* is supplied by @liddell2018 in a series of analyses of simulated and real data.
+
+They argue that ordinal models supply a more accurate account of the data generating (psychological processes) that result in the ratings or the other ordinal data that we observe so, in principle, we should ordinal models anyway.
+We may differ in exactly what assumptions we want to make about things like the underlying probability distribution, or the impact of predictors on categories, but in general once we choose to employ ordinal models we are adopting a more realistic account of where our data come from.
+
+Even if we were to ignore this *in principle* justification, however, we should be aware of the problems associated with employing metric methods (ANOVA etc.) with ordinal data.
+These problems derive from the facts that observed ordinal values have fixed ranges (e.g., rating responses cannot exceed the minimum or maximum points on a rating scale), and while it is unknown how observed ratings map to (or correspond to categorization cuts or thresholds) of the underlying psychological dimension, it is also unknown but can be expected that variance in values on that latent dimension may vary between different groups. 
+This means that mean observed ordinal data values may appear to differ, between groups or between conditions, when the values on the underlying latent dimension actually do not differ (we get false positives) or that mean observed ordinal data values may appear to be equal between groups or between conditions, though values on the underlying latent dimension actually do differ (false negatives).
+It also means that the power of analyses, or the capacity to detect effects that may in fact be present will be reduced where inappropriate modeling approaches are employed.
+
+@liddell2018 note that common solutions --- to the problem of using metric methods to analyze ordinal data --- like ignoring the problem or like averaging ordinal responses will not work because the mis-estimation will be there whether we ignore the problem, we just will not know where, and because analyses of averaged ordinal outcomes will only result in mis-estimates of the underlying effects of interest.
+
+Fortunately, we do not have to employ inappropriate methods. And, fortunately, these methods are relatively straightforward to apply.
+We look at the practical application of ordinal modeling methods to ordinal data, next.
 
 ## Targets {#sec-ordinal-targets}
 
