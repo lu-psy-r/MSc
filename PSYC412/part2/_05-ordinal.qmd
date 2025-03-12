@@ -238,7 +238,7 @@ We look at the practical application of ordinal modeling methods to ordinal data
 
 ## Targets {#sec-ordinal-targets}
 
-1.  Understand practically the reasons for using ordinal models when we analyze ordinal outcome variables, @sec-ordinal-practical-understanding.
+1.  Understand through practical experience the reasons for using ordinal models when we analyze ordinal outcome variables.
 2.  Practice running ordinal models with varying random effects structures.
 3.  Practice reporting the results of ordinal models, including through the use of prediction plots.
 
@@ -255,7 +255,7 @@ I have provided a collection of materials you can use. Here, I explain what they
 1.3. You can read the chapter and run the code to gain experience and encounter code you can adapt for your own purposes.
 
 -   Read in the example dataset.
--   Experiment with the .R code used to work with the example data.
+-   Experiment with the `.R` code used to work with the example data.
 -   Run ordinal models of demonstration data.
 -   Run ordinal models of alternate data sets (see links in @sec-ordinal-reporting-results).
 -   Review the recommended readings (@sec-ordinal-recommended-reading).
@@ -267,7 +267,11 @@ I set out the data tidying, analysis and visualization steps you can follow, wor
 
 ## The data we will work with: {#sec-ordinal-data}
 
-We will be working, at first, with a sample of data collected as part of the **Clearly understood: health comprehension** project (Davies, Ratajczak, Gillings, Chadwick & Gold). These data are unpublished.
+We will be working, at first, with a sample of data collected as part of work in progress, undertaken for **Clearly understood: health comprehension** project (Davies and colleagues). 
+
+::: callout-warning
+These data are unpublished so should not be shared without permission.
+:::
 
 ### Study information {#sec-ordinal-data-study}
 
@@ -279,7 +283,7 @@ It is common, in the quality assurance process in the production of health infor
 
 For these reasons, we conducted studies in which we presented adult participants with sampled health information texts (taken from health service webpages) and, critically, asked them to respond to the question:
 
--   `How well do you think you have understood this text? (Please check one response)`
+-   `How well do you think you have understood this text?`
 
 For each text, in response to this question, participants were asked to click on one option from an array of response options ranging from (1) `Not well at all` to (9) `Extremely well`. The data we collected in this element of our studies comprise, clearly, *ordinal responses*. Thus, we may use these data to address the following research question.
 
@@ -381,9 +385,9 @@ We collected data through an online survey administered through Qualtrics.
 
 We used the Shipley vocabulary sub-test [@shipley2009shipley] to estimate vocabulary knowledge.
 
-We used the Health Literacy Vocabulary Assessment (HLVA, Ratajczak, 2020; adapted for online presentation, Chadwick, 2020) to estimate health literacy.
+We used the Health Literacy Vocabulary Assessment [HLVA, @sarahchadwick2023; @michaelratajczak2020] to estimate health literacy.
 
-We used an instrument drawn from unpublished work by Calloway (2019) to assess the approach participants took to reading and understanding written information.
+We used an instrument drawn from unpublished work by @reginacalloway2019 to assess the approach participants took to reading and understanding written information.
 
 We presented participants with a sample of 20 health information texts. In the data collection process for this dataset, participants were recruited in multiple different studies. In each study, any one participant was presented with a randomly selected subset of the total of 20 texts.
 
@@ -588,7 +592,9 @@ The model is conducted to examine what shapes the variation in `rating` response
 In our analysis, the outcome variable is the ordinal response variable `rating`.
 The predictors consist of the variables we standardized earlier.
 We use the `clm()` function from the `{ordinal}` library to do the analysis.
+
 I will give information in outline here, the interested reader can see more detailed information in @christensen2022 and @christensen2015.
+
 You can also find the manual for the `{ordinal}` library functions [here](https://cran.r-project.org/web/packages/ordinal/index.html)
 
 We code the model as follows.
@@ -615,8 +621,8 @@ The model specification includes information about the fixed effects, the predic
 
 Second, we have the bit that is specific to *cumulative link* models fitted using the `clm()` function.
 
--   `Hess = TRUE` is required if we want to get a summary of the model fit; the default is `TRUE` but it is worth being explicit about it.
-- `link = "logit"` specifies that we want to model the ordinal responses in terms of the log odds (hence, the probability) that a response is a low or a high rating value (compare @sec-glmm-practical-understanding).
+- `Hess = TRUE` is required if we want to get a summary of the model fit; the default is `TRUE` but it is worth being explicit about it.
+- `link = "logit"` specifies that we want to model the ordinal responses in terms of the log odds (hence, the probability) that a response is a low or a high rating value.
 
 ### Read the results {#sec-ordinal-results-clm}
 
@@ -643,25 +649,24 @@ The `summary()` output for the model is similar to the outputs you have seen for
 
 The table summary of coefficients arranges information in ways that will be familiar you:
 
-- For each predictor variable, we see 'Estimate, Std. Error, z value, and Pr(>|z|)` statistics.
+- For each predictor variable, we see `Estimate, Std. Error, z value, and Pr(>|z|)` statistics.
 - The `Pr(>|z|)` p-values are based on Wald tests of the null hypothesis that a predictor has null impact.
 - The coefficient estimates can be interpreted based on whether they are positive or negative.
-
-A positive coefficient estimate indicates that higher values of the predictor variable are associated with greater probability of higher rating values.
-A negative coefficient estimate indicates that higher values of the predictor variable are associated with greater probability of lower rating values.
 
 4. We then get `Threshold coefficients:` indicating where the model fitted estimates the threshold locations: where the latent scale is cut, corresponding to different rating values.
 
 ::: callout-tip
 In reporting ordinal (e.g., cumulative link) models, we typically focus on the coefficient estimates for the predictor variables.
+
+- A positive coefficient estimate indicates that higher values of the predictor variable are associated with greater probability of higher rating values.
+- A negative coefficient estimate indicates that higher values of the predictor variable are associated with greater probability of lower rating values.
 :::
 
 ## Working with Cumulative Link Mixed-effects Models in R {#sec-ordinal-working-models-clmm}
 
 In our analysis, we begn by assuming no random effects.
-However, this is unlikely to be appropriate given the data collection process deployed in the **Clearly understood** projects, where:
+However, this is unlikely to be appropriate given the data collection process deployed in the **Clearly understood** projects, where a sample of participants were asked to respond to a sample of texts:
 
-- a sample of participants were asked to respond to a sample of texts;
 - we have multiple observations of responses for each participant;
 - we have multiple observations of responses for each stimulus text;
 - participants were assigned to groups, and within a group all participants were asked to respond to the same stimulus texts.
@@ -723,10 +728,12 @@ If you compare the output you see in @sec-ordinal-results-clm, however, you will
 - You will also see that the p-values are different.
 
 Students often focus on p-values in reading model summaries. This is mistaken for multiple reasons. 
-The p-values correspond to the probabilities associated with the null hypothesis significance test: the test of the hypothesis that the effect of the predictor is *null* (i.e. the predictor has no impact).
-This null assumption is made whichever model we are looking at. The p-values *do not* indicate whether an effect is more or less probable. 
-But you *do* get such posterior probabilities in Bayesian analyses. 
-So it does not really mean much, though it is common, to talk about effects being *highly* significant.
+
+- The p-values correspond to the probabilities associated with the null hypothesis significance test: the test of the hypothesis that the effect of the predictor is *null* (i.e. the predictor has no impact).
+- This null assumption is made whichever model we are looking at. The p-values *do not* indicate whether an effect is more or less probable. 
+(But you *do* get such posterior probabilities in Bayesian analyses.)
+- So it does not really mean much, though it is common, to talk about effects being *highly* significant.
+
 Thus it should not worry us too much if the p-values are significant in one analysis but not significant in another.
 
 That said, it *is* interesting, perhaps, that once we include random effects of participants on intercepts in our analysis then the effects of `z_AGE` and `z_HLVA` are no longer significant.
@@ -749,8 +756,11 @@ plot(dat)
 @fig-rating-clmm-factor3-predictions shows you the marginal effect of variation in the reading strategy attribute, i.e., the effect of differences between individuals in how they score on the `FACTOR3` measure of reading strategy.
 Note that the variable is listed as `z_FACTOR3` because, as you will recall, we standardized numeric predictor variables before entering them in our model.
 
-These kinds of plots are understood to present what are variously called conditional effects, or adjusted predictions or marginal effects.
-You can find a discussion of marginal effects in the context of working with the `{ggeffects}` library [here](https://strengejacke.github.io/ggeffects/articles/ggeffects.html) and [here](https://strengejacke.github.io/ggeffects/articles/introduction_marginal_effects.html).
+You can find a discussion of marginal effects in the context of working with the `{ggeffects}` library:
+
+- [here](https://strengejacke.github.io/ggeffects/articles/ggeffects.html) and 
+- [here](https://strengejacke.github.io/ggeffects/articles/introduction_marginal_effects.html).
+
 You can find an extensive, helpful (with examples) discussion of marginal effects by Andrew Heiss [here](https://www.andrewheiss.com/blog/2022/05/20/marginalia/).
 
 In short, what we want to do is to take the model coefficient estimates, and generate predictions with these estimates, given different values of the predictor variable, while holding the other predictor variables at some constant or some level (or some series of values).
@@ -859,7 +869,7 @@ These papers are both published open accessible, so that they are freely availab
 - You can find the repository for @ricketts2021 [here](https://osf.io/76ev2/).
 - You can find the repository for @rodríguez-ferreiro2020a [here](https://osf.io/e5gzk/?view_only=038118528c7c426c9729983f54138c88).
 
-The @rodríguez-ferreiro2020a shares a data .csv only.
+The @rodríguez-ferreiro2020a shares a data `.csv` only.
 
 The @ricketts2021 repository shares data and analysis code as well as a fairly detailed guide to the analysis methods.
 Note that the core analysis approach taken in @ricketts2021 is based on Bayesian methods but that we also conduct `clmm()` models using the `{ordinal}` library functions discussed here; these models are labelled *frequentist* models and can be found under *sensitivity analyses*.
@@ -900,7 +910,7 @@ What this explanation refers to is the fact that, in our study:
 
 > The semantic post-test assessed knowledge for the meanings of newly trained words. We took a dynamic assessment or cuing hierarchy approach (Hasson & Joffe, 2007), providing children with increasing support to capture partial knowledge and the incremental nature of acquiring such knowledge (Dale, 1965). Each word was taken one at a time and children were given the op- portunity to demonstrate knowledge in three steps: definition, cued definition, recognition.
 
-We follow advice set out by @bürkner2019 in modeling the ordered categorical (i.e. ordinal) responses using a sequential ratio approach.
+We follow advice set out by @bürkner2019 in modeling the ordered categorical (i.e., ordinal) responses using a sequential ratio approach.
 
 ## Richly parameterized mixed-effects models
 
