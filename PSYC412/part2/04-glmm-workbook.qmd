@@ -263,9 +263,9 @@ It is simpler to talk about absent or present as being *levels* of Orthography  
 - You can ask R what the levels of a factor are using: `levels(long.orth$Orthography)`
 :::
 
-<!-- >**Pract.A.1.** The summary shows:  -->
+>**Pract.A.1.** The summary shows:
 
-<!-- `Time (1, 655; 2, 608); Instructions (explicit, 592; incidental, 671); and Orthography (absent, 631; present, 632).` -->
+`Time (1, 655; 2, 608); Instructions (explicit, 592; incidental, 671); and Orthography (absent, 631; present, 632).`
 
 >**Pract.Q.2.** Are there any surprises in the summary of factors?
 
@@ -274,7 +274,7 @@ It is simpler to talk about absent or present as being *levels* of Orthography  
 We would hope to see equal numbers of observations at different levels for a factor.
 :::
 
-<!-- >**Pract.A.2.** It should be surprising that we do not have equal numbers of observations. -->
+>**Pract.A.2.** It should be surprising that we do not have equal numbers of observations.
 
 ##### Practical Task 4 -- Fit a Generalized Linear Model
 
@@ -293,11 +293,11 @@ summary(glm(Score ~ Instructions, family = "binomial", data = long.orth))
 
 >**Pract.Q.3.** What is the estimated effect of `Instructions` on `Score`?
 
-<!-- >**Pract.A.3.** The estimate is: `Instructionsincidental -0.05932` -->
+>**Pract.A.3.** The estimate is: `Instructionsincidental -0.05932`
 
 >**Pract.Q.4.** Can you briefly explain in words what the estimate says about how log odds `Score` (response correct vs. incorrect) changes in association with different `Instructions` conditions?
 
-<!-- >**Pract.A.4.** We can say, simply, that the log odds that a response would be correct were lower in the `incidental` compared to the `explicit` `Instructions` condition. -->
+>**Pract.A.4.** We can say, simply, that the log odds that a response would be correct were lower in the `incidental` compared to the `explicit` `Instructions` condition.
 
 This task and these questions are designed to alert you to the challenges involved in estimating the effect of categorical variables, and of interpreting the effects estimates.
 
@@ -402,7 +402,7 @@ contrasts(long.orth$Time) <- contr.sum(3, base = 1)
 contrasts(long.orth$Time)
 ```
 
-<!-- >**Pract.A.6.** Changing the first number from 2 will result in warnings, showing that the number must match the number of factor levels for the factor. -->
+>**Pract.A.6.** Changing the first number from 2 will result in warnings, showing that the number must match the number of factor levels for the factor.
 
 >**Pract.Q.7.** Experiment: what happens if you change the base number for one of the factors?
 
@@ -414,7 +414,7 @@ contrasts(long.orth$Time) <- contr.sum(2, base = 1)
 contrasts(long.orth$Time)
 ```
 
-<!-- >**Pract.A.7.** Changing the base number changes which level gets coded as -1 vs. 1. -->
+>**Pract.A.7.** Changing the base number changes which level gets coded as -1 vs. 1.
 
 #### Practical Part 4: Analyze the data: random intercepts
 
@@ -488,11 +488,11 @@ summary(long.orth.min.glmer.expt)
 ```
 :::
 
-<!-- >**Pract.A.8.** The estimate is: `mean_z_read   1.5090` -->
+>**Pract.A.8.** The estimate is: `mean_z_read   1.5090`
 
 >**Pract.Q.9.** Can you briefly indicate in words what the estimate says about how log odds `Score` (response correct vs. incorrect) changes in association with `mean_z_read` score?
 
-<!-- >**Pract.A.9.** We can say, simply, that log odds that a response would be correct were higher for increasing values of `mean_z_read`. -->
+>**Pract.A.9.** We can say, simply, that log odds that a response would be correct were higher for increasing values of `mean_z_read`.
 
 ##### Practical Task 7 -- Visualize the significant effects of the `Orthography` and `Consistency` factors
 
@@ -853,13 +853,15 @@ summary(long.orth.4.b.glmer)
 
 >**Pract.Q.10.** Which models converge and which models do not converge?
 
-<!-- >**Pract.A.10.** Models 4.a. (consistency) and 4.b. (time) should not converge. -->
+>**Pract.A.10.** Models 4.a. (consistency) and 4.b. (time) should not converge.
 
 >**Pract.Q.11.** How can you tell?
 
-<!-- >**Pract.A.11.** Convergence warnings are presented for models that do not converge:
+>**Pract.A.11.** Convergence warnings are presented for models that do not converge:
+
 `optimizer (bobyqa) convergence code: 0 (OK)`
-`boundary (singular) fit: see help('isSingular')  -->
+
+`boundary (singular) fit: see help('isSingular')`
 
 ##### Practical Task 11 -- Now compare the models that do converge: min vs. 2, vs. 3
 
@@ -902,7 +904,7 @@ summary(long.orth.3.glmer.check)
 ```
 :::
 
-<!-- >**Pract.A.12.** Deleting the bobyqa requirement seems to have no impact on models that converge. -->
+>**Pract.A.12.** Deleting the `bobyqa` requirement seems to have no impact on models that converge.
 
 >**Pract.Q.13.** What does using `dummy()` in the random effects coding do?
 
@@ -935,15 +937,16 @@ summary(long.orth.3.glmer.check)
 ```
 :::
 
-<!-- >**Pract.A.13.** If we refit model 3 but with the random effects: -->
+>**Pract.A.13.** If we refit model 3 but with the random effects:
 
-<!-- `(Orthography + 1 || Participant) +` -->
-<!-- `Orthography + Instructions + 1 || Word),` -->
+`(Orthography + 1 || Participant) +`
 
-<!-- We get: -->
+`Orthography + Instructions + 1 || Word),`
 
-<!-- - a convergence warning   -->
-<!-- - random effects variances and covariances that we did not ask for: including some bad signs -->
+We get:
+
+- a convergence warning
+- random effects variances and covariances that we did not ask for: including some bad signs
 
 ### The answers
 
