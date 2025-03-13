@@ -203,7 +203,7 @@ Now you will progress through a series of tasks, and challenges, to aid your lea
 ::: callout-warning
 We will work with the data file:
 
--   `long.orth_2020-08-11.csv`
+-   `2021-22_PSYC304-health-comprehension.csv`
 :::
 
 We again split the steps into into parts, tasks and questions.
@@ -213,8 +213,10 @@ We are going to work through the following workflow steps: **each step is labell
 1. Set-up
 2. Load the data
 3. Tidy data 
-4. Analyze the data: random intercepts
-5. Analyze the data: model comparisons
+4. Analyze the data: working with Cumulative Link Models
+5. Analyze the data: working with Cumulative Link Mixed-effects Models
+6. Presenting and visualizing the effects
+7. Different kinds of ordinal data
 
 In the following, we will guide you through the tasks and questions step by step.
 
