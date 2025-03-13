@@ -664,7 +664,7 @@ In reporting ordinal (e.g., cumulative link) models, we typically focus on the c
 
 ## Working with Cumulative Link Mixed-effects Models in R {#sec-ordinal-working-models-clmm}
 
-In our analysis, we begn by assuming no random effects.
+In our analysis, we begin by assuming no random effects.
 However, this is unlikely to be appropriate given the data collection process deployed in the **Clearly understood** projects, where a sample of participants were asked to respond to a sample of texts:
 
 - we have multiple observations of responses for each participant;
@@ -680,9 +680,9 @@ We can code a Cumulative Link Mixed-effects Model as follows.
 #| eval: false
 health.clmm <- clmm(rating ~
                       
-                      z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
+            z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
                       
-                      (1|ResponseId),
+            (1 | ResponseId),
                     
                     Hess = TRUE, link = "logit",
                     data = health)
@@ -698,7 +698,7 @@ First, we have changed the function.
 
 Secondly, the model specification includes information about fixed effects and *now about random effects*.
 
--   With `(1 | Participant)` we include random effects of participants on on intercepts.
+-   With `(1 | ResponseId)` we include random effects of participants on on intercepts.
 
 ### Read the results {#sec-ordinal-results-clmm}
 
@@ -710,12 +710,12 @@ We will then get the results shown in the output.
 #| cache: true
 health.clmm <- clmm(rating ~
                       
-                      z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
+      z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
                       
-                      (1|ResponseId),
+      (1 | ResponseId),
                     
-                    Hess = TRUE, link = "logit",
-                    data = health)
+      Hess = TRUE, link = "logit",
+      data = health)
 
 summary(health.clmm)
 ```
