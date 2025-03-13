@@ -298,6 +298,7 @@ If you open the data-set `.csv`, you will see:
 #| label: headcheck-wide
 #| echo: false
 health %>%
+  head(n = 10) %>%
   as.data.frame() %>%
   kable() %>%
   kable_styling()
