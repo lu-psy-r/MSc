@@ -1,0 +1,956 @@
+---
+title: Week 20. Workbook introduction to Ordinal (Mixed-effects) Models
+subtitle: Written by Rob Davies
+order: 15
+bibliography: references.bib
+csl: psychological-bulletin.csl
+---
+
+# Week 19 Introduction to Generalized Linear Mixed-effects Models {#sec-glmm-workbook-overview}
+
+Welcome to your overview of the work we will do together in **Week 19**.
+
+We extend our understanding and skills by moving to examine data where the outcome variable is *categorical*: this is a context that requires the use of **Generalized Linear Mixed-effects Models (GLMMs)**.
+
+::: callout-important
+Categorical outcomes cannot be analyzed using linear models, in whatever form, without having to make some important compromises.
+:::
+
+You need to do something about the categorical nature of the outcome.
+
+## Targets {#sec-glmm-workbook-targets}
+
+Here, we look at **Generalized Linear Mixed-effects Models (GLMMs)**: we can use these models to analyze outcome variables of different kinds, including outcome variables like response accuracy that are coded using discrete categories (e.g. correct vs. incorrect). 
+
+In this workbook, and in [our conceptual introduction](../part2/04-glmm.qmd#sec-glmm-intro), our aims are to:
+
+1.  Recognize the [limitations of alternative (traditional) methods for analyzing such outcomes](../part2/04-glmm.qmd#sec-tradition-limitations).
+2.  Understand the [practical reasons for using GLMMs when we analyze discrete outcome variables](../part2/04-glmm.qmd#sec-glmm-practical-understanding).
+3.  Practice running GLMMs with varying random effects structures.
+4.  Practice reporting the results of GLMMs, including through the use of model plots.
+
+## Learning resources {#sec-glmm-workbook-resources}
+
+You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop. Then you will see information about the practical materials you can use to build and practise your skills.
+
+Every week, you will learn best if you *first* watch the lectures *then* do the practical exercises.
+
+::: callout-tip
+### Linked resources
+1. We learned about multilevel structured data in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview).
+2. We then deepened our understanding by looking at the analysis of data from studies with **repeated-measures designs** in the [conceptual introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed) and the [workbook introduction to mixed-effects models](../part2/02-mixed-workbook.qmd#sec-mixed-effects-workbook-overview).
+3. We further extended our understanding and practice skills in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed) and the [corresponding workbook](../part2/03-mixed-workbook.qmd#sec-dev-mixed-workbook-overview).
+
+This workbook introduction on **Generalized Linear Mixed-effects Models (GLMMs)** is linked to the corresponding [chapter](../part2/04-glmm.qmd#sec-glmm-intro) where the explanation of ideas or of practical analysis steps is set out more extensively or in more depth.
+:::
+
+### Lectures {#sec-glmm-workbook-lectures}
+
+The lecture materials for this week are presented in three short parts.
+
+Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
+
+1. Part 1 (20 minutes): Understand the reasons for using Generalized Linear Mixed-effects Models (GLMMs); categorical outcomes like response accuracy and the bad compromises involved in (traditional methods) not using GLMMs to analyze them;  understanding what the *generalized* part of this involves.
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bbf38d0e-90e5-4285-82ea-acec012a2f77&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-1-of-3" ></iframe>
+```
+
+2. Part 2 (16 minutes): The questions, design and methods of the working data example study; category coding practicalities; specifying a GLMM appropriate to the design; the GLMM results summary, reading the results, visualizing the results.
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=93c898ce-8009-47c6-ad43-acec0130b2ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-2-of-3" ></iframe>
+```
+
+3. Part 3 (19 minutes): What random effects should we include; recognizing when a model has got into trouble, and what to do about it; general approaches to model specification; reporting model results.
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=078770df-47d0-4a25-9fdd-acec0135f5ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-3-of-3" ></iframe>
+```
+
+### Lecture slides {#sec-glmm-workbook-slides}
+
+::: callout-tip
+## Download the lecture slides
+You can download the lecture slides in two different versions:
+
+- [402-week-20-GLMM.pdf](files/402-week-20-GLMM.pdf): exactly as delivered [700 KB];
+- [402-week-20-GLMM_6pp.pdf](files/402-week-20-GLMM_6pp.pdf): printable version, six-slides-per-page [850 KB].
+
+The `GLMM.pdf` version is the version delivered for the lecture recordings. To make the slides easier to download, I produced a six-slide-per-page version, `GLMM_6pp.pdf`. This should be easier to download and print out if that is what you want to do.
+:::
+
+### Practical materials: data and R-Studio {#sec-glmm-workbook-practical}
+
+We will be working with data collected for a study investigating word learning in children, reported by @ricketts2021. You will see that the study design has both a repeated measures aspect because each child is asked to respond to multiple stimuli, and a longitudinal aspect because responses are recorded at two time points. Because responses were observed to multiple stimuli for each child, and because responses were recorded at multiple time points, the data have a multilevel structure. These features require the use of mixed-effects models for analysis.
+
+We will see, also, that the study involves the factorial manipulation of learning conditions. This means that, when you see the description of the study design, you will see embedded in it a 2 x 2 factorial design. You will be able to generalize from our work here to many other research contexts where psychologists conduct experiments in which conditions are manipulated according to a factorial design.
+
+However, our focus now is on the fact that the outcome for analysis is the accuracy of the responses made by children to word targets in a spelling task. The categorical nature of accuracy as an outcome is the reason why we now turn to use Generalized Linear Mixed-effects Models.
+
+You can read more about these data in the [conceptual introduction chapter on GLMMs](../part2/04-glmm.qmd#sec-glmm-data-study).
+
+We addressed three research questions and tested predictions in relation to each question.
+
+1.  Does the presence of orthography promote greater word learning?
+
+-   We predicted that children would demonstrate greater orthographic learning for words that they had seen (orthography present condition) versus not seen (orthography absent condition).
+
+2.  Will orthographic facilitation be greater when the presence of orthography is emphasized explicitly during teaching?
+
+-   We expected to observe an interaction between instructions and orthography, with the highest levels of learning when the orthography present condition was combined with explicit instructions.
+
+3.  Does word consistency moderate the orthographic facilitation effect?
+
+-   For orthographic learning, we expected that the presence of orthography might be particularly beneficial for words with higher spelling-sound consistency, with learning highest when children saw and heard the word, and these codes provided overlapping information.
+
+::: callout-important
+**Get the data**: get the data file and the .R script you can use to do the exercises that will support your learning.
+
+- You can download the files folder for this chapter by clicking on the link [04-glmm.zip](files/04-glmm.zip).
+:::
+
+The practical materials folder includes data files and an `.R` script:
+
+In this chapter, we will be working with the data about the orthographic post-test outcome for the Ricketts word learning study:
+
+-   `long.orth_2020-08-11.csv`
+
+The data file is collected together with the .R script:
+
+-   `04-glmm-workbook.R` the workbook you will need to do the practical exercises.
+
+The data come from the @ricketts2021 study, and you can access the analysis code and data for that study, in full, at the OSF repository [here](https://osf.io/e5gzk/?view_only=038118528c7c426c9729983f54138c88)
+
+::: callout-important
+You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
+:::
+
+#### Practical materials guide {#sec-glmm-workbook-practical-guide}
+
+The aims of the practical work are to:
+
+- Understand the reasons for using Generalized Linear Mixed-effects models (GLMMs) when we analyze discrete outcome variables.
+- Recognize the limitations of alternative methods for analyzing such outcomes.
+- Practice running GLMMs with varying random effects structures.
+- Practice reporting the results of GLMMs, including through the use of model plots.
+
+My recommendations for learning are that you should aim to:
+
+- run GLMMs of demonstration data;
+- run GLMMs of alternate data sets;
+- play with the `.R` code used to create examples for the lecture;
+- and edit example code to create alternate visualizations.
+
+#### The practical exercises {#sec-glmm-workbook-practical-workbook}
+
+Now you will progress through a series of tasks, and challenges, to aid your learning.
+
+::: callout-warning
+We will work with the data file:
+
+-   `long.orth_2020-08-11.csv`
+:::
+
+We again split the steps into into parts, tasks and questions.
+
+We are going to work through the following workflow steps: **each step is labelled as a practical part**.
+
+1. Set-up
+2. Load the data
+3. Tidy data 
+4. Analyze the data: random intercepts
+5. Analyze the data: model comparisons
+
+In the following, we will guide you through the tasks and questions step by step.
+
+::: callout-important
+An answers version of the workbook will be provided after the practical class.
+:::
+
+#### Practical Part 1: Set-up
+
+To begin, we set up our environment in R.
+
+##### Practical Task 1 -- Run code to load relevant libraries
+
+Use the `library()` function to make the functions we need available to you.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+library(broom)
+library(effects)
+library(gridExtra)
+library(here)
+library(lattice)
+library(knitr)
+library(lme4)
+library(MuMIn)
+library(sjPlot)
+library(tidyverse)
+```
+:::
+
+#### Practical Part 2: Load the data
+
+##### Practical Task 2 -- Read in the data file we will be using
+
+Read the data file into R:
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| label: readinall
+#| message: false
+long.orth <- read_csv("long.orth_2020-08-11.csv", 
+                      col_types = cols(
+                        Participant = col_factor(),
+                        Time = col_factor(),
+                        Study = col_factor(),
+                        Instructions = col_factor(),
+                        Version = col_factor(),
+                        Word = col_factor(),
+                        Orthography = col_factor(),
+                        Measure = col_factor(),
+                        Spelling.transcription = col_factor()
+                      )
+                    )
+```
+:::
+
+You can see, here, that within the `read_csv()` function call, I specify `col_types`, instructing R how to treat a number of different variables. 
+
+- You can read more about this convenient way to control the read-in process [here](https://readr.tidyverse.org/articles/readr.html).
+
+#### Practical Part 3: Tidy the data
+
+The data are already *tidy*: each column in `long.orth_2020-08-11.csv` corresponds to a variable and each row corresponds to an observation. However, we need to do a bit of work, before we can run any analyses, to fix the **coding of the categorical predictor** (or independent) variables: the factors `Orthography`, `Instructions`, and `Time`.
+
+##### Practical Task 3 -- Inspect the data
+
+It is always a good to inspect what you have got when you read a data file in to R.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| label: data-summary-1
+#| eval: false
+summary(long.orth)
+```
+:::
+
+You will see that some of the variables included in the `.csv` file are listed, following, with information about value coding or calculation.
+
+-   `Participant` -- Participant identity codes were used to anonymize participation.
+-   `Time` -- Test time was coded 1 (time 1) or 2 (time 2). For the Study 1 longitudinal data, it can be seen that each participant identity code is associated with observations taken at test times 1 and 2.
+-   `Instructions` -- Variable coding for whether participants undertook training in the explicit} or incidental} conditions.
+-   `Word` -- Letter string values showing the words presented as stimuli to the children.
+-   `Orthography` -- Variable coding for whether participants had seen a word in training in the orthography absent or present conditions.
+-   `Consistency-H` -- Calculated orthography-to-phonology consistency value for each word. -`zConsistency-H` -- Standardized Consistency H scores
+-   `Score` -- Outcome variable -- for the orthographic post-test, responses were scored as `1` (correct, if the target spelling was produced in full) or `0` (incorrect, if the target spelling was not produced).
+
+The summary will show you that we have a number of other variables available, including measures of individual differences in reading or reading-related abilities or knowledge, but we do not need to pay attention to them, for our exercises.
+
+>**Pract.Q.1.** Look at the summaries for the variables `Time`, `Instructions` and  `Orthography`. Assuming that the `read_csv()` action did what was required, you will see how R presents factor summaries by default. What do the variable summaries tell you about the factor level coding, and the number of observations in each level?
+
+:::{.callout-tip collapse="true"}
+## Hint
+For a factor like `Orthography`, the column values code for whether the observations in a data row are associated with the condition absent or the condition present.
+
+It is simpler to talk about absent or present as being *levels* of Orthography  condition.
+
+- You can ask R what the levels of a factor are using: `levels(long.orth$Orthography)`
+:::
+
+>**Pract.A.1.** The summary shows:
+
+`Time (1, 655; 2, 608); Instructions (explicit, 592; incidental, 671); and Orthography (absent, 631; present, 632).`
+
+>**Pract.Q.2.** Are there any surprises in the summary of factors?
+
+:::{.callout-tip collapse="true"}
+## Hint
+We would hope to see equal numbers of observations at different levels for a factor.
+:::
+
+>**Pract.A.2.** It should be surprising that we do not have equal numbers of observations.
+
+##### Practical Task 4 -- Fit a Generalized Linear Model
+
+Fit a simple Generalized Linear Model with outcome (accuracy of response) `Score`, and `Instructions` as the predictor.
+
+- Note that you are ignoring random effects, for this task.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| label: data-summary-2
+#| eval: false
+summary(glm(Score ~ Instructions, family = "binomial", data = long.orth))
+```
+:::
+
+>**Pract.Q.3.** What is the estimated effect of `Instructions` on `Score`?
+
+>**Pract.A.3.** The estimate is: `Instructionsincidental -0.05932`
+
+>**Pract.Q.4.** Can you briefly explain in words what the estimate says about how log odds `Score` (response correct vs. incorrect) changes in association with different `Instructions` conditions?
+
+>**Pract.A.4.** We can say, simply, that the log odds that a response would be correct were lower in the `incidental` compared to the `explicit` `Instructions` condition.
+
+This task and these questions are designed to alert you to the challenges involved in estimating the effect of categorical variables, and of interpreting the effects estimates.
+
+::: callout-tip
+This model (and default coding) gives us an estimate of how the log odds of a child getting a response correct changes if we compare the responses in the `explicit` condition (here, treated as the baseline or *reference level*) with responses in the `incidental` condition.
+
+R tells us about the estimate by adding the name of the factor level that is *not* the reference level, here, `incidental` to the name of the variable `Instructions` whose effect is being estimated.
+:::
+
+##### Practical Task 5 -- Use the `{memisc}` library and recode the factors, to use contrast sum (effect) coding
+
+However, it is better not to use R's default *dummy coding* scheme if we are analyzing data, where the data come from a study involving two or more factors, and we want to estimate not just the main effects of the factors but also the effect of the interaction between the factors.
+
+In our analyses, we want the coding that allows us to get estimates of the main effects of factors, and of the interaction effects, somewhat like what we would get from an ANOVA. This requires us to use *effect coding*.
+
+:::{.callout-tip collapse="true"}
+## Hint
+We can code whether a response was recorded in the absent or present condition using numbers. In dummy coding, for any observation, we would use a column of zeroes or ones to code condition: i.e., absent (0) or present (1). In effect coding, for any observation, we would use a column of ones or minus ones to code condition: i.e., absent (-1) or present (1). (With a factor with more than two levels, we would use more than one column to do the coding: the number of columns we would use would equal the number of factor condition levels minus one.) In effect coding, observations coded -1 are in the reference level.
+
+With effect coding, the constant (i.e., the intercept for our model) is equal to the grand mean of all the observed responses. And the coefficient of each of the effect variables is equal to the difference between the mean of the group coded 1 and the grand mean.
+
+- You can read more about effect coding [here](https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faqwhat-is-effect-coding/) or [here](https://stats.idre.ucla.edu/r/library/r-library-contrast-coding-systems-for-categorical-variables/).
+:::
+
+We follow recommendations to use sum contrast coding for the experimental factors. Further, to make interpretation easier, we want the coding to work so that for both `Orthography` and `Instructions` conditions, doing something is the "high" level in the factor -- hence:
+
+-   `Orthography`, absent (-1) vs. present (+1)
+-   `Instructions`, incidental (-1) vs. explicit (+1)
+-   `Time`, test time 1 (-1) vs. time 2 (+1)
+
+We use a modified version of the `contr.sum()` function (provided in the `{memisc}` library) that allows us to define the base or reference level for the factor manually (see [documentation](https://www.rdocumentation.org/packages/memisc/versions/0.99.17.2/topics/contr)).
+
+We need to start by loading the `{memisc}` library.
+
+```{r}
+#| warning: false
+#| message: false
+library(memisc)
+```
+
+In some circumstances, this can create warnings.
+
+- You can see information about the potential warnings [here](https://github.com/melff/memisc/issues/47).
+
+>**Pract.Q.5.** Can you work out how to use the `contr.sum()` function to change the coding of the categorical variables (factors) in the example data-set from dummy to effects coding?
+
+- It would be sensible to examine how R sees the coding of the different levels for each factor, before and then after you use `contr.sum()` to use that coding.
+
+:::{.callout-tip collapse="true"}
+## Code
+In the following sequence, I first check how R codes the levels of each factor by default, I then change the coding, and check that the change gets me what I want.
+
+We want effects coding for the orthography condition factor, with orthography condition coded as -1, +1. Check the coding.
+
+```{r}
+contrasts(long.orth$Orthography)
+```
+
+You can see that `Orthography` condition is initially coded, by default, using dummy coding: absent (0); present (1). We want to change the coding, then check that we have got what we want.
+
+```{r}
+contrasts(long.orth$Orthography) <- contr.sum(2, base = 1)
+contrasts(long.orth$Orthography)
+```
+
+We want effects coding for the `Instructions` condition factor, with `Instructions` condition coded as -1, +1. Check the coding.
+
+```{r}
+contrasts(long.orth$Instructions)
+```
+
+Change it.
+
+```{r}
+contrasts(long.orth$Instructions) <- contr.sum(2, base = 2)
+contrasts(long.orth$Instructions)
+```
+
+We want effects coding for the `Time` factor, with Time coded as -1, +1 Check the coding.
+
+```{r}
+contrasts(long.orth$Time)
+```
+
+Change it.
+
+```{r}
+contrasts(long.orth$Time) <- contr.sum(2, base = 1)
+contrasts(long.orth$Time)
+```
+
+In these chunks of code, I use `contr.sum(a, base = b)` to do the coding, where `a` is the number of levels in a factor (replace `a` with the right number), and `b` tells R which level to use as the baseline or reference level (replace `b` with the right number). I usually need to check the coding before and after I specify it.
+:::
+
+>**Pract.Q.6.** Experiment: what happens if you change the first number for one of the factors?
+
+Run the following code example, and reflect on what you see:
+
+```{r}
+#| eval: false
+contrasts(long.orth$Time) <- contr.sum(3, base = 1)
+contrasts(long.orth$Time)
+```
+
+>**Pract.A.6.** Changing the first number from 2 will result in warnings, showing that the number must match the number of factor levels for the factor.
+
+>**Pract.Q.7.** Experiment: what happens if you change the base number for one of the factors?
+
+Run the following code example, and reflect on what you see:
+
+```{r}
+#| eval: false
+contrasts(long.orth$Time) <- contr.sum(2, base = 1)
+contrasts(long.orth$Time)
+```
+
+>**Pract.A.7.** Changing the base number changes which level gets coded as -1 vs. 1.
+
+#### Practical Part 4: Analyze the data: random intercepts
+
+##### Practical Task 6 -- Take a quick look at a random intercepts model
+
+Specify a model with:
+
+1. The correct function
+2. Outcome = `Score`
+3. Predictors including: 
+
+- `Time + Orthography + Instructions + zConsistency_H +`
+- `Orthography:Instructions +`
+- `Orthography:zConsistency_H +`
+
+4. Plus random effects:
+
+- Random effect of participants (`Participant`) on intercepts
+- Random effect of items (`Word`) on intercepts
+
+5. Using the `"bobyqa"` optimizer
+
+Run the code to fit the model and get a summary of results.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| cache: true
+long.orth.min.glmer <- glmer(Score ~ 
+                               
+                          Time + Orthography + Instructions + zConsistency_H + 
+                               
+                          Orthography:Instructions +
+                               
+                          Orthography:zConsistency_H +
+                               
+                          (1 | Participant) + 
+                               
+                          (1 |Word),
+                             
+                          family = "binomial", 
+                          glmerControl(optimizer="bobyqa", optCtrl=list(maxfun=2e5)),
+                             
+                          data = long.orth)
+
+summary(long.orth.min.glmer)
+```
+:::
+
+>**Pract.Q.8.** Experiment: replace the fixed effects with another variable e.g. `mean_z_read` (an aggregate measure of reading skill) to get a feel for how the code works.
+
+- What is the estimate for the `mean_z_read` effect?
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| cache: true
+long.orth.min.glmer.expt <- glmer(Score ~ mean_z_read +
+
+                               (1 | Participant) +
+
+                               (1 |Word),
+
+                             family = "binomial",
+                             glmerControl(optimizer="bobyqa", 
+                                          optCtrl=list(maxfun=2e5)),
+
+                             data = long.orth)
+
+summary(long.orth.min.glmer.expt)
+```
+:::
+
+>**Pract.A.8.** The estimate is: `mean_z_read   1.5090`
+
+>**Pract.Q.9.** Can you briefly indicate in words what the estimate says about how log odds `Score` (response correct vs. incorrect) changes in association with `mean_z_read` score?
+
+>**Pract.A.9.** We can say, simply, that log odds that a response would be correct were higher for increasing values of `mean_z_read`.
+
+##### Practical Task 7 -- Visualize the significant effects of the `Orthography` and `Consistency` factors
+
+Fit the first model you were asked to fit.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| cache: true
+long.orth.min.glmer <- glmer(Score ~ 
+                               
+                          Time + Orthography + Instructions + zConsistency_H + 
+                               
+                          Orthography:Instructions +
+                               
+                          Orthography:zConsistency_H +
+                               
+                          (1 | Participant) + 
+                               
+                          (1 |Word),
+                             
+                          family = "binomial", 
+                          glmerControl(optimizer="bobyqa", optCtrl=list(maxfun=2e5)),
+                             
+                          data = long.orth)
+
+summary(long.orth.min.glmer)
+```
+:::
+
+Then produce plots to show the predicted change in outcome, given the model effects estimates.
+
+- Can you work out how to do this?
+
+:::{.callout-tip collapse="true"}
+## Hint
+There are different ways to complete this task. Two convenient methods involve:
+
+- using the `{sjPlot}` `plot_model()` function;
+- using the `{effects}` library `effect()` function
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+First using the `{sjPlot}` `plot_model()` function:
+
+```{r}
+porth <- plot_model(long.orth.min.glmer,
+           type="pred",
+           terms = "Orthography") +
+         theme_bw() +
+         ggtitle("Predicted probability") +
+         ylim(0,1)
+
+pzconsH <- plot_model(long.orth.min.glmer,
+           type="pred",
+           terms = "zConsistency_H") +
+         theme_bw() +
+         ggtitle("Predicted probability") +
+         ylim(0,1)
+
+grid.arrange(porth, pzconsH,
+            ncol=2)
+```
+
+Second using the `{effects}` library `effect()` function"
+
+```{r}
+porth <- plot(effect("Orthography", mod = long.orth.min.glmer))
+
+pzconsH <- plot(effect("zConsistency_H", mod = long.orth.min.glmer))
+
+grid.arrange(porth, pzconsH,
+            ncol=2)
+```
+:::
+
+##### Practical Task 8 -- Pick a different predictor variable to visualize
+
+:::{.callout-tip collapse="true"}
+## Hint
+Notice that in the preceding code chunks, I assign the plot objects to names and then use `grid.arrange() to present the named plots in grids.
+
+- To produce and show a plot, don't do that, just adapt and use the plot functions, as shown in the next code example.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+plot_model(long.orth.min.glmer,
+           type="pred",
+           terms = "Instructions") +
+  theme_bw() +
+  ggtitle("Predicted probability") +
+  ylim(0,1)
+```
+:::
+
+##### Practical Task 9 -- Can you figure out how to plot interaction effects?
+
+:::{.callout-tip collapse="true"}
+## Hint
+Take a look at the documentation:
+
+- <https://strengejacke.github.io/sjPlot/articles/plot_interactions.html>
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+We can get a plot showing the predicted impact of the Instructions x Orthography interaction effect as follows.
+
+```{r}
+plot_model(long.orth.min.glmer,
+           type="pred",
+           terms = c("Instructions", "Orthography")) +
+  theme_bw() +
+  ggtitle("Predicted probability") +
+  ylim(0,1)
+```
+:::
+
+#### Practical Part 5: Analyze the data: model comparisons
+
+##### Practical Task 10 -- We are now going to fit a series of models and evaluate their relative fit
+
+Note that the models all have the same fixed effects.
+
+Note also that while we will be comparing models varying in random effects we are not going to use `REML=TRUE`
+
+- See here for why:
+
+<https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html#reml-for-glmms>
+
+First fit the minimum random intercepts model.
+
+Specify a model with:
+
+1. The correct function
+2. Outcome = `Score`
+3. Predictors = 
+
+- `Time + Orthography + Instructions + zConsistency_H +`
+- `Orthography:Instructions +`
+- `Orthography:zConsistency_H +`
+
+4. Plus random effects:
+
+- Random effect of participants (`Participant`) on intercepts
+- Random effect of items (`Word)` on intercepts
+
+5. Using the `"bobyqa"` optimizer
+
+:::{.callout-tip collapse="true"}
+## Code
+Run the code to fit the model and get a summary of results, as shown in the chapter
+
+```{r}
+#| cache: true
+long.orth.min.glmer <- glmer(Score ~ 
+                               
+                            Time + Orthography + Instructions + zConsistency_H + 
+                               
+                            Orthography:Instructions +
+                               
+                            Orthography:zConsistency_H +
+                               
+                               (1 | Participant) + 
+                               
+                               (1 |Word),
+                             
+                            family = "binomial", 
+                            glmerControl(optimizer="bobyqa", 
+                                         optCtrl=list(maxfun=2e5)),
+                             
+                             data = long.orth)
+
+summary(long.orth.min.glmer)
+```
+:::
+
+Second the maximum model: this will take several seconds to run.
+
+Specify a model with:
+
+1. The correct function
+2. Outcome = `Score`
+3. Predictors = 
+
+- `Time + Orthography + Instructions + zConsistency_H +`
+- `Orthography:Instructions +`
+- `Orthography:zConsistency_H +`
+
+4. Plus random effects:
+
+- Random effect of participants (`Participant`) on intercepts
+- Random effect of items (`Word)` on intercepts
+
+5. Plus:
+
+- Random effects of participants on the slopes of within-participant effects
+- Random effects of items on the slopes of within-item effects  
+
+6. Plus:
+
+- Allow for covariance between random intercepts and random slopes  
+
+7. Using the `"bobyqa"` optimizer
+
+:::{.callout-tip collapse="true"}
+## Code
+Run the code to fit the model and get a summary of results, as shown in the chapter
+
+```{r}
+#| cache: true
+long.orth.max.glmer <- glmer(Score ~ 
+                           
+                      Time + Orthography + Instructions + zConsistency_H + 
+                           
+                      Orthography:Instructions +
+                           
+                      Orthography:zConsistency_H +
+                           
+                      (Time + Orthography + zConsistency_H + 1 | Participant) + 
+                           
+                      (Time + Orthography + Instructions + 1 |Word),
+                         
+                      family = "binomial",
+                      glmerControl(optimizer="bobyqa", 
+                                   optCtrl=list(maxfun=2e5)),
+                         
+                         data = long.orth)
+
+summary(long.orth.max.glmer)
+```
+:::
+
+Then fit models, building on the first *minimal* (random intercepts) model: adding one extra random effect at a time.
+
+Add code to include a random effect of participants on the slopes of the effect of `Orthography`.
+
+- And add code to include a random effect of items on the slopes of the effect of `Orthography`.
+
+:::{.callout-tip collapse="true"}
+## Code
+Run the code to fit the model and get a summary of results, as shown in the chapter
+
+```{r}
+#| cache: true
+long.orth.2.glmer <- glmer(Score ~ 
+                             Time + Orthography + Instructions + zConsistency_H + 
+                             
+                             Orthography:Instructions +
+                             
+                             Orthography:zConsistency_H +
+                             
+                             (dummy(Orthography) + 1 || Participant) + 
+                             
+                             (dummy(Orthography) + 1 || Word),
+                           
+                           family = "binomial", 
+                           glmerControl(optimizer="bobyqa", 
+                                        optCtrl=list(maxfun=2e5)),
+                           
+                           data = long.orth)
+
+summary(long.orth.2.glmer)
+```
+:::
+
+Add code to include a random effect of items on the slopes of the effect of `Instructions`.
+
+:::{.callout-tip collapse="true"}
+## Code
+Run the code to fit the model and get a summary of results, as shown in the chapter
+
+```{r}
+#| cache: true
+long.orth.3.glmer <- glmer(Score ~ 
+                             Time + Orthography + Instructions + zConsistency_H + 
+                             
+                             Orthography:Instructions +
+                             
+                             Orthography:zConsistency_H +
+                             
+                          (dummy(Orthography) + 1 || Participant) + 
+                             
+                          (dummy(Orthography) + dummy(Instructions) + 1 || Word),
+                           
+                           family = "binomial", 
+                           glmerControl(optimizer="bobyqa", 
+                                        optCtrl=list(maxfun=2e5)),
+                           
+                           data = long.orth)
+
+summary(long.orth.3.glmer)
+```
+:::
+
+Add code to include a random effect of participants on the slopes of the effect of consistency `(zConsistency_H)`.
+
+:::{.callout-tip collapse="true"}
+## Code
+Run the code to fit the model and get a summary of results, as shown in the chapter
+
+```{r}
+#| cache: true
+long.orth.4.a.glmer <- glmer(Score ~ 
+                             Time + Orthography + Instructions + zConsistency_H + 
+                             
+                             Orthography:Instructions +
+                             
+                             Orthography:zConsistency_H +
+                             
+                      (dummy(Orthography) + zConsistency_H + 1 || Participant) + 
+                             
+                      (dummy(Orthography) + dummy(Instructions) + 1 || Word),
+                           
+                           family = "binomial", 
+                           glmerControl(optimizer="bobyqa", 
+                                        optCtrl=list(maxfun=2e5)),
+                           
+                           data = long.orth)
+
+summary(long.orth.4.a.glmer)
+```
+:::
+
+Add code to include a random effect of participants on the slopes of the effect of `Time`.
+
+- And add code to include a random effect of items on the slopes of the effect of `Time`.
+
+:::{.callout-tip collapse="true"}
+## Code
+Run the code to fit the model and get a summary of results, as shown in the chapter
+
+```{r}
+#| cache: true
+long.orth.4.b.glmer <- glmer(Score ~ 
+                             Time + Orthography + Instructions + zConsistency_H + 
+                             
+                             Orthography:Instructions +
+                             
+                             Orthography:zConsistency_H +
+                             
+          (dummy(Orthography) + dummy(Time) + 1 || Participant) + 
+                             
+          (dummy(Orthography) + dummy(Instructions) + dummy(Time) + 1 || Word),
+                           
+                           family = "binomial", 
+                           glmerControl(optimizer="bobyqa", 
+                                        optCtrl=list(maxfun=2e5)),
+                           
+                           data = long.orth)
+
+summary(long.orth.4.b.glmer)
+```
+:::
+
+>**Pract.Q.10.** Which models converge and which models do not converge?
+
+>**Pract.A.10.** Models 4.a. (consistency) and 4.b. (time) should not converge.
+
+>**Pract.Q.11.** How can you tell?
+
+>**Pract.A.11.** Convergence warnings are presented for models that do not converge:
+
+`optimizer (bobyqa) convergence code: 0 (OK)`
+
+`boundary (singular) fit: see help('isSingular')`
+
+##### Practical Task 11 -- Now compare the models that do converge: min vs. 2, vs. 3
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+#| cache: true
+anova(long.orth.min.glmer, long.orth.2.glmer)
+anova(long.orth.min.glmer, long.orth.3.glmer)
+```
+:::
+
+##### Practical Task 12 -- Before we move on, check out some of the code adjustments we have used
+
+>**Pract.Q.12.** What does using `bobyqa` do? Delete `glmerControl()` and report what impact does this have?
+
+:::{.callout-tip collapse="true"}
+## Code
+Run the code to fit the model and get a summary of results
+
+```{r}
+#| cache: true
+long.orth.3.glmer.check <- glmer(Score ~
+                            
+                            Time + Orthography + Instructions + zConsistency_H +
+
+                            Orthography:Instructions +
+
+                            Orthography:zConsistency_H +
+
+                            (dummy(Orthography) + 1 || Participant) +
+
+                            (dummy(Orthography) + dummy(Instructions) + 1 || Word),
+
+                           family = "binomial",
+
+                           data = long.orth)
+
+summary(long.orth.3.glmer.check)
+```
+:::
+
+>**Pract.A.12.** Deleting the `bobyqa` requirement seems to have no impact on models that converge.
+
+>**Pract.Q.13.** What does using `dummy()` in the random effects coding do?
+
+- Experiment: check out models 2 or 3, removing `dummy()` from the random effects coding to see what happens.
+
+:::{.callout-tip collapse="true"}
+## Code
+Run the code to fit the model and get a summary of results
+
+```{r}
+#| cache: true
+long.orth.3.glmer.check <- glmer(Score ~
+                             Time + Orthography + Instructions + zConsistency_H +
+
+                             Orthography:Instructions +
+
+                             Orthography:zConsistency_H +
+
+                             (Orthography + 1 || Participant) +
+
+                             (Orthography + Instructions + 1 || Word),
+
+                           family = "binomial",
+                           glmerControl(optimizer="bobyqa", 
+                                        optCtrl=list(maxfun=2e5)),
+
+                           data = long.orth)
+
+summary(long.orth.3.glmer.check)
+```
+:::
+
+>**Pract.A.13.** If we refit model 3 but with the random effects:
+
+`(Orthography + 1 || Participant) +`
+
+`Orthography + Instructions + 1 || Word),`
+
+We get:
+
+- a convergence warning
+- random effects variances and covariances that we did not ask for: including some bad signs
+
+### The answers
+
+After the practical class, we will reveal the answers that are currently hidden.
+
+The answers version of the webpage will present my answers for questions, and some extra information where that is helpful.
+
