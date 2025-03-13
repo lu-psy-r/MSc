@@ -503,6 +503,49 @@ is.ordered(health$rating)
 
 > `str(health$rating)` should tell us that R thinks that `rating` is `Ord.factor w/ 9 levels "1"<"2"<"3"<"4"<..` i.e. an ordered factor with 9 levels.
 
+##### Practical Task 7 -- Standardize potential predictor variables
+
+Before doing any modelling, it will be sensible to standardize potential predictors.
+
+- Can you work out how to do this?
+
+:::{.callout-tip collapse="true"}
+## Hint
+There are different ways to do this. Usually, we want to use the `scale()` function to do the work.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+health <- health %>% 
+  mutate(across(c(AGE, SHIPLEY, HLVA, FACTOR3, RDFKGL), 
+                scale, center = TRUE, scale = TRUE,
+                .names = "z_{.col}"))
+```
+
+You can see that in this chunk of code, we are doing a number of things:
+
+1. `health <- health %>% ` recreates the `health` dataset from the following steps.
+2. `mutate(...)` do an operation which retains the existing variables in the dataset, to change the variables as further detailed.
+3. `across(...)` work with the multple column variables that are named in the `c(AGE, SHIPLEY, HLVA, FACTOR3, RDFKGL)` set.
+4. `...scale, center = TRUE, scale = TRUE...` here is where we do the standardization work.
+
+What we are asking for is that R takes the variables we name and standardizes each of them.
+
+5. `.names = "z_{.col}")` creates the standardized variables under adapted names, adding `z_` to the original column name so that we can distinguish between the standardized and original raw versions of the data columns.
+
+Note that the `across()` function is a useful function for applying a function across multiple column variables [see information here](https://dplyr.tidyverse.org/reference/across.html)
+There is a helpful discussion on how we can do this task [here](https://stackoverflow.com/questions/62714796/standardize-variables-using-dplyr-r)
+
+We can then check that we have produced the standardized variables as required.
+
+```{r}
+summary(health)
+```
+:::
+
+#### Practical Part 4: Analyze the data: working with Cumulative Link Models
+
 
 
 
