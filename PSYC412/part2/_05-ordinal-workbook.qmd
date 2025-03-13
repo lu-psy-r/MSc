@@ -387,7 +387,7 @@ health %>%
 In analyzing these data, we will seek to estimate what information available to us can be used to predict whether a participant's rating of their understanding is more likely to be, say, `1` or `2`, `2` or `3` ... `7` or `8`, `8` or `9`. 
 :::
 
->**Pract.A.2.** The plot indicates that most participants chose response options 5-9, while very few rated their understanding at the lowest levels (options 1-4). Interestingly, many ratings responses around 7-8 were recorded: many more than responses at 5-6.
+<!-- >**Pract.A.2.** The plot indicates that most participants chose response options 5-9, while very few rated their understanding at the lowest levels (options 1-4). Interestingly, many ratings responses around 7-8 were recorded: many more than responses at 5-6. -->
 
 ##### Practical Task 5 -- Inspect the data: examine the ordered and categorical nature of the ratings responses
 
@@ -413,9 +413,9 @@ summary(health)
 ```
 :::
 
->**Pract.A.4.** You should be used to seeing the `summary()` of a data-set, showing summary statistics of numeric variables and counts of the numbers of observations of data coded at different levels for each categorical or nominal variable classed as a factor.
+<!-- >**Pract.A.4.** You should be used to seeing the `summary()` of a data-set, showing summary statistics of numeric variables and counts of the numbers of observations of data coded at different levels for each categorical or nominal variable classed as a factor. -->
 
-> Here, we can see that R thinks that `rating` is a factor because it gives us a count of the number of observations for each level (category) or rating value.
+<!-- > Here, we can see that R thinks that `rating` is a factor because it gives us a count of the number of observations for each level (category) or rating value. -->
 
 >**Pract.Q.5.** What does a *structural* summary of the `rating` variable show us?
 
@@ -431,7 +431,7 @@ str(health$rating)
 ```
 :::
 
->**Pract.A.5.** The `str()` tells us that R sees that the `rating` variable is a factor, and that it sees different ratings as different levels of this factor.
+<!-- >**Pract.A.5.** The `str()` tells us that R sees that the `rating` variable is a factor, and that it sees different ratings as different levels of this factor. -->
 
 >**Pract.Q.6.** How can we check if R thinks that the `rating` variable values are categorical *and ordered*?
 
@@ -453,7 +453,7 @@ is.ordered(factor(health$rating))
 
 >**Pract.Q.7.** If you can work out how to check if R thinks that the `rating` variable values are categorical *and ordered*, what does that check tell us?
 
->**Pract.A.7.** We can see that the variable is not being treated as an ordered factor: the return to the `is.ordered()` is: `[1] FALSE`. This tells us that the `rating` variable is currently classified by R as a factor but *is not* currently classified as an *ordered* factor.
+<!-- >**Pract.A.7.** We can see that the variable is not being treated as an ordered factor: the return to the `is.ordered()` is: `[1] FALSE`. This tells us that the `rating` variable is currently classified by R as a factor but *is not* currently classified as an *ordered* factor. -->
 
 ##### Practical Task 6 -- Require R to treat values of the `rating` variable as categorical and ordered
 
@@ -495,13 +495,13 @@ is.ordered(health$rating)
 
 >**Pract.Q.9.** If you can work out how to check if R thinks that the `rating` variable values are categorical *and ordered*, what do the checks tell us?
 
->**Pract.A.9.** We can see that the variable is now being treated as an ordered factor, if we have completed the `ordered()` step correctly.
+<!-- >**Pract.A.9.** We can see that the variable is now being treated as an ordered factor, if we have completed the `ordered()` step correctly. -->
 
-> `is.factor(health$rating)` tells us if R treats `rating` as a factor.
+<!-- > `is.factor(health$rating)` tells us if R treats `rating` as a factor. -->
 
-> `is.ordered(health$rating)` tells us if R treats `rating` as an *ordered* factor.
+<!-- > `is.ordered(health$rating)` tells us if R treats `rating` as an *ordered* factor. -->
 
-> `str(health$rating)` should tell us that R thinks that `rating` is `Ord.factor w/ 9 levels "1"<"2"<"3"<"4"<..` i.e. an ordered factor with 9 levels.
+<!-- > `str(health$rating)` should tell us that R thinks that `rating` is `Ord.factor w/ 9 levels "1"<"2"<"3"<"4"<..` i.e. an ordered factor with 9 levels. -->
 
 ##### Practical Task 7 -- Standardize potential predictor variables
 
@@ -632,12 +632,12 @@ The table summary of coefficients arranges information in ways that will be fami
 4. We then get `Threshold coefficients:` indicating where the model fitted estimates the threshold locations: where the latent scale is cut, corresponding to different rating values.
 :::
 
->**Pract.A.10.** Focus on the summary table showing estimates of the effects of each predictor variable. In that summary table, you can see coefficient estimates, associated standard errors, and (for each coefficient) hypothesis (Wald z) test statistics and p-values. At this point, simply identify: (1.) is the coefficient estimate positive or negative, and (2.) is the hypothesis test statistic for each coefficient significant or not significant? If you do that, you can say that:
+<!-- >**Pract.A.10.** Focus on the summary table showing estimates of the effects of each predictor variable. In that summary table, you can see coefficient estimates, associated standard errors, and (for each coefficient) hypothesis (Wald z) test statistics and p-values. At this point, simply identify: (1.) is the coefficient estimate positive or negative, and (2.) is the hypothesis test statistic for each coefficient significant or not significant? If you do that, you can say that: -->
 
-<!-- - The effects of age, vocabulary, health literacy, reading strategy and text readability on ratings all appear to be significant. -->
-<!-- - The coefficients are positive for vocabulary, health literacy, and reading strategy. But they are negative for age and text readability. -->
+<!-- <!-- - The effects of age, vocabulary, health literacy, reading strategy and text readability on ratings all appear to be significant. --> -->
+<!-- <!-- - The coefficients are positive for vocabulary, health literacy, and reading strategy. But they are negative for age and text readability. --> -->
 
-<!-- What these observations imply, about the probability that a participant will produce a specific rating value (rather than another rating), is something we need to work to understand. We do that, following, so that we can develop a more specific or informative interpretation of the results from the modeling. -->
+<!-- <!-- What these observations imply, about the probability that a participant will produce a specific rating value (rather than another rating), is something we need to work to understand. We do that, following, so that we can develop a more specific or informative interpretation of the results from the modeling. --> -->
 
 :::{.callout-tip collapse="true"}
 ## Hint
@@ -770,7 +770,7 @@ The `summary()` output for the model is similar to the outputs you have seen for
 The coefficients summary information can be interpreted in the same way for a CLMM as for a CLM.
 :::
 
->**Pract.A.11.** We can see that the effects of age and health literacy are now no longer significant. The directions of the effects remain the same. The magnitudes of the coefficients have been changed, quite a bit, after the inclusion of the random effect of participants.
+<!-- >**Pract.A.11.** We can see that the effects of age and health literacy are now no longer significant. The directions of the effects remain the same. The magnitudes of the coefficients have been changed, quite a bit, after the inclusion of the random effect of participants. -->
 
 #### Practical Part 6: Presenting and visualizing the effects
 
@@ -849,17 +849,17 @@ plot(dat)
 ```
 :::
 
->**Pract.A.12.** If you riun the example code then you can see what this gets us for these kinds of models.
+<!-- >**Pract.A.12.** If you riun the example code then you can see what this gets us for these kinds of models. -->
 
-> @fig-rating-clmm-factor3-predictions presents a grid of plots showing the model-predicted probabilities that a rating response will have one value for each of the 1-9 rating response values that are possible given the Likert rating scale used in data collection.
+<!-- > @fig-rating-clmm-factor3-predictions presents a grid of plots showing the model-predicted probabilities that a rating response will have one value for each of the 1-9 rating response values that are possible given the Likert rating scale used in data collection. -->
 
-> In the grid, a different plot is shown for each possible response value, indicating how the probability varies that the rating response will take that value.
+<!-- > In the grid, a different plot is shown for each possible response value, indicating how the probability varies that the rating response will take that value. -->
 
-> In some cases -- for `rating` response values `1-4` -- the curve is flat or flattens very quickly, for higher levels of the `z_FACTOR3` variable.
-In some cases -- for `rating` response values `5-9` -- the curve is more obvious, and resembles a normal distribution curve.
+<!-- > In some cases -- for `rating` response values `1-4` -- the curve is flat or flattens very quickly, for higher levels of the `z_FACTOR3` variable. -->
+<!-- In some cases -- for `rating` response values `5-9` -- the curve is more obvious, and resembles a normal distribution curve. -->
 
-> If you think about it, what these plots indicate are the ways in which the probability that a `rating` response is a low value (e.g., a  rating of `1`) or a high value (e.g., a  rating of `9`) rises or falls.
-Each possible `rating` response is associated with a probability distribution.
+<!-- > If you think about it, what these plots indicate are the ways in which the probability that a `rating` response is a low value (e.g., a  rating of `1`) or a high value (e.g., a  rating of `9`) rises or falls. -->
+<!-- Each possible `rating` response is associated with a probability distribution. -->
 
 ::: callout-tip
 Note that in [our conceptual introduction](../part2/05-ordinal.qmd#sec-ordinal-intro), we examine visualizations of ordinal predictions in more depth, with a discussion of alternate visualization methods.
