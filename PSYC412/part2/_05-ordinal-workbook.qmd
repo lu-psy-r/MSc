@@ -639,8 +639,124 @@ The table summary of coefficients arranges information in ways that will be fami
 
 <!-- What these observations imply, about the probability that a participant will produce a specific rating value (rather than another rating), is something we need to work to understand. We do that, following, so that we can develop a more specific or informative interpretation of the results from the modeling. -->
 
+:::{.callout-tip collapse="true"}
+## Hint
+In reporting ordinal (e.g., cumulative link) models, we typically focus on the coefficient estimates for the predictor variables.
 
- 
+- A positive coefficient estimate indicates that higher values of the predictor variable are associated with greater probability of higher rating values.
+- A negative coefficient estimate indicates that higher values of the predictor variable are associated with greater probability of lower rating values.
+:::
+
+##### Practical Task 8 -- Fit a Cumulative Link Model to estimate the effects of a selection of predictor variables to predict variation in outcome ratings
+
+It will be a good idea for you to get some practice specifying cumulative link models.
+
+Fit a new model:
+
+- Use a different set of predictors.
+- Experiment with the arguments used to control how the model fitting function works.
+
+:::{.callout-tip collapse="true"}
+## Hint
+- You can choose whatever set of predictors you like, given the `health` data-set.
+- One way to understand how model functions work (in addition to reading manual information) is to experiment with what you do or do not specify, among the function arguments, in controlling the function. Even causing errors can be helpul to your undestanding.
+:::
+
+What we want is a cumulative link model with:
+
+- `rating` as the outcome variable;
+- some combination of (one or all of) standardized age, vocabulary, health literacy, reading strategy, and text readability as factors.
+
+:::{.callout-tip collapse="true"}
+## Code
+Try changing one element at a time, for example, here, simply removing the arguments entered to control how the `clm()` function works.
+
+```{r}
+health.clm <- clm(rating ~
+                    
+  z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL,
+                  
+  data = health)
+
+summary(health.clm)
+```
+
+Here, we add in another variable:
+
+```{r}
+health.clm <- clm(rating ~
+                    
+  NATIVE.LANGUAGE + z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL,
+                  
+  data = health)
+
+summary(health.clm)
+```
+:::
+
+#### Practical Part 5: Analyze the data: working with Cumulative Link Mixed-effects Models
+
+In our analysis, we began by assuming no random effects.
+However, this is unlikely to be appropriate given the data collection process deployed in the **Clearly understood** project, where a sample of participants was asked to respond to a sample of texts, because that data collection process means that:
+
+- we have multiple observations of responses for each participant;
+- we have multiple observations of responses for each stimulus text;
+- participants were assigned to groups, and within a group all participants were asked to respond to the same stimulus texts.
+
+These features ensure that the data have a *multilevel* structure and this structure requires us to fit a *Cumulative Link Mixed-effects Model* (CLMM).
+
+##### Practical Task 9 -- Fit a Cumulative Link Mixed-effects Model to estimate the effects of a selection of predictor variables to predict variation in outcome ratings
+
+Our research question is:
+
+::: callout-note
+-   What factors predict self-evaluated *rated* understanding of health information.
+:::
+
+You can guess that fitting a CLMM is not going to be very different from specifying and running a GLMM.
+
+- Can you work out how to code the model?
+
+:::{.callout-tip collapse="true"}
+## Hint
+The key idea --- and you may already have guessed this --- is again that the structure of model analysis code in R is often similar across the different kinds of modeling methods we may employ.
+
+- Here, the main insight for your development is that we are going to want to change things *one thing at a time* so take the `clm()` code you used earlier and add the element (a random effect) that we now need to take into account the multilevel structure we know is there.
+:::
+
+What we want is a cumulative link model with:
+
+- `rating` as the outcome variable;
+- standardized age, vocabulary, health literacy, reading strategy, and text readability as factors;
+- a random effect to take into account the fact that each participant is producing ratings to multiple different texts.
+
+:::{.callout-tip collapse="true"}
+We can code a Cumulative Link Mixed-effects Model as follows.
+
+```{r}
+#| eval: false
+health.clmm <- clmm(rating ~
+                      
+                      z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
+                      
+                      (1 | ResponseId),
+                    
+                    Hess = TRUE, link = "logit",
+                    data = health)
+
+summary(health.clmm)
+```
+
+If you inspect the code chunk, you can see that we have made two changes.
+
+First, we have changed the function.
+
+-   `clmm()` the function name changes because now we want a Cumulative Linear *Mixed-effects Model*.
+
+Secondly, the model specification includes information about fixed effects and *now about random effects*.
+
+-   With `(1 | ResponseId)` we include random effects of participants on on intercepts.
+:::
 
 
 
