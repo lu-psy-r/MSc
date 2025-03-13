@@ -102,83 +102,78 @@ Here, we will present information about the practical materials you can use to b
 This workbook introduction on **ordinal models** is linked to the corresponding [conceptual introduction chapter](../part2/05-ordinal.qmd#sec-ordinal-intro) where the explanation of ideas or of practical analysis steps is set out more extensively or in more depth.
 :::
 
-### Lectures {#sec-ordinal-workbook-lectures}
+<!-- ### Lectures {#sec-ordinal-workbook-lectures} -->
 
-The lecture materials for this week are presented in three short parts.
+<!-- The lecture materials for this week are presented in three short parts. -->
 
-Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part.
+<!-- Click on a link and your browser should open a tab showing the *Panopto* video for the lecture part. -->
 
-1. Part 1 (20 minutes): Understand the reasons for using Generalized Linear Mixed-effects Models (GLMMs); categorical outcomes like response accuracy and the bad compromises involved in (traditional methods) not using GLMMs to analyze them;  understanding what the *generalized* part of this involves.
+<!-- 1. Part 1 (20 minutes): Understand the reasons for using Generalized Linear Mixed-effects Models (GLMMs); categorical outcomes like response accuracy and the bad compromises involved in (traditional methods) not using GLMMs to analyze them;  understanding what the *generalized* part of this involves. -->
 
-```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bbf38d0e-90e5-4285-82ea-acec012a2f77&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-1-of-3" ></iframe>
-```
+<!-- ```{=html} -->
+<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bbf38d0e-90e5-4285-82ea-acec012a2f77&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-1-of-3" ></iframe> -->
+<!-- ``` -->
 
-2. Part 2 (16 minutes): The questions, design and methods of the working data example study; category coding practicalities; specifying a GLMM appropriate to the design; the GLMM results summary, reading the results, visualizing the results.
+<!-- 2. Part 2 (16 minutes): The questions, design and methods of the working data example study; category coding practicalities; specifying a GLMM appropriate to the design; the GLMM results summary, reading the results, visualizing the results. -->
 
-```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=93c898ce-8009-47c6-ad43-acec0130b2ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-2-of-3" ></iframe>
-```
+<!-- ```{=html} -->
+<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=93c898ce-8009-47c6-ad43-acec0130b2ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-2-of-3" ></iframe> -->
+<!-- ``` -->
 
-3. Part 3 (19 minutes): What random effects should we include; recognizing when a model has got into trouble, and what to do about it; general approaches to model specification; reporting model results.
+<!-- 3. Part 3 (19 minutes): What random effects should we include; recognizing when a model has got into trouble, and what to do about it; general approaches to model specification; reporting model results. -->
 
-```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=078770df-47d0-4a25-9fdd-acec0135f5ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-3-of-3" ></iframe>
-```
+<!-- ```{=html} -->
+<!-- <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=078770df-47d0-4a25-9fdd-acec0135f5ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-3-of-3" ></iframe> -->
+<!-- ``` -->
 
-### Lecture slides {#sec-ordinal-workbook-slides}
+<!-- ### Lecture slides {#sec-ordinal-workbook-slides} -->
 
-::: callout-tip
-## Download the lecture slides
-You can download the lecture slides in two different versions:
+<!-- ::: callout-tip -->
+<!-- ## Download the lecture slides -->
+<!-- You can download the lecture slides in two different versions: -->
 
-- [402-week-20-GLMM.pdf](files/402-week-20-GLMM.pdf): exactly as delivered [700 KB];
-- [402-week-20-GLMM_6pp.pdf](files/402-week-20-GLMM_6pp.pdf): printable version, six-slides-per-page [850 KB].
+<!-- - [402-week-20-GLMM.pdf](files/402-week-20-GLMM.pdf): exactly as delivered [700 KB]; -->
+<!-- - [402-week-20-GLMM_6pp.pdf](files/402-week-20-GLMM_6pp.pdf): printable version, six-slides-per-page [850 KB]. -->
 
-The `GLMM.pdf` version is the version delivered for the lecture recordings. To make the slides easier to download, I produced a six-slide-per-page version, `GLMM_6pp.pdf`. This should be easier to download and print out if that is what you want to do.
-:::
+<!-- The `GLMM.pdf` version is the version delivered for the lecture recordings. To make the slides easier to download, I produced a six-slide-per-page version, `GLMM_6pp.pdf`. This should be easier to download and print out if that is what you want to do. -->
+<!-- ::: -->
 
 ### Practical materials: data and R-Studio {#sec-ordinal-workbook-practical}
 
-We will be working with data collected for a study investigating word learning in children, reported by @ricketts2021. You will see that the study design has both a repeated measures aspect because each child is asked to respond to multiple stimuli, and a longitudinal aspect because responses are recorded at two time points. Because responses were observed to multiple stimuli for each child, and because responses were recorded at multiple time points, the data have a multilevel structure. These features require the use of mixed-effects models for analysis.
+We will be working with a sample of data collected as part of work in progress, undertaken for **Clearly understood: health comprehension** project (Davies and colleagues). 
 
-We will see, also, that the study involves the factorial manipulation of learning conditions. This means that, when you see the description of the study design, you will see embedded in it a 2 x 2 factorial design. You will be able to generalize from our work here to many other research contexts where psychologists conduct experiments in which conditions are manipulated according to a factorial design.
-
-However, our focus now is on the fact that the outcome for analysis is the accuracy of the responses made by children to word targets in a spelling task. The categorical nature of accuracy as an outcome is the reason why we now turn to use Generalized Linear Mixed-effects Models.
-
-You can read more about these data in the [conceptual introduction chapter on GLMMs](../part2/04-glmm.qmd#sec-glmm-data-study).
-
-We addressed three research questions and tested predictions in relation to each question.
-
-1.  Does the presence of orthography promote greater word learning?
-
--   We predicted that children would demonstrate greater orthographic learning for words that they had seen (orthography present condition) versus not seen (orthography absent condition).
-
-2.  Will orthographic facilitation be greater when the presence of orthography is emphasized explicitly during teaching?
-
--   We expected to observe an interaction between instructions and orthography, with the highest levels of learning when the orthography present condition was combined with explicit instructions.
-
-3.  Does word consistency moderate the orthographic facilitation effect?
-
--   For orthographic learning, we expected that the presence of orthography might be particularly beneficial for words with higher spelling-sound consistency, with learning highest when children saw and heard the word, and these codes provided overlapping information.
-
-::: callout-important
-**Get the data**: get the data file and the .R script you can use to do the exercises that will support your learning.
-
-- You can download the files folder for this chapter by clicking on the link [04-glmm.zip](files/04-glmm.zip).
+::: callout-warning
+These data are unpublished so should not be shared without permission.
 :::
 
-The practical materials folder includes data files and an `.R` script:
+You can read more about these data in the [conceptual introduction chapter on ordinal models](../part2/05-ordinal.qmd#sec-ordinal-data-study).
 
-In this chapter, we will be working with the data about the orthographic post-test outcome for the Ricketts word learning study:
+Our interest, in conducting the project, lies in identifying what factors make it easy or difficult to understand written health information (health texts).
 
--   `long.orth_2020-08-11.csv`
+It is common, in the quality assurance process in the production of health information texts, that text producers ask participants in patient review panels to evaluate draft texts. In such reviews, a participant may be asked a question like "How well do you understand this text?" This kind of question presents a metacognitive task: we are asking a participant *to think about their thinking*. But it is unclear that people can do this well or, indeed, what factors determine the responses to such questions [@dunlosky2007].
 
-The data file is collected together with the .R script:
+We conducted studies in which we presented adult participants with sampled health information texts and asked them to respond to the question:
 
--   `04-glmm-workbook.R` the workbook you will need to do the practical exercises.
+-   `How well do you think you have understood this text?`
 
-The data come from the @ricketts2021 study, and you can access the analysis code and data for that study, in full, at the OSF repository [here](https://osf.io/e5gzk/?view_only=038118528c7c426c9729983f54138c88)
+For each text, in response to this question, participants were asked to click on one option from an array of response options ranging from `1` (`Not well at all`) to `9` (`Extremely well`). 
+
+The data we collected in this element of our studies comprise, clearly, *ordinal responses*: 
+
+- We are asking participants to reflect on their understanding of the information in health texts.
+- We are asking them to translate their evaluation of their own understanding into a response.
+- The permitted response options are discrete or categorical --- you must pick one (e.g., `1`), you cannot pick more than one at the same time (e.g., `1` and `2`), and you cannot have part or fractional values (e.g., you can't choose the rating `1.5`).
+- The permitted responses are ordered, ranging from some minimum value up to some maximum value (e.g., `1` $\rightarrow$ `2` $\rightarrow$ `3` $\rightarrow$ `4` $\rightarrow$ `5` $\rightarrow$ `...`), so that if a participant picks a higher response value, they are (in our theory of the task) choosing to signal a *higher* level of understanding.
+
+::: callout-important
+**Get the data**: get the data file you can use to do the exercises that will support your learning.
+
+- You can download the [2021-22_PSYC304-health-comprehension.csv](files/2021-22_PSYC304-health-comprehension.csv) file holding the data we analyse in the practical exercises, shown following, by clicking on the link.
+:::
+
+we collected these data to address the following research question.
+
+-   What factors predict self-evaluated *rated* understanding of health information.
 
 ::: callout-important
 You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
@@ -188,16 +183,17 @@ You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.l
 
 The aims of the practical work are to:
 
-- Understand the reasons for using Generalized Linear Mixed-effects models (GLMMs) when we analyze discrete outcome variables.
-- Recognize the limitations of alternative methods for analyzing such outcomes.
-- Practice running GLMMs with varying random effects structures.
-- Practice reporting the results of GLMMs, including through the use of model plots.
+1.  Understand through practical experience the reasons for using ordinal models when we analyze ordinal outcome variables.
+2.  Practice running ordinal models with varying random effects structures.
+3.  Practice reporting the results of ordinal models, including through the use of prediction plots.
+
+We are going to focus on working with **Cumulative Link Models (CLMs)** and **Cumulative Link Mixed-effects Models (CLMMs)** in R [@christensen2022; @christensen2015].
 
 My recommendations for learning are that you should aim to:
 
-- run GLMMs of demonstration data;
-- run GLMMs of alternate data sets;
-- play with the `.R` code used to create examples for the lecture;
+- run CLMs or CLMMs of demonstration data;
+- run CLMs or CLMMs of the alternate data sets that I reference, or with your own ratings data;
+- play with the `.R` code used to create practical exercises;
 - and edit example code to create alternate visualizations.
 
 #### The practical exercises {#sec-ordinal-workbook-practical-workbook}
