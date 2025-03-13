@@ -85,7 +85,7 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../PSYC412/part2/report-preface.html" rel="next">
-<link href="../../PSYC412/part2/04-glmm.html" rel="prev">
+<link href="../../PSYC412/part2/05-ordinal-workbook.html" rel="prev">
 <link href="../../Images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -391,6 +391,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../PSYC412/part2/04-glmm.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 19. Conceptual introduction to Generalized Linear Mixed-effects Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/05-ordinal-workbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 20. Workbook introduction to Ordinal (Mixed-effects) Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1173,7 +1179,7 @@ Tip
 </section>
 <section id="sec-ordinal-working-models-clmm" class="level2">
 <h2 class="anchored" data-anchor-id="sec-ordinal-working-models-clmm">Working with Cumulative Link Mixed-effects Models in R</h2>
-<p>In our analysis, we begn by assuming no random effects. However, this is unlikely to be appropriate given the data collection process deployed in the <strong>Clearly understood</strong> projects, where a sample of participants were asked to respond to a sample of texts:</p>
+<p>In our analysis, we begin by assuming no random effects. However, this is unlikely to be appropriate given the data collection process deployed in the <strong>Clearly understood</strong> projects, where a sample of participants were asked to respond to a sample of texts:</p>
 <ul>
 <li>we have multiple observations of responses for each participant;</li>
 <li>we have multiple observations of responses for each stimulus text;</li>
@@ -1184,9 +1190,9 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>health.clmm <span class="ot">&lt;-</span> <span class="fu">clmm</span>(rating <span class="sc">~</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                      z_AGE <span class="sc">+</span> z_SHIPLEY <span class="sc">+</span> z_HLVA <span class="sc">+</span> z_FACTOR3 <span class="sc">+</span> z_RDFKGL <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>            z_AGE <span class="sc">+</span> z_SHIPLEY <span class="sc">+</span> z_HLVA <span class="sc">+</span> z_FACTOR3 <span class="sc">+</span> z_RDFKGL <span class="sc">+</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                      (<span class="dv">1</span><span class="sc">|</span>ResponseId),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>            (<span class="dv">1</span> <span class="sc">|</span> ResponseId),</span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                    </span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">Hess =</span> <span class="cn">TRUE</span>, <span class="at">link =</span> <span class="st">"logit"</span>,</span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> health)</span>
@@ -1200,7 +1206,7 @@ Tip
 </ul>
 <p>Secondly, the model specification includes information about fixed effects and <em>now about random effects</em>.</p>
 <ul>
-<li>With <code>(1 | Participant)</code> we include random effects of participants on on intercepts.</li>
+<li>With <code>(1 | ResponseId)</code> we include random effects of participants on on intercepts.</li>
 </ul>
 <section id="sec-ordinal-results-clmm" class="level3">
 <h3 class="anchored" data-anchor-id="sec-ordinal-results-clmm">Read the results</h3>
@@ -1908,8 +1914,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../PSYC412/part2/04-glmm.html" class="pagination-link" aria-label="Week 19. Conceptual introduction to Generalized Linear Mixed-effects Models">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 19. Conceptual introduction to Generalized Linear Mixed-effects Models</span>
+      <a href="../../PSYC412/part2/05-ordinal-workbook.html" class="pagination-link" aria-label="Week 20. Workbook introduction to Ordinal (Mixed-effects) Models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 20. Workbook introduction to Ordinal (Mixed-effects) Models</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
