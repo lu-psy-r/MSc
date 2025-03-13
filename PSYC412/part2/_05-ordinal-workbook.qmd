@@ -546,7 +546,101 @@ summary(health)
 
 #### Practical Part 4: Analyze the data: working with Cumulative Link Models
 
+In our first analysis, we can begin by assuming no random effects.
+We keep things simple at this point so that we can focus on the key changes in model coding.
 
+The model is fitted to examine what shapes the variation in `rating` responses that we see in @fig-rating-dotplots.
+
+##### Practical Task 7 -- Fit a Cumulative Link Model to estimate the effects of a selection of predictor variables to predict variation in outcome ratings
+
+Our research question is:
+
+::: callout-note
+-   What factors predict self-evaluated *rated* understanding of health information.
+:::
+
+In this first analysis:
+
+- The outcome variable is the ordinal response variable `rating`.
+- The predictors consist of the variables we standardized earlier.
+
+We use the `clm()` function from the `{ordinal}` library to do the analysis.
+
+- Can you work out how to code the analysis?
+
+:::{.callout-tip collapse="true"}
+## Hint
+The key idea --- and you may already have guessed this --- is that the structure of model analysis code in R is often similar across the different kinds of modeling methods we may employ, in the context of working with different kinds of data structure, different outcome variables.
+:::
+
+What we want is a cumulative link model with:
+
+- `rating` as the outcome variable;
+- standardized age, vocabulary, health literacy, reading strategy, and text readability as factors.
+
+::: callout-tip
+Here, we ignore any data clustering we may think or know structures the data at multiple levels: we do not specify random effects.
+:::
+
+You can check out the information on the modeling methods in @christensen2022 and @christensen2015.
+
+You can also find the manual for the `{ordinal}` library functions that we need to use [here](https://cran.r-project.org/web/packages/ordinal/index.html).
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+health.clm <- clm(rating ~
+                    
+  z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL,
+                  
+  Hess = TRUE, link = "logit",
+  data = health)
+
+summary(health.clm)
+```
+
+The code works as follows.
+
+First, we have a chunk of code mostly similar to what we have done before, but changing the function.
+
+-   `clm()` the function name changes because now we want a *cumulative link* model of the ordinal responses.
+
+The model specification includes information about the fixed effects, the predictors: `z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL`.
+
+Second, we have the bit that is specific to *cumulative link* models fitted using the `clm()` function.
+
+- `Hess = TRUE` is required if we want to get a summary of the model fit; the default is `TRUE` but it is worth being explicit about it.
+- `link = "logit"` specifies that we want to model the ordinal responses in terms of the log odds (hence, the probability) that a response is a low or a high rating value.
+:::
+
+>**Pract.Q.10.** If you can work out how to fit the ordinal model of `rating` variable values, what does the results summary show about the estimated effects of the predictors entered into the model?
+
+:::{.callout-tip collapse="true"}
+## Hint
+The `summary()` output for the model is similar to the outputs you have seen for other model types.
+
+1. We first get `formula:` information about the model you have specified.
+2. R will tell us what `data:` we are working with.
+3. We then get `Coefficients:` estimates.
+
+The table summary of coefficients arranges information in ways that will be familiar you:
+
+- For each predictor variable, we see `Estimate, Std. Error, z value, and Pr(>|z|)` statistics.
+- The `Pr(>|z|)` p-values are based on Wald tests of the null hypothesis that a predictor has null impact.
+- The coefficient estimates can be interpreted based on whether they are positive or negative.
+
+4. We then get `Threshold coefficients:` indicating where the model fitted estimates the threshold locations: where the latent scale is cut, corresponding to different rating values.
+:::
+
+>**Pract.A.10.** Focus on the summary table showing estimates of the effects of each predictor variable. In that summary table, you can see coefficient estimates, associated standard errors, and (for each coefficient) hypothesis (Wald z) test statistics and p-values. At this point, simply identify: (1.) is the coefficient estimate positive or negative, and (2.) is the hypothesis test statistic for each coefficient significant or not significant? If you do that, you can say that:
+
+<!-- - The effects of age, vocabulary, health literacy, reading strategy and text readability on ratings all appear to be significant. -->
+<!-- - The coefficients are positive for vocabulary, health literacy, and reading strategy. But they are negative for age and text readability. -->
+
+<!-- What these observations imply, about the probability that a participant will produce a specific rating value (rather than another rating), is something we need to work to understand. We do that, following, so that we can develop a more specific or informative interpretation of the results from the modeling. -->
+
+
+ 
 
 
 
