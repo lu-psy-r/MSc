@@ -235,18 +235,21 @@ Use the `library()` function to make the functions we need available to you.
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-library(broom)
-library(effects)
-library(gridExtra)
+library(ggdist)
+library(ggeffects)
 library(here)
-library(lattice)
-library(knitr)
+library(kableExtra)
 library(lme4)
-library(MuMIn)
-library(sjPlot)
+library(memisc)
+library(ordinal)
+library(patchwork)
 library(tidyverse)
+library(viridis)
 ```
 :::
+
+Note that the key library here is `{ordinal}` [@christensen2022; @christensen2015].
+You can find the manual for the `{ordinal}` library functions [in the CRAN webpages](https://cran.r-project.org/web/packages/ordinal/index.html).
 
 #### Practical Part 2: Load the data
 
@@ -259,19 +262,21 @@ Read the data file into R:
 ```{r}
 #| label: readinall
 #| message: false
-long.orth <- read_csv("long.orth_2020-08-11.csv", 
-                      col_types = cols(
-                        Participant = col_factor(),
-                        Time = col_factor(),
-                        Study = col_factor(),
-                        Instructions = col_factor(),
-                        Version = col_factor(),
-                        Word = col_factor(),
-                        Orthography = col_factor(),
-                        Measure = col_factor(),
-                        Spelling.transcription = col_factor()
-                      )
-                    )
+health <- read_csv("2021-22_PSYC304-health-comprehension.csv", 
+            na = "-999",
+            col_types = cols(
+              ResponseId = col_factor(),
+              rating = col_factor(),
+              GENDER = col_factor(),
+              EDUCATION = col_factor(),
+              ETHNICITY = col_factor(),
+              NATIVE.LANGUAGE = col_factor(),
+              OTHER.LANGUAGE = col_factor(),
+              text.id = col_factor(),
+              text.question.id = col_factor(),
+              study = col_factor()
+            )
+          )
 ```
 :::
 
@@ -283,54 +288,226 @@ You can see, here, that within the `read_csv()` function call, I specify `col_ty
 
 The data are already *tidy*: each column in `long.orth_2020-08-11.csv` corresponds to a variable and each row corresponds to an observation. However, we need to do a bit of work, before we can run any analyses, to fix the **coding of the categorical predictor** (or independent) variables: the factors `Orthography`, `Instructions`, and `Time`.
 
-##### Practical Task 3 -- Inspect the data
+##### Practical Task 3 -- Inspect the data: look at the data-set
 
 It is always a good to inspect what you have got when you read a data file in to R.
+
+If you open the data-set `.csv`, you will see:
+
+```{r}
+#| label: headcheck-wide
+#| echo: false
+health %>%
+  as.data.frame() %>%
+  kable() %>%
+  kable_styling()
+```
+
+You can use the *scroll bar* at the bottom of the data window to view different columns.
+
+You can see the columns:
+
+- `ResponseId` participant code
+- `AGE` age in years
+- `GENDER` gender code
+- `EDUCATION` education level code
+- `ETHNICITY` ethnicity (Office National Statistics categories) code
+- `NATIVE.LANGUAGE` code whether English the native language
+- `OTHER.LANGUAGE` text indicating native language if not English
+- `ENGLISH.PROFICIENCY` self-rated English proficiency if native language not English
+- `SHIPLEY` vocabulary knowledge test score
+- `HLVA` health literacy test score
+- `FACTOR3` reading strategy survey score
+- `RDFKGL` health text (Flesch-Kincaid Grade Level) readability
+- `study` study identity code
+- `text.id` health information text identity code
+- `text.question.id` health information text question identity code
+
+The data are structured this way because:
+
+1. Each participant was asked to read and respond to a sample of health information texts. Each health text is coded `text.id`. For each text, a participant was asked to respond to a set of multiple choice questions (MCQs) designed to probe their understanding. Each question is coded `text.question.id`. The accuracy of the response made by each participant to each queston about each text is coded correct (`1`) or incorrect (`0`) in the `response` column.
+
+- This data collection process means that, for each participant ID, you are going to see multiple rows of data, one row for each participant, each text they read, and each question they respond to.
+
+2. In addition to the MCQs, each participant was asked to rate their understanding of the information in each text that they saw.
+
+- *How well do you think you have understood this text? (Please check one response)* where the participant must respond by producing a rating, by checking one option, given nine different response options ranging from 1 (not well at all) to 5 (very well).
+- Note that each participant was asked to produce only one rating for each health text that they saw. This means that in the data-set there is one rating response value, for each participant, for each text. This also means that the rating is repeated for each row, where different rows correspond to different MCQs, for each text.
+
+As we have said, we are going to focus our analyses on the ordered ratings data.
+And, as noted, these rating responses are categorical and ordered: ranging across potential values, from `1` $\rightarrow$ `2` $\rightarrow$ `3` $\rightarrow$ `4` $\rightarrow$ `5` $\rightarrow$ `6` $\rightarrow$ `7` $\rightarrow$ `8` $\rightarrow$ `9`.
+
+##### Practical Task 4 -- Inspect the data: visualize the ratings
+
+The most important task is to assess the nature of the outcome ratings variable: what have we got?
+
+>**Pract.Q.1.** What is the frequency distribution of responses under each possible rating response value (or category): can you visualize the distribution?
+
+:::{.callout-tip collapse="true"}
+## Hint
+There are different ways to assess the distribution of ratings responses.
+
+1. We are going to ignore the fact that ratings are repeated within participants across question-rows for each text because we are primarily interested in the relative proportion of ratings responses recorded for different possible ratings.
+2. We can focus on getting a count of the number of ratings responses recorded, for this sample of participants and texts, for each possible rating response value.
+3. We can visualize the counts in different ways: you will have seen bar plots but we focus here on dot plots.
+
+How would you de-duplicate the ratings data to get counts showing just the number of ratings (made by participants to texts) for each possible rating response value?
+:::
+
+- Produce a plot to visualize the distribution of ratings responses.
 
 :::{.callout-tip collapse="true"}
 ## Code
 ```{r}
-#| label: data-summary-1
-#| eval: false
-summary(long.orth)
+#| label: fig-rating-dotplots
+#| fig-cap: "Dot plot showing the distribution of ratings responses. The Likert-style questions in the surveys asked participants to rate their level of understanding of the texts they saw on a scale from 1 (not well) to 9 (extremely well). The plot shows the number of responses recorded for each response option, over all participants and all texts."
+#| fig-alt: "The figure presents a dot plot showing the distribution of ratings responses. The plot shows the number of responses recorded for each response option, over all participants and all texts. Points are coloured to distinguish different response options. The plot indicates that most participants rated their understanding very high to most texts, choosing ratings from 5-6 or above."
+#| warning: false
+#| fig-width: 6.5
+#| fig-height: 4.5
+health <- health %>% mutate(rating = fct_relevel(rating, sort))
+
+health %>%
+  group_by(rating) %>%
+  summarise(count = n()) %>%
+  ggplot(aes(x = rating, y = count, colour = rating)) + 
+  geom_point(size = 3) +
+  scale_color_viridis(discrete=TRUE, option = "mako") + theme_bw() +
+  theme(
+    panel.grid.major.y = element_blank()  # No horizontal grid lines
+  ) +
+  coord_flip()
 ```
 :::
 
-You will see that some of the variables included in the `.csv` file are listed, following, with information about value coding or calculation.
-
--   `Participant` -- Participant identity codes were used to anonymize participation.
--   `Time` -- Test time was coded 1 (time 1) or 2 (time 2). For the Study 1 longitudinal data, it can be seen that each participant identity code is associated with observations taken at test times 1 and 2.
--   `Instructions` -- Variable coding for whether participants undertook training in the explicit} or incidental} conditions.
--   `Word` -- Letter string values showing the words presented as stimuli to the children.
--   `Orthography` -- Variable coding for whether participants had seen a word in training in the orthography absent or present conditions.
--   `Consistency-H` -- Calculated orthography-to-phonology consistency value for each word. -`zConsistency-H` -- Standardized Consistency H scores
--   `Score` -- Outcome variable -- for the orthographic post-test, responses were scored as `1` (correct, if the target spelling was produced in full) or `0` (incorrect, if the target spelling was not produced).
-
-The summary will show you that we have a number of other variables available, including measures of individual differences in reading or reading-related abilities or knowledge, but we do not need to pay attention to them, for our exercises.
-
->**Pract.Q.1.** Look at the summaries for the variables `Time`, `Instructions` and  `Orthography`. Assuming that the `read_csv()` action did what was required, you will see how R presents factor summaries by default. What do the variable summaries tell you about the factor level coding, and the number of observations in each level?
+>**Pract.Q.2.** What does the plot show us?
 
 :::{.callout-tip collapse="true"}
 ## Hint
-For a factor like `Orthography`, the column values code for whether the observations in a data row are associated with the condition absent or the condition present.
-
-It is simpler to talk about absent or present as being *levels* of Orthography  condition.
-
-- You can ask R what the levels of a factor are using: `levels(long.orth$Orthography)`
+In analyzing these data, we will seek to estimate what information available to us can be used to predict whether a participant's rating of their understanding is more likely to be, say, `1` or `2`, `2` or `3` ... `7` or `8`, `8` or `9`. 
 :::
 
->**Pract.A.1.** The summary shows:
+>**Pract.A.2.** The plot indicates that most participants chose response options 5-9, while very few rated their understanding at the lowest levels (options 1-4). Interestingly, many ratings responses around 7-8 were recorded: many more than responses at 5-6.
 
-`Time (1, 655; 2, 608); Instructions (explicit, 592; incidental, 671); and Orthography (absent, 631; present, 632).`
+##### Practical Task 5 -- Inspect the data: examine the ordered and categorical nature of the ratings responses
 
->**Pract.Q.2.** Are there any surprises in the summary of factors?
+As explained, when we do analyses using ordinal models, we expect to work with categorical and ordered outcome response values.
+We know that, given the study and task design, that the ratings responses *should be* treated as ordered and categorical data but we need to check that R agrees that the ratings data are ordered and categorical.
+
+>**Pract.Q.3.** How can we tell that R treats values in the outcome `rating` column as ordered and categorical data?
 
 :::{.callout-tip collapse="true"}
 ## Hint
-We would hope to see equal numbers of observations at different levels for a factor.
+Just because the data-set looks to us like values in the outcome `rating` column are ordered and categorical does not mean that R sees the values as we would prefer it to.
+
+- We can try to identify how R classifies values in the `rating` column using the `summary()` function we have been using.
+- We can try a different function: `str()`.
 :::
 
->**Pract.A.2.** It should be surprising that we do not have equal numbers of observations.
+>**Pract.Q.4.** What does a summary of the data-set show us?
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+summary(health)
+```
+:::
+
+>**Pract.A.4.** You should be used to seeing the `summary()` of a data-set, showing summary statistics of numeric variables and counts of the numbers of observations of data coded at different levels for each categorical or nominal variable classed as a factor.
+
+> Here, we can see that R thinks that `rating` is a factor because it gives us a count of the number of observations for each level (category) or rating value.
+
+>**Pract.Q.5.** What does a *structural* summary of the `rating` variable show us?
+
+:::{.callout-tip collapse="true"}
+## Hint
+We can use the `str()` function to get a concise summary of the `rating` variable, showing if or how R classifies the variable values as categorical and ordered.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+str(health$rating)
+```
+:::
+
+>**Pract.A.5.** The `str()` tells us that R sees that the `rating` variable is a factor, and that it sees different ratings as different levels of this factor.
+
+>**Pract.Q.6.** How can we check if R thinks that the `rating` variable values are categorical *and ordered*?
+
+:::{.callout-tip collapse="true"}
+## Hint
+You have seen, previously, that you can check how R classifies the variables like the `rating` variable using `is._()` type functions. 
+
+- You can do the same here using `is.ordered()`.
+
+You can read more about these functions [here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/factor).
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+is.ordered(factor(health$rating))
+```
+:::
+
+>**Pract.Q.7.** If you can work out how to check if R thinks that the `rating` variable values are categorical *and ordered*, what does that check tell us?
+
+>**Pract.A.7.** We can see that the variable is not being treated as an ordered factor: the return to the `is.ordered()` is: `[1] FALSE`. This tells us that the `rating` variable is currently classified by R as a factor but *is not* currently classified as an *ordered* factor.
+
+##### Practical Task 6 -- Require R to treat values of the `rating` variable as categorical and ordered
+
+The ordinal model estimates the locations (thresholds) for where to split the latent scale (the continuum underlying the ratings) corresponding to different ratings values.
+If we do not make sure that the outcome factor variable is split as it should be then there is no guarantee that `{ordinal}` functions will estimate the thresholds in the right order (i.e., `1,2,3 ...` rather than `3,2,1...`).
+
+:::{.callout-tip collapse="true"}
+## Hint
+We can make sure that the confidence rating factor is ordered precisely as we wish using the `ordered()` function.
+:::
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+health$rating <- ordered(health$rating,
+      levels = c("1", "2", "3", "4", "5", "6", "7", "8", "9"))
+
+```
+:::
+
+>**Pract.Q.8.** How can we check if R thinks that the `rating` variable values are categorical *and ordered*?
+
+:::{.callout-tip collapse="true"}
+## Hint
+You have seen how to do this: we need to do checks using a combination of `is._()` function calls.
+:::
+
+We can do a check to see that `rating` is treated as an ordered factor.
+
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+is.numeric(health$rating)
+is.factor(health$rating)
+str(health$rating)
+is.ordered(health$rating)
+```
+:::
+
+>**Pract.Q.9.** If you can work out how to check if R thinks that the `rating` variable values are categorical *and ordered*, what do the checks tell us?
+
+>**Pract.A.9.** We can see that the variable is now being treated as an ordered factor, if we have completed the `ordered()` step correctly.
+
+> `is.factor(health$rating)` tells us if R treats `rating` as a factor.
+
+> `is.ordered(health$rating)` tells us if R treats `rating` as an *ordered* factor.
+
+> `str(health$rating)` should tell us that R thinks that `rating` is `Ord.factor w/ 9 levels "1"<"2"<"3"<"4"<..` i.e. an ordered factor with 9 levels.
+
+
+
+
+
+
 
 ##### Practical Task 4 -- Fit a Generalized Linear Model
 
