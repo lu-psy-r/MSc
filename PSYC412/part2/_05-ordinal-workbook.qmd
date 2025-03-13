@@ -8,40 +8,98 @@ csl: psychological-bulletin.csl
 
 # Week 20  Introduction to Ordinal (Mixed-effects) Models {#sec-ordinal-workbook-intro}
 
-Welcome to your overview of the work we will do together in **Week 19**.
+```{r libraries-hide}
+#| warning: false
+#| echo: false
+library(ggdist)
+library(ggeffects)
+library(here)
+library(lme4)
+library(memisc)
+library(ordinal)
+library(patchwork)
+library(tidyverse)
+library(viridis)
+```
 
-We extend our understanding and skills by moving to examine data where the outcome variable is *categorical*: this is a context that requires the use of **Generalized Linear Mixed-effects Models (GLMMs)**.
+```{r}
+#| label: readin
+#| message: false
+#| echo: false
+# -- Health comprehension (2021-22 student project data):
+health <- read_csv("2021-22_PSYC304-health-comprehension.csv", 
+                                 na = "-999",
+                                 col_types = cols(
+                                   ResponseId = col_factor(),
+                                   rating = col_factor(),
+                                   GENDER = col_factor(),
+                                   EDUCATION = col_factor(),
+                                   ETHNICITY = col_factor(),
+                                   NATIVE.LANGUAGE = col_factor(),
+                                   OTHER.LANGUAGE = col_factor(),
+                                   text.id = col_factor(),
+                                   text.question.id = col_factor(),
+                                   study = col_factor()
+                                 )
+                               )
+
+health.subjects <- health %>% 
+  group_by(ResponseId) %>%
+  mutate(mean.self = mean(as.numeric(rating))) %>%
+  ungroup() %>%
+  distinct(ResponseId, .keep_all = TRUE) %>%
+  select(-c(rating:text.question.id))
+```
+
+Welcome to your overview of the work we will do together in **Week 20**.
+
+We extend our understanding and skills by moving to examine data where the outcome variable is *categorical and ordered*: this is a context that requires the use of a class of Generalized Linear (Mixed-effects) Models (GLMMs) usually known as **ordinal models**.
+
+Ordinal data are very common in psychological science.
+
+Often, we will encounter ordinal data recorded as responses to Likert-style items in which the participant is asked to indicate a response on an ordered scale ranging between two end points [@bürkner2019; @liddell2018]. An example of a Likert item is: *How well do you think you have understood this text? (Please check one response)* where the participant must respond by producing a rating, by checking one option, given nine different response options ranging from 1 (not well at all) to 5 (very well).
+
+The critical characteristics of ordinal data values (like the responses recorded to ratings scale, Likert-style, items) are that:
+
+-   The responses are discrete or categorical --- you must pick one (e.g., `1`), you cannot pick more than one at the same time (e.g., `1` and `2`), and you cannot have part or fractional values (e.g., you can't choose the rating `1.5`).
+-   The responses are ordered --- ranging from some minimum value up to some maximum value (e.g., `1` $\rightarrow$ `2` $\rightarrow$ `3` $\rightarrow$ `4` $\rightarrow$ `5`).
+
+Ordinal data can come from a variety of possible psychological mechanisms or processes.
+We are going to focus on data comprising responses recorded to ratings scale Likert-style items.
+But ordinal data can also reflect processes in which participants have worked their way through a progression or sequence of decisions [see, e.g., @ricketts2021].
 
 ::: callout-important
-Categorical outcomes cannot be analyzed using linear models, in whatever form, without having to make some important compromises.
+Observed ordinal outcome values, responses like ratings, look like numbers but it is best to understand these ordinal data values as numeric labels for ordered categorizations.
+
+- What the different categories correspond to --- what dimension, or what data generating processing mechanism --- depends on your psychological theory for the processes that drive response production for the task you constructed to collect or observe your data.
 :::
 
-You need to do something about the categorical nature of the outcome.
+The challenge we face is that we will aim to develop skills in using *ordinal models* when, in contrast, most psychological research articles will report analyses of ordinal data using conventional methods like ANOVA or linear regression. We will work to understand why ordinal models are better. We will learn that applying conventional methods to ordinal data will, in principle, involve a poor account of the data and, in practice, will create the risk of producing misleading results. And we will learn how to work with and interpret the results from ordinal models with or without random effects.
+
+In our work, we will rely extensively on the ideas set out by @bürkner2019 and @liddell2018.
 
 ## Targets {#sec-ordinal-workbook-targets}
 
-Here, we look at **Generalized Linear Mixed-effects Models (GLMMs)**: we can use these models to analyze outcome variables of different kinds, including outcome variables like response accuracy that are coded using discrete categories (e.g. correct vs. incorrect). 
+Here, we look at **ordinal models**: we can use these models to analyze outcome variables of different kinds, including outcome variables like ratings responses that are coded using discrete *and ordered* categories (e.g., how well you think you have understood something, on a scale from `1` to `9`). 
 
-In this workbook, and in [our conceptual introduction](../part2/04-glmm.qmd#sec-glmm-intro), our aims are to:
+In this workbook, and in [our conceptual introduction](../part2/05-ordinal.qmd#sec-ordinal-intro), our aims are to:
 
-1.  Recognize the [limitations of alternative (traditional) methods for analyzing such outcomes](../part2/04-glmm.qmd#sec-tradition-limitations).
-2.  Understand the [practical reasons for using GLMMs when we analyze discrete outcome variables](../part2/04-glmm.qmd#sec-glmm-practical-understanding).
-3.  Practice running GLMMs with varying random effects structures.
-4.  Practice reporting the results of GLMMs, including through the use of model plots.
+1.  Understand through practical experience the reasons for using ordinal models when we analyze ordinal outcome variables.
+2.  Practice running ordinal models with varying random effects structures.
+3.  Practice reporting the results of ordinal models, including through the use of prediction plots.
 
 ## Learning resources {#sec-ordinal-workbook-resources}
 
-You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop. Then you will see information about the practical materials you can use to build and practise your skills.
-
-Every week, you will learn best if you *first* watch the lectures *then* do the practical exercises.
+Here, we will present information about the practical materials you can use to build and practice your skills.
 
 ::: callout-tip
 ### Linked resources
 1. We learned about multilevel structured data in the [conceptual introduction to multilevel data](../part2/01-multilevel.qmd#sec-intro-multilevel) and the [workbook introduction to multilevel data](../part2/01-multilevel-workbook.qmd#sec-multilevel-workbook-overview).
 2. We then deepened our understanding by looking at the analysis of data from studies with **repeated-measures designs** in the [conceptual introduction to linear mixed-effects models](../part2/02-mixed.qmd#sec-intro-mixed) and the [workbook introduction to mixed-effects models](../part2/02-mixed-workbook.qmd#sec-mixed-effects-workbook-overview).
-3. We further extended our understanding and practice skills in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed) and the [corresponding workbook](../part2/03-mixed-workbook.qmd#sec-dev-mixed-workbook-overview).
+3. We extended our understanding and practice skills in the [chapter on developing linear mixed-effects models](../part2/03-mixed.qmd#sec-dev-mixed) and the [corresponding workbook](../part2/03-mixed-workbook.qmd#sec-dev-mixed-workbook-overview).
+4. We further extended our understanding and practice skills in the [conceptual introduction to Generalized Linear Mixed-effects Models (GLMMs)](../part2/04-glmm.qmd#sec-glmm-intro) and the [workbook introduction to GLMMs](../part2/04-glmm-workbook.qmd#sec-glmm-workbook-overview).
 
-This workbook introduction on **Generalized Linear Mixed-effects Models (GLMMs)** is linked to the corresponding [chapter](../part2/04-glmm.qmd#sec-glmm-intro) where the explanation of ideas or of practical analysis steps is set out more extensively or in more depth.
+This workbook introduction on **ordinal models** is linked to the corresponding [conceptual introduction chapter](../part2/05-ordinal.qmd#sec-ordinal-intro) where the explanation of ideas or of practical analysis steps is set out more extensively or in more depth.
 :::
 
 ### Lectures {#sec-ordinal-workbook-lectures}
