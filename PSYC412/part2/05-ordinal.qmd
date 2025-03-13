@@ -1,7 +1,7 @@
 ---
 title: Week 20. Conceptual introduction to Ordinal (Mixed-effects) Models
 subtitle: Written by Rob Davies
-order: 15
+order: 16
 bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
