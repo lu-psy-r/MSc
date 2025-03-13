@@ -6,7 +6,7 @@ bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
 
-# Week 19 Introduction to Generalized Linear Mixed-effects Models {#sec-glmm-workbook-overview}
+# Week 20  Introduction to Ordinal (Mixed-effects) Models {#sec-ordinal-workbook-intro}
 
 Welcome to your overview of the work we will do together in **Week 19**.
 
@@ -18,7 +18,7 @@ Categorical outcomes cannot be analyzed using linear models, in whatever form, w
 
 You need to do something about the categorical nature of the outcome.
 
-## Targets {#sec-glmm-workbook-targets}
+## Targets {#sec-ordinal-workbook-targets}
 
 Here, we look at **Generalized Linear Mixed-effects Models (GLMMs)**: we can use these models to analyze outcome variables of different kinds, including outcome variables like response accuracy that are coded using discrete categories (e.g. correct vs. incorrect). 
 
@@ -29,7 +29,7 @@ In this workbook, and in [our conceptual introduction](../part2/04-glmm.qmd#sec-
 3.  Practice running GLMMs with varying random effects structures.
 4.  Practice reporting the results of GLMMs, including through the use of model plots.
 
-## Learning resources {#sec-glmm-workbook-resources}
+## Learning resources {#sec-ordinal-workbook-resources}
 
 You will see, next, the lectures we share to explain the concepts you will learn about, and the practical data analysis skills you will develop. Then you will see information about the practical materials you can use to build and practise your skills.
 
@@ -44,7 +44,7 @@ Every week, you will learn best if you *first* watch the lectures *then* do the 
 This workbook introduction on **Generalized Linear Mixed-effects Models (GLMMs)** is linked to the corresponding [chapter](../part2/04-glmm.qmd#sec-glmm-intro) where the explanation of ideas or of practical analysis steps is set out more extensively or in more depth.
 :::
 
-### Lectures {#sec-glmm-workbook-lectures}
+### Lectures {#sec-ordinal-workbook-lectures}
 
 The lecture materials for this week are presented in three short parts.
 
@@ -68,7 +68,7 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=078770df-47d0-4a25-9fdd-acec0135f5ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="04-glmm-3-of-3" ></iframe>
 ```
 
-### Lecture slides {#sec-glmm-workbook-slides}
+### Lecture slides {#sec-ordinal-workbook-slides}
 
 ::: callout-tip
 ## Download the lecture slides
@@ -80,7 +80,7 @@ You can download the lecture slides in two different versions:
 The `GLMM.pdf` version is the version delivered for the lecture recordings. To make the slides easier to download, I produced a six-slide-per-page version, `GLMM_6pp.pdf`. This should be easier to download and print out if that is what you want to do.
 :::
 
-### Practical materials: data and R-Studio {#sec-glmm-workbook-practical}
+### Practical materials: data and R-Studio {#sec-ordinal-workbook-practical}
 
 We will be working with data collected for a study investigating word learning in children, reported by @ricketts2021. You will see that the study design has both a repeated measures aspect because each child is asked to respond to multiple stimuli, and a longitudinal aspect because responses are recorded at two time points. Because responses were observed to multiple stimuli for each child, and because responses were recorded at multiple time points, the data have a multilevel structure. These features require the use of mixed-effects models for analysis.
 
@@ -126,7 +126,7 @@ The data come from the @ricketts2021 study, and you can access the analysis code
 You can access the sign-in page for [R-Studio Server here](https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F)
 :::
 
-#### Practical materials guide {#sec-glmm-workbook-practical-guide}
+#### Practical materials guide {#sec-ordinal-workbook-practical-guide}
 
 The aims of the practical work are to:
 
@@ -142,7 +142,7 @@ My recommendations for learning are that you should aim to:
 - play with the `.R` code used to create examples for the lecture;
 - and edit example code to create alternate visualizations.
 
-#### The practical exercises {#sec-glmm-workbook-practical-workbook}
+#### The practical exercises {#sec-ordinal-workbook-practical-workbook}
 
 Now you will progress through a series of tasks, and challenges, to aid your learning.
 
