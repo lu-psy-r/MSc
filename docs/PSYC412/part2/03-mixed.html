@@ -2317,9 +2317,9 @@ LgSUBTLCD -0.517</code></pre>
 Models:
 ML.all.correct.lmer.REML.i: logrt ~ LgSUBTLCD + (1 | item_name)
 ML.all.correct.lmer.REML.si: logrt ~ LgSUBTLCD + (1 | subjectID) + (1 | item_name)
-                            npar     AIC     BIC logLik deviance  Chisq Df
-ML.all.correct.lmer.REML.i     4 -8329.0 -8302.7 4168.5  -8337.0          
-ML.all.correct.lmer.REML.si    5 -9835.1 -9802.3 4922.6  -9845.1 1508.1  1
+                            npar     AIC     BIC logLik -2*log(L)  Chisq Df
+ML.all.correct.lmer.REML.i     4 -8329.0 -8302.7 4168.5   -8337.0          
+ML.all.correct.lmer.REML.si    5 -9835.1 -9802.3 4922.6   -9845.1 1508.1  1
                             Pr(&gt;Chisq)    
 ML.all.correct.lmer.REML.i                
 ML.all.correct.lmer.REML.si  &lt; 2.2e-16 ***
@@ -2350,9 +2350,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 Models:
 ML.all.correct.lmer.REML.s: logrt ~ LgSUBTLCD + (1 | subjectID)
 ML.all.correct.lmer.REML.si: logrt ~ LgSUBTLCD + (1 | subjectID) + (1 | item_name)
-                            npar     AIC     BIC logLik deviance  Chisq Df
-ML.all.correct.lmer.REML.s     4 -9778.3 -9752.0 4893.2  -9786.3          
-ML.all.correct.lmer.REML.si    5 -9835.1 -9802.3 4922.6  -9845.1 58.825  1
+                            npar     AIC     BIC logLik -2*log(L)  Chisq Df
+ML.all.correct.lmer.REML.s     4 -9778.3 -9752.0 4893.2   -9786.3          
+ML.all.correct.lmer.REML.si    5 -9835.1 -9802.3 4922.6   -9845.1 58.825  1
                             Pr(&gt;Chisq)    
 ML.all.correct.lmer.REML.s                
 ML.all.correct.lmer.REML.si  1.723e-14 ***
@@ -2444,9 +2444,9 @@ Warning
 Models:
 ML.all.correct.lmer.REML.si: logrt ~ LgSUBTLCD + (1 | subjectID) + (1 | item_name)
 ML.all.correct.lmer.REML.slopes: logrt ~ LgSUBTLCD + (LgSUBTLCD + 1 | subjectID) + (1 | item_name)
-                                npar     AIC     BIC logLik deviance  Chisq Df
-ML.all.correct.lmer.REML.si        5 -9835.1 -9802.3 4922.6  -9845.1          
-ML.all.correct.lmer.REML.slopes    7 -9854.1 -9808.1 4934.0  -9868.1 22.934  2
+                                npar     AIC     BIC logLik -2*log(L)  Chisq Df
+ML.all.correct.lmer.REML.si        5 -9835.1 -9802.3 4922.6   -9845.1          
+ML.all.correct.lmer.REML.slopes    7 -9854.1 -9808.1 4934.0   -9868.1 22.934  2
                                 Pr(&gt;Chisq)    
 ML.all.correct.lmer.REML.si                   
 ML.all.correct.lmer.REML.slopes  1.047e-05 ***
@@ -2496,8 +2496,8 @@ Number of obs: 5257, groups:  item_name, 160; subjectID, 34
 
 Fixed effects:
              Estimate Std. Error        df t value Pr(&gt;|t|)    
-(Intercept)  2.887997   0.015479 47.782839 186.577  &lt; 2e-16 ***
-LgSUBTLCD   -0.034471   0.003693 60.338787  -9.333 2.59e-13 ***
+(Intercept)  2.887997   0.015479 47.782840 186.577  &lt; 2e-16 ***
+LgSUBTLCD   -0.034471   0.003693 60.338785  -9.333 2.59e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 

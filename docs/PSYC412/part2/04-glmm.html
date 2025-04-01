@@ -783,10 +783,6 @@ Important
 Call:
 glm(formula = Score ~ Orthography, family = "binomial", data = long.orth)
 
-Deviance Residuals: 
-    Min       1Q   Median       3Q      Max  
--0.8510  -0.8510  -0.6763   1.5436   1.7818  
-
 Coefficients:
                    Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept)        -1.35879    0.09871 -13.765  &lt; 2e-16 ***
@@ -1146,8 +1142,8 @@ Formula: Score ~ Time + Orthography + Instructions + zConsistency_H +
    Data: long.orth
 Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-  1040.4   1086.7   -511.2   1022.4     1254 
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1040.4    1086.7    -511.2    1022.4      1254 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
@@ -1161,11 +1157,11 @@ Number of obs: 1263, groups:  Participant, 41; Word, 16
 
 Fixed effects:
                              Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                 -1.878462   0.443957  -4.231 2.32e-05 ***
+(Intercept)                 -1.878464   0.443942  -4.231 2.32e-05 ***
 Time2                        0.050136   0.083325   0.602    0.547    
 Orthography2                 0.455009   0.086813   5.241 1.59e-07 ***
-Instructions1                0.042289   0.230336   0.184    0.854    
-zConsistency_H              -0.618093   0.384005  -1.610    0.107    
+Instructions1                0.042290   0.230335   0.184    0.854    
+zConsistency_H              -0.618092   0.384002  -1.610    0.107    
 Orthography2:Instructions1   0.005786   0.083187   0.070    0.945    
 Orthography2:zConsistency_H  0.014611   0.083105   0.176    0.860    
 ---
@@ -1377,8 +1373,8 @@ Formula: Score ~ Time + Orthography + Instructions + zConsistency_H +
    Data: long.orth
 Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-  1053.6   1192.4   -499.8    999.6     1236 
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1053.6    1192.4    -499.8     999.6      1236 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
@@ -1386,11 +1382,11 @@ Scaled residuals:
 
 Random effects:
  Groups      Name           Variance Std.Dev. Corr             
- Participant (Intercept)    2.043126 1.42938                   
+ Participant (Intercept)    2.043127 1.42938                   
              Time2          0.005675 0.07533   0.62            
              Orthography2   0.079980 0.28281   0.78 -0.01      
              zConsistency_H 0.065576 0.25608   0.49  0.99 -0.16
- Word        (Intercept)    2.793447 1.67136                   
+ Word        (Intercept)    2.793448 1.67136                   
              Time2          0.046736 0.21618   0.14            
              Orthography2   0.093740 0.30617  -0.68 -0.81      
              Instructions1  0.212706 0.46120  -0.74 -0.05  0.38
@@ -1398,12 +1394,12 @@ Number of obs: 1263, groups:  Participant, 41; Word, 16
 
 Fixed effects:
                             Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                 -2.10099    0.49588  -4.237 2.27e-05 ***
-Time2                        0.02077    0.12285   0.169 0.865741    
+(Intercept)                 -2.10099    0.49589  -4.237 2.27e-05 ***
+Time2                        0.02077    0.12285   0.169 0.865740    
 Orthography2                 0.52480    0.15496   3.387 0.000708 ***
-Instructions1                0.24467    0.27281   0.897 0.369801    
-zConsistency_H              -0.67818    0.36310  -1.868 0.061802 .  
-Orthography2:Instructions1  -0.05133    0.10004  -0.513 0.607908    
+Instructions1                0.24467    0.27281   0.897 0.369805    
+zConsistency_H              -0.67818    0.36311  -1.868 0.061803 .  
+Orthography2:Instructions1  -0.05133    0.10004  -0.513 0.607907    
 Orthography2:zConsistency_H  0.05850    0.11634   0.503 0.615064    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -1496,8 +1492,8 @@ Formula: Score ~ Time + Orthography + Instructions + zConsistency_H +
    Data: long.orth
 Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-  1041.0   1097.6   -509.5   1019.0     1252 
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1041.0    1097.6    -509.5    1019.0      1252 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
@@ -1513,13 +1509,13 @@ Number of obs: 1263, groups:  Participant, 41; Word, 16
 
 Fixed effects:
                               Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                 -1.9025041  0.4512478  -4.216 2.49e-05 ***
+(Intercept)                 -1.9025027  0.4512443  -4.216 2.49e-05 ***
 Time2                        0.0501974  0.0837186   0.600 0.548775    
-Orthography2                 0.4135728  0.1120791   3.690 0.000224 ***
-Instructions1                0.0455925  0.2234620   0.204 0.838332    
-zConsistency_H              -0.6254405  0.3958997  -1.580 0.114154    
-Orthography2:Instructions1   0.0019345  0.1038694   0.019 0.985141    
-Orthography2:zConsistency_H -0.0007113  0.0877740  -0.008 0.993534    
+Orthography2                 0.4135727  0.1120792   3.690 0.000224 ***
+Instructions1                0.0455920  0.2234615   0.204 0.838333    
+zConsistency_H              -0.6254414  0.3958971  -1.580 0.114151    
+Orthography2:Instructions1   0.0019343  0.1038694   0.019 0.985142    
+Orthography2:zConsistency_H -0.0007112  0.0877740  -0.008 0.993535    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1573,8 +1569,8 @@ Formula: Score ~ Time + Orthography + Instructions + zConsistency_H +
    Data: long.orth
 Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-  1036.5   1098.2   -506.2   1012.5     1251 
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1036.5    1098.2    -506.2    1012.5      1251 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
@@ -1585,19 +1581,19 @@ Random effects:
  Participant   (Intercept)         1.64393  1.2822  
  Participant.1 dummy(Orthography)  0.55604  0.7457  
  Word          (Intercept)         1.94313  1.3940  
- Word.1        dummy(Orthography)  0.01608  0.1268  
+ Word.1        dummy(Orthography)  0.01607  0.1268  
  Word.2        dummy(Instructions) 0.86694  0.9311  
 Number of obs: 1263, groups:  Participant, 41; Word, 16
 
 Fixed effects:
                               Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                 -1.9621258  0.4400570  -4.459 8.24e-06 ***
-Time2                        0.0507347  0.0843236   0.602  0.54740    
-Orthography2                 0.4263703  0.1114243   3.827  0.00013 ***
-Instructions1                0.1907424  0.2632579   0.725  0.46873    
-zConsistency_H              -0.6270892  0.3669873  -1.709  0.08750 .  
-Orthography2:Instructions1  -0.0265727  0.1048392  -0.253  0.79991    
-Orthography2:zConsistency_H -0.0006303  0.0878824  -0.007  0.99428    
+(Intercept)                 -1.9621261  0.4400649  -4.459 8.25e-06 ***
+Time2                        0.0507347  0.0843237   0.602  0.54740    
+Orthography2                 0.4263703  0.1114244   3.827  0.00013 ***
+Instructions1                0.1907423  0.2632605   0.725  0.46874    
+zConsistency_H              -0.6270900  0.3669904  -1.709  0.08750 .  
+Orthography2:Instructions1  -0.0265729  0.1048392  -0.253  0.79991    
+Orthography2:zConsistency_H -0.0006305  0.0878823  -0.007  0.99428    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1667,8 +1663,8 @@ Formula: Score ~ Time + Orthography + Instructions + zConsistency_H +
    Data: long.orth
 Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-  1038.5   1105.3   -506.2   1012.5     1250 
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1038.5    1105.3    -506.2    1012.5      1250 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
@@ -1678,7 +1674,7 @@ Random effects:
  Groups        Name                Variance  Std.Dev. 
  Participant   (Intercept)         1.644e+00 1.282e+00
  Participant.1 dummy(Orthography)  5.560e-01 7.456e-01
- Participant.2 zConsistency_H      1.259e-10 1.122e-05
+ Participant.2 zConsistency_H      2.090e-10 1.446e-05
  Word          (Intercept)         1.943e+00 1.394e+00
  Word.1        dummy(Orthography)  1.604e-02 1.266e-01
  Word.2        dummy(Instructions) 8.669e-01 9.311e-01
@@ -1686,13 +1682,13 @@ Number of obs: 1263, groups:  Participant, 41; Word, 16
 
 Fixed effects:
                               Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                 -1.9621298  0.4400610  -4.459 8.24e-06 ***
-Time2                        0.0507346  0.0843237   0.602  0.54740    
-Orthography2                 0.4263731  0.1114190   3.827  0.00013 ***
-Instructions1                0.1907320  0.2632610   0.724  0.46876    
-zConsistency_H              -0.6270931  0.3669852  -1.709  0.08749 .  
-Orthography2:Instructions1  -0.0265706  0.1048369  -0.253  0.79992    
-Orthography2:zConsistency_H -0.0006353  0.0878784  -0.007  0.99423    
+(Intercept)                 -1.9621306  0.4400477  -4.459 8.24e-06 ***
+Time2                        0.0507346  0.0843236   0.602  0.54740    
+Orthography2                 0.4263730  0.1114188   3.827  0.00013 ***
+Instructions1                0.1907330  0.2632583   0.725  0.46875    
+zConsistency_H              -0.6270898  0.3669803  -1.709  0.08749 .  
+Orthography2:Instructions1  -0.0265706  0.1048370  -0.253  0.79992    
+Orthography2:zConsistency_H -0.0006352  0.0878782  -0.007  0.99423    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1750,8 +1746,8 @@ Formula: Score ~ Time + Orthography + Instructions + zConsistency_H +
    Data: long.orth
 Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e+05))
 
-     AIC      BIC   logLik deviance df.resid 
-  1040.5   1112.5   -506.2   1012.5     1249 
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1040.5    1112.5    -506.2    1012.5      1249 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
@@ -1759,24 +1755,24 @@ Scaled residuals:
 
 Random effects:
  Groups        Name                Variance  Std.Dev. 
- Participant   (Intercept)         1.644e+00 1.2821915
- Participant.1 dummy(Orthography)  5.560e-01 0.7456312
+ Participant   (Intercept)         1.644e+00 1.2821917
+ Participant.1 dummy(Orthography)  5.560e-01 0.7456314
  Participant.2 dummy(Time)         0.000e+00 0.0000000
  Word          (Intercept)         1.943e+00 1.3939636
- Word.1        dummy(Orthography)  1.604e-02 0.1266478
- Word.2        dummy(Instructions) 8.669e-01 0.9310620
- Word.3        dummy(Time)         2.161e-07 0.0004648
+ Word.1        dummy(Orthography)  1.604e-02 0.1266475
+ Word.2        dummy(Instructions) 8.669e-01 0.9310619
+ Word.3        dummy(Time)         1.992e-08 0.0001411
 Number of obs: 1263, groups:  Participant, 41; Word, 16
 
 Fixed effects:
                               Estimate Std. Error z value Pr(&gt;|z|)    
-(Intercept)                 -1.9621302  0.4400578  -4.459 8.24e-06 ***
-Time2                        0.0507347  0.0843253   0.602  0.54740    
-Orthography2                 0.4263731  0.1114192   3.827  0.00013 ***
-Instructions1                0.1907329  0.2632605   0.725  0.46876    
-zConsistency_H              -0.6270910  0.3669905  -1.709  0.08750 .  
+(Intercept)                 -1.9621304  0.4400607  -4.459 8.24e-06 ***
+Time2                        0.0507347  0.0843238   0.602  0.54740    
+Orthography2                 0.4263730  0.1114191   3.827  0.00013 ***
+Instructions1                0.1907329  0.2632608   0.725  0.46876    
+zConsistency_H              -0.6270910  0.3669875  -1.709  0.08750 .  
 Orthography2:Instructions1  -0.0265706  0.1048370  -0.253  0.79992    
-Orthography2:zConsistency_H -0.0006351  0.0878784  -0.007  0.99423    
+Orthography2:zConsistency_H -0.0006352  0.0878785  -0.007  0.99423    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
@@ -1825,9 +1821,9 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 Models:
 long.orth.min.glmer: Score ~ Time + Orthography + Instructions + zConsistency_H + Orthography:Instructions + Orthography:zConsistency_H + (1 | Participant) + (1 | Word)
 long.orth.2.glmer: Score ~ Time + Orthography + Instructions + zConsistency_H + Orthography:Instructions + Orthography:zConsistency_H + (dummy(Orthography) + 1 || Participant) + (dummy(Orthography) + 1 || Word)
-                    npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)
-long.orth.min.glmer    9 1040.4 1086.7 -511.20   1022.4                     
-long.orth.2.glmer     11 1041.0 1097.6 -509.51   1019.0 3.3909  2     0.1835</code></pre>
+                    npar    AIC    BIC  logLik -2*log(L)  Chisq Df Pr(&gt;Chisq)
+long.orth.min.glmer    9 1040.4 1086.7 -511.20    1022.4                     
+long.orth.2.glmer     11 1041.0 1097.6 -509.51    1019.0 3.3909  2     0.1835</code></pre>
 </div>
 </div>
 <p>Second, we compare the model <code>long.orth.min.glmer</code> (just random intercepts) with <code>long.orth.3.glmer</code> to check if increasing model complexity, by accounting for random differences between participants or words in the slope of the Instructions effect improves model fit to data.</p>
@@ -1838,9 +1834,9 @@ long.orth.2.glmer     11 1041.0 1097.6 -509.51   1019.0 3.3909  2     0.1835</co
 Models:
 long.orth.min.glmer: Score ~ Time + Orthography + Instructions + zConsistency_H + Orthography:Instructions + Orthography:zConsistency_H + (1 | Participant) + (1 | Word)
 long.orth.3.glmer: Score ~ Time + Orthography + Instructions + zConsistency_H + Orthography:Instructions + Orthography:zConsistency_H + (dummy(Orthography) + 1 || Participant) + (dummy(Orthography) + dummy(Instructions) + 1 || Word)
-                    npar    AIC    BIC  logLik deviance  Chisq Df Pr(&gt;Chisq)  
-long.orth.min.glmer    9 1040.4 1086.7 -511.20   1022.4                       
-long.orth.3.glmer     12 1036.5 1098.2 -506.24   1012.5 9.9115  3    0.01933 *
+                    npar    AIC    BIC  logLik -2*log(L)  Chisq Df Pr(&gt;Chisq)  
+long.orth.min.glmer    9 1040.4 1086.7 -511.20    1022.4                       
+long.orth.3.glmer     12 1036.5 1098.2 -506.24    1012.5 9.9115  3    0.01933 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
