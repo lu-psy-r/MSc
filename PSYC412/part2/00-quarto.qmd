@@ -13,6 +13,8 @@ csl: psychological-bulletin.csl
 #| warning: false
 
 # get libraries
+library(apaTables)
+library(apaText)
 library(bayesplot)
 library(brms)
 library(broom.mixed)
