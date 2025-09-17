@@ -69,7 +69,7 @@ Download the lecture slides for
 ### 1.4.1 Workbook
 
 In your group (or on your own until you've formed a group), work through this workbook, note any problems and questions you have, 
-and come prepared to the online practical class to go through the tasks and ask your questions.
+and come prepared to the practical class to go through the tasks and ask your questions.
 
 If you've done statistics using R-studio before then Parts 1 and 2 will be just
 revision for you. In which case, Part 3 is where you can focus your work.
@@ -82,6 +82,9 @@ standard deviations, z scores, and drawing histograms.
 Part 3 provides some more extended tasks you can do to practise exploring what R
 -studio can do and develop your skills further. If you are new to R-studio then parts 1
 and 2 cover what you need to know, and Part 3 contains some more extending, optional exercises.
+
+There are answers provided after each question. It is **really** important that you try to answer the questions yourself first, and then check your answers against ours. If you go straight to the answer you'll be very quick in getting through the workbook but you won't unfortunately learn very much: [Smith, G. (1998). Learning statistics by doing statistics, *Journal of Statistics
+Education, 6:3*.](https://doi.org/10.1080/10691898.1998.11910623){target="_blank"}
 
 
 #### 1.4.1.1 Part One: repeat the steps from lecture 1 part 3
@@ -129,7 +132,7 @@ Text that is highlighted with a grey background denotes code, rather than typica
 ```
 
 ::: callout-tip
-If you hover your mouse over the box that includes the code snippet, a 'copy to clipboard' icon will appear in the top right corner of the box. Click that to copy the code. Now you can easily paste it into your script. 
+If you hover your mouse over the box that includes the code snippet in this webpage, a 'copy to clipboard' icon will appear in the top right corner of the box. Click that to copy the code. Now you can easily paste it into your script. 
 :::
 
 It should give you the answer 40.
@@ -276,11 +279,6 @@ annie_z <- scale(annie)
 
 
 21.	You can have a look at the standardised scores of annie, by just typing `annie_z`. What z score corresponds to annie’s highest initial score of 95?
-
-::: {.callout-tip icon=false collapse="true"}
-## thanks
-thanks to Fan for helping me rephrase this question more clearly :)
-:::
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
