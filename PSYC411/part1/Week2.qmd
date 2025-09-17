@@ -4,4 +4,4 @@ subtitle: Written by Padraic Monaghan
 order: 3
 ---
 
-Material for week 2 will be released after week 1 practical.
+Material for week 2 will be released after week 1 practical. 
