@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -334,6 +334,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/04-glmm-workbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 19. Workbook introduction to Generalized Linear Mixed-effects Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/04-glmm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 19. Conceptual introduction to Generalized Linear Mixed-effects Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/05-ordinal-workbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 20. Workbook introduction to Ordinal (Mixed-effects) Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/05-ordinal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 20. Conceptual introduction to Ordinal (Mixed-effects) Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../PSYC412/part2/report-preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 00. The structured research report – Requirements</span></a>
   </div>
@@ -423,11 +447,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lectures" class="level3">
 <h3 class="anchored" data-anchor-id="lectures">2.3.1 Lectures</h3>
 <p>Watch Lecture week2 part1.</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c7713b87-a9c3-4301-81ea-adad00bb5872&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w2_p1"></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c7713b87-a9c3-4301-81ea-adad00bb5872&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w2_p1"></iframe>
 <p>Watch Lecture week2 part2</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8354694a-0c7b-4caf-9fc9-ac3e00d8a2ca&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w2_p2"></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8354694a-0c7b-4caf-9fc9-ac3e00d8a2ca&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w2_p2"></iframe>
 <p>Watch Lecture week2 part3</p>
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec6c6ac3-833e-4d83-b0cb-b09100dd75db&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w2 p3"></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec6c6ac3-833e-4d83-b0cb-b09100dd75db&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w2 p3"></iframe>
 <p>Take <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049" target="_blank">the quiz</a> on the lecture material (not assessed).</p>
 </section>
 <section id="slides" class="level3">
@@ -613,27 +637,18 @@ Answer
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyr' was built under R version 4.1.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'purrr' was built under R version 4.1.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'stringr' was built under R version 4.1.1</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 81 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
@@ -644,8 +659,8 @@ dbl (7): subject_ID, Age, Gender_code, Shipley_Voc_Score, Gent_1_score, Gent...
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>summarydat <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Gent_1_score)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(summarydat<span class="sc">$</span>Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>summarydat <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Gent_1_score)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(summarydat<span class="sc">$</span>Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -698,16 +713,16 @@ Answers to 19-21
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>iknow <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">126</span>, <span class="dv">76</span>, <span class="dv">98</span>, <span class="dv">124</span>, <span class="dv">91</span>, <span class="dv">88</span>, <span class="dv">99</span>, <span class="dv">115</span>, <span class="dv">80</span>, <span class="dv">113</span>, <span class="dv">90</span>, <span class="dv">92</span>, <span class="dv">97</span>, <span class="dv">134</span>, <span class="dv">110</span>, <span class="dv">92</span>, <span class="dv">92</span>, <span class="dv">87</span>, <span class="dv">135</span>, <span class="dv">115</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iknow); <span class="fu">sd</span>(iknow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>iknow <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">126</span>, <span class="dv">76</span>, <span class="dv">98</span>, <span class="dv">124</span>, <span class="dv">91</span>, <span class="dv">88</span>, <span class="dv">99</span>, <span class="dv">115</span>, <span class="dv">80</span>, <span class="dv">113</span>, <span class="dv">90</span>, <span class="dv">92</span>, <span class="dv">97</span>, <span class="dv">134</span>, <span class="dv">110</span>, <span class="dv">92</span>, <span class="dv">92</span>, <span class="dv">87</span>, <span class="dv">135</span>, <span class="dv">115</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iknow); <span class="fu">sd</span>(iknow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 102.7</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 17.59515</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iknow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(iknow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -735,12 +750,12 @@ Answers to 19-21
 <p>The first file is data from participants’ self-ratings of happiness and depression.</p>
 <p>The second contains demographic information about the participants. Type this in your R script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"ahicesd.csv"</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"participantinfo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"ahicesd.csv"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"participantinfo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>run this command (type Ctrl-Enter), then type</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"participantinfo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"participantinfo.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and run that.</p>
 <p>This has made two new objects – one called “dat” which contains the experimental data, and one called “pinfo” which contains the demographic information.</p>
@@ -751,7 +766,7 @@ Answers to 19-21
 <li>Let’s have a look at the data now.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Run this command, and you should see the data appear above the console window. Have a good long hard look at it.</p>
 <ol start="25" type="1">
@@ -779,10 +794,10 @@ Answer
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/ahicesd.csv"</span>)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/participantinfo.csv"</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(pinfo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/ahicesd.csv"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/wk2/participantinfo.csv"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(pinfo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -792,7 +807,7 @@ Answer
 <li><p>Now, we are going to join together the two files. Type this:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'id'</span>, <span class="st">'intervention'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dat, <span class="at">y =</span> pinfo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'id'</span>, <span class="st">'intervention'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Question: what does the c(“id”, “intervention”) bit mean?</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -828,7 +843,7 @@ Answer
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data_full <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> data1, <span class="at">y =</span> data2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"participantname"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data_full <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> data1, <span class="at">y =</span> data2, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"participantname"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -837,7 +852,7 @@ Answer
 <li>Now we just want to keep a few of the variables – we’re not interested in the individual questionnaire items. So, let’s select the variables we want to keep:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Where “all_dat” is the name of the object to take data from, and “ahiTotal, cesdTotal, sex, age, educ, income, occasion, intervention” are all the variables we want to keep.</p>
 <ol start="31" type="1">
@@ -856,7 +871,7 @@ Answer
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(summarydata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(summarydata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -880,7 +895,7 @@ Answer
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(summarydata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(summarydata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -889,7 +904,7 @@ Answer
 <li>Now, let’s look at how the AHI and the CESD scores relate. To gain an impression of how two variables relate we can draw a scatter graph.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata<span class="sc">$</span>ahiTotal, summarydata<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata<span class="sc">$</span>ahiTotal, summarydata<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What does the “$” do in this command? What relationship do you find between these two variables?</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -940,7 +955,7 @@ Hint
 <div class="callout-body-container callout-body">
 <p>The important help information is: “To join by different variables on x and y, use a named vector. For example, by = c(”a” = “b”) will match x$a to y$b.”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data_full <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dataone, <span class="at">y =</span> datatwo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"participant"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data_full <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(<span class="at">x =</span> dataone, <span class="at">y =</span> datatwo, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span> <span class="ot">=</span> <span class="st">"participant"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -949,7 +964,7 @@ Hint
 <li>In the data set from Woodworth et al., we might want to just look at the pretests. We can use a function called <code>filter</code> to pull out just some of the rows.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>summarydata_occasion0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>summarydata_occasion0 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This pulls out just the first occasion of testing (the pretest).</p>
 <p>How would you pull out the second occasion of testing?</p>
@@ -966,7 +981,7 @@ Answer
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -987,7 +1002,7 @@ Answer
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(summarydata, intervention <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(summarydata, intervention <span class="sc">==</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1009,7 +1024,7 @@ Answer
 <div class="callout-body-container callout-body">
 <p>still the same</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata_occasion0<span class="sc">$</span>ahiTotal, summarydata_occasion0<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata_occasion0<span class="sc">$</span>ahiTotal, summarydata_occasion0<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1031,13 +1046,13 @@ Answer
 <div class="callout-body-container callout-body">
 <p>can do this in two ways:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>summarydata_occasion0_intervention1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> intervention <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata_occasion0_intervention1<span class="sc">$</span>ahiTotal, summarydata_occasion0_intervention1<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>summarydata_occasion0_intervention1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, occasion <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> intervention <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata_occasion0_intervention1<span class="sc">$</span>ahiTotal, summarydata_occasion0_intervention1<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>or</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>summarydata_occasion0_intervention1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata_occasion0, intervention <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata_occasion0<span class="sc">$</span>ahiTotal, summarydata_occasion0<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>summarydata_occasion0_intervention1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata_occasion0, intervention <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(summarydata_occasion0<span class="sc">$</span>ahiTotal, summarydata_occasion0<span class="sc">$</span>cesdTotal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The relationship is still similar.</p>
 </div>
@@ -1055,7 +1070,7 @@ Answer
 <li><p>The aim here is to convert the data so that each Gent vocabulary score is on a separate line, we use the <code>pivot_longer</code> function for this. First we specify what the new object should be (datlong), then we say where the old data is (dat), then we make a new variable to keep the names of the tests (names_to = “test”), then we make a new variable to keep the scores from the tests (values_to = “vocab”), then we specify the list of old variables to combine into the new scores variable (c(“Gent_1_score”, “Gent_2_score”) ) – remember lists are written as c(). So, run this command:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>datlong <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"vocab"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>datlong <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(dat, <span class="at">names_to =</span> <span class="st">"test"</span>, <span class="at">values_to =</span> <span class="st">"vocab"</span>, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Gent_1_score"</span>, <span class="st">"Gent_2_score"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="44" type="1">
 <li>Have a look at the new object datlong that results: <code>View(datlong)</code>. This function <code>pivot_longer</code> has taken as input the data in dat, it has created a new variable called “test” which reports whether it is the Gent_1_score or the Gent_2_score that is the measurement, and a new variable called “vocab” where the actual scores are listed. Then, the following list of variables let’s the function <code>pivot_longer</code> know which variables from the object dat we are converting (or lengthening). It also includes all the other variables, but unconverted. How many rows of data are there now corresponding to data from subject_ID number 1?</li>
@@ -1080,7 +1095,7 @@ Answer
 <li>Let’s tidy things up so we only have subject_ID, and the Gent vocabulary scores by using select:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>datlongsummary <span class="ot">&lt;-</span> <span class="fu">select</span>(datlong, subject_ID, test, vocab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>datlongsummary <span class="ot">&lt;-</span> <span class="fu">select</span>(datlong, subject_ID, test, vocab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="task-seven-long-to-wide-format-conversion" class="level5">
@@ -1089,7 +1104,7 @@ Answer
 <li>Now, we will have a go at converting from long to wide format. Let’s start with the datlongsummary object. We will convert this so that Gent_1_score and Gent_2_score are listed alongside each other – one row per person. The command for this is the reverse of <code>pivot_longer</code>, called <code>pivot_wider.</code> Run this command:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>datwide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(datlongsummary, <span class="at">names_from =</span> <span class="st">"test"</span>, <span class="at">values_from =</span> <span class="st">"vocab"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>datwide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(datlongsummary, <span class="at">names_from =</span> <span class="st">"test"</span>, <span class="at">values_from =</span> <span class="st">"vocab"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This command takes the data from datlongsummary and puts the different measures reported in the variable test into different columns again, filling in the values from the variable vocab.</p>
 </section>
@@ -1116,15 +1131,15 @@ There are two things to be aware of with data.
 <ul>
 <li><p>First, real life data, just like real life, is usually not complete – it contains missing values. The usual way to indicate missing values is “NA” in R. But if the data set contains missing values indicated in a different way, then you have to specify this when you input the data. So, if missing values are indicated by “999”, you have to do it like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"999"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"999"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>where file.csv is the file you are inputting. If missing values are indicated by “na”, you have to do this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"na"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"na"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>if missing values are “.”, then like this:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>, <span class="at">na.strings=</span><span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 <li><p>The second thing you might need to know is how to input files other than comma separated files. For excel files, you need to do this: <code>library(readxl)</code>, then you can use the command <code>read_excel("file.xls")</code>, this should work for xls and xlsx files. For inputting data that is in text, but not separated by commas, have a look at the help for the <code>read_csv()</code> function: <code>?read_csv</code>. Hint – you’ll be looking to change the <em>sep</em> option for the read_csv command.</p></li>
 </ul>
@@ -1148,7 +1163,7 @@ What happens if I can’t upload a file into the r server?
 <p>Navigate to the actual data file in osf, in this case we go to OSF storage, then Study 1, then data, then the file <em>gender_study1_cleaned_data.csv</em>.</p>
 <p>Click on the file, then on the next screen click on the three dots that are next to the file name, then right-click on Download and copy the link. This is the web address for the data file <a href="https://osf.io/download/zstxk/?view_only=e7257f621e7c4b50b4032efd667d0db1" target="_blank">gender_study1_cleaned_data.csv</a></p>
 <p>Then, paste this into the read_csv command, and load it directly into an object in r studio, i.e.:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://osf.io/download/zstxk/?view_only=e7257f621e7c4b50b4032efd667d0db1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">'https://osf.io/download/zstxk/?view_only=e7257f621e7c4b50b4032efd667d0db1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Importantly, you need to use single quotation marks ’, either side of the web address.</p>
 </div>
 </div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -1517,6 +1517,10 @@ y_{ij} = \gamma_0 + \gamma_1X_{ij} + U_{0j} + U_{1j}X_{ij} + e_{ij}
 <span id="cb25-3"><a href="#cb25-3"></a>                              (portuguese <span class="sc">+</span> <span class="dv">1</span><span class="sc">|</span>class_number),</span>
 <span id="cb25-4"><a href="#cb25-4"></a></span>
 <span id="cb25-5"><a href="#cb25-5"></a>                              <span class="at">data =</span> brazil)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv, :
+Model failed to converge with max|grad| = 0.0391843 (tol = 0.002, component 1)</code></pre>
+</div>
 </div>
 <p>You can see that the <code>lmer()</code> function call is closely similar to the <code>lm()</code> function call, with one critical exception, as I explain next.</p>
 <p>First, we have a chunk of code mostly similar to what we do when we do a regression analysis.</p>
@@ -1535,7 +1539,7 @@ y_{ij} = \gamma_0 + \gamma_1X_{ij} + U_{0j} + U_{1j}X_{ij} + e_{ij}
 </ol>
 <p>If you run the model code as written – see the .R workbook file for an example of the code – and it works then the code will be shown in the console window in R-Studio. To show the model results, you need to get a summary of the model, using the model name.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="sec-exx-multi-lmer" class="level4">
 <h4 class="anchored" data-anchor-id="sec-exx-multi-lmer">Exercise – fitting linear mixed-effects models</h4>
@@ -1555,7 +1559,7 @@ y_{ij} = \gamma_0 + \gamma_1X_{ij} + U_{0j} + U_{1j}X_{ij} + e_{ij}
 <h3 class="anchored" data-anchor-id="sec-multi-lmer-read">Reading the <em>lmer</em> results</h3>
 <p>Now let’s take a look at the results.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(porto.lmer1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear mixed model fit by REML ['lmerMod']
 Formula: english ~ portuguese + (portuguese + 1 | class_number)
@@ -1565,23 +1569,25 @@ REML criterion at convergence: 2104.3
 
 Scaled residuals: 
      Min       1Q   Median       3Q      Max 
--2.81321 -0.59584  0.04359  0.60018  2.23722 
+-2.81240 -0.59545  0.04338  0.59975  2.23667 
 
 Random effects:
  Groups       Name        Variance Std.Dev. Corr 
- class_number (Intercept) 341.4803 18.479        
-              portuguese    0.3295  0.574   -0.98
- Residual                 493.1009 22.206        
+ class_number (Intercept) 338.9057 18.4094       
+              portuguese    0.3278  0.5725  -0.98
+ Residual                 493.2866 22.2101       
 Number of obs: 230, groups:  class_number, 18
 
 Fixed effects:
             Estimate Std. Error t value
-(Intercept)  25.2837     6.2669   4.034
-portuguese    0.6590     0.1729   3.811
+(Intercept)  25.2838     6.2522   4.044
+portuguese    0.6589     0.1726   3.817
 
 Correlation of Fixed Effects:
            (Intr)
-portuguese -0.943</code></pre>
+portuguese -0.943
+optimizer (nloptwrap) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0391843 (tol = 0.002, component 1)</code></pre>
 </div>
 </div>
 <p>Notice that the output has a number of elements.</p>

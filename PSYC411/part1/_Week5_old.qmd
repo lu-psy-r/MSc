@@ -40,13 +40,13 @@ Bring your questions (and/or answers) to the practical.
 Watch Lecture week 5 part 1:
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=98f7b065-26f1-42d9-9872-ac5900c7cda0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w5_p1" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=98f7b065-26f1-42d9-9872-ac5900c7cda0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w5_p1" ></iframe>
 ```
 
 Watch Lecture week 5 part 2:
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=551cef0e-76e4-43b6-8895-ac5900cdf342&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w5_p2" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=551cef0e-76e4-43b6-8895-ac5900cdf342&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w5_p2" ></iframe>
 ```
 
 Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530057){target="_blank"} (not assessed) on the lecture materials.

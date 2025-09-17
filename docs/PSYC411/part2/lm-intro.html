@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -334,6 +334,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/04-glmm-workbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 19. Workbook introduction to Generalized Linear Mixed-effects Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/04-glmm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 19. Conceptual introduction to Generalized Linear Mixed-effects Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/05-ordinal-workbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 20. Workbook introduction to Ordinal (Mixed-effects) Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/05-ordinal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 20. Conceptual introduction to Ordinal (Mixed-effects) Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../PSYC412/part2/report-preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 00. The structured research report – Requirements</span></a>
   </div>
@@ -565,21 +589,35 @@ Week 8 parts
 <p>Here are what the first few rows in the data file <code>study.two.gen</code> looks like:</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">participant_ID</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">mean.acc</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">mean.self</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">study</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">AGE</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">SHIPLEY</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">HLVA</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">FACTOR3</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">QRITOTAL</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">GENDER</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">EDUCATION</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">ETHNICITY</th>
+<th style="text-align: left;">participant_ID</th>
+<th style="text-align: right;">mean.acc</th>
+<th style="text-align: right;">mean.self</th>
+<th style="text-align: left;">study</th>
+<th style="text-align: right;">AGE</th>
+<th style="text-align: right;">SHIPLEY</th>
+<th style="text-align: right;">HLVA</th>
+<th style="text-align: right;">FACTOR3</th>
+<th style="text-align: right;">QRITOTAL</th>
+<th style="text-align: left;">GENDER</th>
+<th style="text-align: left;">EDUCATION</th>
+<th style="text-align: left;">ETHNICITY</th>
 </tr>
 </thead>
 <tbody>
@@ -669,8 +707,6 @@ Week 8 parts
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -872,7 +908,7 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> mean.acc)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -895,7 +931,7 @@ Tip
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> mean.acc)) <span class="sc">+</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -2085,7 +2121,7 @@ Code
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY)) <span class="sc">+</span> </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -1508,30 +1508,38 @@ Supply arguments directly to `.fns` through an anonymous function instead.
  5      : 352   3rd Qu.:1.0000   3rd Qu.: 9.413            
  4      : 176   Max.   :1.0000   Max.   :13.278            
  (Other): 228                                              
-             text.id                  text.question.id       z_AGE.V1      
- studyone.TEXT.37: 344   studyone.TEXT.37.CQ.1:  86    Min.   :-0.9826247  
- studyone.TEXT.39: 344   studyone.TEXT.37.CQ.2:  86    1st Qu.:-0.8620352  
- studyone.TEXT.72: 344   studyone.TEXT.37.CQ.3:  86    Median :-0.4399723  
- studyone.TEXT.14: 344   studyone.TEXT.37.CQ.4:  86    Mean   : 0.0000000  
- studyone.TEXT.50: 344   studyone.TEXT.39.CQ.1:  86    3rd Qu.: 0.9468060  
- studyone.TEXT.10: 224   studyone.TEXT.39.CQ.2:  86    Max.   : 2.8159420  
- (Other)         :2096   (Other)              :3524                        
-    z_SHIPLEY.V1          z_HLVA.V1          z_FACTOR3.V1    
- Min.   :-3.294105   Min.   :-2.6074887   Min.   :-4.205936  
- 1st Qu.:-0.543723   1st Qu.:-0.7330662   1st Qu.:-0.529155  
- Median : 0.189713   Median : 0.2041450   Median :-0.003900  
- Mean   : 0.000000   Mean   : 0.0000000   Mean   : 0.000000  
- 3rd Qu.: 0.739789   3rd Qu.: 0.6727506   3rd Qu.: 0.783981  
- Max.   : 1.289866   Max.   : 2.0785675   Max.   : 1.834490  
-                                                             
-     z_RDFKGL.V1     
- Min.   :-1.4644660  
- 1st Qu.:-0.6814594  
- Median : 0.0807363  
- Mean   : 0.0000000  
- 3rd Qu.: 0.6430616  
- Max.   : 2.3187650  
-                     </code></pre>
+             text.id                  text.question.id
+ studyone.TEXT.37: 344   studyone.TEXT.37.CQ.1:  86   
+ studyone.TEXT.39: 344   studyone.TEXT.37.CQ.2:  86   
+ studyone.TEXT.72: 344   studyone.TEXT.37.CQ.3:  86   
+ studyone.TEXT.14: 344   studyone.TEXT.37.CQ.4:  86   
+ studyone.TEXT.50: 344   studyone.TEXT.39.CQ.1:  86   
+ studyone.TEXT.10: 224   studyone.TEXT.39.CQ.2:  86   
+ (Other)         :2096   (Other)              :3524   
+           z_AGE.V1                   z_SHIPLEY.V1        
+ Min.   :-9.82624656687e-01   Min.   :-3.294105320780000  
+ 1st Qu.:-8.62035239524e-01   1st Qu.:-0.543722537102000  
+ Median :-4.39972279452e-01   Median : 0.189712871877000  
+ Mean   : 4.20000000000e-15   Mean   :-0.000000000000001  
+ 3rd Qu.: 9.46806017926e-01   3rd Qu.: 0.739789428612000  
+ Max.   : 2.81594198396e+00   Max.   : 1.289865985350000  
+                                                          
+          z_HLVA.V1                  z_FACTOR3.V1        
+ Min.   :-2.60748865140e+00   Min.   :-4.20593553983000  
+ 1st Qu.:-7.33066204487e-01   1st Qu.:-0.52915479589300  
+ Median : 2.04145018971e-01   Median :-0.00390040390093  
+ Mean   : 1.00000000000e-16   Mean   : 0.00000000000000  
+ 3rd Qu.: 6.72750630700e-01   3rd Qu.: 0.78398118408700  
+ Max.   : 2.07856746589e+00   Max.   : 1.83448996807000  
+                                                         
+         z_RDFKGL.V1         
+ Min.   :-1.46446595688e+00  
+ 1st Qu.:-6.81459422242e-01  
+ Median : 8.07363074868e-02  
+ Mean   : 6.99000000000e-14  
+ 3rd Qu.: 6.43061598419e-01  
+ Max.   : 2.31876495189e+00  
+                             </code></pre>
 </div>
 </div>
 </div>
@@ -1944,7 +1952,7 @@ formula: rating ~ z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
 data:    health
 
  link  threshold nobs logLik   AIC     niter       max.grad cond.H 
- logit flexible  4040 -4978.08 9984.16 1490(19081) 3.86e-03 3.5e+02
+ logit flexible  4040 -4978.08 9984.16 1490(19081) 2.78e-03 3.5e+02
 
 Random effects:
  Groups     Name        Variance Std.Dev.
@@ -1953,24 +1961,24 @@ Number of groups:  ResponseId 202
 
 Coefficients:
           Estimate Std. Error z value Pr(&gt;|z|)    
-z_AGE     -0.44314    0.23473  -1.888  0.05905 .  
-z_SHIPLEY  0.77129    0.26498   2.911  0.00361 ** 
-z_HLVA     0.20813    0.25608   0.813  0.41637    
-z_FACTOR3  1.68347    0.23830   7.065 1.61e-12 ***
-z_RDFKGL  -0.44346    0.03677 -12.060  &lt; 2e-16 ***
+z_AGE     -0.44313    0.23474  -1.888   0.0591 .  
+z_SHIPLEY  0.77130    0.26497   2.911   0.0036 ** 
+z_HLVA     0.20812    0.25608   0.813   0.4164    
+z_FACTOR3  1.68345    0.23822   7.067 1.58e-12 ***
+z_RDFKGL  -0.44345    0.03677 -12.060  &lt; 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Threshold coefficients:
     Estimate Std. Error z value
-1|2  -9.3297     0.3452 -27.026
-2|3  -8.1413     0.2947 -27.629
-3|4  -6.5243     0.2631 -24.796
-4|5  -5.2159     0.2490 -20.947
-5|6  -3.4668     0.2370 -14.629
-6|7  -1.8481     0.2315  -7.984
-7|8   0.2966     0.2295   1.292
-8|9   3.0417     0.2346  12.966</code></pre>
+1|2  -9.3297     0.3452 -27.029
+2|3  -8.1413     0.2946 -27.633
+3|4  -6.5243     0.2631 -24.799
+4|5  -5.2159     0.2490 -20.949
+5|6  -3.4668     0.2369 -14.631
+6|7  -1.8481     0.2314  -7.985
+7|8   0.2966     0.2294   1.293
+8|9   3.0417     0.2346  12.967</code></pre>
 </div>
 </div>
 <p>If you inspect the code chunk, you can see that we have made two changes.</p>
@@ -2081,7 +2089,7 @@ formula: rating ~ z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
 data:    health
 
  link  threshold nobs logLik   AIC     niter       max.grad cond.H 
- logit flexible  4040 -4978.08 9984.16 1490(19081) 3.86e-03 3.5e+02
+ logit flexible  4040 -4978.08 9984.16 1490(19081) 2.78e-03 3.5e+02
 
 Random effects:
  Groups     Name        Variance Std.Dev.
@@ -2090,24 +2098,24 @@ Number of groups:  ResponseId 202
 
 Coefficients:
           Estimate Std. Error z value Pr(&gt;|z|)    
-z_AGE     -0.44314    0.23473  -1.888  0.05905 .  
-z_SHIPLEY  0.77129    0.26498   2.911  0.00361 ** 
-z_HLVA     0.20813    0.25608   0.813  0.41637    
-z_FACTOR3  1.68347    0.23830   7.065 1.61e-12 ***
-z_RDFKGL  -0.44346    0.03677 -12.060  &lt; 2e-16 ***
+z_AGE     -0.44313    0.23474  -1.888   0.0591 .  
+z_SHIPLEY  0.77130    0.26497   2.911   0.0036 ** 
+z_HLVA     0.20812    0.25608   0.813   0.4164    
+z_FACTOR3  1.68345    0.23822   7.067 1.58e-12 ***
+z_RDFKGL  -0.44345    0.03677 -12.060  &lt; 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Threshold coefficients:
     Estimate Std. Error z value
-1|2  -9.3297     0.3452 -27.026
-2|3  -8.1413     0.2947 -27.629
-3|4  -6.5243     0.2631 -24.796
-4|5  -5.2159     0.2490 -20.947
-5|6  -3.4668     0.2370 -14.629
-6|7  -1.8481     0.2315  -7.984
-7|8   0.2966     0.2295   1.292
-8|9   3.0417     0.2346  12.966</code></pre>
+1|2  -9.3297     0.3452 -27.029
+2|3  -8.1413     0.2946 -27.633
+3|4  -6.5243     0.2631 -24.799
+4|5  -5.2159     0.2490 -20.949
+5|6  -3.4668     0.2369 -14.631
+6|7  -1.8481     0.2314  -7.985
+7|8   0.2966     0.2294   1.293
+8|9   3.0417     0.2346  12.967</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
