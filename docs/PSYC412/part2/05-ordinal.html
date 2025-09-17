@@ -1228,7 +1228,7 @@ formula: rating ~ z_AGE + z_SHIPLEY + z_HLVA + z_FACTOR3 + z_RDFKGL +
 data:    health
 
  link  threshold nobs logLik   AIC     niter       max.grad cond.H 
- logit flexible  4040 -4978.08 9984.16 1490(19081) 3.86e-03 3.5e+02
+ logit flexible  4040 -4978.08 9984.16 1490(19081) 2.78e-03 3.5e+02
 
 Random effects:
  Groups     Name        Variance Std.Dev.
@@ -1237,24 +1237,24 @@ Number of groups:  ResponseId 202
 
 Coefficients:
           Estimate Std. Error z value Pr(&gt;|z|)    
-z_AGE     -0.44314    0.23473  -1.888  0.05905 .  
-z_SHIPLEY  0.77129    0.26498   2.911  0.00361 ** 
-z_HLVA     0.20813    0.25608   0.813  0.41637    
-z_FACTOR3  1.68347    0.23830   7.065 1.61e-12 ***
-z_RDFKGL  -0.44346    0.03677 -12.060  &lt; 2e-16 ***
+z_AGE     -0.44313    0.23474  -1.888   0.0591 .  
+z_SHIPLEY  0.77130    0.26497   2.911   0.0036 ** 
+z_HLVA     0.20812    0.25608   0.813   0.4164    
+z_FACTOR3  1.68345    0.23822   7.067 1.58e-12 ***
+z_RDFKGL  -0.44345    0.03677 -12.060  &lt; 2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Threshold coefficients:
     Estimate Std. Error z value
-1|2  -9.3297     0.3452 -27.026
-2|3  -8.1413     0.2947 -27.629
-3|4  -6.5243     0.2631 -24.796
-4|5  -5.2159     0.2490 -20.947
-5|6  -3.4668     0.2370 -14.629
-6|7  -1.8481     0.2315  -7.984
-7|8   0.2966     0.2295   1.292
-8|9   3.0417     0.2346  12.966</code></pre>
+1|2  -9.3297     0.3452 -27.029
+2|3  -8.1413     0.2946 -27.633
+3|4  -6.5243     0.2631 -24.799
+4|5  -5.2159     0.2490 -20.949
+5|6  -3.4668     0.2369 -14.631
+6|7  -1.8481     0.2314  -7.985
+7|8   0.2966     0.2294   1.293
+8|9   3.0417     0.2346  12.967</code></pre>
 </div>
 </div>
 <p>You can see that the output summary presents the same structure. If you compare the output you see in <a href="#sec-ordinal-results-clm" class="quarto-xref">Section&nbsp;1.10.1</a>, however, you will notice some similarities and some differences:</p>
