@@ -34,7 +34,7 @@ The assignment is on [moodle here](https://modules.lancaster.ac.uk/course/view.p
 
 - Watch Lecture 3 part 1
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=47640930-d2a2-43ea-90c7-b09d0092413c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w3_p1" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=47640930-d2a2-43ea-90c7-b09d0092413c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w3_p1" ></iframe>
 ```
 
 - Have a go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530050){target="_blank"}, and record your score.
@@ -48,12 +48,12 @@ The assignment is on [moodle here](https://modules.lancaster.ac.uk/course/view.p
 
 Watch Lecture week3 part2
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ffbf5c9b-b608-45f0-b0df-adb80102b4d0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2024_w3_p2" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ffbf5c9b-b608-45f0-b0df-adb80102b4d0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w3_p2" ></iframe>
 ```
 
 Watch Lecture week3 part3
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=05684e75-5e86-4c1f-9036-b09d009beb98&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2024 w3 p3" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=05684e75-5e86-4c1f-9036-b09d009beb98&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w3 p3" ></iframe>
 ```
 
 Do the [quick quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530054){target="_blank"} (not assessed).
