@@ -537,5 +537,10 @@ It's really important for your learning that you have a go first of all at the w
 
 ## 1.5 Extras
 
-Optionally, [watch the lecture by Tim Harford on the importance of understanding statistics](https://fb.watch/uN8oc-KF6u/){target="_blank"}. Note this video is hosted on facebook.
+Optionally, here are some videos on the importance of thinking critically about data and statistics, more important now than ever:
 
+[Mona Chalabi on 3 ways to spot a bad statistic](https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic){target="_blank"}. Note this video is hosted on ted.com.
+
+[Susan Etlinger on the importance of understanding data](https://www.ted.com/talks/susan_etlinger_what_do_we_do_with_all_this_big_data?language=en)
+
+[Luciana Padua on how to think critically about patterns in data](https://www.ted.com/talks/luciana_padua_data_literacy_and_the_art_of_asking_questions)
