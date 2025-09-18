@@ -35,6 +35,14 @@ Here are the steps to go through before the module begins, to help you prepare f
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=30972d92-8108-44db-b2c0-b1f5008f9566&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w0 p0" ></iframe>
 ```
 
+::: {.callout-tip icon=false collapse="true"}
+## Help! I'm getting the error "HTTP Error 400. The size of the request headers is too long." when I try to watch a video, what do I do?
+You will need to clear out the cookies and cache from your browser. 
+[for safari](https://support.apple.com/en-gb/guide/safari/sfri11471/16.1/mac/13.0){target="_blank"}.
+[for chrome](https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DDesktop){target="_blank"}.
+[for microsoft edge](https://www.microsoft.com/en-us/edge/learning-center/how-to-manage-and-clear-your-cache-and-cookies?form=MA13I2){target="_blank"}.
+:::
+
 *Second:* Watch our welcome video (part 1) to give you an outline of how this module works:
 
 ```{=html}

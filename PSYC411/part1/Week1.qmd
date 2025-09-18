@@ -30,7 +30,17 @@ By the end of Week 1, you should be able to:
 
 ### 1.3.1 Lectures
 
+::: {.callout-tip icon=false collapse="true"}
+## Help! I'm getting the error "HTTP Error 400. The size of the request headers is too long." when I try to watch a video, what do I do?
+You will need to clear out the cookies and cache from your browser. 
+[for safari](https://support.apple.com/en-gb/guide/safari/sfri11471/16.1/mac/13.0){target="_blank"}.
+[for chrome](https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DDesktop){target="_blank"}.
+[for microsoft edge](https://www.microsoft.com/en-us/edge/learning-center/how-to-manage-and-clear-your-cache-and-cookies?form=MA13I2){target="_blank"}.
+:::
+
+
 Watch Lecture week1 part1:
+
 
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7b94cdef-6407-4369-9423-b1fc0087f221&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w1 p1" ></iframe>
@@ -541,6 +551,6 @@ Optionally, here are some videos on the importance of thinking critically about 
 
 [Mona Chalabi on 3 ways to spot a bad statistic](https://www.ted.com/talks/mona_chalabi_3_ways_to_spot_a_bad_statistic){target="_blank"}.
 
-[Susan Etlinger on the importance of understanding data](https://www.ted.com/talks/susan_etlinger_what_do_we_do_with_all_this_big_data?language=en)
+[Susan Etlinger on the importance of understanding data](https://www.ted.com/talks/susan_etlinger_what_do_we_do_with_all_this_big_data?language=en){target="_blank"}.
 
-[Luciana Padua on how to think critically about patterns in data](https://www.ted.com/talks/luciana_padua_data_literacy_and_the_art_of_asking_questions)
+[Luciana Padua on how to think critically about patterns in data](https://www.ted.com/talks/luciana_padua_data_literacy_and_the_art_of_asking_questions){target="_blank"}.
