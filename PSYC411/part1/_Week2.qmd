@@ -49,7 +49,7 @@ Watch Lecture week2 part3
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec6c6ac3-833e-4d83-b0cb-b09100dd75db&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w2 p3" ></iframe>
 ```
 
-Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530049){target="_blank"} on the lecture material (not assessed).
+Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680945){target="_blank"} on the lecture material (not assessed).
 
 
 ### 2.3.2 Slides
@@ -671,7 +671,7 @@ Here are links to all the data referred to in this practical:
 
 ### 2.4.3 Answers
 
-The answers to the workbook now appear below each question in the workbook, above, so you can check your answers.
+The answers to the workbook appear below each question in the workbook, above, so you can check your answers.
 
 It's really important for your learning that you have a go first of all at the workbook before looking at the answers.
 

@@ -47,8 +47,7 @@ Watch Lecture week1 part1:
 
 ```
 
-Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530047){target="_blank"}
-
+Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680943){target="_blank"}
 Then come back and watch the end of Lecture week 1 part2:
 
 ```{=html}
@@ -62,7 +61,7 @@ Watch Lecture week1 part3:
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fb0627af-75d6-4f12-81f2-b091008d8793&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w1 p3" ></iframe>
 ```
 
-Take the quiz on the lecture material (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530078){target="_blank"}
+Take the quiz on the lecture material (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680944){target="_blank"}
 
 
 ### 1.3.2 Lecture slides
@@ -541,7 +540,7 @@ dat %>% ggplot( aes(x = PSQI.TST, y = PSQI.SOL)) + geom_point()
 
 ### 1.4.3 Answers
 
-The answers to the workbook **have now appeared** below each question in the workbook, above, after the practical has finished, so you can check your answers.
+The answers to the workbook appear below each question in the workbook, above, so you can check your answers.
 
 It's really important for your learning that you have a go first of all at the workbook before looking at the answers.
 
