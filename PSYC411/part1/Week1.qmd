@@ -382,7 +382,7 @@ abs(-5.3)
 
 30.	Using the `seq()` function, generate a sequence of numbers from 0 to 30 in intervals of 3.
 
-31.	Assign the sequence generated in step 28 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).
+31.	Assign the sequence generated in step 30 to a new object. Now compute the mean of the sequence of numbers. (remember that objects can be a single number, or a sequence of numbers (called an array or a vector) or anything you want to put into it – remember, think of objects as buckets).
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Stuck? Here's the solution
