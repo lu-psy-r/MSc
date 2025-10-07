@@ -287,11 +287,12 @@ annie_z <- scale(annie)
 ```
 
 
-21.	You can have a look at the standardised scores of annie, by just typing `annie_z`. What z score corresponds to annie’s highest initial score of 95?
+21.	What is the mean and standard deviation of annie_z’s standardised scores?
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
-mean = 0, sd = 1. So that’s good, the z-score conversion worked.
+1.4142136
+You could find this by just eyeballing (searching through) the data, or by using the function `max`:
 ```{r}
 annie_z <- scale(annie)
 mean(annie_z)
@@ -300,17 +301,18 @@ sd(annie_z)
 ::: 
 
 
-22.	What is the mean and standard deviation of annie_z’s standardised scores?
+22.	You can have a look at the standardised scores of annie, by just typing `annie_z`. What z score corresponds to annie’s highest initial score of 95?
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
-1.4142136
-You could find this by just eyeballing (searching through) the data, or by using the function `max`:
+mean = 0, sd = 1. So that’s good, the z-score conversion worked.
 ```{r}
 annie_z <- scale(annie)
 max(annie); max(annie_z)
 ```
 ::: 
+
+
 
 
 23.	Draw a histogram of annie’s standardised scores, in the console type `hist(annie_z)`. Between which z values are the highest number of scores?

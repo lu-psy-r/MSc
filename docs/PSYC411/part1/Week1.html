@@ -693,7 +693,7 @@ Answer
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>annie_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(annie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="21" type="1">
-<li>You can have a look at the standardised scores of annie, by just typing <code>annie_z</code>. What z score corresponds to annie’s highest initial score of 95?</li>
+<li>What is the mean and standard deviation of annie_z’s standardised scores?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -707,7 +707,7 @@ Answer
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>mean = 0, sd = 1. So that’s good, the z-score conversion worked.</p>
+<p>1.4142136 You could find this by just eyeballing (searching through) the data, or by using the function <code>max</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>annie_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(annie)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(annie_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -723,7 +723,7 @@ Answer
 </div>
 </div>
 <ol start="22" type="1">
-<li>What is the mean and standard deviation of annie_z’s standardised scores?</li>
+<li>You can have a look at the standardised scores of annie, by just typing <code>annie_z</code>. What z score corresponds to annie’s highest initial score of 95?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
@@ -737,7 +737,7 @@ Answer
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>1.4142136 You could find this by just eyeballing (searching through) the data, or by using the function <code>max</code>:</p>
+<p>mean = 0, sd = 1. So that’s good, the z-score conversion worked.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>annie_z <span class="ot">&lt;-</span> <span class="fu">scale</span>(annie)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(annie); <span class="fu">max</span>(annie_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
