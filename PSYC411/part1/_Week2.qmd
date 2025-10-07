@@ -166,7 +166,7 @@ Comments help us to keep track of what each bit of our r script is doing, and, a
 
 ##### Task Two: Opening a data file
 
-10. Make sure your script file psyc411_week2.r in R studio.
+10. Make sure you have open your script file psyc411_week2.r in R studio.
 
 11. It's generally a good idea to refresh and clear out R studio when you start a new session, so add this line to the beginning of your R studio file:
 
@@ -181,11 +181,18 @@ Download the file [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-
 ::: callout-tip
 DO NOT OPEN THIS FILE ON YOUR COMPUTER -- IF YOU DO, DELETE IT THEN DOWNLOAD IT AGAIN - THE REASON FOR THIS IS THAT IT CHANGES THE FILE FORMAT AND THEN WON'T OPEN PROPERLY IN R STUDIO.
 :::
-Then, Upload the data file into R-Studio, and put it in PSYC411/Week2 Folder for instance.
+Then, Upload the data file into R-Studio, and put it in *PSYC411/Week2* Folder for instance.
 
 Each row is one person's data, and each column is a measure taken from the person. Columns are separated by commas, which is what the "csv" refers to" comma-separated values.
 
-13. In R studio, we open csv files using a function called `read_csv()` which comes from a set of functions that are stored in a library called "tidyverse", we can install these functions by putting `library(tidyverse)` at the very top of our R script.
+13. Next, we will set the "working directory",this tells Rstudio where to look for the data.
+Click "Session" in the menu at the top of the screen
+select "Working directory"
+select "Choose directory". 
+Then, browse to the directory *PSYC411/Week2* (or whatever you’ve called your folder), and click *Open*. 
+If it worked, in the console it should say something like setwd("M:/yourname/yourfiles/PSYC411/Week2")
+
+14. In R studio, we open csv files using a function called `read_csv()` which comes from a set of functions that are stored in a library called "tidyverse", we can install these functions by putting `library(tidyverse)` at the very top of our R script.
 
 Type this command in the script file and then run it:
 
@@ -200,7 +207,7 @@ Collections of functions are called packages, and collections of packages are ca
 We install libraries using `library()` and enter the name of the library in the brackets.
 :::
 
-14. Then type this command in the script file and run it:
+15. Then type this command in the script file and run it:
 
 ```{r eval=FALSE}
 dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
@@ -208,7 +215,7 @@ dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
 
 Remember the `dat <-` notation, which means we put the data into an object called "dat"
 
-15. If all went well, we can then look at the data, using the function `View`: In the script file type:
+16. If all went well, we can then look at the data, using the function `View`: In the script file type:
 
 ``` {r eval=FALSE}
 View(dat)
@@ -216,7 +223,7 @@ View(dat)
 
 and run it. It should open a spreadsheet where we can see the data.
 
-16. Have a good look around the data to see if you can make sense of it.
+17. Have a good look around the data to see if you can make sense of it.
 For now, we will just focus on two variables from the data: *subject_ID* which
 is the participants' anonymised number, and *Gent_1_score*, which is the participants'
 score on the Gent vocabulary test, the first time they had a go (that's what the
@@ -227,7 +234,7 @@ score on the Gent vocabulary test, the first time they had a go (that's what the
 summarydat <- select(dat, subject_ID, Gent_1_score)
 ```
 
-17. Finally, let's just have a quick look at these data.
+18. Finally, let's just have a quick look at these data.
     In the script file type: 
 
 ``` {r eval=FALSE}
@@ -236,7 +243,7 @@ hist(summarydat$Gent_1_score)
 
 and run it.
 
-18. This will draw a histogram of the Gent vocabulary scores.
+19. This will draw a histogram of the Gent vocabulary scores.
     `summarydat$Gent_1_score` means that we look at the Gent_1_score values from the summarydat data -- the `$` indicates that this is one of the measures from the data.
     What kind of pattern does the histogram show?
 
@@ -253,7 +260,7 @@ Looks close to a normal distribution, slight negative skew possibly.
 
 #### 2.4.1.2 Part Two: Revision from last week
 
-19. Save your R script. Now, without looking at your notes, make a new object called "iknow", and assign this list of numbers to it: 126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92, 92, 87, 135, 115
+20. Save your R script. Now, without looking at your notes, make a new object called "iknow", and assign this list of numbers to it: 126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92, 92, 87, 135, 115
 
 ::: {.callout-warning icon="false" collapse="true"}
 ## Hint
@@ -262,13 +269,11 @@ use the `iknow <- c(number1, number2, …)` notation
 :::
 
 
-20. Remember to type these commands in the R script window.
-    Next, get R-studio to give you the mean and standard deviation of this list of numbers.
-
-21. Draw a histogram of the iknow data.
+21. Remember to type these commands in the R script window.
+    Next, get R-studio to give you the mean and standard deviation of this list of numbers, and draw a histogram of the iknow data.
 
 ::: {.callout-warning icon=false collapse="true"}
-## Answers to 19-21
+## Answers to 20-21
 ``` {r}
 library(tidyverse)
 iknow <- c(126, 76, 98, 124, 91, 88, 99, 115, 80, 113, 90, 92, 97, 134, 110, 92, 92, 87, 135, 115)

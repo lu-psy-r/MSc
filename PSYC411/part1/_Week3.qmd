@@ -13,7 +13,7 @@ Before the practical on Tuesday, please try to work through the practical workbo
 
 Bring your questions (and/or answers) to the practical.
 
-The assignment is on [moodle here](https://modules.lancaster.ac.uk/course/view.php?id=44343#sectionid-462913-title){target="_blank"}.
+The assignment is on [moodle here](https://modules.lancaster.ac.uk/course/view.php?id=2680952){target="_blank"}.
 
 ## 3.2 Learning Goals
 
@@ -37,13 +37,13 @@ The assignment is on [moodle here](https://modules.lancaster.ac.uk/course/view.p
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=47640930-d2a2-43ea-90c7-b09d0092413c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w3_p1" ></iframe>
 ```
 
-- Have a go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530050){target="_blank"}, and record your score.
+- Have a go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680948){target="_blank"}, and record your score.
 
-- Have another go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530051){target="_blank"}, and record your score again.
+- Have another go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680949){target="_blank"}, and record your score again.
 
-- Have a go at the [Shipley Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530052){target="_blank"}, and record your score. 
+- Have a go at the [Shipley Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680947){target="_blank"}, and record your score. 
 
-- Fill in your vocabulary scores into [our course database](https://modules.lancaster.ac.uk/mod/questionnaire/view.php?id=2530053){target="_blank"}: What is your vocabulary?
+- Fill in your vocabulary scores into [our course database](https://modules.lancaster.ac.uk/mod/questionnaire/view.php?id=2680950){target="_blank"}: What is your vocabulary?
 
 
 Watch Lecture week3 part2
@@ -56,7 +56,7 @@ Watch Lecture week3 part3
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=05684e75-5e86-4c1f-9036-b09d009beb98&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w3 p3" ></iframe>
 ```
 
-Do the [quick quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2530054){target="_blank"} (not assessed).
+Do the [quick quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680951){target="_blank"} (not assessed).
 
 ### 3.3.2 Slides
 
@@ -687,7 +687,7 @@ Here is a link to the data referred to in this practical:
 
 ### 3.4.3 Answers
 
-The answers to the workbook now appear below each question in the workbook, above, after the practical has finished, so you can check your work.
+The answers to the workbook appear below each question in the workbook, above, so you can check your work.
 
 It's really important for your learning that you have a go first of all at the workbook before looking at the answers.
 
