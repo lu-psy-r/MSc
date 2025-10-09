@@ -543,9 +543,31 @@ ggplot(summarydata, aes(x= Age, y = Shipley_Voc_Score)) +
 it looks positive.
 :::
 
+29. We can also separate points out by different categories as well. 
+Here is how to show different genders in the point graph:
+
+```{r eval=FALSE}
+ggplot(summarydata, aes(x= Age, y = Shipley_Voc_Score, colour = Gender)) + 
+  geom_point() + 
+  labs(title = "Age by Shipley Vocabulary Score", x = "Age", y = "Shipley Vocabulary Score")
+
+# note that we use colour = Gender, rather than fill = Gender, as the points on the graph are not filled, they are coloured...
+```
+
+Now draw the same point graph, distinguishing the points by english_status.
+
+::: {.callout-warning icon=false collapse="true"}
+## Answer
+```{r eval=FALSE}
+ggplot(summarydata, aes(x= Age, y = Shipley_Voc_Score, colour = english_status)) + 
+  geom_point() + 
+  labs(title = "Age by Shipley Vocabulary Score", x = "Age", y = "Shipley Vocabulary Score")
+```
+:::
+
 ##### Task 8: Draw and interpret a box plot
 
-29. Next on the list of relations to check is gender and vocabulary
+30. Next on the list of relations to check is gender and vocabulary
     score. Let's look at Gent_1\_score against Gender. What type of
     variables are these?
 
@@ -554,7 +576,7 @@ it looks positive.
 one ratio, one nominal, so need a box plot.
 :::
 
-30. We will draw a box plot (you could draw a bar graph, but box plots
+31. We will draw a box plot (you could draw a bar graph, but box plots
     tend to be preferred for these combinations of variables - use a bar
     graph for counts):
 
@@ -573,7 +595,7 @@ ggplot(summarydata, aes(x= Gender, y = Gent_1_score)) + geom_boxplot() + labs(ti
 
 ```
 
-31. Interpreting box plots: The horizontal line indicates the median.
+32. Interpreting box plots: The horizontal line indicates the median.
     The box indicates where 50% of the data lie. The lines indicate an
     estimate of the range of the data (minimum and maximum values). The
     dots indicate outliers. A large box indicates larger standard
@@ -587,7 +609,7 @@ Are there differences in Vocabulary according to gender?
 maybe females slightly lower than males.
 :::
 
-32. Now for the other relations:
+33. Now for the other relations:
 
 -   Academic year and vocabulary score
 -   Academic year and age
@@ -617,11 +639,11 @@ ggplot(summarydata, aes(x = Age, fill = english_status) ) + geom_histogram()
 ```
 :::
 
-33. Save your R script.
+34. Save your R script.
 
 #### 3.4.1.5 Part 5: More practise manipulating data
 
-34.  What are the minimum and maximum values for the ESL and English native speakers?
+35.  What are the minimum and maximum values for the ESL and English native speakers?
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
@@ -637,25 +659,24 @@ english_status `min(Shipley_Voc_Score)` `max(Shipley_Voc_Score)`
 
 #### 3.4.1.6 Part 6: Extending your knowledge
 
-35. An important part of using R-studio is that people share their code, their tutorials,
+36. An important part of using R-studio is that people share their code, their tutorials,
 and help one another out in troubleshooting. Searching for commands and how to use them on
 search engines is absolutely fine, and supplementing your learning with others' tutorials is
 also what the community does.
 Glasgow University psychology department has made some of their course materials available
 and so for more practise in using the different data manipulation functions, you could have a look at
-[https://psyteachr.github.io/msc-conv/data-wrangling-1.html](https://psyteachr.github.io/msc-conv/data-wrangling-1.html)
+[https://psyteachr.github.io/msc-conv/data-wrangling-1.html](https://psyteachr.github.io/msc-conv/data-wrangling-1.html){target="_blank"}
 
 Ignore the part about making a new R markdown document, use instead an R script.
 
 Just go straight to clear out the environment rm(list=ls()) then load the 
-libraries tidyverse() and babynames() where the babynames()
-library contains the database on babies' names that you can explore in the example (you'll
-need to install.packages("babynames") first). 
+libraries tidyverse and babynames where the babynames
+library contains the database on babies' names that you can explore in the example. 
 
 And then begin at Section "4.4: Activity 2: Look at the data".
 
 
-36. For the data that you downloaded from the papers for your 
+37. For the data that you downloaded from the papers for your 
 extra exercises in weeks 1 and 2, construct some graphs to show relations between variables. 
 
 ::: callout-note
@@ -683,7 +704,7 @@ If you can do that, then I will be amazed and impressed, and then I've got anoth
 
 Here is a link to the data referred to in this practical:
 
-- [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv)
+- [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv){target="_blank"}
 
 ### 3.4.3 Answers
 

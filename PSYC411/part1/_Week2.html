@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 2. Manipulating data – Statistics for Psychologists</title>
+<title>Week 2. Manipulating data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,200 +57,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../PSYC411/part1/Week3.html" rel="next">
-<link href="../../PSYC411/part1/Week1.html" rel="prev">
-<link href="../../Images/favicon.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
-<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="_Week2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="_Week2_files/libs/quarto-html/quarto.js"></script>
+<script src="_Week2_files/libs/quarto-html/popper.min.js"></script>
+<script src="_Week2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="_Week2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="_Week2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="_Week2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="_Week2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="_Week2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="_Week2_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
 
-<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
-<link rel="stylesheet" href="ache-refresh">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="fullcontent">
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="https://lu-psy-r.github.io/">
-    <span class="navbar-title">Statistics for Psychologists</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
-<span class="menu-text">Year 1</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
-<span class="menu-text">Year 2</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
-<span class="menu-text">Year 3</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
-<span class="menu-text">MSc</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
-<span class="menu-text">And More…</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week2.html">Week 2. Manipulating data</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">PSYC411</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../PSYC411/part1/Week1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 1. Introducing Data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../PSYC411/part1/Week2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Week 2. Manipulating data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../PSYC411/part1/Week3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 3. Drawing graphs from data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../PSYC411/part1/Week4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 4. Testing nominal data</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../PSYC411/part1/Week5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 5. Testing differences between groups</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">PSYC412</span></span>
-  </li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">2.1 Overview</a></li>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">2.2 Learning Goals</a></li>
-  <li><a href="#lectures-and-slides" id="toc-lectures-and-slides" class="nav-link" data-scroll-target="#lectures-and-slides">2.3 Lectures and slides</a>
-  <ul class="collapse">
-  <li><a href="#lectures" id="toc-lectures" class="nav-link" data-scroll-target="#lectures">2.3.1 Lectures</a></li>
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">2.3.2 Slides</a></li>
-  </ul></li>
-  <li><a href="#practical-materials" id="toc-practical-materials" class="nav-link" data-scroll-target="#practical-materials">2.4 Practical Materials</a>
-  <ul class="collapse">
-  <li><a href="#workbook" id="toc-workbook" class="nav-link" data-scroll-target="#workbook">2.4.1 Workbook</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">2.4.2 Data</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">2.4.3 Answers</a></li>
-  <li><a href="#extras" id="toc-extras" class="nav-link" data-scroll-target="#extras">2.5 Extras</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
-<!-- main -->
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week2.html">Week 2. Manipulating data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Week 2. Manipulating data</h1>
 <p class="subtitle lead">Written by Padraic Monaghan</p>
@@ -295,16 +122,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Watch Lecture week2 part2</p>
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8354694a-0c7b-4caf-9fc9-ac3e00d8a2ca&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w2_p2"></iframe>
 <p>Watch Lecture week2 part3</p>
-    <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7e0da781-dc14-4f9f-b863-b3700099dfe0&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411_2025_w2_p3"></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ec6c6ac3-833e-4d83-b0cb-b09100dd75db&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w2 p3"></iframe>
 <p>Take <a href="https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680945" target="_blank">the quiz</a> on the lecture material (not assessed).</p>
 </section>
 <section id="slides" class="level3">
 <h3 class="anchored" data-anchor-id="slides">2.3.2 Slides</h3>
 <p>Download the lecture slides for:</p>
 <ul>
-<li><p><a href="ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx">part 1</a></p></li>
-<li><p><a href="ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx">part 2</a></p></li>
-<li><p><a href="ppt/wk2/PSYC411 Lecture week2 part3 handout.pptx">part 3</a></p></li>
+<li><p><a href="ppt/wk2/PSYC411%20Lecture%20week2%20part1%20handout.pptx">part 1</a></p></li>
+<li><p><a href="ppt/wk2/PSYC411%20Lecture%20week2%20part2%20handout.pptx">part 2</a></p></li>
+<li><p><a href="ppt/wk2/PSYC411%20Lecture%20week2%20part3%20handout.pptx">part 3</a></p></li>
 </ul>
 </section>
 </section>
@@ -509,7 +336,7 @@ dbl (7): subject_ID, Age, Gender_code, Shipley_Voc_Score, Gent_1_score, Gent...
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="_Week2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -570,7 +397,7 @@ Answers to 20-21
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Week2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="_Week2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1035,12 +862,11 @@ What happens if I can’t upload a file into the r server?
 <ul>
 <li>Optionally, watch <a href="https://www.youtube.com/watch?v=q1JoKB7luPU&amp;ab_channel=TheBritishPsychologicalSociety" target="_blank">Brian Nosek’s keynote</a> at the 2018 British Psychological Society conference on the replicability crisis (note hosted on youtube).</li>
 </ul>
-
-
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</main>
+<!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1461,38 +1287,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../PSYC411/part1/Week1.html" class="pagination-link" aria-label="Week 1. Introducing Data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 1. Introducing Data</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../PSYC411/part1/Week3.html" class="pagination-link" aria-label="Week 3. Drawing graphs from data">
-        <span class="nav-page-text">Week 3. Drawing graphs from data</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Website developed by Matthew Ivory</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
-    <a class="nav-link" href="../../previous-content/index.html">
-<p>Previous Content</p>
-</a>
-  </li>  
-</ul>
-    </div>
-  </div>
-</footer>
 
 
 
