@@ -46,7 +46,7 @@ Watch Lecture week2 part2
 
 Watch Lecture week2 part3
 ```{=html}
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7e0da781-dc14-4f9f-b863-b3700099dfe0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411_2025_w2_p3"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3f3cd6f5-118e-4579-98a4-b376008802dc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411_2025_w2_p3"></iframe>
 ```
 
 Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680945){target="_blank"} on the lecture material (not assessed).
