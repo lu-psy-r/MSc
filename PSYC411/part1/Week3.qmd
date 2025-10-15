@@ -37,7 +37,8 @@ The assignment is on [moodle here](https://modules.lancaster.ac.uk/course/sectio
 ```{=html}
 	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=81c47e96-1a2a-4e6c-a7bf-b377009b70e3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w3_p1" ></iframe>
 ```
-</div>
+
+
 - Have a go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680948){target="_blank"}, and record your score.
 
 - Have another go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680949){target="_blank"}, and record your score again.
