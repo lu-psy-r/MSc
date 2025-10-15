@@ -1,0 +1,7 @@
+---
+title: Week 3. Drawing graphs from data
+subtitle: Written by Padraic Monaghan
+order: 4
+---
+
+Material for week 3 will be released after week 2 practical.
