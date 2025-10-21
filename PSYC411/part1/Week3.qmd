@@ -92,55 +92,28 @@ If you've followed a course in R studio before then Parts 1, 6 and 7 will extend
 
 #### 3.4.1.1 Part 1: Revision from last week
 
-If you had a look at the data from Stamkou et al.'s study from last week, then that's great, in which case follow Task 1, otherwise just go straight to Task 2.
+If you had a look at data in Part 6 finding data from studies you're interested in then that's great. Here is another example of finding data from a study.
 
-##### Task 1: Describe Stamkou et al.'s study from last week
+##### Task 1: Examine Stamkou et al.'s study
 
-1. Talk to your group about what you did.
+1. Read the abstract of this study:
 
-2. From the Stamkou et al. data, can you look at whether there was a change in happiness ratings from the baseline (PracticeHappy) to after watching the video (VideoHappy)?
+Stamkou, E., Brummelman, E., Dunham, R., Nikolic, M., & Keltner, D. (2023). Awe sparks prosociality in children. Psychological Science, 34(4), 455-467. [https://journals.sagepub.com/doi/10.1177/09567976221150616](https://journals.sagepub.com/doi/10.1177/09567976221150616){}
+
+2. Find the data! I have put the data here: [stamkou_Study1_edited data.sav](data/wk3/stamkou_Study1_edited data.sav){target="_blank"}, but it is worth looking online to see if you can find the data yourself, to gain further practise of finding data sets.
+
+3. From the Stamkou et al. data, can you look at whether there was a change in happiness ratings from the baseline (PracticeHappy) to after watching the video (VideoHappy)?
+
+First load in the libraries haven and tidyverse, and then use read_sav to load in the data:
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Hint
-Remember first to load in the libraries Hmisc and tidyverse, and then use get.spss to load in the data:
-There are two ways to load in data that comes from spss - when the datafile ends with .sav
-The way we looked at doing this in week 1 workbook used the library Hmisc and then the function get.spss
-The other way is to use the library haven, and the function read_sav
-:::
-
-::: {.callout-warning icon=false collapse="true"}
-## Answer
-``` {r eval=FALSE}
-library(Hmisc)
-dat <- spss.get("stamkou_Study 1_edited data.sav")
-```
-or:
 ``` {r eval=FALSE}
 library(haven)
 dat <- read_sav("stamkou_Study 1_edited data.sav")
 ```
 :::
 
-3. If you used get.spss, though, the data, as you may have seen, is rather messy, and needs some tidying up.
-If you used read_sav then these issues don't apply.
-But for get.spss, in particular, the ratings of happiness are a bit all over the place.
-(this is because get.spss keeps information about responses but also what those responses mean
-and sometimes mixes them up together).
-We want these to just be numbers, 1,2,3,4, but instead they have the coding for what the numbers 
-mean as well. If you've loaded in your data set into an object called "dat":
-then the following lines will work to tidy things up:
-``` {r eval=FALSE}
-dat$PracticeHappy <- gsub("\n1=not happy at all\n", "1", dat$PracticeHappy)
-dat$PracticeHappy <- gsub("\n2=a bit happy\n", "2", dat$PracticeHappy)
-dat$PracticeHappy <- gsub("\n3=quite happy\n", "3", dat$PracticeHappy)
-dat$PracticeHappy <- gsub("\n4=very happy\n", "4", dat$PracticeHappy)
-dat$PracticeHappy <- as.numeric(dat$PracticeHappy)
-dat$VideoHappy <- gsub("\n1=not happy at all\n", "1", dat$VideoHappy)
-dat$VideoHappy <- gsub("\n2=a bit happy\n", "2", dat$VideoHappy)
-dat$VideoHappy <- gsub("\n3=quite happy\n", "3", dat$VideoHappy)
-dat$VideoHappy <- gsub("\n4=very happy\n", "4", dat$VideoHappy)
-dat$VideoHappy <- as.numeric(dat$VideoHappy)
-```
 
 4. Now, you can look at plotting the happiness ratings at baseline against happiness ratings
 after the children watch the video. You can also look at the means and standard deviations of the
@@ -704,7 +677,9 @@ If you can do that, then I will be amazed and impressed, and then I've got anoth
 
 ### 3.4.2 Data
 
-Here is a link to the data referred to in this practical:
+Here are links to the data referred to in this practical:
+
+- [stamkou_Study1_edited data.sav](data/wk3/stamkou_Study1_edited data.sav){target="_blank"}
 
 - [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv){target="_blank"}
 

@@ -329,13 +329,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you’ve followed a course in R studio before then Parts 1, 6 and 7 will extend your knowledge.</p>
 <section id="part-1-revision-from-last-week" class="level4">
 <h4 class="anchored" data-anchor-id="part-1-revision-from-last-week">3.4.1.1 Part 1: Revision from last week</h4>
-<p>If you had a look at the data from Stamkou et al.’s study from last week, then that’s great, in which case follow Task 1, otherwise just go straight to Task 2.</p>
-<section id="task-1-describe-stamkou-et-al.s-study-from-last-week" class="level5">
-<h5 class="anchored" data-anchor-id="task-1-describe-stamkou-et-al.s-study-from-last-week">Task 1: Describe Stamkou et al.’s study from last week</h5>
+<p>If you had a look at data in Part 6 finding data from studies you’re interested in then that’s great. Here is another example of finding data from a study.</p>
+<section id="task-1-examine-stamkou-et-al.s-study" class="level5">
+<h5 class="anchored" data-anchor-id="task-1-examine-stamkou-et-al.s-study">Task 1: Examine Stamkou et al.’s study</h5>
 <ol type="1">
-<li><p>Talk to your group about what you did.</p></li>
+<li>Read the abstract of this study:</li>
+</ol>
+<p>Stamkou, E., Brummelman, E., Dunham, R., Nikolic, M., &amp; Keltner, D. (2023). Awe sparks prosociality in children. Psychological Science, 34(4), 455-467. <a href="https://journals.sagepub.com/doi/10.1177/09567976221150616">https://journals.sagepub.com/doi/10.1177/09567976221150616</a></p>
+<ol start="2" type="1">
+<li><p>Find the data! I have put the data here: <a href="data/wk3/stamkou_Study1_edited data.sav" target="_blank">stamkou_Study1_edited data.sav</a>, but it is worth looking online to see if you can find the data yourself, to gain further practise of finding data sets.</p></li>
 <li><p>From the Stamkou et al.&nbsp;data, can you look at whether there was a change in happiness ratings from the baseline (PracticeHappy) to after watching the video (VideoHappy)?</p></li>
 </ol>
+<p>First load in the libraries haven and tidyverse, and then use read_sav to load in the data:</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -348,54 +353,18 @@ Hint
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Remember first to load in the libraries Hmisc and tidyverse, and then use get.spss to load in the data: There are two ways to load in data that comes from spss - when the datafile ends with .sav The way we looked at doing this in week 1 workbook used the library Hmisc and then the function get.spss The other way is to use the library haven, and the function read_sav</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">spss.get</span>(<span class="st">"stamkou_Study 1_edited data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>or:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"stamkou_Study 1_edited data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"stamkou_Study 1_edited data.sav"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-</div>
-<ol start="3" type="1">
-<li>If you used get.spss, though, the data, as you may have seen, is rather messy, and needs some tidying up. If you used read_sav then these issues don’t apply. But for get.spss, in particular, the ratings of happiness are a bit all over the place. (this is because get.spss keeps information about responses but also what those responses mean and sometimes mixes them up together). We want these to just be numbers, 1,2,3,4, but instead they have the coding for what the numbers mean as well. If you’ve loaded in your data set into an object called “dat”: then the following lines will work to tidy things up:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">1=not happy at all</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"1"</span>, dat<span class="sc">$</span>PracticeHappy)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">2=a bit happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"2"</span>, dat<span class="sc">$</span>PracticeHappy)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">3=quite happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"3"</span>, dat<span class="sc">$</span>PracticeHappy)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">4=very happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"4"</span>, dat<span class="sc">$</span>PracticeHappy)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>PracticeHappy <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat<span class="sc">$</span>PracticeHappy)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">1=not happy at all</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"1"</span>, dat<span class="sc">$</span>VideoHappy)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">2=a bit happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"2"</span>, dat<span class="sc">$</span>VideoHappy)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">3=quite happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"3"</span>, dat<span class="sc">$</span>VideoHappy)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">4=very happy</span><span class="sc">\n</span><span class="st">"</span>, <span class="st">"4"</span>, dat<span class="sc">$</span>VideoHappy)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>VideoHappy <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(dat<span class="sc">$</span>VideoHappy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
 <li>Now, you can look at plotting the happiness ratings at baseline against happiness ratings after the children watch the video. You can also look at the means and standard deviations of the ratings to see if there is a numerical difference. What are the means and SDs?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -404,12 +373,41 @@ Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Remember: You will need to load in the tidyverse library at this stage.</p>
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat<span class="sc">$</span>PracticeHappy, dat<span class="sc">$</span>VideoHappy)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat, <span class="fu">mean</span>(PracticeHappy), <span class="fu">sd</span>(PracticeHappy), <span class="fu">mean</span>(VideoHappy, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(VideoHappy, <span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>mean(PracticeHappy) sd(PracticeHappy) mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)</p>
+<p>1 2.638889 0.7822321 1.983051 0.828982</p>
+<p>or you could use:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>PracticeHappy); <span class="fu">sd</span>(dat<span class="sc">$</span>PracticeHappy); <span class="fu">mean</span>(dat<span class="sc">$</span>VideoHappy); <span class="fu">sd</span>(dat<span class="sc">$</span>VideoHappy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Later in the workbook, we use the functions group_by and summarise, so you could use these to look at the means separately for the emotion conditions (EmotionCondition) - how would you do that? What are the means and SDs? What effect does there seem to be of the emotion conditions on happiness mood change? If you don’t yet know how to do this, then come back to it after you’ve completed the rest of the workbook.</li>
+</ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -423,37 +421,8 @@ Answer
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dat<span class="sc">$</span>PracticeHappy, dat<span class="sc">$</span>VideoHappy)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat, <span class="fu">mean</span>(PracticeHappy), <span class="fu">sd</span>(PracticeHappy), <span class="fu">mean</span>(VideoHappy, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(VideoHappy, <span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>mean(PracticeHappy) sd(PracticeHappy) mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)</p>
-<p>1 2.638889 0.7822321 1.983051 0.828982</p>
-<p>or you could use:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>PracticeHappy); <span class="fu">sd</span>(dat<span class="sc">$</span>PracticeHappy); <span class="fu">mean</span>(dat<span class="sc">$</span>VideoHappy); <span class="fu">sd</span>(dat<span class="sc">$</span>VideoHappy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<ol start="5" type="1">
-<li>Later in the workbook, we use the functions group_by and summarise, so you could use these to look at the means separately for the emotion conditions (EmotionCondition) - how would you do that? What are the means and SDs? What effect does there seem to be of the emotion conditions on happiness mood change? If you don’t yet know how to do this, then come back to it after you’ve completed the rest of the workbook.</li>
-</ol>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat, EmotionCondition)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat2, <span class="fu">mean</span>(PracticeHappy), <span class="fu">sd</span>(PracticeHappy), <span class="fu">mean</span>(VideoHappy, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(VideoHappy, <span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> <span class="fu">group_by</span>(dat, EmotionCondition)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat2, <span class="fu">mean</span>(PracticeHappy), <span class="fu">sd</span>(PracticeHappy), <span class="fu">mean</span>(VideoHappy, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(VideoHappy, <span class="at">na.rm=</span>T))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>EmotionCondition <code>mean(PracticeHappy)</code> <code>sd(PracticeHappy)</code> <code>mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)</code></p>
 <p>1 Awe 2.68 0.800 2.08 0.747</p>
@@ -475,6 +444,27 @@ Answer
 <li><p>Load the data into an object called “dat” using <code>read_csv()</code>, what command line do you use? (remember to set the working directory)</p></li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"PSYC411-shipley-scores-anonymous-17_18.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ol start="9" type="1">
+<li>View the data. What command do you use?</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -487,13 +477,19 @@ Answer
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"PSYC411-shipley-scores-anonymous-17_18.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-<ol start="9" type="1">
-<li>View the data. What command do you use?</li>
+<ol start="10" type="1">
+<li>We can make a histogram of the first time people took the Gent vocabulary test:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="11" type="1">
+<li>And a histogram of the second time people took the Gent test, what command line do you use?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -508,20 +504,22 @@ Answer
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Gent_2_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-<ol start="10" type="1">
-<li>We can make a histogram of the first time people took the Gent vocabulary test:</li>
+<ol start="12" type="1">
+<li>We will use a function called summarise. This is more powerful than just using mean(dat$Gent_1_score) and sd(dat$Gent_1_score), etc. because it can give us summary statistics on subgroups of data, and can give us much more than just means and SDs. Have a look at the documentation for the function:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Gent_1_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>?summarise</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="11" type="1">
-<li>And a histogram of the second time people took the Gent test, what command line do you use?</li>
-</ol>
+<p>We use it like this: first put the object that the variables are in, then tell summarise what to do with each variable - eg compute the mean or sd or number of times it’s measured (that’s the n() part), or whatever:</p>
+<pre data-eval="FALSE"><code>summarise(dat, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score), n())</code></pre>
+<p>However, this won’t have worked - it will just say NA for means and SDs. This is because summarise doesn’t work if there are missing values (called NA). So, we have to tell summarise to ignore the NAs.</p>
+<pre data-eval="FALSE"><code>summarise(dat, mean(Gent_1_score, na.rm=T), sd(Gent_1_score, na.rm=T), mean(Gent_2_score, na.rm=T), sd(Gent_2_score, na.rm=T), n())</code></pre>
+<p>What is the mean and standard deviation of Gent_1_score and Gent_2_score?</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -535,36 +533,7 @@ Answer
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>Gent_2_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<ol start="12" type="1">
-<li>We will use a function called summarise. This is more powerful than just using mean(dat$Gent_1_score) and sd(dat$Gent_1_score), etc. because it can give us summary statistics on subgroups of data, and can give us much more than just means and SDs. Have a look at the documentation for the function:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>?summarise</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We use it like this: first put the object that the variables are in, then tell summarise what to do with each variable - eg compute the mean or sd or number of times it’s measured (that’s the n() part), or whatever:</p>
-<pre data-eval="FALSE"><code>summarise(dat, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score), n())</code></pre>
-<p>However, this won’t have worked - it will just say NA for means and SDs. This is because summarise doesn’t work if there are missing values (called NA). So, we have to tell summarise to ignore the NAs.</p>
-<pre data-eval="FALSE"><code>summarise(dat, mean(Gent_1_score, na.rm=T), sd(Gent_1_score, na.rm=T), mean(Gent_2_score, na.rm=T), sd(Gent_2_score, na.rm=T), n())</code></pre>
-<p>What is the mean and standard deviation of Gent_1_score and Gent_2_score?</p>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat, <span class="fu">mean</span>(Gent_1_score, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(Gent_1_score, <span class="at">na.rm=</span>T), <span class="fu">mean</span>(Gent_2_score, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(Gent_2_score, <span class="at">na.rm=</span>T), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat, <span class="fu">mean</span>(Gent_1_score, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(Gent_1_score, <span class="at">na.rm=</span>T), <span class="fu">mean</span>(Gent_2_score, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(Gent_2_score, <span class="at">na.rm=</span>T), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>mean(Gent_1_score, na.rm = T)</code> <code>sd(Gent_1_score, na.rm = T)</code> <code>mean(Gent_2_score, na.rm = T)</code> <code>sd(Gent_2_score, na-rm= T)</code> <code>n()</code></p>
 <p>57.4 16.0 57.1 18.7 81</p>
@@ -578,13 +547,13 @@ Answer
 <li>Now we are going to use another way of making graphs. This is more flexible than the <code>hist</code> function. Here is how to make a histogram of the Gent vocabulary scores:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Gent_1_score) ) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"blue"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 1"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Gent_1_score) ) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"blue"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 1"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="14" type="1">
 <li>And for the second Gent test:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Gent_2_score) ) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"red"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 2"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Gent_2_score) ) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"red"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 2"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -614,15 +583,38 @@ Note
 <li>Let’s keep only some of the variables from the dataset dat - let’s remove Gender_code, and Dyslexia_diagnosis. Keep the other variables using <code>select()</code> and load this into summarydata</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Age, english_status, Gender, Shipley_Voc_Score, Gent_1_score, Gent_2_score, academic_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(dat, subject_ID, Age, english_status, Gender, Shipley_Voc_Score, Gent_1_score, Gent_2_score, academic_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="16" type="1">
 <li>Next we will have a bit more of a wander around the data to get a feel for it. We will first use the function <code>arrange()</code>, which changes the order of observations (rows):</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(summarydata, Shipley_Voc_Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(summarydata, Shipley_Voc_Score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What is the lowest score of a participant on the Shipley Vocabulary questionnaire? (You may like to make a new object, which is the result of the <code>arrange</code> function, then look at it in View).</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>10</p>
+</div>
+</div>
+</div>
+<ol start="17" type="1">
+<li>If you want to order from highest to lowest, you have to use the <code>desc()</code> function:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(summarydata, <span class="fu">desc</span>(Shipley_Voc_Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What is the highest value on the Shipley Vocabulary Test? How many participants have this highest score?</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -635,17 +627,17 @@ Answer
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>10</p>
+<p>38, 2 participants</p>
 </div>
 </div>
 </div>
-<ol start="17" type="1">
-<li>If you want to order from highest to lowest, you have to use the <code>desc()</code> function:</li>
+<ol start="18" type="1">
+<li>Next we will use the <code>filter()</code> function. This includes or excludes certain observations (rows). Let’s just include the participants with English as a first language and put this into a new object, called summarydata_enl.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(summarydata, <span class="fu">desc</span>(Shipley_Voc_Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>summarydata_enl <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, english_status <span class="sc">==</span> <span class="st">'native'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What is the highest value on the Shipley Vocabulary Test? How many participants have this highest score?</p>
+<p>What are the mean and SD values of the Shipley Vocabulary test for the native speakers? (use the summarise function)</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -658,17 +650,16 @@ Answer
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>38, 2 participants</p>
-</div>
-</div>
-</div>
-<ol start="18" type="1">
-<li>Next we will use the <code>filter()</code> function. This includes or excludes certain observations (rows). Let’s just include the participants with English as a first language and put this into a new object, called summarydata_enl.</li>
-</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>summarydata_enl <span class="ot">&lt;-</span> <span class="fu">filter</span>(summarydata, english_status <span class="sc">==</span> <span class="st">'native'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(summarydata_enl, <span class="fu">mean</span>(Shipley_Voc_Score), <span class="fu">sd</span>(Shipley_Voc_Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>What are the mean and SD values of the Shipley Vocabulary test for the native speakers? (use the summarise function)</p>
+<p>mean = 32.1, sd = 3.25</p>
+</div>
+</div>
+</div>
+<ol start="19" type="1">
+<li>Make another variable with the z-scores of the Shipley Vocabulary test (see week 1 workbook, 1.4.1.1 Part 1, Task 4). What are the maximum and minimum z-scores? (you can use min() and max() in summarise to compute these)?</li>
+</ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -682,14 +673,19 @@ Answer
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(summarydata_enl, <span class="fu">mean</span>(Shipley_Voc_Score), <span class="fu">sd</span>(Shipley_Voc_Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>summarydata<span class="sc">$</span>zshipley <span class="ot">&lt;-</span> <span class="fu">scale</span>(summarydata<span class="sc">$</span>Shipley_Voc_Score)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(summarydata, <span class="fu">min</span>(zshipley), <span class="fu">max</span>(zshipley))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>mean = 32.1, sd = 3.25</p>
+<p>Min: -2.46, max = 1.43</p>
 </div>
 </div>
 </div>
-<ol start="19" type="1">
-<li>Make another variable with the z-scores of the Shipley Vocabulary test (see week 1 workbook, 1.4.1.1 Part 1, Task 4). What are the maximum and minimum z-scores? (you can use min() and max() in summarise to compute these)?</li>
+<ol start="20" type="1">
+<li>Making subgroups of data using group_by function. Another handy function in the tidyverse library is group_by. This makes subgroups of data which can then be looked at separately in other functions, such as summarise. Above, we filtered just the “native” English speakers, but we can specify subgroups of speakers instead. We make a new object of the grouped data (it looks just the same, but the groups are behind the scenes):</li>
+</ol>
+<p>summarydata2 &lt;- group_by(summarydata, english_status)</p>
+<ol start="21" type="1">
+<li>Then we summarise dat2. What is the mean, SD and number of participants for the Shipley_Voc_Score for the ESL and native English speakers groups?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
@@ -704,34 +700,7 @@ Answer
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>summarydata<span class="sc">$</span>zshipley <span class="ot">&lt;-</span> <span class="fu">scale</span>(summarydata<span class="sc">$</span>Shipley_Voc_Score)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(summarydata, <span class="fu">min</span>(zshipley), <span class="fu">max</span>(zshipley))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Min: -2.46, max = 1.43</p>
-</div>
-</div>
-</div>
-<ol start="20" type="1">
-<li>Making subgroups of data using group_by function. Another handy function in the tidyverse library is group_by. This makes subgroups of data which can then be looked at separately in other functions, such as summarise. Above, we filtered just the “native” English speakers, but we can specify subgroups of speakers instead. We make a new object of the grouped data (it looks just the same, but the groups are behind the scenes):</li>
-</ol>
-<p>summarydata2 &lt;- group_by(summarydata, english_status)</p>
-<ol start="21" type="1">
-<li>Then we summarise dat2. What is the mean, SD and number of participants for the Shipley_Voc_Score for the ESL and native English speakers groups?</li>
-</ol>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(summarydata2, <span class="fu">mean</span>(Shipley_Voc_Score), <span class="fu">sd</span>(Shipley_Voc_Score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(summarydata2, <span class="fu">mean</span>(Shipley_Voc_Score), <span class="fu">sd</span>(Shipley_Voc_Score), <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>english_status <code>mean(Shipley_Voc_Score)</code> <code>sd(Shipley_Voc_Score)</code> <code>n()</code></p>
 <p>1 ESL 21.6 6.76 33</p>
@@ -763,12 +732,40 @@ Answer
 </ul>
 <p>But first, let’s repeat reproducing the histogram from the overhead slides to look at the distribution of variables:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gent_1_score)) <span class="sc">+</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"blue"</span>) <span class="sc">+</span> </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 1"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gent_1_score)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Gent Vocabulary Test 1"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="24" type="1">
 <li>Now draw a histogram with Shipley_Voc_Score as the variable and colour it orange. Remember to change the title to something appropriate.</li>
+</ol>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> summarydata<span class="sc">$</span>Shipley_Voc_Score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"orange"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Shipley Vocabulary Test"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or how about this for a version that separates out the gender in the same figure:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Shipley_Voc_Score, <span class="at">fill=</span>Gender )) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Shipley Vocabulary Test"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-6-graphing-data-using-bar-graphs" class="level5">
+<h5 class="anchored" data-anchor-id="task-6-graphing-data-using-bar-graphs">Task 6: graphing data using bar graphs</h5>
+<ol start="25" type="1">
+<li>Next let’s look at English status and gender. What types of variable are these? Nominal? Ordinal? Interval/ratio?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
@@ -782,22 +779,31 @@ Answer
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> summarydata<span class="sc">$</span>Shipley_Voc_Score)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">fill=</span><span class="st">"orange"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Shipley Vocabulary Test"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>or how about this for a version that separates out the gender in the same figure:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Shipley_Voc_Score, <span class="at">fill=</span>Gender )) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Shipley Vocabulary Test"</span>, <span class="at">x =</span> <span class="st">"Vocabulary Score"</span>, <span class="at">y =</span> <span class="st">"Frequency"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>both nominal. So we can only count them.</p>
 </div>
 </div>
 </div>
-</div>
-</section>
-<section id="task-6-graphing-data-using-bar-graphs" class="level5">
-<h5 class="anchored" data-anchor-id="task-6-graphing-data-using-bar-graphs">Task 6: graphing data using bar graphs</h5>
-<ol start="25" type="1">
-<li>Next let’s look at English status and gender. What types of variable are these? Nominal? Ordinal? Interval/ratio?</li>
+<ol start="26" type="1">
+<li>We will draw a bar graph of the counts. We use <code>geom_bar()</code> for this:</li>
 </ol>
+<ul>
+<li>First try this:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gender)) <span class="sc">+</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>This just draws counts of Gender</li>
+<li>Now let’s draw Gender and English Status together:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> english_status)) <span class="sc">+</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note 1: We use position dodge so that it puts the bars next to each other (what happens if you leave out <code>position = dodge</code>?)</p>
+<p>Note 2: We use <code>fill = english_status</code> so that it fills the different bars with different colours according to different english statuses.</p>
+<p>What is the general pattern of counts? Are there proportional differences by English status according to gender?</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -810,31 +816,16 @@ Answer
 </div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>both nominal. So we can only count them.</p>
+<p>proportionally more males who are native English. But we don’t (yet) know if that’s significant…</p>
 </div>
 </div>
 </div>
-<ol start="26" type="1">
-<li>We will draw a bar graph of the counts. We use <code>geom_bar()</code> for this:</li>
+</section>
+<section id="task-7-graphing-data-using-scatterplot" class="level5">
+<h5 class="anchored" data-anchor-id="task-7-graphing-data-using-scatterplot">Task 7: graphing data using scatterplot</h5>
+<ol start="27" type="1">
+<li>Next we’ll look at Age and Shipley Vocabulary Score. What types of data are these?</li>
 </ol>
-<ul>
-<li>First try this:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gender)) <span class="sc">+</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>This just draws counts of Gender</li>
-<li>Now let’s draw Gender and English Status together:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> english_status)) <span class="sc">+</span> </span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Note 1: We use position dodge so that it puts the bars next to each other (what happens if you leave out <code>position = dodge</code>?)</p>
-<p>Note 2: We use <code>fill = english_status</code> so that it fills the different bars with different colours according to different english statuses.</p>
-<p>What is the general pattern of counts? Are there proportional differences by English status according to gender?</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -847,16 +838,25 @@ Answer
 </div>
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>proportionally more males who are native English. But we don’t (yet) know if that’s significant…</p>
+<p>interval/ratio, so we can draw a point plot (scatterplot).</p>
 </div>
 </div>
 </div>
-</section>
-<section id="task-7-graphing-data-using-scatterplot" class="level5">
-<h5 class="anchored" data-anchor-id="task-7-graphing-data-using-scatterplot">Task 7: graphing data using scatterplot</h5>
-<ol start="27" type="1">
-<li>Next we’ll look at Age and Shipley Vocabulary Score. What types of data are these?</li>
+<ol start="28" type="1">
+<li>We will draw a point plot of these values:</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can add <code>+ labs(title = "Age by Shipley Vocabulary Score", x = "Age", y = "Shipley Vocabulary Score")</code> to tidy up presentation a bit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score)) <span class="sc">+</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age by Shipley Vocabulary Score"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Shipley Vocabulary Score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>What is the relation between age and Shipley Vocabulary score?</li>
+</ul>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -869,25 +869,21 @@ Answer
 </div>
 <div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>interval/ratio, so we can draw a point plot (scatterplot).</p>
+<p>it looks positive.</p>
 </div>
 </div>
 </div>
-<ol start="28" type="1">
-<li>We will draw a point plot of these values:</li>
+<ol start="29" type="1">
+<li>We can also separate points out by different categories as well. Here is how to show different genders in the point graph:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score, <span class="at">colour =</span> Gender)) <span class="sc">+</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age by Shipley Vocabulary Score"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Shipley Vocabulary Score"</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># note that we use colour = Gender, rather than fill = Gender, as the points on the graph are not filled, they are coloured...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We can add <code>+ labs(title = "Age by Shipley Vocabulary Score", x = "Age", y = "Shipley Vocabulary Score")</code> to tidy up presentation a bit.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score)) <span class="sc">+</span> </span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age by Shipley Vocabulary Score"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Shipley Vocabulary Score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>What is the relation between age and Shipley Vocabulary score?</li>
-</ul>
+<p>Now draw the same point graph, distinguishing the points by english_status.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -900,21 +896,20 @@ Answer
 </div>
 <div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>it looks positive.</p>
-</div>
-</div>
-</div>
-<ol start="29" type="1">
-<li>We can also separate points out by different categories as well. Here is how to show different genders in the point graph:</li>
-</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score, <span class="at">colour =</span> Gender)) <span class="sc">+</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age by Shipley Vocabulary Score"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Shipley Vocabulary Score"</span>)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># note that we use colour = Gender, rather than fill = Gender, as the points on the graph are not filled, they are coloured...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score, <span class="at">colour =</span> english_status)) <span class="sc">+</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age by Shipley Vocabulary Score"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Shipley Vocabulary Score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now draw the same point graph, distinguishing the points by english_status.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="task-8-draw-and-interpret-a-box-plot" class="level5">
+<h5 class="anchored" data-anchor-id="task-8-draw-and-interpret-a-box-plot">Task 8: Draw and interpret a box plot</h5>
+<ol start="30" type="1">
+<li>Next on the list of relations to check is gender and vocabulary score. Let’s look at Gent_1_score against Gender. What type of variables are these?</li>
+</ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -927,20 +922,27 @@ Answer
 </div>
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Age, <span class="at">y =</span> Shipley_Voc_Score, <span class="at">colour =</span> english_status)) <span class="sc">+</span> </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Age by Shipley Vocabulary Score"</span>, <span class="at">x =</span> <span class="st">"Age"</span>, <span class="at">y =</span> <span class="st">"Shipley Vocabulary Score"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>one ratio, one nominal, so need a box plot.</p>
 </div>
 </div>
 </div>
-</div>
-</section>
-<section id="task-8-draw-and-interpret-a-box-plot" class="level5">
-<h5 class="anchored" data-anchor-id="task-8-draw-and-interpret-a-box-plot">Task 8: Draw and interpret a box plot</h5>
-<ol start="30" type="1">
-<li>Next on the list of relations to check is gender and vocabulary score. Let’s look at Gent_1_score against Gender. What type of variables are these?</li>
+<ol start="31" type="1">
+<li>We will draw a box plot (you could draw a bar graph, but box plots tend to be preferred for these combinations of variables - use a bar graph for counts):</li>
 </ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Again we can tidy this up by adding labels:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vocabulary Score by Gender"</span>, <span class="at">x =</span> <span class="st">"Gender"</span>, <span class="at">y =</span> <span class="st">"Gent Vocabulary Score Test 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="32" type="1">
+<li>Interpreting box plots: The horizontal line indicates the median. The box indicates where 50% of the data lie. The lines indicate an estimate of the range of the data (minimum and maximum values). The dots indicate outliers. A large box indicates larger standard deviation. If the boxes don’t overlap much then this indicates there may be a difference between the groups.</li>
+</ol>
+<p>Are there differences in Vocabulary according to gender?</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -952,39 +954,6 @@ Answer
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-22" class="callout-22-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>one ratio, one nominal, so need a box plot.</p>
-</div>
-</div>
-</div>
-<ol start="31" type="1">
-<li>We will draw a box plot (you could draw a bar graph, but box plots tend to be preferred for these combinations of variables - use a bar graph for counts):</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Again we can tidy this up by adding labels:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x=</span> Gender, <span class="at">y =</span> Gent_1_score)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Vocabulary Score by Gender"</span>, <span class="at">x =</span> <span class="st">"Gender"</span>, <span class="at">y =</span> <span class="st">"Gent Vocabulary Score Test 1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="32" type="1">
-<li>Interpreting box plots: The horizontal line indicates the median. The box indicates where 50% of the data lie. The lines indicate an estimate of the range of the data (minimum and maximum values). The dots indicate outliers. A large box indicates larger standard deviation. If the boxes don’t overlap much then this indicates there may be a difference between the groups.</li>
-</ol>
-<p>Are there differences in Vocabulary according to gender?</p>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Answer
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>maybe females slightly lower than males.</p>
 </div>
@@ -1001,11 +970,11 @@ Answer
 </ul>
 <p>At the moment, R is interpreting Academic year as a number. We need to turn it into a nominal variable (called a “factor” in R studio):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>summarydata<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(summarydata<span class="sc">$</span>academic_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>summarydata<span class="sc">$</span>academic_year <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(summarydata<span class="sc">$</span>academic_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Draw a graph for each of these relations.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1014,15 +983,15 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>These are categorical against ratio variables, so all box plots:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> academic_year, <span class="at">y =</span> Gent_1_score) ) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> academic_year, <span class="at">y =</span> Age) ) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> english_status, <span class="at">y =</span> Gent_1_score) ) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> english_status, <span class="at">y =</span> Age) ) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">fill =</span> english_status) ) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> academic_year, <span class="at">y =</span> Gent_1_score) ) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> academic_year, <span class="at">y =</span> Age) ) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> english_status, <span class="at">y =</span> Gent_1_score) ) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> english_status, <span class="at">y =</span> Age) ) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> Age, <span class="at">fill =</span> english_status) ) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1038,7 +1007,7 @@ Answer
 <li>What are the minimum and maximum values for the ESL and English native speakers?</li>
 </ol>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1047,10 +1016,10 @@ Answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(summarydata2, <span class="fu">min</span>(Shipley_Voc_Score), <span class="fu">max</span>(Shipley_Voc_Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(summarydata2, <span class="fu">min</span>(Shipley_Voc_Score), <span class="fu">max</span>(Shipley_Voc_Score))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>english_status <code>min(Shipley_Voc_Score)</code> <code>max(Shipley_Voc_Score)</code> 1 ESL 10 38 2 native 24 38 3 NA 24 35</p>
 </div>
@@ -1093,9 +1062,10 @@ Note
 </section>
 <section id="data" class="level3">
 <h3 class="anchored" data-anchor-id="data">3.4.2 Data</h3>
-<p>Here is a link to the data referred to in this practical:</p>
+<p>Here are links to the data referred to in this practical:</p>
 <ul>
-<li><a href="data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv" target="_blank">PSYC411-shipley-scores-anonymous-17_18.csv</a></li>
+<li><p><a href="data/wk3/stamkou_Study1_edited data.sav" target="_blank">stamkou_Study1_edited data.sav</a></p></li>
+<li><p><a href="data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv" target="_blank">PSYC411-shipley-scores-anonymous-17_18.csv</a></p></li>
 </ul>
 </section>
 <section id="answers" class="level3">
