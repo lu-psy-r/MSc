@@ -100,17 +100,17 @@ If you had a look at data in Part 6 finding data from studies you're interested 
 
 Stamkou, E., Brummelman, E., Dunham, R., Nikolic, M., & Keltner, D. (2023). Awe sparks prosociality in children. Psychological Science, 34(4), 455-467. [https://journals.sagepub.com/doi/10.1177/09567976221150616](https://journals.sagepub.com/doi/10.1177/09567976221150616){}
 
-2. Find the data! I have put the data here: [stamkou_Study1_edited data.sav](data/wk3/stamkou_Study1_edited data.sav){target="_blank"}, but it is worth looking online to see if you can find the data yourself, to gain further practise of finding data sets.
+2. Find the data! I have put the data here: [stamkou_Study1_edited_data.sav](data/wk3/stamkou_Study1_edited_data.sav){target="_blank"}, but it is worth looking online to see if you can find the data yourself, to gain further practise of finding data sets.
 
 3. From the Stamkou et al. data, can you look at whether there was a change in happiness ratings from the baseline (PracticeHappy) to after watching the video (VideoHappy)?
 
-First load in the libraries haven and tidyverse, and then use read_sav to load in the data:
+First load in the libraries haven and tidyverse, upload the data file, and then use read_sav to load in the data:
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Hint
 ``` {r eval=FALSE}
 library(haven)
-dat <- read_sav("stamkou_Study 1_edited data.sav")
+dat <- read_sav("stamkou_Study 1_edited_data.sav")
 ```
 :::
 
@@ -679,7 +679,7 @@ If you can do that, then I will be amazed and impressed, and then I've got anoth
 
 Here are links to the data referred to in this practical:
 
-- [stamkou_Study1_edited data.sav](data/wk3/stamkou_Study1_edited data.sav){target="_blank"}
+- [stamkou_Study1_edited_data.sav](data/wk3/stamkou_Study1_edited_data.sav){target="_blank"}
 
 - [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv){target="_blank"}
 
