@@ -81,9 +81,11 @@ In your group, work through this workbook, note any problems and questions you h
 
 #### 4.4.1.1 Part 1: Revision for last week
 
-##### Task 1: Your data from the paper in Psychological Science
+##### Task 1: Your graphs on the vocabulary scores data
 
 1. One of the tasks from last week was to produce some graphs of the data set *PSYC411-shipley-scores-anonymous-17_18.csv*. Go back to your Week 3 rscript to remind yourself of the relations you looked at in your graphs, and discuss what they might mean in your group.
+
+OK, revision is over.
 
 #### 4.4.1.2 Part 2: Load in the New Vocabulary Scores Data and Produce Graphs
 
@@ -454,7 +456,7 @@ cramersV( x = vocabyearlangdat$academic_year, vocabyearlangdat$english_status)
 
 ```
 It is not significant, X-squared(8, 285) = 4.75, p = .784, Cramer's V = 0.13.
-
+:::
 
 #### 4.4.1.6 Part 6: More practice using Chi-squared and Cramer's V test
 
