@@ -33,6 +33,13 @@ The assignment is on [moodle here](https://modules.lancaster.ac.uk/course/sectio
 
 ### 3.3.1 Lectures
 
+::: {.callout-note icon="false" collapse="false"}
+## Are the lecture videos not working on panopto? Here are alternative links.
+I have created podcast versions of part1 and part3 and put them on moodle in case the panopto videos are not working for you - ISS are trying to sort out the issues we've been having.
+[week3 part1 video](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2797940){target="_blank"}
+[week3 part3 video](https://modules.lancaster.ac.uk/mod/resource/view.php?id=2797903){target="_blank"}
+:::
+
 - Watch Lecture 3 part 1
 ```{=html}
 	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=81c47e96-1a2a-4e6c-a7bf-b377009b70e3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w3_p1" ></iframe>
