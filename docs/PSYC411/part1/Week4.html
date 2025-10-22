@@ -974,7 +974,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <li>The results give the chi-squared value, the number of degrees of freedom, and the p-value. P = 2.2e-16 means p = .0000000000000022. That’s highly significant. That means the observations are divided across the categories in a way that is very unlikely to be due to chance (for this number (P = 2.2e-16), it means there’s a 2 in a quadrillion chance that titanic survival was not related to class).</li>
 </ul>
 <p>In a report, you would write:</p>
-<p>Chi-squared(2, N = 1309) = 127.86, p &lt; .001.</p>
+<p>X-squared(2, N = 1309) = 127.86, p &lt; .001.</p>
 <ol start="22" type="1">
 <li>To understand where the significant effect comes from, we need to look at where in our table of counts there is a big discrepancy between the expected frequency and the actual frequency. We can do this by analysing the “standardised residuals” of the chi-squared test.</li>
 </ol>
@@ -1085,7 +1085,7 @@ X-squared = 0.36297, df = 1, p-value = 0.5469</code></pre>
 <pre><code>[1] 0.03594057</code></pre>
 </div>
 </div>
-<p>It still is not significant, X-squared(1, 281) = 0.36, p = 0.547, Cramer’s V = 0.04.</p>
+<p>It still is not significant, X-squared(1, 281) = 0.36, p = .547, Cramer’s V = 0.04.</p>
 </div>
 </div>
 </div>

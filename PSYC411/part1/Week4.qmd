@@ -383,7 +383,7 @@ chisq.test(x = titanic$class, y = titanic$survival)
 
 In a report, you would write: 
 
-Chi-squared(2, N = 1309) = 127.86, p < .001.
+X-squared(2, N = 1309) = 127.86, p < .001.
 
 22. To understand where the significant effect comes from, we need to look at where in our table of counts there is a big discrepancy between the expected frequency and the actual frequency. We can do this by analysing the "standardised residuals" of the chi-squared test.
 
@@ -440,7 +440,7 @@ chisq.test( x = genderlangdatmf$Gender, genderlangdatmf$english_status)
 cramersV( x = genderlangdatmf$Gender, genderlangdatmf$english_status)
 
 ```
-It still is not significant, X-squared(1, 281) = 0.36, p = 0.547, Cramer's V = 0.04.
+It still is not significant, X-squared(1, 281) = 0.36, p = .547, Cramer's V = 0.04.
 
 :::
 
