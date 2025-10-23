@@ -95,7 +95,7 @@ OK, revision is over.
 Make a new script for this week, called *psyc411_week3.r* or another name that makes sense to you.
 
 Remember to clear out R first and load the tidyverse library:
-```{r}
+```{r eval=TRUE}
 
 rm(list=ls())
 library(tidyverse)
@@ -111,7 +111,7 @@ The third contains information about gender and language background - this is ca
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
-``` {r}
+``` {r eval=TRUE}
 vocabgenderdat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_25_gender.csv")
 vocabyearlangdat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_25_year_language.csv")
 genderlangdat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_25_gender_language.csv")
