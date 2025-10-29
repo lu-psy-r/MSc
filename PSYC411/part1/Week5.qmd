@@ -412,7 +412,7 @@ summarydata <- select(all_dat, c("id", "ahiTotal", "occasion"))
 
 ::: {.callout-warning icon="false" collapse="true"}
 ## Hint
-use `occasion == 0 | occasion == 1')`, save this as a new object
+use `occasion == 0 | occasion == 1`, save this as a new object
 called `summarydata2`
 :::
 
