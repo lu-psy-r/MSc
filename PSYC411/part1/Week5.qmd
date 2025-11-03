@@ -452,7 +452,12 @@ interval/ratio/ordinal measure.
 ::: {.callout-note icon="false" collapse="true"}
 ## Answer
 ``` {r}
-ggplot(summarydata2, aes(x = occasion, y = ahiTotal)) + geom_boxplot()
+summarydata3 <- group_by(summarydata2, occasion)
+summarise(summarydata3, mean(ahiTotal), sd(ahiTotal), n())
+# or:
+group_by(summarydata2, occasion) %>% summarise(mean(ahiTotal), sd(ahiTotal), n())
+```
+
 ```
 :::
 
