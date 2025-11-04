@@ -403,7 +403,7 @@ all_dat <- inner_join(x = dat, y = pinfo, by = c("id", "intervention"))
 ::: {.callout-note icon="false" collapse="true"}
 ## Answer
 ``` {r}
-summarydata <- select(all_dat, c("id", "ahiTotal", "occasion"))
+summarydata <- select(all_dat, id, ahiTotal, occasion)
 ```
 :::
 
