@@ -457,8 +457,6 @@ summarise(summarydata3, mean(ahiTotal), sd(ahiTotal), n())
 # or:
 group_by(summarydata2, occasion) %>% summarise(mean(ahiTotal), sd(ahiTotal), n())
 ```
-
-```
 :::
 
 
@@ -523,7 +521,7 @@ the intervention had a positive effect on happiness scores.
 52. Save your R script file.
 
 
-#### 5.4.1.4 Part 4: More practise running a paired t-test
+#### 5.4.1.4 Part 4: More practice running a paired t-test
 
 We are going to figure out whether people have different scores the first and second time they take the Gent vocabulary test.
 
