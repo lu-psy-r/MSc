@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -107,7 +107,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
-<link rel="stylesheet" href="ache-refresh">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -360,8 +359,8 @@ ANSWER
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.2
-✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
 ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
 ✔ purrr     1.1.0     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -433,7 +432,7 @@ dbl (6): id, intervention, sex, age, educ, income
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span> <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 216 rows containing non-finite outside the scale range
@@ -1110,17 +1109,14 @@ Answer
 2 1                    72.4           12.6   147</code></pre>
 </div>
 </div>
-<pre><code>:::
-
-
-48. In order to run the paired t-test, we first need to make sure that the paired values (in this case the measures from the same person) are on the same row of the data. So, let's use pivot_wider to put the ahiTotal scores for occasion 0 in one column, and the ahiTotal scores for occasion 1 in another column:
-
-::: {.cell}
-
-```{.r .cell-code}
-summarydata2_wide &lt;- pivot_wider(summarydata2, names_from = occasion, values_from = ahiTotal, names_prefix = "occasion_")</code></pre>
 </div>
 </div>
+</div>
+<ol start="48" type="1">
+<li>In order to run the paired t-test, we first need to make sure that the paired values (in this case the measures from the same person) are on the same row of the data. So, let’s use pivot_wider to put the ahiTotal scores for occasion 0 in one column, and the ahiTotal scores for occasion 1 in another column:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>summarydata2_wide <span class="ot">&lt;-</span> <span class="fu">pivot_wider</span>(summarydata2, <span class="at">names_from =</span> occasion, <span class="at">values_from =</span> ahiTotal, <span class="at">names_prefix =</span> <span class="st">"occasion_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
@@ -1209,8 +1205,8 @@ Answer
 </ol>
 </section>
 </section>
-<section id="part-4-more-practise-running-a-paired-t-test" class="level4">
-<h4 class="anchored" data-anchor-id="part-4-more-practise-running-a-paired-t-test">5.4.1.4 Part 4: More practise running a paired t-test</h4>
+<section id="part-4-more-practice-running-a-paired-t-test" class="level4">
+<h4 class="anchored" data-anchor-id="part-4-more-practice-running-a-paired-t-test">5.4.1.4 Part 4: More practice running a paired t-test</h4>
 <p>We are going to figure out whether people have different scores the first and second time they take the Gent vocabulary test.</p>
 <ol start="53" type="1">
 <li><p>Go back to the vocabulary scores data. Load the data into dat, and make another object dat2 that contains only the subject_ID, Gent_1_score and Gent_2_score.</p></li>
