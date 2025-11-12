@@ -500,7 +500,7 @@ The logic is that if we can accurately rate our own understanding (from bad to g
 
 :::{.callout-tip collapse="true"}
 ## Hint
-Remember from the Week 6 lecture, that we use `cor.test()`:
+Remember from the lecture, that we use `cor.test()`:
 :::
 
 Can you figure out how to code a correlation test?
