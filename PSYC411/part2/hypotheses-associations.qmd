@@ -633,43 +633,43 @@ summary(study.two.gen)
 
 >**Pract.Q.1.** What is the median of `AGE`?
 
-> Pract.A.1. 32.50
+<!-- > Pract.A.1. 32.50 -->
 
 >**Pract.Q.2.** What class is the variable `ETHNICITY`?
 
-> Pract.A.2. character
+<!-- > Pract.A.2. character -->
 
 >**Pract.Q.3.** Does the summary indicate if any variable has missing values (NAs)?
 
-> Pract.A.3. No
+<!-- > Pract.A.3. No -->
 
 ##### Practical Task 5 -- Change the class or type of the variable `ETHNICITY` to factor
 
 You can use the `as.factor()` function you have used before: how do you write the code for these data?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-study.two.gen$ETHNICITY <- as.factor(study.two.gen$ETHNICITY)
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- study.two.gen$ETHNICITY <- as.factor(study.two.gen$ETHNICITY) -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.4.** After you have done this, what information does `summary()` give you 
 about the variable `ETHNICITY`?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-summary(study.two.gen)
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- summary(study.two.gen) -->
+<!-- ``` -->
+<!-- ::: -->
 
-> Pract.A.4. We can see that ETHNICITY lists observations following UK Office National Statistics ethnicity grouping:
+<!-- > Pract.A.4. We can see that ETHNICITY lists observations following UK Office National Statistics ethnicity grouping: -->
 
-- Asian: 15
-- Black: 5
-- Mixed: 7
-- White: 145
+<!-- - Asian: 15 -->
+<!-- - Black: 5 -->
+<!-- - Mixed: 7 -->
+<!-- - White: 145 -->
 
 #### 7.4.3.3 Practical Part 3: Visualise the associations between variables
 
@@ -715,79 +715,79 @@ First draw the plot, then answer the question.
 
 >**Pract.Q.5.** What is the shape (direction) of the association between `mean.self` and `mean.acc`?
 
-> Pract.A.5. Increase in `mean.self` is associated with increase in `mean.acc`
+<!-- > Pract.A.5. Increase in `mean.self` is associated with increase in `mean.acc` -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = mean.self, y = mean.acc)) +
-  geom_point()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = mean.self, y = mean.acc)) + -->
+<!--   geom_point() -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.6.** What is the shape (direction) of the association between `AGE` and `mean.acc`?
 
-> Pract.A.6. There is no clear association between `AGE` and `mean.acc`
+<!-- > Pract.A.6. There is no clear association between `AGE` and `mean.acc` -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) +
-  geom_point()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) + -->
+<!--   geom_point() -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.7.** What is the shape (direction) of the association between `SHIPLEY`
 and `mean.acc`?
 
-> Pract.A.7. Increase in `SHIPLEY` is associated with increase in `mean.acc`
+<!-- > Pract.A.7. Increase in `SHIPLEY` is associated with increase in `mean.acc` -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) +
-  geom_point()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) + -->
+<!--   geom_point() -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.8.** What is the shape (direction) of the association between `HLVA`
 and `mean.acc`?
 
-> Pract.A.8. Increase in `HLVA` is associated with increase in `mean.acc`
+<!-- > Pract.A.8. Increase in `HLVA` is associated with increase in `mean.acc` -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
-  geom_point()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
+<!--   geom_point() -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.9.** What is the shape (direction) of the association between `FACTOR3`
 and `mean.acc`?
 
-> Pract.A.9. Increase in `FACTOR3` is associated with increase in `mean.acc`
+<!-- > Pract.A.9. Increase in `FACTOR3` is associated with increase in `mean.acc` -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = FACTOR3, y = mean.acc)) +
-  geom_point()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = FACTOR3, y = mean.acc)) + -->
+<!--   geom_point() -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.10.** What is the shape (direction) of the association between `QRITOTAL`
 and `mean.acc`?
 
-> Pract.A.10. Increase in `QRITOTAL` is associated with increase in `mean.acc`
+<!-- > Pract.A.10. Increase in `QRITOTAL` is associated with increase in `mean.acc` -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = QRITOTAL, y = mean.acc)) +
-  geom_point()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = QRITOTAL, y = mean.acc)) + -->
+<!--   geom_point() -->
+<!-- ``` -->
+<!-- ::: -->
 
 #### 7.4.3.4 Practical Part 4: Learn how to edit plotting code
 
@@ -806,44 +806,44 @@ You can work out what to do.
 
 >**Pract.Q.11.** Can you edit the appearance of the points in a scatterplot using alpha, size and colour?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
-  geom_point(alpha = 0.5, size = 2, colour = "red")
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
+<!--   geom_point(alpha = 0.5, size = 2, colour = "red") -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.12.** Can you edit the appearance of the plot background?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
-  geom_point(alpha = 0.5, size = 2, colour = "red")   +
-  theme_bw()
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
+<!--   geom_point(alpha = 0.5, size = 2, colour = "red")   + -->
+<!--   theme_bw() -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.13.** Can you edit the appearance of the labels using `labs()`?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
-  geom_point(alpha = 0.5, size = 2, colour = "red")   +
-  theme_bw() +
-  labs(x = "HLVA", y = "mean accuracy")
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
+<!--   geom_point(alpha = 0.5, size = 2, colour = "red")   + -->
+<!--   theme_bw() + -->
+<!--   labs(x = "HLVA", y = "mean accuracy") -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.14.** Can you find online information about colour blind palettes?
 
 Try doing a search with the keywords: `ggplot colour blind`
 
-> Pract.A.14. -- Here is one:
+<!-- > Pract.A.14. -- Here is one: -->
 
-<http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/>
+<!-- <http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/> -->
 
 ::: callout=tip
 Now it's your turn: experiment!
@@ -861,32 +861,32 @@ Now it's your turn: experiment!
 
 Can you figure out the code to do the calculation?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-cor.test(study.two.gen$HLVA, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- cor.test(study.two.gen$HLVA, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
+<!-- ``` -->
+<!-- ::: -->
 
-> Pract.A.15. r = 0.5000559
+<!-- > Pract.A.15. r = 0.5000559 -->
 
 >**Pract.Q.16.** Is the correlation significant?
 
-> Pract.A.16. r is significant
+<!-- > Pract.A.16. r is significant -->
 
 >**Pract.Q.17.** What are the values for t and p for the significance test for the correlation?
 
-> Pract.A.17. t = 7.5288, p = 2.866e-12
+<!-- > Pract.A.17. t = 7.5288, p = 2.866e-12 -->
 
 >**Pract.Q.18.** What do you conclude, given the correlation results? 
 
 Maybe draw a scatterplot to examine the shape of the association.
 
-> Pract.A.18. `HLVA` and `mean.acc` are positively correlated suggesting that as `HLVA` scores increase so also do `mean.acc` scores
+<!-- > Pract.A.18. `HLVA` and `mean.acc` are positively correlated suggesting that as `HLVA` scores increase so also do `mean.acc` scores -->
 
 >**Pract.Q.19.** What is r (given as `cor` in the output) for the correlation between `mean.self` and `mean.acc`?
 
-> Pract.A.19. r = 0.5460792
+<!-- > Pract.A.19. r = 0.5460792 -->
 
 Can you figure out the code to do the calculation?
 
@@ -899,40 +899,40 @@ cor.test(study.two.gen$mean.self, study.two.gen$mean.acc, method = "pearson",  a
 
 >**Pract.Q.20.** Is the correlation between `AGE` and `mean.acc` significant?
 
-> Pract.A.20. r is not significant
+<!-- > Pract.A.20. r is not significant -->
 
 Can you figure out the code to do the calculation?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-cor.test(study.two.gen$AGE, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- cor.test(study.two.gen$AGE, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.21.** What are the values for t and p for the significance test for the correlation between `QRITOTAL` and `mean.acc`?
 
-> Pract.A.21. t = 6.4711, p = 9.993e-10
+<!-- > Pract.A.21. t = 6.4711, p = 9.993e-10 -->
 
 Can you figure out the code to do the calculation?
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-cor.test(study.two.gen$QRITOTAL, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- cor.test(study.two.gen$QRITOTAL, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
+<!-- ``` -->
+<!-- ::: -->
 
 >**Pract.Q.22.** What do you conclude, given the correlation results, about the association between `SHIPLEY` and `mean.acc`?
 
-> Pract.A.22. `SHIPLEY` and `mean.acc` are positively correlated suggesting that as HLVA scores increase so also do mean.acc scores
+<!-- > Pract.A.22. `SHIPLEY` and `mean.acc` are positively correlated suggesting that as HLVA scores increase so also do mean.acc scores -->
 
-:::{.callout-tip collapse="true"}
-## Code
-```{r}
-cor.test(study.two.gen$SHIPLEY, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
-```
-:::
+<!-- :::{.callout-tip collapse="true"} -->
+<!-- ## Code -->
+<!-- ```{r} -->
+<!-- cor.test(study.two.gen$SHIPLEY, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
+<!-- ``` -->
+<!-- ::: -->
 
 ### 7.4.4 The answers
 
