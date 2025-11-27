@@ -920,7 +920,7 @@ We again split the steps into into parts, tasks and questions.
 We are going to work through the following tasks, split into separate parts.
 
 ::: callout-important
-An answers version of the workbook will be provided after the practical class.
+For this class, we are going to hide answer information in collapsible boxes. You can click on the boxes to reveal the answers but, first, try to think what the answers *should be* before you check what I think the answer should be.
 :::
 
 #### 9.4.3.1 Practical Part 1: Set-up
@@ -929,18 +929,22 @@ To begin, we set up our environment in R.
 
 ##### Practical Task 1 -- Run code to empty the R environment
 
+:::{.callout-tip collapse="true"}
 ```{r}
 #| eval: false
 rm(list=ls())
 ```
+:::
 
 ##### Practical Task 2 -- Run code to load relevant libraries
 
+:::{.callout-tip collapse="true"}
 ```{r}
 #| eval: false
 library("ggdist")
 library("tidyverse")
 ```
+:::
 
 You may need to load other libraries as you progress.
 
@@ -1005,6 +1009,7 @@ Hint: If you have never created a box plot before, a good place to start is the 
 
 >**Pract.Q.1.** What keywords can you use to find the `{ggplot2}` library reference information?
 
+:::{.callout-tip collapse="true"}
 > Pract.A.1. You can do an effective search using the words: `ggplot reference boxplot`
 
 That will get you results including this one:
@@ -1013,12 +1018,14 @@ https://ggplot2.tidyverse.org/reference/geom_boxplot.html
 
 - You know this source is official, relevant, and useful because you can
 see the hex badge: "ggplot2".
+:::
 
 >**Pract.Q.2.** What does a boxplot represent? In other words, what summary
 statistics do the features of a boxplot display?
 
 Hint: You need to search the reference information page for the key information about `summary statistics`.
 
+:::{.callout-tip collapse="true"}
 > Pract.A.2. The reference page includes this information:
 
 > The lower and upper hinges correspond to the first and third quartiles (the 25th and 75th percentiles). This differs slightly from the method used by the `boxplot()` function, and may be apparent with small samples. See `boxplot.stats() `for more information on how hinge positions are calculated for `boxplot()`.
@@ -1028,6 +1035,7 @@ Hint: You need to search the reference information page for the key information 
 > The lower whisker extends from the hinge to the smallest value at most 1.5 \* IQR of the hinge.
 
 > Data beyond the end of the whiskers are called "outlying" points and are plotted individually.
+:::
 
 **2. Locate example code**
 
@@ -1035,6 +1043,7 @@ Hint: You need to search the reference information page for the key information 
 allows you to examine if vocabulary scores are different for people with
 different education levels, where different levels are shown in different colours?
 
+:::{.callout-tip collapse="true"}
 > Pract.A.3. The web page:
 
 <https://ggplot2.tidyverse.org/reference/geom_boxplot.html>
@@ -1068,6 +1077,7 @@ Notice:
 3. Chunk (3.) presents code to vary colour by a variable but --- warning --- the variable is not the one you want to use, you want to replace `drv` with `class`.
 4. This change is required *because* when you adapt the code you will want to colour the boxplots by the *same* variable that you use to split and arrange the data on the x-axis (`EDUCATION`).
 5. Note that you can put aesthetic mappings `aes()` inside geoms but, here, it would be neater to put all the aesthetic mappings together in one place, as shown following.
+:::
 
 **3. Run the example code**
 
@@ -1091,6 +1101,7 @@ You will need to understand two things before you move on.
 
 >**Pract.Q.4.** Can you explain what `geom_jitter()` does?
 
+:::{.callout-tip collapse="true"}
 > Pract.A.4. You can do a search like you have been doing -- with the words: `ggplot reference geom_jitter`
 
 That will get you results including this one:
@@ -1100,12 +1111,15 @@ That will get you results including this one:
 - which says:
 
 > The jitter geom is a convenient shortcut for geom_point(position = "jitter"). It adds a small amount of random variation to the location of each point, and is a useful way of handling overplotting caused by discreteness in smaller datasets.
+:::
 
 >**Pract.Q.5.** Can you explain what "overplotting" means?
 
+:::{.callout-tip collapse="true"}
 > Pract.A.5. Overplotting refers to where points (or other objects) are printed
 on top of each other, or printed crowded together, making it difficult to
 identify different data elements
+:::
 
 **4. Edit the code to do the task with the `study.two.gen` data**
 
@@ -1133,14 +1147,18 @@ Now look at the plot you have produced and critically evaluate it.
 >**Pract.Q.7.** What does the plot tell you about the average (median) vocabulary (`SHIPLEY`) score recorded for people in the `study.two.gen` data-set
 who report different education levels?
 
+:::{.callout-tip collapse="true"}
 > Pract.A.7. The plot indicates that the median vocabulary score is higher for people who report `Higher` education compared to people who report `Further` education or people who report `Secondary` education.
 > We can see this because the middle line in the boxes, representing the median score for people in each education level group, is higher for for people who report `Higher` education.
+:::
 
 >**Pract.Q.8.** What does the plot tell you about the individual, i.e., per-person
 vocabulary (`SHIPLEY`) score recorded for people in the `study.two.gen` data-set
 who report different education levels?
 
+:::{.callout-tip collapse="true"}
 > Pract.A.8. The plot indicates a lot of variability in the individual scores. The distributions of scores appears to have similar wide ranges in each group.
+:::
 
 #### 9.4.3.4 Practical Part 4: New -- locate and use tutorial or how-to information
 
@@ -1164,6 +1182,7 @@ We work through the steps in order:
 You can do an effective search using the words: `how to ggplot rain cloud plot`
 :::
 
+:::{.callout-tip collapse="true"}
 That will get you results including these:
 
 <https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/>
@@ -1181,7 +1200,7 @@ and
 <https://rpubs.com/rana2hin/raincloud>
 
 <https://wellcomeopenresearch.org/articles/4-63>
-
+:::
 
 >**Pract.Q.9.** There are reasons for doing the things we ask you to learn to do. Can you explain briefly why rain cloud plots are useful?
 
@@ -1190,10 +1209,12 @@ and
 People often explain why or how to do things in academic articles. A good source of information for the answer to this question is in the article by Allen et al. in *wellcomeopenresearch*.
 :::
 
+:::{.callout-tip collapse="true"}
 > Pract.A.9. The explanation, in short is that:
 
 - conventional visualizations like bar plots can be misleading;
 - showing raw data with statistical summaries helps the viewer to see both statistical summary information and raw outcomes.
+:::
 
 **2. Locate example code**
 
@@ -1210,7 +1231,8 @@ Most tutorial or how-to writers design their web pages in the same way:
 ::: 
 
 >**Pract.Q.10.** Example code is often highlighted -- can you see it in the webpage?
- 
+
+:::{.callout-tip collapse="true"} 
  > Pract.A.10. A good example tutorial is the one written by Cedric Scherer:
 
 <https://www.cedricscherer.com/2021/06/06/visualizing-distributions-with-raincloud-plots-and-how-to-create-them-with-ggplot2/>
@@ -1218,11 +1240,13 @@ Most tutorial or how-to writers design their web pages in the same way:
 But the example information is a bit simpler in another blog so I focus on this one:
 
 <https://z3tt.github.io/Rainclouds/>
+:::
 
 **3. Run the example code**
 
 Hint: A long sequence of code chunks are required to explain rain cloud plots, so scroll through whatever tutorial you are looking at until you find the bit that is presented, e.g., as: `Raincloud plots`.
 
+:::{.callout-tip collapse="true"}
 Copy a chunk of example code and paste it directly into the `Console` and run it, or paste it into the `Script` window and run it:
 
 ```{r}
@@ -1232,7 +1256,8 @@ ggplot(iris, aes(Species, Sepal.Width)) +
    geom_boxplot(width = .2, outlier.shape = NA) +
    geom_jitter(width = .05, alpha = .3)
 ```
- 
+:::
+
 Hint: Make sure you have copied the *complete* sequence of code shown in the highlighted window in the tutorial.
 
 Hint: If you get a warning that a function is `not available` check that you have used `library()` to get all the libraries the tutorial authors said that you needed.
@@ -1279,7 +1304,7 @@ ggplot(data = study.two.gen, aes(x = EDUCATION, y = SHIPLEY)) +
 
 Sometimes, when you are working with example code from an online source, you need to *experiment* a bit with the example code to get it to work.
 
-::: callout-tup
+::: callout-tip
 Learning to experiment with codd is a *really* useful skill to develop:
  
 - You can start by just deleting the arguments inside function calls, e.g., `geom_boxplot(width = .2, outlier.shape = NA)`, one argument at a time, to see what changes.
@@ -1328,16 +1353,19 @@ But if you do not do these things, R will use (OK) defaults for you.
 You can search for information on how to do this by using keywords like: `word how to insert an image file`
 :::
 
+:::{.callout-tip collapse="true"}
 > Pract.A.12. -- You can find instructions e.g. here
 
 <https://support.microsoft.com/en-us/office/insert-pictures-3c51edf4-22e1-460a-b372-9329a8724344:~:text=Insert%20a%20picture%20in%20Word%2C%20PowerPoint%2C%20or%20Excel&text=On%20the%20Insert%20tab%2C%20click,in%20iPhoto%20or%20Photo%20Booth.>
-
+:::
 
 >**Pract.Q.13.** Can you adapt the colour scheme of the plot to make it look good to you?
 
+:::{.callout-tip collapse="true"}
 > Pract.A.13. Again, we are asking you to do a key words search. If you do, the results may include:
 
 <https://ggplot2.tidyverse.org/reference/scale_brewer.html>
+:::
 
 You may need to edit the aesthetic mappings to instruct R to map colour (lines) and fill to the categorical variable or factor we are working with:
 
@@ -1356,13 +1384,13 @@ ggplot(data = study.two.gen, aes(x = EDUCATION, y = SHIPLEY,
 
 >**Pract.Q.14.** Can you change the theme?
 
+:::{.callout-tip collapse="true"}
 > Pract.A.14. Again, we are asking you to do a key words search. If you do, the results may include:
 
 <https://ggplot2.tidyverse.org/reference/ggtheme.html>
 
 - which provides information you can use to edit code as follows:
 
-:::{.callout-tip collapse="true"}
 ## Code
 ```{r}
 ggplot(data = study.two.gen, aes(x = EDUCATION, y = SHIPLEY,
@@ -1387,11 +1415,11 @@ Understanding *how* you can produce informative, engaging, data visualizations i
 We will continue to deepen and extend your skills and understanding but everything builds on the key lessons we have been learning here.
 :::
 
-### The answers
+<!-- ### The answers -->
 
-After the practical class, we will reveal the answers that are currently hidden.
+<!-- After the practical class, we will reveal the answers that are currently hidden. -->
 
-The answers version of the webpage will present my answers for questions, and some extra information where that is helpful.
+<!-- The answers version of the webpage will present my answers for questions, and some extra information where that is helpful. -->
 
 ### Summary
 
