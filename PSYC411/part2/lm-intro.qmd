@@ -933,13 +933,13 @@ Remember:
 - You can experiment with different numbers to find a balance between a histogram that shows detail (more, narrow, bars) and a histogram that shows an impression (fewer, wider, bars).
 :::
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY)) + -->
-<!--   geom_histogram(binwidth = 2) -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY)) +
+  geom_histogram(binwidth = 2)
+```
+:::
 
 >**Pract.Q.2.** Can you edit the appearance of the background?
 
@@ -950,26 +950,26 @@ There are a range of themes that you can use.  Why not pick one of the options s
 <https://ggplot2.tidyverse.org/reference/ggtheme.html>
 :::
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY)) + -->
-<!--   geom_histogram(binwidth = 2) + -->
-<!--   theme_bw() -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY)) +
+  geom_histogram(binwidth = 2) +
+  theme_bw()
+```
+:::
 
 >**Pract.Q.3.** Can you edit the appearance of the labels?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY)) + -->
-<!--   geom_histogram(binwidth = 2) + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "SHIPLEY", y = "frequency count") -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY)) +
+  geom_histogram(binwidth = 2) +
+  theme_bw() +
+  labs(x = "SHIPLEY", y = "frequency count")
+```
+:::
 
 >**Pract.Q.4.** Can you edit the x-axis limits?
 
@@ -983,31 +983,31 @@ What you want to do, here, is to show the smallest possible value (often, not al
 Drawing a histogram like this allows you to show the reader how the sample compares to the wider population.
 :::
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY)) + -->
-<!--   geom_histogram(binwidth = 2) + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "Vocabulary (SHIPLEY)", y = "frequency count") + -->
-<!--   xlim(0,40) -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY)) +
+  geom_histogram(binwidth = 2) +
+  theme_bw() +
+  labs(x = "Vocabulary (SHIPLEY)", y = "frequency count") +
+  xlim(0,40)
+```
+:::
 
 >**Pract.Q.5.** Can you add annotation: a vertical line to show the mean value of 
 the variable you are plotting?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY)) + -->
-<!--   geom_histogram(binwidth = 2) + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "Vocabulary (SHIPLEY)", y = "frequency count") + -->
-<!--   xlim(0,40) + -->
-<!--   geom_vline(xintercept = mean(study.two.gen$SHIPLEY), colour = "red", size = 1.5) -->
-<!-- ``` -->
-<!-- ::: -->
+:::{.callout-tip collapse="true"}
+## Code
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY)) +
+  geom_histogram(binwidth = 2) +
+  theme_bw() +
+  labs(x = "Vocabulary (SHIPLEY)", y = "frequency count") +
+  xlim(0,40) +
+  geom_vline(xintercept = mean(study.two.gen$SHIPLEY), colour = "red", size = 1.5)
+```
+:::
 
 >**Pract.Q.6.** Where can you find information on how to define the limits on the x-axis 
 and on the y-axis?
@@ -1017,9 +1017,9 @@ and on the y-axis?
 You can see the information in this week's `how-to` guide but try a search online for the keywords: `ggplot reference xlim`.
 :::
 
-<!-- > Pract.A.6. See ggplot reference information on setting limits here: -->
+> Pract.A.6. See ggplot reference information on setting limits here:
 
-<!-- <https://ggplot2.tidyverse.org/reference/lims.html> -->
+<https://ggplot2.tidyverse.org/reference/lims.html>
 
 >**Pract.Q.7.** Where can you find information on how to draw a reference line?
 
@@ -1028,9 +1028,9 @@ You can see the information in this week's `how-to` guide but try a search onlin
 You can see the information in this week's `how-to` but try a search online for the keywords: `ggplot reference vline`.
 :::
 
-<!-- > Pract.A.7. See ggplot reference information on adding lines here: -->
+> Pract.A.7. See ggplot reference information on adding lines here:
 
-<!-- <https://ggplot2.tidyverse.org/reference/geom_abline.html> -->
+<https://ggplot2.tidyverse.org/reference/geom_abline.html>
 
 #### 8.4.3.4 Practical Part 4: Developing scatterplots to examine associations between variables
 
@@ -1079,72 +1079,72 @@ your audience to read your plots.
 
 >**Pract.Q.8.** Can you edit the appearance of the points using `alpha`, `size`, `shape`, and `colour`?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Check out the example code for each of the scatterplots. -->
+:::{.callout-tip collapse="true"}
+## Code
+Check out the example code for each of the scatterplots.
 
-<!-- - Notice what changes and what stays the same. -->
+- Notice what changes and what stays the same.
 
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square') -->
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')
 
-<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square') -->
+ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')
 
-<!-- ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square') -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')
+```
+:::
 
 >**Pract.Q.9.** Can you edit the appearance of the background?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Check out the example code for each of the scatterplots. -->
+:::{.callout-tip collapse="true"}
+## Code
+Check out the example code for each of the scatterplots.
 
-<!-- - Notice what changes and what stays the same. -->
+- Notice what changes and what stays the same.
 
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() -->
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw()
 
-<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() -->
+ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw()
 
-<!-- ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw()
+```
+:::
 
 >**Pract.Q.10.** Can you edit the appearance of the labels?
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Check out the example code for each of the scatterplots. -->
+:::{.callout-tip collapse="true"}
+## Code
+Check out the example code for each of the scatterplots.
 
-<!-- - Notice what changes and what stays the same. -->
+- Notice what changes and what stays the same.
 
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "SHIPLEY", y = "mean accuracy") -->
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw() +
+  labs(x = "SHIPLEY", y = "mean accuracy")
 
-<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "HLVA", y = "mean accuracy") -->
+ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw() +
+  labs(x = "HLVA", y = "mean accuracy")
 
-<!-- ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "Age (Years)", y = "mean accuracy") -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw() +
+  labs(x = "Age (Years)", y = "mean accuracy")
+```
+:::
 
 >**Pract.Q.11.** Can you set the x-axis and y-axis limits to 0 (as the minimum) versus the sample data maximum values for the variables you are plotting?
 
@@ -1159,32 +1159,32 @@ your audience to read your plots.
 Check first if you can write the code you need to produce each scatterplot.
 Click on the button to see the code example: compare it to the code you wrote.
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Check out the example code for each of the scatterplots. -->
+:::{.callout-tip collapse="true"}
+## Code
+Check out the example code for each of the scatterplots.
 
-<!-- - Notice what changes and what stays the same. -->
+- Notice what changes and what stays the same.
 
-<!-- ```{r} -->
-<!-- ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "SHIPLEY", y = "mean accuracy") + -->
-<!--   xlim(0, 40) + ylim(0, 1) -->
+```{r}
+ggplot(data = study.two.gen, aes(x = SHIPLEY, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw() +
+  labs(x = "SHIPLEY", y = "mean accuracy") +
+  xlim(0, 40) + ylim(0, 1)
 
-<!-- ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "HLVA", y = "mean accuracy") + -->
-<!--   xlim(0, 16) + ylim(0, 1) -->
+ggplot(data = study.two.gen, aes(x = HLVA, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw() +
+  labs(x = "HLVA", y = "mean accuracy") +
+  xlim(0, 16) + ylim(0, 1)
 
-<!-- ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) + -->
-<!--   geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   + -->
-<!--   theme_bw() + -->
-<!--   labs(x = "Age (Years)", y = "mean accuracy") + -->
-<!--   xlim(0, 80) + ylim(0, 1) -->
-<!-- ``` -->
-<!-- ::: -->
+ggplot(data = study.two.gen, aes(x = AGE, y = mean.acc)) +
+  geom_point(alpha = 0.5, size = 2, colour = "blue", shape = 'square')   +
+  theme_bw() +
+  labs(x = "Age (Years)", y = "mean accuracy") +
+  xlim(0, 80) + ylim(0, 1)
+```
+:::
 
 #### 8.4.3.5 Practical Part 5: Using correlations to to answer research questions --- making sure you are comfortable
 
@@ -1203,42 +1203,42 @@ Run three correlations to look at this question:
 Check first if you can write the code you need to complete each correlation analysis.
 Click on the button to see the code example: compare it to the code you wrote.
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Check out the example code for doing each of the correlation analyses. -->
+:::{.callout-tip collapse="true"}
+## Code
+Check out the example code for doing each of the correlation analyses.
 
-<!-- - Notice what changes and what stays the same. -->
+- Notice what changes and what stays the same.
 
-<!-- ```{r} -->
-<!-- cor.test(study.two.gen$SHIPLEY, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
+```{r}
+cor.test(study.two.gen$SHIPLEY, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
 
-<!-- cor.test(study.two.gen$HLVA, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
+cor.test(study.two.gen$HLVA, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
 
-<!-- cor.test(study.two.gen$AGE, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided") -->
-<!-- ``` -->
-<!-- ::: -->
+cor.test(study.two.gen$AGE, study.two.gen$mean.acc, method = "pearson",  alternative = "two.sided")
+```
+:::
 
 Now use the results from the correlations to answer the following questions.
 
 >**Pract.Q.12.** What is `r`, the coefficient for the correlation between `mean.acc` and `SHIPLEY`?
 
-<!-- > Pract.A.12. r = 0.4650537 -->
+> Pract.A.12. r = 0.4650537
 
 >**Pract.Q.13.** Is the correlation between `mean.acc` and `HLVA`  significant?
 
-<!-- > Pract.A.13. -- r is significant, p < .05 -->
+> Pract.A.13. -- r is significant, p < .05
 
 >**Pract.Q.14.** What are the values for t and p for the significance test for the correlation between `mean.acc` and `AGE`?
 
-<!-- > Pract.A.14. t = 0.30121, p = 0.7636 -->
+> Pract.A.14. t = 0.30121, p = 0.7636
 
 >**Pract.Q.15.** For which pair of outcome-predictor variables is the correlation the largest?
 
-<!-- > Pract.A.15. -- The correlation is the largest between `mean.acc` and `HLVA`. -->
+> Pract.A.15. -- The correlation is the largest between `mean.acc` and `HLVA`.
 
 >**Pract.Q.16.** What is the sign or direction of each of the correlations?
 
-<!-- > Pract.A.16. -- All the correlations are positive. -->
+> Pract.A.16. -- All the correlations are positive.
 
 #### 8.4.3.6 Practical Part 6: Using a linear model to to answer research questions
 
@@ -1277,45 +1277,45 @@ With:
 Check first if you can write the code you need to complete each linear model analysis.
 Click on the button to see the code example: compare it to the code you wrote.
 
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Check out the example code for each of the models. -->
+:::{.callout-tip collapse="true"}
+## Code
+Check out the example code for each of the models.
 
-<!-- - Notice what changes and what stays the same. -->
+- Notice what changes and what stays the same.
 
-<!-- ```{r} -->
-<!-- model.1 <- lm(mean.acc ~ SHIPLEY, data = study.two.gen) -->
-<!-- summary(model.1) -->
+```{r}
+model.1 <- lm(mean.acc ~ SHIPLEY, data = study.two.gen)
+summary(model.1)
 
-<!-- model.2 <- lm(mean.acc ~ HLVA, data = study.two.gen) -->
-<!-- summary(model.2) -->
+model.2 <- lm(mean.acc ~ HLVA, data = study.two.gen)
+summary(model.2)
 
-<!-- model.3 <- lm(mean.acc ~ AGE, data = study.two.gen) -->
-<!-- summary(model.3) -->
-<!-- ``` -->
-<!-- ::: -->
+model.3 <- lm(mean.acc ~ AGE, data = study.two.gen)
+summary(model.3)
+```
+:::
 
 If you look at the model summary you can answer the following questions.
 
 >**Pract.Q.17.** What is the estimate for the coefficient of the effect of the predictor `HLVA` on `mean.acc`?
 
-<!-- > Pract.A.17. 0.026207 -->
+> Pract.A.17. 0.026207
 
 >**Pract.Q.18.** Is the effect significant?
 
-<!-- > Pract.A.18. It is significant, p < .05 -->
+> Pract.A.18. It is significant, p < .05
 
 >**Pract.Q.19.** What are the values for t and p for the significance test for the coefficient?
 
-<!-- > Pract.A.19. t = 7.529, p = 2.87e-12 -->
+> Pract.A.19. t = 7.529, p = 2.87e-12
 
 >**Pract.Q.20.** How would you describe in words the shape or direction of the association between `HLVA` and `mean.acc`?
 
-<!-- > Pract.A.20. The slope coefficient -- and a scatterplot (draw it) -- suggest that as HLVA scores increase so also do mean accuracy scores. -->
+> Pract.A.20. The slope coefficient -- and a scatterplot (draw it) -- suggest that as HLVA scores increase so also do mean accuracy scores.
 
 >**Pract.Q.21.** How how would you describe the relations apparent between the predictor and outcome in all three models?
 
-<!-- > Pract.A.21. It is possible to see, given coefficient estimates, that the association between predictor and outcome is positive for each model: mean accuracy appears to increase for increasing values of SHIPLEY vocabulary, HLVA health literacy, and age. -->
+> Pract.A.21. It is possible to see, given coefficient estimates, that the association between predictor and outcome is positive for each model: mean accuracy appears to increase for increasing values of SHIPLEY vocabulary, HLVA health literacy, and age.
 
 #### 8.4.3.7 Practical Part 7: Using a linear model to make predictions
 
@@ -1345,11 +1345,11 @@ You will need to record some information from the model summary so you can use i
 
 >**Pract.Q.22.** What is the coefficient estimate for the intercept?
 
-<!-- > Pract.A.22. 0.522016 -->
+> Pract.A.22. 0.522016
 
 >**Pract.Q.23.** What is the coefficient estimate for the slope of `HLVA`?
 
-<!-- > Pract.A.23. 0.026207 -->
+> Pract.A.23. 0.026207
 
 **Step 2. Second, draw a scatterplot and add a line to show the model predictions**
 
