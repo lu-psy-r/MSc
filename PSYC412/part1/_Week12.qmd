@@ -956,59 +956,59 @@ vif(mod)                      # Check for multi-collinearity
 
 When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. **Remember**, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. **Actively engaging** with the material is the way to learn these analysis skills, not by looking at someone else's completed code...
 
-<!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
+The answers to the questions and the script containing the code will be available after the lab session has taken place.
 
-You can download the R-script that includes the relevant code here: [412_wk12_labAct1_withAnswers.R](Week12-files/412_wk12_labAct1_withAnswers.R).
+<!-- You can download the R-script that includes the relevant code here: [412_wk12_labAct1_withAnswers.R](Week12-files/412_wk12_labAct1_withAnswers.R). -->
 
-### Lab activity 1: Combining a continuous and a categorical predictor in a regression model
+<!-- ### Lab activity 1: Combining a continuous and a categorical predictor in a regression model -->
 
-2a. In which table is the variable corresponding to sex located and what is this variable called? **In `pinfo`; the variable is called `sex`.**
+<!-- 2a. In which table is the variable corresponding to sex located and what is this variable called? **In `pinfo`; the variable is called `sex`.** -->
 
-2b. In what format is the well-being data (long or wide)? On how many participants does it include observations? And on how many items for each participant? **The well-being data are in 'wide' format. It contains observations on 102580 participants, on 14 items.**
+<!-- 2b. In what format is the well-being data (long or wide)? On how many participants does it include observations? And on how many items for each participant? **The well-being data are in 'wide' format. It contains observations on 102580 participants, on 14 items.** -->
 
-2c. What is the name of the variable that identifies individual participants in this dataset? It is important to work this out as this variable will allow us to link information across the three data files. **`Serial`**
+<!-- 2c. What is the name of the variable that identifies individual participants in this dataset? It is important to work this out as this variable will allow us to link information across the three data files. **`Serial`** -->
 
-3a. Is the distribution of well-being scores symmetrical, negatively skewed or positively skewed? **Negatively skewed**
+<!-- 3a. Is the distribution of well-being scores symmetrical, negatively skewed or positively skewed? **Negatively skewed** -->
 
-4a. What are the variables and the levels or conditions within each variable of screen2?
+<!-- 4a. What are the variables and the levels or conditions within each variable of screen2? -->
 
-**Participants plus:**
-**Levels:  variables = 4:  watching tv, playing video games, using computers, using smartphone**
-         **day = 2 = weekdays, weekends**
-         **hours = 9 = 0, 0.5, 1 - 7**
+<!-- **Participants plus:** -->
+<!-- **Levels:  variables = 4:  watching tv, playing video games, using computers, using smartphone** -->
+<!--          **day = 2 = weekdays, weekends** -->
+<!--          **hours = 9 = 0, 0.5, 1 - 7** -->
 
-4b.  What research question does this plot describe? Is it appropriate for the levels within the data? **The plot describes how hours of use impact upon well-being? No, it is too broad a research question.**
+<!-- 4b.  What research question does this plot describe? Is it appropriate for the levels within the data? **The plot describes how hours of use impact upon well-being? No, it is too broad a research question.** -->
 
-4c.  What research question would fit this visualisation?Is it appropriate for the levels in the data? **The hours are now displayed by weekdays and weekends. How do hours of screen time impact on well-being on weekdays and at the weekend? No, it is still too broad.**
+<!-- 4c.  What research question would fit this visualisation?Is it appropriate for the levels in the data? **The hours are now displayed by weekdays and weekends. How do hours of screen time impact on well-being on weekdays and at the weekend? No, it is still too broad.** -->
 
-4d.  What does the `facet_wrap()` function do? Is this plot appropriate for the levels in the data? **The `facet_wrap()` function has split the types of screen time and shown how hours of use across weekdays and weekends impact upon well-being. This captures the levels of information within the dataset.**
+<!-- 4d.  What does the `facet_wrap()` function do? Is this plot appropriate for the levels in the data? **The `facet_wrap()` function has split the types of screen time and shown how hours of use across weekdays and weekends impact upon well-being. This captures the levels of information within the dataset.** -->
 
-5a. *See the script*
+<!-- 5a. *See the script* -->
 
-6a. Write an interpretation of the above plot in plain English. **Something along the lines of: Adolescent girls show lower overall well-being compared to adolescent boys. In addition, the slope for girls appears more negative than that for boys; the one for boys appears relatively flat. This suggests that the negative association between well-being and smartphone use is stronger for girls.**
+<!-- 6a. Write an interpretation of the above plot in plain English. **Something along the lines of: Adolescent girls show lower overall well-being compared to adolescent boys. In addition, the slope for girls appears more negative than that for boys; the one for boys appears relatively flat. This suggests that the negative association between well-being and smartphone use is stronger for girls.** -->
 
-7a.   What is the p-value for the overall model? Is it significant? What does this mean? **The p-value for the overall model fit is < 2.2e-16. This significant. It means that together the predictors describe the variance in well-being better than a model without the predictors (the null model). So knowing something about smartphone use and sex of participants will allow us to predict their well-being to a degree.**
+<!-- 7a.   What is the p-value for the overall model? Is it significant? What does this mean? **The p-value for the overall model fit is < 2.2e-16. This significant. It means that together the predictors describe the variance in well-being better than a model without the predictors (the null model). So knowing something about smartphone use and sex of participants will allow us to predict their well-being to a degree.** -->
 
-7b.  To two decimal places, what percentage of the variance in well-being scores does the overall model explain? **9.38%**
+<!-- 7b.  To two decimal places, what percentage of the variance in well-being scores does the overall model explain? **9.38%** -->
 
-7c.   Are the main effects of smartphone use and sex significant? **Yes.**
+<!-- 7c.   Are the main effects of smartphone use and sex significant? **Yes.** -->
 
-7d.   Which variable indicates the interaction between smartphone use and sex? **The interaction is indicated by the variable hours_per_day:sex.**
+<!-- 7d.   Which variable indicates the interaction between smartphone use and sex? **The interaction is indicated by the variable hours_per_day:sex.** -->
 
-7e.   And is the interaction significant? **Yes.**
+<!-- 7e.   And is the interaction significant? **Yes.** -->
 
-7f.   What is the most reasonable interpretation of these results? **Smartphone use was more negatively associated with well-being for girls than for boys.**
+<!-- 7f.   What is the most reasonable interpretation of these results? **Smartphone use was more negatively associated with well-being for girls than for boys.** -->
 
-7g.   Is being Male better for a person's well-being in the context of smartphone use than being Female? **Yes.**
+<!-- 7g.   Is being Male better for a person's well-being in the context of smartphone use than being Female? **Yes.** -->
 
-8a. What do you conclude from the QQ-plot? **The residuals are normally distributed.**
+<!-- 8a. What do you conclude from the QQ-plot? **The residuals are normally distributed.** -->
 
-8b. Do any of the predictors show evidence of multicollinearity? **Yes, Boys and the interaction do. We'll talk about that more, later in the module.**
+<!-- 8b. Do any of the predictors show evidence of multicollinearity? **Yes, Boys and the interaction do. We'll talk about that more, later in the module.** -->
 
-9. Write up
+<!-- 9. Write up -->
 
-**Treatment / dummy coded model**
-Treatment coding was used for categorical predictors with the Girls level acting as the reference group. The results of the regression indicated that the model significantly predicted well-being (*F*(3, 71029) = 2450.89, *p* < .001, Adjusted R2 = 0.09), accounting for 9% of the variance.Total hours of smart phone use was a significant negative predictor of well-being scores (*β* = -0.77, *p* < .001, as was sex (*β* = 3.22, *p* < .001), with girls having lower well-being scores than boys. Importantly, there was a significant interaction between screen time and sex (*β* = 0.45, *p* < .001): smartphone use was more negatively associated with well-being for girls than for boys.
+<!-- **Treatment / dummy coded model** -->
+<!-- Treatment coding was used for categorical predictors with the Girls level acting as the reference group. The results of the regression indicated that the model significantly predicted well-being (*F*(3, 71029) = 2450.89, *p* < .001, Adjusted R2 = 0.09), accounting for 9% of the variance.Total hours of smart phone use was a significant negative predictor of well-being scores (*β* = -0.77, *p* < .001, as was sex (*β* = 3.22, *p* < .001), with girls having lower well-being scores than boys. Importantly, there was a significant interaction between screen time and sex (*β* = 0.45, *p* < .001): smartphone use was more negatively associated with well-being for girls than for boys. -->
 
-**Deviation / sum coded model**
-Deviation coding was used for categorical predictors. The results of the regression indicated that the model significantly predicted well-being (*F*(3, 71029) = 2450.89, *p* < .001, Adjusted R2 = 0.09), accounting for 9% of the variance. Total hours of smart phone use was a significant negative predictor of well-being scores (*β* = -0.55, *p* < .001, as was sex (*β* = -1.61, *p* < .001), with girls having lower well-being scores than boys. Importantly, there was a significant interaction between screen time and sex (*β* = -0.22, *p* < .001), indicating that smartphone use was more negatively associated with well-being for girls than for boys.
+<!-- **Deviation / sum coded model** -->
+<!-- Deviation coding was used for categorical predictors. The results of the regression indicated that the model significantly predicted well-being (*F*(3, 71029) = 2450.89, *p* < .001, Adjusted R2 = 0.09), accounting for 9% of the variance. Total hours of smart phone use was a significant negative predictor of well-being scores (*β* = -0.55, *p* < .001, as was sex (*β* = -1.61, *p* < .001), with girls having lower well-being scores than boys. Importantly, there was a significant interaction between screen time and sex (*β* = -0.22, *p* < .001), indicating that smartphone use was more negatively associated with well-being for girls than for boys. -->
