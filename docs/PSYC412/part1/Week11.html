@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../PSYC412/part1/Week12.html" rel="next">
 <link href="../../PSYC411/part2/lm-dev.html" rel="prev">
 <link href="../../Images/favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
@@ -271,6 +272,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Week 11. Recap of the linear model and practising data-wrangling in R</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12. Categorical predictors</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -300,7 +307,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#lab-activity-1-interpreting-and-reporting-results" id="toc-lab-activity-1-interpreting-and-reporting-results" class="nav-link" data-scroll-target="#lab-activity-1-interpreting-and-reporting-results">Lab activity 1: Interpreting and reporting results</a></li>
   <li><a href="#lab-activity-2-conducting-simple-and-multiple-regression" id="toc-lab-activity-2-conducting-simple-and-multiple-regression" class="nav-link" data-scroll-target="#lab-activity-2-conducting-simple-and-multiple-regression">Lab activity 2: Conducting simple and multiple regression</a></li>
   </ul></li>
-  <li><a href="#sec-wk11-answers" id="toc-sec-wk11-answers" class="nav-link" data-scroll-target="#sec-wk11-answers">Answers</a></li>
+  <li><a href="#sec-wk11-answers" id="toc-sec-wk11-answers" class="nav-link" data-scroll-target="#sec-wk11-answers">Answers</a>
+  <ul class="collapse">
+  <li><a href="#lab-activity-1-interpreting-and-reporting-results-1" id="toc-lab-activity-1-interpreting-and-reporting-results-1" class="nav-link" data-scroll-target="#lab-activity-1-interpreting-and-reporting-results-1">Lab activity 1: Interpreting and reporting results</a></li>
+  <li><a href="#lab-activity-2-conducting-simple-and-multiple-regression-1" id="toc-lab-activity-2-conducting-simple-and-multiple-regression-1" class="nav-link" data-scroll-target="#lab-activity-2-conducting-simple-and-multiple-regression-1">Lab activity 2: Conducting simple and multiple regression</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1004,18 +1015,24 @@ Hint
 <section id="sec-wk11-answers" class="level2">
 <h2 class="anchored" data-anchor-id="sec-wk11-answers">Answers</h2>
 <p>When you have completed all of the lab content, you may want to check your answers with our completed version of the script for this week. <strong>Remember</strong>, looking at this script (studying/revising it) does not replace the process of working through the lab activities, trying them out for yourself, getting stuck, asking questions, finding solutions, adding your own comments, etc. <strong>Actively engaging</strong> with the material is the way to learn these analysis skills, not by looking at someone else’s completed code…</p>
-<p>The answers to the questions and the script containing the code will be available after the lab session has taken place.</p>
-<!-- ### Lab activity 1: Interpreting and reporting results -->
-<!-- 1. What is the outcome or dependent variable? **Word reading** -->
-<!-- 2. What is the predictor or independent variable? **Non-word reading** -->
-<!-- 3. Is the overall model significant? **Yes, *F*(1,50) = 69.03, *p* < .001** -->
-<!-- 4. How much variance does the model account for? **58%** -->
-<!-- 5. Does the relationship appear linear? **Yes. The dots and the pink line assemble quite closely on the dashed line.** -->
-<!-- 6. Do the residuals show normality and homoscedasticity? **The qq-plot suggests that the residuals are normally distributed as the dots fall close to the solid blue line and within the range of the dashed blue lines. The Shapiro-Wilk test of normality confirms this (it is not significant). Similarly, the output of the non-constant variance score tests is not significant suggesting that the residuals are homoscedastic.** -->
-<!-- ### Lab activity 2: Conducting simple and multiple regression -->
-<!-- You can download the R-script that includes the relevant code and answers to the questions here: [412_wk11_labAct2_withAnswers.R](Week11-files/412_wk11_labAct2_withAnswers.R). -->
+<!-- The answers to the questions and the script containing the code will be available after the lab session has taken place. -->
+<section id="lab-activity-1-interpreting-and-reporting-results-1" class="level3">
+<h3 class="anchored" data-anchor-id="lab-activity-1-interpreting-and-reporting-results-1">Lab activity 1: Interpreting and reporting results</h3>
+<ol type="1">
+<li>What is the outcome or dependent variable? <strong>Word reading</strong></li>
+<li>What is the predictor or independent variable? <strong>Non-word reading</strong></li>
+<li>Is the overall model significant? <strong>Yes, <em>F</em>(1,50) = 69.03, <em>p</em> &lt; .001</strong></li>
+<li>How much variance does the model account for? <strong>58%</strong></li>
+<li>Does the relationship appear linear? <strong>Yes. The dots and the pink line assemble quite closely on the dashed line.</strong></li>
+<li>Do the residuals show normality and homoscedasticity? <strong>The qq-plot suggests that the residuals are normally distributed as the dots fall close to the solid blue line and within the range of the dashed blue lines. The Shapiro-Wilk test of normality confirms this (it is not significant). Similarly, the output of the non-constant variance score tests is not significant suggesting that the residuals are homoscedastic.</strong></li>
+</ol>
+</section>
+<section id="lab-activity-2-conducting-simple-and-multiple-regression-1" class="level3">
+<h3 class="anchored" data-anchor-id="lab-activity-2-conducting-simple-and-multiple-regression-1">Lab activity 2: Conducting simple and multiple regression</h3>
+<p>You can download the R-script that includes the relevant code and answers to the questions here: <a href="Week11-files/412_wk11_labAct2_withAnswers.R">412_wk11_labAct2_withAnswers.R</a>.</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1446,6 +1463,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../PSYC412/part1/Week12.html" class="pagination-link" aria-label="Week 12. Categorical predictors">
+        <span class="nav-page-text">Week 12. Categorical predictors</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
