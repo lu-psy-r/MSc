@@ -1,0 +1,2831 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Week 7. Hypotheses and associations – Statistics for Psychologists</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../PSYC411/part2/lm-intro.html" rel="next">
+<link href="../../PSYC411/part2/intro.html" rel="prev">
+<link href="../../Images/favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>window.onload = function() {document.getElementById("autocomplete-0-input").placeholder = "Search MSc";};</script>
+<script language="JavaScript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://lu-psy-r.github.io/essentials/index_24.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="https://lu-psy-r.github.io/">
+    <span class="navbar-title">Statistics for Psychologists</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year1/index.html"> 
+<span class="menu-text">Year 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year2/index.html"> 
+<span class="menu-text">Year 2</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/year3/index.html"> 
+<span class="menu-text">Year 3</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/MSc/index.html"> 
+<span class="menu-text">MSc</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://lu-psy-r.github.io/more/index.html"> 
+<span class="menu-text">And More…</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part2/hypotheses-associations.html">Week 7. Hypotheses and associations</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">PSYC411</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 1. Introducing Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 2. Manipulating data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 3. Drawing graphs from data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 4. Testing nominal data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part1/Week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 5. Testing differences between groups</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/report-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. The structured research report – Quick start</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/how.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. How you can do the analysis work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 6. Why we are asking you to do this</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/hypotheses-associations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Week 7. Hypotheses and associations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/lm-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 8. Introduction to the linear model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC411/part2/lm-dev.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 10. Developing the linear model</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">PSYC412</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 11. Recap of the linear model and practising data-wrangling in R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part1/Week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 12. Categorical predictors</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-associations-overview" id="toc-sec-associations-overview" class="nav-link active" data-scroll-target="#sec-associations-overview">7.1 Overview</a></li>
+  <li><a href="#sec-associations-goals" id="toc-sec-associations-goals" class="nav-link" data-scroll-target="#sec-associations-goals">7.2 Our learning goals</a></li>
+  <li><a href="#sec-associations-resources" id="toc-sec-associations-resources" class="nav-link" data-scroll-target="#sec-associations-resources">7.3 Learning resources</a>
+  <ul class="collapse">
+  <li><a href="#sec-associations-lectures" id="toc-sec-associations-lectures" class="nav-link" data-scroll-target="#sec-associations-lectures">7.3.1 Lectures</a></li>
+  <li><a href="#sec-associations-lectures-slides" id="toc-sec-associations-lectures-slides" class="nav-link" data-scroll-target="#sec-associations-lectures-slides">7.3.2 Lecture slides</a></li>
+  <li><a href="#sec-associations-practical" id="toc-sec-associations-practical" class="nav-link" data-scroll-target="#sec-associations-practical">7.4 Practical materials: data and R-Studio</a></li>
+  <li><a href="#sec-associations-practical-guide" id="toc-sec-associations-practical-guide" class="nav-link" data-scroll-target="#sec-associations-practical-guide">7.4.1 Practical materials guide</a></li>
+  <li><a href="#sec-associations-practical-how-to" id="toc-sec-associations-practical-how-to" class="nav-link" data-scroll-target="#sec-associations-practical-how-to">7.4.2 The how-to guide</a></li>
+  <li><a href="#the-answers" id="toc-the-answers" class="nav-link" data-scroll-target="#the-answers">7.4.4 The answers</a></li>
+  <li><a href="#look-ahead-growing-in-independence" id="toc-look-ahead-growing-in-independence" class="nav-link" data-scroll-target="#look-ahead-growing-in-independence">7.4.5 Look ahead: growing in independence</a></li>
+  <li><a href="#optional-exercises-to-stretch-you" id="toc-optional-exercises-to-stretch-you" class="nav-link" data-scroll-target="#optional-exercises-to-stretch-you">7.4.6 Optional exercises: to stretch you</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../PSYC411/part1/Week1.html">PSYC411</a></li><li class="breadcrumb-item"><a href="../../PSYC411/part2/hypotheses-associations.html">Week 7. Hypotheses and associations</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Week 7. Hypotheses and associations</h1>
+<p class="subtitle lead">Written by Rob Davies</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="sec-associations-overview" class="level2">
+<h2 class="anchored" data-anchor-id="sec-associations-overview">7.1 Overview</h2>
+<p>Welcome to your overview of the work we will do together in <strong>Week 7</strong>.</p>
+<p>This week, we focus on methods that allow us to make sense of the evidence for <strong>associations</strong>.</p>
+<p>Looking ahead to your professional lives, our aim is to help you to build the understanding <em>and</em> to learn the skills that will ensure that you can practise, inspire and manage the most effective ways to make sense of associations.</p>
+<p>We will work in the context of a live research project with potential real world impacts: the <strong>Clearly understood</strong> project. Working in a concrete <strong>context</strong> will help you to make sense of what you are doing, even if you are interested in other topics.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>Clearly understood</strong> project aims to fix the problem that we are not sure how health information should be communicated so that everyone can understand it.</p>
+<p>We ask the research questions:</p>
+<ol type="1">
+<li>What person attributes predict success in understanding?</li>
+<li>Can people accurately evaluate whether they correctly understand written health information?</li>
+</ol>
+</div>
+</div>
+<p>As we work together, we will be revisiting some of the ideas and techniques you have seen in previous classes, so that you can <em>consolidate</em> your learning. Then, we will <em>extend</em> your development with some new ideas to strengthen your skills.</p>
+</section>
+<section id="sec-associations-goals" class="level2">
+<h2 class="anchored" data-anchor-id="sec-associations-goals">7.2 Our learning goals</h2>
+<p>This week, we develop your critical thinking and we strengthen your practical skills.</p>
+<p><strong>1. Critical thinking</strong></p>
+<ul>
+<li><em>Concepts</em>: how we go from ideas and questions to hypotheses</li>
+</ul>
+<p><strong>2. Practical skills</strong></p>
+<ul>
+<li><em>Concepts</em> – associations: correlations, estimates and hypothesis tests</li>
+<li><em>Skills</em> – visualizing covariation</li>
+<li><em>Skills</em> – writing the code</li>
+<li><em>Skills</em> – estimating correlations</li>
+<li><em>Skills</em> – hypothesis tests for correlations</li>
+<li><em>Skills</em> – interpreting and reporting correlations</li>
+</ul>
+</section>
+<section id="sec-associations-resources" class="level2">
+<h2 class="anchored" data-anchor-id="sec-associations-resources">7.3 Learning resources</h2>
+<p>You will see, next, the lectures we share to explain the concepts behind the critical thinking and analysis skills you will develop, then you will see information about the practical materials you can use to practise your skills.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We think you will learn best if you <em>first</em> watch the lectures <em>then</em> do the practical exercises.</p>
+</div>
+</div>
+<section id="sec-associations-lectures" class="level3">
+<h3 class="anchored" data-anchor-id="sec-associations-lectures">7.3.1 Lectures</h3>
+<p>The lecture materials for this week are presented in five short parts.</p>
+<p>Click on a link and your browser should open a tab showing the <em>Panopto</em> video for the lecture part.</p>
+<ol type="1">
+<li>Part 1 (12 minutes) <strong>Overview</strong>: The concepts and skills we will learn about in weeks 6-10, and why it helps to embed the classes in the context of a research project.</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=768a9621-a440-4a1a-a3f8-b22200c1d4e2&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-1"></iframe>
+<ol start="2" type="1">
+<li>Part 2 (18 minutes): Hypotheses, measurements and associations – how you can think critically.</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9a10462c-e185-4069-b72a-af5000cc076a&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-2"></iframe>
+<ol start="3" type="1">
+<li>Part 3 (14 minutes): The live research project we will use to put our practical skills exercises and critical thinking challenges into context.</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=1653a285-fa5b-45c4-a850-af5000d1c8d5&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-3"></iframe>
+<ol start="4" type="1">
+<li>Part 4 (20 minutes): Seeing, thinking and talking about associations, correlations.</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ca174423-d385-40d5-9068-af5000d60688&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-4"></iframe>
+<ol start="5" type="1">
+<li>Part 5 (12 minutes): How we use R to estimate and test correlations. How we write about correlation results</li>
+</ol>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9d53628e-3133-43aa-b78f-af5000dc0d0b&amp;autoplay=false&amp;offerviewer=true&amp;showtitle=true&amp;showbrand=true&amp;captions=false&amp;interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen="" allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-5"></iframe>
+</section>
+<section id="sec-associations-lectures-slides" class="level3">
+<h3 class="anchored" data-anchor-id="sec-associations-lectures-slides">7.3.2 Lecture slides</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Download the lecture slides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The slides presented in the videos can be downloaded here:</p>
+<ul>
+<li><a href="files/411-hypotheses-assocations.html">The slides</a> exactly as presented (22 MB).</li>
+</ul>
+<p>You can download the web page <code>.html</code> file and click on it to open it in any browser (e.g., Chrome, Edge or Safari). The slide images are high quality so the file is quite big and may take a few seconds to download.</p>
+</div>
+</div>
+<p>We are going to work through some practical exercises, next, to stimulate your thinking and learn the practical skills you need to see, test and talk about correlation analyses of the associations between variables.</p>
+</section>
+<section id="sec-associations-practical" class="level3">
+<h3 class="anchored" data-anchor-id="sec-associations-practical">7.4 Practical materials: data and R-Studio</h3>
+<p>We will work with two data files which you can download by clicking on their names (below):</p>
+<ul>
+<li><a href="files/study-one-general-participants.csv">study-one-general-participants.csv</a>.</li>
+<li><a href="files/study-two-general-participants.csv">study-two-general-participants.csv</a>.</li>
+</ul>
+<p>Once you have downloaded the files, you will need to upload them to the R-Studio server to access and use the R files.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here is a link to the sign-in page for <a href="https://psy-rstudio.lancaster.ac.uk/auth-sign-in?appUri=%2F">R-Studio Server</a></p>
+</div>
+</div>
+</section>
+<section id="sec-associations-practical-guide" class="level3">
+<h3 class="anchored" data-anchor-id="sec-associations-practical-guide">7.4.1 Practical materials guide</h3>
+<p>You will find that the practical exercises are simpler to do if you follow these steps in order.</p>
+<ol type="1">
+<li><strong>The data</strong> — We will take a quick look at what is inside the data files so you know what everything means.</li>
+<li><strong>The <code>how-to</code> guide</strong> — We will go through the practical analysis and visualization coding steps, showing all the code required for each step.</li>
+<li><strong>The <code>practical</code> exercises</strong> — We will set out the tasks, questions and challenges that you should complete to learn the practical skills we target this week.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We show you how to do everything you need to do in the <code>practical</code> exercises, first, in the <code>how-to</code> guide.</p>
+<ul>
+<li>Start by looking at the <code>how-to</code> guide to understand what steps you need to follow in the lab activity.</li>
+</ul>
+<p>If you want to make it more challenging for yourself, go straight to Step 3.</p>
+</div>
+</div>
+<p>We will take things <em>step-by-step</em>:</p>
+<ul>
+<li>different parts for different phases of the analysis workflow;</li>
+<li>different tasks for different things you need to do;</li>
+<li>different questions to examine different ideas or coding challenges.</li>
+</ul>
+<section id="sec-associations-practical-data" class="level4">
+<h4 class="anchored" data-anchor-id="sec-associations-practical-data">7.4.1.1 The data files</h4>
+<p>Each of the data files we will work with has a similar structure.</p>
+<p>Here are what the first few rows in the data file <code>study.one.gen</code> looks like:</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">participant_ID</th>
+<th style="text-align: right;">mean.acc</th>
+<th style="text-align: right;">mean.self</th>
+<th style="text-align: left;">study</th>
+<th style="text-align: right;">AGE</th>
+<th style="text-align: right;">SHIPLEY</th>
+<th style="text-align: right;">HLVA</th>
+<th style="text-align: right;">FACTOR3</th>
+<th style="text-align: right;">QRITOTAL</th>
+<th style="text-align: left;">GENDER</th>
+<th style="text-align: left;">EDUCATION</th>
+<th style="text-align: left;">ETHNICITY</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">studyone.1</td>
+<td style="text-align: right;">0.49</td>
+<td style="text-align: right;">7.96</td>
+<td style="text-align: left;">studyone</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Non-binary</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">studyone.10</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">7.28</td>
+<td style="text-align: left;">studyone</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">studyone.100</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">7.36</td>
+<td style="text-align: left;">studyone</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">studyone.101</td>
+<td style="text-align: right;">0.94</td>
+<td style="text-align: right;">7.88</td>
+<td style="text-align: left;">studyone</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">Higher</td>
+<td style="text-align: left;">White</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">studyone.102</td>
+<td style="text-align: right;">0.58</td>
+<td style="text-align: right;">6.96</td>
+<td style="text-align: left;">studyone</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: left;">Secondary</td>
+<td style="text-align: left;">Mixed</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">studyone.103</td>
+<td style="text-align: right;">0.84</td>
+<td style="text-align: right;">7.88</td>
+<td style="text-align: left;">studyone</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">Further</td>
+<td style="text-align: left;">Asian</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The webpage has a slider under the data table window, so you can scroll across the columns: move your cursor over the window to show the slider.</p>
+</div>
+</div>
+<p>When you look at the data table, you can see the columns:</p>
+<ul>
+<li><code>participant_ID</code> participant code</li>
+<li><code>mean.acc</code> average accuracy of response to questions testing understanding of health guidance</li>
+<li><code>mean.self</code> average self-rated accuracy of understanding of health guidance</li>
+<li><code>study</code> variable coding for what study the data were collected in</li>
+<li><code>AGE</code> age in years</li>
+<li><code>HLVA</code> health literacy test score</li>
+<li><code>SHIPLEY</code> vocabulary knowledge test score</li>
+<li><code>FACTOR3</code> reading strategy survey score</li>
+<li><code>GENDER</code> gender code</li>
+<li><code>EDUCATION</code> education level code</li>
+<li><code>ETHNICITY</code> ethnicity (Office National Statistics categories) code</li>
+</ul>
+</section>
+</section>
+<section id="sec-associations-practical-how-to" class="level3">
+<h3 class="anchored" data-anchor-id="sec-associations-practical-how-to">7.4.2 The how-to guide</h3>
+<p>We will take things <em>step-by-step</em>.</p>
+<p>We split .Rmd scripts by steps, tasks and questions:</p>
+<ul>
+<li>different parts for different phases of the analysis workflow;</li>
+<li>different tasks for different things you need to do;</li>
+<li>different questions to examine different ideas or coding challenges.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Make sure you start and work your way, in order, through each part, task and question.</li>
+<li>Complete each task before you move on to the next task.</li>
+</ul>
+</div>
+</div>
+<p>In the <code>how-to</code> guide, we hide example code and answer information in boxes so that you can test yourself first. Click on the box to then reveal the code or the answer.</p>
+<section id="how-to-part-1-set-up" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-part-1-set-up">7.4.2.1 How-to Part 1: Set-up</h4>
+<p>To begin, we set up our environment in R.</p>
+<section id="how-to-task-1-run-code-to-empty-the-r-environment" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-1-run-code-to-empty-the-r-environment">How-to Task 1 – Run code to empty the R environment</h5>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())                            </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-task-2-run-code-to-load-libraries" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-2-run-code-to-load-libraries">How-to Task 2 – Run code to load libraries</h5>
+<p>Load libraries using <code>library()</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="how-to-part-2-load-and-examine-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-part-2-load-and-examine-the-data">7.4.2.2 How-to Part 2: Load and examine the data</h4>
+<section id="how-to-task-3-read-in-the-data-file-we-will-be-using" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-3-read-in-the-data-file-we-will-be-using">How-to Task 3 – Read in the data file we will be using</h5>
+<p>The code in the <code>how-to</code> guide was written to work with the data file:</p>
+<ul>
+<li><code>study-one-general-participants.csv</code>.</li>
+</ul>
+<p>Read in the data file – using <code>read_csv()</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>study.one.gen <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"study-one-general-participants.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can choose your own file name, but be sure to give the data-set a <em>distinct</em> name, e.g., <code>study.one.gen</code> so that R can distinguish between the different data you will work with.</p>
+</div>
+</div>
+</section>
+<section id="how-to-task-4-inspect-the-data-file" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-4-inspect-the-data-file">How-to Task 4 – Inspect the data file</h5>
+<p>Use the <code>summary()</code> function to take a look.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(study.one.gen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> participant_ID        mean.acc        mean.self        study          
+ Length:169         Min.   :0.3600   Min.   :3.440   Length:169        
+ Class :character   1st Qu.:0.7600   1st Qu.:6.080   Class :character  
+ Mode  :character   Median :0.8400   Median :7.080   Mode  :character  
+                    Mean   :0.8163   Mean   :6.906                     
+                    3rd Qu.:0.9000   3rd Qu.:7.920                     
+                    Max.   :0.9900   Max.   :9.000                     
+      AGE           SHIPLEY           HLVA           FACTOR3     
+ Min.   :18.00   Min.   :23.00   Min.   : 3.000   Min.   :34.00  
+ 1st Qu.:24.00   1st Qu.:33.00   1st Qu.: 7.000   1st Qu.:46.00  
+ Median :32.00   Median :35.00   Median : 9.000   Median :51.00  
+ Mean   :34.87   Mean   :34.96   Mean   : 8.905   Mean   :50.33  
+ 3rd Qu.:42.00   3rd Qu.:38.00   3rd Qu.:10.000   3rd Qu.:55.00  
+ Max.   :76.00   Max.   :40.00   Max.   :14.000   Max.   :63.00  
+    QRITOTAL        GENDER           EDUCATION          ETHNICITY        
+ Min.   : 6.00   Length:169         Length:169         Length:169        
+ 1st Qu.:12.00   Class :character   Class :character   Class :character  
+ Median :13.00   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :13.36                                                           
+ 3rd Qu.:15.00                                                           
+ Max.   :19.00                                                           </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>summary()</code> will give you either descriptive statistics for variable columns classified as numeric or will tell you that columns in the dataset are not numeric.</li>
+<li><code>summary(...)</code> is a function and, again, you put the name of the dataset inside the brackets to view it.</li>
+</ul>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.1. What is the mean of <code>mean.acc</code>?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.1. 0.8163</p>
+</blockquote>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.2. What class is the variable <code>study</code>?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.2. <code>character</code></p>
+</blockquote>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.3. Does the summary indicate if any variable has missing values (<code>NA</code>)?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.3. No</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-task-5-change-the-class-or-type-of-a-variable" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-5-change-the-class-or-type-of-a-variable">How-to Task 5 – Change the class or type of a variable</h5>
+<p>You can use the <code>as.factor()</code> function you used in Week 5.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>study.one.gen<span class="sc">$</span>study <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(study.one.gen<span class="sc">$</span>study)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.4. After you have done this, what information does <code>summary()</code> give you about the variable <code>study</code>?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.4. We can see the number 169 beside the word <code>studyone</code>: this tells us that there are 169 observations, in the column, each one is a value: the word or character string <code>studyone</code>.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember from Week 3 that we can only count how many times a category value (or factor level) occurs: here, we are counting how many times the word <code>studyone</code> occurs in the factor column <code>study</code>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="how-to-part-3-visualize-associations" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-part-3-visualize-associations">7.4.2.3 How-to Part 3: Visualize associations</h4>
+<section id="how-to-task-6-draw-scatterplots-to-examine-associations-between-variables" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-6-draw-scatterplots-to-examine-associations-between-variables">How-to Task 6 – Draw scatterplots to examine associations between variables</h5>
+<p>You have seen these code moves before, in previous classes (weeks 3 and 4): we are <strong>consolidating</strong> skills by practising your coding in different contexts, using different data.</p>
+<p>We <strong>extend</strong> your skills by adding some new moves.</p>
+<p>Create scatterplots to examine the association between some variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We are working with <code>geom_point()</code> and you need <code>x</code> and <code>y</code> aesthetic mappings.</p>
+</div>
+</div>
+<p>For example, we can draw a scatterplot to examine the association between <code>mean.self</code> and <code>mean.acc</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> mean.self, <span class="at">y =</span> mean.acc)) <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Examine this plot — it shows: the possible association between x-axis variable <code>mean.self</code> and y-axis variable <code>mean.acc</code>.</p>
+<p>You have seen this kind of code before but it will help your learning if, now, we take a look at the code step-by-step.</p>
+<p>The plot code moves through the following steps:</p>
+<ol type="1">
+<li><code>ggplot(...)</code> makes a plot.</li>
+<li><code>ggplot(data = study.one.gen, ...)</code> uses the <code>study.one.gen</code> data-set.</li>
+<li><code>ggplot(...aes(x = mean.self, y = mean.acc))</code> uses two aesthetic mappings.</li>
+<li><code>geom_point()</code> show the mappings as points.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What are <em>aesthetic mappings</em>?</p>
+<p>Aesthetic mappings translate data information – numbers or values in column variables – into things you can see in plots.</p>
+<p>For a scatterplot, we need to translate values for two variables into the position of each point in the plot.</p>
+<p>Here:</p>
+<ul>
+<li><code>x = mean.self</code> maps <code>mean.self</code> values to x-axis (horizontal, left to right) positions.</li>
+<li><code>y = mean.acc</code> maps <code>mean.acc</code> values to y-axis (vertical, bottom to top) positions.</li>
+</ul>
+</div>
+</div>
+<p>Now do scatterplots with any pair of numeric variables you like.</p>
+<p>Remember that we saw with <code>summary()</code> that not every variable consists of numbers.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check out the example code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">y =</span> mean.self, <span class="at">x =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>()  </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> AGE, <span class="at">y =</span> mean.self)) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> mean.self)) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.self)) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-task-7-edit-the-scatterplots-to-change-how-they-look" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-7-edit-the-scatterplots-to-change-how-they-look">How-to Task 7 – Edit the scatterplots to change how they look</h5>
+<p>Edit the appearance of a plot step-by-step.</p>
+<p>We are going to edit:</p>
+<ol type="1">
+<li>the appearance of the points using alpha and size;</li>
+<li>the colour of the background using <code>theme_bw()</code>;</li>
+<li>the appearance of the labels using <code>labs()</code>.</li>
+</ol>
+<p>We make the changes, one change at a time.</p>
+<p>You have seen one of these moves before and you can guess at how to do the others. Click on the drop-down view to see the code but, if you want a challenge, try first to write the code on your own.</p>
+<ol type="1">
+<li>the appearance of the points using alpha and size</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.self)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>the colour of the background using <code>theme_bw()</code></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.self)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">2</span>)  <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>the appearance of the labels using <code>labs()</code></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.self)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">2</span>)  <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"HLVA"</span>, <span class="at">y =</span> <span class="st">"mean self rated accuracy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The arguments <code>alpha</code> and <code>size</code> can change the appearance of most geometric objects (geoms) in ggplot:</p>
+<ul>
+<li>in the code example, here, we vary the <code>alpha</code> number to change how opaque or transparent the points are;</li>
+<li>and we vary the size number to vary the size of the points.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="how-to-task-8-now-experiment" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-8-now-experiment">How-to Task 8 – Now experiment</h5>
+<p>There are no right answers here: edit the appearance of your plots by changing alpha, size and colour of points.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Play is an important part of learning.</p>
+<ul>
+<li>Experimenting with how plots look is a key element in becoming a master at data visualization. You won’t know what looks good to you unless you try different things.</li>
+</ul>
+</div>
+</div>
+<p>If you really want to extend your skills, it is really important that you learn how to find useful online help.</p>
+<blockquote class="blockquote">
+<p>Q.5. Can you find the ggplot reference page on scatterplots?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Do a search with the keywords: <code>ggplot reference geom_point</code></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.5. You can find reference information here: <a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="uri">https://ggplot2.tidyverse.org/reference/geom_point.html</a></p>
+</blockquote>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.6. Can you change the colour of the points to a colour you like?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Do a search with the keywords: <code>ggplot colours</code>.</p>
+<p>Useful information on colour can be found here:</p>
+<p><a href="https://r-graphics.org/recipe-colors-setting" class="uri">https://r-graphics.org/recipe-colors-setting</a></p>
+<p>or</p>
+<p><a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.6. Here is how you do it: R will recognize many English colour names.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.one.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.self)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"hotpink"</span>)  <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"HLVA"</span>, <span class="at">y =</span> <span class="st">"mean self rated accuracy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now you: experiment!</p>
+</div>
+</div>
+</section>
+</section>
+<section id="how-to-part-4-analyse-associations" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-part-4-analyse-associations">7.4.2.4 How-to Part 4: Analyse associations</h4>
+<section id="how-to-task-9-use-correlation-to-to-answer-a-research-question" class="level5">
+<h5 class="anchored" data-anchor-id="how-to-task-9-use-correlation-to-to-answer-a-research-question">How-to Task 9 – Use correlation to to answer a research question</h5>
+<p>Examine associations between variables using correlation.</p>
+<p>One of our research questions is:</p>
+<ol start="2" type="1">
+<li>Can people accurately evaluate whether they correctly understand written health information?</li>
+</ol>
+<p>We can answer this question by examining whether mean self-rated accuracy of understanding correlates with mean accuracy of understanding. The logic is that if we can accurately rate our own understanding (from bad to good) then that rating should be associated – should be correlated with – how accurately we can actually respond to questions that test that understanding.</p>
+<blockquote class="blockquote">
+<p>Q.7. How do we examine the correlation between mean self-rated accuracy (<code>mean.self</code>) and mean accuracy (<code>mean.acc</code>)?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Remember from the lecture, that we use <code>cor.test()</code>:</p>
+</div>
+</div>
+</div>
+<p>Can you figure out how to code a correlation test? It helps with your learning if you first try to anticipate what the code will look like. Then reveal the code, below, to see what you guessed right. (Getting some things right, and some things wrong, is part of the learning process.)</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.7. Here is how you do it: take a look at the code and the results of the correlation test.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(study.one.gen<span class="sc">$</span>mean.acc, study.one.gen<span class="sc">$</span>mean.self, <span class="at">method =</span> <span class="st">"pearson"</span>,  <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  study.one.gen$mean.acc and study.one.gen$mean.self
+t = 7.1936, df = 167, p-value = 2.026e-11
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.3619961 0.5937425
+sample estimates:
+      cor 
+0.4863771 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.8. What is r, the correlation coefficient?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.8. r = 0.4863771</p>
+</blockquote>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.9. Is the correlation significant?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.9. r is significant</p>
+</blockquote>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.10. What are the values for t and p for the significance test for the correlation?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.10. t = 7.1936, p = 2.026e-11</p>
+</blockquote>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Q.11. What do you conclude, given the correlation results?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Review the scatterplot you drew earlier (or draw one now) to examine the shape of the association between these variables.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>A.11. <code>mean.acc</code> and <code>mean.self</code> are positively correlated suggesting that as # <code>mean.acc</code> scores increase so also do <code>mean.self</code> scores</p>
+</blockquote>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-associations-practical-workbook" class="level4">
+<h4 class="anchored" data-anchor-id="sec-associations-practical-workbook">7.4.3 The practical exercises</h4>
+<p>Now you will progress through a series of tasks, and challenges, to test what you have learnt.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now we will work with the data file</p>
+<ul>
+<li><code>study-two-general-participants.csv</code></li>
+</ul>
+</div>
+</div>
+<p>We again split the steps into into parts, tasks and questions.</p>
+<p>We are going to work through the following workflow steps:</p>
+<ol type="1">
+<li>Empty the R environment</li>
+<li>Load relevant libraries</li>
+<li>Read in the data file</li>
+<li>Inspect the data</li>
+<li>Change the type classification of variables if necessary</li>
+<li>Draw scatterplots to visualize the association between pairs of variables</li>
+<li>Estimate and test the correlations between pairs of variables</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The <code>how-to</code> guide showed you what functions you needed and how you should write the function code.</li>
+<li>Use the code structure you have seen and <em>change</em> it to use the data required for these <code>practical exercises</code>: you will need to change the data-set name, the variable names, to get the code to work for the following exercises.</li>
+<li>In learning how to code, the process of adapting example code is a key skill: we are learning what can change, and what has to stay the same.</li>
+</ul>
+</div>
+</div>
+<p>In the following, we will guide you through the tasks and questions step by step.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An answers version of the workbook will be provided after the practical class.</p>
+</div>
+</div>
+</section>
+<section id="practical-part-1-set-up" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-1-set-up">7.4.3.1 Practical Part 1: Set-up</h4>
+<p>To begin, we set up our environment in R.</p>
+<section id="practical-task-1-run-code-to-empty-the-r-environment" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-1-run-code-to-empty-the-r-environment">Practical Task 1 – Run code to empty the R environment</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="practical-task-2-run-code-to-load-relevant-libraries" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-2-run-code-to-load-relevant-libraries">Practical Task 2 – Run code to load relevant libraries</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="practical-part-2-load-the-data" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-2-load-the-data">7.4.3.2 Practical Part 2: Load the data</h4>
+<section id="practical-task-3-read-in-the-data-file-we-will-be-using" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-3-read-in-the-data-file-we-will-be-using">Practical Task 3 – Read in the data file we will be using</h5>
+<p>The data file for the practical exercises is:</p>
+<ul>
+<li><code>study-two-general-participants.csv</code></li>
+</ul>
+<p>Use the <code>read_csv()</code> function to read the data file into R.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>study.two.gen <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"study-two-general-participants.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 172 Columns: 12
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): participant_ID, study, GENDER, EDUCATION, ETHNICITY
+dbl (7): mean.acc, mean.self, AGE, SHIPLEY, HLVA, FACTOR3, QRITOTAL
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>When you code this, you can choose your own file name, but be sure to give the data object you create a distinct name e.g.&nbsp;<code>study.two.gen</code>.</p>
+</section>
+<section id="practical-task-4-inspect-the-data-file" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-4-inspect-the-data-file">Practical Task 4 – Inspect the data file</h5>
+<p>Use the <code>summary()</code> or <code>head()</code> functions to take a look</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(study.two.gen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> participant_ID        mean.acc        mean.self        study          
+ Length:172         Min.   :0.4107   Min.   :3.786   Length:172        
+ Class :character   1st Qu.:0.6786   1st Qu.:6.411   Class :character  
+ Mode  :character   Median :0.7679   Median :7.321   Mode  :character  
+                    Mean   :0.7596   Mean   :7.101                     
+                    3rd Qu.:0.8393   3rd Qu.:7.946                     
+                    Max.   :0.9821   Max.   :9.000                     
+      AGE           SHIPLEY           HLVA           FACTOR3     
+ Min.   :18.00   Min.   :23.00   Min.   : 3.000   Min.   :29.00  
+ 1st Qu.:25.00   1st Qu.:32.75   1st Qu.: 7.750   1st Qu.:47.00  
+ Median :32.50   Median :36.00   Median : 9.000   Median :51.00  
+ Mean   :35.37   Mean   :35.13   Mean   : 9.064   Mean   :51.24  
+ 3rd Qu.:44.00   3rd Qu.:39.00   3rd Qu.:11.000   3rd Qu.:56.25  
+ Max.   :76.00   Max.   :40.00   Max.   :14.000   Max.   :63.00  
+    QRITOTAL        GENDER           EDUCATION          ETHNICITY        
+ Min.   : 6.00   Length:172         Length:172         Length:172        
+ 1st Qu.:12.00   Class :character   Class :character   Class :character  
+ Median :14.00   Mode  :character   Mode  :character   Mode  :character  
+ Mean   :13.88                                                           
+ 3rd Qu.:16.00                                                           
+ Max.   :20.00                                                           </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.1.</strong> What is the median of <code>AGE</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.1. 32.50</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.2.</strong> What class is the variable <code>ETHNICITY</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.2. character</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.3.</strong> Does the summary indicate if any variable has missing values (NAs)?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.3. No</p>
+</blockquote>
+</section>
+<section id="practical-task-5-change-the-class-or-type-of-the-variable-ethnicity-to-factor" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-5-change-the-class-or-type-of-the-variable-ethnicity-to-factor">Practical Task 5 – Change the class or type of the variable <code>ETHNICITY</code> to factor</h5>
+<p>You can use the <code>as.factor()</code> function you have used before: how do you write the code for these data?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>study.two.gen<span class="sc">$</span>ETHNICITY <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(study.two.gen<span class="sc">$</span>ETHNICITY)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.4.</strong> After you have done this, what information does <code>summary()</code> give you about the variable <code>ETHNICITY</code>?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(study.two.gen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> participant_ID        mean.acc        mean.self        study          
+ Length:172         Min.   :0.4107   Min.   :3.786   Length:172        
+ Class :character   1st Qu.:0.6786   1st Qu.:6.411   Class :character  
+ Mode  :character   Median :0.7679   Median :7.321   Mode  :character  
+                    Mean   :0.7596   Mean   :7.101                     
+                    3rd Qu.:0.8393   3rd Qu.:7.946                     
+                    Max.   :0.9821   Max.   :9.000                     
+      AGE           SHIPLEY           HLVA           FACTOR3     
+ Min.   :18.00   Min.   :23.00   Min.   : 3.000   Min.   :29.00  
+ 1st Qu.:25.00   1st Qu.:32.75   1st Qu.: 7.750   1st Qu.:47.00  
+ Median :32.50   Median :36.00   Median : 9.000   Median :51.00  
+ Mean   :35.37   Mean   :35.13   Mean   : 9.064   Mean   :51.24  
+ 3rd Qu.:44.00   3rd Qu.:39.00   3rd Qu.:11.000   3rd Qu.:56.25  
+ Max.   :76.00   Max.   :40.00   Max.   :14.000   Max.   :63.00  
+    QRITOTAL        GENDER           EDUCATION         ETHNICITY  
+ Min.   : 6.00   Length:172         Length:172         Asian: 15  
+ 1st Qu.:12.00   Class :character   Class :character   Black:  5  
+ Median :14.00   Mode  :character   Mode  :character   Mixed:  7  
+ Mean   :13.88                                         White:145  
+ 3rd Qu.:16.00                                                    
+ Max.   :20.00                                                    </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Pract.A.4. We can see that ETHNICITY lists observations following UK Office National Statistics ethnicity grouping:</p>
+</blockquote>
+<ul>
+<li>Asian: 15</li>
+<li>Black: 5</li>
+<li>Mixed: 7</li>
+<li>White: 145</li>
+</ul>
+</section>
+</section>
+<section id="practical-part-3-visualise-the-associations-between-variables" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-3-visualise-the-associations-between-variables">7.4.3.3 Practical Part 3: Visualise the associations between variables</h4>
+<section id="practical-task-6-create-a-scatterplot-to-examine-the-association-between-some-variables" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-6-create-a-scatterplot-to-examine-the-association-between-some-variables">Practical Task 6 – Create a scatterplot to examine the association between some variables</h5>
+<p>For this practical exercise, you always want to use the outcome <code>mean.acc</code> as the y-axis variable so:</p>
+<ul>
+<li><code>y = mean.acc</code></li>
+</ul>
+<p>Then you can use each numeric predictor variable as the x-axis variable so:</p>
+<ul>
+<li><code>x = mean.self</code></li>
+</ul>
+<p>Produce scatterplots with <em>every</em> numeric predictor variable in the <code>study.two.gen</code> dataset</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember what we saw with <code>summary()</code>: not every variable consists of numbers</p>
+<p>If the <code>summary()</code> does not show you a mean for a variable, then R does not think that variable is numeric</p>
+</div>
+</div>
+<p>Now, let’s build some intuition.</p>
+<p>Scientists often use scatterplots to get an intuitive understanding of the relationships between variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can read a scatterplot to learn about the size and the direction of an association between two variables (see the week 6 lecture):</p>
+<ul>
+<li>Is the cloud of points more diffuse (the association is weaker) or more tightly clustered (the association is stronger)?</li>
+<li>Does the cloud of points slope upwards (the association is more positive) or slope downwards (the association is negative).</li>
+</ul>
+</div>
+</div>
+<p>The following questions ask you to look at plots, and make some judgments about what the plots tell you.</p>
+<p>It can be hard to decide what an association looks like so make a decision based on <strong>what you see.</strong></p>
+<p>Right now, we are working to build your intuitions so: reflect, trust your intuition, and make a decision.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>First draw the plot, then answer the question.</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.5.</strong> What is the shape (direction) of the association between <code>mean.self</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.5. Increase in <code>mean.self</code> is associated with increase in <code>mean.acc</code></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-50" class="callout-50-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> mean.self, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.6.</strong> What is the shape (direction) of the association between <code>AGE</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.6. There is no clear association between <code>AGE</code> and <code>mean.acc</code></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> AGE, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.7.</strong> What is the shape (direction) of the association between <code>SHIPLEY</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.7. Increase in <code>SHIPLEY</code> is associated with increase in <code>mean.acc</code></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.8.</strong> What is the shape (direction) of the association between <code>HLVA</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.8. Increase in <code>HLVA</code> is associated with increase in <code>mean.acc</code></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-53" class="callout-53-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.9.</strong> What is the shape (direction) of the association between <code>FACTOR3</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.9. Increase in <code>FACTOR3</code> is associated with increase in <code>mean.acc</code></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-54" class="callout-54-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> FACTOR3, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.10.</strong> What is the shape (direction) of the association between <code>QRITOTAL</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.10. Increase in <code>QRITOTAL</code> is associated with increase in <code>mean.acc</code></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-55" class="callout-55-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> QRITOTAL, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="practical-part-4-learn-how-to-edit-plotting-code" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-4-learn-how-to-edit-plotting-code">7.4.3.4 Practical Part 4: Learn how to edit plotting code</h4>
+<section id="practical-task-7-edit-the-appearance-of-one-plot-step-by-step" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-7-edit-the-appearance-of-one-plot-step-by-step">Practical Task 7 – Edit the appearance of one plot step-by-step</h5>
+<p>Edit your plotting code to make plots with a professional appearance.</p>
+<p>Edit a scatterplot to adjust</p>
+<ol type="1">
+<li>the appearance of the points using <code>alpha</code>, <code>size</code> and <code>colour</code>;</li>
+<li>the colour of the background using <code>theme_bw()</code>;</li>
+<li>the appearance of the labels using <code>labs()</code>.</li>
+</ol>
+<p>In the following, we ask you to edit one plot element at a time. You can work out what to do.</p>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.11.</strong> Can you edit the appearance of the points in a scatterplot using alpha, size and colour?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-56-contents" aria-controls="callout-56" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-56" class="callout-56-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.12.</strong> Can you edit the appearance of the plot background?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-57-contents" aria-controls="callout-57" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-57" class="callout-57-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"red"</span>)   <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.13.</strong> Can you edit the appearance of the labels using <code>labs()</code>?</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-58-contents" aria-controls="callout-58" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-58" class="callout-58-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> HLVA, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"red"</span>)   <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"HLVA"</span>, <span class="at">y =</span> <span class="st">"mean accuracy"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.14.</strong> Can you find online information about colour blind palettes?</p>
+</blockquote>
+<p>Try doing a search with the keywords: <code>ggplot colour blind</code></p>
+<blockquote class="blockquote">
+<p>Pract.A.14. – Here is one:</p>
+</blockquote>
+<p><a href="http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/</a></p>
+<div class="callout=tip">
+<p>Now it’s your turn: experiment!</p>
+<ul>
+<li>What about different colour words? Replace <code>"red"</code> with <code>"..."</code>?</li>
+<li>What about a different size? Replace <code>size = 2</code> with <code>size =  ...</code> using a different number.</li>
+<li>What about a different level of transparency (alpha)? Replace <code>alpha = 0.5</code> with <code>alpha =  ...</code> using a different fraction.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="practical-part-5-use-correlation-to-to-answer-the-research-questions" class="level4">
+<h4 class="anchored" data-anchor-id="practical-part-5-use-correlation-to-to-answer-the-research-questions">7.4.3.5 Practical Part 5: Use correlation to to answer the research questions</h4>
+<section id="practical-task-8-examine-the-correlation-between-mean-accuracy-mean.acc-and-some-numeric-predictor-variables" class="level5">
+<h5 class="anchored" data-anchor-id="practical-task-8-examine-the-correlation-between-mean-accuracy-mean.acc-and-some-numeric-predictor-variables">Practical Task 8 – Examine the correlation between mean accuracy (mean.acc) and some numeric predictor variables</h5>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.15.</strong> What is r (given as <code>cor</code> in the output) for the correlation between <code>HLVA</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<p>Can you figure out the code to do the calculation?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-59-contents" aria-controls="callout-59" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-59" class="callout-59-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(study.two.gen<span class="sc">$</span>HLVA, study.two.gen<span class="sc">$</span>mean.acc, <span class="at">method =</span> <span class="st">"pearson"</span>,  <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  study.two.gen$HLVA and study.two.gen$mean.acc
+t = 7.5288, df = 170, p-value = 2.866e-12
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.3787626 0.6044611
+sample estimates:
+      cor 
+0.5000559 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Pract.A.15. r = 0.5000559</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.16.</strong> Is the correlation significant?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.16. r is significant</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.17.</strong> What are the values for t and p for the significance test for the correlation?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.17. t = 7.5288, p = 2.866e-12</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.18.</strong> What do you conclude, given the correlation results?</p>
+</blockquote>
+<p>Maybe draw a scatterplot to examine the shape of the association.</p>
+<blockquote class="blockquote">
+<p>Pract.A.18. <code>HLVA</code> and <code>mean.acc</code> are positively correlated suggesting that as <code>HLVA</code> scores increase so also do <code>mean.acc</code> scores</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.19.</strong> What is r (given as <code>cor</code> in the output) for the correlation between <code>mean.self</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.19. r = 0.5460792</p>
+</blockquote>
+<p>Can you figure out the code to do the calculation?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-60-contents" aria-controls="callout-60" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-60" class="callout-60-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(study.two.gen<span class="sc">$</span>mean.self, study.two.gen<span class="sc">$</span>mean.acc, <span class="at">method =</span> <span class="st">"pearson"</span>,  <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  study.two.gen$mean.self and study.two.gen$mean.acc
+t = 8.4991, df = 170, p-value = 9.356e-15
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.4317217 0.6431596
+sample estimates:
+      cor 
+0.5460792 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.20.</strong> Is the correlation between <code>AGE</code> and <code>mean.acc</code> significant?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.20. r is not significant</p>
+</blockquote>
+<p>Can you figure out the code to do the calculation?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-61-contents" aria-controls="callout-61" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-61" class="callout-61-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(study.two.gen<span class="sc">$</span>AGE, study.two.gen<span class="sc">$</span>mean.acc, <span class="at">method =</span> <span class="st">"pearson"</span>,  <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  study.two.gen$AGE and study.two.gen$mean.acc
+t = 0.30121, df = 170, p-value = 0.7636
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.1269774  0.1721354
+sample estimates:
+       cor 
+0.02309589 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.21.</strong> What are the values for t and p for the significance test for the correlation between <code>QRITOTAL</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.21. t = 6.4711, p = 9.993e-10</p>
+</blockquote>
+<p>Can you figure out the code to do the calculation?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-62-contents" aria-controls="callout-62" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-62" class="callout-62-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(study.two.gen<span class="sc">$</span>QRITOTAL, study.two.gen<span class="sc">$</span>mean.acc, <span class="at">method =</span> <span class="st">"pearson"</span>,  <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  study.two.gen$QRITOTAL and study.two.gen$mean.acc
+t = 6.4711, df = 170, p-value = 9.993e-10
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.3159538 0.5571417
+sample estimates:
+    cor 
+0.44457 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.22.</strong> What do you conclude, given the correlation results, about the association between <code>SHIPLEY</code> and <code>mean.acc</code>?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Pract.A.22. <code>SHIPLEY</code> and <code>mean.acc</code> are positively correlated suggesting that as HLVA scores increase so also do mean.acc scores</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-63-contents" aria-controls="callout-63" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-63" class="callout-63-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(study.two.gen<span class="sc">$</span>SHIPLEY, study.two.gen<span class="sc">$</span>mean.acc, <span class="at">method =</span> <span class="st">"pearson"</span>,  <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  study.two.gen$SHIPLEY and study.two.gen$mean.acc
+t = 6.8493, df = 170, p-value = 1.299e-10
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.3390103 0.5746961
+sample estimates:
+      cor 
+0.4650537 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="the-answers" class="level3">
+<h3 class="anchored" data-anchor-id="the-answers">7.4.4 The answers</h3>
+<p>After the practical class, we will reveal the answers that are currently hidden.</p>
+<p>The answers version of the webpage will present my answers for questions, and some extra information where that is helpful.</p>
+</section>
+<section id="look-ahead-growing-in-independence" class="level3">
+<h3 class="anchored" data-anchor-id="look-ahead-growing-in-independence">7.4.5 Look ahead: growing in independence</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Every problem you ever have: someone has had it before, solved it, and written a blog (or tweet or toot) about it.</li>
+<li>R is <em>free open statistical software</em>: everything you use is contributed, discussed and taught by a community of R users online, in open forums.</li>
+<li>Learning to navigate this knowledge is an introduction to the future of knowledge sharing.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="optional-exercises-to-stretch-you" class="level3">
+<h3 class="anchored" data-anchor-id="optional-exercises-to-stretch-you">7.4.6 Optional exercises: to stretch you</h3>
+<p>One of the convenient and powerful things about R plotting code is that you can create a series of plots and put them together in a grid of plots for east comparison: we do that here.</p>
+<p>We will use the patchwork library: check it out</p>
+<p><a href="https://patchwork.data-imaginist.com/articles/patchwork.html" class="uri">https://patchwork.data-imaginist.com/articles/patchwork.html</a></p>
+<p>We get the library like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here’s an example:</p>
+<p>First create two plots: give them both names</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>p.AGE <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> AGE, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>p.SHIPLEY <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Second put the two plots together by calling their names.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>p.AGE  <span class="sc">+</span> p.SHIPLEY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now you try it:</p>
+<ol type="1">
+<li>Create two plots, using <code>QRITOTAL</code> and <code>SHIPLEY</code> as predictors, and <code>mean.acc</code> as the outcome</li>
+<li>Then make a grid to present them side by side.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-65-contents" aria-controls="callout-65" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-65" class="callout-65-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>p.QRITOTAL <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> QRITOTAL, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>p.SHIPLEY <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> study.two.gen, <span class="fu">aes</span>(<span class="at">x =</span> SHIPLEY, <span class="at">y =</span> mean.acc)) <span class="sc">+</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co"># -- second put them together</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>p.QRITOTAL  <span class="sc">+</span> p.SHIPLEY</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hypotheses-associations_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../PSYC411/part2/intro.html" class="pagination-link" aria-label="Week 6. Why we are asking you to do this">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Week 6. Why we are asking you to do this</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../PSYC411/part2/lm-intro.html" class="pagination-link" aria-label="Week 8. Introduction to the linear model">
+        <span class="nav-page-text">Week 8. Introduction to the linear model</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Website developed by Matthew Ivory</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../previous-content/index.html">
+<p>Previous Content</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

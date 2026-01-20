@@ -1,0 +1,1293 @@
+﻿Hi it's Margriet here.
+
+And in this video we will talk
+about multiple regression.
+
+Now first we'll look at what the
+regression looks like when you
+
+have multiple predictors instead
+of just a single predictor. And
+
+we'll apply that to to an
+
+example. And then there are
+three kind of topics that we
+
+need to get through around
+multiple regression that is,
+
+standardized coefficients, the
+assumptions that are associated
+
+with multiple regression and the
+adjusted R ^2.
+
+OK, now from
+
+the previous video you might
+remember that there are
+
+several different types of
+linear regression and we
+
+already looked at simple
+linear regression where you
+
+have just one predictor in
+your model. So today we
+
+will talk about multiple
+linear regression and that
+
+involves models with multiple
+predictors.
+
+Now this is what the regression
+line looked like for the
+
+scenario where you had one
+predictor. So remember you had
+
+the dependent variable Y the
+line that needs an intercept and
+
+slope, so the Intercept is the
+beta zero and the slope
+
+determined by the weight
+associated with your predictor.
+
+So this is the mathematical
+description of a line
+
+and this is the scenario for
+simple linear regression.
+
+Now, what does that look
+like in the context of
+
+multiple regression?
+
+It has the same form,
+right? So the dependent variable
+
+is again represented by Yand
+
+then we have
+multiple predictors. So we
+
+have an X1 as in simple
+linear regression. But we
+
+also have an X2 and X3 and
+you could have a whole range
+
+of X-es so
+represented by X n.
+
+And then each of these
+predictors has their own
+
+beta or weight.
+
+Of course you also have an
+intercept and you have an
+
+error term.
+
+Now let's look at an example.
+This example comes from the
+
+Pirates Guide to R. Now pirates
+like diamonds, and so this is an
+
+example using the diamonds data
+Set that comes with R.
+
+And in that data set there is
+information about various
+
+characteristics of a whole
+range of diamonds that we have
+
+there. Weight, we have
+clarity and we have the color
+
+and various other things.
+
+Now if we.
+
+Put those
+
+predictors into our regression
+line, we get the following, so
+
+we have the intercept
+
+And so, let's say
+that we want to
+
+try to predict the value of a
+diamond based on their weight,
+
+their clarity and their color.
+
+So here you can see
+
+how do the beta of
+weight multiplies by weight? So
+
+that's the first predictor. Our
+second predictor here is X2.
+
+It's clarity. An our X3 is color.
+Of course, we again we have the
+
+intercept and this is what we
+produce to predict our value
+
+of the diamond and there will be
+an error term as
+
+well of course as.
+
+As is always the case.
+
+So when we then want to build
+our model in R, we use the
+
+lm() function for linear model
+and the formula that
+
+that function takes, mirrors the
+regression line formula so.
+
+Again, it has the form of Y as
+a function of X1 plus X2 plus
+
+all the other predictors that
+you want to add, so where Y
+
+is the dependent variable or
+outcome variable, and X1 and
+
+X2 etc. the independent variables
+or the predictor variables.
+
+That's just different names
+for the same type of thing.
+
+And of course, you need to tell
+R what data you're using.
+
+So if we use our
+
+diamonds example then we could
+say OK, let's build a linear
+
+model for diamonds. That is just
+the name of the object we're
+
+assigning these to and
+then we have lm for the function
+
+and our formula equals the value
+Y as a function of weight plus
+
+clarity plus color.
+
+And then we tell it OK, the data
+That is this diamonds data set.
+
+So this is how to
+to read this,
+
+kind of, formula notation in R
+and value is being modelled as a
+
+function of weight, clarity and
+color. So y is modeled as a
+
+function of X,
+
+as a function of that thing.
+
+It looks maybe a little bit
+weird when you see thatthe
+
+first few times, but when you
+kind of read it out loud like
+
+that, it helps you to make
+sense of it and it is
+
+important to remember that the
+way it is coded in R
+
+mirrors, the regression line
+formula.
+
+So when you look at the output,
+you actually get that get that
+
+whole thing again, just to
+remind you, what you've actually
+
+modeled. Now what are the other
+important parts of the output?
+
+So here at the bottom we have
+our F statistic which tell us
+
+whether the overall model is
+significant or not. So we have
+
+the F statistic and the P value
+next to it.
+
+Cause the P value if it is
+smaller than .05, it tells
+
+us that all the
+predictors together in the
+
+model
+
+Significantly predict y, the model
+overall is significant.
+
+And then it also reports the
+adjusted R-squared.
+
+Sorryit reports the
+R-squared that we talked about
+
+in the previous video on simple
+linear regression, but it also
+
+reports the adjusted R-squared
+and
+
+As mentioned, I will. I'll talk
+about that in in a little while.
+
+And then of course there are
+the coefficients and they
+
+tell you whether or not each
+predictor (and here we have
+
+our weight and our clarity
+predictor color predictor)
+
+whether each one of them
+
+by themselves (while kind of
+keeping all the other ones
+
+constant) contributes
+significantly to the model, so
+
+these values here on the right.
+
+They tell you whether this
+individual predictors and
+
+whether weight is
+
+significant or not, and in this
+case a weight is significant and
+
+this is the exact P value. But
+there's also the three stars
+
+next to it to indicate that it
+is significant at the P is
+
+smaller than .01 level.
+
+And then we have. So weight is
+significant and clarity is
+
+significant. In the first
+line here that that is your
+
+intercept.
+
+OK. So much about
+outputs. Now over to
+
+standardized coefficients.
+
+Now it is important to keep the
+metric of each variable, each
+
+predictor in mind when
+performing multiple regression.
+
+So you need to ask yourself
+what does one unit change
+
+mean for each of the
+different predictors?
+
+Now let's look at an example.
+
+So we will use the iconicity
+study by Winter at al.
+
+2017 for that.
+
+Now the concept of iconicity
+describes whether the the form
+
+of words resembles their
+meaning. So onomatopoeic words
+
+such as boom or beeping or
+buzzing are examples of words
+
+with high iconicity.
+
+And then in their study they
+measured iconicity via rating
+
+scale, asking listeners how
+much does this word sound
+
+like what it means?
+
+In the study they modelled
+iconicity as a function of
+
+several and kind of linguistic
+concepts, and one of them was
+
+sensory experience, another
+word frequency an another one
+
+imagineability, and finally
+systematicity.
+
+Now don't worry about what
+each of these things mean.
+
+You can look at that
+paper to learn more about that
+
+if you're interested, But
+let's here use it as an example
+
+for why you need to think
+about standardized
+
+coefficients when you do
+multiple regression.
+
+So here we have our
+regression formula, right? So
+
+they modelled iconicity as a
+function of sensory
+
+experience, plus imagineability, second predictor,
+
+plus systematicity, third
+predictor, plus word
+
+frequency, 4th predictor.
+
+They built a
+model and these are the
+
+various coefficients for it.
+
+No.
+
+As you can see, hey, so let's
+look at this value. So the
+
+larger the coefficient, usually
+the more important that
+
+predictor is in the model.
+
+So if you just look at the
+
+different weights here, you'll see that
+
+systematicity is way bigger
+than the others. So you might
+
+conclude from that, that systematicity
+is a really important
+
+predictor for iconicity.
+
+But then if we go back to the
+question of what does a
+
+one unit change mean for that
+predictor? So what does one unit
+
+change in systematicity mean
+for in the model,
+
+in the context of the model and
+we look at the values that are
+
+actually associated with
+systematicity, then we
+NOTE Confidence: 0.7899729
+
+identify a problem here.
+
+So if you look at the
+
+minimum value, you know do your
+descriptives: you look at the
+
+mean, you look at the standard
+deviation and you also look at
+
+the minimum and the maximum and
+minimum value of
+
+systematicity in this data set was
+
+this. And so you need to go to
+a lot of decimals to actually
+
+find find a number. So this is
+negative but very close to zero.
+
+And similarly the maximum number
+was also very close to 0.
+
+So,
+
+The variation in
+systematicity basically varied from just
+
+below 0 to just above 0, and so
+the units were
+
+tiny and if you then go up one
+unit, it's a huge jump on the
+
+Y axis basically.
+
+So that that is when you use the
+
+unstandardized
+coefficient. If instead,
+
+the numbers that you feed
+into the model have been
+
+standardized
+
+(and if you can't remember that
+means, please watch the video on
+
+centuring and standardizing),
+
+and so if you standardize
+
+the numbers and you run the
+model again, then you get
+
+to this outcome here: the
+standardized version. So these
+
+are standardized coefficients
+and you can see that now
+
+that
+
+the metric is expressed as a
+standard unit across the
+
+different predictors,
+
+they are much more compareable,
+so now we're talking about .5 for
+
+sensory experience, minus .4 for
+imagineability and O for systematicity,
+
+and minus .3 for word
+
+frequency. And so now you might
+actually conclude that here
+
+sensory experience is
+
+the most important
+predictor for iconicity.
+
+So that is an example to kind of
+illustrate why it is important
+
+to use standardized values so
+that you have standardized
+
+coefficients in your model.
+
+OK.
+
+Over to assumptions.
+
+As you know, statistical models
+rely on assumptions, and that
+
+is the case for multiple
+
+regression too. So all the claims
+made on the basis of a model are
+
+contingent on satisfying its
+assumptions to some reasonable
+
+degree, and as mentioned as
+mentioned in a previous lecture
+
+for regression, the assumptions
+are actually about the error
+
+term, that is, they are related to the
+residuals of the model.
+
+Now, if the model satisfies
+the normality assumption, its
+
+residuals are approximately
+normally distributed.
+
+And you can see that
+
+here (in the blue rectangle).
+
+If the model satisfies the
+constant variance assumption,
+
+the spread of the residuals
+should be about equal while
+
+moving along the regression
+line. And this is also known as
+
+homoscedasticity.
+
+We talked about those two in the
+context of simple linear
+
+regression as well.
+
+Now, when it comes to
+multiple linear regression,
+
+there's a third assumption
+that's important to look at,
+
+and that is collinearity.
+
+But first, let's just review
+how we check for
+
+normality and
+homoscedasticity of the
+
+residuals.
+
+So it is generally recommended
+to assess both normality and
+
+homoscedasticity visually.
+
+That is to assess whether the
+residuals are normally
+
+distributed, you draw a
+histogram. You can see that here
+
+in the blue box on the slide,
+
+on the left.
+
+And so in the graph on the left,
+the residuals for iconicity
+
+model have been plotted and they
+
+look pretty good. Note that the
+shape of this thing is is
+
+Bell curve shaped.
+
+It's pretty good.
+
+It is
+
+actually easier
+to kind of graphically
+
+explore the normality
+assumption via quantile
+
+quantile plot or QQ plot. You
+see an example here in the
+
+middle of the slide: this is
+a QQ plot.
+
+So when the sample quantiles
+assemble around a
+
+straight line, like there,
+you know that
+
+the residuals conform with
+the normal distribution.
+
+The function that
+
+I usually use in R to look at
+that (the qqPlot() function, and plot is
+
+with a capital)
+
+actually also gives
+you kind of dashed lines
+
+around that as a as a
+confidence interval, and as
+
+long as the individual data
+points fall within that range,
+
+so kind of in between those
+dashed lines, you know that
+
+you're fine; that the residuals
+are normally distributed.
+
+Now, according to the
+constant variance
+
+assumption, the error
+should be equal across the
+
+fitted values, right? And
+that you can investigate in
+
+a residual plot. So in the
+green box here,
+
+on the right.
+
+So this plots the residuals on
+the Y axis over here,
+
+and fitted values on
+the X axis over there.
+
+If the constant variance
+assumption is satisfied, the
+
+spread of the residuals should
+be approximately equal across
+
+the range of fitted values. So
+if you move your
+
+eyes from this side to this
+side, this spread should be
+
+equal.
+
+So the residual plot should
+basically look like a big block.
+
+And this is the case for
+this model this iconicity model.
+
+So maybe they funnel out
+a little bit towards the
+
+higher fitted values, but
+there is really no drastic
+
+violation of the constant
+variance assumption.
+
+Now you might find it a bit
+disconcerting that the
+
+assumptions are assessed
+visually and there are other
+
+options, such as the Shapiro
+Wilk test of Normality, and we will
+
+look at some of those in the
+labs as well,but it is really
+
+important to use graphs as well
+because they they tell you more
+
+about your model and about your
+
+data. For example, the residuals
+may reveal a hidden non-
+
+linearity in the data or they
+might reveal some extreme values
+
+that need looking at.
+
+So here we have some examples of
+
+what 'good' residual plots
+look like.
+
+Mostly they look rather like
+clouds of random dots, and even
+
+though there are some apparent
+
+patterns, they
+just results from from a
+
+chance process.
+
+Now let's compare that to some
+'bad' residual plots over here.
+
+And indeed, you can clearly see.
+these plots show non-constant
+
+variance.
+
+In other words, they violate
+
+that assumption, these
+are all examples of
+
+heteroscedastic data rather than
+
+homoscedastic. And as you
+move along the X axis along
+
+the fitted values from left
+to right the residuals
+
+progressively fan out.
+
+So this is an example of 1 type
+of pattern that might occur.
+
+OK, now I already mentioned
+that when doing multiple
+
+regression, you also need to
+check for collinearity.
+
+Now, collinearity describes a
+situation where one predictor
+
+can be predicted by other
+predictors. So it arises from
+
+highly correlated predictors.
+And then it makes regression
+
+models harder to interpret.
+
+So on the right we have an
+example of no collinearity. If
+
+we think of y; In the
+middle, we have to circle that
+
+represents y (our dependent or
+outcome variable), and here we
+
+have each of our individual
+predictors. And as you can see
+
+in this figure,
+
+they each describe part of the
+variation in in Y, but they
+
+themselves don't overlap, so
+this is a scenario where there
+
+is no collinearity.
+
+This is a scenario where you can
+
+see that some of the variance
+that is described by this X3 (the
+
+blue bit), overlaps with variance
+that is described by X2 our
+
+second predictor. So it's kind
+of that bit (the purple area) that is described
+
+by both. And similarly
+this orange area
+
+here, that kind of reflects the
+variance that is shared between
+
+the Y variable,
+the X1 and X2.
+
+That is, it is a kind
+of conceptual representation of
+
+a moderate collinearity.
+
+Now. Here, you have an example
+of extreme collinearity. So here
+
+you can see that X1 and X2
+
+almost overlap in the extent
+to which they describe the
+
+variance in Y.
+
+Now we can
+
+demonstrate collinearity using
+some simulated data.
+
+Here, this gives us some
+simulated data and now we create
+
+a variable that is very similar.
+
+So.
+
+First, we've created the next
+variable and just told R:
+
+Please give me 50 random
+
+numbers. So if we put that into
+a regression formula and we say
+
+OK in this simulated ('made up
+
+data set') the regression
+line is going to be described by
+
+this. We have an intercept of 10
+and we have here our X of random
+
+numbers, and weight for that is
+3 and we add an error term of
+
+another 50 random numbers.
+
+Now, why do we use simulated
+data? Because it is sometimes
+
+really helpful to know exactly
+what should be in the data and
+
+then see what models look like
+to when, when, when you fit a
+
+model to it. What does the model pull out?
+Because you know what should be
+
+in there, you can demonstrate
+some things quite nicely.
+
+OK, so that is our initial model
+and then we create a second
+
+variable X2. And we basically
+tell it OK, X2 is X1.
+
+So X2 is same as X1, but we can
+just change one value.
+
+So that would create something
+like that on the right where X1 and X2
+
+are extremely similar.
+
+And indeed, if you look at the
+correlation between the two,
+
+it is very very high (point 98).
+
+OK, so,
+
+that's what we what we made up.
+
+And now we're going to fit a
+model to it and see what
+
+So here we have a model with
+just the X predictor
+
+and you can see that it
+tells us indeed that the
+
+intercept is about 10 and the
+weight the beta for X is 2.8.
+
+Now we know that it is 3, this
+is pretty close, you might think 'Why
+
+is it not exactly 3?' That is
+because we've added this error
+
+term. So it's it can't
+estimate it that precisely, but
+
+overall it's pretty accurate.
+
+So that's the model with one
+
+predictor. If we then,
+
+use X2 to predict Y. So
+again, this is just one
+
+predictor in here, instead of
+X1 we now have X2.
+
+We see that it predicts it pretty
+well too, right and given the
+
+setup; given how we have set
+these things up, it comes as no
+
+surprise that X2 also predicts
+
+Y. Just as I was the case
+
+with X1, right? OK, now it
+gets interesting, with regard to
+
+collinearity. So let's see what
+happens when we enter both X and
+
+X2 together into the same model.
+
+Now, this is what you get,
+so we have our intercept,
+
+It's still about 10, that's
+you know, close to that.
+
+Then what happens to
+
+slope for X2. So here
+you can see that the slope for
+
+X2 has changed dramatically.
+
+If it's the only
+predictor in the model, it's 2.7
+
+and now it's minus .43.
+
+It's negative, even though
+the data has been set up so
+
+that X2 and Y are
+positively correlated!
+
+So that that is an example of
+what will happen to coefficients
+
+when you're
+dealing with strong collinearity
+
+in a model. So the coefficients
+can change dramatically
+
+depending on which predictors
+are in the model.
+
+So to assess
+whether you have to worry about
+
+collinearity in your analysis,
+you can use what are called
+
+variance inflation factors.
+
+And they measure the degree to
+which one predictor can be
+
+accounted for by other
+
+predictors. So the VIF function
+from the car
+
+package in R can be used to
+to compute variance inflation
+
+factors and
+
+There are various ideas about
+
+how big a VIF value is deemed
+problematic, so Zuur et al. are a
+
+little bit more conservative and
+say OK, any VIF value over
+
+three or four, you should look
+at that. Another suggest that
+
+you need to worry about anything over
+
+10. I tend to kind of
+
+go with that more often.
+
+So for the iconicity model, an
+all VIF values are
+
+close to 1, which is good.
+
+But this is the situation for
+the the model of the simulated
+
+data that we looked at. So if
+you have both the X and the X2
+
+in the in the model of the
+simulated data, the VIF values
+
+are going through the roof
+
+basically: correctly identifying
+strong collinearity.
+
+And here the VIF values for the
+Iconicity model. You can see
+
+they're all pretty close to
+one. So that's all fine.
+
+OK, so what what do you do
+if you find that you are
+
+dealing with a situation
+with strong collinearity?
+
+Now there's several, you've got
+several options. The first one
+
+is that you remove one of the
+predictors with a high
+
+VIR, and you need to
+really use your
+
+understanding, your
+expertise, your knowledge
+
+of the subject to decide,
+and also to justify which
+
+one you you remove.
+
+A second solution,
+
+can be to collect more data as that
+will basically allow you to
+
+estimate the regression
+coefficients more precisely,
+
+which should then help
+or kind of decrease the
+
+amount of collinearity.
+
+You can also use another
+approach than regression. So
+
+random forests is an example of
+that. Or, first do a principle
+
+component analysis to
+
+combine the predictor
+variables before you do
+
+regression. So principle
+
+component analysis
+identifies how strongly
+
+correlated predictors can be
+combined in an inappropriate
+
+way, and then they give you
+one new variable that you
+
+can then use in your
+regression analysis.
+
+It's also really important to
+think about this issue
+
+actually at the planning stage
+of your study and kind of
+
+make theoretically motivated
+choices as to which one of
+
+possibly correlated measures
+you want to include.
+
+OK, finally
+
+yeah, we need to talk about
+R-squared and adjusted R ^2.
+
+So, using the glance
+function from the broom package,
+
+if you run that on
+your on your model summary,
+
+it shows the model summary
+output and in this case,
+
+if you do that for the iconicity
+
+model, the adjusted R-squared
+and the, sorry, adjusted
+
+R-squared here, and the
+
+R-squared here, they are very
+close together, which
+
+suggests there is no problem
+with with overfitting.
+
+Um, So what
+
+What adjusted R-squared does is that,
+
+like like R^2,
+
+it measures how much of the
+variance in the outcome variable
+
+is described by all the
+predictors in the model
+
+together, right? So that's R
+squared. Adjusted R-squared
+
+takes the number of predictors
+in the model into account
+
+because R-squared it is the
+
+situation that, the more
+variables you add,
+
+the better it gets, the more
+variance it describes.
+
+But
+
+that is kind of cheating, in
+the sense that if you have
+
+more more variables, yes, of
+course you will describe it
+
+more if you've got more and
+more predictor variables, of
+
+course you will describe more
+variance in the outcome
+
+variable, but you might get you to a situation
+
+where
+
+it is highly specific to that
+particular data set rather than
+
+more generic and generalizable
+to other datasets as well.
+
+So adjusted R-squared takes the
+number of predictors in the
+
+model into account, and so in
+the case of multiple regression,
+
+you should always report the
+adjusted R ^2.
+
+And as you can see here for the
+iconicity model, adjusted
+
+R-squared and R-squared are very
+similar, which suggests that
+
+there is an appropriate number
+
+of variables in the model
+and you haven't
+
+been overfitting
+
+your data with the model.
+
+OK, in summary, we spoke about
+
+the regression line with
+multiple predictors and then
+
+about why you need to
+
+think about standardized
+coefficients, and they make the
+
+predictors more compareable by
+converting them to standard
+
+using standard units. So it really helps with
+interpreting the coefficients.
+
+Then we spoke about the
+assumptions, so normality and
+
+homoscedasticity of the
+residuals and then in addition,
+
+in multiple regression you need
+to check for collinearity.
+
+And finally we talked about R-
+squared and adjusted R-squared
+
+as a measure of an the overall
+variance that's explained by
+
+the by the model.
+
+Thank you very much.
