@@ -1,0 +1,193 @@
+﻿Hi, it's Margriet Groen here and in this video I'd briefly like
+
+to talk about the concepts of
+centering and standardizing.
+
+Now, centering and standardizing
+are linear transformations of
+
+data, and they allow you to
+represent your data in a metric
+
+that is suitable to you and to
+
+your audience. So for instance
+
+in a figurehead. Response
+durations on the Y axis.
+
+Ann is measured in milliseconds.
+Now. If you wanted to talk about
+
+that in seconds instead, you'd
+simply divide each result
+
+response by 1000.
+
+That won't affect the
+theoretical conclusions drawn
+
+from your regression model.
+
+A bit more about centering.
+
+Now, centering is a particularly
+common linear transformation.
+
+It's frequently applied to
+continuous predictor variables.
+
+When you do regression.
+
+So how do you do it?
+
+You subtract the mean of that
+predictor variable in the sample
+
+from each data point.
+
+Now and as a result, each
+data point is expressed in
+
+terms of how much it is
+above or below the mean.
+
+So you might notice that the
+value of 0 has now changed. It
+
+has a new meaning. It is at the
+center of the variable
+
+distribution, which is the mean.
+
+But this is clearly visible in
+the figures here on the slide.
+
+Say I'm on the Y axis, we have
+reaction time and on the X axis
+
+we have work frequency.
+
+Now in the figure on the
+left, The Intercept, so that
+
+is where why? That is the Y
+value here for Axis zero,
+
+that's The Intercept an so
+on the left the Intercept is
+
+at about 870 milliseconds.
+
+Now in the figure on the right.
+
+The expert active X the X
+predict is a word. Frequency has
+
+been centered, so now the
+Intercept is the predicted Y
+
+value for the mean of X.
+
+Say predicted Y value for the
+meaning of acts, so you can
+
+see the mean of X is about
+680 milliseconds an you can
+
+see that this now is since
+exactly at a middle.
+
+So notice that this slope of the
+regression line has not changed.
+
+Now sometimes unsent and
+uncentered into sets make
+
+no sense whatsoever, for
+example when performance in
+
+sports game is modeled as a
+function of height of the
+
+players, The Intercept is
+the predicted performance
+
+for someone of zero height.
+
+Now, after centering, the
+Intercept becomes the
+
+predicted performance of a
+person of every tight and that
+
+is a much more meaningful
+quantity.
+
+OK, about standardizing.
+
+So the second common linear
+transformation is
+
+standardizing or sometimes
+called zed scoring. How do
+
+you do that? You divide the
+centered variable by the
+
+standard deviation of the
+sample.
+
+So standardization involves re
+expressing the data in terms of
+
+how many standard deviations
+they are away from the mean.
+
+It's sometimes called sat
+scoring because the result of
+
+numbers are in standard units
+and they are often represented
+
+by the letters sent.
+
+Now in the figure in the figure
+
+here. Can you see histogram of
+the distribution of a data set
+
+from Warner Cooperman Ambrish
+
+Board 2013? They asked native
+English speakers to rate
+
+positivity or negativity of
+words on a scale from 1 to 9.
+
+And that's referred to
+as emotional balance.
+
+And they have to normal.
+
+Instagram, Sophie scores from
+1:00 to 9:00.
+
+An and below here you see two
+additional X axes.
+
+And this one is for the centered
+
+data. And the this one is for
+the standardized data.
+
+And that highlights how
+linear transformations just
+
+change the units on the X
+axis. Then they leave the
+
+overall shape of the data.
+This completely in in intact.
+
+That's all for now, thank you.
