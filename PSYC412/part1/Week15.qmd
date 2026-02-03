@@ -15,6 +15,7 @@ The lecture material for this week follows the recommended chapters in Winter (2
 ```
 [Slides](Week15-files/stats_poissonRegression_theory_dis_1pp.pdf)
 [Transcript](Week15-files/statsPoissonRegressiontheory.txt)
+[Alternative link to eStream](https://estream.lancaster.ac.uk/View.aspx?id=61614~5f~xjxCbKDjGH)
 
 ## Reading
 
