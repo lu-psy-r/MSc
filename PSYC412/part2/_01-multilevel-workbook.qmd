@@ -225,7 +225,7 @@ brazil <- BAFACALO_DATASET %>%
 
 >**Pract.Q.1.** Do you know what you are doing with `select()`? Can you select a different set of variables?
 
-> Pract.A.1. You can exercise your skill by checking that you can view the `BAFACALO_DATASET` and select any variable you like. Be careful and make sure you go back to select the variables shown in the given code chunk: we will need them later.
+<!-- > Pract.A.1. You can exercise your skill by checking that you can view the `BAFACALO_DATASET` and select any variable you like. Be careful and make sure you go back to select the variables shown in the given code chunk: we will need them later. -->
 
 ##### Practical Task 4 -- Take missing values out of the brazil data
 
@@ -252,7 +252,7 @@ summary(brazil)
 
 >**Pract.Q.2.** Do you see the difference between the summary of the brazil data shown before and after you run `na.omit()`? What is it?
 
-> Pract.A.2. You should see that `NA`s are listed in some columns in the data before but not after you run `na.omit()`.
+<!-- > Pract.A.2. You should see that `NA`s are listed in some columns in the data before but not after you run `na.omit()`. -->
 
 ##### Practical Task 5 -- Get R to treat a variable as a type object of the kind required -- using the `as.numeric()` or `as.factor()` functions
 
@@ -280,7 +280,7 @@ summary(brazil)
 
 >**Pract.Q.3.** Do you see the difference between the summary of the brazil data shown before and after you run `as.numeric()` or `as.factor()` function lines? What is it?
 
-> Pract.A.3. You should see that numeric variables like portuguese are listed with summary statistics like the mean after but not before you coerce the variables.
+<!-- > Pract.A.3. You should see that numeric variables like portuguese are listed with summary statistics like the mean after but not before you coerce the variables. -->
 
 ##### Practical Task 6 -- Exercise -- experiment with coercion
 
@@ -292,7 +292,7 @@ summary(brazil)
 
 Here, we are interested in the relationship between school grades, for the sample of Brazilian children for whom we have data.
 
-- What is the relationship between portuguese and english grades?
+- What is the relationship between `portuguese` and `english` grades?
 
 ##### Practical Task 7 -- Visualize the relationship between portuguese and english grades using a scatterplot
 
@@ -354,11 +354,11 @@ summary(lm(physics ~ math, data = brazil))
 
 >**Pract.Q.4.** What is the estimated coefficient of the "effect" of math ability (grade) on physics grade?
 
-> Pract.A.4. The summary shows that physics grades are on average 1.3 higher for unit increase in math grade.
+<!-- > Pract.A.4. The summary shows that physics grades are on average 1.3 higher for unit increase in math grade. -->
 
 >**Pract.Q.5.** Draw a scatterplot showing the relationship between math and physics grades. Does the trend you see in the plot reflect the coefficient you see in the linear model summary?
 
-> Pract.A.5. The plot shows the positive association between math and physics grade also indicated by the estimated coefficient of the math effect.
+<!-- > Pract.A.5. The plot shows the positive association between math and physics grade also indicated by the estimated coefficient of the math effect. -->
 
 :::{.callout-tip collapse="true"}
 ## Code
@@ -373,7 +373,7 @@ brazil %>%
 
 >**Pract.Q.6.** How does the strength of the math-physics relationship compare with the english-portuguese relationship?
 
-> Pract.A.6. Both the linear model and the plots indicate that the math-physics relationship is much stronger.
+<!-- > Pract.A.6. Both the linear model and the plots indicate that the math-physics relationship is much stronger. -->
 
 #### Practical Part 6: Visualize the relationship for each class
 
@@ -411,7 +411,7 @@ ggplot(data = brazil, aes(x = math, y = physics, colour = class_number)) +
 
 >**Pract.Q.8.** Evaluate the consistency between classes of the relationship between math and physics grades: what do the plots show? how does this compare with what you see of the relationship between english and portuguese grades?
 
-> Pract.A.8. The plots show that the relationship between math and physics is very consistent between classes, and more consistent than the relationship between english and portuguese grades appears to be.
+<!-- > Pract.A.8. The plots show that the relationship between math and physics is very consistent between classes, and more consistent than the relationship between english and portuguese grades appears to be. -->
 
 #### Practical Part 7: Mixed-effects analysis
 
@@ -461,13 +461,13 @@ summary(porto.lmer3)
 
 >**Pract.Q.9.** Compare the results of the different versions of the model. Can you identify where the results are different?
 
-> Pract.A.9. It can be seen that Rhe estimated effect of portuguese varies between the models but the estimate is more similar, around .65, where the random effect is specified as
- `(portuguese + 1|class_number)` or `(portuguese + 0|class_number)`.
-> The residual variance term is different between the models.
-> Which random effects variances are shown is also different.
-> There is a convergence warning for:
+<!-- > Pract.A.9. It can be seen that the estimated effect of portuguese varies between the models but the estimate is more similar, around .65, where the random effect is specified as -->
+<!--  `(portuguese + 1|class_number)` or `(portuguese + 0|class_number)`. -->
+<!-- > The residual variance term is different between the models. -->
+<!-- > Which random effects variances are shown is also different. -->
+<!-- > There is a convergence warning for: -->
 
-`english ~ portuguese + (portuguese + 0 | class_number)`
+<!-- `english ~ portuguese + (portuguese + 0 | class_number)` -->
 
 ##### Practical Task 15 - Exercise mixed-effects model coding
 
@@ -487,10 +487,10 @@ summary(porto.lmer1)
 
 >**Pract.Q.10.** What elements of the model summary stand out for you? It will help to see what you should notice if you compare the math-physics model with the first english-portuguese model.
 
-> Pract.A.10. You may notice that:
+<!-- > Pract.A.10. You may notice that: -->
 
-- The summary comes with a fit is singular? warning.
-- The variance terms for intercept or the math effect by class number and the residual are very very small: much smaller than for the english-portuguese model.
+<!-- > - The summary comes with a fit is singular? warning. -->
+<!-- > - The variance terms for intercept or the math effect by class number and the residual are very very small: much smaller than for the english-portuguese model. -->
 
 #### Practical Part 8: Extension
 
