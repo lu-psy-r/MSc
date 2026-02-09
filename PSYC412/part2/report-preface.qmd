@@ -41,12 +41,12 @@ If you want an explanation of *why* we are asking you to do this work, so you ca
 
 Let's begin with what you need to write to complete this coursework.
 
-1. **Submission deadline: On Wednesday 14th May 2025**
+1. **Submission deadline: On Tuesday 12th May 2026**
 2. You will submit a structured report.
 3. Presenting an analysis: what you did; what you found; the context; and the implications.
 
 ::: callout-tip
-You will be able to find the submission point on Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=2512662) when it is revealed.
+You will be able to find the submission point on Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=2823216).
 :::
 
 **What is a structured report?** 
