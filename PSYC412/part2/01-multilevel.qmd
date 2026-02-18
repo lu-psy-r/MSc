@@ -173,7 +173,7 @@ You can also access the data from the link associated with the @golino2014 artic
 ::: callout-important
 **Get the answers**: get the data file and the .R script with answers.
 
-<!-- - You can download the files folder for this chapter by clicking on the link [01-multilevel-answers.zip](files/01-multilevel-answers.zip). -->
+- You can download the files folder for this chapter by clicking on the link [01-multilevel-answers.zip](files/01-multilevel-answers.zip).
 :::
 
 
