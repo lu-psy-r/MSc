@@ -369,6 +369,18 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/05-ordinal-workbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 20. Workbook introduction to Ordinal (Mixed-effects) Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../PSYC412/part2/05-ordinal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 20. Conceptual introduction to Ordinal (Mixed-effects) Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../PSYC412/part2/report-preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Week 00. The structured research report – Requirements</span></a>
   </div>
@@ -819,8 +831,10 @@ See ?effectsTheme for details.</code></pre>
 </div>
 </div>
 </div>
-<!-- >**Pract.A.1.** The summary shows: -->
-<!-- `Time (1, 655; 2, 608); Instructions (explicit, 592; incidental, 671); and Orthography (absent, 631; present, 632).` -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.1.</strong> The summary shows:</p>
+</blockquote>
+<p><code>Time (1, 655; 2, 608); Instructions (explicit, 592; incidental, 671); and Orthography (absent, 631; present, 632).</code></p>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.2.</strong> Are there any surprises in the summary of factors?</p>
 </blockquote>
@@ -840,7 +854,9 @@ See ?effectsTheme for details.</code></pre>
 </div>
 </div>
 </div>
-<!-- >**Pract.A.2.** It should be surprising that we do not have equal numbers of observations. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.2.</strong> It should be surprising that we do not have equal numbers of observations.</p>
+</blockquote>
 </section>
 <section id="practical-task-4-fit-a-generalized-linear-model" class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-4-fit-a-generalized-linear-model">Practical Task 4 – Fit a Generalized Linear Model</h5>
@@ -869,11 +885,15 @@ See ?effectsTheme for details.</code></pre>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.3.</strong> What is the estimated effect of <code>Instructions</code> on <code>Score</code>?</p>
 </blockquote>
-<!-- >**Pract.A.3.** The estimate is: `Instructionsincidental -0.05932` -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.3.</strong> The estimate is: <code>Instructionsincidental -0.05932</code></p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.4.</strong> Can you briefly explain in words what the estimate says about how log odds <code>Score</code> (response correct vs.&nbsp;incorrect) changes in association with different <code>Instructions</code> conditions?</p>
 </blockquote>
-<!-- >**Pract.A.4.** We can say, simply, that the log odds that a response would be correct were lower in the `incidental` compared to the `explicit` `Instructions` condition. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.4.</strong> We can say, simply, that the log odds that a response would be correct were lower in the <code>incidental</code> compared to the <code>explicit</code> <code>Instructions</code> condition.</p>
+</blockquote>
 <p>This task and these questions are designed to alert you to the challenges involved in estimating the effect of categorical variables, and of interpreting the effects estimates.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1017,7 +1037,9 @@ incidental -1</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(long.orth<span class="sc">$</span>Time) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">3</span>, <span class="at">base =</span> <span class="dv">1</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(long.orth<span class="sc">$</span>Time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<!-- >**Pract.A.6.** Changing the first number from 2 will result in warnings, showing that the number must match the number of factor levels for the factor. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.6.</strong> Changing the first number from 2 will result in warnings, showing that the number must match the number of factor levels for the factor.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.7.</strong> Experiment: what happens if you change the base number for one of the factors?</p>
 </blockquote>
@@ -1026,7 +1048,9 @@ incidental -1</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(long.orth<span class="sc">$</span>Time) <span class="ot">&lt;-</span> <span class="fu">contr.sum</span>(<span class="dv">2</span>, <span class="at">base =</span> <span class="dv">1</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contrasts</span>(long.orth<span class="sc">$</span>Time)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<!-- >**Pract.A.7.** Changing the base number changes which level gets coded as -1 vs. 1. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.7.</strong> Changing the base number changes which level gets coded as -1 vs.&nbsp;1.</p>
+</blockquote>
 </section>
 </section>
 <section id="practical-part-4-analyze-the-data-random-intercepts" class="level4">
@@ -1202,11 +1226,15 @@ mean_z_read -0.121</code></pre>
 </div>
 </div>
 </div>
-<!-- >**Pract.A.8.** The estimate is: `mean_z_read   1.5090` -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.8.</strong> The estimate is: <code>mean_z_read   1.5090</code></p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.9.</strong> Can you briefly indicate in words what the estimate says about how log odds <code>Score</code> (response correct vs.&nbsp;incorrect) changes in association with <code>mean_z_read</code> score?</p>
 </blockquote>
-<!-- >**Pract.A.9.** We can say, simply, that log odds that a response would be correct were higher for increasing values of `mean_z_read`. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.9.</strong> We can say, simply, that log odds that a response would be correct were higher for increasing values of <code>mean_z_read</code>.</p>
+</blockquote>
 </section>
 <section id="practical-task-7-visualize-the-significant-effects-of-the-orthography-and-consistency-factors" class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-7-visualize-the-significant-effects-of-the-orthography-and-consistency-factors">Practical Task 7 – Visualize the significant effects of the <code>Orthography</code> and <code>Consistency</code> factors</h5>
@@ -2105,13 +2133,17 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.10.</strong> Which models converge and which models do not converge?</p>
 </blockquote>
-<!-- >**Pract.A.10.** Models 4.a. (consistency) and 4.b. (time) should not converge. -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.10.</strong> Models 4.a. (consistency) and 4.b. (time) should not converge.</p>
+</blockquote>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.11.</strong> How can you tell?</p>
 </blockquote>
-<!-- >**Pract.A.11.** Convergence warnings are presented for models that do not converge: -->
-<!-- `optimizer (bobyqa) convergence code: 0 (OK)` -->
-<!-- `boundary (singular) fit: see help('isSingular')` -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.11.</strong> Convergence warnings are presented for models that do not converge:</p>
+</blockquote>
+<p><code>optimizer (bobyqa) convergence code: 0 (OK)</code></p>
+<p><code>boundary (singular) fit: see help('isSingular')</code></p>
 </section>
 <section id="practical-task-11-now-compare-the-models-that-do-converge-min-vs.-2-vs.-3" class="level5">
 <h5 class="anchored" data-anchor-id="practical-task-11-now-compare-the-models-that-do-converge-min-vs.-2-vs.-3">Practical Task 11 – Now compare the models that do converge: min vs.&nbsp;2, vs.&nbsp;3</h5>
@@ -2160,29 +2192,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <blockquote class="blockquote">
 <p><strong>Pract.Q.12.</strong> What does using <code>bobyqa</code> do? Delete <code>glmerControl()</code> and report what impact does this have?</p>
 </blockquote>
-<!-- :::{.callout-tip collapse="true"} -->
-<!-- ## Code -->
-<!-- Run the code to fit the model and get a summary of results -->
-<!-- ```{r} -->
-<!-- #| cache: true -->
-<!-- long.orth.3.glmer.check <- glmer(Score ~ -->
-<!--                             Time + Orthography + Instructions + zConsistency_H + -->
-<!--                             Orthography:Instructions + -->
-<!--                             Orthography:zConsistency_H + -->
-<!--                             (dummy(Orthography) + 1 || Participant) + -->
-<!--                             (dummy(Orthography) + dummy(Instructions) + 1 || Word), -->
-<!--                            family = "binomial", -->
-<!--                            data = long.orth) -->
-<!-- summary(long.orth.3.glmer.check) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- >**Pract.A.12.** Deleting the `bobyqa` requirement seems to have no impact on models that converge. -->
-<blockquote class="blockquote">
-<p><strong>Pract.Q.13.</strong> What does using <code>dummy()</code> in the random effects coding do?</p>
-</blockquote>
-<ul>
-<li>Experiment: check out models 2 or 3, removing <code>dummy()</code> from the random effects coding to see what happens.</li>
-</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -2198,25 +2207,116 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>Run the code to fit the model and get a summary of results</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>long.orth.<span class="fl">3.</span>glmer.check <span class="ot">&lt;-</span> <span class="fu">glmer</span>(Score <span class="sc">~</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>                             Time <span class="sc">+</span> Orthography <span class="sc">+</span> Instructions <span class="sc">+</span> zConsistency_H <span class="sc">+</span></span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>                             Orthography<span class="sc">:</span>Instructions <span class="sc">+</span></span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>                             Orthography<span class="sc">:</span>zConsistency_H <span class="sc">+</span></span>
-<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>                             (Orthography <span class="sc">+</span> <span class="dv">1</span> <span class="sc">||</span> Participant) <span class="sc">+</span></span>
-<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>                             (Orthography <span class="sc">+</span> Instructions <span class="sc">+</span> <span class="dv">1</span> <span class="sc">||</span> Word),</span>
-<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a>                           <span class="at">family =</span> <span class="st">"binomial"</span>,</span>
-<span id="cb74-13"><a href="#cb74-13" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">glmerControl</span>(<span class="at">optimizer=</span><span class="st">"bobyqa"</span>, </span>
-<span id="cb74-14"><a href="#cb74-14" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">optCtrl=</span><span class="fu">list</span>(<span class="at">maxfun=</span><span class="fl">2e5</span>)),</span>
-<span id="cb74-15"><a href="#cb74-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-16"><a href="#cb74-16" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> long.orth)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>                            Time <span class="sc">+</span> Orthography <span class="sc">+</span> Instructions <span class="sc">+</span> zConsistency_H <span class="sc">+</span></span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>                            Orthography<span class="sc">:</span>Instructions <span class="sc">+</span></span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>                            Orthography<span class="sc">:</span>zConsistency_H <span class="sc">+</span></span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a>                            (<span class="fu">dummy</span>(Orthography) <span class="sc">+</span> <span class="dv">1</span> <span class="sc">||</span> Participant) <span class="sc">+</span></span>
+<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a>                            (<span class="fu">dummy</span>(Orthography) <span class="sc">+</span> <span class="fu">dummy</span>(Instructions) <span class="sc">+</span> <span class="dv">1</span> <span class="sc">||</span> Word),</span>
+<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-13"><a href="#cb74-13" aria-hidden="true" tabindex="-1"></a>                           <span class="at">family =</span> <span class="st">"binomial"</span>,</span>
+<span id="cb74-14"><a href="#cb74-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-15"><a href="#cb74-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> long.orth)</span>
+<span id="cb74-16"><a href="#cb74-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-17"><a href="#cb74-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(long.orth.<span class="fl">3.</span>glmer.check)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: Score ~ Time + Orthography + Instructions + zConsistency_H +  
+    Orthography:Instructions + Orthography:zConsistency_H + (dummy(Orthography) +  
+    1 || Participant) + (dummy(Orthography) + dummy(Instructions) +  
+    1 || Word)
+   Data: long.orth
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+   1036.5    1098.2    -506.2    1012.5      1251 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.9948 -0.4068 -0.1920  0.1838  5.9306 
+
+Random effects:
+ Groups        Name                Variance Std.Dev.
+ Participant   (Intercept)         1.64381  1.2821  
+ Participant.1 dummy(Orthography)  0.55620  0.7458  
+ Word          (Intercept)         1.94298  1.3939  
+ Word.1        dummy(Orthography)  0.01611  0.1269  
+ Word.2        dummy(Instructions) 0.86700  0.9311  
+Number of obs: 1263, groups:  Participant, 41; Word, 16
+
+Fixed effects:
+                             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)                 -1.962125   0.440053  -4.459 8.24e-06 ***
+Time2                        0.050697   0.084324   0.601  0.54769    
+Orthography2                 0.426376   0.111431   3.826  0.00013 ***
+Instructions1                0.190655   0.263255   0.724  0.46893    
+zConsistency_H              -0.626992   0.366976  -1.709  0.08754 .  
+Orthography2:Instructions1  -0.026550   0.104844  -0.253  0.80009    
+Orthography2:zConsistency_H -0.000632   0.087885  -0.007  0.99426    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Correlation of Fixed Effects:
+            (Intr) Time2  Orthg2 Instr1 zCns_H Or2:I1
+Time2        0.007                                   
+Orthogrphy2  0.028  0.008                            
+Instructns1 -0.127  0.022  0.019                     
+zCnsstncy_H  0.017 -0.002 -0.026  0.011              
+Orthgrp2:I1  0.013  0.001  0.003  0.068 -0.009       
+Orthgr2:C_H -0.030  0.002  0.182  0.002 -0.026 -0.018</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Pract.A.12.</strong> Deleting the <code>bobyqa</code> requirement seems to have no impact on models that converge.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Pract.Q.13.</strong> What does using <code>dummy()</code> in the random effects coding do?</p>
+</blockquote>
+<ul>
+<li>Experiment: check out models 2 or 3, removing <code>dummy()</code> from the random effects coding to see what happens.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Run the code to fit the model and get a summary of results</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>long.orth.<span class="fl">3.</span>glmer.check <span class="ot">&lt;-</span> <span class="fu">glmer</span>(Score <span class="sc">~</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>                             Time <span class="sc">+</span> Orthography <span class="sc">+</span> Instructions <span class="sc">+</span> zConsistency_H <span class="sc">+</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>                             Orthography<span class="sc">:</span>Instructions <span class="sc">+</span></span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>                             Orthography<span class="sc">:</span>zConsistency_H <span class="sc">+</span></span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>                             (Orthography <span class="sc">+</span> <span class="dv">1</span> <span class="sc">||</span> Participant) <span class="sc">+</span></span>
+<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a>                             (Orthography <span class="sc">+</span> Instructions <span class="sc">+</span> <span class="dv">1</span> <span class="sc">||</span> Word),</span>
+<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a>                           <span class="at">family =</span> <span class="st">"binomial"</span>,</span>
+<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">glmerControl</span>(<span class="at">optimizer=</span><span class="st">"bobyqa"</span>, </span>
+<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">optCtrl=</span><span class="fu">list</span>(<span class="at">maxfun=</span><span class="fl">2e5</span>)),</span>
+<span id="cb76-15"><a href="#cb76-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-16"><a href="#cb76-16" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> long.orth)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>boundary (singular) fit: see help('isSingular')</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(long.orth.<span class="fl">3.</span>glmer.check)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(long.orth.<span class="fl">3.</span>glmer.check)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Generalized linear mixed model fit by maximum likelihood (Laplace
   Approximation) [glmerMod]
@@ -2273,12 +2373,16 @@ boundary (singular) fit: see help('isSingular')</code></pre>
 </div>
 </div>
 </div>
-<!-- >**Pract.A.13.** If we refit model 3 but with the random effects: -->
-<!-- `(Orthography + 1 || Participant) +` -->
-<!-- `Orthography + Instructions + 1 || Word),` -->
-<!-- We get: -->
-<!-- - a convergence warning -->
-<!-- - random effects variances and covariances that we did not ask for: including some bad signs -->
+<blockquote class="blockquote">
+<p><strong>Pract.A.13.</strong> If we refit model 3 but with the random effects:</p>
+</blockquote>
+<p><code>(Orthography + 1 || Participant) +</code></p>
+<p><code>Orthography + Instructions + 1 || Word),</code></p>
+<p>We get:</p>
+<ul>
+<li>a convergence warning</li>
+<li>random effects variances and covariances that we did not ask for: including some bad signs</li>
+</ul>
 </section>
 </section>
 </section>
