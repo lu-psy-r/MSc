@@ -12,11 +12,11 @@ website:
           - auto: PSYC7142/part2/*
       - section: "PSYC7143"
         contents: 
-          - auto: PSYC7143/part1/*
-          - auto: PSYC7143/part2/*
+          - auto: PSYC7143/*
       - section: "PSYC7242"
         contents: 
-          - auto: PSYC7242/*  
+          - auto: PSYC7242/part1/*
+          - auto: PSYC7242/part2/*
 format:
   html: 
     include-in-header:
