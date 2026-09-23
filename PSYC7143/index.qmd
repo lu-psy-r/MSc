@@ -1,0 +1,70 @@
+---
+title: Analysing and Interpreting Psychological Data I
+subtitle: "Course coordinators: Padraic Monaghan, Rob Davies"
+email-obfuscation: javascript
+
+#listing:
+#  id: links
+#  template: ../links.ejs
+#  contents: guide.yml
+---
+
+# Welcome
+
+Welcome to this module PSYC7143! Very glad to have you here with us.
+
+Rob Davies ![](https://www.lancaster.ac.uk/images/people/3324.jpg){width="1in"} and Padraic Monaghan ![](https://www.lancaster.ac.uk/images/people/1290.jpg){width="1in"} are the lecturers on this module. 
+
+We are looking forward to meeting you!
+
+This module is designed for students who have never done data analysis or statistics before, as well as those who have background in this. 
+
+We have set up the module so that there are different exercises depending on your background. 
+
+* For those who are new to data analysis and statistics, there is a week-by-week step-by-step guide to all you need to know to become a master's-level expert in interpreting and analysing psychological data. 
+
+* For those of you who have already used our software (R-studio) for analysis before, after revising the foundations of what you need to know you can move on quickly to the extra explorative exercises where you can hone and broaden your skills.
+
+# Steps to get ready
+
+Here are the steps to go through before the module begins, to help you prepare for the course:
+
+*First:* Watch this first video which is a chat between Rob Davies and Padraic Monaghan giving you a bit of an insight into what we'd like you to take from this module and what our philosophy is for teaching.
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=30972d92-8108-44db-b2c0-b1f5008f9566&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w0 p0" ></iframe>
+```
+
+::: {.callout-tip icon=false collapse="true"}
+## Help! I'm getting the error "HTTP Error 400. The size of the request headers is too long." when I try to watch a video, what do I do?
+You will need to clear out the cookies and cache from your browser. 
+[for safari](https://support.apple.com/en-gb/guide/safari/sfri11471/16.1/mac/13.0){target="_blank"}.
+[for chrome](https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DDesktop){target="_blank"}.
+[for microsoft edge](https://www.microsoft.com/en-us/edge/learning-center/how-to-manage-and-clear-your-cache-and-cookies?form=MA13I2){target="_blank"}.
+:::
+
+*Second:* Watch our welcome video (part 1) to give you an outline of how this module works:
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=35153553-493b-4ece-bd7d-b1f500a07cf6&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w0 p1" ></iframe>
+```
+
+*Third:* Then watch our welcome video (part 2) on how to access the software for this module. Basically, what you need to do is in a web browser go to: [http://psy-rstudio.lancaster.ac.uk](http://psy-rstudio.lancaster.ac.uk) and login with your university account name, and your university account password:
+
+```{=html}
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c8b1818f-d436-42dc-b3e7-b090011a581d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411 2025 w0 p2" ></iframe>
+```
+
+Note that you can only access this website from on campus, or via the University's VPN. For information on connecting to the VPN, see here: [ISS help for VPN](https://answers.lancaster.ac.uk/display/ISS/VPN+help)
+
+# Next steps
+
+Next step is to go to the Week 1 materials, once they are released. We aim to release materials for the following week by Thursday of the previous week. You can navigate to the relevant week via the list on the left of the webpage.
+
+# Course Contacts
+
+|             | Email Address                                                  |
+|-------------|----------------------------------------------------------------|
+| Padraic Monaghan | [p.monaghan\@lancaster.ac.uk](mailto:p.monaghan@lancaster.ac.uk) |
+| Rob Davies  | [r.davies1\@lancaster.ac.uk](mailto:r.davies1@lancaster.ac.uk)     |
+|             |                                                                |

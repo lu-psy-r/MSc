@@ -6,15 +6,17 @@ website:
     style: "floating"
     collapse-level: 2
     contents:
-      - section: "PSYC411"
+      - section: "PSYC7142"
         contents: 
-          - auto: PSYC411/part1/*
-          - auto: PSYC411/part2/*
-      - section: "PSYC412"
+          - auto: PSYC7142/part1/*
+          - auto: PSYC7142/part2/*
+      - section: "PSYC7143"
         contents: 
-          - auto: PSYC412/part1/*
-          - auto: PSYC412/part2/*
-  
+          - auto: PSYC7143/part1/*
+          - auto: PSYC7143/part2/*
+      - section: "PSYC7242"
+        contents: 
+          - auto: PSYC7242/*  
 format:
   html: 
     include-in-header:

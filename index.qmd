@@ -16,7 +16,7 @@ back-to-top-navigation: false
 Welcome
 :::
 
-Welcome to analysing and interpreting data for Masters students. For Term 1, please click on PSYC411 button below. For Term 2, please click on the PSYC412 button.
+Welcome to analysing and interpreting data for Masters students. For Term 1, please click on PSYC7142 button below. For Term 2, please click on the PSYC7242 button.
 
 ```{=html}
 
@@ -24,13 +24,15 @@ Welcome to analysing and interpreting data for Masters students. For Term 1, ple
   <div class="row">
     <div class="col">
 
-    <a href="PSYC411/">
-      <button type="button" class="btn btn-landing btn-lg year-msc">PSYC411</button>
+    <a href="PSYC7142/">
+      <button type="button" class="btn btn-landing btn-lg year-msc">PSYC7142</button>
     </a>
-    <a href="PSYC412/">
-      <button type="button" class="btn btn-landing btn-lg year-msc">PSYC412</button>
+    <a href="PSYC7143/">
+      <button type="button" class="btn btn-landing btn-lg year-msc">PSYC7143</button>
     </a>
-    
+    <a href="PSYC7242/">
+      <button type="button" class="btn btn-landing btn-lg year-msc">PSYC7242</button>
+    </a>    
     </div>
   </div>
 </div>
