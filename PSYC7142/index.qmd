@@ -1,6 +1,6 @@
 ---
 title: Understanding Humans Through Data
-subtitle: "Course coordinators: Rob Davies (coordinator) and Sam Finnerty"
+subtitle: "Teaching team: Rob Davies (coordinator) and Sam Finnerty"
 email-obfuscation: javascript
 
 #listing:

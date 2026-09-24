@@ -1,6 +1,6 @@
 ---
 title: Advanced Modelling of Psychological Data
-subtitle: "Course coordinator: Rob Davies"
+subtitle: "Teaching team: Rob Davies (coordinator) and Margriet Groen"
 email-obfuscation: javascript
 order: 1
 

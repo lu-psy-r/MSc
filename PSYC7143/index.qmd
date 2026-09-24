@@ -1,6 +1,6 @@
 ---
 title: Critical Thinking and Workplace Skills
-subtitle: "Course coordinator: Emma Mills"
+subtitle: "Teaching team: Rob Davies and Emma Mills (coordinator)"
 email-obfuscation: javascript
 
 #listing:
