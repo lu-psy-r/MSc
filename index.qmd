@@ -1,5 +1,5 @@
 ---
-title: "Statistics for Psychologists"
+title: "Research Methods and Statistics for Psychologists"
 page-layout: full
 anchor-sections: false
 image: "Images/icon.png"
