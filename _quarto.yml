@@ -4,19 +4,19 @@ metadata-files:
 website:
   sidebar:
     style: "floating"
-    collapse-level: 2
+    collapse-level: 3
     contents:
       - section: "PSYC7142"
         contents: 
-          - auto: PSYC7142/part1/*
-          - auto: PSYC7142/part2/*
+          - auto: "PSYC7142"
+          #- auto: "PSYC7142/"
       - section: "PSYC7143"
         contents: 
-          - auto: PSYC7143/*
+          - auto: "PSYC7143"
       - section: "PSYC7242"
         contents: 
-          - auto: PSYC7242/part1/*
-          - auto: PSYC7242/part2/*
+          #- auto: "PSYC7242/part1"
+          - auto: "PSYC7242"
 format:
   html: 
     include-in-header:
