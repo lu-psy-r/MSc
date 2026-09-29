@@ -31,7 +31,7 @@ Here are the steps to go through before the module begins, to help you prepare f
 
 *First:* Watch this first welcome video (part 1) from Dr. Samuel Finnerty who will introduce himself and discuss what you can expect in this module. Sam will be teaching Weeks 1 through 5. You will notice that many of the subsequent recorded lectures for weeks 1 - 5 include Prof. Padraic Monaghan who created the materials for weeks 1 - 5. Sam is teaching in place of Padraic Monaghan this year, as Padraic is on sabbatical. 
 
-**Note:** You may see that some of the videos say PSYC401 rather than PSYC7142. These are the same content but the name changed to PSYC7142 this year. 
+**Note:** You may see that some of the videos say PSYC411 rather than PSYC7142. These are the same content but the name changed to PSYC7142 this year. 
 ```{=html}
 	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=342daa8c-82a9-4e32-aad3-b4d400b52c8f&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142 2026 w0 p1" ></iframe>
 ```

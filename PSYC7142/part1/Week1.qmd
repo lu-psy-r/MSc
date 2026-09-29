@@ -1,6 +1,6 @@
 ---
 title: Week 1. Introducing Data
-subtitle: Written by Padraic Monaghan
+subtitle: Written by Padraic Monaghan.
 order: 2
 ---
 
@@ -38,16 +38,13 @@ You will need to clear out the cookies and cache from your browser.
 [for microsoft edge](https://www.microsoft.com/en-us/edge/learning-center/how-to-manage-and-clear-your-cache-and-cookies?form=MA13I2){target="_blank"}.
 :::
 
-
 Watch Lecture week1 part1:
 
-
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7b94cdef-6407-4369-9423-b1fc0087f221&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w1 p1" ></iframe>
-
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=02efe640-f0ff-47d9-b755-b4d400f58f63&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142 week 1 part 1"></iframe>
 ```
 
-Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680943){target="_blank"}
+Watch Lecture week1 part2, stop halfway through and do the Lecture week1 part2 quiz (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2976626){target="_blank"}
 Then come back and watch the end of Lecture week 1 part2:
 
 ```{=html}
@@ -57,20 +54,21 @@ Then come back and watch the end of Lecture week 1 part2:
 
 Watch Lecture week1 part3:
 
+**Note:** Padraic writes a slightly different web address for the server below. The website address for the server is - [R Server here](https://ps-rstudio.lancaster.ac.uk/) Please this one.
 ```{=html}
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fb0627af-75d6-4f12-81f2-b091008d8793&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411 2025 w1 p3" ></iframe>
 ```
 
-Take the quiz on the lecture material (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680944){target="_blank"}
+Take the quiz on the lecture material (not assessed), by clicking [here](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2976627){target="_blank"}
 
 
 ### 1.3.2 Lecture slides
 
 Download the lecture slides for
 
-- [part 1 here](ppt/wk1/PSYC411 Lecture week1 part1 handout.pptx)
+- [part 1 here](ppt/wk1/PSYC7142 Lecture week1 part1 handout.pptx)
 
-- [part 2 here](ppt/wk1/PSYC411 Lecture week1 part2 handout.pptx)
+- [part 2 here](ppt/wk1/PSYC7142 Lecture week1 part2 handout.pptx)
 
 
 ## 1.4 Practical Materials
@@ -102,10 +100,9 @@ Education, 6:3*.](https://doi.org/10.1080/10691898.1998.11910623){target="_blank
 
 1. Startup Rstudio
 
-
 To log in to the R server, first make sure that you have the VPN switched on, or you will need to be connected to the university network (Eduroam). To set up the VPN, follow ISS [instructions here](https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/vpn/) or connecting to Eduroam [here](https://portal.lancaster.ac.uk/ask/digital/services/university-it-network/wi-fi/).
 
-When you are connected, navigate to [https://psy-rstudio.lancaster.ac.uk](https://psy-rstudio.lancaster.ac.uk){target="_blank"}, where you will be shown a login screen that looks like the below. Click the option that says "Sign in with SAML".
+When you are connected, navigate to [https://ps-rstudio.lancaster.ac.uk/](https://ps-rstudio.lancaster.ac.uk/){target="_blank"}, where you will be shown a login screen that looks like the below. Click the option that says "Sign in with SAML".
 
 ![](images/1LoginSAML.png)
 
