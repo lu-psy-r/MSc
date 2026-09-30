@@ -140,8 +140,9 @@ pnorm(1.4142136)
 # 27.	In the console, assign the object e to be 84 divided by 32.1.
 # 28.	Assign the variable f to 8 to the power of 4 (in R this is called exponentiation).
 # 29.	What is the result of d added to e all divided by f
-d <- 100 * 246; e <- 84/32.1; f <- 8^4 (or f <- 8**4); (d+e)/f 
+d <- 100 * 246; e <- 84/32.1; f <- 8^4; (d+e)/f 
 # ANSWER:  6.006498
+## Note that f <- 8^4 can also be written as f <- 8**4
 
 ########Task 9: Exploring functions
 # So far, we’ve just looked at the square root function sqrt(). Go to this page:

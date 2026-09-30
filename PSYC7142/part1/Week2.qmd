@@ -35,32 +35,32 @@ By the end of Week 2, you should be able to:
 
 Watch Lecture week2 part1.
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c7713b87-a9c3-4301-81ea-adad00bb5872&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w2_p1" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c7713b87-a9c3-4301-81ea-adad00bb5872&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142_2026_w2_p1" ></iframe>
 ```
 
 
 Watch Lecture week2 part2
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8354694a-0c7b-4caf-9fc9-ac3e00d8a2ca&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w2_p2" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8354694a-0c7b-4caf-9fc9-ac3e00d8a2ca&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142_2026_w2_p2" ></iframe>
 ```
 
 Watch Lecture week2 part3
 ```{=html}
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3f3cd6f5-118e-4579-98a4-b376008802dc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411_2025 w2 p3"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3f3cd6f5-118e-4579-98a4-b376008802dc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142_2026 w2 p3"></iframe>
 ```
 
-Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680945){target="_blank"} on the lecture material (not assessed).
+Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2976628){target="_blank"} on the lecture material (not assessed).
 
 
 ### 2.3.2 Slides
 
 Download the lecture slides for:
 
-- [part 1](ppt/wk2/PSYC411 Lecture week2 part1 handout.pptx)
+- [part 1](ppt/wk2/PSYC7142 Lecture week2 part1 handout.pptx)
 
-- [part 2](ppt/wk2/PSYC411 Lecture week2 part2 handout.pptx)
+- [part 2](ppt/wk2/PSYC7142 Lecture week2 part2 handout.pptx)
 
-- [part 3](ppt/wk2/PSYC411 Lecture week2 part3 handout.pptx)
+- [part 3](ppt/wk2/PSYC7142 Lecture week2 part3 handout.pptx)
 
 
 ## 2.4 Practical Materials
@@ -90,7 +90,7 @@ If you have used R-studio before, then Part 6 will be where you will be developi
 
 ##### Task Zero: making and opening an R script file
 
-1.  Open up the R server at [https://psy-rstudio.lancaster.ac.uk](https://psy-rstudio.lancaster.ac.uk){target="_blank"}
+1.  Open up the R server at [https://ps-rstudio.lancaster.ac.uk/](https://ps-rstudio.lancaster.ac.uk/){target="_blank"}
 
 2.  In R studio, at the File menu, select New File, then R script.
 
@@ -111,13 +111,13 @@ In the console, you should see the sum being run, and the answer produced.
 
 First of all, you can make a Directory/Folder to save the R scripts in to.
 
-Your file structure can be anything you like, but here's how I organised it: At the bottom right panel of the R-studio window, click on Folder. Add a new Folder, call it, say PSYC411. 
+Your file structure can be anything you like, but here's how I organised it: At the bottom right panel of the R-studio window, click on Folder. Add a new Folder, call it, say PSYC7142. 
 
-Click on the PSYC411 Folder, and then make another new Folder, called, say "Week2".
+Click on the PSYC7142 Folder, and then make another new Folder, called, say "Week2".
 
 4.  Then, you can save this week's workbook into the Week2 folder:
 
-Click on the Save icon just above the R script window, browse to the Folder where you want to save the script (e.g., PSYC411/Week2), then name the R script file (e.g., workbook_week2.r)
+Click on the Save icon just above the R script window, browse to the Folder where you want to save the script (e.g., PSYC7142/Week2), then name the R script file (e.g., workbook_week2.r)
 and Save.
 
 The .r subscript indicates to R studio that this is an R script file.
@@ -130,27 +130,27 @@ The .r subscript indicates to R studio that this is an R script file.
 7.  To make it easier to save and open files we can set what is called the "working directory" for R studio.
     Click "Session" in the menu at the top of the R studio screen, select "Working directory", then select "Choose directory".
     
-    Browse to the Folder where you are going to save your PSYC411 R studio files (for me this is Documents/PSYC411), and click Open.
+    Browse to the Folder where you are going to save your PSYC7142 R studio files (for me this is Documents/PSYC7142), and click Open.
     
-    Over on the right lower panel, you should now see all the files that are in this Folder - including psyc411_week2.r
+    Over on the right lower panel, you should now see all the files that are in this Folder - including psyc7142_week2.r
 
 
 ##### Task One: open and check Practical week1 workbook script file
 
-8.  Last week, we didn't save a script (as we were just using the console for R studio). But here's one I prepared earlier... Download the [week 1 script file here](answers/psyc411_week1_workbook_answers.r). This also has the answers (but you can check last week's answers via the main Week 1 page already too).
+8.  Last week, we didn't save a script (as we were just using the console for R studio). But here's one I prepared earlier... Download the [week 1 script file here](answers/psyc7142_week1_workbook_answers.r). This also has the answers (but you can check last week's answers via the main Week 1 page already too).
 
 This has now downloaded the file on to your local computer. You now need to make it available in the psy-rstudio system. To do this, we have to "Upload" the file.
 
 In the bottom right panel of R studio, click "Upload".
 
 For the Target directory, select the Folder in R-studio that you'd like to upload the 
-file to (e.g., PSYC411/Week1 - maybe first of all you'll need to make the Folder).
+file to (e.g., PSYC7142/Week1 - maybe first of all you'll need to make the Folder).
 
 Then Browse to the file that is on your local computer, and click OK.
 
 You should see it in the Files in the bottom right panel on R-studio.
 
-9.  Now you can open psyc411_week1_workbook_answers.r in R-studio (either 
+9.  Now you can open psyc7142_week1_workbook_answers.r in R-studio (either 
 through File > Open File, at the top left panel, or just by double-clicking 
 it in the Files in the bottom right panel). You can now look through this R script, 
 check your commands and answers to the tasks from last week.
@@ -166,7 +166,7 @@ Comments help us to keep track of what each bit of our r script is doing, and, a
 
 ##### Task Two: Opening a data file
 
-10. Make sure you have open your script file psyc411_week2.r in R studio.
+10. Make sure you have open your script file psyc7142_week2.r in R studio.
 
 11. It's generally a good idea to refresh and clear out R studio when you start a new session, so add this line to the beginning of your R studio file:
 
@@ -176,12 +176,12 @@ rm(list=ls())
 
 12. Next we are going to open a new data file.
 
-Download the file [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv)
+Download the file [PSYC7142-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC7142-shipley-scores-anonymous-17_18.csv)
 
 ::: callout-tip
 DO NOT OPEN THIS FILE ON YOUR COMPUTER -- IF YOU DO, DELETE IT THEN DOWNLOAD IT AGAIN - THE REASON FOR THIS IS THAT IT CHANGES THE FILE FORMAT AND THEN WON'T OPEN PROPERLY IN R STUDIO.
 :::
-Then, Upload the data file into R-Studio, and put it in *PSYC411/Week2* Folder for instance.
+Then, Upload the data file into R-Studio, and put it in *PSYC7142/Week2* Folder for instance.
 
 Each row is one person's data, and each column is a measure taken from the person. Columns are separated by commas, which is what the "csv" refers to" comma-separated values.
 
@@ -189,8 +189,8 @@ Each row is one person's data, and each column is a measure taken from the perso
 Click "Session" in the menu at the top of the screen
 select "Working directory"
 select "Choose directory". 
-Then, browse to the directory *PSYC411/Week2* (or whatever you’ve called your folder), and click *Open*. 
-If it worked, in the console it should say something like setwd("M:/yourname/yourfiles/PSYC411/Week2")
+Then, browse to the directory *PSYC7142/Week2* (or whatever you’ve called your folder), and click *Open*. 
+If it worked, in the console it should say something like setwd("M:/yourname/yourfiles/PSYC7142/Week2")
 
 14. In R studio, we open csv files using a function called `read_csv()` which comes from a set of functions that are stored in a library called "tidyverse", we can install these functions by putting `library(tidyverse)` at the very top of our R script.
 
@@ -210,7 +210,7 @@ We install libraries using `library()` and enter the name of the library in the 
 15. Then type this command in the script file and run it:
 
 ```{r eval=FALSE}
-dat <- read_csv("PSYC411-shipley-scores-anonymous-17_18.csv")
+dat <- read_csv("PSYC7142-shipley-scores-anonymous-17_18.csv")
 ```
 
 Remember the `dat <-` notation, which means we put the data into an object called "dat"
@@ -251,7 +251,7 @@ and run it.
 ## Answer
 ``` {r}
 library(tidyverse)
-dat <- read_csv("data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv")
+dat <- read_csv("data/wk2/PSYC7142-shipley-scores-anonymous-17_18.csv")
 summarydat <- select(dat, subject_ID, Gent_1_score)
 hist(summarydat$Gent_1_score)
 ```
@@ -288,7 +288,7 @@ hist(iknow)
 
 ##### Task Three: Loading data into R-studio
 
-22. Download the data file called [ahicesd.csv](data/wk2/ahicesd.csv) and Upload them into your directory in R studio: "PSYC411/week2". Now do the same for [participantinfo.csv](data/wk2/participantinfo.csv). 
+22. Download the data file called [ahicesd.csv](data/wk2/ahicesd.csv) and Upload them into your directory in R studio: "PSYC7142/week2". Now do the same for [participantinfo.csv](data/wk2/participantinfo.csv). 
 
 These data come from this study: Woodworth, R.J., O'Brien-Malone, A., Diamond, M.R. and Schüz, B., 2018. Data from, Web-based Positive Psychology Interventions: A Reexamination of Effectiveness. Journal of Open Psychology Data, 6(1).
 
@@ -357,7 +357,7 @@ View(pinfo)
 ::: 
 
 27. Looking at the data replaced the source window, but the source is still there.
-    Just above the View panel you should see a tab named *psyc411_week2.r*, click on that to get your source panel back.
+    Just above the View panel you should see a tab named *psyc7142_week2.r*, click on that to get your source panel back.
     It will have a star/asterisk after the file name if it is unsaved.
     Remember it's a good idea to regularly save your source file so you don't lose work.
 
@@ -440,7 +440,7 @@ Relation is negative – higher happiness indicates lower depression.
 ::: 
 
 
-34. Now make sure you save psyc411_week2.r that contains all these commands that you ran.
+34. Now make sure you save psyc7142_week2.r that contains all these commands that you ran.
     Close R studio, and Open R studio and make sure it's saved all your work.
     
     The list of commands is extremely useful for making science open and accessible to other researchers.
@@ -531,14 +531,14 @@ The relationship is still similar.
 
 When we look at other people's data sets there are two generic ways in which they can be presented.
 The first is called "wide format", and this is when several measures are presented on a single row in the data.
-This is the format of the data in the vocabulary scores: *psyc411-shipley-scores-anonymous-17_18.csv*, where there are three vocabulary tests each in different columns.
+This is the format of the data in the vocabulary scores: *psyc7142-shipley-scores-anonymous-17_18.csv*, where there are three vocabulary tests each in different columns.
 The other format is called "long format", and this is where each observation is on a different line -- and if there is more than one observation from the same subject then that subject has multiple lines in the data.
 There are some functions in the tidyverse library that helps us convert from wide to long and long to wide.
 This part practises these conversions.
 
 ##### Task Six: Wide to long format conversion
 
-41. Let's go back to the *psyc411-shipley-scores-anonymous-17_18.csv* data.
+41. Let's go back to the *psyc7142-shipley-scores-anonymous-17_18.csv* data.
     This should still be in the object called "dat".
     If it's not, then load the data again into dat, using the `read_csv()` function.
 
@@ -670,7 +670,7 @@ Then have a go at exploring the data - e.g., can you first of all recreate the n
 
 Here are links to all the data referred to in this practical:
 
-- [PSYC411-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC411-shipley-scores-anonymous-17_18.csv)
+- [PSYC7142-shipley-scores-anonymous-17_18.csv](data/wk2/PSYC7142-shipley-scores-anonymous-17_18.csv)
 - [ahicesd.csv](data/wk2/ahicesd.csv)
 - [participantinfo.csv](data/wk2/participantinfo.csv)
 
