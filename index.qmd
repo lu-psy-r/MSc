@@ -16,7 +16,10 @@ back-to-top-navigation: false
 Welcome
 :::
 
-Welcome to analysing and interpreting data for Masters students. For Term 1, please click on PSYC7142 button below. For Term 2, please click on the PSYC7242 button.
+Welcome to analyzing and interpreting data for Masters students. 
+
+- For **Understanding Humans Through Data** (Term 1) please click on the PSYC7142 button below.
+- For **Advanced Modelling of Psychological Data** (Term 2) please click on the PSYC7242 button.
 
 ```{=html}
 
