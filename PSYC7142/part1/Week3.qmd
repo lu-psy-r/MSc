@@ -4,7 +4,6 @@ subtitle: Written by Padraic Monaghan
 order: 4
 ---
 
-
 ## 3.1 Overview
 
 This week, there are three mini lectures, the practical workbook working with R-studio, and the first assignment (due by Friday of week 3).
@@ -47,7 +46,6 @@ I have created podcast versions of part1 and part3 and put them on moodle in cas
 	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=81c47e96-1a2a-4e6c-a7bf-b377009b70e3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142_2026_w3_p1" ></iframe>
 ```
 
-
 - Have a go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2976631){target="_blank"}, and record your score.
 
 - Have another go at the [Gent Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2976632){target="_blank"}, and record your score again.
@@ -55,7 +53,6 @@ I have created podcast versions of part1 and part3 and put them on moodle in cas
 - Have a go at the [Shipley Vocabulary test](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2976630){target="_blank"}, and record your score. 
 
 - Fill in your vocabulary scores into [our course database](https://modules.lancaster.ac.uk/mod/questionnaire/view.php?id=2976633){target="_blank"}: What is your vocabulary?
-
 
 Watch Lecture week3 part2
 ```{=html}
@@ -119,10 +116,9 @@ First load in the libraries haven and tidyverse, upload the data file, and then 
 ## Hint
 ``` {r eval=FALSE}
 library(haven)
-dat <- read_sav("stamkou_Study 1_edited_data.sav")
+dat <- read_sav("stamkou_Study1_edited_data.sav")
 ```
 :::
-
 
 4. Now, you can look at plotting the happiness ratings at baseline against happiness ratings
 after the children watch the video. You can also look at the means and standard deviations of the
@@ -142,12 +138,12 @@ summarise(dat, mean(PracticeHappy), sd(PracticeHappy), mean(VideoHappy, na.rm=T)
 ```
 mean(PracticeHappy) sd(PracticeHappy) mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)
 
-1            2.638889         0.7822321                    1.983051                  0.828982
+1            3.42         1.04                    2.36                  1.21
 
 
 or you could use:
 ``` {r eval=FALSE}
-mean(dat$PracticeHappy); sd(dat$PracticeHappy); mean(dat$VideoHappy); sd(dat$VideoHappy)
+mean(dat$PracticeHappy, na.rm = T); sd(dat$PracticeHappy, na.rm = T); mean(dat$VideoHappy, na.rm = T); sd(dat$VideoHappy, na.rm = T )
 ```
 :::
 
@@ -166,11 +162,11 @@ summarise(dat2, mean(PracticeHappy), sd(PracticeHappy), mean(VideoHappy, na.rm=T
 ```
 EmotionCondition `mean(PracticeHappy)` `sd(PracticeHappy)` `mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)`
 
-1 Awe                               2.68               0.800                          2.08                0.747
+1 Awe                               3.48               1.05                          2.49                1.12
 
-2 Joy                               2.5                0.701                          2.22                0.956
+2 Joy                               3.23               0.99                          2.76                1.35
 
-3 Control                           2.74               0.835                          1.62                0.648
+3 Control                           3.54               1.07                          1.80                0.92
 
 happiness decreases in all conditions, but most for Control, mid for Awe, least for Joy conditions
 :::

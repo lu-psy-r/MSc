@@ -83,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-7c27f33fd7076c6120fd73d430d0d24c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-a5d6fdbca70fc65d32d26cbabd5849e5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -443,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"stamkou_Study 1_edited_data.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="st">"stamkou_Study1_edited_data.sav"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -485,10 +485,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat, <span class="fu">mean</span>(PracticeHappy), <span class="fu">sd</span>(PracticeHappy), <span class="fu">mean</span>(VideoHappy, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(VideoHappy, <span class="at">na.rm=</span>T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>mean(PracticeHappy) sd(PracticeHappy) mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)</p>
-<p>1 2.638889 0.7822321 1.983051 0.828982</p>
+<p>1 3.42 1.04 2.36 1.21</p>
 <p>or you could use:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>PracticeHappy); <span class="fu">sd</span>(dat<span class="sc">$</span>PracticeHappy); <span class="fu">mean</span>(dat<span class="sc">$</span>VideoHappy); <span class="fu">sd</span>(dat<span class="sc">$</span>VideoHappy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat<span class="sc">$</span>PracticeHappy, <span class="at">na.rm =</span> T); <span class="fu">sd</span>(dat<span class="sc">$</span>PracticeHappy, <span class="at">na.rm =</span> T); <span class="fu">mean</span>(dat<span class="sc">$</span>VideoHappy, <span class="at">na.rm =</span> T); <span class="fu">sd</span>(dat<span class="sc">$</span>VideoHappy, <span class="at">na.rm =</span> T )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -513,9 +513,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(dat2, <span class="fu">mean</span>(PracticeHappy), <span class="fu">sd</span>(PracticeHappy), <span class="fu">mean</span>(VideoHappy, <span class="at">na.rm=</span>T), <span class="fu">sd</span>(VideoHappy, <span class="at">na.rm=</span>T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>EmotionCondition <code>mean(PracticeHappy)</code> <code>sd(PracticeHappy)</code> <code>mean(VideoHappy, na.rm = T) sd(VideoHappy, na.rm = T)</code></p>
-<p>1 Awe 2.68 0.800 2.08 0.747</p>
-<p>2 Joy 2.5 0.701 2.22 0.956</p>
-<p>3 Control 2.74 0.835 1.62 0.648</p>
+<p>1 Awe 3.48 1.05 2.49 1.12</p>
+<p>2 Joy 3.23 0.99 2.76 1.35</p>
+<p>3 Control 3.54 1.07 1.80 0.92</p>
 <p>happiness decreases in all conditions, but most for Control, mid for Awe, least for Joy conditions</p>
 </div>
 </div>
