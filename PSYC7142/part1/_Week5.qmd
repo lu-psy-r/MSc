@@ -40,13 +40,13 @@ Bring your questions (and/or answers) to the practical.
 Watch Lecture week 5 part 1:
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=98f7b065-26f1-42d9-9872-ac5900c7cda0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w5_p1" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=98f7b065-26f1-42d9-9872-ac5900c7cda0&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142_2026_w5_p1" ></iframe>
 ```
 
 Watch Lecture week 5 part 2:
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=551cef0e-76e4-43b6-8895-ac5900cdf342&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc411_2025_w5_p2" ></iframe>
+<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=551cef0e-76e4-43b6-8895-ac5900cdf342&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142_2026_w5_p2" ></iframe>
 ```
 
 Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680955){target="_blank"} (not assessed) on the lecture materials.
@@ -55,9 +55,9 @@ Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680955){ta
 
 Download the lecture slides for:
 
-- [part 1](ppt/wk5/PSYC411 Lecture week5 part1 handout.pptx)
+- [part 1](ppt/wk5/PSYC7142 Lecture week5 part1 handout.pptx)
 
-- [part 2](ppt/wk5/PSYC411 Lecture week5 part2 handout.pptx)
+- [part 2](ppt/wk5/PSYC7142 Lecture week5 part2 handout.pptx)
 
 ## 5.4 Practical Materials
 
@@ -116,7 +116,7 @@ rm(list=ls())
 library(tidyverse)
 
 # from week4 practical
-dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_25_year_language.csv") 
+dat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_26_year_language.csv") 
 dat$academic_year <- as.factor(dat$academic_year)
 #View(dat)
 
@@ -165,7 +165,7 @@ There is no difference between people who self-identify as male or female on voc
 20. To test the research hypothesis, we will filter people who self-identify as male or female from the data set. To be inclusive, additional research questions would be part of your research project to analyse also people who self-identify as other gender. Run this command to extract a  subset of the data (note that the `|` stands for "or", and means Gender matches male or gender matches female:
 
 ``` {r}
-dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_25_gender.csv")
+dat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_26_gender.csv")
 dat2 <- filter(dat, Gender == 'Male' | Gender == 'Female')
 
 ```
@@ -257,16 +257,17 @@ To fix this on your own computer version, you need to download and install an ol
 	Welch Two Sample t-test
 
 data:  Gent_1_score by Gender
-t = -1.7019, df = 100.37, p-value = 0.09187
+t = -1.6412, df = 98.83, p-value = 0.1039
 alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
 95 percent confidence interval:
- -7.2386790  0.5537475
+ -7.0884761  0.6706983
 sample estimates:
 mean in group Female   mean in group Male 
-            58.99087             62.33333 
+            59.12444             62.33333 
+
 ````
 
-28. The key part of the results to look at is the one that has t = -1.7019, df = 100.37, p-value = 0.09187. This is the result that you report: *t*(100.37) = -1.70, *p* = .092.
+28. The key part of the results to look at is the one that has t = -1.6412, df = 98.83, p-value = 0.1039. This is the result that you report: *t*(98.83) = -1.64, *p* = .104.
 
 The value is negative because the function includes Female before Male - and Female score is lower than Male score. What matters is how far away from zero the t-test is (either positively or negatively).  The df value is slightly odd because the t.test() function figures out degrees of freedom in a technical way which takes into account differences in variance in the data between the two groups. We can just use the value that the `t.test()` function gives us. 
 
@@ -292,7 +293,7 @@ cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 
 ::: {.callout-note icon="false" collapse="true"}
 ## Answer
- d = 0.24
+ d = 0.23
 
 An ideal brief report of the results would state what the research question/hypothesis is, describe the means and SDs of the groups being compared, and then report the t-test statistic, with p-value and Cohen's d effect size, then provide a brief interpretation of what the results mean.
 
@@ -300,7 +301,7 @@ Based on Hyde and Linn (1988), we hypothesised that people who self-identify as 
 terms of vocabulary scores. Males (mean = 62.33, SD = 13.74) scored higher than 
 females (mean = 58.99, SD = 13.72) on the first time participants attempted the 
 Gent vocabulary test, however this difference was not significant,
-*t*(100.37) = -1.70, *p* = .092, Cohen's *d* = 0.24. We did not find evidence to support the hypothesis.
+*t*(98.83.37) = -1.64, *p* = .103, Cohen's *d* = 0.23. We did not find evidence to support the hypothesis.
 
 *Reference*
 
@@ -327,7 +328,7 @@ Null Hypothesis: There is no difference in vocabulary scores between native Engl
 ::: {.callout-note icon="false" collapse="true"}
 ## Answer
 ``` {r}
-dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_25_year_language.csv")
+dat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_26_year_language.csv")
 dat2 <- select(dat, english_status, Gent_1_score)
 dat3 <- drop_na(dat2)
 ggplot(dat3, aes(x = english_status, y = Gent_1_score)) + geom_boxplot()
@@ -344,10 +345,10 @@ cohensD(Gent_1_score ~ english_status, method = "unequal", data = dat3 )
 ## Answer
 We hypothesised that English as an additional language would result in lower overall vocabulary scores than English as a first language, because of the relation between length of time learning a language and language skills (Davies et al., 2017). 
 Native
-English speakers (mean = 65.14, SD = 9.14) scored significantly higher
+English speakers (mean = 65.12, SD = 9.04) scored significantly higher
 on the Gent vocabulary test than speakers of English as a second
-language (mean = 50.05, SD = 15.31), *t*(142.81) = -9.08, *p* < .001,
-Cohen's *d* = 1.20, a large effect size. Thus, the hypothesis was supported, with native English speakers scoring significantly higher on the Gent vocabulary test than those with English as an additional language.
+language (mean = 50.32, SD = 15.39), *t*(143.96) = -8.97, *p* < .001,
+Cohen's *d* = 1.17, a large effect size. Thus, the hypothesis was supported, with native English speakers scoring significantly higher on the Gent vocabulary test than those with English as an additional language.
 
 *Reference*
 
@@ -533,7 +534,7 @@ We are going to figure out whether people have different scores the first and se
 ::: {.callout-note icon="false" collapse="true"}
 ## Answer
 ``` {r}
-dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_25_year_language.csv")
+dat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_26_year_language.csv")
 dat$academic_year <- as.factor(dat$academic_year)
 dat2 <- select(dat, subject_ID, Gent_1_score, Gent_2_score)
 dat3 <- drop_na(dat2)
@@ -582,8 +583,8 @@ ggplot(dat4, aes(x = test, y = score)) + geom_boxplot()
 ::: {.callout-note icon="false" collapse="true"}
 ## Answer
 ``` {r}
-dat <- read_csv("data/wk4/PSYC411-shipley-scores-anonymous-17_25_year_language.csv")
-dat2 <- filter(dat, academic_year == "202526")
+dat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_26_year_language.csv")
+dat2 <- filter(dat, academic_year == "202627")
 ggplot(dat2, aes(x = english_status, y = Gent_1_score)) + geom_boxplot()
 dat3 <- group_by(dat2, english_status)
 summarise(dat3, mean(Gent_1_score), sd(Gent_1_score), mean(Gent_2_score), sd(Gent_2_score), n())
@@ -670,8 +671,8 @@ What you will need to do is apply a function called "palindrome" to the words in
 
 Data referred to in this workbook:
 
-- [PSYC411-shipley-scores-anonymous-17_25_gender.csv](data/wk4/PSYC411-shipley-scores-anonymous-17_25_gender.csv){target="_blank"}
-- [PSYC411-shipley-scores-anonymous-17_25_year_language.csv](data/wk4/PSYC411-shipley-scores-anonymous-17_25_year_language.csv){target="_blank"}
+- [PSYC7142-shipley-scores-anonymous-17_26_gender.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_26_gender.csv){target="_blank"}
+- [PSYC7142-shipley-scores-anonymous-17_26_year_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_26_year_language.csv){target="_blank"}
 - [ahicesd.csv adapted for t-test](data/wk5/ahicesd.csv) 
 - [participantinfo2.csv adapted for t-test](data/wk5/participantinfo2.csv). 
 - [ClassDraw.csv](data/wk5/ClassDraw.csv)
@@ -681,8 +682,6 @@ Data referred to in this workbook:
 The answers to the workbook appear below each question in the workbook, above, so you can check your work *after you've had a go at the exercises..!*.
 
 ## 5.5 Extras
-
-Optionally, if you can give us your (anonymised) [feedback](https://modules.lancaster.ac.uk/mod/feedback/view.php?id=2680956){target="_blank"} on how the course is going from your perspective, that would be very welcome.
 
 Also optionally, read the articles on the importance of statistical understanding and insights from good data visualisation:
 

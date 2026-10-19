@@ -564,7 +564,6 @@ Answers now appear in this page, above.
 
 ## 4.5 Extras
 
-
 See the [guides to reporting numbers and statistical tests](https://apastyle.apa.org/instructional-aids/numbers-statistics-guide.pdf){target="_blank"} in American Psychological Association format (the format that we use in Psychology for all reports).
 
 Watch the [clip of the Titanic film if you like](https://www.youtube.com/watch?v=1YGfrGKK9Mo){target="_blank"} (not assessed!). Hosted on youtube.
