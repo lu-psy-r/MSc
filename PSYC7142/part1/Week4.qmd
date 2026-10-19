@@ -102,11 +102,11 @@ library(tidyverse)
 
 The data set on the Shipley and Gent vocabulary scores is now updated with the data from your group, so it now contains *nine* years of PSYC7142 students' data. There are three datasets, I have separated the data in order to preserve anonymity, and changed the subject_ID numbers.
 
-The first contains information about vocabulary scores and gender - this is called [PSYC7142-shipley-scores-anonymous-17_25_gender.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_25_gender.csv){target="_blank"}. Download this file to your computer, then Upload it into the r server. Save it as an object in R studio called `vocabgenderdat`.
+The first contains information about vocabulary scores and gender - this is called [PSYC7142-shipley-scores-anonymous-17_26_gender.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_26_gender.csv){target="_blank"}. Download this file to your computer, then Upload it into the r server. Save it as an object in R studio called `vocabgenderdat`.
 
-The second contains information about vocabulary scores and language background and year of academic study - this is called  [PSYC7142-shipley-scores-anonymous-17_25_year_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_25_year_language.csv){target="_blank"} and read the data into an object in R studio called `vocabyearlangdat` (for vocabulary data).
+The second contains information about vocabulary scores and language background and year of academic study - this is called  [PSYC7142-shipley-scores-anonymous-17_26_year_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_26_year_language.csv){target="_blank"} and read the data into an object in R studio called `vocabyearlangdat` (for vocabulary data).
 
-The third contains information about gender and language background - this is called  [PSYC7142-shipley-scores-anonymous-17_25_gender_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_25_gender_language.csv){target="_blank"} and read the data into an object in R studio called `genderlangdat` (for vocabulary data).
+The third contains information about gender and language background - this is called  [PSYC7142-shipley-scores-anonymous-17_26_gender_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_26_gender_language.csv){target="_blank"} and read the data into an object in R studio called `genderlangdat` (for vocabulary data).
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
@@ -415,13 +415,13 @@ cramersV(x = titanic$class, y = titanic$survival)
 
 ```
 
-24. Your next task is to run some Chi-squared and Cramer's V tests on some of the other nominal data. Open the data "PSYC7142-shipley-scores-anonymous-17_25_gender_language.csv" again. Investigate the association between gender and english status (are there different distributions of males and females for those with English as a first or additional language) using Chi-squared and Cramer's V. Is it significant? 
+24. Your next task is to run some Chi-squared and Cramer's V tests on some of the other nominal data. Open the data "PSYC7142-shipley-scores-anonymous-17_26_gender_language.csv" again. Investigate the association between gender and english status (are there different distributions of males and females for those with English as a first or additional language) using Chi-squared and Cramer's V. Is it significant? 
 
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r}
 library(lsr)
-genderlangdat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_25_gender_language.csv"); 
+genderlangdat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_26_gender_language.csv"); 
 
 chisq.test( x = genderlangdat$Gender, genderlangdat$english_status)
 cramersV( x = genderlangdat$Gender, genderlangdat$english_status)
@@ -449,7 +449,7 @@ It still is not significant, X-squared(1, 281) = 0.36, p = .547, Cramer's V = 0.
 ::: {.callout-warning icon=false collapse="true"}
 ## Answer
 ```{r}
-vocabyearlangdat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_25_year_language.csv")
+vocabyearlangdat <- read_csv("data/wk4/PSYC7142-shipley-scores-anonymous-17_26_year_language.csv")
 chisq.test( x = vocabyearlangdat$academic_year, vocabyearlangdat$english_status)
 cramersV( x = vocabyearlangdat$academic_year, vocabyearlangdat$english_status)
 
@@ -544,11 +544,11 @@ questionnaires were completed.
 
 Data referred to in this workbook:
 
-- [PSYC7142-shipley-scores-anonymous-17_25_gender.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_25_gender.csv){target="_blank"}
+- [PSYC7142-shipley-scores-anonymous-17_26_gender.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_26_gender.csv){target="_blank"}
 
-- [PSYC7142-shipley-scores-anonymous-17_25_year_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_25_year_language.csv){target="_blank"}
+- [PSYC7142-shipley-scores-anonymous-17_26_year_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_26_year_language.csv){target="_blank"}
 
-- [PSYC7142-shipley-scores-anonymous-17_25_gender_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_25_gender_language.csv){target="_blank"}
+- [PSYC7142-shipley-scores-anonymous-17_26_gender_language.csv](data/wk4/PSYC7142-shipley-scores-anonymous-17_26_gender_language.csv){target="_blank"}
 
 - [ahicesd.csv](data/wk2/ahicesd.csv){target="_blank"}
 
