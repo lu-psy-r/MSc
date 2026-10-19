@@ -42,6 +42,10 @@ I have created podcast versions of part1 and part3 and put them on moodle in cas
 :::
 
 - Watch Lecture 3 part 1
+
+**Note concerning Assignments**
+
+Padraic mentions that week 3 carries a grade of 10%. As I noted last week, this is not the case. It is worth 0% of your grade. You are only taking this to familiarise yourself with taking the assessment, working with R, and for us to understand where you are up to. Assignments 2 and 3 each carry 20% (due in Weeks 6 & 9 respectively). Please do watch the rest of the video as it concerns filling in your vocabulary scores which can be used by all of us for working with data in the coming weeks. 
 ```{=html}
 	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=81c47e96-1a2a-4e6c-a7bf-b377009b70e3&autoplay=false&offerviewer=true&showtitle=true&showbrand=false&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142_2026_w3_p1" ></iframe>
 ```
