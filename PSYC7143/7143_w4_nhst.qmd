@@ -1,0 +1,126 @@
+---
+title: Hypothesis testing, significance testing
+subtitle: Written by Rob Davies
+order: 3 # ensure this is one more than the previous script
+---
+
+:::{.callout-note title="Overview"}
+This week we work to develop our understanding of hypothesis testing and significance testing. We do this so that we can build our skills for thinking, in general, about how we should respond to evidence. 
+
+- The discussion is anchored in the context of correlation analysis in Psychological research on the link between reading experience and vocabulary knowledge.
+
+You can navigate to each in the side bar on the right.
+:::
+
+## Lectures {#sec-7143-w4-lectures}
+
+```{r}
+#| label: Do not remove. It prevents Quarto from thinking it needs to involve Python.
+```
+
+### Interactive lecture -- This week, we learn about hypothesis testing and significance testing as methods for responding to evidence {#sec-7143-w4-lectures-lecture} 
+
+You can watch the lecture videos using the playback windows shown next. The lecture is broken into six parts, each about 5-25 minutes long.
+
+1. **We are going to learn about hypothesis or significance testing**
+2. **What is NHST and where does it come from?**
+3. **Demonstration: significance testing**
+4. **Hypothesis testing**
+5. **Seeing the Neyman-Pearson approach at work**
+6. **Summary**
+
+::: callout-tip
+During the lecture, I suggest some questions you can think about. Reflecting on your responses to these questions will help you to learn.
+:::
+
+You can download the lecture slides as a .html file you can open in any browser.
+
+The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w4-reading.
+
+::: callout-tip
+The slides presented in the next videos can be downloaded as a web page: `hypothesis-testing-significance.html.` 
+
+- [Lecture slides](files/week4/hypothesis-testing-significance.html)
+
+When you download the file, double click on it to open it in your usual web browser for viewing.
+
+There are many slides but not all slides are discussed in-depth in the lecture, some are there to help to visually support transitions between points.
+:::
+
+Next, you can see the lecture elements. We recommend that you watch them in sequence.
+
+1. **We are going to learn about hypothesis or significance testing** (~5 minutes). This is a challenging topic. We can meet this challenge by enriching our perspectives to take in historical, philosophical, and psychological viewpoints.
+
+\newline
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=e97ccec1-994f-4155-aaeb-b4ec00d15ba1&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="nhst-one"></iframe>
+</div>
+```
+
+\newline
+
+2. **What is NHST and where does it come from?** (~13 minutes). We are going to learn about hypothesis testing and significance from two different perspectives: (1.) The perspective of an individual researcher, asking what they can learn from the evidence from their study. (2.) The perspective of someone looking at errors that we (in general) could make as we make decisions based on the evidence from multiple repeated studies. We begin with Ronald Fisher's ideas.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c4c1f0fa-3673-48e2-ae62-b4ec00d344fc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="nhst-two"></iframe>
+</div>
+```
+
+\newline
+
+3. **Demonstration: significance testing** (~20 minutes). We have outlined the logic of the significance test in words. But it is often easier to understand the logic if we see how the ideas work in practice.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=31051ec9-183a-4001-8f88-b4ec00ddd8d4&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="nhst-three-revised"></iframe>
+</div>
+```
+
+\newline
+
+4. **Hypothesis testing** (~10 minutes). We switch to a different philosophy and a different view of the psychology of researchers: we look at the ideas of Jerzy Neyman and Egon Pearson.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=eb63ea9a-9779-460b-9ace-b4ec00e416dc&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="nhst-four"></iframe>
+</div>
+```
+
+\newline
+
+5. **Seeing the Neyman-Pearson approach at work** (24 minutes). To help us to build understanding, we work through demonstrations based on simulations of Psychology studies of correlation.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=1dc19dad-6e89-4bd1-8c72-b4ec00e86063&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="nhst-five"></iframe>
+</div>
+```
+
+\newline
+
+6. **Summary** (8 minutes). Two ways of thinking clearly about evidence. The impacts on how we write about and think about research as psychologists.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4efc9b0e-5c11-4043-993f-b4ec00efe2f3&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="nhst-six"></iframe>
+</div>
+```
+
+\newline
+
+## Reading {#sec-7143-w4-reading}
+
+::: {.callout-tip title="Easy access to readings"}
+All reading is accessible via the library.
+
+- **Essential**: We expect you to be familiar with these reading. You will be assessed on this.
+- **Recommended**: We highly recommend these readings. They often provide a different perspective, or explain things in a different way.
+- **Optional**: Further readings for those interested.
+:::
+
+This week, the reading is optional but **Recommended**:
+
+- Gigerenzer, G. (2018). Statistical Rituals: The Replication Delusion and How We Got There. *Advances in Methods and Practices in Psychological Science*, 1(2), 198–218. <https://doi.org/10.1177/2515245918771329> **Recommended**
