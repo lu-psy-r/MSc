@@ -38,7 +38,7 @@ You can download the lecture slides as a .html file you can open in any browser.
 The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w4-reading.
 
 ::: callout-tip
-The slides presented in the next videos can be downloaded as a web page: `hypothesis-testing-significance.html.` 
+The slides presented in the next videos can be downloaded as a web page: `hypothesis-testing-significance.html`. 
 
 - [Lecture slides](files/hypothesis-testing-significance.html)
 
