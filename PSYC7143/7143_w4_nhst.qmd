@@ -40,7 +40,7 @@ The slides end with a references list but don't worry about reading what's in th
 ::: callout-tip
 The slides presented in the next videos can be downloaded as a web page: `hypothesis-testing-significance.html.` 
 
-- [Lecture slides](files/week4/hypothesis-testing-significance.html)
+- [Lecture slides](files/hypothesis-testing-significance.html)
 
 When you download the file, double click on it to open it in your usual web browser for viewing.
 
