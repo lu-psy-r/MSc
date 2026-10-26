@@ -5,7 +5,6 @@ order: 6
 
 ---
 
-
 ## 5.1 Overview
 
 This week, there are two mini lectures, and the practical workbook working with R-studio.
@@ -49,7 +48,15 @@ Watch Lecture week 5 part 2:
 <iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=551cef0e-76e4-43b6-8895-ac5900cdf342&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=true&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="psyc7142_2026_w5_p2" ></iframe>
 ```
 
-Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680955){target="_blank"} (not assessed) on the lecture materials.
+::: {.callout-warning icon="false"}
+## Correction: effect-size conventions (part 2, slide 30, 22 minutes into video)
+Slide 30 gives 0.1, 0.3 and 0.5 as small, medium and large effects. These are Cohen's conventions for correlations (*r*). For Cohen's *d*, the conventions are 0.2 (small), 0.5 (medium) and 0.8 (large) (Cohen, 1992). In your reports, give the value of *d* and interpret it in the context of the measure; the labels are only a rough guide.
+
+:::
+
+
+
+Take [the quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2976640){target="_blank"} (not assessed) on the lecture materials.
 
 ### 5.3.2 Slides
 
@@ -181,7 +188,6 @@ ggplot(dat2, aes(x = Gender, y = Gent_1_score)) + geom_boxplot()
 The graph indicates that maybe males are slightly higher, but looks like a lot of overlap.
 :::
 
-
 22. Note that unless we had filtered the data, the box plot would contain 'NA' as well, which stands for missing data.  In a data set it's always a good idea to call missing data 'NA' rather than just leaving them blank because this could be interpreted as a zero or as an error of filling in data.  Missing values make things untidy, so it's good practice to focus only on the variables we need for the t-test and remove all other missing values. Use `select()` to get just the Gender and Gent_1_score variables, and put this in a new object called 'dat3'. 
 
 ::: {.callout-note icon="false" collapse="true"}
@@ -257,17 +263,17 @@ To fix this on your own computer version, you need to download and install an ol
 	Welch Two Sample t-test
 
 data:  Gent_1_score by Gender
-t = -1.6412, df = 98.83, p-value = 0.1039
+t = -1.6353, df = 106.13, p-value = 0.1049
 alternative hypothesis: true difference in means between group Female and group Male is not equal to 0
 95 percent confidence interval:
- -7.0884761  0.6706983
+ -6.673859  0.640606
 sample estimates:
 mean in group Female   mean in group Male 
-            59.12444             62.33333 
+            59.35102             62.36765 
 
 ````
 
-28. The key part of the results to look at is the one that has t = -1.6412, df = 98.83, p-value = 0.1039. This is the result that you report: *t*(98.83) = -1.64, *p* = .104.
+28. The key part of the results to look at is the one that has t = -1.6353, df = 106.13, p-value = 0.1049. This is the result that you report: *t*(106.13) = -1.64, *p* = .105.
 
 The value is negative because the function includes Female before Male - and Female score is lower than Male score. What matters is how far away from zero the t-test is (either positively or negatively).  The df value is slightly odd because the t.test() function figures out degrees of freedom in a technical way which takes into account differences in variance in the data between the two groups. We can just use the value that the `t.test()` function gives us. 
 
@@ -285,7 +291,6 @@ cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 
 ```
 
-
 - It's pretty much the same as the t-test() command except that we use 'method = 'unequal'. For a paired t-test you would use 'method = 'paired' 
 
 
@@ -293,15 +298,15 @@ cohensD(Gent_1_score ~ Gender, method = "unequal", data = dat4)
 
 ::: {.callout-note icon="false" collapse="true"}
 ## Answer
- d = 0.23
+ d = 0.22
 
 An ideal brief report of the results would state what the research question/hypothesis is, describe the means and SDs of the groups being compared, and then report the t-test statistic, with p-value and Cohen's d effect size, then provide a brief interpretation of what the results mean.
 
 Based on Hyde and Linn (1988), we hypothesised that people who self-identify as female may score slightly higher than males in
-terms of vocabulary scores. Males (mean = 62.33, SD = 13.74) scored higher than 
-females (mean = 58.99, SD = 13.72) on the first time participants attempted the 
+terms of vocabulary scores. Males (mean = 62.37, SD = 13.50) scored higher than 
+females (mean = 59.35, SD = 13.30) on the first time participants attempted the 
 Gent vocabulary test, however this difference was not significant,
-*t*(98.83.37) = -1.64, *p* = .103, Cohen's *d* = 0.23. We did not find evidence to support the hypothesis.
+*t*(106.13) = -1.64, *p* = .105, Cohen's *d* = 0.22. We did not find evidence to support the hypothesis.
 
 *Reference*
 
@@ -321,7 +326,6 @@ Research Hypothesis: People who speak English as a native language have higher v
 
 Null Hypothesis: There is no difference in vocabulary scores between native English and second language English speakers.
 :::
-
 
 34. Repeat the Steps 22-30 in Tasks 2 and 3 except using english_status in place of Gender throughout.
 
@@ -345,10 +349,10 @@ cohensD(Gent_1_score ~ english_status, method = "unequal", data = dat3 )
 ## Answer
 We hypothesised that English as an additional language would result in lower overall vocabulary scores than English as a first language, because of the relation between length of time learning a language and language skills (Davies et al., 2017). 
 Native
-English speakers (mean = 65.12, SD = 9.04) scored significantly higher
+English speakers (mean = 65.18, SD = 8.87) scored significantly higher
 on the Gent vocabulary test than speakers of English as a second
-language (mean = 50.32, SD = 15.39), *t*(143.96) = -8.97, *p* < .001,
-Cohen's *d* = 1.17, a large effect size. Thus, the hypothesis was supported, with native English speakers scoring significantly higher on the Gent vocabulary test than those with English as an additional language.
+language (mean = 50.85, SD = 15.17), *t*(154.21) = -9.16, *p* < .001,
+Cohen's *d* = 1.15, a large effect size. Thus, the hypothesis was supported, with native English speakers scoring significantly higher on the Gent vocabulary test than those with English as an additional language.
 
 *Reference*
 
@@ -460,7 +464,6 @@ group_by(summarydata2, occasion) %>% summarise(mean(ahiTotal), sd(ahiTotal), n()
 ```
 :::
 
-
 48. In order to run the paired t-test, we first need to make sure that the paired values (in this case the measures from the same person) are on the same row of the data. So, let's use pivot_wider to put the ahiTotal scores for occasion 0 in one column, and the ahiTotal scores for occasion 1 in another column:
 
 ``` {r eval=FALSE}
@@ -513,9 +516,7 @@ We tested whether participants' happiness scores at first
 testing after the interventions were different than their scores prior
 to the interventions. We found that, prior to the intervention, scores
 were significantly lower (M = 69.3, SD = 12.3) than they were
-immediately after the interventions (M = 72.4, SD = 12.6), *t*(146) =
-= 4.92, *p* < .001, Cohen's *d* = 0.41, a medium effect. The results indicate that 
-the intervention had a positive effect on happiness scores.
+immediately after the interventions (M = 72.4, SD = 12.6), *t*(146) = -4.92, *p* < .001, Cohen's *d* = 0.41, a small effect. The results indicate that the intervention had a positive effect on happiness scores.
 :::
 
 
@@ -549,7 +550,7 @@ Each row contains a score for each person for each Gent test, and so we are read
 ## Answer
 ``` {r}
 t.test(dat3$Gent_1_score, dat3$Gent_2_score, paired = TRUE)
-cohensD( dat3$Gent_1_score, dat3$Gent_2_score, , method =  "paired")
+cohensD(dat3$Gent_1_score, dat3$Gent_2_score, method =  "paired")
 
 ```
 :::
@@ -614,12 +615,28 @@ summarise(dat3, mean(Shipley_Voc_Score, na.rm=TRUE), sd(Shipley_Voc_Score, na.rm
 # or:
 dat2 %>% group_by(english_status) %>% summarise(mean(Shipley_Voc_Score, na.rm=TRUE), sd(Shipley_Voc_Score, na.rm=TRUE), n())
 
-t.test(Shipley_Voc_Score ~ english_status, data = dat2 )
+t.test(Shipley_Voc_Score ~ english_status, data = dat2)
 cohensD(Shipley_Voc_Score ~ english_status, method = "unequal", data = dat2 )
 
 ```
 For the eagle-eyed among you, you might notice that some of the scores are outside the possible range - these typos often occur in data, and should be filtered out. What is the result if you do the filtering?
 
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Answer
+Shipley vocabulary scores cannot be higher than 40, so remove any scores above 40:
+
+``` {r}
+dat4 <- filter(dat2, Shipley_Voc_Score <= 40)
+dat5 <- group_by(dat4, english_status)
+summarise(dat5, mean(Shipley_Voc_Score), sd(Shipley_Voc_Score), n())
+t.test(Shipley_Voc_Score ~ english_status, data = dat4)
+cohensD(Shipley_Voc_Score ~ english_status, method = "unequal", data = dat4)
+```
+
+Removing the one impossible score (88) brings the native speakers' SD down from 13.0 to 5.2, and the
+difference between the groups all but disappears. 
 :::
 
 60. The data from this paper are called [ClassDraw.csv available here](data/wk5/ClassDraw.csv). The data are on osf as well, but they're not formatted in a very accessible way, so I adjusted them and put them here.
@@ -664,7 +681,7 @@ I would like to know if being a palindrome or not affects processing of the word
 
 What you will need to do is apply a function called "palindrome" to the words in the de Zubicaray dataset, to make a new variable, called \pally or some other name then run a multiple regression with all the other variables plus this one.
 
-[Here is a script with the function called palindrome included](data/wk5/palindrome.r), with some comments to show how it is put into practice. You will need to add the function into the top of an analysis script (e.g., rmd or r script) file and make sure that is loaded along with the other commands you are using.
+[Here is a script with the function called palindrome included](data/wk5/palindrome.R), with some comments to show how it is put into practice. You will need to add the function into the top of an analysis script (e.g., rmd or r script) file and make sure that is loaded along with the other commands you are using.
 
 
 ## 5.4.2 Data

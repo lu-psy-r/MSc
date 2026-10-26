@@ -56,7 +56,7 @@ Watch Lecture week 4 part 3:
 Please note for the part 3 recording, the screen shows PSYC401 instead of PSYC7142. It *should* be PSYC7142.
 :::
 
-Take the [quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680954){target="_blank"} (not assessed) on the lecture materials.
+Take the [quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2976639){target="_blank"} (not assessed) on the lecture materials.
 
 ### 4.3.2 Slides
 
