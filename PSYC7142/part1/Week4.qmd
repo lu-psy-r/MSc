@@ -53,7 +53,7 @@ Watch Lecture week 4 part 3:
 ```
 ::: {.callout-note icon="false" collapse="false"}
 ## Note on typo in week 4 part 3
-Please note for the part 3 recording, the screen shows PSYC401 instead of PSYC7142 in places. I am reluctant to go in and correct this typo as panopto recordings aren't working very well for me at the moment. So, please excuse the error! It *should* be PSYC7142.
+Please note for the part 3 recording, the screen shows PSYC401 instead of PSYC7142. It *should* be PSYC7142.
 :::
 
 Take the [quiz](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=2680954){target="_blank"} (not assessed) on the lecture materials.
@@ -428,7 +428,7 @@ cramersV( x = genderlangdat$Gender, genderlangdat$english_status)
 
 ```
 
-It is not significant, X-squared(2, N = 284) = 0.58, p = .749, Cramer's V = 0.05, but note that there is < 5 in the 
+It is not significant, X-squared(2, N = 325) = 1.04, p = .60, Cramer's V = 0.06, but note that there is < 5 in the 
 "Other" gender category which gives us the warning message "Chi-squared approximation may be incorrect".
 
 If we focus just on Male/Female data, if, for instance, we are interested for the purposes of 
@@ -439,7 +439,7 @@ chisq.test( x = genderlangdatmf$Gender, genderlangdatmf$english_status)
 cramersV( x = genderlangdatmf$Gender, genderlangdatmf$english_status)
 
 ```
-It still is not significant, X-squared(1, 281) = 0.36, p = .547, Cramer's V = 0.04.
+It still is not significant, X-squared(1, 317) = 0.55, p = .46, Cramer's V = 0.05.
 
 :::
 
@@ -454,7 +454,7 @@ chisq.test( x = vocabyearlangdat$academic_year, vocabyearlangdat$english_status)
 cramersV( x = vocabyearlangdat$academic_year, vocabyearlangdat$english_status)
 
 ```
-It is not significant, X-squared(8, 285) = 4.75, p = .784, Cramer's V = 0.13.
+It is not significant, X-squared(9, 325) = 5.12, p = .82, Cramer's V = 0.13.
 :::
 
 #### 4.4.1.6 Part 6: More practice using Chi-squared and Cramer's V test
