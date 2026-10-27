@@ -50,7 +50,7 @@ Watch Lecture week 5 part 2:
 
 ::: {.callout-warning icon="false"}
 ## Correction: effect-size conventions (part 2, slide 30, 22 minutes into video)
-Slide 30 gives 0.1, 0.3 and 0.5 as small, medium and large effects. These are Cohen's conventions for correlations (*r*). For Cohen's *d*, the conventions are 0.2 (small), 0.5 (medium) and 0.8 (large) (Cohen, 1992). In your reports, give the value of *d* and interpret it in the context of the measure; the labels are only a rough guide.
+Slide 30 gives 0.1, 0.3 and 0.5 as small, medium and large effects. These are Cohen's conventions for correlations (*r*). For Cohen's *d*, the conventions are 0.2 (small), 0.5 (medium) and 0.8 (large) (Cohen, 1992). Please choose the appropriate effect size for your test **(*d* for t tests)** and interpret it in the context of the measure; the labels are only a rough guide.
 
 :::
 
