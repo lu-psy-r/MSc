@@ -1,5 +1,5 @@
 ---
-title: Science in society: Incentives and obligations
+title: Science in society, Incentives and obligations
 subtitle: Written by Rob Davies
 order: 5 # ensure this is one more than the previous script
 ---
