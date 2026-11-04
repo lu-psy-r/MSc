@@ -104,19 +104,25 @@ You should be able to access the videos anywhere; you should not need to be on c
 1. **Overview** (20 minutes): the key ideas, the scientific context
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=66487acb-5cbc-4a53-b853-b21f00c46462&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-research-report-1" ></iframe>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=66487acb-5cbc-4a53-b853-b21f00c46462&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-research-report-1"></iframe>
+</div>
 ```
 
 2. **Overview** (20 minutes): the research workflow, multiverse analyses
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d62a1395-b7142-46db-b458-af4900dfefd2&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-research-report-2" ></iframe>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=d62a1395-b411-46db-b458-af4900dfefd2&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-research-report-2"></iframe>
+</div>
 ```
 
 3. **Overview** (20 minutes): kinds of reproducibility, open data, and doing better science.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bd28611a-58e0-4a33-9e7f-af4900e81e9d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-research-report-3" ></iframe>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bd28611a-58e0-4a33-9e7f-af4900e81e9d&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-research-report-3"></iframe>
+</div>
 ```
 
 ### 6.5.2 Lecture recordings -- slides {#sec-report-intro-lecture-slides}
