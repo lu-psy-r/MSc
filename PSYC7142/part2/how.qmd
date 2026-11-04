@@ -8,7 +8,7 @@ csl: psychological-bulletin.csl
 
 ## Overview {#sec-how}
 
-The PSYC411 Research Report assignment requires students to locate, access, analyse and report previously collected data. 
+The PSYC7142 Research Report assignment requires students to locate, access, analyse and report previously collected data. 
 
 ::: callout-tip
 Here, we answer the question:
