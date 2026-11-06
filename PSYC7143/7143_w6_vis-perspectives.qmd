@@ -23,13 +23,14 @@ You can navigate to each in the side bar on the right.
 #| label: Do not remove. It prevents Quarto from thinking it needs to involve Python.
 ```
 
-### Interactive lecture -- This week, we reflect critically on science communication {#sec-7143-w6-lectures-lecture} 
+### Interactive lecture -- This week, we think about data visualization {#sec-7143-w6-lectures-lecture} 
 
-You can watch the lecture videos using the playback windows shown next. The lecture is broken into three parts.
+You can watch the lecture videos using the playback windows shown next. The lecture is broken into four parts.
 
-1. **Science in society: incentives and obligations --- what we are going to do**
-2. **Reflections on recommendations for how we do and how we represent science**
-3. **The complex link between science and story telling**
+1. **Recent history –-- A reminder of why data visualization matters**
+2. **Important case studies –-- What they teach us**
+3. **What are our goals –-- Questions to reflect on**
+4. **Think about your audience –-- An evidence based account of what works**
 
 ::: callout-tip
 During the lecture, I suggest some questions you can think about. Reflecting on your responses to these questions will help you to learn.
