@@ -41,42 +41,52 @@ You can download the lecture slides as a .html file you can open in any browser.
 The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w6-reading.
 
 ::: callout-tip
-The slides presented in the next videos can be downloaded as a web page: `research-policy-society.html`. 
+The slides presented in the next videos can be downloaded as a web page: `data-visualisation-perspectives.html`. 
 
-- [Lecture slides](files/research-policy-society.html)
+- [Lecture slides](files/data-visualisation-perspectives.html)
 
 When you download the file, double click on it to open it in your usual web browser for viewing.
 :::
 
 Next, you can see the lecture elements. We recommend that you watch them in sequence.
 
-1. **Science in society: incentives and obligations** (~5 minutes). We have reflected on science, theory, and hypothesis testing. We now need to reflect critically on practices of communication in science.
+1. **Recent history –-- A reminder of why data visualization matters** (~38 minutes). Lessons from recent history: I talk about why visualizations are important, in science, and in how science relates to society, by discussing recent examples of influential visualizations.
 
 \newline
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=020fb05c-1a25-4ab8-bb1c-b4f7011a4d6a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="communication-one"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ee1c4488-42ae-4369-93ea-b4fa00c5f74a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-one"></iframe>
 </div>
 ```
 
 \newline
 
-2. **Reflections on recommendations for how we do and how we represent science** (~27 minutes). We consider forms of doing and representing science that are identified as credible, sources of uncertainty and how we can present that uncertainty, generalizability, the limits on generality, and how we should represent those limits, the incentives that operate on us, and our obligations and responsibilities.
+2. **Important case studies –-- What they teach us** (~24 minutes). I talk about famous examples of visualizations: case studies showing how visualizations are important to the different ways in which we can work with or think critically about evidence.
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=bd31c82f-76f2-4858-a18c-b4f7011c067c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="communication-two"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7bdacce3-4619-4b78-92ad-b4fa00d0af50&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-two"></iframe>
 </div>
 ```
 
 \newline
 
-3. **The complex link between science and story telling** (~15 minutes). We discuss how and why we tell stories, to ourselves and to others, we examine the link between research and policy, we look at persuasive language and we return to the questions we can consider as we try to find a balance between our ethics and our practices.
+3. **What are our goals –-- Questions to reflect on** (~15 minutes). Why bother learning about visualization or investing time in doing it well? I identify questions you can ask yourself, and reflect on, in deciding whether or how to invest your time and energy in developing more effective visualizations.
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=f3717574-01d5-4c37-baa0-b4f701242b31&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="comprehension-three"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fbdaa56e-27dd-4d00-9941-b4fa00e2024a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-three"></iframe>
+</div>
+```
+
+\newline
+
+4. **Think about your audience –-- An evidence based account of what works** (~15 minutes). I discuss an evidence based account of what works, for whom, and why, focusing on the evidence from studies of visual perception.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4515651f-cc65-43d2-ac84-b4fa00f04656&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-four"></iframe>
 </div>
 ```
 
