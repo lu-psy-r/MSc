@@ -17,13 +17,13 @@ You can navigate to each in the side bar on the right.
 - In a linked lecture, we look at *practices* or how we get visualization done.
 :::
 
-## Lectures {#sec-7143-w5-lectures}
+## Lectures {#sec-7143-w6-lectures}
 
 ```{r}
 #| label: Do not remove. It prevents Quarto from thinking it needs to involve Python.
 ```
 
-### Interactive lecture -- This week, we reflect critically on science communication {#sec-7143-w5-lectures-lecture} 
+### Interactive lecture -- This week, we reflect critically on science communication {#sec-7143-w6-lectures-lecture} 
 
 You can watch the lecture videos using the playback windows shown next. The lecture is broken into three parts.
 
@@ -37,7 +37,7 @@ During the lecture, I suggest some questions you can think about. Reflecting on 
 
 You can download the lecture slides as a .html file you can open in any browser.
 
-The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w5-reading.
+The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w6-reading.
 
 ::: callout-tip
 The slides presented in the next videos can be downloaded as a web page: `research-policy-society.html`. 
@@ -81,7 +81,7 @@ Next, you can see the lecture elements. We recommend that you watch them in sequ
 
 \newline
 
-## Reading {#sec-7143-w5-reading}
+## Reading {#sec-7143-w6-reading}
 
 ::: {.callout-tip title="Easy access to readings"}
 All reading is accessible via the library.
