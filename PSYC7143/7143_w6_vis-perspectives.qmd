@@ -104,8 +104,6 @@ All reading is accessible via the library.
 
 This week, the reading is optional but **Recommended**:
 
-Bartscherer, S. F. (2026). Cultures of Trial and Error: The Narrative Side of (Open) Science. <https://doi.org/10.36850/448e9a73-75b2> **Recommended**
+Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., & Hullman, J. (2021). The Science of Visual Data Communication: What Works. *Psychological Science in the Public Interest*, 22(3), 110–161. <https://doi.org/10.1177/15291006211051956>
 
-Corneille, O., Havemann, J., Henderson, E. L., IJzerman, H., Hussey, I., Orban de Xivry, J.-J., Jussim, L., Holmes, N. P., Pilacinski, A., Beffara, B., Carroll, H., Outa, N. O., Lush, P., & Lotter, L. D. (2023). Beware “persuasive communication devices” when writing and reading scientific articles. *eLife*, 12, e88654. <https://doi.org/10.7554/eLife.88654> **Recommended**
-
-Yarkoni, T. (2018, October 2). No, it’s not The Incentives—it’s you. [citation needed]. <https://talyarkoni.org/blog/2018/10/02/no-its-not-the-incentives-its-you/> **Recommended**
+Gelman, A., & Unwin, A. (2013). Infovis and Statistical Graphics: Different Goals, Different Looks. *Journal of Computational and Graphical Statistics*, 22(1), 2–28. <https://doi.org/10.1080/10618600.2012.761137> **Recommended**
