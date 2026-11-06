@@ -5,14 +5,16 @@ order: 6 # ensure this is one more than the previous script
 ---
 
 :::{.callout-note title="Overview"}
-This week we work so that we are able to reflect critically on how we practise science communication
+In this lecture, we focus on *perspectives* or how we can think about visualization. We look at:
 
-1. The representation of credibility, uncertainty, and generalizability
-2. The role of story telling
-3. The use of clear or persuasive language or visualizations
-4. The ethics of practice in science communication
+1. Recent history –-- a selective sketch
+2. Important case studies –-- a discussion
+3. Identify your goals –-- a tool kit
+4. Think about your audience --– a tool kit
 
 You can navigate to each in the side bar on the right.
+
+- In a linked lecture, we look at *practices* or how we get visualization done.
 :::
 
 ## Lectures {#sec-7143-w5-lectures}
