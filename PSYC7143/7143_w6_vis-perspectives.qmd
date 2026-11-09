@@ -29,6 +29,10 @@ In that linked lecture, we look at how you can:
   
 There is a little repetition if you compare the two lectures because I do not assume you must view the perspectives lecture to understand the practices lecture.  
 
+::: callout-tip
+In the [linked tutorial in PSYC7142](../PSYC7142/part2/visualization.qmd#sec-vis-aims), we provide in-depth explanation of development processes and code steps that you can follow-up if you want to learn more about developing and producing visualizations for discovery and communication.
+:::
+
 ## Lectures {#sec-7143-w6-lectures}
 
 ```{r}
