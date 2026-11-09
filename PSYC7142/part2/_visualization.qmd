@@ -1,4 +1,8 @@
-# Data visualization {#sec-visualization}
+---
+title: Data visualization independent-learning tutorial
+subtitle: Written by Rob Davies
+order: 11 # ensure this is one more than the previous script
+---
 
 ```{r libraries-hide}
 #| warning: false
@@ -13,21 +17,48 @@ library(psych)
 library(tidyverse)
 ```
 
+:::{.callout-note title="Overview"}
+In this independent-learning tutorial, we work through exercises you can use to develop your skills in the production of data visualizations.
+
+You can navigate to each in the side bar on the right.
+:::
+
+#### Linked resources {#sec-vis-out-links}
+
+In a [linked lecture in PSYC7143](../PSYC7143/7143_w6_vis-perspectives.qmd#sec-7143-w6-lectures), we look at *perspectives* or how we can think about visualization. We look at:
+
+  - Recent history –-- a selective sketch
+  - Important case studies –-- a discussion
+  - Identify your goals –-- a tool kit
+  - Think about your audience --– a tool kit
+
+In the [linked practices lecture in PSYC7142](./7142_vis-practices.qmd#sec-7142-vis-lectures), we discuss *practices* or how you can work effectively in a *reflective development process* to produce visualizations.
+
+In that linked lecture, we look at how you can:
+
+  - Ask yourself the critical questions that will help you to figure out what you need to do
+  - Understand your development of visualizations as a reflective process
+  - Combine your creative thinking with the Grammar of Graphics to produce visualizations
+  
+There is a little repetition if you compare the two lectures because I do not assume you must view the perspectives lecture to understand the practices lecture or *vice versa*.
+
 ## Aims {#sec-vis-aims}
 
-In writing this chapter, I have two aims.
+In writing this tutorial chapter, we have two aims.
 
 1.  The **first aim** for this chapter is to expose students to an outline summary of some key ideas and techniques for data visualization in psychological science.
 
-There is an extensive experimental and theoretical literature concerning data visualization, what choices we can or should make, and how these choices have more or less impact, in different circumstances or for different audiences. Here, we can only give you a flavour of the on-going discussion. If you are interested, you can follow-up the references in the cited articles. But, using this chapter, I hope that you will gain a sense of the reasons *how or why* we may choose to do different things when we produce visualizations.
+- There is an extensive experimental and theoretical literature concerning data visualization, what choices we can or should make, and how these choices have more or less impact, in different circumstances or for different audiences. Here, we give you a flavour of the discussion.
 
-2.  The **second aim** is to provide materials, and to show visualizations, to raise an awareness of what results come from making different choices. This is because we hope to encourage students to *make* choices based on reasons and it is hard to know what choices count without first seeing what the results might look like.
+2.  The **second aim** is to provide materials, and to show visualizations, to raise an awareness of what results come from making different choices.
 
-In my experience, knowing that there *are* choices is the first step. In proprietary software packages like Excel and SPSS there are plenty of choices but these are limited by the menu systems to certain combinations of elements. Here, in using R to produce visualizations, there is much more freedom, and much more capacity to control what a plot shows and how it looks, but knowing where to start has to begin with seeing examples of what some of the choices result in.
+- We encourage students to *make* choices based on reasons and it is hard to know what choices count without first seeing what the results might look like.
 
-At the end of the chapter, I highlight some resources you can use in independent learning for further development, see @sec-vis-resources.
+<!-- In my experience, knowing that there *are* choices is the first step. In proprietary software packages like Excel and SPSS there are plenty of choices but these are limited by the menu systems to certain combinations of elements. Here, in using R to produce visualizations, there is much more freedom, and much more capacity to control what a plot shows and how it looks, but knowing where to start has to begin with seeing examples of what some of the choices result in. -->
 
-So, we are aiming to (1.) start to build insight into the choices we make and (2.) provide resources to enable making those choices in data visualization.
+At the end of the chapter, I highlight some resources you can use in independent learning for further development.
+
+<!-- So, we are aiming to (1.) start to build insight into the choices we make and (2.) provide resources to enable making those choices in data visualization. -->
 
 ## Why data visualization matters {#sec-why-visualization-matters}
 
@@ -1870,7 +1901,7 @@ But this gets ahead of where we are now in our development of skills and underst
 #| fig-height: 5
 #| fig-width: 4
 #| warning: false
-plot(dat, add.data = TRUE)
+plot(dat)
 ```
 
 @fig-effects-dotwhisker-raw reveals the usefulness of plotting model estimates of effects alongside the raw observed outcomes. We can make two critical observations.
