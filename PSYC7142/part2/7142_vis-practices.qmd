@@ -5,32 +5,30 @@ order: 10 # ensure this is one more than the previous script
 ---
 
 :::{.callout-note title="Overview"}
-In this lecture, we focus on *perspectives* or how we can think about visualization. We look at:
+In this lecture, we focus on *practices* or how we can proceed to implement effective visualizations. We look at how to:
 
-1. Recent history –-- a selective sketch
-2. Important case studies –-- a discussion
-3. Identify your goals –-- a tool kit
-4. Think about your audience --– a tool kit
+1. Ask yourself the critical questions that will help you to figure out what you need to do
+2. Understand your development of visualizations in relation to the needs of your audience, and the essential challenges of visualizing variability and uncertainty
+3. Combine your creative thinking with the flexibility of the Grammar of Graphics to produce effective plots.
 
 You can navigate to each in the side bar on the right.
 
-- In a linked lecture, we look at *practices* or how we get visualization done.
+- In a linked lecture, we look at *perspectives* or how we can think about visualization.
 :::
 
-## Lectures {#sec-7143-w6-lectures}
+## Lectures {#sec-7142-vis-lectures}
 
 ```{r}
 #| label: Do not remove. It prevents Quarto from thinking it needs to involve Python.
 ```
 
-### Interactive lecture -- This week, we think about data visualization {#sec-7143-w6-lectures-lecture} 
+### Interactive lecture -- We work out how to build visualizations {#sec-7142-vis-lectures-lecture} 
 
-You can watch the lecture videos using the playback windows shown next. The lecture is broken into four parts.
+You can watch the lecture videos using the playback windows shown next. The lecture is broken into three parts.
 
-1. **Recent history –-- A reminder of why data visualization matters**
-2. **Important case studies –-- What they teach us**
-3. **What are our goals –-- Questions to reflect on**
-4. **Think about your audience –-- An evidence based account of what works**
+1. **Key questions for effective practice**
+2. **Visualization development as a reflective process**
+3. **Creativity times Grammar of Graphics for good practice**
 
 ::: callout-tip
 During the lecture, I suggest some questions you can think about. Reflecting on your responses to these questions will help you to learn.
@@ -38,61 +36,51 @@ During the lecture, I suggest some questions you can think about. Reflecting on 
 
 You can download the lecture slides as a .html file you can open in any browser.
 
-The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w6-reading.
+The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7142-vis-reading.
 
 ::: callout-tip
-The slides presented in the next videos can be downloaded as a web page: `data-visualisation-perspectives.html`. 
+The slides presented in the next videos can be downloaded as a web page: `visualisation-practices.html`. 
 
-- [Lecture slides](files/data-visualisation-perspectives.html)
+- [Lecture slides](files/visualisation-practices.html)
 
 When you download the file, double click on it to open it in your usual web browser for viewing.
 :::
 
 Next, you can see the lecture elements. We recommend that you watch them in sequence.
 
-1. **Recent history –-- A reminder of why data visualization matters** (~38 minutes). Lessons from recent history: I talk about why visualizations are important, in science, and in how science relates to society, by discussing recent examples of influential visualizations.
+1. **Key questions for effective practice** (~13 minutes). Identifying the questions you need to ask yourself so that you can figure out what you need to do, and how and why you need to do it: What are our goals: discovery or communication? What is it our job to do? Where or when are we in the process? What investment is warranted?
 
 \newline
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ee1c4488-42ae-4369-93ea-b4fa00c5f74a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-one"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=c2555f2c-8813-41b2-9825-b4fa00f7dd64&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-practices-one"></iframe>
 </div>
 ```
 
 \newline
 
-2. **Important case studies –-- What they teach us** (~24 minutes). I talk about famous examples of visualizations: case studies showing how visualizations are important to the different ways in which we can work with or think critically about evidence.
+2. **Visualization development as a reflective process** (~22 minutes). When you produce your visualization, you will need to ask yourself: Who is my audience and what do they need from my visualization? What are the sources of variability or uncertainty relevant to my job or my audience? What is my development process?
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7bdacce3-4619-4b78-92ad-b4fa00d0af50&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-two"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fd4cf754-8bf4-459d-a974-b4fa00fc78ea&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-practices-two"></iframe>
 </div>
 ```
 
 \newline
 
-3. **What are our goals –-- Questions to reflect on** (~15 minutes). Why bother learning about visualization or investing time in doing it well? I identify questions you can ask yourself, and reflect on, in deciding whether or how to invest your time and energy in developing more effective visualizations.
+3.  **Creativity times Grammar of Graphics for good practice** (~28 minutes). The production process: How we combine our creative thinking with the flexibility of the Grammar of Graphics to produce effective plots.
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fbdaa56e-27dd-4d00-9941-b4fa00e2024a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-three"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fc97f2ae-a96b-4449-bddc-b4fa010702e3&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-practices-three"></iframe>
 </div>
 ```
 
 \newline
 
-4. **Think about your audience –-- An evidence based account of what works** (~15 minutes). I discuss an evidence based account of what works, for whom, and why, focusing on the evidence from studies of visual perception.
-
-```{=html}
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4515651f-cc65-43d2-ac84-b4fa00f04656&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-four"></iframe>
-</div>
-```
-
-\newline
-
-## Reading {#sec-7143-w6-reading}
+## Reading {#sec-7142-vis-reading}
 
 ::: {.callout-tip title="Easy access to readings"}
 All reading is accessible via the library.
@@ -104,6 +92,10 @@ All reading is accessible via the library.
 
 This week, the reading is optional but **Recommended**:
 
-Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., & Hullman, J. (2021). The Science of Visual Data Communication: What Works. *Psychological Science in the Public Interest*, 22(3), 110–161. <https://doi.org/10.1177/15291006211051956>
+Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., & Hullman, J. (2021). The Science of Visual Data Communication: What Works. *Psychological Science in the Public Interest*, 22(3), 110–161. <https://doi.org/10.1177/15291006211051956> **Recommended**
 
 Gelman, A., & Unwin, A. (2013). Infovis and Statistical Graphics: Different Goals, Different Looks. *Journal of Computational and Graphical Statistics*, 22(1), 2–28. <https://doi.org/10.1080/10618600.2012.761137> **Recommended**
+
+There are many sources of information online that will help you to produce great visualizations. You can find helpful introductory chapters in this free onlinebook:
+
+Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2026). *R for Data Science* (2e ed.). https://r4ds.hadley.nz
