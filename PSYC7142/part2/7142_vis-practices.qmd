@@ -12,9 +12,20 @@ In this lecture, we focus on *practices* or how we can proceed to implement effe
 3. Combine your creative thinking with the flexibility of the Grammar of Graphics to produce effective plots.
 
 You can navigate to each in the side bar on the right.
-
-- In a linked lecture, we look at *perspectives* or how we can think about visualization.
 :::
+
+#### Linked resources {#sec-7142-vis-lectures-out-links}
+
+In a [linked lecture in PSYC7143](../PSYC7143/7143_w6_vis-perspectives.qmd#sec-7143-w6-lectures), we look at *perspectives* or how we can think about visualization.
+
+In that linked lecture, we look at:
+
+  - Recent history –-- a selective sketch
+  - Important case studies –-- a discussion
+  - Identify your goals –-- a tool kit
+  - Think about your audience --– a tool kit
+
+There is a little repetition if you compare the two lectures because I do not assume you must view the practices lecture to understand the perspectives lecture.  
 
 ## Lectures {#sec-7142-vis-lectures}
 
