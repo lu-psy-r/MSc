@@ -2,6 +2,8 @@
 title: Data visualization independent-learning tutorial
 subtitle: Written by Rob Davies
 order: 11 # ensure this is one more than the previous script
+bibliography: references.bib
+csl: psychological-bulletin.csl
 ---
 
 ```{r libraries-hide}
@@ -25,7 +27,7 @@ You can navigate to each in the side bar on the right.
 
 #### Linked resources {#sec-vis-out-links}
 
-In a [linked lecture in PSYC7143](../PSYC7143/7143_w6_vis-perspectives.qmd#sec-7143-w6-lectures), we look at *perspectives* or how we can think about visualization. We look at:
+In a [linked lecture in PSYC7143](../../PSYC7143/7143_w6_vis-perspectives.qmd#sec-7143-w6-lectures), we look at *perspectives* or how we can think about visualization. We look at:
 
   - Recent history –-- a selective sketch
   - Important case studies –-- a discussion
@@ -64,52 +66,54 @@ At the end of the chapter, I highlight some resources you can use in independent
 
 Data visualization is important. Building skills in visualization matters to you because, even if you do not go on to professional work in which you produce visualizations you will certainly be working in fields in which you need to work with, or read or evaluate, visualizations.
 
-You have already been doing this: our cultural or visual environment is awash in visualizations, from weather maps to charts on the television news. It will empower you if you know a bit about how or why these visualizations are produced in the ways that they are produced. That is a complex development trajectory but we can get started here.
+<!-- You have already been doing this: our cultural or visual environment is awash in visualizations, from weather maps to charts on the television news. It will empower you if you know a bit about how or why these visualizations are produced in the ways that they are produced. That is a complex development trajectory but we can get started here. -->
 
 In the context of the research report exercise, see @sec-pipeline, I mention data visualization in relation to stages of the data analysis **pipeline** or **workflow**. But the reality is that, most of the time, visualization is useful and used at every stage of data analysis workflow.
 
-```{dot}
-//| fig-width: 5
-//| label: fig-pipeline
-//| fig-cap: The data analysis pipeline or workflow
-//| fig-alt: The diagram shows a flowchart. The flowchart starts at the top with "get raw data" and finishes at the bottom with "present". "get raw data" has an arrow to "tidy data". "tidy data" has arrows to "analyze", "explore" and "visualize". On the same level as "tidy "data", "assumptions" also has arrows to "analyze", "explore" and "visualize". Then "analyze", "explore" and "visualize" have arrows to "present. 
-digraph Q {
+Most of the time, visualization is useful and is used at every stage of data analysis workflow.
 
-  node [shape=record];
+<!-- ```{dot} -->
+<!-- //| fig-width: 5 -->
+<!-- //| label: fig-pipeline -->
+<!-- //| fig-cap: The data analysis pipeline or workflow -->
+<!-- //| fig-alt: The diagram shows a flowchart. The flowchart starts at the top with "get raw data" and finishes at the bottom with "present". "get raw data" has an arrow to "tidy data". "tidy data" has arrows to "analyze", "explore" and "visualize". On the same level as "tidy "data", "assumptions" also has arrows to "analyze", "explore" and "visualize". Then "analyze", "explore" and "visualize" have arrows to "present.  -->
+<!-- digraph Q { -->
 
-  nd_1   [label = "Get raw data"];
-  nd_2   [label = "Tidy data"];
-  nd_3_a [label = "Assumptions"];
-  nd_3_l [label = "Visualize"];
-  nd_3   [label = "Analyze"];
-  nd_3_r [label = "Explore"];
-  nd_4   [label = "Present"];
+<!--   node [shape=record]; -->
 
-  nd_3_a -> nd_3 [color= grey];
-  nd_3_a -> nd_3_r [color= grey];
-  nd_3_a -> nd_3_l [color= grey];
-  
-  nd_2 -> nd_3_r;
-  nd_2 -> nd_3_l;
-  
-  nd_1 -> nd_2 -> nd_3 -> nd_4;
-  
-  nd_3_l -> nd_4;
+<!--   nd_1   [label = "Get raw data"]; -->
+<!--   nd_2   [label = "Tidy data"]; -->
+<!--   nd_3_a [label = "Assumptions"]; -->
+<!--   nd_3_l [label = "Visualize"]; -->
+<!--   nd_3   [label = "Analyze"]; -->
+<!--   nd_3_r [label = "Explore"]; -->
+<!--   nd_4   [label = "Present"]; -->
 
-  subgraph cluster_R {
+<!--   nd_3_a -> nd_3 [color= grey]; -->
+<!--   nd_3_a -> nd_3_r [color= grey]; -->
+<!--   nd_3_a -> nd_3_l [color= grey]; -->
 
-    {rank=same nd_3_l nd_3 nd_3_r}
+<!--   nd_2 -> nd_3_r; -->
+<!--   nd_2 -> nd_3_l; -->
 
-    nd_3_l -> nd_3 -> nd_3_r [color= none arrowhead=none];
+<!--   nd_1 -> nd_2 -> nd_3 -> nd_4; -->
 
-  }
+<!--   nd_3_l -> nd_4; -->
 
-}
-```
+<!--   subgraph cluster_R { -->
 
-## Three kinds of honesty {#sec-vis-honesty}
+<!--     {rank=same nd_3_l nd_3 nd_3_r} -->
 
-I write this chapter with three kinds of honesty in mind.
+<!--     nd_3_l -> nd_3 -> nd_3_r [color= none arrowhead=none]; -->
+
+<!--   } -->
+
+<!-- } -->
+<!-- ``` -->
+
+## Three kinds of transparency {#sec-vis-honesty}
+
+I write this chapter with three kinds of transparency in mind.
 
 1.  I will expose some of the process involved in thinking about and preparing for the production of plots.
 
@@ -118,7 +122,7 @@ I write this chapter with three kinds of honesty in mind.
 
 2.  I will show how we often prepare for the production of plots by processing the data that we must use to inform the plots.
 
--   We almost always have to process the data we collected or gathered together from our exerimental work or our observations.
+-   We almost always have to process the data we collected or gathered together from our experimental work or our observations.
 -   In this chapter, some of the coding steps I will outline are done in advance of producing a plot, to give the plotting code something to work with.
 -   Knowing about these processing steps will ensure you have more flexibility or power in getting your plots ready.
 
@@ -204,10 +208,12 @@ You can use the code you see:
 
 ## Key ideas {#sec-vis-ideas}
 
-Data visualization is not really about coding, as about thinking.
+Data visualization is not really about coding: it is about *thinking*.
 
 -   What are our goals?
 -   Why do we make some choices instead of others?
+
+This is why we encourage a **critical reflective process** of development.
 
 ### Purposes {#sec-vis-purposes}
 
@@ -1210,7 +1216,7 @@ d. superimposed density plots where the densities for the separate groups are la
 ::: callout-tip
 There is one thing you should notice about all these plots.
 
--   It looks like the BPVS vocabulary scores have their peak -- most children show this value -- at around 120 for the `young` group and at around 140 for the `old` group.\
+-   It looks like the BPVS vocabulary scores have their peak -- most children show this value -- at around 120 for the `young` group and at around 140 for the `old` group.
 -   We return to this shortly.
 :::
 
@@ -1901,7 +1907,7 @@ But this gets ahead of where we are now in our development of skills and underst
 #| fig-height: 5
 #| fig-width: 4
 #| warning: false
-plot(dat)
+plot(dat, show_data = TRUE, jitter = 0.1, dot_alpha = 0.05)
 ```
 
 @fig-effects-dotwhisker-raw reveals the usefulness of plotting model estimates of effects alongside the raw observed outcomes. We can make two critical observations.
@@ -2077,3 +2083,8 @@ If you are trying to work out how to do things by searching for information onli
 -   The book "Fundamentals of Data Visualization" [@wilke] is about different aspects of visualization, and can be accessed in an online free version here:
 
 <https://clauswilke.com/dataviz/>
+
+## References
+
+::: {#refs}
+:::
