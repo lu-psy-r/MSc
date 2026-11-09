@@ -540,40 +540,10 @@ window.Quarto = {
 <!-- You have already been doing this: our cultural or visual environment is awash in visualizations, from weather maps to charts on the television news. It will empower you if you know a bit about how or why these visualizations are produced in the ways that they are produced. That is a complex development trajectory but we can get started here. -->
 <p>In the context of the research report exercise, see <strong>?@sec-pipeline</strong>, I mention data visualization in relation to stages of the data analysis <strong>pipeline</strong> or <strong>workflow</strong>. But the reality is that, most of the time, visualization is useful and used at every stage of data analysis workflow.</p>
 <p>Most of the time, visualization is useful and is used at every stage of data analysis workflow.</p>
-<!-- ```{dot} -->
-<!-- //| fig-width: 5 -->
-<!-- //| label: fig-pipeline -->
-<!-- //| fig-cap: The data analysis pipeline or workflow -->
-<!-- //| fig-alt: The diagram shows a flowchart. The flowchart starts at the top with "get raw data" and finishes at the bottom with "present". "get raw data" has an arrow to "tidy data". "tidy data" has arrows to "analyze", "explore" and "visualize". On the same level as "tidy "data", "assumptions" also has arrows to "analyze", "explore" and "visualize". Then "analyze", "explore" and "visualize" have arrows to "present.  -->
-<!-- digraph Q { -->
-<!--   node [shape=record]; -->
-<!--   nd_1   [label = "Get raw data"]; -->
-<!--   nd_2   [label = "Tidy data"]; -->
-<!--   nd_3_a [label = "Assumptions"]; -->
-<!--   nd_3_l [label = "Visualize"]; -->
-<!--   nd_3   [label = "Analyze"]; -->
-<!--   nd_3_r [label = "Explore"]; -->
-<!--   nd_4   [label = "Present"]; -->
-<!--   nd_3_a -> nd_3 [color= grey]; -->
-<!--   nd_3_a -> nd_3_r [color= grey]; -->
-<!--   nd_3_a -> nd_3_l [color= grey]; -->
-<!--   nd_2 -> nd_3_r; -->
-<!--   nd_2 -> nd_3_l; -->
-<!--   nd_1 -> nd_2 -> nd_3 -> nd_4; -->
-<!--   nd_3_l -> nd_4; -->
-<!--   subgraph cluster_R { -->
-<!--     {rank=same nd_3_l nd_3 nd_3_r} -->
-<!--     nd_3_l -> nd_3 -> nd_3_r [color= none arrowhead=none]; -->
-<!--   } -->
-<!-- } -->
-<!-- ``` -->
 </section>
 <section id="sec-vis-honesty" class="level2">
 <h2 class="anchored" data-anchor-id="sec-vis-honesty">Three kinds of transparency</h2>
 <p>I write this chapter with three kinds of transparency in mind.</p>
-<ol type="1">
-<li>I will expose some of the process involved in thinking about and preparing for the production of plots.</li>
-</ol>
 <ul>
 <li>I can assure you that when a professional data analysis worker produces plots in R they will be looking for information about what to do, and how to do it, online. I will provide links to the information I used, when I wrote this chapter, in order to figure out the coding to produce the plots.</li>
 <li>I won’t pretend that I got the plots “right first time” or that I know all the coding steps by memory. Neither is true for me and they would not be true for most professionals if they were to write a chapter like this. Looking things up online is something we all do so showing you where the information can be found will help you grow your skills.</li>
@@ -927,7 +897,7 @@ Figure&nbsp;2: Figure showing a scatterplot of the relation between reaction tim
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject) <span class="sc">+</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-sleep-study-scatterplot-by-subject" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents." data-fig-align="center">
+<div id="fig-sleep-study-scatterplot-by-subject" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents.">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sleep-study-scatterplot-by-subject-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="visualization_files/figure-html/fig-sleep-study-scatterplot-by-subject-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents." width="960">
