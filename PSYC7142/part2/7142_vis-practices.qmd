@@ -1,0 +1,109 @@
+---
+title: Data visualization perspectives
+subtitle: Written by Rob Davies
+order: 6 # ensure this is one more than the previous script
+---
+
+:::{.callout-note title="Overview"}
+In this lecture, we focus on *perspectives* or how we can think about visualization. We look at:
+
+1. Recent history –-- a selective sketch
+2. Important case studies –-- a discussion
+3. Identify your goals –-- a tool kit
+4. Think about your audience --– a tool kit
+
+You can navigate to each in the side bar on the right.
+
+- In a linked lecture, we look at *practices* or how we get visualization done.
+:::
+
+## Lectures {#sec-7143-w6-lectures}
+
+```{r}
+#| label: Do not remove. It prevents Quarto from thinking it needs to involve Python.
+```
+
+### Interactive lecture -- This week, we think about data visualization {#sec-7143-w6-lectures-lecture} 
+
+You can watch the lecture videos using the playback windows shown next. The lecture is broken into four parts.
+
+1. **Recent history –-- A reminder of why data visualization matters**
+2. **Important case studies –-- What they teach us**
+3. **What are our goals –-- Questions to reflect on**
+4. **Think about your audience –-- An evidence based account of what works**
+
+::: callout-tip
+During the lecture, I suggest some questions you can think about. Reflecting on your responses to these questions will help you to learn.
+:::
+
+You can download the lecture slides as a .html file you can open in any browser.
+
+The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w6-reading.
+
+::: callout-tip
+The slides presented in the next videos can be downloaded as a web page: `data-visualisation-perspectives.html`. 
+
+- [Lecture slides](files/data-visualisation-perspectives.html)
+
+When you download the file, double click on it to open it in your usual web browser for viewing.
+:::
+
+Next, you can see the lecture elements. We recommend that you watch them in sequence.
+
+1. **Recent history –-- A reminder of why data visualization matters** (~38 minutes). Lessons from recent history: I talk about why visualizations are important, in science, and in how science relates to society, by discussing recent examples of influential visualizations.
+
+\newline
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ee1c4488-42ae-4369-93ea-b4fa00c5f74a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-one"></iframe>
+</div>
+```
+
+\newline
+
+2. **Important case studies –-- What they teach us** (~24 minutes). I talk about famous examples of visualizations: case studies showing how visualizations are important to the different ways in which we can work with or think critically about evidence.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=7bdacce3-4619-4b78-92ad-b4fa00d0af50&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-two"></iframe>
+</div>
+```
+
+\newline
+
+3. **What are our goals –-- Questions to reflect on** (~15 minutes). Why bother learning about visualization or investing time in doing it well? I identify questions you can ask yourself, and reflect on, in deciding whether or how to invest your time and energy in developing more effective visualizations.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=fbdaa56e-27dd-4d00-9941-b4fa00e2024a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-three"></iframe>
+</div>
+```
+
+\newline
+
+4. **Think about your audience –-- An evidence based account of what works** (~15 minutes). I discuss an evidence based account of what works, for whom, and why, focusing on the evidence from studies of visual perception.
+
+```{=html}
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4515651f-cc65-43d2-ac84-b4fa00f04656&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="vis-perspectives-four"></iframe>
+</div>
+```
+
+\newline
+
+## Reading {#sec-7143-w6-reading}
+
+::: {.callout-tip title="Easy access to readings"}
+All reading is accessible via the library.
+
+- **Essential**: We expect you to be familiar with these reading. You will be assessed on this.
+- **Recommended**: We highly recommend these readings. They often provide a different perspective, or explain things in a different way.
+- **Optional**: Further readings for those interested.
+:::
+
+This week, the reading is optional but **Recommended**:
+
+Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., & Hullman, J. (2021). The Science of Visual Data Communication: What Works. *Psychological Science in the Public Interest*, 22(3), 110–161. <https://doi.org/10.1177/15291006211051956>
+
+Gelman, A., & Unwin, A. (2013). Infovis and Statistical Graphics: Different Goals, Different Looks. *Journal of Computational and Graphical Statistics*, 22(1), 2–28. <https://doi.org/10.1080/10618600.2012.761137> **Recommended**
