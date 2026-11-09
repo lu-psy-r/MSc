@@ -5,7 +5,9 @@ order: 6 # ensure this is one more than the previous script
 ---
 
 :::{.callout-note title="Overview"}
-In this lecture, we focus on *perspectives* or how we can think about visualization. We look at:
+In this lecture, we focus on *perspectives* or how we can think about visualization.
+
+We look at:
 
 1. Recent history –-- a selective sketch
 2. Important case studies –-- a discussion
@@ -13,9 +15,17 @@ In this lecture, we focus on *perspectives* or how we can think about visualizat
 4. Think about your audience --– a tool kit
 
 You can navigate to each in the side bar on the right.
-
-- In a linked lecture, we look at *practices* or how we get visualization done.
 :::
+
+### Linked resources {#sec-7143-w6-lectures-out-links}
+
+In a [linked lecture in PSYC7142](../PSYC7142/part2/7142_vis-practices.qmd#sec-7142-vis-lectures), we look at *practices* or how you can work effectively to produce visualizations.
+
+In that linked lecture, we look at how you can:
+
+  - Ask yourself the critical questions that will help you to figure out what you need to do
+  - Understand your development of visualizations as a reflective process
+  - Combine your creative thinking with the Grammar of Graphics to produce visualizations
 
 ## Lectures {#sec-7143-w6-lectures}
 
