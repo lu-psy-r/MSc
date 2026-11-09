@@ -72,50 +72,10 @@ In the context of the research report exercise, see @sec-pipeline, I mention dat
 
 Most of the time, visualization is useful and is used at every stage of data analysis workflow.
 
-<!-- ```{dot} -->
-<!-- //| fig-width: 5 -->
-<!-- //| label: fig-pipeline -->
-<!-- //| fig-cap: The data analysis pipeline or workflow -->
-<!-- //| fig-alt: The diagram shows a flowchart. The flowchart starts at the top with "get raw data" and finishes at the bottom with "present". "get raw data" has an arrow to "tidy data". "tidy data" has arrows to "analyze", "explore" and "visualize". On the same level as "tidy "data", "assumptions" also has arrows to "analyze", "explore" and "visualize". Then "analyze", "explore" and "visualize" have arrows to "present.  -->
-<!-- digraph Q { -->
-
-<!--   node [shape=record]; -->
-
-<!--   nd_1   [label = "Get raw data"]; -->
-<!--   nd_2   [label = "Tidy data"]; -->
-<!--   nd_3_a [label = "Assumptions"]; -->
-<!--   nd_3_l [label = "Visualize"]; -->
-<!--   nd_3   [label = "Analyze"]; -->
-<!--   nd_3_r [label = "Explore"]; -->
-<!--   nd_4   [label = "Present"]; -->
-
-<!--   nd_3_a -> nd_3 [color= grey]; -->
-<!--   nd_3_a -> nd_3_r [color= grey]; -->
-<!--   nd_3_a -> nd_3_l [color= grey]; -->
-
-<!--   nd_2 -> nd_3_r; -->
-<!--   nd_2 -> nd_3_l; -->
-
-<!--   nd_1 -> nd_2 -> nd_3 -> nd_4; -->
-
-<!--   nd_3_l -> nd_4; -->
-
-<!--   subgraph cluster_R { -->
-
-<!--     {rank=same nd_3_l nd_3 nd_3_r} -->
-
-<!--     nd_3_l -> nd_3 -> nd_3_r [color= none arrowhead=none]; -->
-
-<!--   } -->
-
-<!-- } -->
-<!-- ``` -->
-
 ## Three kinds of transparency {#sec-vis-honesty}
 
 I write this chapter with three kinds of transparency in mind.
 
-1.  I will expose some of the process involved in thinking about and preparing for the production of plots.
 
 -   I can assure you that when a professional data analysis worker produces plots in R they will be looking for information about what to do, and how to do it, online. I will provide links to the information I used, when I wrote this chapter, in order to figure out the coding to produce the plots.
 -   I won't pretend that I got the plots "right first time" or that I know all the coding steps by memory. Neither is true for me and they would not be true for most professionals if they were to write a chapter like this. Looking things up online is something we all do so showing you where the information can be found will help you grow your skills.
