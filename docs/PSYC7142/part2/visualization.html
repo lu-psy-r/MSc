@@ -483,6 +483,26 @@ window.Quarto = {
 </header>
 
 
+<style>
+/* Make tab labels in this page's tabsets visible and prominent */
+.panel-tabset > .nav-tabs { border-bottom: 2px solid #b20f11; }
+.panel-tabset > .nav-tabs .nav-link {
+  color: #b20f11;
+  background-color: #e9ecef;
+  font-weight: 700;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  margin-right: 4px;
+  padding: 0.4rem 1.1rem;
+}
+.panel-tabset > .nav-tabs .nav-link:hover,
+.panel-tabset > .nav-tabs .nav-link:focus,
+.panel-tabset > .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: #b20f11;
+  border-color: #b20f11;
+}
+</style>
 <div class="callout callout-style-default callout-note callout-titled" title="Overview">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -544,9 +564,12 @@ window.Quarto = {
 <section id="sec-vis-honesty" class="level2">
 <h2 class="anchored" data-anchor-id="sec-vis-honesty">Three kinds of transparency</h2>
 <p>I write this chapter with three kinds of transparency in mind.</p>
+<ol type="1">
+<li>I will show you how the production of visualizations often involves a <em>process</em>.</li>
+</ol>
 <ul>
-<li>I can assure you that when a professional data analysis worker produces plots in R they will be looking for information about what to do, and how to do it, online. I will provide links to the information I used, when I wrote this chapter, in order to figure out the coding to produce the plots.</li>
-<li>I won’t pretend that I got the plots “right first time” or that I know all the coding steps by memory. Neither is true for me and they would not be true for most professionals if they were to write a chapter like this. Looking things up online is something we all do so showing you where the information can be found will help you grow your skills.</li>
+<li>I won’t pretend that I got the plots “right first time” or that I know all the coding steps by memory.</li>
+<li>I can assure you that when a professional data analysis worker produces plots in R they will be looking for information about what to do, and how to do it, online. I will provide links to the information I used, when I wrote this chapter.</li>
 </ul>
 <ol start="2" type="1">
 <li>I will show how we often prepare for the production of plots by processing the data that we must use to inform the plots.</li>
@@ -897,7 +920,7 @@ Figure&nbsp;2: Figure showing a scatterplot of the relation between reaction tim
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Subject) <span class="sc">+</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="fig-sleep-study-scatterplot-by-subject" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents.">
+<div id="fig-sleep-study-scatterplot-by-subject" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents." data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sleep-study-scatterplot-by-subject-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="visualization_files/figure-html/fig-sleep-study-scatterplot-by-subject-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The figure presents a grid of scatterplots showing the relation between reaction time and days in the `sleepstudy` data separately for each participant. Points are ordered on x-axis from 0 to 9 days, on y-axis from 200 to 500 ms reaction time. Most plots indicate that reaction time increases with increasing number of days. However, different participants show this trend to differing extents." width="960">
@@ -1917,15 +1940,15 @@ Tip
 </ol>
 </div>
 </div>
-<section id="exercise-sec-vis-ex-1" class="level5">
-<h5 class="anchored" data-anchor-id="exercise-sec-vis-ex-1">Exercise {sec-vis-ex-1}</h5>
+<section id="sec-vis-ex-1" class="level5">
+<h5 class="anchored" data-anchor-id="sec-vis-ex-1">Exercise</h5>
 <p>In these bits of demonstration code, we extract information relating just to participants. However, in this study, we recorded the responses participants made to 16 stimulus words, and we include in the dataset information about the word properties <code>Consistency_H</code>.</p>
 <ul>
 <li>Can you adapt the code you see here in order to calculate a mean score for each word, and then extract the word-level information for each distinct stimulus word identity?</li>
 </ul>
 </section>
-<section id="further-information-sec-vis-ex-1-further" class="level5">
-<h5 class="anchored" data-anchor-id="further-information-sec-vis-ex-1-further">Further information {sec-vis-ex-1-further}</h5>
+<section id="sec-vis-ex-1-further" class="level5">
+<h5 class="anchored" data-anchor-id="sec-vis-ex-1-further">Further information</h5>
 <p>You can read more about the <code>psych</code> library, which is often useful, <a href="https://personality-project.org/r/psych/vignettes/intro.pdf" class="external" target="_blank">here</a>. You can read more about the <code>distinct()</code> function <a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external" target="_blank">here</a>.</p>
 </section>
 </section>
@@ -2004,8 +2027,8 @@ Figure&nbsp;5: Distribution of WASImRS intelligence scores
 <li><code>labs(x = "Scores on the Wechsler Abbreviated Scale of Intelligence") +</code> changes the label to something that should be understandable by people, in our audience, who do not have access to variable information (as we do) about the dataset.</li>
 <li><code>theme_bw()</code> we change the overall appearance of the plot by changing the theme.</li>
 </ol>
-<section id="exercise-sec-vis-ex-2" class="level4">
-<h4 class="anchored" data-anchor-id="exercise-sec-vis-ex-2">Exercise {sec-vis-ex-2}</h4>
+<section id="sec-vis-ex-2" class="level4">
+<h4 class="anchored" data-anchor-id="sec-vis-ex-2">Exercise</h4>
 <p>We could, if we wanted, add a line and annotation to indicate the mean value, as you saw in <a href="#fig-sleep-study-histogram" class="quarto-xref">Figure&nbsp;1</a>.</p>
 <ul>
 <li>Can you add the necessary code to indicate the mean value of WASI scores, for this plot?</li>

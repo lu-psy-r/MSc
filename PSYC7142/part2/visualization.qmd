@@ -19,6 +19,29 @@ library(psych)
 library(tidyverse)
 ```
 
+```{=html}
+<style>
+/* Make tab labels in this page's tabsets visible and prominent */
+.panel-tabset > .nav-tabs { border-bottom: 2px solid #b20f11; }
+.panel-tabset > .nav-tabs .nav-link {
+  color: #b20f11;
+  background-color: #e9ecef;
+  font-weight: 700;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  margin-right: 4px;
+  padding: 0.4rem 1.1rem;
+}
+.panel-tabset > .nav-tabs .nav-link:hover,
+.panel-tabset > .nav-tabs .nav-link:focus,
+.panel-tabset > .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: #b20f11;
+  border-color: #b20f11;
+}
+</style>
+```
+
 :::{.callout-note title="Overview"}
 In this independent-learning tutorial, we work through exercises you can use to develop your skills in the production of data visualizations.
 
@@ -76,9 +99,10 @@ Most of the time, visualization is useful and is used at every stage of data ana
 
 I write this chapter with three kinds of transparency in mind.
 
+1. I will show you how the production of visualizations often involves a *process*.
 
--   I can assure you that when a professional data analysis worker produces plots in R they will be looking for information about what to do, and how to do it, online. I will provide links to the information I used, when I wrote this chapter, in order to figure out the coding to produce the plots.
--   I won't pretend that I got the plots "right first time" or that I know all the coding steps by memory. Neither is true for me and they would not be true for most professionals if they were to write a chapter like this. Looking things up online is something we all do so showing you where the information can be found will help you grow your skills.
+-   I won't pretend that I got the plots "right first time" or that I know all the coding steps by memory.
+-   I can assure you that when a professional data analysis worker produces plots in R they will be looking for information about what to do, and how to do it, online. I will provide links to the information I used, when I wrote this chapter.
 
 2.  I will show how we often prepare for the production of plots by processing the data that we must use to inform the plots.
 
@@ -845,14 +869,14 @@ Notice:
 2.  We would prefer to use real words for row name labels instead of dataset variable column labels, e.g, replace `TOWREsweRS` with: "TOWRE word reading score".
 :::
 
-##### Exercise {sec-vis-ex-1}
+##### Exercise {#sec-vis-ex-1}
 
 In these bits of demonstration code, we extract information relating just to participants.
 However, in this study, we recorded the responses participants made to 16 stimulus words, and we include in the dataset information about the word properties `Consistency_H`. 
 
 - Can you adapt the code you see here in order to calculate a mean score for each word, and then extract the word-level information for each distinct stimulus word identity?
 
-##### Further information {sec-vis-ex-1-further}
+##### Further information {#sec-vis-ex-1-further}
 
 You can read more about the `psych` library, which is often useful, [here](https://personality-project.org/r/psych/vignettes/intro.pdf){.external target="_blank"}.
 You can read more about the `distinct()` function [here](https://dplyr.tidyverse.org/reference/distinct.html){.external target="_blank"}.
@@ -924,7 +948,7 @@ ggplot(data = conc.orth.subjs, aes(x = WASImRS)) +
 2.  `labs(x = "Scores on the Wechsler Abbreviated Scale of Intelligence") +` changes the label to something that should be understandable by people, in our audience, who do not have access to variable information (as we do) about the dataset.
 3.  `theme_bw()` we change the overall appearance of the plot by changing the theme.
 
-#### Exercise {sec-vis-ex-2}
+#### Exercise {#sec-vis-ex-2}
 
 We could, if we wanted, add a line and annotation to indicate the mean value, as you saw in @fig-sleep-study-histogram.
 
