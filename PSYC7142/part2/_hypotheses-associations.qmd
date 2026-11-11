@@ -83,31 +83,41 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 1. Part 1 (12 minutes) **Overview**: The concepts and skills we will learn about in weeks 6-10, and why it helps to embed the classes in the context of a research project.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=768a9621-a440-4a1a-a3f8-b22200c1d4e2&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-1" ></iframe>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=768a9621-a440-4a1a-a3f8-b22200c1d4e2&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-associations-1"></iframe>
+</div>
 ```
 
 2. Part 2 (18 minutes): Hypotheses, measurements and associations -- how you can think critically.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9a10462c-e185-4069-b72a-af5000cc076a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-2" ></iframe>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9a10462c-e185-4069-b72a-af5000cc076a&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-associations-2"></iframe>
+</div>
 ```
 
 3. Part 3 (14 minutes): The live research project we will use to put our practical skills exercises and critical thinking challenges into context.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=1653a285-fa5b-45c4-a850-af5000d1c8d5&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-3" ></iframe>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=1653a285-fa5b-45c4-a850-af5000d1c8d5&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-associations-3"></iframe>
+</div>
 ```
 
 4. Part 4 (20 minutes): Seeing, thinking and talking about associations, correlations.
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ca174423-d385-40d5-9068-af5000d60688&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-4" ></iframe>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=ca174423-d385-40d5-9068-af5000d60688&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-associations-4"></iframe>
+</div>
 ```
 
 5. Part 5 (12 minutes): How we use R to estimate and test correlations. How we write about correlation results
 
 ```{=html}
-<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9d53628e-3133-43aa-b78f-af5000dc0d0b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" height="405" width="720" style="border: 1px solid #464646;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC411-associations-5" ></iframe>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9d53628e-3133-43aa-b78f-af5000dc0d0b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="PSYC7142-associations-5"></iframe>
+</div>
 ```
 
 ### 7.3.2 Lecture slides {#sec-associations-lectures-slides}
@@ -116,7 +126,7 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 ## Download the lecture slides
 The slides presented in the videos can be downloaded here:
 
-- [The slides](files/411-hypotheses-assocations.html) exactly as presented (22 MB). 
+- [The slides](files/7142-hypotheses-assocations.html) exactly as presented (22 MB). 
 
 You can download the web page `.html` file and click on it to open it in any browser (e.g., Chrome, Edge or Safari). The slide images are high quality so the file is quite big and may take a few seconds to download.
 :::
