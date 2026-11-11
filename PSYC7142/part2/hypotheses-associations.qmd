@@ -74,6 +74,19 @@ You will see, next, the lectures we share to explain the concepts behind the cri
 We think you will learn best if you *first* watch the lectures *then* do the practical exercises.
 :::
 
+#### Linked resources {#sec-7143-associations-lectures-out-links}
+
+In a [linked lecture in PSYC7143](../../PSYC7143/7143_w4_nhst.qmd#sec-7143-w4-lectures), we look at hypothesis testing and significance testing as methods for responding to evidence, in the context of correlation.
+
+In that lecture, we look at:
+
+  - Hypothesis or significance testing
+  - What is NHST and where it comes from
+  - Demonstration: significance testing
+  - Hypothesis testing
+
+You may want to view that lecture *after* you have looked at this PSYC7142 lecture on hypotheses and associations, if you want an explanation of why and how we do hypothesis testing in psychology in the way that we do.
+
 ### 7.3.1 Lectures {#sec-associations-lectures}
 
 The lecture materials for this week are presented in five short parts. 
