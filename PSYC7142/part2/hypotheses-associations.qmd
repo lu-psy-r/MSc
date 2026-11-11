@@ -614,9 +614,9 @@ To begin, we set up our environment in R.
 
 ##### Practical Task 1 -- Run code to empty the R environment
 
-```{r}
-rm(list=ls())
-```
+<!-- # ```{r} -->
+<!-- # rm(list=ls()) -->
+<!-- # ``` -->
 
 ##### Practical Task 2 -- Run code to load relevant libraries
 
