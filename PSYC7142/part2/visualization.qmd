@@ -1,7 +1,7 @@
 ---
 title: Data visualization independent-learning tutorial
 subtitle: Written by Rob Davies
-order: 11 # ensure this is one more than the previous script
+order: 12 # ensure this is one more than the previous script
 bibliography: references.bib
 csl: psychological-bulletin.csl
 ---
