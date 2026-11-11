@@ -148,10 +148,18 @@ We are going to work through some practical exercises, next, to stimulate your t
 
 ### 7.4 Practical materials: data and R-Studio {#sec-associations-practical}
 
-We will work with two data files which you can download by clicking on their names (below):
+We will work with two data files:
 
 -   [study-one-general-participants.csv](files/study-one-general-participants.csv).
 -   [study-two-general-participants.csv](files/study-two-general-participants.csv).
+
+You can download the files to your computer by clicking on their names.
+
+::: callout-tip
+For some people, it is easier to (1.) download both files at once, in a compressed (`.zip`) folder (2.) upload both files to the R-server by uploading just this `.zip` folder.
+
+[7142_w7_data.zip](files/7142_w7_data.zip)
+:::
 
 Once you have downloaded the files, you will need to upload them to the R-Studio server to access and use the R files.
 
