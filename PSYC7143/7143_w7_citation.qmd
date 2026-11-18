@@ -24,22 +24,6 @@ We do this so we can figure out our answers to these questions:
 You can navigate to each in the side bar on the right.
 :::
 
-#### Linked resources {#sec-7143-w7-lectures-out-links}
-
-In a [linked lecture in PSYC7142](../PSYC7142/part2/7142_vis-practices.qmd#sec-7142-vis-lectures), we look at *practices* or how you can work effectively to produce visualizations.
-
-In that linked lecture, we look at how you can:
-
-  - Ask yourself the critical questions that will help you to figure out what you need to do
-  - Understand your development of visualizations as a reflective process
-  - Combine your creative thinking with the Grammar of Graphics to produce visualizations
-  
-There is a little repetition if you compare the two lectures because I do not assume you must view the perspectives lecture to understand the practices lecture.  
-
-::: callout-tip
-In the [linked tutorial in PSYC7142](../PSYC7142/part2/visualization.qmd#sec-vis-aims), we provide in-depth explanation of development processes and code steps that you can follow-up if you want to learn more about developing and producing visualizations for discovery and communication.
-:::
-
 ## Lectures {#sec-7143-w7-lectures}
 
 ```{r}
@@ -48,12 +32,14 @@ In the [linked tutorial in PSYC7142](../PSYC7142/part2/visualization.qmd#sec-vis
 
 ### Interactive lecture -- This week, we think about data visualization {#sec-7143-w7-lectures-lecture} 
 
-You can watch the lecture videos using the playback windows shown next. The lecture is broken into four parts.
+You can watch the lecture videos using the playback windows shown next. The lecture is broken into six parts.
 
-1. **Recent history –-- A reminder of why data visualization matters**
-2. **Important case studies –-- What they teach us**
-3. **What are our goals –-- Questions to reflect on**
-4. **Think about your audience –-- An evidence based account of what works**
+1. **Overview**
+2. **The different reasons for citing work**
+3. **Science as a credit economy**
+4. **Revisiting being and doing science**
+5. **Is science self-correcting?**
+6. **What analysis of citations shows us**
 
 ::: callout-tip
 During the lecture, I suggest some questions you can think about. Reflecting on your responses to these questions will help you to learn.
@@ -64,9 +50,9 @@ You can download the lecture slides as a .html file you can open in any browser.
 The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w7-reading.
 
 ::: callout-tip
-The slides presented in the next videos can be downloaded as a web page: `data-visualisation-perspectives.html`. 
+The slides presented in the next videos can be downloaded as a web page: `critical-citation-credit-practices.html`. 
 
-- [Lecture slides](files/data-visualisation-perspectives.html)
+- [Lecture slides](files/critical-citation-credit-practices.html)
 
 When you download the file, double click on it to open it in your usual web browser for viewing.
 :::
