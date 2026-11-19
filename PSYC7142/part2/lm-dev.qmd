@@ -165,6 +165,12 @@ We will work with one data file which you can download by clicking on its name (
 
 -   [`2022-12-08_all-studies-subject-scores.csv`](files/2022-12-08_all-studies-subject-scores.csv).
 
+::: callout-tip
+For some people, it is easier to (1.) download the file in a compressed (`.zip`) folder (2.) upload the file to the R-server by uploading just this `.zip` folder.
+
+[lm-dev-data.zip](files/lm-dev-data.zip)
+:::
+
 Once you have downloaded the file, you will need to upload it to the R-Studio server to access it so that you can do the practical exercises.
 
 ::: callout-important
