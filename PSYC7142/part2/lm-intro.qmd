@@ -28,6 +28,29 @@ study.one.gen <- read_csv("study-one-general-participants.csv")
 study.two.gen <- read_csv("study-two-general-participants.csv")
 ```
 
+```{=html}
+<style>
+/* Make tab labels in this page's tabsets visible and prominent */
+.panel-tabset > .nav-tabs { border-bottom: 2px solid #b20f11; }
+.panel-tabset > .nav-tabs .nav-link {
+  color: #b20f11;
+  background-color: #e9ecef;
+  font-weight: 700;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  margin-right: 4px;
+  padding: 0.4rem 1.1rem;
+}
+.panel-tabset > .nav-tabs .nav-link:hover,
+.panel-tabset > .nav-tabs .nav-link:focus,
+.panel-tabset > .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: #b20f11;
+  border-color: #b20f11;
+}
+</style>
+```
+
 Welcome to your overview of the work we will do together **on linear models**.
 
 This week, we focus on learning **how to predict** people: predicting observations about us (e.g., our attributes) or about the things we make or do.
