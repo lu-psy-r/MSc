@@ -32,6 +32,29 @@ all.studies.subjects <- read_csv("2022-12-08_all-studies-subject-scores.csv",
                                 )
 ```
 
+```{=html}
+<style>
+/* Make tab labels in this page's tabsets visible and prominent */
+.panel-tabset > .nav-tabs { border-bottom: 2px solid #b20f11; }
+.panel-tabset > .nav-tabs .nav-link {
+  color: #b20f11;
+  background-color: #e9ecef;
+  font-weight: 700;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  margin-right: 4px;
+  padding: 0.4rem 1.1rem;
+}
+.panel-tabset > .nav-tabs .nav-link:hover,
+.panel-tabset > .nav-tabs .nav-link:focus,
+.panel-tabset > .nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: #b20f11;
+  border-color: #b20f11;
+}
+</style>
+```
+
 ## 9.1 Overview {#sec-lm-dev-overview}
 
 Welcome to your overview of the work we will do together in **developing our skills using the linear model**.
@@ -129,7 +152,7 @@ Click on a link and your browser should open a tab showing the *Panopto* video f
 ## Download the lecture slides
 The slides presented in the videos can be downloaded here:
 
-- [The slides](files/411-linear-model-develop.html) exactly as presented (11 MB). 
+- [The slides](files/7142-linear-model-develop.html) exactly as presented (11 MB). 
 
 You can download the web page `.html` file and click on it to open it in any browser (e.g., Chrome, Edge or Safari). The slide images are high quality so the file is quite big and may take a few seconds to download.
 :::
