@@ -5,21 +5,20 @@ order: 8 # ensure this is one more than the previous script
 ---
 
 :::{.callout-note title="Overview"}
-In this lecture, we focus on critical citation practice.
+In this lecture, we focus on scientific virtues.
 
 We look at:
 
-1. Overview: what we are doing when we cite scholarly work.
-2. What are the different reasons for citing work? How can we misuse citations?
-3. Science as a credit economy: who gets the credit? Authorship, contributorship, and the ethics of identifying who does what.
-4. Revisiting being and doing science: a critical analysis of peer review, critical discourse, and the response to error.
-5. Is science self-correcting? Mechanisms or pathways for science to correct itself. How should we respond to error?
-6. What analysis of citations shows us about inequities and biases in science.
+1. An era of crises
+2. Reform, revolution, and renaissance
+3. Critical reflections
+4. Second thoughts
+5. Embrace variation, accept uncertainty, seek diversity
 
 We do this so we can figure out our answers to these questions:
 
-- How do we proceed in a manner that is reflective or self-aware in ways that are useful or helpful to ourselves and others?
-- How do we break free of the biases or inequities or limitations that citation analyses appear to reveal?
+- What does better science look like, for us, for our area of interest?
+- What ideas or questions can we carry forward into our further development as thinkers, scientists, or citizens?
 
 You can navigate to each in the side bar on the right.
 :::
