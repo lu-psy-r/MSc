@@ -33,12 +33,12 @@ You can navigate to each in the side bar on the right.
 
 You can watch the lecture videos using the playback windows shown next. The lecture is broken into six parts.
 
-1. **Overview**
-2. **The different reasons for citing work**
-3. **Science as a credit economy**
-4. **Revisiting being and doing science**
-5. **Is science self-correcting?**
-6. **What analysis of citations shows us**
+1. **Overview -- What we are going to do, the core questions**
+2. **The shape of the science reform movement**
+3. **Science reform or open science as a narrative, as a social movement**
+4. **Critical reflections on recommendations on how to practice open science or build credible science**
+5. **The persistent problem of low power in psychological science**
+6. **Ways of building better science**
 
 ::: callout-tip
 During the lecture, I suggest some questions you can think about. Reflecting on your responses to these questions will help you to learn.
@@ -49,72 +49,72 @@ You can download the lecture slides as a .html file you can open in any browser.
 The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w8-reading.
 
 ::: callout-tip
-The slides presented in the next videos can be downloaded as a web page: `critical-citation-credit-practices.html`. 
+The slides presented in the next videos can be downloaded as a web page: `scientific-virtues.html`. 
 
-- [Lecture slides](files/critical-citation-credit-practices.html)
+- [Lecture slides](files/scientific-virtues.html)
 
 When you download the file, double click on it to open it in your usual web browser for viewing.
 :::
 
 Next, you can see the lecture elements. We recommend that you watch them in sequence.
 
-1. **Overview** (~7 minutes). What we are going to do, the core questions: what we are doing when we cite scholarly work, who work gets into the public domain, what happens if we find errors in the work, how we use citations to evaluate science and scientists, and what that reveals about inequities or biases.
+1. **Overview -- What we are going to do, the core questions** (~22 minutes). How we came to see that there were problems with how science was being conducted. Conclusions that we will critically reflect on, later in this lecture.
 
 \newline
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=69569708-659f-4023-a744-b50600f3d3f1&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="citation-one"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=62e90b2f-cec1-4d1f-98fc-b50d00bd7112&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="virtues-one"></iframe>
 </div>
 ```
 
 \newline
 
-2. **The different reasons for citing work** (~12 minutes). What are the different reasons for citing work? How can we misuse citations?
+2. **The shape of the science reform movement** (~9 minutes). Groups, organizations, actors, platforms, manifestos and standards.
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=0a23bfdf-9129-44cd-8180-b50600f63f5f&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="citation-two"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=8bc29005-b885-4dfe-a172-b50d00c4196e&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="virtues-two"></iframe>
 </div>
 ```
 
 \newline
 
-3. **Science as a credit economy** (~15 minutes). Why do people operate in the way that they do when we look at citation practice? Science as a credit economy, who gets the credit, authorship, contributorship, and the ethics of identifying who does what.
+3. **Science reform or open science as a narrative, as a social movement** (~13 minutes). Critical reflections, questions about “#Bropen” science and questionable metascience practices.
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3be8d775-1869-44ad-94a3-b50600fa268b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="citation-three"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=3bfaafdc-1c7e-4303-a85d-b50d00c723b7&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="virtues-three"></iframe>
 </div>
 ```
 
 \newline
 
-4. **Revisiting being and doing science** (~25 minutes). In order to think clearly about what work we cite, and why, we need to revisit our understanding of how the work gets into the public domain so that we can cite it. Here, we need to deepen and reflect critically on processes of peer review or critical discourse before and after publication.
+4. **Critical reflections on recommendations on how to practice open science or build credible science** (~24 minutes). Questions about replication, preregistration, data sharing, and automated robustness checks.
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=4247a296-de00-46a3-a8ff-b50600fed397&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="citation-four"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=55e3a690-4ea6-4555-8d5a-b50d00cb7fe6&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="virtues-four"></iframe>
 </div>
 ```
 
 \newline
 
-5. **Is science self-correcting?** (~32 minutes). What happens when we find errors in work that is in the public domain? Is science self-correcting? Mechanisms or pathways for science to correct itself. The ways in which researchers have or have not responded to the identification of errors in work, in their citation behaviors.
+5. **The persistent problem of low power in psychological science** (~18 minutes). What this means, why it happens, and how thinking about it can help us to think about how we can do better science.
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=87ee091e-6559-4c76-939e-b506010a5d6b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="citation-five"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=1ef64bfb-f0a4-404f-a025-b50d00f98d52&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="virtues-five"></iframe>
 </div>
 ```
 
 \newline
 
-6. **What analysis of citations shows us** (~10 minutes). What analyses of citations show about inequity and bias in who does science, and in whose science has influence.
+6. **Ways of building better science** (~10 minutes). Theory, generalizability, uncertainty, comprehensibility, sustainability and openness to diversity. 
 
 ```{=html}
 <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%">
-	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=9a876b57-ccbf-4d3c-ba6b-b5060114b40b&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="citation-six"></iframe>
+	<iframe src="https://lancaster.cloud.panopto.eu/Panopto/Pages/Embed.aspx?id=f20c0853-219f-49bc-b98b-b50d00ff738c&autoplay=false&offerviewer=true&showtitle=true&showbrand=true&captions=false&interactivity=all" style="border: 1px solid #464646; position: absolute; top: 0; left: 0; width: 100%; height: 100%; box-sizing: border-box;" allowfullscreen allow="autoplay" aria-label="Panopto Embedded Video Player" aria-description="virtues-six"></iframe>
 </div>
 ```
 
@@ -132,6 +132,6 @@ All reading is accessible via the library.
 
 This week, the reading is optional but **Recommended**:
 
-Allchin, D. (2026). When is science "self-correcting"? *Studies in History and Philosophy of Science*, 119, 102216. <https://doi.org/10.1016/j.shpsa.2026.102216> **Recommended**
+Gelman, A. (2016). What has happened down here is the winds have changed. Web log post. <https://statmodeling.stat.columbia.edu/2016/09/21/what-has-happened-down-here-is-the-winds-have-changed/> **Recommended**
 
-Bishop, D. V. M. (2018). Fallibility in Science: Responding to Errors in the Work of Oneself and Others. *Advances in Methods and Practices in Psychological Science*, 1(3), 432–438. <https://doi.org/doi:10.1177/2515245918776632>
+McElreath, R. (2025). Which Kind of Science Reform. Elements of Evolutionary Anthropology. <https://elevanth.org/blog/2025/07/09/which-kind-of-science-reform/>
