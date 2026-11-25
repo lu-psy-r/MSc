@@ -23,13 +23,13 @@ We do this so we can figure out our answers to these questions:
 You can navigate to each in the side bar on the right.
 :::
 
-## Lectures {#sec-7143-w7-lectures}
+## Lectures {#sec-7143-w8-lectures}
 
 ```{r}
 #| label: Do not remove. It prevents Quarto from thinking it needs to involve Python.
 ```
 
-### Interactive lecture -- This week, we think about data visualization {#sec-7143-w7-lectures-lecture} 
+### Interactive lecture -- This week, we think about data visualization {#sec-7143-w8-lectures-lecture} 
 
 You can watch the lecture videos using the playback windows shown next. The lecture is broken into six parts.
 
@@ -46,7 +46,7 @@ During the lecture, I suggest some questions you can think about. Reflecting on 
 
 You can download the lecture slides as a .html file you can open in any browser.
 
-The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w7-reading.
+The slides end with a references list but don't worry about reading what's in the references list, we give you recommended readings in @sec-7143-w8-reading.
 
 ::: callout-tip
 The slides presented in the next videos can be downloaded as a web page: `critical-citation-credit-practices.html`. 
@@ -120,7 +120,7 @@ Next, you can see the lecture elements. We recommend that you watch them in sequ
 
 \newline
 
-## Reading {#sec-7143-w7-reading}
+## Reading {#sec-7143-w8-reading}
 
 ::: {.callout-tip title="Easy access to readings"}
 All reading is accessible via the library.
